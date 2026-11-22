@@ -82,7 +82,7 @@ describe("GTA 6 published URL contract", () => {
 
   it.each(locales)("renders matching %s summaries and portraits on each crawlable guide card", (locale) => {
     const page = new DOMParser().parseFromString(renderToStaticMarkup(createElement(Gta6Landing, { locale })), "text/html");
-    const cards = page.querySelectorAll<HTMLAnchorElement>("#characters a");
+    const cards = page.querySelectorAll<HTMLAnchorElement>("#characters a[data-ent-guide]");
     expect(cards).toHaveLength(8);
     expect(Object.keys(editorial[locale].guide).sort()).toEqual(gta6Profiles.map(profile => profile.id).sort());
     for (const profile of gta6Profiles) {
@@ -94,6 +94,25 @@ describe("GTA 6 published URL contract", () => {
       expect(existsSync(`public${portrait}`)).toBe(true);
     }
     expect(page.querySelectorAll("#examples img")).toHaveLength(7);
+    expect(page.querySelectorAll("[data-ent-module]")).toHaveLength(8);
+    expect(page.querySelectorAll("[data-ent-sample-choice]")).toHaveLength(3);
+    expect(page.querySelectorAll("[data-explore-choice] button")).toHaveLength(4);
+    expect(page.querySelector("[data-ent-boundary]")?.hasAttribute("open")).toBe(false);
+  });
+
+  it.each(locales)("forwards a valid %s invitation to the quiz and rejects invalid or repeated roles", async (locale) => {
+    const page = locale === "zh-TW"
+      ? (await import("@/app/(traditional)/zh-TW/tests/explore/gta-6-character-quiz/page")).default
+      : (await import("@/app/(localized)/[locale]/tests/explore/gta-6-character-quiz/page")).default;
+    const params = Promise.resolve({ locale });
+    for (const invite of ["lucia-caminos", "unknown", ["lucia-caminos", "jason-duval"]]) {
+      const html = renderToStaticMarkup(await page({ params, searchParams: Promise.resolve({ with: invite }) }));
+      const doc = new DOMParser().parseFromString(html, "text/html");
+      const start = doc.querySelector("form[data-ent-start]");
+      expect(start?.getAttribute("action")).toBe(gta6TakePath(locale));
+      expect(start?.querySelector('input[name="with"]')?.getAttribute("value"))
+        .toBe(invite === "lucia-caminos" ? invite : undefined);
+    }
   });
 
   it("keeps a staging build out of the search index", () => {

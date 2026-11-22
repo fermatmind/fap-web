@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { EntertainmentResultGrid } from "@/components/entertainment/EntertainmentResultGrid";
-import { JsonLd } from "@/components/seo/JsonLd";
+import { CharacterLandingSamples } from "@/components/tests/CharacterLandingSamples";
+import { ExploreChoicePreview } from "@/components/tests/ExploreLandingSamples";
+import { ExploreLandingSchema } from "@/components/tests/ExploreLandingSchema";
+import { TestExploreTemplate } from "@/components/tests/TestExploreTemplate";
+import layout from "@/components/tests/test-explore-template.module.css";
+import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
+import { gta6AssessmentByRole, gta6AssessmentPaths, gta6LandingContent, gta6SceneByRole } from "@/lib/questionnaires/gta6LandingContent";
 import { isConfiguredStagingSiteUrl } from "@/lib/site";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import editorial from "@/lib/questionnaires/gta-6-landing.json";
 import {
-  gta6LandingPath, gta6PageAlternates, gta6Portrait, gta6Profile, gta6Profiles, gta6ResultPath, gta6TakePath,
+  gta6LandingPath, gta6PageAlternates, gta6Portrait, gta6Profile, gta6Profiles, gta6Questions, gta6ResultPath, gta6TakePath,
 } from "@/lib/questionnaires/gta6CharacterQuiz";
 import { Gta6CareerSections, gta6CareerFaq } from "./Gta6CareerSections";
 import styles from "./Gta6Landing.module.css";
@@ -101,91 +106,79 @@ export function gta6LandingMetadata(locale: DisplayLocale, hasQuery: boolean): M
   };
 }
 
-export function Gta6Landing({ locale }: { locale: DisplayLocale }) {
+export function Gta6Landing({ locale, invite }: { locale: DisplayLocale; invite?: string }) {
   const text = copy[locale];
-  const { guide } = editorial[locale];
-  const cards = gta6Profiles.map(role => ({
-    id: role.id,
-    name: role.name,
-    title: role.title[locale],
-    summary: guide[role.id as keyof typeof guide],
-    href: gta6ResultPath(locale, role.id),
-    portrait: { src: gta6Portrait(role.id), width: 90, height: 90, alt: "" },
-  }));
-  const solo = gta6Profile("lucia-caminos");
-  const faq = [...editorial[locale].faq, gta6CareerFaq[locale]];
+  const edit = gta6LandingContent[locale];
+  const { guide, faq: fullFaq } = editorial[locale];
+  const mainFaq = [0, 3, 6, 4, 7, 9].map(index => fullFaq[index] as [string, string]);
+  const moreFaq = fullFaq.filter((_, index) => ![0, 3, 6, 4, 7, 9].includes(index));
+  const links = gta6AssessmentPaths.map(path => displayNavigationPath(path, locale));
+  const cards = gta6Profiles.map(role => {
+    const assessment = gta6AssessmentByRole[role.id as keyof typeof gta6AssessmentByRole];
+    return {
+      id: role.id, range: role.name, title: role.title[locale], lead: role.summary[locale],
+      scene: gta6SceneByRole[role.id as keyof typeof gta6SceneByRole][locale], friction: role.friction[locale],
+      guideSummary: guide[role.id as keyof typeof guide],
+      image: { src: gta6Portrait(role.id), alt: role.name },
+      link: { href: gta6ResultPath(locale, role.id), label: role.name },
+      followUp: { href: links[assessment], label: edit.explore[assessment][2] },
+    };
+  });
+  const guideLabel = { en: "Read the character guide", zh: "阅读公开角色指南", "zh-TW": "閱讀公開角色指南" }[locale];
+  const samples = ["lucia-caminos", "jason-duval", "real-dimez"].map(id => cards.find(card => card.id === id)!);
+  const solo = samples[0];
+  const question = gta6Questions[0];
   const examples = [
     { names: "Lucia + Jason", roles: ["lucia-caminos", "jason-duval"], body: text.pairText },
     { names: "Boobie + Dre’Quan", roles: ["boobie-ike", "drequan-priest"], body: { en: "Boobie negotiates the budget and backup gear. Dre’Quan picks the part of the set worth protecting. Agree what can be cut before asking for more money.", zh: "Boobie 谈预算与备用设备，Dre’Quan 保住演出的关键段落。加预算前先说好哪部分能缩减。", "zh-TW": "布比談費用和備用器材，德雷・泉決定哪段節目一定要留。要追加預算前，先講好哪些地方可以縮。"}[locale] },
     { names: "Cal + Brian", roles: ["cal-hampton", "brian-heder"], body: { en: "Cal verifies the patrol rumor. Brian sets a backup entrance and names who can switch plans. Agree when to stop waiting for confirmation.", zh: "Cal 核实巡逻传闻，Brian 安排备用入场口并确定谁可以切换方案。两人先定消息最晚确认时间。", "zh-TW": "卡爾去問消息來源，布萊恩排好備用入口，交代由誰決定換方案。先約好幾點前要回覆。"}[locale] },
   ];
-  return (
-    <main className={styles.page}>
-      <JsonLd id="gta6-faq" data={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([name, answer]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text: answer } })) }} />
-      <article className={`${styles.article} google-anno-skip`}>
-        <header className={styles.hero}>
-          <div className={styles.heroInner}>
-            <h1 className="google-anno-skip">{text.h1}</h1>
-            <p>{text.description}</p>
-            <p className={styles.tags}>{text.tags}</p>
-            <Link prefetch={false} href={gta6TakePath(locale)} className={styles.start}>{text.start} →</Link>
-            <nav className={styles.anchors}>
-              <a href="#examples">{text.examplesLink}</a>
-              <a href="#characters">{text.guideLink}</a>
-            </nav>
-            <nav className={styles.anchors} aria-label="Language">
-              {(["en", "zh", "zh-TW"] as const).map((lang) => {
-                const label = ({ en: "English", zh: "简体中文", "zh-TW": "繁體中文" })[lang];
-                return lang === locale
-                  ? <span key={lang} lang={lang} aria-current="page">{label}</span>
-                  : <Link key={lang} href={gta6LandingPath(lang)} lang={lang} prefetch={false}>{label}</Link>;
-              })}
-            </nav>
-          </div>
-        </header>
-        <div className={styles.content}>
-          <section id="examples">
-            <h2>{text.examples}</h2>
-            {solo && (
-              <figure className={styles.exampleResult}>
-                <Image unoptimized loading="lazy" src={gta6Portrait(solo.id)} alt="" width={360} height={215} />
-                <figcaption>
-                  <h3>{text.solo}</h3>
-                  <strong>{solo.name} · {solo.title[locale]}</strong>
-                  <p>{text.soloText}</p>
-                </figcaption>
-              </figure>
-            )}
-            <h3>{text.pair}</h3>
-            <div className={styles.pairs}>
-              {examples.map(example => <div key={example.names}>
-                <div className={styles.pairThumbs}>
-                  {example.roles.map(id => <Image key={id} unoptimized loading="lazy" src={gta6Portrait(id)} alt="" width={44} height={44} />)}
-                </div>
-                <h3>{example.names}</h3><p>{example.body}</p>
-              </div>)}
-            </div>
-          </section>
-          <section>
-            <h2>{text.overview}</h2>
-            <p>{text.overviewText}</p>
-            <ul className={styles.lenses}>{gta6Profiles.map((role) => <li key={role.id}><strong>{role.name}</strong> · {role.contribution[locale]}</li>)}</ul>
-          </section>
-          <EntertainmentResultGrid title={text.guides} cards={cards} className={styles.guides} />
-          <Gta6CareerSections locale={locale} />
-          <section>
-            <h2>{text.method}</h2><p>{text.methodText}</p><p>{text.privacy}</p>
-          </section>
-          <section className="faq-section google-anno-skip">
-            <h2>{text.faq}</h2>
-            {faq.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}
-          </section>
-          <section>
-            <h2>{text.sources}</h2><p>{text.sourcesText}</p>
-            <ul><li><a href="https://www.rockstargames.com/VI/only-in-leonida">Rockstar Games · Only in Leonida</a></li><li><a href="https://www.rockstargames.com/newswire/article/39akk424a9oo53/grand-theft-auto-vi-now-available">Rockstar Games · Grand Theft Auto VI Now Available</a></li></ul>
-          </section>
-        </div>
-      </article>
-    </main>
-  );
+  const path = gta6LandingPath(locale);
+  const invitedRole = gta6Profile(invite);
+
+  return <div className="google-anno-skip">
+    <ExploreLandingSchema id="gta6-landing-schema" title={text.h1} description={edit.facts} path={path} locale={locale} faq={mainFaq} />
+    <TestExploreTemplate characterSlot rootAttributes={{ "data-profile-theme": "vice-city" }}
+      copy={{ ...edit, title: text.h1, description: text.description, start: text.start, trust: text.tags, stylesLink: text.guideLink,
+        stylesTitle: text.guides, faqTitle: text.faq, faq: mainFaq, method: text.method, guide: guideLabel }}
+      start={gta6TakePath(locale, invitedRole?.id)} guideHref={solo.link.href} profilesId="characters" profiles={cards}
+      exploreLinks={links} compareLinks={[null, ...links]}
+      sample={<CharacterLandingSamples tone="neon" label={edit.sample} profiles={samples.map(profile => ({ ...profile, link: { ...profile.link, label: guideLabel } }))} />}
+      heroLinks={<nav className={styles.anchors} aria-label={{ en: "Examples and language", zh: "组队示例和语言", "zh-TW": "組隊範例與語言" }[locale]}>
+        <a href="#examples">{text.examplesLink}</a>
+        {(["en", "zh", "zh-TW"] as const).map(lang => {
+          const label = { en: "English", zh: "简体中文", "zh-TW": "繁體中文" }[lang];
+          return lang === locale
+            ? <span key={lang} lang={lang} aria-current="page">{label}</span>
+            : <Link key={lang} href={invitedRole ? `${gta6LandingPath(lang)}?with=${invitedRole.id}` : gta6LandingPath(lang)} lang={lang} prefetch={false}>{label}</Link>;
+        })}
+      </nav>}
+      insight={<><div><h2>{text.overview}</h2><p>{text.overviewText}</p><p>{edit.formula}</p></div>
+        <ExploreChoicePreview label={edit.quizSample} prompt={question.prompt[locale]}
+          options={question.options.map(option => option.label[locale])}
+          notes={question.options.map(option => edit.explainVote(gta6Profile(option.role)?.name ?? option.role))} /></>}
+      afterProfiles={<section id="examples" className={layout.section}>
+        <h2>{text.examples}</h2>
+        <figure className={styles.exampleResult}>
+          <Image unoptimized loading="lazy" src={solo.image.src} alt={solo.image.alt} width={360} height={203} />
+          <figcaption><h3>{text.solo}</h3><strong>{solo.range} · {solo.title}</strong><p>{text.soloText}</p></figcaption>
+        </figure>
+        <h3>{text.pair}</h3>
+        <div className={styles.pairs}>{examples.map(example => <article key={example.names} data-ent-interpretation>
+          <div className={styles.pairThumbs}>{example.roles.map(id =>
+            <Image key={id} unoptimized loading="lazy" src={gta6Portrait(id)} alt="" width={44} height={44} />)}</div>
+          <h4>{example.names}</h4><p>{example.body}</p>
+        </article>)}</div>
+      </section>}
+      relatedSupplement={<div className={styles.careerContinuation}><Gta6CareerSections locale={locale} /></div>}
+      rules={<><p>{text.methodText}</p>
+        <details data-ent-boundary>
+          <summary>{edit.boundary}</summary>
+          <p>{text.privacy}</p><h3>{text.sources}</h3><p>{text.sourcesText}</p>
+          <ul><li><a href="https://www.rockstargames.com/VI/only-in-leonida">Rockstar Games · Only in Leonida</a></li>
+            <li><a href="https://www.rockstargames.com/newswire/article/39akk424a9oo53/grand-theft-auto-vi-now-available">Rockstar Games · Grand Theft Auto VI Now Available</a></li></ul>
+          {[...moreFaq, gta6CareerFaq[locale]].map(([question, answer]) => <div key={question}><h3>{question}</h3><p>{answer}</p></div>)}
+        </details>
+      </>} />
+  </div>;
 }
