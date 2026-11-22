@@ -51,6 +51,17 @@ describe("tests hub PR-UX-01 render contract", () => {
     );
   });
 
+  it("presents the DISC work-style assessment in Traditional Chinese core tests", async () => {
+    const content = await getTestsHubContent("zh");
+    const { container } = render(<TestsHubExperience locale="zh-TW" content={content} />);
+    const card = container.querySelector("#core-tests .catalog-core-disc") as HTMLElement;
+    const link = within(card).getByRole("link", { name: "查看 DISC 測驗" });
+    expect(card).toHaveTextContent("四類行為傾向");
+    expect(link).toHaveAttribute("href", "/zh-TW/tests/explore/disc");
+    expect(link).toHaveAttribute("hreflang", "zh-TW");
+    expect(container.querySelector('#more-tests a[href="/zh-TW/tests/explore/disc"]')).toBeNull();
+  });
+
   it("prioritizes MBTI, Big Five, and RIASEC while keeping clinical entries hidden", async () => {
     const content = await getTestsHubContent("zh");
 

@@ -114,6 +114,16 @@ function normalizeSearch(value: string) {
 }
 
 function coreIdentity(item: HubTestCardItem) {
+  if (item.key === "disc") {
+    return {
+      code: "DISC",
+      label: { zh: "四类行为倾向", "zh-TW": "四類行為傾向", en: "Four behavioral tendencies" },
+      description: { zh: item.description, "zh-TW": item.description, en: item.description },
+      purpose: { zh: "观察协作方式", "zh-TW": "觀察協作方式", en: "Workplace behavior" },
+      className: "disc",
+      titleZh: undefined,
+    };
+  }
   const raw = `${item.key} ${item.href} ${item.detailsHref}`;
   if (raw.includes("jung-test") || raw.includes("jung-archetypes") || raw.includes("jung-cognitive-functions")) {
     const archetypes = raw.includes("jung-archetypes");
@@ -316,7 +326,7 @@ export function TestDirectory({
                             {identity.label[locale]}
                           </span>
                         </div>
-                        {identity.className !== "jung" && <AssessmentStructureArt
+                        {identity.className !== "jung" && identity.className !== "disc" && <AssessmentStructureArt
                           kind={identity.className}
                           locale={locale}
                         />}
@@ -337,12 +347,13 @@ export function TestDirectory({
                           className="catalog-core-start"
                           prefetch={false}
                           href={item.detailsHref ?? item.href}
-                          hrefLang={taiwan ? "zh-CN" : undefined}
+                          hrefLang={taiwan ? (identity.className === "disc" ? "zh-TW" : "zh-CN") : undefined}
                           aria-label={
-                            taiwan ? item.primaryLabel + "（簡體中文）" : zh ? item.primaryLabel : "Start the free test"
+                            identity.className === "disc" ? item.primaryLabel
+                              : taiwan ? item.primaryLabel + "（簡體中文）" : zh ? item.primaryLabel : "Start the free test"
                           }
                         >
-                          <span>{taiwan ? "開始測驗（簡體中文）" : zh ? "开始测试" : "Start test"}</span>
+                          <span>{identity.className === "disc" ? item.primaryLabel : taiwan ? "開始測驗（簡體中文）" : zh ? "开始测试" : "Start test"}</span>
                           <ArrowRight size={16} aria-hidden="true" />
                         </Link>
                         <CmsMediaAuthorityShell
