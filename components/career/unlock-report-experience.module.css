@@ -387,7 +387,6 @@
 .reasoningLive .reasoningPreviewHero .eyebrow { margin-bottom: .8rem; color: #a3e6dc; font-size: 1rem; }
 .dashboardPreview .reasoningPreviewHero h1,
 .reasoningLive .reasoningPreviewHero h1 { margin: 0; font-size: clamp(5rem, 13vw, 9rem); line-height: .98; color: #effdf9; font-variant-numeric: tabular-nums; letter-spacing: -.065em; }
-.reasoningLive .reasoningPreviewHero h1 { font-size: clamp(3rem, 12vw, 8rem); }
 .reasoningHeadline > h1 ~ p { margin-top: 1rem; color: #c9e0eb; font-size: .92rem; line-height: 1.6; }
 .reasoningModel { width: 100%; min-width: 0; --fm-text: #dceafd; --fm-text-muted: #b4c9e7; }
 .reasoningModelNote { margin-bottom: 1.1rem; font-size: .85rem; color: var(--fm-text-muted); line-height: 1.6; }

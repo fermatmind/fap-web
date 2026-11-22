@@ -192,8 +192,9 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
   const label = (key:string) => scale === "DISC_BEHAVIOR" && discLabels[key] ? t(...discLabels[key]) : labels[key] ? t(...labels[key]) : /^T[1-9]$/.test(key) ? t(`候选类型 ${key.slice(1)}`,`候選型別 ${key.slice(1)}`,`Candidate type ${key.slice(1)}`) : key;
   const liveDiscProfile = !preview && scale === "DISC_BEHAVIOR" ? findDiscProfileByCounts(scores) : undefined;
   if (liveDiscProfile) discPreview = buildDiscDesignPreview({ counts: scores, profile: { headline: { [locale]: discPreviewLocales[locale].profiles[liveDiscProfile.id].headline } } }, locale, liveDiscProfile.artwork);
+  const modelReference = readNonNegativeInteger(summary.model_reference_score);
   const liveReasoningPage = liveReasoning && (iqTotal === 30 || iqTotal === 40)
-    ? { ...liveReasoning, categories: [
+    ? { ...liveReasoning, referenceScore: modelReference !== null && modelReference >= 73 && modelReference <= 145 ? modelReference : null, categories: [
         { code: "correct", label: t("答对", "答對", "Correct"), correct: liveReasoning.correct, items: iqTotal },
         { code: "not-correct", label: t("未答对", "未答對", "Not correct"), correct: iqTotal - liveReasoning.correct, items: iqTotal },
       ] }

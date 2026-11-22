@@ -60,24 +60,23 @@ describe("mainstream per-attempt full report purchase", () => {
     ["zh-TW", "IQ_INTELLIGENCE_QUOTIENT", 40, 9, "22.5%", "40 題中答對 9 題"],
     ["en", "IQ_INTELLIGENCE_QUOTIENT", 40, 9, "22.5%", "9 correct out of 40 questions"],
   ] as const)("shows the complete locked IQ result in %s for %s", (locale, scale, total, correct, accuracy, sentence) => {
-    const data = { ok: true, meta: { scale_code: scale }, result: { summary: { correct, total, percent_correct: 99, duration_ms: 30000 } } };
+    const data = { ok: true, meta: { scale_code: scale }, result: { summary: { correct, total, percent_correct: 99, duration_ms: 30000, model_reference_score: 104 } } };
     render(<MainstreamPaidResult data={data} purchase={purchase} locale={locale}><p>Private full report</p></MainstreamPaidResult>);
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(accuracy);
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("104");
     expect(screen.getByText(new RegExp(sentence))).toBeVisible();
     expect(screen.getByText(/0[.,]5/)).toBeVisible();
     expect(screen.getByText(`Checkout ${locale}`)).toBeVisible();
     expect(document.querySelector(`a[href="/${locale}/reports/samples/iq${total}"]`)).not.toBeNull();
-    expect(screen.queryByText(/JobCannon|Private full report|131 IQ/)).not.toBeInTheDocument();
-    expect(screen.queryByTestId("iq-score-marker")).not.toBeInTheDocument();
-    expect(document.querySelector("a[href='#mainstream-purchase']")).not.toBeNull();
-    const sections = ["reasoning-reading-guide", "reasoning-counts", "reasoning-composition", "reasoning-profile", "reasoning-categories", "reasoning-reading", "career-preview", "insight-preview", "mainstream-purchase", "result-share", "continue-exploring"];
+    expect(screen.queryByText(/Private full report|131 IQ|#10\/56/)).not.toBeInTheDocument();
+    expect(screen.getByTestId("iq-score-marker")).toBeInTheDocument();
+    const sections = ["reasoning-example", "reasoning-reference", "reasoning-regions", "reasoning-profile", "reasoning-categories", "reasoning-reading", "career-preview", "insight-preview", "mainstream-purchase", "result-share", "continue-exploring"];
     const inOrder = sections.map(id => document.getElementById(id));
     for (const [index, element] of inOrder.entries()) {
       expect(element).toBeVisible();
       if (index > 0) expect(inOrder[index - 1]?.compareDocumentPosition(element!)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
     }
-    expect(document.querySelector('[aria-labelledby="reasoning-counts"] [data-current]')).toHaveTextContent(`${correct} / ${total}`);
-    expect(document.querySelector('[aria-labelledby="reasoning-composition"]')).toHaveTextContent(accuracy);
+    expect(document.querySelector('[aria-labelledby="reasoning-reference"] [data-current]')).toHaveTextContent("104");
+    expect(document.querySelector('[aria-labelledby="reasoning-regions"]')).toHaveTextContent(accuracy);
     expect(document.querySelectorAll('[aria-labelledby="reasoning-categories"] li').length).toBe(4);
     expect(document.querySelector('#result-share a[href*="owned-attempt"]')).toBeNull();
     expect(document.querySelector('a[href$="/help/payment-refund"]')).toBeVisible();
@@ -88,6 +87,7 @@ describe("mainstream per-attempt full report purchase", () => {
     const data = { ok: true, meta: { scale_code: "IQ_INTELLIGENCE_QUOTIENT" }, result: { summary: { raw_score: "0", total: "30" } } };
     render(<MainstreamPaidResult data={data} purchase={purchase} locale="en" />);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("0%");
+    expect(screen.queryByTestId("iq-score-marker")).not.toBeInTheDocument();
     expect(screen.getByRole("link", { name: /View the complete sample report/ })).toHaveAttribute("href", "/en/reports/samples/iq30");
   });
 

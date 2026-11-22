@@ -1,4 +1,4 @@
-import { BookOpen, ChartNoAxesColumnIncreasing, CircleCheck, CircleMinus, Grid2X2, Hash, LockKeyhole, UserRound } from "lucide-react";
+import { BookOpen, ChartNoAxesColumnIncreasing, Grid2X2, Hash, LockKeyhole, UserRound } from "lucide-react";
 import Image from "next/image";
 import { ScoreDistribution } from "@/components/result/iq/IqResultShell";
 import type { DisplayLocale } from "@/lib/i18n/locales";
@@ -71,7 +71,7 @@ export function ReasoningUnlockSummary({ result, locale, durationMs, live }: {
     <header className={`${styles.hero} ${styles.reasoningPreviewHero}`} data-testid="reasoning-preview-score">
       <div className={styles.reasoningHeadline}>
         <p className={styles.eyebrow}>{hasReferenceScore
-          ? t("你的IQ分数", "你的IQ分數", "Your IQ score")
+          ? t("IQ 模型参考分", "IQ 模型參考分", "IQ model reference score")
           : t("矩阵推理测试 · 本次结果", "矩陣推理測驗 · 本次結果", "Matrix reasoning · Your result")}</p>
         <h1>{hasReferenceScore ? format.format(referenceScore) : accuracyText}</h1>
         <p>{correctText} · {accuracyLabel} {accuracyText}</p>
@@ -91,89 +91,14 @@ export function ReasoningUnlockSummary({ result, locale, durationMs, live }: {
       </div>
       {hasReferenceScore && <div className={styles.reasoningModel}>
         <p className={styles.reasoningModelNote}>{t(
-          `如果这是标准IQ分数（平均100，标准差15），它会高于约${hypotheticalPercentile}%的人。我们的分数是依据简单公式算出的粗略估计，并非测量结果。`,
-          `如果這是標準IQ分數（平均100，標準差15），它會高於約${hypotheticalPercentile}%的人。我們的分數是依據簡單公式算出的粗略估計，並非測量結果。`,
-          `If this were a standard IQ score (mean 100, standard deviation 15), it would be higher than about ${hypotheticalPercentile}% of people. Our score is a rough estimate from a simple formula and does not represent a measured IQ.`,
+          `在平均值为 100、标准差为 15 的假设分布上，这一参考分位于约第 ${hypotheticalPercentile} 百分位。该位置仅用于读图，实际人群排名未知。`,
+          `在平均值為 100、標準差為 15 的假設分布上，這一參考分位於約第 ${hypotheticalPercentile} 百分位。該位置僅供讀圖，實際人群排名未知。`,
+          `On a hypothetical distribution with a mean of 100 and standard deviation of 15, this score sits around the ${hypotheticalPercentile}th percentile. This illustrates the chart only. Your population rank is unknown.`,
         )}</p>
         <ScoreDistribution score={referenceScore} locale={locale === "en" ? "en" : "zh"} displayLocale={locale} showValue={false} showCaption={false} />
       </div>}
     </header>
   );
-}
-
-function LiveReasoningDetails({ result, locale }: { result: ReasoningPreview; locale: DisplayLocale }) {
-  const t = (zh: string, tw: string, en: string) => locale === "en" ? en : locale === "zh-TW" ? tw : zh;
-  const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
-  const rows = [
-    { label: t("答对", "答對", "Correct"), count: result.correct, icon: CircleCheck },
-    { label: t("未答对", "未答對", "Not correct"), count: result.total - result.correct, icon: CircleMinus },
-  ];
-  const categories = [
-    { label: t("视觉空间洞察", "視覺空間洞察", "Visual-spatial insight"), icon: Grid2X2 },
-    { label: t("视觉空间模式推理", "視覺空間模式推理", "Visual-spatial pattern reasoning"), icon: ChartNoAxesColumnIncreasing },
-    { label: t("数字规律推理", "數字規律推理", "Numerical pattern reasoning"), icon: Hash },
-  ];
-
-  return <div className={styles.reasoningDetails} aria-labelledby="reasoning-reading-guide">
-    <section className={styles.reasoningPanel}>
-      <h2 id="reasoning-reading-guide">{t("如何阅读本次结果", "如何閱讀本次結果", "How to read this result")}</h2>
-      <p>{t("以下数据来自本次题本。正确率按答对题数除以总题数计算。", "以下資料來自本次題本。正確率按答對題數除以總題數計算。", "These figures come from this attempt. Accuracy is the number correct divided by the total number of questions.")}</p>
-    </section>
-    <section className={styles.reasoningPanel} aria-labelledby="reasoning-counts">
-      <h2 id="reasoning-counts">{t("本次答题表现", "本次作答表現", "Your answer counts")}</h2>
-      <ul className={styles.reasoningPeople}>
-        {rows.map(({ label, count, icon: Icon }) => <li key={label}>
-          <span className={styles.reasoningAvatar} aria-hidden="true"><Icon size={20} /></span>
-          <div><strong>{label}</strong></div>
-          <strong className={styles.reasoningComparisonValue}>{format.format(count)}</strong>
-        </li>)}
-        <li data-current>
-          <span className={styles.reasoningAvatar} aria-hidden="true"><UserRound size={20} /></span>
-          <div><strong>{t("你", "你", "You")}</strong><small>{t("本次测试结果", "本次測驗結果", "This test result")}</small></div>
-          <strong className={styles.reasoningComparisonValue}>{result.correct} / {result.total}</strong>
-        </li>
-      </ul>
-    </section>
-    <section className={styles.reasoningPanel} aria-labelledby="reasoning-composition">
-      <h2 id="reasoning-composition">{t("本次作答分布", "本次作答分布", "Answer distribution")}</h2>
-      <ul className={styles.reasoningRegions}>
-        {rows.map(({ label, count }) => {
-          const percent = count / result.total * 100;
-          return <li key={label}>
-            <div><strong>{label}</strong><strong>{format.format(percent)}%</strong></div>
-            <div className={styles.reasoningComposition} aria-hidden="true"><span style={{ width: `${percent}%` }} /></div>
-          </li>;
-        })}
-      </ul>
-    </section>
-    <section className={styles.reasoningPanel} aria-labelledby="reasoning-profile">
-      <h2 id="reasoning-profile">{t("你的认知档案", "你的認知檔案", "Your cognitive profile")}</h2>
-      <p>{t(
-        `你在这份 ${result.total} 题的题本中答对了 ${result.correct} 题。完整报告可帮助你查看各类推理题的表现。`,
-        `你在這份 ${result.total} 題的題本中答對了 ${result.correct} 題。完整報告可幫助你查看各類推理題的表現。`,
-        `You answered ${result.correct} of ${result.total} questions correctly on this form. The full report breaks down performance by reasoning category.`,
-      )}</p>
-    </section>
-    <section className={styles.reasoningPanel} aria-labelledby="reasoning-categories">
-      <h2 id="reasoning-categories">{t("认知能力分解", "認知能力分解", "Cognitive ability breakdown")}</h2>
-      <ul className={styles.reasoningCategories}>
-        {categories.map(({ label, icon: Icon }) => <li key={label}>
-          <div><Icon size={18} aria-hidden="true" /><strong>{label}</strong><span>{t("解锁后查看", "解鎖後查看", "Available after unlock")}</span></div>
-          <div className={styles.reasoningComposition} aria-hidden="true" />
-        </li>)}
-      </ul>
-      <ul className={styles.reasoningReading}>
-        <li><LockKeyhole size={18} aria-hidden="true" /><div><strong>{t("查看各类题目的正确率", "查看各類題目的正確率", "See accuracy by category")}</strong><p>{t("完整报告会按推理类别展示答对题数和题量。", "完整報告會按推理類別展示答對題數和題量。", "The full report shows the number correct and total questions for each reasoning category.")}</p></div></li>
-      </ul>
-    </section>
-    <section className={styles.reasoningPanel} aria-labelledby="reasoning-reading">
-      <h2 id="reasoning-reading">{t("本次正确率代表什么", "本次正確率代表什麼", "What your accuracy means")}</h2>
-      <ul className={styles.reasoningReading}>
-        <li><span aria-hidden="true">💼</span><div><strong>{t("工作中", "工作中", "At work")}</strong><p>{t("遇到新的图表或流程时，先列出已知关系，再逐项验证你的判断。", "遇到新的圖表或流程時，先列出已知關係，再逐項驗證你的判斷。", "When learning a new diagram or process, list the known relationships and check your assumptions one at a time.")}</p></div></li>
-        <li><span aria-hidden="true">📚</span><div><strong>{t("学习时", "學習時", "When studying")}</strong><p>{t("练习时先写下你用的规则，再用另一道题检查这个规则是否还成立。", "練習時先寫下你用的規則，再用另一道題檢查這個規則是否還成立。", "Write down the rule you used, then test it against another example.")}</p></div></li>
-      </ul>
-    </section>
-  </div>;
 }
 
 export function ReasoningUnlockPreview({ result, locale, durationMs, live = false }: {
@@ -184,18 +109,20 @@ export function ReasoningUnlockPreview({ result, locale, durationMs, live = fals
 }) {
   const languageIndex = locale === "en" ? 2 : locale === "zh-TW" ? 1 : 0;
   const t = (zh: string, tw: string, en: string) => [zh, tw, en][languageIndex];
-  if (live) return <>
-    <ReasoningUnlockSummary result={result} locale={locale} durationMs={durationMs} live />
-    <LiveReasoningDetails result={result} locale={locale} />
-  </>;
+  const accuracy = result.correct / result.total * 100;
+  const liveCategories = [
+    { label: t("视觉空间洞察", "視覺空間洞察", "Visual-spatial insight"), icon: Grid2X2 },
+    { label: t("视觉空间模式推理", "視覺空間模式推理", "Visual-spatial pattern reasoning"), icon: ChartNoAxesColumnIncreasing },
+    { label: t("数字规律推理", "數字規律推理", "Numerical pattern reasoning"), icon: Hash },
+  ];
   const currentValue = result.referenceScore ?? ((result.correct / result.total) * 100);
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
   return <>
-    <ReasoningUnlockSummary result={result} locale={locale} />
+    <ReasoningUnlockSummary result={result} locale={locale} durationMs={durationMs} />
     <div className={styles.reasoningDetails} aria-labelledby="reasoning-example">
       <div className={styles.reasoningPanel}>
         <h2 id="reasoning-example">{t("JobCannon 对标示例", "JobCannon 對標示例", "JobCannon reference example")}</h2>
-        <p>{t("以下使用你提供的示例资料。人物分数和地区排名使用示例资料。人物列表最后一行显示本次费马测试结果。", "以下使用你提供的示例資料。人物分數和地區排名使用示例資料。人物列表最後一列顯示本次費馬測驗結果。", "Profile scores and regional rankings come from the supplied example. The last profile row shows this FermatMind result.")}</p>
+        <p>{live ? t("人物分数与地区排名是版式示例，未经独立验证。本次结果单独标出，未参与排名。", "人物分數與地區排名是版面示例，未經獨立驗證。本次結果單獨標出，未參與排名。", "Profile scores and regional rankings are unverified examples. Your result is shown separately and is unranked.") : t("以下使用你提供的示例资料。人物分数和地区排名使用示例资料。人物列表最后一行显示本次费马测试结果。", "以下使用你提供的示例資料。人物分數和地區排名使用示例資料。人物列表最後一列顯示本次費馬測驗結果。", "Profile scores and regional rankings come from the supplied example. The last profile row shows this FermatMind result.")}</p>
       </div>
       <section className={styles.reasoningPanel} aria-labelledby="reasoning-reference">
         <h2 id="reasoning-reference">{t("人物分数对照", "人物分數對照", "Profile score comparison")}</h2>
@@ -217,20 +144,25 @@ export function ReasoningUnlockPreview({ result, locale, durationMs, live = fals
       <section className={styles.reasoningPanel} aria-labelledby="reasoning-regions">
         <h2 id="reasoning-regions">{t("各国平均分排名", "各國平均分排名", "Average scores by country and region")}</h2>
         <p>{t(
-          "示例纳入至少有 300 人参加 JobCannon 测试的国家和地区，按平均答题正确率对照。",
-          "示例納入至少有 300 人參加 JobCannon 測驗的國家和地區，依平均作答正確率對照。",
-          "The example compares average accuracy in countries and regions with at least 300 JobCannon test-takers.",
+          live ? "以下百分比为示例中的地区平均正确率，本次答题正确率单独列出。" : "示例纳入至少有 300 人参加 JobCannon 测试的国家和地区，按平均答题正确率对照。",
+          live ? "以下百分比為示例中的地區平均正確率，本次作答正確率單獨列出。" : "示例納入至少有 300 人參加 JobCannon 測驗的國家和地區，依平均作答正確率對照。",
+          live ? "The example lists regional average accuracy. Your own accuracy is shown separately." : "The example compares average accuracy in countries and regions with at least 300 JobCannon test-takers.",
         )}</p>
         <ul className={styles.reasoningRegions}>
-          {exampleRegions.map(row => <li key={row.name[0]} data-current={"current" in row || undefined}>
+          {exampleRegions.filter(row => !live || !("current" in row)).map(row => <li key={row.name[0]} data-current={"current" in row || undefined}>
             <div><strong>{row.name[languageIndex]}</strong><strong>{row.percentage}%</strong></div>
             <div className={styles.reasoningComposition} aria-hidden="true"><span style={{ width: `${row.percentage}%` }} /></div>
           </li>)}
         </ul>
+        {live && <p>{t("本次答题正确率", "本次作答正確率", "Your answer accuracy")} · {format.format(accuracy)}%</p>}
       </section>
       <section className={styles.reasoningPanel} aria-labelledby="reasoning-profile">
         <h2 id="reasoning-profile">{t("你的认知档案", "你的認知檔案", "Your cognitive profile")}</h2>
-        <p>{t(
+        <p>{live ? t(
+          `你在这份 ${result.total} 题的题本中答对了 ${result.correct} 题。完整报告可查看各类推理题的表现。`,
+          `你在這份 ${result.total} 題的題本中答對了 ${result.correct} 題。完整報告可查看各類推理題的表現。`,
+          `You answered ${result.correct} of ${result.total} questions correctly. The full report breaks down performance by reasoning category.`,
+        ) : t(
           "寻求智力上有挑战的追求：竞争编程、高等数学、战略游戏精通（国际象棋、围棋）或你关心的领域的原始研究。你的思维在复杂性和细节的范围上茁壮成长，低估自己实际上是浪费潜力。考虑指导他人或发布你思维的见解。",
           "尋求智力上的挑戰，例如競賽程式設計、高等數學、策略遊戲（西洋棋、圍棋），或在你關心的領域做原創研究。你喜歡處理複雜問題和細節，也可以考慮指導他人或分享自己的見解。",
           "Try intellectually demanding activities such as competitive programming, advanced mathematics, strategy games, or original research in a subject you care about. Consider mentoring someone or publishing your own insights.",
@@ -238,6 +170,17 @@ export function ReasoningUnlockPreview({ result, locale, durationMs, live = fals
       </section>
       <section className={styles.reasoningPanel} aria-labelledby="reasoning-categories">
         <h2 id="reasoning-categories">{t("认知能力分解", "認知能力分解", "Cognitive ability breakdown")}</h2>
+        {live ? <>
+      <ul className={styles.reasoningCategories}>
+        {liveCategories.map(({ label, icon: Icon }) => <li key={label}>
+          <div><Icon size={18} aria-hidden="true" /><strong>{label}</strong><span>{t("解锁后查看", "解鎖後查看", "Available after unlock")}</span></div>
+          <div className={styles.reasoningComposition} aria-hidden="true" />
+        </li>)}
+      </ul>
+      <ul className={styles.reasoningReading}>
+        <li><LockKeyhole size={18} aria-hidden="true" /><div><strong>{t("查看各类题目的正确率", "查看各類題目的正確率", "See accuracy by category")}</strong><p>{t("完整报告会按推理类别展示答对题数和题量。", "完整報告會按推理類別展示答對題數和題量。", "The full report shows the number correct and total questions for each reasoning category.")}</p></div></li>
+      </ul>
+        </> : <>
         <ul className={styles.reasoningCategories}>
           {exampleCategories.map(({ label, rating, correct, icon: Icon }) => <li key={label[0]}>
             <div><Icon size={18} aria-hidden="true" /><strong>{label[languageIndex]}</strong><span>{rating[languageIndex]} · {t(`5题中答对${correct}题`, `5題中答對${correct}題`, `${correct} of 5 correct`)}</span></div>
@@ -248,13 +191,19 @@ export function ReasoningUnlockPreview({ result, locale, durationMs, live = fals
           <li><span aria-hidden="true">⚡</span><div><strong>{t("你最强的一面是数值推理。", "你最強的一面是數值推理。", "Your strongest area is numerical reasoning.")}</strong><p>{t("这是你思维最敏捷的地方——你比大多数人更快地发现规律和找到答案。", "在這一類題目中，你能很快發現規律並找到答案。", "This is where you spot patterns and find answers fastest.")}</p></div></li>
           <li><span aria-hidden="true">🌱</span><div><strong>{t("逻辑推理是你进步最大的方向。", "邏輯推理是你最有進步空間的方向。", "Logical reasoning has the most room for improvement.")}</strong><p>{t("专注训练这一领域，是提高整体分数最快的方法。", "專注練習這一領域，有助於提高整體分數。", "Focus your practice here to improve your overall score.")}</p></div></li>
         </ul>
+        </>}
       </section>
       <section className={styles.reasoningPanel} aria-labelledby="reasoning-reading">
-        <h2 id="reasoning-reading">{t("你的131 IQ分数代表什么", "你的 131 IQ 分數代表什麼", "What your IQ score of 131 means")}</h2>
+        <h2 id="reasoning-reading">{live ? t("如何理解本次推理结果", "如何理解本次推理結果", "What your reasoning result means") : t("你的131 IQ分数代表什么", "你的 131 IQ 分數代表什麼", "What your IQ score of 131 means")}</h2>
+        {live ? <ul className={styles.reasoningReading}>
+          <li><span aria-hidden="true">💼</span><div><strong>{t("工作中", "工作中", "At work")}</strong><p>{t("遇到新的图表或流程时，先列出已知关系，再逐项验证你的判断。", "遇到新的圖表或流程時，先列出已知關係，再逐項驗證你的判斷。", "When learning a new diagram or process, list the known relationships and check each assumption.")}</p></div></li>
+          <li><span aria-hidden="true">📚</span><div><strong>{t("学习时", "學習時", "When studying")}</strong><p>{t("练习时先写下你用的规则，再用另一道题检验。", "練習時先寫下你用的規則，再用另一道題檢驗。", "Write down the rule you used, then test it against another example.")}</p></div></li>
+        </ul> :
         <ul className={styles.reasoningReading}>
           <li><span aria-hidden="true">💼</span><div><strong>{t("工作中", "工作中", "At work")}</strong><p>{t("你这样的人学习新工具和系统非常快，也能发现他人遗漏的想法联系。", "你學習新工具和系統很快，也容易看出別人忽略的想法關聯。", "You pick up new tools and systems quickly and notice connections other people may miss.")}</p></div></li>
           <li><span aria-hidden="true">📚</span><div><strong>{t("学习时", "學習時", "When studying")}</strong><p>{t("新概念对你来说理解得更快，复杂的材料也不那么令人生畏。", "你能更快理解新概念，面對複雜材料時也較不容易卻步。", "You grasp new concepts quickly and find complex material less intimidating.")}</p></div></li>
         </ul>
+        }
       </section>
     </div>
   </>;
