@@ -7,6 +7,7 @@ import { archive90Topic, archiveTopic } from "@/lib/entertainment/archive90";
 import { getArchiveExperience } from "@/lib/entertainment/archiveExperience";
 import { archiveSecondBatch } from "@/lib/entertainment/archiveSecondBatch";
 import { archiveThirdBatch } from "@/lib/entertainment/archiveThirdBatch";
+import { GLOBAL_HISTORY_SLUG } from "@/lib/entertainment/global-history/config";
 import { globalHistoryResultKey } from "@/lib/entertainment/global-history/local-result";
 import { historyPeople } from "@/lib/entertainment/global-history/people";
 import { quizPath, resultPath } from "@/lib/entertainment/guides";
@@ -27,7 +28,8 @@ describe("third archive experience cohort", () => {
       expect(getArchiveExperience(slug)).toBeUndefined();
       const native = questionnaires.find(row => row.slug === slug);
       const story = !native;
-      const profiles = slug === "global-history-quiz" ? historyPeople.map(p => p.id)
+      const worldEdition = slug === GLOBAL_HISTORY_SLUG;
+      const profiles = worldEdition ? historyPeople.map(p => p.id)
         : native?.resultSlugs ?? (await loadFunQuiz(slug))?.results.map(p => p.id);
       expect(profiles).toBeDefined();
       for (const locale of locales) {
@@ -36,7 +38,7 @@ describe("third archive experience cohort", () => {
         expect(archiveTopic(slug)?.label[locale]).toBeTruthy();
         for (const id of profiles!) {
           const url = story ? resultPath(locale, slug, id) : questionnaireGuidePath(locale, slug, id);
-          expect(isArchivedEntertainmentPath(url)).toBe(true);
+          expect(isArchivedEntertainmentPath(url), url).toBe(!worldEdition);
           expect(renderToStaticMarkup(<ArchiveGuideShare slug={slug} id={id} locale={locale} story={story} />))
             .toContain("data-public-guide-share");
         }
