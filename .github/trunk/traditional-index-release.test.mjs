@@ -9,10 +9,12 @@ const canonical = peers["zh-TW"];
 const html = `<link rel="canonical" href="${canonical}">${Object.entries(peers).map(([locale, url]) =>
   `<link rel="alternate" hreflang="${locale}" href="${url}">`).join("")}`;
 
-test("scope includes the declared Traditional page for every sample", () => {
-  const { paths: entries, samples } = readReleaseScope("scripts/ops/traditional-index-release.json");
-  assert.ok(entries.includes(paths["zh-TW"]));
-  assert.ok(samples.some(sample => sample["zh-TW"] === paths["zh-TW"]));
+test("scope retires only the former test category pages in each locale", () => {
+  const { paths: entries, samples, retiredPaths } = readReleaseScope("scripts/ops/traditional-index-release.json");
+  assert.deepEqual(entries, []);
+  assert.deepEqual(samples, []);
+  assert.deepEqual(retiredPaths, ["zh-TW", "zh", "en"].flatMap(locale =>
+    ["personality", "career"].map(slug => `/${locale}/tests/category/${slug}`)));
 });
 
 test("rejects broken reciprocal links and noindex in public metadata", () => {
@@ -26,4 +28,30 @@ test("rejects missing batch members and removed previously public URLs", async t
   t.mock.method(globalThis, "fetch", async () => new Response(`<urlset><url><loc>${canonical}</loc></url></urlset>`));
   await assert.rejects(verify(origin, { paths: ["/zh-TW/support"], samples: [] }), /missing=1/u);
   await assert.rejects(verify(origin, { paths: [paths["zh-TW"]], samples: [] }, false, [peers.en]), /removed=1/u);
+});
+
+test("allows only declared removals and requires retired URLs to return 404", async t => {
+  const retiredPath = "/zh/tests/category/personality";
+  const retiredUrl = origin + retiredPath;
+  let listed = false;
+  let retiredStatus = 404;
+  t.mock.method(globalThis, "fetch", async url => {
+    if (url !== origin + "/sitemap.xml") {
+      assert.equal(url, retiredUrl);
+      return new Response(null, { status: retiredStatus });
+    }
+    return new Response(`<urlset><url><loc>${canonical}</loc></url>${
+      listed ? `<url><loc>${retiredUrl}</loc></url>` : ""
+    }</urlset>`);
+  });
+  const scope = { paths: [], samples: [], retiredPaths: [retiredPath] };
+  const previous = [canonical, retiredUrl];
+  await verify(origin, scope, false, previous);
+  await assert.rejects(verify(origin, scope), /pre-deploy snapshot/u);
+  await assert.rejects(verify(origin, scope, false, [...previous, peers.en]), /removed=1/u);
+  listed = true;
+  await assert.rejects(verify(origin, scope, false, previous), /still_listed=1/u);
+  listed = false;
+  retiredStatus = 200;
+  await assert.rejects(verify(origin, scope, false, previous), /Expected HTTP 404/u);
 });
