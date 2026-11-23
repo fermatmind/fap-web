@@ -1,8 +1,10 @@
+import Result, { generateMetadata as resultMetadata } from "@/app/(localized)/[locale]/tests/play/[slug]/results/[portrait]/page";
 import Intro, { generateMetadata as introMetadata } from "@/app/(localized)/[locale]/tests/play/[slug]/page";
 import Take, { generateMetadata as takeMetadata } from "@/app/(localized)/[locale]/tests/play/[slug]/take/page";
 import { createEntertainmentAdPage } from "@/lib/entertainment/adPage";
 
 const ad = createEntertainmentAdPage({
+  result: { render: Result, metadata: resultMetadata },
   intro: { render: Intro, metadata: introMetadata },
   take: { render: Take, metadata: takeMetadata },
 });

@@ -10,7 +10,7 @@ type AdPageProps = {
   params: Promise<{ locale?: string; slug?: string; stage?: string[] }>;
   searchParams: SearchParams;
 };
-type QuizPageProps = { params: Promise<{ locale: string; slug: string }>; searchParams: SearchParams; take: boolean };
+type QuizPageProps = { params: Promise<{ locale: string; slug: string; portrait: string; profile: string }>; searchParams: SearchParams; take: boolean };
 type QuizPage = {
   render: (props: QuizPageProps) => ReactNode | Promise<ReactNode>;
   metadata: (props: QuizPageProps) => Metadata | Promise<Metadata>;
@@ -21,6 +21,7 @@ type QuizPage = {
 export function createEntertainmentAdPage(options: {
   intro: QuizPage;
   take?: QuizPage;
+  result?: QuizPage;
   locale?: string;
   slug?: string;
 }) {
@@ -33,18 +34,16 @@ export function createEntertainmentAdPage(options: {
     const locale = options.locale ?? route.locale;
     const slug = options.slug ?? route.slug;
     const stage = route.stage ?? [];
-    if (!locale || !slug || stage.length > 1 || (stage.length === 1 && stage[0] !== "take")) notFound();
-
-    const take = stage.length === 1;
-    const page = take ? options.take : options.intro;
+    if (!locale || !slug) notFound();
+    const take = stage.length === 1 && stage[0] === "take";
+    const outcome = stage.length === 2 && stage[0] === "results" ? stage[1] : "";
+    const page = take ? options.take : outcome ? options.result : stage.length === 0 ? options.intro : undefined;
     if (!page) notFound();
 
     return {
-      locale,
       nonce: request.get("x-nonce"),
-      consentPreview: mode === "preview",
       page,
-      props: { params: Promise.resolve({ locale, slug }), searchParams, take },
+      props: { params: Promise.resolve({ locale, slug, portrait: outcome, profile: outcome }), searchParams, take },
     };
   }
 
@@ -55,18 +54,12 @@ export function createEntertainmentAdPage(options: {
     },
     async Page(props: AdPageProps) {
       const selected = await select(props);
-      const { locale, nonce, consentPreview } = selected;
       const content = await selected.page.render(selected.props);
-      if (!nonce) return content;
       return (
-        <EntertainmentDisplayAd
-          label={locale === "en" ? "Advertisements" : locale === "zh-TW" ? "廣告" : "广告"}
-          nonce={nonce}
-          take={selected.props.take}
-          consentPreview={consentPreview}
-        >
+        <>
           {content}
-        </EntertainmentDisplayAd>
+          {selected.nonce && <EntertainmentDisplayAd nonce={selected.nonce} />}
+        </>
       );
     },
   };

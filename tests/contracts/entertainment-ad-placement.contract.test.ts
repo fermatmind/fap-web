@@ -29,7 +29,10 @@ describe("public entertainment AdSense routes", () => {
     [history, "/zh/ad-placement/play/global-history-quiz"],
     [`${history}/take`, "/zh/ad-placement/play/global-history-quiz/take"],
     ["/en/tests/play/changan-history-quiz/take?start=1", "/en/ad-placement/play/changan-history-quiz/take"],
-    ["/en/tests/play/friendship-quiz/take", "/en/ad-placement/play/friendship-quiz/take"],
+    ["/en/tests/play/friendship-quiz", "/en/ad-placement/play/friendship-quiz"],
+    ["/zh-TW/tests/play/changan-history-quiz", "/zh-TW/ad-placement/play/changan-history-quiz"],
+    [`${history}/results/mansa-musa`, "/zh/ad-placement/play/global-history-quiz/results/mansa-musa"],
+    ["/zh-TW/tests/explore/soldier-poet-king-quiz", "/zh-TW/ad-placement/explore/soldier-poet-king-quiz"],
     ["/en/tests/explore/soldier-poet-king-quiz", "/en/ad-placement/explore/soldier-poet-king-quiz"],
     ["/zh-TW/tests/explore/seven-sins-virtues-test/take", "/zh-TW/ad-placement/explore/seven-sins-virtues-test/take"],
   ])("keeps %s public while selecting the isolated document", async (path, placement) => {
@@ -45,7 +48,9 @@ describe("public entertainment AdSense routes", () => {
   });
 
   it.each([
-    `${history}/results/mansa-musa`, `${history}/take?session=private`,
+    `${history}/take?session=private`, "/en/tests/play/friendship-quiz/take",
+    "/zh/tests/explore/8-values-political/take", "/en/tests/explore/political-coordinates/take", "/zh-TW/tests/explore/disc",
+    "/zh/tests/explore/unknown-quiz", "/zh/tests/explore/gta-6-character-quiz/result/123",
     "/zh/tests/explore/rice-purity-test", "/en/tests/explore/sbti-test/take",
     "/en/tests/explore/natal-chart", "/zh/tests/explore/disc/take", "/zh/tests/explore/mental-age/take",
     "/en/share/friendship/6c7adb91-7236-47b5-a04d-e8bf9cd769cc/manage",
@@ -55,7 +60,7 @@ describe("public entertainment AdSense routes", () => {
     expect(response.headers.get("x-middleware-request-x-fermat-entertainment-ad")).toBeNull();
   });
 
-  it.each(["en", "zh", "zh-TW"])("monetizes only the %s GTA 6 landing document", async (locale) => {
+  it.each(["en", "zh", "zh-TW"])("monetizes the %s GTA 6 landing, standalone take and public guide", async (locale) => {
     const landing = `/${locale}${gta6}`;
     const placement = `/${locale}/ad-placement/explore/gta-6-character-quiz`;
     const response = await request(landing);
@@ -64,8 +69,13 @@ describe("public entertainment AdSense routes", () => {
 
     const preview = `${landing}?fc=alwaysshow&fctype=gdpr`;
     expect((await request(preview)).headers.get(`x-middleware-request-${adHeader}`)).toBe("preview");
-    for (const path of [`${landing}/take`, `${landing}/take?start=1`, `${landing}/results/lucia-caminos`, `${landing}?ref=friend`]) {
-      expect(await rewritten(path, await request(path))).toBeNull();
+    for (const suffix of ["/take", "/take?start=1", "/results/lucia-caminos"]) {
+      const path = landing + suffix;
+      const destination = new URL((await rewritten(path, await request(path)))!);
+      expect(destination.pathname).toBe(placement + suffix.split("?")[0]);
+    }
+    for (const suffix of ["?ref=friend", "/take?with=lucia-caminos", "/results/lucia-caminos?session=private"]) {
+      expect(await rewritten(landing + suffix, await request(landing + suffix))).toBeNull();
     }
     expect((await request(placement)).status).toBe(404);
   });
