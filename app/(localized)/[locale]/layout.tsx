@@ -71,7 +71,7 @@ export default async function LocalizedRootLayout({
   const nonce = requestHeaders.get("x-nonce") ?? undefined;
   const suppressAnalyticsBootstrap = requestHeaders.get(PRIVATE_ANALYTICS_SUPPRESSION_HEADER) === "true";
   const useResultPrintSnapshotShell = requestHeaders.get(RESULT_PAGE_SNAPSHOT_SHELL_HEADER) === "true";
-  const isWeChatIosResult = requestHeaders.get(WECHAT_IOS_RESULT_ROOT_HEADER) === "true";
+  const isWeChatIosResult = !useResultPrintSnapshotShell && requestHeaders.get(WECHAT_IOS_RESULT_ROOT_HEADER) === "true";
   const resolvedLocale: Locale = locale;
   const productPriority = createProductPriorityEnvSnapshot();
 

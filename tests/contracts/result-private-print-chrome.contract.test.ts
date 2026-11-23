@@ -28,6 +28,7 @@ describe("private result print chrome contract", () => {
     expect(localizedLayout).toContain("useResultPrintSnapshotShell");
     expect(localizedLayout).toContain('data-pdf-snapshot-shell={useResultPrintSnapshotShell ? "true" : undefined}');
     expect(localizedLayout).toContain("{useResultPrintSnapshotShell ? (");
+    expect(localizedLayout).toContain("isWeChatIosResult = !useResultPrintSnapshotShell &&");
     expect(localizedLayout).toMatch(/<SiteChrome\s+locale=\{resolvedLocale\}\s+productPriority=\{productPriority\}[^>]*>\{children\}<\/SiteChrome>/);
     expect(localizedLayout).toContain("<DeferredCookieBanner locale={resolvedLocale} />");
     expect(read("components/legal/DeferredCookieBanner.tsx")).toContain('import("./CookieBanner")');
