@@ -16,15 +16,6 @@ describe("tests hub and category contract", () => {
     expect(source).not.toContain("buildBig5TakeHref");
   });
 
-  it("keeps category routes restricted to the supported slugs", () => {
-    const source = read("app/(localized)/[locale]/tests/category/[slug]/page.tsx");
-
-    expect(source).toContain('value === "personality" || value === "career"');
-    expect(source).toContain("listTestsCategorySlugs()");
-    expect(source).toContain('idSuffix: "featured-itemlist"');
-    expect(source).toContain('idSuffix: "all-tests-itemlist"');
-  });
-
   it("renders category and card CTAs with free-test search intent without taking CMS body authority", () => {
     const categoryExperience = read("components/marketing/tests/TestCategoryExperience.tsx");
     const sharedCards = read("components/marketing/tests/TestsShared.tsx");

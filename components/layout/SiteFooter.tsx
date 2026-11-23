@@ -29,11 +29,11 @@ export function SiteFooter({ locale = "en" }: { locale?: DisplayLocale }) {
 
   const testLinks = filterVisiblePublicTestEntries([
     { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI" },
+    { href: "/career/assessment", label: label("职业测试", "Career Assessment", "職涯測驗") },
     { href: "/tests/big-five-personality-test-ocean-model", label: label("大五人格", "Big Five", "大五人格") },
     { href: "/tests/enneagram-personality-test-nine-types", label: label("九型人格", "Enneagram", "九型人格") },
     { href: "/tests/holland-career-interest-test-riasec", label: label("霍兰德职业兴趣测试", "RIASEC", "霍蘭德職業興趣測驗") },
     { href: "/tests/iq-test-intelligence-quotient-assessment", label: label("智商测试", "IQ", "IQ 推理練習") },
-    { href: "/tests/eq-test-emotional-intelligence-assessment", label: label("情商测试", "EQ", "情緒智力測驗") },
   ]);
 
   const articleLinks =

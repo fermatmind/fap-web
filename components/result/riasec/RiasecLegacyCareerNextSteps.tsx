@@ -50,7 +50,7 @@ export function RiasecLegacyCareerNextSteps({ locale, displayLocale = locale, ac
       )}</Link></li>
       <li><Link className="underline underline-offset-4" href={path("/career")}>{text("进入职业中心，选 2–3 个职业核对日常任务", "Open the career center and compare daily tasks in 2–3 roles", "前往職涯中心，選 2–3 個職業核對日常任務")}</Link></li>
       <li><Link className="underline underline-offset-4" href={path("/career/guides")}>{text("查看职业指南，规划一次低成本尝试", "Use career guides to plan a small, low-cost trial", "查看職涯指南，規劃一次低成本的嘗試")}</Link></li>
-      <li><Link className="underline underline-offset-4" href={path(traditional ? "/tests/category/career" : "/career/tests")}>{text(
+      <li><Link className="underline underline-offset-4" href={path("/career/tests")}>{text(
         "选型Hub：选择适合当前问题的探索工具",
         "Assessment hub: choose a tool for your current question",
         "職業測試：選擇適合目前問題的探索工具",

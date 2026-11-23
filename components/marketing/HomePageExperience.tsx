@@ -1,3 +1,4 @@
+import { isBig5Slug, resolveBig5FormMeta } from "@/lib/big5/forms";
 import { careerAssessmentEntry } from "@/lib/career/assessmentEntry";
 import { brandVisionCopy } from "@/lib/brand/visionCopy";
 import { GraduationCap, HeartHandshake, Microscope } from "lucide-react";
@@ -674,11 +675,14 @@ const assessmentTitleClass = "m-0 text-lg font-semibold leading-6 tracking-norma
 
 function TestFeatureCard({ locale, item, priority, index }: { locale: DisplayLocale; item: HomeCoreTestItem; priority: boolean; index: number }) {
   const href = withLocale(locale, item.href);
-  const metaItems = getCoreMetaItems(item);
   const title = getCoreTestDisplayTitle(locale, item);
   const accessibleTitle = getCoreTestAccessibleTitle(locale, item);
   const intro = getCoreTestIntroCopy(locale, item, title);
   const key = getCoreTestKey(item);
+  const bigFiveForm = locale === "zh-TW" && isBig5Slug(key) ? resolveBig5FormMeta(undefined) : null;
+  const metaItems = bigFiveForm
+    ? [`${bigFiveForm.questionCount} 題`, `約 ${bigFiveForm.estimatedMinutes} 分鐘`]
+    : getCoreMetaItems(item);
   const stars = key === "eq-test-emotional-intelligence-assessment" ? 3
     : key === "big-five-personality-test-ocean-model" || key === "enneagram-personality-test-nine-types" ? 4 : 5;
   void priority;
