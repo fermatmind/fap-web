@@ -21,7 +21,7 @@ test("nightly full regression runs on the existing schedule with the CI Chromium
   const dependencies = stepWithCommand("corepack enable && pnpm install --frozen-lockfile");
   const chromium = stepWithCommand("pnpm exec playwright install chromium");
   assert.match(dependencies.source, /^id: dependencies\n/);
-  assert.match(chromium.source, /^id: chromium\n/);
+  assert.match(chromium.source, /^name: Install Chromium for Nightly E2E\n        id: chromium\n/);
   assert.doesNotMatch(chromium.source, /continue-on-error/);
   assert.ok(dependencies.index < chromium.index);
 });

@@ -56,7 +56,8 @@ jobs:
           node-version: 24
       - id: dependencies
         run: corepack enable && pnpm install --frozen-lockfile
-      - id: chromium
+      - name: Install Chromium for Nightly E2E
+        id: chromium
         # ubuntu-24.04 already includes Chromium's shared libraries.
         run: pnpm exec playwright install chromium
       - if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
