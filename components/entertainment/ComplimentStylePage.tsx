@@ -19,7 +19,7 @@ export function ComplimentStylePage({ quiz, locale, displayLocale = locale }: { 
   if (quiz.slug !== "compliment-style") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/compliment-style`;
+  const path = `/${displayLocale}/tests/explore/compliment-style`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: complimentStyleSections, faq: complimentStyleFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

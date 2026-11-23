@@ -166,7 +166,7 @@ export function SupportCenter({ locale, title, entries, questions, tools, contac
   const total = filteredEntries.length + filteredQuestions.length;
   const order = tools.find((tool) => tool.key === "order_lookup" || tool.href.endsWith("/orders/lookup"));
   const email = tools.find((tool) => tool.key === "email_preferences" || tool.href.endsWith("/email/preferences"));
-  const faq = entries.find((entry) => entry.href.endsWith("/help/faq"));
+  const faq = entries.find((entry) => entry.href.endsWith("/support/faq"));
   const about = entries.filter((entry) => /\/(about|team|used-and-mentioned)$/.test(entry.href));
   const visibleArticles = filteredEntries.filter((entry) => entry.kind !== "tool" && (filtering || !about.includes(entry)));
   const visibleTools = filteredEntries.filter((entry) => entry.kind === "tool");

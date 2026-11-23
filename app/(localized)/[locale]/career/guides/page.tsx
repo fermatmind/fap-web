@@ -210,7 +210,7 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
   const testsPath = localizedPath("/career/tests", locale);
   const directionPath = `${canonicalPath}/how-to-find-right-career-direction`;
   const transitionPath = `${canonicalPath}/career-transition-playbook`;
-  const worksheetPath = localizedPath("/holland-test/pdf-download", locale);
+  const worksheetPath = localizedPath("/career/interest-worksheet", locale);
   const [listRead, exampleRead] = await Promise.allSettled([
     listCareerGuidesFromCms(displayLocale, { fresh: true, throwOnUnavailable: true }),
     getCareerGuideFromCmsBySlug("how-to-find-right-career-direction", displayLocale),

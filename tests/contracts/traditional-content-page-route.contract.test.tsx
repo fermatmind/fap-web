@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { ContentPage } from "@/lib/cms/content-pages";
 import { SITE_URL } from "@/lib/site";
 import TraditionalLayout from "@/app/(traditional)/zh-TW/layout";
-import RefundPage, { generateMetadata as refundMetadata } from "@/app/(traditional)/zh-TW/help/payment-refund/page";
+import RefundPage, { generateMetadata as refundMetadata } from "@/app/(traditional)/zh-TW/support/payment-refund/page";
 
 const read = vi.hoisted(() => vi.fn());
 vi.mock("@/lib/cms/content-pages", async () => ({
@@ -49,7 +49,7 @@ describe("shared Traditional CMS page route", () => {
     expect(schema.find(node => node["@type"] === "WebPage")).toMatchObject({ inLanguage: "zh-TW", url: `${SITE_URL}/zh-TW/${slug}` });
     expect(read).toHaveBeenCalledWith(slug, "zh-TW");
   });
-  it.each([["foundation", "foundation"], ["policies", "policies"], ["help-faq", "help/faq"], ["help-about", "help/about"], ["help-team", "help/team"], ["help-used-and-mentioned", "help/used-and-mentioned"], ["help-for-business-and-research", "help/for-business-and-research"]])("renders the complete %s reader at its native path, and fails closed when missing", async (slug, path) => {
+  it.each([["foundation", "foundation"], ["policies", "policies"], ["help-faq", "support/faq"], ["help-about", "support/about"], ["help-team", "support/team"], ["help-used-and-mentioned", "support/used-and-mentioned"], ["help-for-business-and-research", "support/for-business-and-research"]])("renders the complete %s reader at its native path, and fails closed when missing", async (slug, path) => {
     read.mockResolvedValue({ value: { ...page(slug), path: `/zh-TW/${path}`, kind: slug.startsWith("help-") ? "help" : "company" } });
     const metadata = await generateTraditionalContentPageMetadata(slug);
     expect(metadata.alternates).toEqual({ canonical: `${SITE_URL}/zh-TW/${path}` });
@@ -73,7 +73,7 @@ describe("shared Traditional CMS page route", () => {
       faqItems: [{ question, answer }, { question, answer: "這段答案沒有出現在正文。" }],
     } });
     const metadata = await refundMetadata();
-    expect(metadata.alternates).toEqual({ canonical: SITE_URL + "/zh-TW/help/payment-refund" });
+    expect(metadata.alternates).toEqual({ canonical: SITE_URL + "/zh-TW/support/payment-refund" });
     expect(metadata.robots).toEqual({ index: false, follow: true });
     const html = renderToStaticMarkup(await RefundPage());
     const document = new DOMParser().parseFromString(html, "text/html");
@@ -81,8 +81,8 @@ describe("shared Traditional CMS page route", () => {
     expect(schema).toMatchObject({ "@type": "FAQPage", mainEntity: [{ name: question, acceptedAnswer: { text: answer } }] });
     expect([...document.querySelectorAll("h3")].filter(node => node.textContent === question)).toHaveLength(1);
     expect(document.body.textContent).toContain(answer);
-    expect(document.querySelector('a[lang="en"]')?.getAttribute("href")).toBe("/en/help/payment-refund");
-    expect(document.querySelector('a[lang="zh-CN"]')?.getAttribute("href")).toBe("/zh/help/payment-refund");
+    expect(document.querySelector('a[lang="en"]')?.getAttribute("href")).toBe("/en/support/payment-refund");
+    expect(document.querySelector('a[lang="zh-CN"]')?.getAttribute("href")).toBe("/zh/support/payment-refund");
     expect(read).toHaveBeenCalledWith("help-payment-refund", "zh-TW");
   });
 
@@ -98,19 +98,19 @@ describe("shared Traditional CMS page route", () => {
   });
 
   it("renders the native contact, nested canonical and available recovery controls", async () => {
-    const contact = { ...page("help-contact"), path: "/zh-TW/help/contact", kind: "help", template: "help", supportContact: "support@example.invalid" };
+    const contact = { ...page("help-contact"), path: "/zh-TW/support/contact", kind: "help", template: "help", supportContact: "support@example.invalid" };
     read.mockResolvedValue({ value: contact });
     const metadata = await generateTraditionalContentPageMetadata("help-contact");
-    expect(metadata.alternates).toEqual({ canonical: `${SITE_URL}/zh-TW/help/contact` });
+    expect(metadata.alternates).toEqual({ canonical: `${SITE_URL}/zh-TW/support/contact` });
     expect(metadata.robots).toEqual({ index: false, follow: true });
     const html = renderToStaticMarkup(await renderTraditionalContentPage("help-contact"));
     const document = new DOMParser().parseFromString(html, "text/html");
     expect(document.querySelector('[data-testid="help-support-contact"] a')?.getAttribute("href")).toBe("mailto:support@example.invalid");
-    for (const href of ["/zh-TW/email/preferences", "/zh-TW/email/unsubscribe", "/zh/orders/lookup", "/en/help/contact", "/zh/help/contact"]) {
+    for (const href of ["/zh-TW/email/preferences", "/zh-TW/email/unsubscribe", "/zh/orders/lookup", "/en/support/contact", "/zh/support/contact"]) {
       expect(document.querySelector(`a[href="${href}"]`)).not.toBeNull();
     }
     expect(document.querySelector('a[href="/zh/orders/lookup"]')?.textContent).toContain("簡體中文");
-    for (const href of ["/zh-TW/orders/lookup", "/zh-TW/help/faq", "/zh-TW/support"]) {
+    for (const href of ["/zh-TW/orders/lookup", "/zh-TW/support/faq", "/zh-TW/support"]) {
       expect(document.querySelector(`a[href="${href}"]`)).toBeNull();
     }
     expect(read).toHaveBeenCalledWith("help-contact", "zh-TW");
@@ -119,10 +119,10 @@ describe("shared Traditional CMS page route", () => {
     const html = renderToStaticMarkup(<TraditionalLayout><main>內容</main></TraditionalLayout>);
     const document = new DOMParser().parseFromString(html, "text/html");
     const footer = document.querySelector('[data-site-footer] nav[aria-label="頁尾導覽"]');
-    for (const slug of ["about", "brand", "charter", "careers", "privacy", "terms", "method-boundaries", "science", "foundation", "policies", "support", "help/payment-refund", "item-design-notes", "reliability-validity"]) {
+    for (const slug of ["about", "brand", "charter", "careers", "privacy", "terms", "method-boundaries", "science", "foundation", "policies", "support", "support/payment-refund", "item-design-notes", "reliability-validity"]) {
       expect(footer?.querySelector(`a[href="/zh-TW/${slug}"]`)).not.toBeNull();
     }
-    expect(footer?.querySelector('a[href="/zh-TW/help/contact"]')?.textContent).toBe("聯絡支援");
+    expect(footer?.querySelector('a[href="/zh-TW/support/contact"]')?.textContent).toBe("聯絡支援");
     expect(document.querySelectorAll("main")).toHaveLength(1);
     expect(document.documentElement.lang).toBe("zh-TW");
   });

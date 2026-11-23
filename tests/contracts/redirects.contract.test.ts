@@ -58,17 +58,20 @@ describe("legacy redirect hygiene contract", () => {
     expect(redirects).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ source: "/support", destination: "/zh/support", permanent: true }),
-        expect.objectContaining({ source: "/refund", destination: "/en/help/payment-refund", permanent: true }),
-        expect.objectContaining({ source: "/en/refund", destination: "/en/help/payment-refund", permanent: true }),
-        expect.objectContaining({ source: "/zh/refund", destination: "/zh/help/payment-refund", permanent: true }),
+        expect.objectContaining({ source: "/refund", destination: "/en/support/payment-refund", permanent: true }),
+        expect.objectContaining({ source: "/en/refund", destination: "/en/support/payment-refund", permanent: true }),
+        expect.objectContaining({ source: "/zh/refund", destination: "/zh/support/payment-refund", permanent: true }),
         expect.objectContaining({ source: "/help/about", destination: "/en/support", permanent: true }),
         expect.objectContaining({ source: "/help/team", destination: "/en/support", permanent: true }),
         expect.objectContaining({ source: "/help/used-and-mentioned", destination: "/en/support", permanent: true }),
       ])
     );
 
+    const localizedHelp = redirects.find((rule) => rule.destination === "/:locale/support/:slug");
+    expect(localizedHelp?.permanent).toBe(true);
+    expect(localizedHelp?.source).toMatch(/^\/:locale\(en\|zh\|zh-TW\)\/help\/:slug\(/);
     for (const slug of ["about", "team", "used-and-mentioned"]) {
-      expect(redirects.some((rule) => rule.source === `/zh/help/${slug}`)).toBe(false);
+      expect(localizedHelp?.source.split(":slug(")[1]?.slice(0, -1).split("|")).toContain(slug);
     }
   });
 

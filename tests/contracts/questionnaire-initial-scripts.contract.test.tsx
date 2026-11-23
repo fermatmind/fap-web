@@ -12,13 +12,13 @@ function build(chunks: unknown[] = ["/_next/static/chunks/current-tool.js"]) {
   const root = mkdtempSync(join(tmpdir(), "questionnaire-entry-scripts-")); roots.push(root);
   mkdirSync(join(root, ".next"));
   writeFileSync(join(root, ".next/build-manifest.json"), JSON.stringify({ rootMainFiles: ["static/chunks/bootstrap.js"] }));
-  const dir = join(root, ".next/server/app/(localized)/[locale]/tests/explore/disc");
+  const dir = join(root, ".next/server/app/(localized)/[locale]/tests/disc-behavioral-style-test");
   mkdirSync(dir, { recursive: true });
   const manifest = { clientModules: {
     "[project]/components/questionnaires/BasicQuestionnaireClient.tsx": { chunks },
     "[project]/app/global-error.tsx": { chunks: ["/_next/static/chunks/error-document.js"] },
   } };
-  writeFileSync(join(dir, "page_client-reference-manifest.js"), `globalThis.__RSC_MANIFEST = globalThis.__RSC_MANIFEST || {};\nglobalThis.__RSC_MANIFEST["/(localized)/[locale]/tests/explore/disc/page"] = ${JSON.stringify(manifest)};`);
+  writeFileSync(join(dir, "page_client-reference-manifest.js"), `globalThis.__RSC_MANIFEST = globalThis.__RSC_MANIFEST || {};\nglobalThis.__RSC_MANIFEST["/(localized)/[locale]/tests/disc-behavioral-style-test/page"] = ${JSON.stringify(manifest)};`);
   return root;
 }
 

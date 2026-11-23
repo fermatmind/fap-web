@@ -402,7 +402,7 @@ export async function GET() {
     ...dailyGivingEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
     "Friendship quiz (original two-choice game, not a measure of friendship quality):",
-    ...["en", "zh"].flatMap(locale => ["", "/questions", "/how-to-play", "/scores"].map(suffix => `- ${toCanonical(siteUrl, `/${locale}/tests/play/friendship-quiz${suffix}`)}`)),
+    ...["en", "zh"].flatMap(locale => ["", "/questions", "/how-to-play", "/scores"].map(suffix => `- ${toCanonical(siteUrl, `/${locale}/tests/explore/friendship-quiz${suffix}`)}`)),
     "",
     "Indexable Tests:",
     ...testEntries.filter((path) => !isLlmsCareerFeaturedPath(path)).map((path) => `- ${toCanonical(siteUrl, path)}`),

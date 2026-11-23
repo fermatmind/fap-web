@@ -1,3 +1,4 @@
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import { ArrowDown, ArrowRight, ArrowUpRight, ChartNoAxesCombined, GitBranch, Map } from "lucide-react";
 import Link from "next/link";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
@@ -24,7 +25,7 @@ export function Career94Landing({ locale }: { locale: DisplayLocale }) {
   const traditional = locale === "zh-TW";
   const takeLocale = traditional ? "zh" : locale;
   const start = `/${takeLocale}/career/assessment/take`;
-  const sample = `/${takeLocale}/career/assessment/sample`;
+  const sample = `/${takeLocale}/reports/samples/career94`;
   const { title, intro: lead } = freeAssessmentCopy("career", locale);
   const separator = english ? ":" : "：";
   const [titleMain, titleDetail] = title.split(separator);
@@ -41,9 +42,9 @@ export function Career94Landing({ locale }: { locale: DisplayLocale }) {
 
   return <main className={styles.page} data-career94-landing>
     <JsonLd id="free-assessment-page" data={{ "@context": "https://schema.org", "@type": "WebPage",
-      url: canonicalUrl(path("/career/assessment")), name: title, description: lead, inLanguage: locale === "zh" ? "zh-CN" : locale, isAccessibleForFree: true }} />
+      url: canonicalUrl(path(CAREER_ASSESSMENT_LANDING_PATH)), name: title, description: lead, inLanguage: locale === "zh" ? "zh-CN" : locale, isAccessibleForFree: true }} />
     <JsonLd id="free-assessment-breadcrumb" data={buildBreadcrumbJsonLd([
-      { name: home, path: homePath }, { name: tests, path: path("/tests") }, { name: position, path: path("/career/assessment") },
+      { name: home, path: homePath }, { name: tests, path: path("/tests") }, { name: position, path: path(CAREER_ASSESSMENT_LANDING_PATH) },
     ])} />
     <JsonLd id="free-assessment-faq" data={buildFAQPageJsonLd(faq)} />
     <header className={styles.hero} data-career-hero>
@@ -74,7 +75,7 @@ export function Career94Landing({ locale }: { locale: DisplayLocale }) {
         <Icon aria-hidden size={24} /><h3>{careerText(locale, title)}</h3><p>{careerText(locale, body)}</p>
         {index === 2 && <div className={styles.methodLinks}>
           <Link href={path("/career/compare")} prefetch={false}>{t("比较两个职业", "Compare two careers", "比較兩個職業")}</Link>
-          <Link href={path("/holland-test/pdf-download")} prefetch={false}>{t("职业探索工作表", "Career worksheet", "職涯探索工作表")}</Link>
+          <Link href={path("/career/interest-worksheet")} prefetch={false}>{t("职业探索工作表", "Career worksheet", "職涯探索工作表")}</Link>
         </div>}
       </article>)}</div>
       <Link className={styles.textLink} href={sample} prefetch={false}>{t("查看完整免费兴趣样张", "Read the full sample interest report", "閱讀完整興趣報告範例（簡體中文）")} <ArrowUpRight size={16} aria-hidden /></Link>

@@ -39,7 +39,7 @@ export async function Riasec60PaymentPreview({ locale, full = false, reading = f
         {[["微信支付", "微信支付", "WeChat Pay", "¥2.99"], ["支付宝", "支付寶", "Alipay", "¥2.99"], ["海外银行卡", "海外銀行卡", "International card", "US$2.99"]].map(([zh, tw, en, price]) =>
           <button key={en} className={styles.cta} type="button" disabled>{t(zh, tw, en)} · {price}</button>)}
         <p>{t("无需登录或注册 · 一次付款解锁本次完整报告", "無須登入或註冊 · 一次付款解鎖本次完整報告", "No login or signup · One payment unlocks this full report")}</p>
-        <p><Link href={displayNavigationPath("/help/payment-refund", locale)}>{t("退款政策", "退款政策", "Refund policy")}</Link></p>
+        <p><Link href={displayNavigationPath("/support/payment-refund", locale)}>{t("退款政策", "退款政策", "Refund policy")}</Link></p>
       </div>} />
   </main>;
 }

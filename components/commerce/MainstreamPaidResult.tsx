@@ -322,7 +322,7 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
           : purchase.offers.length ? <Career94Checkout locale={locale === "en" ? "en" : "zh"} displayLocale={locale} attemptId={purchase.attempt_id} offers={purchase.offers} onPaymentClick={offer ? () => observe("payment_clicked") : undefined} />
             : <p role="status">{t("本次结果暂不提供购买，请稍后重试。", "本次結果暫不提供購買，請稍後重試。", "Purchasing is unavailable for this result. Please try again later.")}</p>}
         </div>
-        {previewProfile && <p className={styles.scoreNote}><Link href={displayNavigationPath("/help/payment-refund", locale)}>{t("查看付款与退款说明", "查看付款與退款說明", "Payment and refund information")}</Link></p>}
+        {previewProfile && <p className={styles.scoreNote}><Link href={displayNavigationPath("/support/payment-refund", locale)}>{t("查看付款与退款说明", "查看付款與退款說明", "Payment and refund information")}</Link></p>}
         <Link className={styles.sampleLink} href={samplePath}>{t("查看完整示例报告", "查看完整示例報告", "View the complete sample report")} ↗</Link>
       </section>
       </div>

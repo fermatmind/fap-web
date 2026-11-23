@@ -19,7 +19,7 @@ export function CommunityFairPage({ quiz, locale, displayLocale = locale }: { qu
   if (quiz.slug !== "community-fair") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/community-fair`;
+  const path = `/${displayLocale}/tests/explore/community-fair`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: communityFairSections, faq: communityFairFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

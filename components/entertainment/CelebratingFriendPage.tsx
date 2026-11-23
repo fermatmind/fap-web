@@ -19,7 +19,7 @@ export function CelebratingFriendPage({ quiz, locale, displayLocale = locale }: 
   if (quiz.slug !== "celebrating-a-friend") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/celebrating-a-friend`;
+  const path = `/${displayLocale}/tests/explore/celebrating-a-friend`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: celebratingFriendSections, faq: celebratingFriendFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

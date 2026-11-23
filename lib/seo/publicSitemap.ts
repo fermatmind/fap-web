@@ -1,3 +1,6 @@
+import { supportDetailPath } from "@/lib/support/publicPaths";
+import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import { hasTraditionalCareerEntrySearchPath, hasTraditionalCareerInterestSearchPath, hasTraditionalPublicResourceSearchPath } from "@/lib/seo/traditionalSearchMetadata";
 import { hasTraditionalAssessmentSearchPath } from "@/lib/i18n/traditionalRoutes";
 
@@ -132,7 +135,15 @@ export function buildPublicSitemapEntries(
   const entriesByLoc = new Map<string, PublicSitemapEntry>();
 
   for (const item of items) {
-    const path = toOwnedPublicPath(item?.loc);
+    // Project the existing backend-approved Career94 entry to its public landing URL.
+    const path = supportDetailPath(toOwnedPublicPath(item?.loc))
+      .replace(/^\/(en|zh|zh-TW)\/tests\/play(?=\/|$)/u, "/$1/tests/explore")
+      .replace(/^\/(en|zh|zh-TW)\/holland-test\/pdf-download$/u, "/$1/career/interest-worksheet")
+      .replace(/^\/(en|zh|zh-TW)\/tests\/explore\/career-match$/u, "/$1/career/match")
+      .replace(
+      /^\/(en|zh|zh-TW)\/career\/assessment$/u,
+      `/$1${CAREER_ASSESSMENT_LANDING_PATH}`,
+    ).replace(/^\/(en|zh|zh-TW)\/tests\/explore\/disc$/u, `/$1${DISC_LANDING_PATH}`);
     if (
       !path ||
       isCareerPilotOnIndexHold(path) ||

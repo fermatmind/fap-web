@@ -19,7 +19,7 @@ export function FestivalMaskPage({ quiz, locale, displayLocale = locale }: { qui
   if (quiz.slug !== "festival-mask") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/festival-mask`;
+  const path = `/${displayLocale}/tests/explore/festival-mask`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: festivalMaskSections, faq: festivalMaskFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

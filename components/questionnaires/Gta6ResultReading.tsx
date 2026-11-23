@@ -1,5 +1,6 @@
 "use client";
 
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import Link from "next/link";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import { shouldAllowBrowserAnalyticsRuntime } from "@/lib/tracking/internalTraffic";
@@ -14,7 +15,7 @@ import styles from "./Gta6Quiz.module.css";
 const assessments = [
   { slug: "mbti-personality-test-16-personality-types", path: "/tests/mbti-personality-test-16-personality-types", label: ["Explore MBTI and its versions", "了解 MBTI 与题本选择", "看看 MBTI 測驗版本"] },
   { slug: "holland-career-interest-test-riasec", path: "/tests/holland-career-interest-test-riasec", label: ["Explore Holland interests · 60 questions", "探索霍兰德职业兴趣 · 60 题", "探索霍蘭德職業興趣 · 60 題"] },
-  { slug: "career-assessment", path: "/career/assessment", label: ["Explore work preferences · 94 questions", "梳理职业偏好 · 94 题", "整理工作偏好 · 94 題"] },
+  { slug: "career-assessment", path: CAREER_ASSESSMENT_LANDING_PATH, label: ["Explore work preferences · 94 questions", "梳理职业偏好 · 94 题", "整理工作偏好 · 94 題"] },
 ] as const;
 
 function recordAssessmentClick(locale: DisplayLocale, destination: string, publicGuide: boolean) {

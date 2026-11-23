@@ -113,15 +113,15 @@ describe("sitemap and llms lastmod authority gate", () => {
       ])
     );
     expect(locs.some((loc) => /^\/(?:en|zh)\/topics\/.+/.test(loc))).toBe(false);
-    expect(locs).not.toContain("/en/help/about");
-    expect(locs).toContain("/en/help/contact");
-    expect(locs).toContain("/en/help/faq");
-    expect(locs).not.toContain("/en/help/for-business-and-research");
-    expect(locs).not.toContain("/en/help/team");
-    expect(locs).not.toContain("/en/help/used-and-mentioned");
-    expect(locs).toContain("/zh/help/contact");
-    expect(locs).toContain("/zh/help/faq");
-    expect(locs).not.toContain("/zh/help/for-business-and-research");
+    expect(locs).not.toContain("/en/support/about");
+    expect(locs).toContain("/en/support/contact");
+    expect(locs).toContain("/en/support/faq");
+    expect(locs).not.toContain("/en/support/for-business-and-research");
+    expect(locs).not.toContain("/en/support/team");
+    expect(locs).not.toContain("/en/support/used-and-mentioned");
+    expect(locs).toContain("/zh/support/contact");
+    expect(locs).toContain("/zh/support/faq");
+    expect(locs).not.toContain("/zh/support/for-business-and-research");
     expect(locs).toContain("/en/method-boundaries");
     expect(locs).toContain("/zh/method-boundaries");
     expect(locs).toContain("/zh/policies");

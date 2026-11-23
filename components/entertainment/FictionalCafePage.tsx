@@ -19,7 +19,7 @@ export function FictionalCafePage({ quiz, locale, displayLocale = locale }: { qu
   if (quiz.slug !== "fictional-cafe") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/fictional-cafe`;
+  const path = `/${displayLocale}/tests/explore/fictional-cafe`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: fictionalCafeSections, faq: fictionalCafeFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

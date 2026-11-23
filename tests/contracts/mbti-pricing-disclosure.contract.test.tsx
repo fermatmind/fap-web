@@ -15,7 +15,7 @@ describe("public assessment pricing", () => {
       expect(document.body.textContent).toContain(locale === "zh" ? "不自动续费" : "No automatic renewal");
       expect(document.body.textContent).toContain(locale === "zh" ? "基础结果继续免费" : "Basic results remain free");
       expect(document.body.textContent).toContain(locale === "zh" ? "微信" : "WeChat");
-      for (const path of ["help/payment-refund", "terms", "support", "tests"]) {
+      for (const path of ["support/payment-refund", "terms", "support", "tests"]) {
         expect(document.querySelector(`a[href="/${locale}/${path}"]`)).not.toBeNull();
       }
       expect(document.querySelector("form, button, [href*='checkout'], [href*='/orders/']")).toBeNull();
@@ -39,7 +39,7 @@ it("renders Taiwan pricing disclosures with the same regional amounts and no pur
   }
   expect(html).toContain('href="/zh-TW/terms"');
   expect(html).toContain('href="/zh-TW/tests"');
-  expect(html).toContain('href="/zh-TW/help/payment-refund"');
+  expect(html).toContain('href="/zh-TW/support/payment-refund"');
   expect(html).not.toContain("（簡體中文）");
   expect(html).not.toMatch(/href="[^"]*(?:checkout|pay\/|purchase)/i);
   expect(metadata).toMatchObject({ robots: { index: false }, alternates: { canonical: "/zh-TW/pricing" } });

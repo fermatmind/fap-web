@@ -30,7 +30,7 @@ export function AssessmentReadingPaths({ slug, locale, text = (value) => value, 
     title: "霍兰德测试结果与三字代码怎么看？",
     body: "先看完整六维兴趣，再看前三项与分数差距。已有结果可以直接对照合成示例和探索工作表；还没有结果，可以从上方开始 60 题霍兰德测试。兴趣不是能力或职业匹配结论。",
     links: [
-      { href: "/zh/holland-test/pdf-download#result-examples", label: "查看三种合成结果示例与探索工作表" },
+      { href: "/zh/career/interest-worksheet#result-examples", label: "查看三种合成结果示例与探索工作表" },
       { href: "/zh/articles/riasec-holland-career-interest-test-explained", label: "六维兴趣、三字代码与接近分数解读" },
     ],
   } : null;

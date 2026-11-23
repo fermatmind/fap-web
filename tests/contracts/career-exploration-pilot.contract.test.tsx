@@ -93,7 +93,7 @@ describe("six-page career exploration pilot", () => {
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(`霍蘭德 ${code.toUpperCase()} 代碼`);
     expect(screen.getByRole("link", { name: "简体中文" })).toHaveAttribute("href", `/zh/career/interests/${code}`);
     expect(screen.getByRole("link", { name: "English" })).toHaveAttribute("href", `/en/career/interests/${code}`);
-    expect(screen.getByRole("link", { name: "填寫免費職涯探索紀錄" })).toHaveAttribute("href", "/zh-TW/holland-test/pdf-download#my-worksheet");
+    expect(screen.getByRole("link", { name: "填寫免費職涯探索紀錄" })).toHaveAttribute("href", "/zh-TW/career/interest-worksheet#my-worksheet");
     for (const job of CAREER_EXPLORATION_PILOT[code].occupations) {
       expect(screen.getByRole("link", { name: `O*NET ${job.soc}` })).toHaveAttribute("href", `https://www.onetonline.org/link/summary/${job.soc}`);
       expect(document.querySelector(`a[href="/zh-TW/career/jobs/${job.slug}"]`)).toBeInTheDocument();

@@ -14,9 +14,9 @@ const original = '  C2-QA-本人 e\u0301 👩🏽‍🔬\n| [x](javascript:alert
 function field(id: string) { return document.querySelector<HTMLTextAreaElement>(`[data-worksheet-field="${id}"]`)!; }
 
 it("delivers the Taiwan worksheet and preserves local notes across display languages", async () => {
-  const pathname = "/zh-TW/holland-test/pdf-download";
+  const pathname = "/zh-TW/career/interest-worksheet";
   const params = Promise.resolve({ locale: "zh-TW" });
-  expect(traditionalPath("/zh/holland-test/pdf-download")).toBe(pathname);
+  expect(traditionalPath("/zh/career/interest-worksheet")).toBe(pathname);
   const origin = "https://fermatmind.com";
   vi.stubEnv("NEXT_PUBLIC_SITE_URL", origin);
   try {
@@ -25,8 +25,8 @@ it("delivers the Taiwan worksheet and preserves local notes across display langu
         canonical: origin + pathname,
         languages: {
           "zh-TW": origin + pathname,
-          "zh-CN": origin + "/zh/holland-test/pdf-download",
-          en: origin + "/en/holland-test/pdf-download",
+          "zh-CN": origin + "/zh/career/interest-worksheet",
+          en: origin + "/en/career/interest-worksheet",
         },
       },
       robots: { index: true },
@@ -124,7 +124,7 @@ describe.each(["zh", "en"] as const)("worksheet state and safety: %s", locale =>
     render(<RiasecWorksheet locale={locale} />);
     fireEvent.change(field("experiment"), { target: { value: original } });
     expect(document.querySelector('[data-print-field="experiment"]')!.textContent).toBe(original);
-    expect(document.querySelector("[data-worksheet-print]")).toHaveTextContent(`FermatMind · https://fermatmind.com/${locale}/holland-test/pdf-download`);
+    expect(document.querySelector("[data-worksheet-print]")).toHaveTextContent(`FermatMind · https://fermatmind.com/${locale}/career/interest-worksheet`);
     expect(document.querySelector("img")).toBeNull();
     expect(document.querySelector("script")).toBeNull();
     expect(screen.getByRole("textbox", { name: /可手选的完整输出|Complete output/ })).toHaveValue(serializeWorksheet({ ...emptyWorksheet(), experiment: original }, locale, "text"));

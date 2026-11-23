@@ -1,3 +1,4 @@
+import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -9,7 +10,8 @@ export function initialQuestionnaireScripts(tool: Tool, root = process.cwd()): s
   try {
     if (tool !== "disc" && tool !== "cognitive-functions-test") return [];
     const build = JSON.parse(readFileSync(join(root, ".next/build-manifest.json"), "utf8"));
-    const source = readFileSync(join(root, `.next/server/app/(localized)/[locale]/tests/explore/${tool}/page_client-reference-manifest.js`), "utf8");
+    const route = tool === "disc" ? DISC_LANDING_PATH : `/tests/explore/${tool}`;
+    const source = readFileSync(join(root, `.next/server/app/(localized)/[locale]${route}/page_client-reference-manifest.js`), "utf8");
     const serialized = source.match(/globalThis\.__RSC_MANIFEST\[[^\n]+?\]\s*=\s*(\{[\s\S]*\})\s*;?\s*$/)?.[1];
     if (!serialized || !Array.isArray(build.rootMainFiles)) return [];
     const client = JSON.parse(serialized);

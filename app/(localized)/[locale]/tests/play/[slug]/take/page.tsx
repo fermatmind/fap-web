@@ -15,7 +15,7 @@ async function entry(params: Props["params"]) {
   const { locale: input, slug } = await params, locale = resolveLocale(input);
   const native = catalog.some(item => item.slug === slug && item.collection === "play");
   if (native && !hasQuestionnaireTake(slug)) notFound();
-  const landing = `/${locale}/tests/play/${slug}`;
+  const landing = `/${locale}/tests/explore/${slug}`;
   if (native) {
     const quiz = await loadQuestionnaire(slug);
     if (!quiz) notFound();

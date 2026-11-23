@@ -14,11 +14,10 @@ export function hasTraditionalDirectional(slug: string) {
 }
 
 export function traditionalDirectionalRoute(path: string) {
-  const match = /^\/tests\/(explore|play)\/([a-z0-9-]+)(?:\/(take)|\/results\/([a-z0-9-]+))?$/u.exec(path);
+  const match = /^\/tests\/explore\/([a-z0-9-]+)(?:\/(take)|\/results\/([a-z0-9-]+))?$/u.exec(path);
   if (!match) return null;
-  const [, collection, slug, take, profile] = match;
+  const [, slug, take, profile] = match;
   if (!hasTraditionalDirectional(slug)) return null;
-  const canonicalCollection = slug === "relationship-values" || slug === "response-color" ? "play" : "explore";
-  if (collection !== canonicalCollection || (profile && !profiles[slug].includes(profile))) return null;
+  if (profile && !profiles[slug].includes(profile)) return null;
   return { slug, take: Boolean(take), profile };
 }

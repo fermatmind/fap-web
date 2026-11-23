@@ -94,7 +94,7 @@ const bespokePages = {
 };
 
 async function readMetadata({ params }: Props): Promise<Metadata> {
-  const directional = traditionalDirectionalRoute(`/tests/play/${(await params).slug}`);
+  const directional = traditionalDirectionalRoute(`/tests/explore/${(await params).slug}`);
   if (directional) {
     const { traditionalLikertMetadata } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
     return traditionalLikertMetadata(directional);
@@ -113,7 +113,7 @@ async function readMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TraditionalStoryPage({ params }: Props) {
   const { slug } = await params;
-  const directional = traditionalDirectionalRoute(`/tests/play/${slug}`);
+  const directional = traditionalDirectionalRoute(`/tests/explore/${slug}`);
   if (directional) {
     const { LikertQuestionnairePage, requireLikert } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
     if (hasPortfolioFlagship(slug)) return <PortfolioFlagshipLanding quiz={(await requireLikert(slug)).quiz} locale="zh-TW" />;
@@ -126,7 +126,7 @@ export default async function TraditionalStoryPage({ params }: Props) {
   const displayText = shared ? await loadTraditionalAssessmentText() : undefined;
   return <ExploreTestShell slug={slug} category={quiz.category}>
     <nav aria-label="測驗語言" className="flex flex-wrap gap-4 py-2 text-sm">
-      <Link href="/zh-TW/tests/play" className="min-h-11 py-2 underline">故事測驗總覽</Link>
+      <Link href="/zh-TW/tests/explore" className="min-h-11 py-2 underline">故事測驗總覽</Link>
       <Link href={quizPath("zh", quiz.slug)} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
       <Link href={quizPath("en", quiz.slug)} lang="en" className="min-h-11 py-2 underline">English</Link>
     </nav>
@@ -136,5 +136,5 @@ export default async function TraditionalStoryPage({ params }: Props) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  return traditionalSearchMetadata(`/zh-TW/tests/play/${(await params).slug}`, await readMetadata({ params }));
+  return traditionalSearchMetadata(`/zh-TW/tests/explore/${(await params).slug}`, await readMetadata({ params }));
 }

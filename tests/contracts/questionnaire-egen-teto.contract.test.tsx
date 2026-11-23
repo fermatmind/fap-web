@@ -81,7 +81,7 @@ describe("T076 original gender-neutral Egen-Teto first-move edition", () => {
 
   it("describes the actual two-direction entry and retains the four-direction DISC entry", async () => {
     const { default: egenTeto } = await import("@/app/(localized)/[locale]/tests/explore/[slug]/page");
-    const { default: disc } = await import("@/app/(localized)/[locale]/tests/explore/disc/page");
+    const { default: disc } = await import("@/app/(localized)/[locale]/tests/disc-behavioral-style-test/page");
     const discQuiz = (await loadQuestionnaire("disc"))!;
     expect(discQuiz.profiles).toHaveLength(15);
     for (const locale of ["en", "zh"] as const) {

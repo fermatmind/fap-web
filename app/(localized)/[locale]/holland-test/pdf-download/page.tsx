@@ -24,15 +24,15 @@ const META = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: raw } = await params;
   if (raw === "zh-TW") {
-    return traditionalSearchMetadata("/zh-TW/holland-test/pdf-download", {
+    return traditionalSearchMetadata("/zh-TW/career/interest-worksheet", {
       ...META["zh-TW"],
-      alternates: { canonical: "/zh-TW/holland-test/pdf-download" },
+      alternates: { canonical: "/zh-TW/career/interest-worksheet" },
       robots: { index: false, follow: true },
     });
   }
   const locale = resolveLocale(raw);
-  return buildPageMetadata({ locale, pathname: localizedPath("/holland-test/pdf-download", locale), ...META[locale], alternatesByLocale: {
-    zh: "/zh/holland-test/pdf-download", en: "/en/holland-test/pdf-download", xDefault: "/zh/holland-test/pdf-download",
+  return buildPageMetadata({ locale, pathname: localizedPath("/career/interest-worksheet", locale), ...META[locale], alternatesByLocale: {
+    zh: "/zh/career/interest-worksheet", en: "/en/career/interest-worksheet", xDefault: "/zh/career/interest-worksheet",
   } });
 }
 
@@ -44,7 +44,7 @@ export default async function HollandPdfPage({ params }: Props) {
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
   const path = (pathname: string) => traditional ? `/zh-TW${pathname === "/" ? "" : pathname}` : localizedPath(pathname, sourceLocale);
   const copy = worksheet[locale];
-  const pathname = path("/holland-test/pdf-download");
+  const pathname = path("/career/interest-worksheet");
   const breadcrumbs = [
     { name: text("首页", "Home", "首頁"), path: path("/") },
     { name: text("职业测试", "Career tests", "職業測試"), path: path("/career/tests") },

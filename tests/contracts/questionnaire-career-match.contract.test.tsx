@@ -143,7 +143,7 @@ describe("original Career Match tool, reusing the interest construct and publish
     const { container } = render(<CareerMatchClient quiz={quiz} locale="en" />); await start("en"); pick(); fireEvent.click(container.querySelector("[data-interest-theme='A']")!);
     fireEvent.click(screen.getByRole("button", { name: "Compare interest themes" })); await waitFor(() => expect(container.querySelectorAll("[data-career-read-status='available']")).toHaveLength(2));
     await act(async () => fireEvent.click(screen.getByRole("button", { name: "Copy public entry" })));
-    const expected = `${quiz.title.en}\nhttps://fermatmind.com/en/tests/explore/career-match`;
+    const expected = `${quiz.title.en}\nhttps://fermatmind.com/en/career/match`;
     expect(writeText).toHaveBeenCalledWith(expected); expect(screen.getByLabelText("Public entry for manual copying")).toHaveValue(expected); expect(expected).not.toContain("contract-role");
     expect(setItem).not.toHaveBeenCalled(); act(() => window.dispatchEvent(new Event("pagehide")));
     expect(container.querySelector("[data-career-match-result]")).toBeNull(); expect(container.querySelector("textarea")).toBeNull();

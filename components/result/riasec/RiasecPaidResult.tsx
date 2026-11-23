@@ -29,7 +29,7 @@ export function RiasecPaidResult({ data, purchase, locale, pdfAction }: { data: 
       actions={pdfAction ?? <button type="button" onClick={() => window.print()}>{t("打印或保存 PDF", "列印或儲存 PDF", "Print or save PDF")}</button>} /></div>
       : <UnlockReportExperience model={model} locale={locale}
         mobilePurchase={canPurchase && offer ? <MobileReportPurchaseEntry offer={offer} locale={locale} onClick={() => observe("entry_clicked")} /> : undefined}
-        sampleHref={`/${locale}/tests/holland-career-interest-test-riasec/sample`}
+        sampleHref={`/${locale}/reports/samples/holland`}
         purchase={existing ? <p role="status">{refunded || purchase.payment_state === "refunded" ? t("此订单已退款。", "此訂單已退款。", "This order was refunded.") : t("此报告已有订单。", "此報告已有訂單。", "This report has an existing order.")}{" "}<Link className="underline" href={`/${locale}/pay/wait?order_no=${encodeURIComponent(purchase.order_no!)}`}>{t("查看订单", "查看訂單", "View order")}</Link></p>
           : <Career94Checkout locale={sourceLocale} displayLocale={locale} attemptId={purchase.attempt_id} offers={purchase.offers} onPaymentClick={() => observe("payment_clicked")} />} />}
   </div>;

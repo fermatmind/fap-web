@@ -42,18 +42,18 @@ const catalog = [
     minQuestionCount: 30,
     questionCount: 150,
     minutes: "5–25",
-    pathname: "/tests/play/friendship-quiz",
+    pathname: "/tests/explore/friendship-quiz",
   },
   ...entertainmentDirectoryQuestionnaires.map((quiz) => ({
     ...quiz,
     minQuestionCount: quiz.questionCount,
-    pathname: `/tests/${quiz.collection}/${quiz.slug}`,
+    pathname: quiz.slug === "career-match" ? "/career/match" : `/tests/explore/${quiz.slug}`,
   })),
   ...directoryQuizzes
     .filter(
       (quiz) => !questionnaires.some((native) => native.slug === quiz.slug),
     )
-    .map((quiz) => ({ ...quiz, pathname: `/tests/play/${quiz.slug}` })),
+    .map((quiz) => ({ ...quiz, pathname: quiz.slug === "career-match" ? "/career/match" : `/tests/explore/${quiz.slug}` })),
 ];
 
 export const MORE_TEST_PRODUCT_COUNT = catalog.length;

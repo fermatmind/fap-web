@@ -61,10 +61,10 @@ describe("387 distinct products with separate test and story directories", () =>
     const allIds = [...dom.querySelectorAll("[id]")].map(n => n.id); expect(new Set(allIds).size).toBe(allIds.length);
     const schema = JSON.parse(dom.querySelector('script[type="application/ld+json"]')!.textContent!);
     expect(schema["@type"]).toBe("ItemList");
-    expect(schema.numberOfItems).toBe(storyQuizzes.filter(q => !isArchivedEntertainmentPath(`/${locale}/tests/play/${q.slug}`)).length);
+    expect(schema.numberOfItems).toBe(storyQuizzes.filter(q => !isArchivedEntertainmentPath(`/${locale}/tests/explore/${q.slug}`)).length);
     const sitemap = appendFunSitemapEntries([]);
     for (const q of storyQuizzes) {
-      const path = `/${locale}/tests/play/${q.slug}`;
+      const path = `/${locale}/tests/explore/${q.slug}`;
       const card = dom.querySelector(`[data-story-slug="${q.slug}"]`)!;
       expect(card.querySelector('h4 a')?.getAttribute('href')).toBe(path);
       expect(card.querySelector('.catalog-item-start')?.getAttribute('href')).toBe(path);
@@ -94,7 +94,7 @@ describe("387 distinct products with separate test and story directories", () =>
     expect(new Set(expected.map(item => item.url)).size).toBe(eligibleLinks.length);
   });
   it("searches story titles and slugs, filters a category and recovers from an empty result", () => {
-    const items=storyQuizzes.map(q=>({slug:q.slug,category:q.category,title:q.title.zh,description:q.description.zh,href:`/zh/tests/play/${q.slug}`,meta:'6次选择'}));
+    const items=storyQuizzes.map(q=>({slug:q.slug,category:q.category,title:q.title.zh,description:q.description.zh,href:`/zh/tests/explore/${q.slug}`,meta:'6次选择'}));
     const {container}=render(<StoryDirectory items={items} categories={FUN_CATEGORIES} locale="zh" testToolCount={286}/>);
     const search=screen.getByRole('searchbox',{name:'搜索互动故事'});
     fireEvent.change(search,{target:{value:'weather-in-a-bottle'}}); expect(container.querySelectorAll('[data-story-slug]')).toHaveLength(1);

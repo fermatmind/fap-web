@@ -1,3 +1,4 @@
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import { SITE_URL } from "@/lib/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ExploreLandingSamples } from "@/components/tests/ExploreLandingSamples";
@@ -55,7 +56,7 @@ const text = {
 
 const followUps = ["/tests/big-five-personality-test-ocean-model", "/tests/eq-test-emotional-intelligence-assessment", "/tests"];
 const mbti = "/tests/mbti-personality-test-16-personality-types";
-const career = "/career/assessment";
+const career = CAREER_ASSESSMENT_LANDING_PATH;
 const nextTests = [followUps[0], career, followUps[1], mbti, followUps[0], followUps[1], career];
 const nextNames = {
   zh: ["大五人格测试","94 题费马职业测试","情商测试","MBTI 测试"],

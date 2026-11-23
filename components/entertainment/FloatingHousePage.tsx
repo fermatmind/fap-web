@@ -19,7 +19,7 @@ export function FloatingHousePage({ quiz, locale, displayLocale = locale }: { qu
   if (quiz.slug !== "floating-house") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/floating-house`;
+  const path = `/${displayLocale}/tests/explore/floating-house`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: floatingHouseSections, faq: floatingHouseFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

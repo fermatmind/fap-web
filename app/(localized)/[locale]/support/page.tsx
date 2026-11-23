@@ -1,3 +1,4 @@
+import { supportDetailPath } from "@/lib/support/publicPaths";
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -73,10 +74,10 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
   const contact = landing.discoverabilityItems.find((item) => item.key === "contact");
   const entries: HelpEntry[] = [
     { key: "pricing", title: locale === "zh" ? "价格与报告内容" : "Pricing & report contents", summary: locale === "zh" ? "单次测评完整报告的价格、免登录付款与交付范围。" : "One-time assessment report prices, guest payments and delivery scope.", href: localizedPath("/pricing", locale), topic: "orders", kind: "article" },
-    { key: "refund_policy", title: locale === "zh" ? "退款与取消政策" : "Refund and cancellation policy", summary: "", href: localizedPath("/help/payment-refund", locale), topic: "orders", kind: "article" },
+    { key: "refund_policy", title: locale === "zh" ? "退款与取消政策" : "Refund and cancellation policy", summary: "", href: localizedPath("/support/payment-refund", locale), topic: "orders", kind: "article" },
     { key: "result_lookup", title: copy.resultTitle, summary: copy.resultSummary, href: localizedPath("/results/lookup", locale), topic: "results", kind: "tool" },
-    ...landing.ctaBundle.map((item): HelpEntry => ({ key: item.key, title: item.label, summary: "", href: item.href, topic: helpTopicFor(`${item.key} ${item.label}`), kind: "tool" })),
-    ...landing.discoverabilityItems.map((item): HelpEntry => ({ key: item.key, title: item.title, summary: item.summary, href: item.href, topic: helpTopicFor(item.key), kind: "article" })),
+    ...landing.ctaBundle.map((item): HelpEntry => ({ key: item.key, title: item.label, summary: "", href: supportDetailPath(item.href), topic: helpTopicFor(`${item.key} ${item.label}`), kind: "tool" })),
+    ...landing.discoverabilityItems.map((item): HelpEntry => ({ key: item.key, title: item.title, summary: item.summary, href: supportDetailPath(item.href), topic: helpTopicFor(item.key), kind: "article" })),
     { key: "method_boundaries", title: copy.methodTitle, summary: copy.methodSummary, href: localizedPath("/method-boundaries", locale), topic: "assessments", kind: "article" },
     ...supportArticles.map((item): HelpEntry => ({ key: `article-${item.slug}`, title: item.title, summary: item.summary, href: buildSupportArticlePath(item.slug, locale), topic: helpTopicFor(`${item.supportCategory} ${item.supportIntent} ${item.title}`), kind: "article" })),
     ...guides.map((item): HelpEntry => ({ key: `guide-${item.slug}`, title: item.title, summary: item.summary, href: buildInterpretationGuidePath(item.slug, locale), topic: "assessments", kind: "guide" })),
@@ -87,8 +88,8 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
     title={hero?.title || copy.headingFallback}
     entries={entries}
     questions={helpQuestionsFromCms(faqPage, gateway.answerSurface?.faqBlocks)}
-    tools={landing.ctaBundle}
-    contactHref={contact?.href ?? null}
+    tools={landing.ctaBundle.map(item => ({ ...item, href: supportDetailPath(item.href) }))}
+    contactHref={contact ? supportDetailPath(contact.href) : null}
     contactLabel={contact?.title ?? null}
     contactLink={supportContact ? <a href={`mailto:${supportContact}`} className="inline-flex items-center gap-4 rounded-md bg-white px-5 py-3.5 text-sm font-semibold text-[#203c66] transition hover:bg-[#edf2fa]">{supportContact}<ArrowUpRight size={17} aria-hidden /></a> : null}
   />;

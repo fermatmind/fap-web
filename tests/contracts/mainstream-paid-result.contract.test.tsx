@@ -93,7 +93,7 @@ describe("mainstream per-attempt full report purchase", () => {
     expect(document.querySelector('[aria-labelledby="reasoning-regions"]')).toHaveTextContent(accuracy);
     expect(document.querySelectorAll('[aria-labelledby="reasoning-categories"] li').length).toBe(4);
     expect(document.querySelector('#result-share a[href*="owned-attempt"]')).toBeNull();
-    expect(document.querySelector('a[href$="/help/payment-refund"]')).toBeVisible();
+    expect(document.querySelector('a[href$="/support/payment-refund"]')).toBeVisible();
 
   });
 

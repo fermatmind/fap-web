@@ -28,7 +28,7 @@ describe("BorrowedBook: actual six-choice game and bilingual editorial", () => {
     for(const f of [quiz.seo.faq,...borrowedBookFaq]) expect(d.textContent).toContain(f.answer[locale]);
     expect(d.querySelectorAll('[aria-labelledby="quiz-faq"] h3')).toHaveLength(12);
     expect(d.querySelectorAll("[data-explore-start]")).toHaveLength(1);expect(d.querySelectorAll('input[type="checkbox"]')).toHaveLength(0);
-    for(const r of quiz.results) { expect(d.querySelector(`a[href="/${locale}/tests/play/borrowed-book/results/${r.id}"]`)).not.toBeNull();expect(d.textContent).toContain(r.summary[locale]); }
+    for(const r of quiz.results) { expect(d.querySelector(`a[href="/${locale}/tests/explore/borrowed-book/results/${r.id}"]`)).not.toBeNull();expect(d.textContent).toContain(r.summary[locale]); }
     const ids=[...d.querySelectorAll("[id]")].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);
     for(const a of d.querySelectorAll('a[href^="#borrowed-book-reference-"]')) expect(d.querySelector(a.getAttribute("href")!)).not.toBeNull();
     expect(d.textContent).not.toContain(locale==="zh"?"内容与规则版本":"Content and rules version");
@@ -42,5 +42,5 @@ describe("BorrowedBook: actual six-choice game and bilingual editorial", () => {
    const meta=await entry.generateMetadata(props);const dom=document.createElement("div");dom.innerHTML=renderToStaticMarkup(await entry.default(props));
    expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);expect(meta.title).toBe(quiz.seo.title[locale]);expect(meta.description).toBe(quiz.seo.description[locale]);
    expect(dom.querySelectorAll('[aria-labelledby="quiz-faq"] h3')).toHaveLength(12);expect(dom.querySelector("#play")?.textContent).toContain(locale === "zh" ? "约定部分" : "agreement");expect(dom.querySelectorAll('script[type="application/ld+json"]')).toHaveLength(2);
-   expect(meta.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/play/borrowed-book`);
+   expect(meta.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/explore/borrowed-book`);
  });

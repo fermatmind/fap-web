@@ -19,7 +19,7 @@ export function CoffeeBreakPage({ quiz, locale, displayLocale = locale }: { quiz
   if (quiz.slug !== "coffee-break") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/coffee-break`;
+  const path = `/${displayLocale}/tests/explore/coffee-break`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: coffeeBreakSections, faq: coffeeBreakFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

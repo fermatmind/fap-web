@@ -1,3 +1,4 @@
+import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
 import { isBig5Slug, resolveBig5FormMeta } from "@/lib/big5/forms";
 import { careerAssessmentEntry } from "@/lib/career/assessmentEntry";
 import { brandVisionCopy } from "@/lib/brand/visionCopy";
@@ -734,13 +735,13 @@ function getAdditionalAssessmentCards(locale: DisplayLocale) {
     },
     {
       key: "jung",
-      duration: english ? "About 10 / 13 min" : traditional ? "約 10 / 13 分鐘" : "约 10 / 13 分钟",
-      title: english ? "Jungian Assessments" : traditional ? "榮格測評" : "荣格测评",
+      duration: english ? "About 10 min" : traditional ? "約 10 分鐘" : "约 10 分钟",
+      title: english ? "Jungian Archetype Test" : traditional ? "榮格十二原型測驗" : "荣格十二原型测试",
       description: english
-        ? "Explore what motivates you or how you take in information and make decisions."
-        : traditional ? "探索你的內在動機，或了解你如何接收資訊與做決定。" : "探索你的内在动机，或了解你怎样获取信息和做决定。",
-      meta: english ? "48 / 64 questions" : traditional ? "48 / 64 題" : "48 / 64 题",
-      links: [{ href: withLocale(locale, "/tests/jung-test"), label: english ? "View both free tests" : traditional ? "查看兩套免費測驗" : "查看两套免费测试" }],
+        ? "Explore which of the twelve archetypes reflect what motivates you lately."
+        : traditional ? "看看十二種原型中，哪些最貼近你近期的內在動機。" : "看看十二种原型中，哪些最贴近你近期的内在动机。",
+      meta: english ? "48 questions" : traditional ? "48 題" : "48 题",
+      links: [{ href: withLocale(locale, "/tests/jung-test"), label: english ? "View the free test" : traditional ? "查看免費測驗" : "查看免费测试" }],
     },
     {
       key: "disc",
@@ -750,7 +751,7 @@ function getAdditionalAssessmentCards(locale: DisplayLocale) {
         ? "Compare four behavioral tendencies through paired choices in work situations."
         : traditional ? "透過工作情境二選一，比較四類行為傾向。" : "通过工作情境二选一，比较四类行为倾向。",
       meta: english ? "24 paired choices" : traditional ? "24 組選擇" : "24 组选择",
-      links: [{ href: withLocale(locale, "/tests/explore/disc"), label: english ? "View DISC" : "查看 DISC" }],
+      links: [{ href: withLocale(locale, DISC_LANDING_PATH), label: english ? "View DISC" : "查看 DISC" }],
     },
   ];
 

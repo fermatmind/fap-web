@@ -148,7 +148,7 @@ export function CareerAssessmentResult({ model, locale, displayLocale = locale, 
           <p>{t("把职业兴趣变成可以验证的方向。", "Turn your interests into career directions you can test.")}</p>
           <ul>{modules.map(([Icon, cn, en]) => <li key={en}><Icon aria-hidden="true" size={23} /><span>{t(cn, en)}</span></li>)}</ul>
           {purchase || <p className={styles.status}>{t("深度报告预览 · 暂未开放购买", "Deep report preview · Purchase unavailable")}</p>}
-          <Link className={styles.sampleLink} href={sampleHref ?? `/${locale}/career/assessment/sample`} target="_blank" rel="noopener">{t("查看示例报告", "View sample report")} <ArrowUpRight size={14} aria-hidden /></Link>
+          <Link className={styles.sampleLink} href={sampleHref ?? `/${locale}/reports/samples/career94`} target="_blank" rel="noopener">{t("查看示例报告", "View sample report")} <ArrowUpRight size={14} aria-hidden /></Link>
         </section>
 
         </>}

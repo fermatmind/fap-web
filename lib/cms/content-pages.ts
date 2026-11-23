@@ -404,7 +404,7 @@ export function buildContentPagePath(slug: string, locale: DisplayLocale): strin
     return pathFor(`/personality/big-five/${slug}`);
   }
   if (slug.startsWith("help-")) {
-    return pathFor(`/help/${slug.slice(5)}`);
+    return pathFor(`/support/${slug.slice(5)}`);
   }
 
   return pathFor(`/${slug}`);

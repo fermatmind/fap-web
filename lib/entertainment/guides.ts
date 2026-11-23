@@ -3,7 +3,7 @@ import type { FunCard, FunQuiz, FunResult } from "./types";
 import { isDirectoryQuiz } from "./directory";
 
 export const resultSlug = (id: string) => id.replaceAll("_", "-");
-export const quizPath = (locale: DisplayLocale, slug: string) => `/${locale}/tests/play/${slug}`;
+export const quizPath = (locale: DisplayLocale, slug: string) => `/${locale}/tests/explore/${slug}`;
 export const resultPath = (locale: DisplayLocale, slug: string, id: string) => `${quizPath(locale, slug)}/results/${resultSlug(id)}`;
 export const contentImagePath = (quiz: Pick<FunQuiz, "slug" | "version">, locale: DisplayLocale, id?: string) => `/og/fun/${quiz.slug}?locale=${locale}${id ? `&portrait=${resultSlug(id)}` : ""}&v=${quiz.version}`;
 

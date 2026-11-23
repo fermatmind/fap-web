@@ -88,7 +88,7 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
   const draft: Answers | null = savedRaw ? JSON.parse(savedRaw).answers : null;
   const mbtiVersions = listMbtiFormMetas().map(form => zh ? displayText(`${form.questionCount} 题（约 ${form.estimatedMinutes} 分钟）`) : `${form.questionCount} questions (about ${form.estimatedMinutes} min)`).join(zh ? displayText("、") : " or ");
   const mbtiBaseHref = `/${displayLocale}/tests/mbti-personality-test-16-personality-types`;
-  const recommendation = { locale, sourceRouteFamily: "test_detail" as const, sourceSlug: quiz.slug, sourcePath: `/${locale}/tests/play/${quiz.slug}`, href: mbtiBaseHref, ctaId: "entertainment_result_mbti", targetAction: "entertainment_result_mbti", targetTestSlug: "mbti-personality-test-16-personality-types", scaleCode: "MBTI" };
+  const recommendation = { locale, sourceRouteFamily: "test_detail" as const, sourceSlug: quiz.slug, sourcePath: `/${locale}/tests/explore/${quiz.slug}`, href: mbtiBaseHref, ctaId: "entertainment_result_mbti", targetAction: "entertainment_result_mbti", targetTestSlug: "mbti-personality-test-16-personality-types", scaleCode: "MBTI" };
   const mbtiHref = appendSeoCtaContextParamsToHref(mbtiBaseHref, buildSeoCtaContextParams(recommendation));
   const resolved = resolveFunQuiz(quiz, answers);
   const questionId = resolved.path[position];
@@ -176,7 +176,7 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
   }
   async function copy() {
     if (!result) return;
-    const url = `https://fermatmind.com/${displayLocale}/tests/play/${quiz.slug}`;
+    const url = `https://fermatmind.com/${displayLocale}/tests/explore/${quiz.slug}`;
     const sharedTitle = resolved.resultIds.length > 1 ? `${zh ? displayText("并列画像：") : "Tied portraits: "}${resolved.resultIds.map(id => quiz.results.find(portrait => portrait.id === id)!.title[locale]).join(zh ? displayText("、") : "; ")}` : result.title[locale];
     const guides = resolved.resultIds.map(id => `https://fermatmind.com${resultPath(displayLocale, quiz.slug, id)}`).join("\n");
     const text = `${quiz.title[locale]}\n${sharedTitle}\n${zh ? displayText("趣味测试结果，仅供娱乐。公开画像指南：") : "A playful quiz result, for entertainment. Public portrait guides:"}\n${guides}\n${url}`;
@@ -270,7 +270,7 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
           <p className="my-3 leading-7 text-slate-600">{zh ? displayText(`想用另一套框架继续认识自己？MBTI 探索偏好，与你刚才的故事独立计分。可选题本为 ${mbtiVersions}，需另行完整作答；也可以直接继续玩或离开。`) : `If you want a different framework, MBTI explores preferences through its own questionnaire. The versions are ${mbtiVersions}; each needs a separate full attempt. You can also keep playing or stop here.`}</p>
           <Link prefetch={false} className="inline-block min-h-11 py-2 font-medium underline" onClick={() => trackEvent("article_to_test_click", buildSeoCtaTrackingPayload(recommendation))} href={mbtiHref}>{zh ? displayText("了解 MBTI 与题本选择") : "Explore MBTI and its versions"}</Link>
         </>}
-        <ul className="mt-4 space-y-3">{relatedFunQuizzes(catalog, quiz).map(q => <li key={q.slug}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${traditional && hasTraditionalLegacyStory(q.slug) ? displayLocale : locale}/tests/play/${q.slug}`}>{displayText(q.title[locale])}{traditional && !hasTraditionalLegacyStory(q.slug) ? "（簡體中文）" : null}</Link></li>)}</ul>
+        <ul className="mt-4 space-y-3">{relatedFunQuizzes(catalog, quiz).map(q => <li key={q.slug}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${traditional && hasTraditionalLegacyStory(q.slug) ? displayLocale : locale}/tests/explore/${q.slug}`}>{displayText(q.title[locale])}{traditional && !hasTraditionalLegacyStory(q.slug) ? "（簡體中文）" : null}</Link></li>)}</ul>
         <Link className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests#more-tests`}>{zh ? displayText("浏览所有更多测试") : "Browse all More Tests"}</Link>
       </section>
       {archive && !standalone && <ArchiveQuestionnaireNextStep slug={quiz.slug} locale={displayLocale} />}

@@ -106,7 +106,7 @@ describe("T001 DISC complete source questionnaire", () => {
 
   it.each(["en", "zh"] as const)("renders the DISC entry and all 15 complete public guides in %s", async (locale) => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com"); vi.resetModules();
-    const entry = await import("@/app/(localized)/[locale]/tests/explore/disc/page");
+    const entry = await import("@/app/(localized)/[locale]/tests/disc-behavioral-style-test/page");
     const guide = await import("@/app/(localized)/[locale]/tests/explore/[slug]/results/[profile]/page");
     try {
       const props = { params: Promise.resolve({ locale, slug: "disc" }) };
@@ -116,9 +116,9 @@ describe("T001 DISC complete source questionnaire", () => {
       expect(html).toContain(locale === "zh" ? "独立作答页不保存答题进度" : "The questionnaire does not save in-progress answers");
       const sourceSavingFaq = quiz.faq.find(faq => faq.question.en === "Where are answers calculated, and can I save progress?")!;
       expect(html).not.toContain(sourceSavingFaq.answer[locale]);
-      expect(String(meta.alternates?.canonical)).toBe(`https://fermatmind.com${questionnairePath(locale, "disc")}`);
+      expect(String(meta.alternates?.canonical)).toBe(`https://fermatmind.com/${locale}/tests/disc-behavioral-style-test`);
       expect(meta.description).toBe(locale === "zh" ? quiz.description.zh : getLocalizedLanding("en", "disc").seoDescription);
-      expect(renderToStaticMarkup(<MoreTests locale={locale} />)).not.toContain(`href="${questionnairePath(locale, "disc")}"`);
+      expect(renderToStaticMarkup(<MoreTests locale={locale} />)).not.toContain(`href="/${locale}/tests/disc-behavioral-style-test"`);
       for (const profile of quiz.profiles) {
         const path = questionnaireGuidePath(locale, "disc", profile.id);
         expect(html).toContain(`href="${path}"`);
@@ -130,7 +130,7 @@ describe("T001 DISC complete source questionnaire", () => {
         expect(String(metadata.alternates?.canonical)).toBe(`https://fermatmind.com${path}`);
         expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com${questionnaireGuidePath("en", "disc", profile.id)}`, "zh-CN": `https://fermatmind.com${questionnaireGuidePath("zh", "disc", profile.id)}` });
         expect(rendered).toContain("application/ld+json");
-        expect(rendered).toContain(`href="${questionnairePath(locale, "disc")}#take-test"`);
+        expect(rendered).toContain(`href="/${locale}/tests/disc-behavioral-style-test#take-test"`);
       }
     } finally { vi.unstubAllEnvs(); }
   });

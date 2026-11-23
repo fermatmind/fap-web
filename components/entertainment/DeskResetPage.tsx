@@ -19,7 +19,7 @@ export function DeskResetPage({ quiz, locale, displayLocale = locale }: { quiz: 
   if (quiz.slug !== "desk-reset") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/desk-reset`;
+  const path = `/${displayLocale}/tests/explore/desk-reset`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: deskResetSections, faq: deskResetFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

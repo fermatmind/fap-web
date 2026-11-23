@@ -61,13 +61,10 @@ describe("shared discovery directory", () => {
         'a.catalog-item-start[href="/zh/tests/explore/caliper-style-assessment-test"]',
       )?.textContent,
     ).toContain("开始测试");
-    expect(container.querySelector('a[href="/zh/tests/explore/disc"]')).toBeNull();
+    expect(container.querySelector('a[href="/zh/tests/disc-behavioral-style-test"]')).toBeNull();
     for (const quiz of entertainmentDirectoryQuestionnaires) {
-      expect(
-        container.querySelector(
-          `h4 a[href="/zh/tests/${quiz.collection}/${quiz.slug}"]`,
-        ),
-      ).not.toBeNull();
+      const path = quiz.slug === "career-match" ? "/zh/career/match" : `/zh/tests/explore/${quiz.slug}`;
+      expect(container.querySelector(`h4 a[href="${path}"]`)).not.toBeNull();
     }
     const search = screen.getByRole("searchbox", { name: "搜索测试" });
     fireEvent.change(search, { target: { value: "打字速度" } });

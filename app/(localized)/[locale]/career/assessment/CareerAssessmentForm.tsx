@@ -1,5 +1,6 @@
 "use client";
 
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
 import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
@@ -227,7 +228,7 @@ export function CareerAssessmentForm({ locale }: { locale: Locale }) {
   return (
     <ImmersiveTakeLayout
       appearance="focused"
-      backHref={`/${locale}/career/assessment`}
+      backHref={`/${locale}${CAREER_ASSESSMENT_LANDING_PATH}`}
       backLabel={t("返回职业测试详情", "Back to the career test details")}
       current={index + 1}
       total={form.items.length}

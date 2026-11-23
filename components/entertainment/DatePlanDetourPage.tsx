@@ -19,7 +19,7 @@ export function DatePlanDetourPage({ quiz, locale, displayLocale = locale }: { q
   if (quiz.slug !== "date-plan-detour") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/date-plan-detour`;
+  const path = `/${displayLocale}/tests/explore/date-plan-detour`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: datePlanDetourSections, faq: datePlanDetourFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

@@ -27,7 +27,7 @@ describe("Chinese assessment result-reading navigation", () => {
     render(<AssessmentReadingPaths slug={SCALE_CANONICAL_SLUG_MAP.RIASEC} locale="zh" />);
     const section = screen.getByRole("region", { name: "霍兰德测试结果与三字代码怎么看？" });
     expect(within(section).getByRole("link", { name: "查看三种合成结果示例与探索工作表" }).getAttribute("href"))
-      .toBe("/zh/holland-test/pdf-download#result-examples");
+      .toBe("/zh/career/interest-worksheet#result-examples");
     expect(section.textContent).toContain("兴趣不是能力或职业匹配结论");
     expect(within(section).getAllByRole("link")).toHaveLength(2);
   });

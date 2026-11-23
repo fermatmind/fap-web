@@ -189,9 +189,9 @@ describe("original entertainment catalog", () => {
     expect(resolveFunQuiz(quiz, { q1: "o1", q2: "o1", q3: "o1", q4: "o1", q5: "o1", q6: "o1" }).resultIds).toEqual(["jay", "beaver", "hedgehog"]);
     expect(() => resolveFunQuiz(quiz, { q1: "missing" })).toThrow();
     expect(() => resolveFunQuiz(quiz, { unexpected: "o1" })).toThrow();
-    expect(isMissingFunRoute("/en/tests/play/not-a-real-quiz")).toBe(true);
-    expect(isMissingFunRoute("/en/tests/play/woodland-animal")).toBe(false);
-    expect(isMissingFunRoute("/zh/tests/play/woodland-animal/result")).toBe(true);
+    expect(isMissingFunRoute("/en/tests/explore/not-a-real-quiz")).toBe(true);
+    expect(isMissingFunRoute("/en/tests/explore/woodland-animal")).toBe(false);
+    expect(isMissingFunRoute("/zh/tests/explore/woodland-animal/result")).toBe(true);
     expect(isMissingFunRoute("/en/tests/mbti-personality-test-16-personality-types")).toBe(false);
     expect(await loadFunQuiz("__proto__")).toBeNull();
     expect(await loadFunQuiz("../woodland-animal")).toBeNull();
@@ -218,12 +218,13 @@ describe("original entertainment catalog", () => {
     expect(appendFunSitemapEntries(entries)).toEqual(entries);
     const expectedEntries = [...base];
     for (const card of [globalHistoryStory, ...catalog.filter(card => !questionnaires.some(native => native.slug === card.slug))]) for (const locale of ["en", "zh"]) {
-      expectedEntries.push({ loc: `https://fermatmind.com/${locale}/tests/play/${card.slug}`, lastmod: `${card.updated}T00:00:00.000Z` });
-      for (const slug of card.resultSlugs) expectedEntries.push({ loc: `https://fermatmind.com/${locale}/tests/play/${card.slug}/results/${slug}`, lastmod: `${card.updated}T00:00:00.000Z` });
+      expectedEntries.push({ loc: `https://fermatmind.com/${locale}/tests/explore/${card.slug}`, lastmod: `${card.updated}T00:00:00.000Z` });
+      for (const slug of card.resultSlugs) expectedEntries.push({ loc: `https://fermatmind.com/${locale}/tests/explore/${card.slug}/results/${slug}`, lastmod: `${card.updated}T00:00:00.000Z` });
     }
-    for (const card of questionnaires) for (const locale of ["en", "zh"]) {
-      const path = `https://fermatmind.com/${locale}/tests/${card.collection}/${card.slug}`;
-      expectedEntries.push({ loc: path, lastmod: `${card.updated}T00:00:00.000Z` });
+    for (const card of questionnaires.filter(({ slug }) => slug !== "career-match")) for (const locale of ["en", "zh"]) {
+      const path = `https://fermatmind.com/${locale}/tests/explore/${card.slug}`;
+      const landing = card.slug === "disc" ? `https://fermatmind.com/${locale}/tests/disc-behavioral-style-test` : path;
+      expectedEntries.push({ loc: landing, lastmod: `${card.updated}T00:00:00.000Z` });
       for (const profile of card.resultSlugs) expectedEntries.push({ loc: `${path}/results/${profile}`, lastmod: `${card.updated}T00:00:00.000Z` });
     }
     expectedEntries.push(...gta6Entries);

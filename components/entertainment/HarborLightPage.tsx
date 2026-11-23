@@ -19,7 +19,7 @@ export function HarborLightPage({ quiz, locale, displayLocale = locale }: { quiz
   if (quiz.slug !== "harbor-light") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/harbor-light`;
+  const path = `/${displayLocale}/tests/explore/harbor-light`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: harborLightSections, faq: harborLightFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

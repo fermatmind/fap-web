@@ -49,7 +49,7 @@ describe("public entertainment AdSense routes", () => {
 
   it.each([
     `${history}/take?session=private`, "/en/tests/play/friendship-quiz/take",
-    "/zh/tests/explore/8-values-political/take", "/en/tests/explore/political-coordinates/take", "/zh-TW/tests/explore/disc",
+    "/zh/tests/explore/8-values-political/take", "/en/tests/explore/political-coordinates/take", "/zh-TW/tests/disc-behavioral-style-test",
     "/zh/tests/explore/unknown-quiz", "/zh/tests/explore/gta-6-character-quiz/result/123",
     "/zh/tests/explore/rice-purity-test", "/en/tests/explore/sbti-test/take",
     "/en/tests/explore/natal-chart", "/zh/tests/explore/disc/take", "/zh/tests/explore/mental-age/take",

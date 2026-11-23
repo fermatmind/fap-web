@@ -1,3 +1,4 @@
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 
 type LocaleText = readonly [zh: string, traditional: string, en: string];
@@ -5,7 +6,7 @@ type Section = readonly [heading: LocaleText, body: LocaleText];
 
 const assessments = {
   career: {
-    path: "/career/assessment",
+    path: CAREER_ASSESSMENT_LANDING_PATH,
     artwork: "career",
     title: [
       "免费职业测试（94题完整版）：看清兴趣、工作方式与现实条件",

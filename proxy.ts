@@ -1,3 +1,5 @@
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
+import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
 import {
   fixedComparisonPath,
   isFixedComparisonLocale,
@@ -197,10 +199,14 @@ function resolveTestDetailBoundary(pathname: string): {
   const locale = match[1]?.toLowerCase() === "zh" ? "zh" : "en";
   try {
     const requestedSlug = decodeURIComponent(match[2] ?? "").trim().toLowerCase();
+    const entryPath = `/tests/${requestedSlug}`;
+    const canonicalSlug = entryPath === CAREER_ASSESSMENT_LANDING_PATH || entryPath === DISC_LANDING_PATH
+      ? requestedSlug
+      : isKnownTestSlug(requestedSlug) ? resolveCanonicalSlug(requestedSlug) : null;
     return {
       locale,
       requestedSlug,
-      canonicalSlug: isKnownTestSlug(requestedSlug) ? resolveCanonicalSlug(requestedSlug) : null,
+      canonicalSlug,
     };
   } catch {
     return { locale, requestedSlug: "", canonicalSlug: null };
@@ -637,9 +643,9 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
   const response = NextResponse.next({ request: { headers: requestHeaders } });
   applyNonceCspHeaders(response.headers, cspNonce, strippedPath === "/account");
 
-  const focusedTool = pathname.match(/^\/(?:en|zh)\/tests\/explore\/(disc)\/?$/)?.[1];
-  if (request.method === "GET" && request.headers.get("accept")?.includes("text/html") && !request.headers.has("rsc") && focusedTool) {
-    const scripts = initialQuestionnaireScripts(focusedTool as "disc");
+  const isDiscLanding = getLocaleFromPathname(pathname) !== null && strippedPath.replace(/\/$/u, "") === DISC_LANDING_PATH;
+  if (request.method === "GET" && request.headers.get("accept")?.includes("text/html") && !request.headers.has("rsc") && isDiscLanding) {
+    const scripts = initialQuestionnaireScripts("disc");
     if (scripts.length) response.headers.append("Link", scripts.map(href => `<${href}>; rel=preload; as=script; fetchpriority=high; nonce="${cspNonce}"`).join(", "));
   }
 

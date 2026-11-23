@@ -1,7 +1,9 @@
 import type { DisplayLocale } from "@/lib/i18n/locales";
 
+export const CAREER_ASSESSMENT_LANDING_PATH = "/tests/career-planning-and-work-style-test";
+
 export function careerAssessmentEntry(locale: DisplayLocale) {
-  const href = `/${locale}/career/assessment`;
+  const href = `/${locale}${CAREER_ASSESSMENT_LANDING_PATH}`;
   if (locale === "en") {
     return {
       href,

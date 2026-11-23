@@ -19,7 +19,7 @@ export function CameraRollPage({ quiz, locale, displayLocale = locale }: { quiz:
   if (quiz.slug !== "camera-roll") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/camera-roll`;
+  const path = `/${displayLocale}/tests/explore/camera-roll`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: cameraRollSections, faq: cameraRollFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

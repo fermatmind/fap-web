@@ -1,6 +1,7 @@
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 const bigFive = "/tests/big-five-personality-test-ocean-model";
 const mbti = "/tests/mbti-personality-test-16-personality-types";
-const career = "/career/assessment";
+const career = CAREER_ASSESSMENT_LANDING_PATH;
 
 export const mentalAgeLandingConfig = {
   sampleQuestionIds: ["MAC_01", "MAC_02", "MAC_23"],

@@ -35,7 +35,7 @@ describe("Career tools use consent and independent task units", () => {
     trackCareerToolEvent("career_worksheet_copy_succeeded", { locale: "zh", toolRunId: run, outputFormat: "text" });
     expect(trackEvent).toHaveBeenCalledWith("career_worksheet_copy_succeeded", {
       locale: "zh", entry_surface: "career_worksheet", source_page_type: "career_worksheet",
-      target_action: "worksheet_copy_succeeded", landing_path: "/zh/holland-test/pdf-download",
+      target_action: "worksheet_copy_succeeded", landing_path: "/zh/career/interest-worksheet",
       route_family: "worksheet", subject_kind: "none", query_mode: "non_query", tool_run_id: run, output_format: "text",
     });
     expect(isCareerAttributionEvent("career_compare_succeeded")).toBe(true);

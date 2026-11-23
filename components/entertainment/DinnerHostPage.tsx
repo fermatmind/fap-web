@@ -19,7 +19,7 @@ export function DinnerHostPage({ quiz, locale, displayLocale = locale }: { quiz:
   if (quiz.slug !== "dinner-host") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/dinner-host`;
+  const path = `/${displayLocale}/tests/explore/dinner-host`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: dinnerHostSections, faq: dinnerHostFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

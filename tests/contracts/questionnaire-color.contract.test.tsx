@@ -97,12 +97,11 @@ describe("T002 Color complete source questionnaire", () => {
     expect(readQuestionnaireDraft(quiz, "not JSON")).toBeNull();
     for (const slug of ["__proto__", "../disc", "unknown"]) expect(await loadQuestionnaire(slug)).toBeNull();
     for (const locale of ["en", "zh"] as const) {
-      expect(questionnairePath(locale, "response-color")).toBe(`/${locale}/tests/play/response-color`);
-      expect(isMissingFunRoute(`/${locale}/tests/explore/response-color`)).toBe(true);
+      expect(questionnairePath(locale, "response-color")).toBe(`/${locale}/tests/explore/response-color`);
       expect(quiz.profiles.slice(0, 4).map(p => p.id)).toEqual(["red", "yellow", "blue", "green"]);
       expect(isMissingFunRoute(questionnairePath(locale, "response-color"))).toBe(false);
       for (const profile of quiz.profiles) expect(isMissingFunRoute(questionnaireGuidePath(locale, "response-color", profile.id))).toBe(false);
-      for (const path of [`/${locale}/tests/explore`, `/${locale}/tests/play/response-color/results/SINGLE_RED`, `/${locale}/tests/play/response-color/results/unknown`, `/${locale}/tests/explore/unknown`]) expect(isMissingFunRoute(path)).toBe(true);
+      for (const path of [`/${locale}/tests/explore`, `/${locale}/tests/explore/response-color/results/SINGLE_RED`, `/${locale}/tests/explore/response-color/results/unknown`, `/${locale}/tests/explore/unknown`]) expect(isMissingFunRoute(path)).toBe(true);
     }
   });
 

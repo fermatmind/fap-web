@@ -67,7 +67,7 @@ export const careerLayers = [
 
 const holland = "/tests/holland-career-interest-test-riasec";
 const mbti = "/tests/mbti-personality-test-16-personality-types";
-const c2 = "/holland-test/pdf-download";
+const c2 = "/career/interest-worksheet";
 export const careerComparison = [
   { name: ["费马职业测试", "FermatMind Career94", "費馬職業測驗"], goal: ["同时梳理兴趣、工作方式、工作条件和当前处境。", "Explore interests, work style, job conditions and current constraints.", "一起整理興趣、工作方式、工作條件與目前處境。"], time: ["94 题 · 约 12–15 分钟", "94 questions · About 12–15 min", "94 題 · 約 12–15 分鐘"], audience: ["要选专业、求职或转行，还想比较真实工作条件。", "Choosing a major, a first job or a career change with practical constraints.", "想選科系、求職或轉職，也想比較實際工作條件。"], href: null },
   { name: ["霍兰德职业兴趣测试", "Holland Code Career Interest Test", "霍蘭德職業興趣測驗"], goal: ["快速看六维活动兴趣和三字兴趣代码。", "Identify your six activity interests and three-letter Holland Code.", "快速了解六類活動興趣與三字代碼。"], time: ["60 题 · 约 8 分钟", "60 questions · About 8 min", "60 題 · 約 8 分鐘"], audience: ["想先知道愿意尝试哪类活动。", "Anyone looking for a quick starting point on activity interests.", "想先知道自己願意嘗試哪些活動。"], href: holland },

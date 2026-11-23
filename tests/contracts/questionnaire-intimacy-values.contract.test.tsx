@@ -80,14 +80,14 @@ describe("Original intimacy priorities: importance without a type or partner ass
       for (const p of quiz.profiles) for (const s of p.sections) for (const t of s.paragraphs) expect(dom.querySelector(`[data-intimacy-values-part="${p.id}"]`)?.textContent).toContain(t[locale]);
       for (const mean of dom.querySelectorAll("[data-intimacy-values-mean]")) expect(mean.textContent).toContain(value === "na" ? (locale === "zh" ? "资料不足" : "Insufficient information") : `${value}.0 / 5`);
       const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
-      expect(dom.textContent).not.toMatch(/battery|电量|剩余能量/); expect(dom.querySelector("[data-intimacy-values-next-steps] a")?.getAttribute("href")).toBe(`/${locale}/tests/play/relationship-values`);
+      expect(dom.textContent).not.toMatch(/battery|电量|剩余能量/); expect(dom.querySelector("[data-intimacy-values-next-steps] a")?.getAttribute("href")).toBe(`/${locale}/tests/explore/relationship-values`);
     }
   });
   it("links the Taiwan Chinese result to the canonical Taiwan Chinese role test", () => {
     const dom = document.createElement("div");
     dom.innerHTML = renderToStaticMarkup(<IntimacyValuesNextSteps locale="zh" displayLocale="zh-TW" />);
     const link = dom.querySelector("[data-intimacy-values-next-steps] a");
-    expect(link?.getAttribute("href")).toBe("/zh-TW/tests/play/relationship-values");
+    expect(link?.getAttribute("href")).toBe("/zh-TW/tests/explore/relationship-values");
     expect(link?.getAttribute("lang")).toBeNull();
   });
   it("suppresses ordinary analytics on entries and public guides without changing their indexability", async () => {

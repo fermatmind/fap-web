@@ -31,13 +31,13 @@ it.each([
 
   const entry = questionnairePath("zh-TW", slug);
   const suffix = entry.slice("/zh-TW".length);
-  const wrong = suffix.includes("/play/") ? suffix.replace("/play/", "/explore/") : suffix.replace("/explore/", "/play/");
+  const wrong = suffix.replace("/explore/", "/play/");
   expect(traditionalDirectionalRoute(wrong)).toBeNull();
   expect(traditionalPath(questionnairePath("zh", slug))).toBe(entry);
   expect(traditionalPath(entry + "/results/unknown")).toBeNull();
   expect(await traditionalLikertMetadata({ slug, take: true })).toMatchObject({
     robots: { index: false, follow: false },
-    alternates: { canonical: entry },
+    alternates: { canonical: slug === "disc" ? "/zh-TW/tests/disc-behavioral-style-test" : entry },
   });
 
   const { container } = render(await LikertQuestionnairePage({ slug, take: false }));

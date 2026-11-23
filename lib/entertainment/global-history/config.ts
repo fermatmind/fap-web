@@ -21,7 +21,7 @@ export const globalHistoryMethod: Copy = {
   en: "Twelve choices describe your approach in six areas. We compare it with a story profile written for each figure and pick the closest overall. Ties favor more exact matches across the six areas, then a fixed identifier. Profiles are editorial interpretations of historical lives and work. The result is for fun.",
 };
 
-export const GLOBAL_HISTORY_PATH = `/tests/play/${GLOBAL_HISTORY_SLUG}`;
+export const GLOBAL_HISTORY_PATH = `/tests/explore/${GLOBAL_HISTORY_SLUG}`;
 export const globalHistoryPath = (locale: DisplayLocale) => `/${locale}${GLOBAL_HISTORY_PATH}`;
 export const globalHistoryResultPath = (locale: DisplayLocale, id: string) => `${globalHistoryPath(locale)}/results/${id}`;
 export const globalHistoryPortraitPath = (id: string) => `/images/global-history/${id}.jpg`;

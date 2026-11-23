@@ -16,7 +16,7 @@ describe("Career Match public input tool, without duplicate RIASEC result pages"
     const route = await import("@/app/(localized)/[locale]/tests/explore/[slug]/page");
     const maps = appendFunSitemapEntries([]);
     for (const locale of ["en", "zh"] as const) {
-      const path = `/${locale}/tests/explore/career-match`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) };
+      const path = `/${locale}/career/match`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) };
       const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(await route.default(props));
       expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
       expect(dom.querySelectorAll("main")).toHaveLength(1); expect(dom.querySelector("button")).toBeDisabled();

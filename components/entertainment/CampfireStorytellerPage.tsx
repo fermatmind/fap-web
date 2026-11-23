@@ -19,7 +19,7 @@ export function CampfireStorytellerPage({ quiz, locale, displayLocale = locale }
   if (quiz.slug !== "campfire-storyteller") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/campfire-storyteller`;
+  const path = `/${displayLocale}/tests/explore/campfire-storyteller`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: campfireStorytellerSections, faq: campfireStorytellerFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

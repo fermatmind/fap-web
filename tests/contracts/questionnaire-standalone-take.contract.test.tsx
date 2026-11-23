@@ -26,10 +26,10 @@ describe("Independent entertainment answering routes", () => {
     expect(hasQuestionnaireTake("unknown-product")).toBe(false);
   });
   it("admits all 382 answering experiences in both languages and still refuses absent products", () => {
-    const entries = [...catalog.filter(item => hasQuestionnaireTake(item.slug)).map(item => `${item.collection}/${item.slug}`), ...stories.filter(item => !catalog.some(native => native.slug === item.slug)).map(item => `play/${item.slug}`), "play/friendship-quiz"];
+    const entries = [...catalog.filter(item => hasQuestionnaireTake(item.slug)).map(item => `explore/${item.slug}`), ...stories.filter(item => !catalog.some(native => native.slug === item.slug)).map(item => `explore/${item.slug}`), "explore/friendship-quiz"];
     expect(entries).toHaveLength(382);
     for (const locale of ["en", "zh"]) for (const entry of entries) expect(isMissingFunRoute(`/${locale}/tests/${entry}/take`)).toBe(false);
-    for (const path of ["/zh/tests/explore/missing-product/take", "/en/tests/play/missing-story/take", "/en/tests/explore/career-match/take", "/en/tests/play/friendship-quiz/take/manage"]) expect(isMissingFunRoute(path)).toBe(true);
+    for (const path of ["/zh/tests/explore/missing-product/take", "/en/tests/explore/missing-story/take", "/en/tests/explore/career-match/take", "/en/tests/explore/friendship-quiz/take/manage"]) expect(isMissingFunRoute(path)).toBe(true);
   });
   it.each(["en", "zh"] as const)("keeps the %s dog landing editorial and moves its unchanged engine into /take", locale => {
     const quiz = dog as Questionnaire;
@@ -49,12 +49,12 @@ describe("Independent entertainment answering routes", () => {
     const harbor = await loadFunQuiz("harbor-light");
     if (!harbor) throw new Error("Authoritative local story missing");
     const html = renderToStaticMarkup(<HarborLightPage quiz={harbor} locale={locale} />);
-    expect(html).toContain(`action="/${locale}/tests/play/harbor-light/take"`);
+    expect(html).toContain(`action="/${locale}/tests/explore/harbor-light/take"`);
     expect(html).toContain('id="possible-results"');
     expect(html).toContain('id="harbor-light-methods"');
     expect(html).not.toContain('data-stage="welcome"');
   });
-  it.each(["/en/tests/explore/disc/take", "/zh/tests/explore/what-dog-breed-am-i/take", "/en/tests/play/harbor-light/take", "/zh/tests/play/friendship-quiz/take", "/en/tests/play/changan-history-quiz/take", "/zh/tests/play/changan-history-quiz/take"])("keeps %s out of indexing and shared caches", async path => {
+  it.each(["/en/tests/explore/disc/take", "/zh/tests/explore/what-dog-breed-am-i/take", "/en/tests/explore/harbor-light/take", "/zh/tests/explore/friendship-quiz/take", "/en/tests/explore/changan-history-quiz/take", "/zh/tests/explore/changan-history-quiz/take"])("keeps %s out of indexing and shared caches", async path => {
     const route = parseQuestionnaireTakePath(path)!;
     expect(route.landing).toBe(path.replace(/\/take$/, ""));
     expect(isIndexablePath(path)).toBe(false);
@@ -71,7 +71,7 @@ describe("Independent entertainment answering routes", () => {
   it("preserves sensitive-questionnaire analytics suppression on the new suffix", () => {
     for (const path of ANALYTICS_DISABLED_QUESTIONNAIRE_PATHS) expect(isAnalyticsDisabledQuestionnaireUrl(`/zh${path}/take`)).toBe(true);
   });
-  it.each(["/zh/tests/explore/disc/results/single-d", "/zh/tests/explore/disc", "/zh/tests/mbti/take", "/zh/tests/play/bad%2fslug/take", "/zh/tests/play/a/take/extra"])("does not treat %s as a native entertainment take route", path => {
+  it.each(["/zh/tests/explore/disc/results/single-d", "/zh/tests/explore/disc", "/zh/tests/mbti/take", "/zh/tests/explore/bad%2fslug/take", "/zh/tests/explore/a/take/extra"])("does not treat %s as a native entertainment take route", path => {
     expect(parseQuestionnaireTakePath(path)).toBeNull();
   });
 });

@@ -17,9 +17,9 @@ describe("usable bilingual friendship activity", () => {
       expect(container.querySelector(`a[href="${path}"][download]`)).not.toBeNull();
       expect(readFileSync(`public${path}`).subarray(0, 5).toString()).toBe('%PDF-');
     }
-    for (const category of Object.keys(preview.categories)) expect(container.querySelector(`a[href="/${locale}/tests/play/friendship-quiz/take?category=${category}"]`)).not.toBeNull();
-    expect(container.querySelector(`a[href="/${locale === 'en' ? 'zh' : 'en'}/tests/play/friendship-quiz/questions"]`)).not.toBeNull();
-    expect(resourceMetadata(locale, 'questions').alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/play/friendship-quiz/questions`);
+    for (const category of Object.keys(preview.categories)) expect(container.querySelector(`a[href="/${locale}/tests/explore/friendship-quiz/take?category=${category}"]`)).not.toBeNull();
+    expect(container.querySelector(`a[href="/${locale === 'en' ? 'zh' : 'en'}/tests/explore/friendship-quiz/questions"]`)).not.toBeNull();
+    expect(resourceMetadata(locale, 'questions').alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/explore/friendship-quiz/questions`);
   });
   it("explains a fixed common set, private roles, blank guesses, ties and actual online limits", () => {
     const { container } = render(<QuestionActivity locale="en" />);

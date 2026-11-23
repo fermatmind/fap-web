@@ -1,4 +1,4 @@
-import { questionnairePath } from "@/lib/questionnaires/paths";
+import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
 import { careerAssessmentEntry } from "@/lib/career/assessmentEntry";
 import { InteractiveStoryLibrary } from "@/components/entertainment/InteractiveStoryLibrary";
 import { MoreTests } from "@/components/entertainment/MoreTests";
@@ -99,7 +99,7 @@ export function TestsHubExperience({
   const discCard: HubTestCardItem = {
     ...discCardCopy[locale],
     key: "disc",
-    href: questionnairePath(locale, "disc"),
+    href: `/${locale}${DISC_LANDING_PATH}`,
     previewVariant: "bars",
   };
   const careerCard: HubTestCardItem = {

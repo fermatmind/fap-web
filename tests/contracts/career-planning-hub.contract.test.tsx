@@ -41,7 +41,7 @@ describe("career planning hub", () => {
     expect(html).not.toContain("範例外的內容。");
     expect(html).toContain(`href="${href}"`);
     expect(html).not.toContain('href="/zh-TW/career/guides/career-transition-playbook"');
-    expect(html).toContain('href="/zh/holland-test/pdf-download"');
+    expect(html).toContain('href="/zh/career/interest-worksheet"');
     expect(html).not.toContain('aria-label="頁面語言"');
     const metadata = await route.generateMetadata();
     expect(metadata.robots).toMatchObject({ index: false });
@@ -56,7 +56,7 @@ describe("career planning hub", () => {
     const dom = new DOMParser().parseFromString(html, "text/html");
     expect(dom.querySelectorAll("[data-action^='select_start_']")).toHaveLength(3);
     for (const target of ["#explore-work", "#worked-example", "#target-plan"]) expect(dom.querySelector(target)).not.toBeNull();
-    for (const path of ["career/tests", "career/guides/how-to-find-right-career-direction", "career/guides/career-transition-playbook", "holland-test/pdf-download"]) {
+    for (const path of ["career/tests", "career/guides/how-to-find-right-career-direction", "career/guides/career-transition-playbook", "career/interest-worksheet"]) {
       expect(dom.querySelector(`a[href='/${locale}/${path}']`)).not.toBeNull();
     }
     expect(dom.querySelector("#worked-example")?.textContent).toContain(locale === "en" ? "Synthetic teaching case" : "公开合成案例");

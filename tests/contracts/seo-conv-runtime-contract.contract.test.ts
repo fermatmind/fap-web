@@ -34,7 +34,7 @@ afterEach(() => {
 });
 
 describe("SEO-CONV-RUNTIME-03 runtime funnel contract", () => {
-  it.each(["/en/tests/explore/disc", "/zh/tests/explore/disc", "/en/tests/explore/disc/results/single-d", "/zh/tests/explore/disc/results/tied-d-i-s-c"])("keeps the original questionnaire identity and consent-safe landing at %s", async path => {
+  it.each(["/en/tests/disc-behavioral-style-test", "/zh/tests/disc-behavioral-style-test", "/en/tests/explore/disc/results/single-d", "/zh/tests/explore/disc/results/tied-d-i-s-c"])("keeps the original questionnaire identity and consent-safe landing at %s", async path => {
     grantAnalyticsConsent();
     window.history.pushState({}, "", path);
     const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));

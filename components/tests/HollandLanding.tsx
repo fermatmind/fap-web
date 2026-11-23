@@ -1,3 +1,4 @@
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import Link from "next/link";
 import { ArrowDown, ArrowRight, ArrowUpRight, BarChart3, BookOpen, Compass, ListChecks, ScanLine } from "lucide-react";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
@@ -20,7 +21,7 @@ const benefits = [
 const tools = [
   [BookOpen, "/zh/career", "浏览 1,046 个中外规范职业档案库", "看真实工作任务与入行条件"],
   [Compass, "/zh/career/compare", "打开双职业对比", "把两个候选职业放在一起看"],
-  [ListChecks, "/zh/holland-test/pdf-download", "填写行动工作表", "记录一个本周可以完成的试做任务"],
+  [ListChecks, "/zh/career/interest-worksheet", "填写行动工作表", "记录一个本周可以完成的试做任务"],
 ] as const;
 
 const occupations = [
@@ -44,7 +45,7 @@ const fields = [
 const scenarios = [
   ["选专业", "挑两三门核心课，看看实验、创作、分析和协作各占多少，再找一项课程任务试做。", "#holland-careers", "按活动找方向"],
   ["找第一份工作", "同样叫运营或分析，日常任务也可能差很多。挑两个岗位，比较它们每天主要做什么。", "/zh/career/compare", "比较两个岗位"],
-  ["考虑转行", "把消耗你的具体任务，与工时、管理或团队条件分开记录，再判断是换岗位还是换环境。", "/zh/holland-test/pdf-download", "填写行动工作表"],
+  ["考虑转行", "把消耗你的具体任务，与工时、管理或团队条件分开记录，再判断是换岗位还是换环境。", "/zh/career/interest-worksheet", "填写行动工作表"],
 ] as const;
 
 const exampleCareers: Record<string, ReadonlyArray<readonly [string, string]>> = {
@@ -56,7 +57,7 @@ const exampleCareers: Record<string, ReadonlyArray<readonly [string, string]>> =
 
 const comparisons = [
   [null, "霍兰德职业兴趣测试", "我愿意投入哪些工作活动？", "60 题 · 约 8 分钟", "想先缩小职业探索范围"],
-  ["/zh/career/assessment", "费马职业测试", "哪些工作方向值得进一步了解？", "94 题 · 约 12–15 分钟", "选专业、找第一份工作或准备转行"],
+  [`/zh${CAREER_ASSESSMENT_LANDING_PATH}`, "费马职业测试", "哪些工作方向值得进一步了解？", "94 题 · 约 12–15 分钟", "选专业、找第一份工作或准备转行"],
   ["/zh/tests/mbti-personality-test-16-personality-types", "MBTI 性格测试", "我习惯怎样获取信息和做决定？", "93 / 144 题 · 约 10–15 分钟", "想理解性格偏好与协作方式"],
 ] as const;
 

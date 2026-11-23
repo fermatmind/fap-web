@@ -1,9 +1,10 @@
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import type { LocalizedLandingProfile } from "./types";
 
 const holland = "/tests/holland-career-interest-test-riasec";
-const career = "/career/assessment";
+const career = CAREER_ASSESSMENT_LANDING_PATH;
 const compare = "/career/compare";
-const worksheet = "/holland-test/pdf-download";
+const worksheet = "/career/interest-worksheet";
 const majorGuide = "/career/guides/how-to-choose-college-major";
 const transitionGuide = "/career/guides/career-transition-playbook";
 const careerDirection = "/career/guides/how-to-find-right-career-direction";

@@ -63,7 +63,7 @@ export function CareerExplorationPilot(props: Props) {
               {taiwan ? "比較工業設計師與平面設計師" : DESIGN_COMPARE_LABEL}
             </Link>
           )}
-          <Link href={`/${locale}/holland-test/pdf-download#my-worksheet`} className={buttonVariants({ variant: "outline", className: "h-auto min-h-11 whitespace-normal text-center" })}>
+          <Link href={`/${locale}/career/interest-worksheet#my-worksheet`} className={buttonVariants({ variant: "outline", className: "h-auto min-h-11 whitespace-normal text-center" })}>
             {labels("填寫免費職涯探索紀錄", "填写免费职业探索记录", "Use the free exploration worksheet")}
           </Link>
         </div>

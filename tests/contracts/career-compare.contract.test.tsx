@@ -179,7 +179,7 @@ describe('two-slot task flow', () => {
     fireEvent.change(selects[1], { target: { value: 'graphic-designers' } });
     await screen.findByTestId('career-compare-table');
     expect(screen.getByRole('link', { name: transitionLinkName })).toHaveAttribute('href', `/${locale}/career/guides/career-transition-playbook`);
-    expect(screen.getByRole('link', { name: worksheetLinkName })).toHaveAttribute('href', `/${locale}/holland-test/pdf-download#my-worksheet`);
+    expect(screen.getByRole('link', { name: worksheetLinkName })).toHaveAttribute('href', `/${locale}/career/interest-worksheet#my-worksheet`);
     expect(screen.getByText('Published task for industrial-designers')).toBeInTheDocument();
     expect(screen.getAllByText(locale === 'zh' ? /未知：/ : /Unknown:/).length).toBeGreaterThan(0);
     expect(trackCareerToolEvent).not.toHaveBeenCalled();

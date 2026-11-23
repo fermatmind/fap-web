@@ -15,10 +15,10 @@ describe("story and native questionnaire failure isolation", () => {
     const route = await import("@/app/(localized)/[locale]/tests/play/[slug]/page");
     const props = { params: Promise.resolve({locale, slug: "weather-in-a-bottle"}) };
     const metadata = await route.generateMetadata(props);
-    expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/play/weather-in-a-bottle`);
+    expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/explore/weather-in-a-bottle`);
     const root = document.createElement("div");
     root.innerHTML = renderToStaticMarkup(await route.default(props));
     expect(root.querySelector("h1")).not.toBeNull();
-    expect(root.querySelector("#play form")?.getAttribute("action")).toBe(`/${locale}/tests/play/weather-in-a-bottle/take`);
+    expect(root.querySelector("#play form")?.getAttribute("action")).toBe(`/${locale}/tests/explore/weather-in-a-bottle/take`);
   });
 });

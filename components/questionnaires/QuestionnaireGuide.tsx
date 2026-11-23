@@ -1,3 +1,4 @@
+import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
 import { SevenSinsExploreLink } from "./SevenSinsExploreLink";
 import { getArchiveExperience } from "@/lib/entertainment/archiveExperience";
 import { ArchiveReadingSnapshot } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
@@ -630,7 +631,7 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
   if (quiz?.kind === "ptq15" && !isPtq15ConfigurationValid(quiz)) notFound();
   const profile = quiz && ((quiz.kind === "mini-friction" && !isMiniFrictionConfigurationValid(quiz)) || (quiz.kind === "ctl41" && !isCtl41ConfigurationValid(quiz)) || (quiz.kind === "interaction-pairs" && !isInteractionPairsConfigurationValid(quiz)) || (quiz.kind === "work-role12" && !isWorkRole12ConfigurationValid(quiz)) || (quiz.kind === "skills-evidence" && !isSkillsEvidenceConfigurationValid(quiz))) ? undefined : quiz?.profiles.find(p => p.id === id);
   if (!quiz || !profile || (quiz.slug === "dark-tetrad-sd4" && !isSd4ConfigurationValid(quiz)) || (quiz.kind === "tipi10" && !isTipi10ConfigurationValid(quiz)) || (quiz.kind === "saps" && !isSapsConfigurationValid(quiz)) || (quiz.kind === "scs26" && !isScs26ConfigurationValid(quiz)) || (quiz.kind === "cbi" && !isCbiConfigurationValid(quiz)) || (quiz.kind === "rosenberg" && !isRosenbergConfigurationValid(quiz)) || (quiz.kind === "political-coordinates" && !isPoliticalCoordinatesConfigurationValid(quiz)) || (quiz.kind === "data-entry" && !isDataEntryConfigurationValid(quiz)) || (quiz.kind === "secs" && !isSecsConfigurationValid(quiz)) || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz)) || (quiz.kind === "ten-key" && !isTenKeyConfigurationValid(quiz))) notFound();
-  const path = questionnaireGuidePath(locale, slug, id), entry = questionnairePath(locale, slug);
+  const path = questionnaireGuidePath(locale, slug, id), entry = slug === "disc" ? `/${locale}${DISC_LANDING_PATH}` : questionnairePath(locale, slug);
   const readingProfile = prepareResultProfile(quiz.slug, profile);
   const publicProfile = entertainmentGuideProfile(slug, locale, sevenSinsGuideProfile(slug, locale, profile));
   return <main className="bg-slate-50 py-10 text-slate-950"><Container className="max-w-3xl">

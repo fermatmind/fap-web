@@ -92,14 +92,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   return buildPageMetadata({
     locale,
-    pathname: `/${locale}/tests/play/${slug}`,
+    pathname: `/${locale}/tests/explore/${slug}`,
     title: quiz.seo.title[locale],
     description: quiz.seo.description[locale],
     imagePath: contentImagePath(quiz, locale),
     alternatesByLocale: {
-      en: `/en/tests/play/${slug}`,
-      zh: `/zh/tests/play/${slug}`,
-      xDefault: `/en/tests/play/${slug}`,
+      en: `/en/tests/explore/${slug}`,
+      zh: `/zh/tests/explore/${slug}`,
+      xDefault: `/en/tests/explore/${slug}`,
     },
   });
 }
@@ -162,7 +162,7 @@ async function FunQuizContent({ params }: Props) {
     card.minQuestionCount === card.questionCount
       ? `${card.questionCount}`
       : `${card.minQuestionCount}–${card.questionCount}`;
-  const path = `/${locale}/tests/play/${slug}`;
+  const path = `/${locale}/tests/explore/${slug}`;
   return (
     <main className="bg-slate-50 py-10 text-slate-950">
       <Container className="max-w-3xl">
@@ -310,7 +310,7 @@ async function FunQuizContent({ params }: Props) {
                 <Link
                   prefetch={false}
                   className="inline-block min-h-11 py-2 underline"
-                  href={`/${locale}/tests/play/${other.slug}`}
+                  href={`/${locale}/tests/explore/${other.slug}`}
                 >
                   {other.title[locale]}
                 </Link>

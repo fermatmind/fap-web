@@ -19,7 +19,7 @@ export function DragonHousematePage({ quiz, locale, displayLocale = locale }: { 
   if (quiz.slug !== "dragon-housemate") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/dragon-housemate`;
+  const path = `/${displayLocale}/tests/explore/dragon-housemate`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: dragonHousemateSections, faq: dragonHousemateFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

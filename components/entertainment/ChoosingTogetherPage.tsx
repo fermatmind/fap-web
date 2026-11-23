@@ -19,7 +19,7 @@ export function ChoosingTogetherPage({ quiz, locale, displayLocale = locale }: {
   if (quiz.slug !== "choosing-together") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/choosing-together`;
+  const path = `/${displayLocale}/tests/explore/choosing-together`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: choosingTogetherSections, faq: choosingTogetherFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;
