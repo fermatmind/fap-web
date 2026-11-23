@@ -9,16 +9,18 @@ export function SiteChrome({
   children,
   locale,
   productPriority,
+  allowWebViewImageStyles,
 }: {
   children: ReactNode;
   locale: DisplayLocale;
   productPriority: ProductPriorityEnvSnapshot;
+  allowWebViewImageStyles?: boolean;
 }) {
   return (
     <AssessmentSiteFrame
       locale={locale}
       header={<Suspense fallback={null}><DeferredSiteHeader locale={locale} productPriority={productPriority} /></Suspense>}
-      footer={<SiteFooter locale={locale} />}
+      footer={<SiteFooter locale={locale} allowWebViewImageStyles={allowWebViewImageStyles} />}
     >
       {children}
     </AssessmentSiteFrame>

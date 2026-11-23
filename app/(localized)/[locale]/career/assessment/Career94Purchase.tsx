@@ -89,8 +89,9 @@ export function Career94SaveResult({ locale, offers, onSave }: {
   </div>;
 }
 
-export function Career94Checkout({ locale, attemptId, offers, displayLocale = locale }: {
+export function Career94Checkout({ locale, attemptId, offers, displayLocale = locale, onPaymentClick }: {
   locale: Locale;
+  onPaymentClick?: () => void;
   attemptId: string;
   offers: Career94Offer[];
   displayLocale?: DisplayLocale;
@@ -115,7 +116,7 @@ export function Career94Checkout({ locale, attemptId, offers, displayLocale = lo
 
   return <div className={styles.purchase}>
     {offers.map(offer => {
-      return <button key={`${offer.provider}:${offer.sku}`} type="button" className={styles.cta} onClick={() => void checkout(offer)} disabled={busy}>
+      return <button key={`${offer.provider}:${offer.sku}`} type="button" className={styles.cta} onClick={() => { onPaymentClick?.(); void checkout(offer); }} disabled={busy}>
         {busy ? (zh ? copy("正在打开收银台…", "正在開啟收銀台…") : "Opening checkout…") : (displayLocale === "zh-TW" ? offerLabel(offer, zh).replace("支付宝", "支付寶").replace("海外银行卡", "海外銀行卡") : offerLabel(offer, zh))}
       </button>;
     })}

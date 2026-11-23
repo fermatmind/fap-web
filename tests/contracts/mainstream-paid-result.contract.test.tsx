@@ -11,8 +11,21 @@ describe("mainstream per-attempt full report purchase", () => {
     render(<MainstreamPaidResult data={{ok:true, meta:{scale_code:"MBTI"}, result:{type_code:"INTJ", scores_pct:{EI:75}}}} purchase={purchase} locale={locale}><p>Private full report</p></MainstreamPaidResult>);
     expect(screen.queryByText("Private full report")).not.toBeInTheDocument();
     expect(screen.getByText("INTJ")).toBeVisible();
+    expect(document.querySelector("[data-report-purchase-entry]")).toBeNull();
     expect(screen.getByText(`Checkout ${locale}`)).toBeVisible();
   });
+  it.each(["BIG5_OCEAN", "ENNEAGRAM", "IQ_RAVEN", "IQ_INTELLIGENCE_QUOTIENT", "EQ_60", "JUNG_ARCHETYPES", "JUNG_COGNITIVE_FUNCTIONS", "DISC_BEHAVIOR"])(
+    "shows the backend quote and links directly to the payment controls for %s",
+    scale => {
+      const offers = [{ provider: "waffo", sku: "REPORT_USD", currency: "USD", amount_cents: 499 },
+        { provider: "alipay", sku: "REPORT_CNY", currency: "CNY", amount_cents: 369 }] satisfies RiasecPurchase["offers"];
+      const { rerender } = render(<MainstreamPaidResult data={{ ok: true, meta: { scale_code: scale } }} purchase={{ ...purchase, offers }} locale="zh" />);
+      expect(screen.getByRole("link", { name: "¥3.69 解锁完整报告" })).toHaveAttribute("href", "#unlock-payment-options");
+      expect(document.getElementById("unlock-payment-options")).toContainElement(screen.getByText("Checkout zh"));
+      rerender(<MainstreamPaidResult data={{ ok: true, meta: { scale_code: scale } }} purchase={{ ...purchase, offers: [] }} locale="zh" />);
+      expect(screen.queryByRole("link", { name: "¥3.69 解锁完整报告" })).toBeNull();
+    },
+  );
   it("retains the native report and stops displaying it when a refund completes", () => {
     render(<MainstreamPaidResult data={{ok:true, meta:{scale_code:"MBTI"}}} purchase={{...purchase, unlocked:true, order_no:"owned-order",payment_state:"paid"}} locale="en"><p>Private full report</p></MainstreamPaidResult>);
     expect(screen.getByText("Private full report")).toBeVisible();

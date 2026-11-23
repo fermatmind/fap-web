@@ -16,6 +16,7 @@ import { PRIVATE_ANALYTICS_SUPPRESSION_HEADER } from "@/lib/tracking/browserAnal
 import "../../globals.css";
 
 const RESULT_PAGE_SNAPSHOT_SHELL_HEADER = "x-fermat-result-print-snapshot-shell";
+const WECHAT_IOS_RESULT_ROOT_HEADER = "x-fm-wechat-ios-result-root";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -70,11 +71,13 @@ export default async function LocalizedRootLayout({
   const nonce = requestHeaders.get("x-nonce") ?? undefined;
   const suppressAnalyticsBootstrap = requestHeaders.get(PRIVATE_ANALYTICS_SUPPRESSION_HEADER) === "true";
   const useResultPrintSnapshotShell = requestHeaders.get(RESULT_PAGE_SNAPSHOT_SHELL_HEADER) === "true";
+  const isWeChatIosResult = requestHeaders.get(WECHAT_IOS_RESULT_ROOT_HEADER) === "true";
   const resolvedLocale: Locale = locale;
   const productPriority = createProductPriorityEnvSnapshot();
 
   return (
-    <html lang={resolvedLocale}>
+    // The in-app browser can adjust document-level styling before React attaches.
+    <html lang={resolvedLocale} suppressHydrationWarning={isWeChatIosResult}>
       <head>
         <meta name="google-adsense-account" content="ca-pub-4177231401395141" />
         <link rel="preconnect" href="https://static.lingcecdn.com" />
@@ -92,7 +95,7 @@ export default async function LocalizedRootLayout({
               children
             ) : (
               <>
-                <SiteChrome locale={resolvedLocale} productPriority={productPriority}>{children}</SiteChrome>
+                <SiteChrome locale={resolvedLocale} productPriority={productPriority} allowWebViewImageStyles={isWeChatIosResult}>{children}</SiteChrome>
                 <DeferredCookieBanner locale={resolvedLocale} />
               </>
             )}

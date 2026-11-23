@@ -55,6 +55,7 @@ const PRIVATE_NOINDEX_VALUE = "noindex, nofollow, noarchive, nocache";
 const PRIVATE_CACHE_CONTROL_VALUE = "private, no-store, max-age=0, must-revalidate";
 const RESULT_PAGE_SNAPSHOT_SURFACE = "mbti.result_page_snapshot.v4";
 const RESULT_PAGE_SNAPSHOT_SHELL_HEADER = "x-fermat-result-print-snapshot-shell";
+const WECHAT_IOS_RESULT_ROOT_HEADER = "x-fm-wechat-ios-result-root";
 const ANON_COOKIE_NAME = "fap_anonymous_id_v1";
 const ANON_COOKIE_MAX_AGE_SECONDS = 31536000;
 const ANON_ID_PATTERN = /^[A-Za-z0-9_-]{8,128}$/;
@@ -599,6 +600,11 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
   requestHeaders.delete("x-anon-id");
   requestHeaders.delete(PRIVATE_ANALYTICS_SUPPRESSION_HEADER);
   requestHeaders.delete(RESULT_PAGE_SNAPSHOT_SHELL_HEADER);
+  requestHeaders.delete(WECHAT_IOS_RESULT_ROOT_HEADER);
+  const userAgent = request.headers.get("user-agent") ?? "";
+  if (/^\/result\/[^/]+\/?$/.test(strippedPath) && /MicroMessenger\//i.test(userAgent) && /\b(?:iPhone|iPad|iPod)\b/i.test(userAgent)) {
+    requestHeaders.set(WECHAT_IOS_RESULT_ROOT_HEADER, "true");
+  }
   if (isResultPageSnapshotPrintRequest(pathname, request.nextUrl.searchParams.get("surface"))) {
     requestHeaders.set(RESULT_PAGE_SNAPSHOT_SHELL_HEADER, "true");
   }

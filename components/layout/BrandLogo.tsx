@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 
-export function BrandLogo({ locale, priority = false }: { locale: DisplayLocale; priority?: boolean }) {
+export function BrandLogo({ locale, priority = false, allowWebViewImageStyles }: { locale: DisplayLocale; priority?: boolean; allowWebViewImageStyles?: boolean }) {
   return (
     <Image
       src="/brand/mark-20261013.png"
@@ -9,6 +9,7 @@ export function BrandLogo({ locale, priority = false }: { locale: DisplayLocale;
       width={40}
       height={40}
       className="block h-10 w-10 shrink-0"
+      suppressHydrationWarning={allowWebViewImageStyles}
       priority={priority}
       unoptimized
     />
