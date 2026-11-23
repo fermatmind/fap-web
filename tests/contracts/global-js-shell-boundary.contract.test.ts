@@ -13,7 +13,7 @@ describe("global JS shell boundary", () => {
 
     expect(chrome).not.toContain('"use client"');
     expect(footer).not.toContain('"use client"');
-    expect(chrome).toContain("<SiteFooter locale={locale} />");
+    expect(chrome).toMatch(/<SiteFooter\s+locale=\{locale\}[^>]*\/>/);
     expect(footer).toContain("<SiteFooterSocialRail locale={locale} />");
   });
 
@@ -26,8 +26,8 @@ describe("global JS shell boundary", () => {
   it("passes the server-resolved locale into the shared site chrome", () => {
     expect(read("app/(traditional)/zh-TW/layout.tsx")).toContain('<SiteChrome locale="zh-TW"');
     expect(read("app/(root)/layout.tsx")).toContain('<SiteChrome locale="zh" productPriority={productPriority}>');
-    expect(read("app/(localized)/[locale]/layout.tsx")).toContain(
-      "<SiteChrome locale={resolvedLocale} productPriority={productPriority}>"
+    expect(read("app/(localized)/[locale]/layout.tsx")).toMatch(
+      /<SiteChrome\s+locale=\{resolvedLocale\}\s+productPriority=\{productPriority\}[^>]*>/
     );
   });
 });

@@ -18,9 +18,9 @@ export type UnlockDimensionReading = { code: string; label: string; score: numbe
 const firstSentence = (copy?: string) => copy?.split(/(?<=[。！？])|(?<=[.!?])\s+/u).find(Boolean);
 
 /** Shared presentation for unlock pages. Full sample reports use the actual reading renderer. */
-export function UnlockReportExperience({ model, locale, assessment = "riasec60", premium, readings = [], chainReading, purchase, sampleHref, designPreview = false }: {
+export function UnlockReportExperience({ model, locale, assessment = "riasec60", premium, readings = [], chainReading, purchase, sampleHref, mobilePurchase, designPreview = false }: {
   model: RiasecResultViewModel; locale: DisplayLocale; assessment?: "riasec60" | "career94";
-  premium?: Career94Premium; readings?: UnlockDimensionReading[]; chainReading?: string; purchase?: ReactNode; sampleHref: string; designPreview?: boolean;
+  premium?: Career94Premium; readings?: UnlockDimensionReading[]; chainReading?: string; purchase?: ReactNode; sampleHref: string; mobilePurchase?: ReactNode; designPreview?: boolean;
 }) {
   const t = (zh: string, tw: string, en: string) => locale === "en" ? en : locale === "zh-TW" ? tw : zh;
   const previewPayments = designPreview ? (
@@ -71,7 +71,7 @@ export function UnlockReportExperience({ model, locale, assessment = "riasec60",
   return <div className={`${styles.page} ${full ? styles.full : styles.locked}`} data-testid="unlock-report-experience">
     <div className={styles.shell}>
       {full && <p className={styles.sampleNotice}>{t("示例报告 · 以下使用虚构分数展示报告结构，你的报告将根据自己的作答生成。", "示例報告 · 以下使用虛構分數展示報告結構，你的報告將根據自己的作答產生。", "Sample report · This fictional profile shows the report structure. Your report will reflect your own responses.")}</p>}
-      <header className={designPreview ? `${styles.hero} ${styles.traitResultHero}` : styles.hero}>
+      <header className={`${styles.hero} ${designPreview ? styles.traitResultHero : ""} ${mobilePurchase ? styles.hasMobilePurchase : ""}`}>
         <div className={styles.heroCopy}>
           {!designPreview && <p className={styles.eyebrow}>{holland ? t("霍兰德职业兴趣测试 · 60 题", "霍蘭德職業興趣測試 · 60 題", "Holland Career Interest Test · 60 questions") : t("费马职业测试 · 94 题", "費馬職業測試 · 94 題", "FermatMind Career Assessment · 94 questions")}</p>}
           <p className={styles.sectionLabel}>{t("你的兴趣重点", "你的興趣重點", "YOUR INTEREST FOCUS")}</p>
@@ -81,6 +81,7 @@ export function UnlockReportExperience({ model, locale, assessment = "riasec60",
           {full ? <span className={styles.reportBadge}><Sparkles size={14} />{t("完整报告示例", "完整報告示例", "FULL REPORT SAMPLE")}</span>
             : <a className={styles.heroCta} href="#unlock-purchase">{t("探索我的完整报告", "探索我的完整報告", "Explore my full report")}<ArrowDown size={17} /></a>}
         </div>
+        {mobilePurchase}
         <div className={styles.art} aria-hidden="true"><Image src={interestPreviewArt(!leadTied ? lead?.code : undefined)} width={400} height={400} sizes="(max-width: 640px) 72vw, 370px" alt="" priority /></div>
       </header>
 
@@ -135,7 +136,7 @@ export function UnlockReportExperience({ model, locale, assessment = "riasec60",
       <section id="unlock-purchase" className={styles.offer} aria-label={reportTitle}>
         <div className={styles.offerIcon}><LockKeyhole size={23}/></div><p className={styles.eyebrow}>{t("从兴趣线索，到下一步行动", "從興趣線索，到下一步行動", "FROM INTERESTS TO YOUR NEXT STEP")}</p><h2>{reportTitle}</h2><p className={styles.offerIntro}>{t("看懂自己的兴趣，也看清值得验证的职业方向。", "看懂自己的興趣，也看清值得驗證的職業方向。", "Understand your interests and find career directions you can put to the test.")}</p>
         <ul className={styles.benefits}>{modules.map(({Icon,title,body})=><li key={title}><Icon size={23}/><div><strong>{title}</strong><p>{body}</p></div></li>)}</ul>
-        <div className={styles.purchaseSlot}>{previewPayments ?? purchase ?? <p>{t("购买暂未开放", "購買暫未開放", "Purchase is not yet available")}</p>}</div>
+        <div id={mobilePurchase ? "unlock-payment-options" : undefined} tabIndex={mobilePurchase ? -1 : undefined} className={styles.purchaseSlot}>{previewPayments ?? purchase ?? <p>{t("购买暂未开放", "購買暫未開放", "Purchase is not yet available")}</p>}</div>
         <Link className={styles.sampleLink} href={sampleHref} target="_blank" rel="noopener">{t("查看完整示例报告", "查看完整示例報告", "View the full sample report")}<ArrowUpRight size={14}/></Link>
       </section></>}
     </div>

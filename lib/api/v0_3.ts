@@ -3355,13 +3355,15 @@ export async function fetchAttemptResult({
 }
 
 /** Owner-only acknowledgment, deliberately separate from /api/track. */
-export async function observeAttemptResult({ attemptId, anonId, receipt }: {
-  attemptId: string; anonId?: string; receipt: string;
+export type ReportPurchaseInteraction = "entry_visible" | "entry_clicked" | "payment_visible" | "payment_clicked";
+
+export async function observeAttemptResult({ attemptId, anonId, receipt, interaction }: {
+  attemptId: string; anonId?: string; receipt: string; interaction?: ReportPurchaseInteraction;
 }): Promise<void> {
   if (!getFmToken()) throw new Error("Owner credential unavailable");
   const response = await apiClient.post<{ ok: boolean; persisted: boolean }>(
     `/v0.3/attempts/${attemptId}/result-observation`,
-    { receipt, consent_state: "granted" },
+    { receipt, consent_state: "granted", ...(interaction ? { interaction } : {}) },
     anonHeader(resolveAnonId(anonId))
   );
   assertApiOk(response, "Result observation unavailable");

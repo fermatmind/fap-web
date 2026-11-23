@@ -263,6 +263,22 @@ describe("proxy boundary contract", () => {
     }
   });
 
+  it("limits the iOS WeChat document compatibility signal to private result pages", () => {
+    const header = "x-fm-wechat-ios-result-root";
+    const result = "https://example.com/zh/result/SYNTHETIC_DO_NOT_USE";
+    const checks = [
+      [result, "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) MicroMessenger/8.0", "true"],
+      [result, "Mozilla/5.0 (Linux; Android 13; wv) MicroMessenger/8.0", null],
+      [result, "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) Safari/605.1", null],
+      ["https://example.com/zh/tests", "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) MicroMessenger/8.0", null],
+    ] as const;
+    for (const [url, userAgent, expected] of checks) {
+      const request = new NextRequest(url, { headers: { "user-agent": userAgent, [header]: "caller-supplied" } });
+      const response = proxy(request);
+      expect(response.headers.get(`x-middleware-request-${header}`)).toBe(expected);
+    }
+  });
+
   it("does not mark public indexable pages for analytics bootstrap suppression", () => {
     for (const url of [
       "https://example.com/",

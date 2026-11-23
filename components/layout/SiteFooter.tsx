@@ -20,7 +20,7 @@ type FooterGroup = {
   links: FooterLinkItem[];
 };
 
-export function SiteFooter({ locale = "en" }: { locale?: DisplayLocale }) {
+export function SiteFooter({ locale = "en", allowWebViewImageStyles }: { locale?: DisplayLocale; allowWebViewImageStyles?: boolean }) {
   const dict = getDictSync(locale);
   const withLocale = (path: string) => displayNavigationPath(path, locale);
   const taiwan = locale === "zh-TW";
@@ -155,7 +155,7 @@ export function SiteFooter({ locale = "en" }: { locale?: DisplayLocale }) {
               aria-label={dict.header.brand}
               className="fm-footer-brand-link"
             >
-              <BrandLogo locale={locale} />
+              <BrandLogo locale={locale} allowWebViewImageStyles={allowWebViewImageStyles} />
               <span>{dict.header.brand}</span>
             </PublicNavigationLink>
             <p className="fm-footer-description">{dict.footer.tailnote}</p>
@@ -174,7 +174,7 @@ export function SiteFooter({ locale = "en" }: { locale?: DisplayLocale }) {
           </nav>
         </div>
 
-        <SiteFooterPlatforms locale={locale} />
+        <SiteFooterPlatforms locale={locale} allowWebViewImageStyles={allowWebViewImageStyles} />
 
         <div className="fm-footer-legal">
           <p data-visual-volatile="true" className="m-0">

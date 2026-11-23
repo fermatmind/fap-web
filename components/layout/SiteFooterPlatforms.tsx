@@ -23,20 +23,20 @@ const startupFame = {
 
 // Original assets: producthunt.com/branding (logo, unmodified) and the badge
 // embed offered by saashub.com/fermatmind. No ranking/featured badge is implied.
-function PlatformMark({ name }: { name: string }) {
+function PlatformMark({ name, allowWebViewImageStyles }: { name: string; allowWebViewImageStyles?: boolean }) {
   if (name === "Product Hunt") {
-    return <Image src="/images/platforms/product-hunt.png" alt={name} width={1224} height={440} className={styles.productHuntMark} unoptimized />;
+    return <Image src="/images/platforms/product-hunt.png" alt={name} width={1224} height={440} className={styles.productHuntMark} unoptimized suppressHydrationWarning={allowWebViewImageStyles} />;
   }
   if (name === "SaaSHub") {
-    return <Image src="/images/platforms/saashub-approved.png" alt={name} width={300} height={100} className={styles.saashubMark} unoptimized />;
+    return <Image src="/images/platforms/saashub-approved.png" alt={name} width={300} height={100} className={styles.saashubMark} unoptimized suppressHydrationWarning={allowWebViewImageStyles} />;
   }
   if (name === "Startup Fame") {
-    return <Image src="/images/platforms/startup-fame-featured.webp" alt="FermatMind on Startup Fame" width={224} height={36} unoptimized />;
+    return <Image src="/images/platforms/startup-fame-featured.webp" alt="FermatMind on Startup Fame" width={224} height={36} unoptimized suppressHydrationWarning={allowWebViewImageStyles} />;
   }
   return <>{name}<ArrowUpRight size={14} aria-hidden="true" /></>;
 }
 
-export function SiteFooterPlatforms({ locale }: { locale: DisplayLocale }) {
+export function SiteFooterPlatforms({ locale, allowWebViewImageStyles }: { locale: DisplayLocale; allowWebViewImageStyles?: boolean }) {
   const pathname = usePathname();
   const isHome = pathname === "/" || pathname === "/zh" || pathname === "/en" || pathname === "/zh-TW";
   const displayedPlatforms = isHome ? [startupFame, ...platforms] : platforms;
@@ -60,7 +60,7 @@ export function SiteFooterPlatforms({ locale }: { locale: DisplayLocale }) {
         {displayedPlatforms.map(({ name, href }) => (
           <li key={name}>
             <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label(name)} className={styles.platformLink}>
-              <PlatformMark name={name} />
+              <PlatformMark name={name} allowWebViewImageStyles={allowWebViewImageStyles} />
             </a>
           </li>
         ))}
