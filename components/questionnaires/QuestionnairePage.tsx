@@ -235,6 +235,7 @@ import { jungianArchetypeCurrentEntryCopy, jungianArchetypeLandingSummary } from
 import { moralAlignmentCurrentEntryCopy, moralAlignmentLandingSummary } from "./MoralAlignmentLandingEditorial";
 import { responseColorLandingSummary, responseColorCurrentEntryCopy } from "./ResponseColorLandingEditorial";
 import { DiscCitations, discLandingSummary, discVisiblePrivacyAnswer } from "./DiscLandingEditorial";
+import { ArchiveLandingLead } from "@/components/tests/ArchiveLandingReading";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { isPss4ConfigurationValid } from "@/lib/questionnaires/pss4";
 import { isUnfamiliar20ConfigurationValid } from "@/lib/questionnaires/unfamiliar20";
@@ -1083,10 +1084,10 @@ return (quiz.references ?? []);
   return (() => <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: (slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale]), locale })} />
-    <ExploreTestIntro slug={slug} locale={locale} sideContent={sample?.status === "complete" && sample.model === "dual" ? <QuestionnaireSevenSinsSample result={sample} locale={locale} /> : undefined}>
+    <ExploreTestIntro slug={slug} locale={locale} readingLeadInHero sideContent={sample?.status === "complete" && sample.model === "dual" ? <QuestionnaireSevenSinsSample result={sample} locale={locale} /> : undefined}>
 
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{slug === "work-activity-interests" && zh ? <><span className="inline-block">{quiz.title.zh.split("：")[0]}：</span><span className="inline-block">{quiz.title.zh.split("：").slice(1).join("：")}</span></> : slug === "parenting-style" && zh ? <>{quiz.title.zh.split("：")[0]}：<br />{quiz.title.zh.split("：").slice(1).join("：")}</> : quiz.title[locale]}</h1>
-    <p className="mt-5 text-lg leading-8 text-slate-700">{(slug === "philosopher-personality-test" ? philosopherLandingDescription[locale] : slug === "adult-age-preferences" ? (zh ? "你在恋爱中更偏向年上、同龄还是年下？想象与不同年龄的成年人相处，看看哪些情境更符合你现在的期待。" : "Would you rather date someone older, around your age, or younger? Picture everyday situations between adults and see which ones you choose most often.") : slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale])}</p>
+    <ArchiveLandingLead slug={slug} locale={locale} className="mt-5 text-lg leading-8 text-slate-700" original={(slug === "philosopher-personality-test" ? philosopherLandingDescription[locale] : slug === "adult-age-preferences" ? (zh ? "你在恋爱中更偏向年上、同龄还是年下？想象与不同年龄的成年人相处，看看哪些情境更符合你现在的期待。" : "Would you rather date someone older, around your age, or younger? Picture everyday situations between adults and see which ones you choose most often.") : slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale])} />
     {quiz.kind !== "mini-virtues" && <p className="explore-intro-meta"><span>{quiz.kind === "fscrs22" ? (zh ? "22 条陈述 · 按自己的节奏 · 无需注册" : "22 statements · Self-paced · No signup") : zh ? `${quiz.questions.length}题 · 约${quiz.minutes}分钟 · 无需注册` : `${quiz.questions.length} questions · about ${quiz.minutes} ${quiz.minutes === 1 ? "minute" : "minutes"} · no signup`}</span>{slug !== "adult-age-preferences" && <span>{entryLabel}</span>}</p>}
 
     <QuestionnaireTakeEntry quiz={quiz} locale={locale} />

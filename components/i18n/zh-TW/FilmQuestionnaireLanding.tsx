@@ -57,6 +57,7 @@ import { ikigaiLandingFaq, ikigaiLandingSections } from "@/components/questionna
 import { moralDilemmaLandingFaq, moralDilemmaLandingSections } from "@/components/questionnaires/MoralDilemmaLandingEditorial";
 import { deluluLandingFaq, deluluLandingSections } from "@/components/questionnaires/DeluluLandingEditorial";
 import { QuestionnaireTakeEntry } from "@/components/questionnaires/QuestionnaireTakeEntry";
+import { ArchiveLandingLead } from "@/components/tests/ArchiveLandingReading";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { archetypeEditorial, archetypeLandingSummary, archetypePrivacyAnswer } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -151,9 +152,9 @@ export function FilmQuestionnaireLanding({ quiz, overviewCopy }: { quiz: Questio
     ? archetypeEditorial(slug, "references", editorial.references) : quiz.references;
   const faq = editorial ? [...quiz.faq, ...archetypeEditorial(slug, "faq", editorial.faq)] : quiz.faq;
   return <div className="mx-auto max-w-3xl space-y-8">
-    <ExploreTestIntro slug={slug} locale="zh">
+    <ExploreTestIntro slug={slug} locale="zh" readingLocale="zh-TW" readingLeadInHero>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title.zh}</h1>
-      <p className="mt-5 text-lg leading-8">{quiz.description.zh}</p>
+      <ArchiveLandingLead slug={slug} locale="zh-TW" className="mt-5 text-lg leading-8" original={quiz.description.zh} />
       <QuestionnaireTakeEntry quiz={quiz} locale="zh" displayLocale="zh-TW" />
       {slug === "moon-phase" && <nav aria-label="月相測驗內容" className="mt-2 flex flex-wrap gap-5 text-sm">
         <a href="#moon-phase-examples" className="inline-flex min-h-11 items-center underline">先看結果示例</a>

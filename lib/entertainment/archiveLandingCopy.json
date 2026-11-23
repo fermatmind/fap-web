@@ -1,0 +1,1890 @@
+{
+  "found-family-role-test": {
+    "zh": {
+      "lead": "把你放进同一场朋友聚会：你会招呼刚到的人、接一件没人做的小事，还是先听朋友说完？18 道选择后，可免费查看六种角色计数和完整指南。",
+      "method": "每次选择给对应角色记一次。六种角色各出现 12 次，得分最高的角色如果并列，会一起显示。",
+      "interpretation": "计划下次见面时，试着说出一件你乐意负责的小事，再问哪件事有人想一同分担。"
+    },
+    "zh-TW": {
+      "lead": "想像朋友又約在一起。有人負責招呼剛到的朋友，有人先聽彼此近況，也有人默默把事情做完。做完 18 題就能免費看六種角色的次數和完整指南。",
+      "method": "每選一次，就為對應角色加一筆。六種角色各在 12 題中出現，最高次數相同的角色會一併顯示。",
+      "interpretation": "下回朋友約見面，可以先說一件你想做的事，像是幫忙留座，再問大家有沒有人想一起張羅。"
+    },
+    "en": {
+      "lead": "Picture one gathering with people you’re close to. Would you help a friend find a seat, do a small job, or make time to listen? Answer 18 questions to see all six role counts and full guides for free.",
+      "method": "Each choice counts once for its role. Each role appears in 12 questions, and all roles tied for the highest count appear together.",
+      "interpretation": "Before the next gathering, name one thing you’d happily take on. Ask if someone else would enjoy sharing the job."
+    }
+  },
+  "travel-personality-test": {
+    "zh": {
+      "lead": "假设旅行中有半天能自己安排，你会去逛一条新街、找个地方歇一歇，还是先去吃顿当地饭？18 道选择后，免费查看六种旅行偏好的计数和完整指南。",
+      "method": "每道题选当时最想先做的一件事。六种偏好各出现 12 次，最高计数并列时会同时显示。",
+      "interpretation": "和同行人讨论时，各说一件想优先安排的事，再留一段可以临时决定的时间。"
+    },
+    "zh-TW": {
+      "lead": "旅行時多出半天空檔，你會隨意走走、找間店吃點在地小食，還是留時間休息？做完 18 題，六種旅遊偏好的選擇次數和完整指南都能免費看。",
+      "method": "每一題挑一件你想先做的事。六種旅遊偏好各出現 12 次，最高次數相同的偏好會一併顯示。",
+      "interpretation": "跟旅伴排行程時，各自先說一個最想去的地方或最想做的事，也留一點時間給當天的心情。"
+    },
+    "en": {
+      "lead": "You have half a day free on a trip. Would you walk somewhere new, take a quiet break, or look for a local meal? After 18 choices, see six travel preference counts and the full guides for free.",
+      "method": "Pick what you’d make time for first in each scene. All six preferences appear in 12 questions each. Every preference tied for the highest count appears in your result.",
+      "interpretation": "Ask each travel companion to name one priority for the next trip, then leave a stretch of time open for a decision on the day."
+    }
+  },
+  "leadership-style": {
+    "zh": {
+      "lead": "小组刚接下新项目，你会先提出方向、听成员的方案，还是让大家先自行安排？在 24 个团队情境中选你的第一步，免费查看四项计数和完整指南。",
+      "method": "每题四选一，选择计入对应风格。结果显示四项原始计数，最高计数并列时会列出所有并列风格。",
+      "interpretation": "拿同一个项目比较：开工前、意见分歧时和成员逐渐熟练后，你会不会换一种带队方式？"
+    },
+    "zh-TW": {
+      "lead": "團隊接到新案子時，你會先把方向講清楚、邀請大家提案，還是讓成員先分工？24 題都問你會先怎麼做，四種風格的次數與完整指南皆可免費查看。",
+      "method": "每題從四種做法中挑一種，選擇會計入對應風格。如果最高次數相同，結果會列出所有並列風格。",
+      "interpretation": "用一個熟悉的案子想想：團隊剛開始、卡在意見不同，和大家都熟悉工作後，你的第一步會一樣嗎？"
+    },
+    "en": {
+      "lead": "A team takes on a new project. Would you set a direction, hear proposals, or let people organize their own work? Choose your first move in 24 scenarios. See all four counts and full guides for free.",
+      "method": "Each question has four options. Your choice adds one to the corresponding style. The result shows all four counts and every style tied for the highest count.",
+      "interpretation": "Think about the same team at kickoff, during a disagreement, and after everyone knows the work. See where you’d change your first move."
+    }
+  },
+  "self-esteem": {
+    "zh": {
+      "lead": "回答罗森伯格自尊量表的 10 道陈述，免费查看原始总分和完整读分指南。遇到不想回答的题目，可以跳过。",
+      "method": "可计分选项为 0–3 分，第 3、5、8、9、10 题按 3 减原分反向计分。10 题都给出可计分回答时，才会显示 0–30 的总分。",
+      "interpretation": "读分时可以回看哪些陈述让你犹豫，以及你当时想到的处境。指南以原始分数说明计分，未设置诊断阈值。"
+    },
+    "zh-TW": {
+      "lead": "依自己的感受回答羅森伯格自尊量表的 10 個敘述。原始總分和完整的讀分指南都能免費查看，遇到不想答的一題可以略過。",
+      "method": "每題可計 0 至 3 分，第 3、5、8、9、10 題以 3 減去所選分數。10 題都有可計分的答案，才會顯示 0 至 30 的原始總分。",
+      "interpretation": "讀分時可回想哪些句子讓你猶豫、那時想到什麼情況。指南會說明原始分數的由來，沒有提供診斷切點。"
+    },
+    "en": {
+      "lead": "Respond to ten statements from the Rosenberg Self-Esteem Scale. You can skip a statement and still read the complete free guide. A raw total appears when all ten responses can be scored.",
+      "method": "Scored responses are worth 0–3 points. Items 3, 5, 8, 9 and 10 are scored as three minus the response value. The raw total ranges from 0 to 30.",
+      "interpretation": "Think back to any statement you found hard to answer and the circumstances you had in mind. The guide explains the raw score without assigning a diagnostic cutoff."
+    }
+  },
+  "activity-engagement-patterns": {
+    "zh": {
+      "lead": "回想过去四周参加过或错过的活动。用 20 条陈述分别观察主动开始、回应机会、切换兴趣、接受邀请与先观察，免费查看五项结果和指南。",
+      "method": "每项含四条陈述。只计算有效频率回答的均值，每项至少需要三条有效回答。五项独立呈现。",
+      "interpretation": "挑一个近期的活动，回想是你先迈出了一小步，还是收到具体邀请后才加入；也可以看看不同环境是否给了你不同机会。"
+    },
+    "zh-TW": {
+      "lead": "想想最近四週，你怎麼開始或加入一項活動。從 20 個敘述看見自己主動開頭、碰到機會才行動、換個興趣、應邀幫忙或先看看情況的頻率。五項結果與指南都免費。",
+      "method": "每一項各有四個敘述，回答至少三個可計分的頻率才會顯示平均。不適用的回答不計入，各項分開看。",
+      "interpretation": "想一件這個月做過的事：是你先起頭，還是有人問你願不願意一起做？換到另一個場合時，你有沒有不同的選擇？"
+    },
+    "en": {
+      "lead": "Think back over four weeks of choosing and joining activities. Twenty statements cover starting on your own, responding to opportunities, switching interests, contributing when invited, and observing first. See five separate readings and guides for free.",
+      "method": "Each area has four statements. Three or more frequency ratings are needed to calculate its mean. A not-applicable response is left out of the calculation.",
+      "interpretation": "Choose one recent activity and notice what made joining possible. Did you take the first step, or did a specific invitation make a place for you?"
+    }
+  },
+  "coffee-break": {
+    "zh": {
+      "lead": "难得空出十分钟，你更想离开原来的座位，做点让自己放松的小事，还是找个人说说话？选完六个小场景，完整休息画像可以免费读。",
+      "method": "六次选择分别给换环境、小仪式或轻松陪伴计分。分数最高的画像并列时，会完整显示每一项。",
+      "interpretation": "下次休息前可以先问自己：我现在缺的是一个新角度、一件熟悉的小事，还是一点自在的陪伴？"
+    },
+    "zh-TW": {
+      "lead": "突然多了十分鐘，你會起身換個地方、做個讓自己放鬆的小動作，還是找人聊兩句？選完六個生活片段，就能免費看完整的小歇畫像。",
+      "method": "每次選擇都會計入換個環境、做個小儀式或輕鬆作伴其中一項。最高分並列時，會一起顯示。",
+      "interpretation": "下次離開座位休息前，想想此刻最想要的是換個景色、泡杯熟悉的飲品，還是和人輕鬆聊幾句。"
+    },
+    "en": {
+      "lead": "Ten minutes open up in your day. Would you move somewhere different, enjoy one small ritual, or find someone for an easy chat? Make six choices and read the full portrait for free.",
+      "method": "Each choice contributes to a change of scene, a small ritual, or easy company. Every portrait tied for the highest score appears in the result.",
+      "interpretation": "Try one small version next time: face a different window, make a drink you enjoy, or ask someone if they have a minute to talk."
+    }
+  },
+  "board-game-table": {
+    "zh": {
+      "lead": "新桌游刚拆封，你想先带大家试一轮、找势均力敌的人较量，还是照应第一次来玩的朋友？做完六个选择，免费读完整的同桌画像。",
+      "method": "每项选择计入一种同桌角色。最高计数相同的角色会一起显示，各有一份完整公开指南。",
+      "interpretation": "下次开局前，可以先问大家要不要走一轮示例，再约定什么时候从教学切到正式对局。"
+    },
+    "zh-TW": {
+      "lead": "剛開一盒新桌遊，你會帶大家試跑一輪、找人來場有來有往的對決，還是先照顧第一次玩的朋友？做完六題，桌邊角色的完整畫像都可以免費讀。",
+      "method": "每題的選擇會累加到一種桌遊角色。最高次數並列，就會一併顯示，且每種角色都有自己的公開指南。",
+      "interpretation": "下次開桌時，可以問新手要不要先玩一輪練習，也問玩過的人想從哪一輪開始認真比。"
+    },
+    "en": {
+      "lead": "A new board game comes out of the box. Would you run a practice turn, look for a close contest, or help a newcomer join in? Make six choices and read the complete table portrait for free.",
+      "method": "Each choice counts towards one table role. If several roles share the top count, all appear together. Each has its own public guide.",
+      "interpretation": "Before game night gets going, ask who wants a practice turn and when the table would like to start playing for real."
+    }
+  },
+  "dream-train": {
+    "zh": {
+      "lead": "车票上的“抵达”变成了“快到了”。你会抄下刚才的字，还是问问另一位乘客？做三到四次选择，免费读到一个完整故事结局。",
+      "method": "选项通向下一个场景或已写好的结局。同一条路线会到同一结局，回去改选会清除原分支之后的回答。",
+      "interpretation": "结局可从三种线索回看：你留下了什么、传出了什么，或者给哪一处新地方起了名字。"
+    },
+    "zh-TW": {
+      "lead": "列車還在走，車票上的「抵達」卻變成了「快到了」。你想記下原來的字，還是問問隔壁乘客？選三到四次，就能免費讀完自己走到的結局。",
+      "method": "每個選項都接到下一幕或一個寫好的結局。走同一條路會到同一結局，回頭改選時，原本那條路後面的答案會清除。",
+      "interpretation": "讀完可回頭看看，這趟旅程最後留下一張怎樣的票、一封怎樣的信，或一個怎樣的站名。"
+    },
+    "en": {
+      "lead": "Your ticket changes from “arrival” to “almost.” Do you write down the old word or ask another passenger what they saw? Take three or four turns through the story to reach a complete free ending.",
+      "method": "Every choice leads to another scene or an authored ending. The same route reaches the same ending. Changing an earlier choice clears the answers on the abandoned branch.",
+      "interpretation": "Look back at what you did with the shifting word: kept a trace, sent it along in a story, or used it to name somewhere new."
+    }
+  },
+  "enchanted-library": {
+    "zh": {
+      "lead": "两份目录把同一本故事指向了不同书架。你会先查纸上的记录，还是去问见过这本书的人？做三到四次选择，免费读到原创短篇的完整结局。",
+      "method": "选项把你带到下一处线索或一个已写好的结局。一条完整路线只到一个结局，回头换选会清除被放弃分支的后续回答。",
+      "interpretation": "回看最后采用的线索：是能加一条批注的记录、保管者记得的经过，还是一处值得留白的矛盾？"
+    },
+    "zh-TW": {
+      "lead": "同一本故事，在兩份目錄裡竟然放在不同書架。你會先對照記錄，還是請記得這本書的人說說看？選三到四次，就能免費讀完一種故事結局。",
+      "method": "選項會帶你到下一條線索或一個寫好的結局。每條路只通向一個結局，回頭改了選項，舊分支後面的回答就會清除。",
+      "interpretation": "讀到最後，留意你是補上了一筆可查的記錄、聽到了館員的說法，還是把仍有疑問的地方留在目錄裡。"
+    },
+    "en": {
+      "lead": "Two catalogues send you to different shelves for the same story. Would you check the written record or ask someone who remembers the book? Make three or four choices to read a complete original ending for free.",
+      "method": "Each choice leads to another clue or an authored ending. There is one ending per route. Changing an earlier choice clears the answers on the abandoned branch.",
+      "interpretation": "At the end, look at what you have: a note to add to the record, an account from the keeper, or a question worth leaving open."
+    }
+  },
+  "spelling-test": {
+    "zh": {
+      "lead": "在 24 道英文句子里选出拼写正确的单词。不计时，交卷后可免费查看四类正确数、全部答案和逐题解释。",
+      "method": "每题有一个正确答案。双写辅音、元音字母、字母顺序和词尾各六题，结果分别显示四类正确数和总正确数。",
+      "interpretation": "先从一类错题开始，重读英文句子，说出两个容易混淆的拼法差在哪，再翻对应的复习指南。"
+    },
+    "zh-TW": {
+      "lead": "在 24 個英文句子中找出拼字正確的單字。作答不限時間，完成後可免費查看四類答對題數、所有正解和逐題說明。",
+      "method": "每題只有一個正確答案。雙子音拼寫、母音字母、字母順序與字尾各占六題，可分別看答對題數，也會列出總計。",
+      "interpretation": "從一種容易寫錯的字開始複習，先重讀原句，再比一比兩個相近的拼法差在哪個字母。"
+    },
+    "en": {
+      "lead": "Choose the correctly spelled word in each of 24 English sentences. Work at your own pace, then review your section counts, all answers, and every explanation for free.",
+      "method": "Each item has one correct answer. Doubled consonants, vowels, letter order and word endings each have six items. You’ll see counts for all four sections and for the whole practice set.",
+      "interpretation": "Start with one error pattern. Reread a missed sentence, compare the two forms you nearly chose, and use the section guide to review the difference."
+    }
+  },
+  "beachcomber": {
+    "zh": {
+      "lead": "海边画里，贝壳沿潮线排开。你会先看反复的纹路、猜它们怎么聚在一起，还是退后一步看整片海滩？六次选择后可免费读完整画像。",
+      "interpretation": "下次在海边停一停，可以只观察一样东西。试着描述哪处纹路、哪点来历或哪个位置先吸引了你。"
+    },
+    "zh-TW": {
+      "lead": "畫裡的貝殼沿潮線排成一列。你會湊近找重複的花紋、想它們怎麼聚在一起，還是看看整片沙灘？選完六次就能免費看完整側寫。",
+      "interpretation": "下次到海邊，不妨先留在原地看一會兒。也許最有趣的就是貝殼之間的空隙、它出現的地方，或你想到的一小段故事。"
+    },
+    "en": {
+      "lead": "A row of shells follows the tide line in an illustration. Does your eye go to a repeating curve, the story of how they got there, or their place on the wider shore? Make six choices and read the full portrait for free.",
+      "interpretation": "Next time you pause by the shore, try leaving what you find in place. Notice whether you first describe its shape, wonder how it arrived, or step back to look at its surroundings."
+    }
+  },
+  "birdwatching-companion": {
+    "zh": {
+      "lead": "窗外暂时没看到鸟，你会静静等一会儿，记下已经看过的位置，还是问同伴能不能看清？在六个画出来的观察场景里选一遍，免费读完整同行画像。",
+      "interpretation": "一起看窗外时，可以先给别人留个能看见的位置，再决定要不要记下时间、等一个小动静或换个角度。"
+    },
+    "zh-TW": {
+      "lead": "圖裡的窗外還沒有鳥影。你會先坐著等一會兒、把看過的位置記下來，還是確認大家都能看見窗外？選完六個情境可免費讀完整側寫。",
+      "interpretation": "下次一起觀察時，先看看有沒有人被擋住。也可以約好只記下時間和看到的動靜，把空白留到下一次。"
+    },
+    "en": {
+      "lead": "There’s no bird in the first illustrated view. Would you wait at the window, note where you’ve looked, or make sure everyone can see? Make six choices and read the complete companion portrait for free.",
+      "interpretation": "On a shared watch, compare three small things you could do: hold a spot quietly, note a sighting time, or make room where someone can see."
+    }
+  },
+  "borrowed-book": {
+    "zh": {
+      "lead": "朋友借你一本书，你会先问哪天还、对方喜欢哪一段，还是这本书有没有要特别爱惜的地方？六次选择后可免费读到完整画像。",
+      "interpretation": "借书前只问一件最有用的事试试。问清还书日、翻看时的顾虑，或者双方是否都想聊一段，比猜对方心思更简单。"
+    },
+    "zh-TW": {
+      "lead": "朋友願意借你一本書，你會先約還書日、問他最喜歡哪一段，還是問這本書要怎麼保管？選六次，就能免費看完整側寫。",
+      "interpretation": "下次借書時，把自己想先問的事說出來，再請對方補充他在意的一點；想不想聊書，也可以等讀完再約。"
+    },
+    "en": {
+      "lead": "A friend offers you a book. Do you ask when it’s due back, what part they loved, or how they’d like you to look after it? Make six choices and read the full portrait for free.",
+      "interpretation": "Before taking a borrowed book home, try one useful question. You could confirm the return date, check a handling preference, or ask if they’d like to talk about a favorite part later."
+    }
+  },
+  "browser-tabs": {
+    "zh": {
+      "lead": "一个有趣的虚构网页还开着。你会留下打开它时的问题、记下一件能试的小事，还是给以后闲逛留个入口？选完六个情境可免费读完整画像。",
+      "interpretation": "关掉下一个暂时用不到的标签页前，可以只留一行：为什么打开、接下来试什么，或者哪天有兴趣再回来。"
+    },
+    "zh-TW": {
+      "lead": "有趣的虛構網頁還開著，你最想留下的是當初的問題、今天能試的小點子，還是下次想逛時找得回來的地方？選六次即可免費看完整側寫。",
+      "interpretation": "下次要關分頁時試試看，寫下之後真正用得上的一件事。可能是一個待解問題、一個小動作，也可能只是一個找得到的書籤。"
+    },
+    "en": {
+      "lead": "An interesting imaginary web page is still open. What would you save: the question that sent you there, something to try, or a place to revisit for fun? Make six choices and read the full portrait for free.",
+      "interpretation": "Before closing a tab, try keeping a single line you’ll actually use: a question, a tiny next step, or a bookmark you’ll know how to find."
+    }
+  },
+  "camera-roll": {
+    "zh": {
+      "lead": "想象相册里堆着同一天的许多照片。你会先让这一天好找、挑出想回看的几张，还是用几张图排出一个头尾？六次选择后可免费读完整画像。",
+      "interpretation": "挑一个不涉及他人隐私的相册试试。任务不同，留下的图也会不同：按日期找、选出最喜欢的一张，和讲完一件小事，并不一定用同一组照片。"
+    },
+    "zh-TW": {
+      "lead": "相簿裡有同一天拍的好多張照片。你會想讓那天好找、先收幾張最想回味的，還是排成一小段有頭有尾的故事？選完六題就能免費看完整側寫。",
+      "interpretation": "回看自己的相片時，可以先決定這次要做什麼：日後找得到、留下幾張喜歡的，或用幾張說完一件小事。不同用法自然會選出不同照片。"
+    },
+    "en": {
+      "lead": "One imaginary day fills your camera roll. Would you make it easy to find again, pick the few shots you love, or arrange a short sequence with a beginning and end? Make six choices and read the full portrait for free.",
+      "interpretation": "Try sorting a small photo set with one purpose in mind. Finding a date, saving a favorite, and telling a little story may lead you to keep different pictures."
+    }
+  },
+  "campfire-storyteller": {
+    "zh": {
+      "lead": "围坐时轮到你开头。你会先抛出一个没解释的细节、给熟悉的场景加个转折，还是留一句容易接下去的话？做完六次选择，可免费读完整讲述画像。",
+      "interpretation": "试着用同一个平常场景开三个不同的头。听的人想追问、会心一笑，或愿意接下一句，都是可以观察的反应。"
+    },
+    "zh-TW": {
+      "lead": "輪到你先說故事了。你會留一個讓人想問的細節、在熟悉的畫面裡加個小轉折，還是開個下一位容易接的頭？選完六次可免費讀完整側寫。",
+      "interpretation": "如果大家都想一起編，可以先約好一人只說一句。留意哪些開頭讓人追問，哪些會讓故事很自然地交到下個人手上。"
+    },
+    "en": {
+      "lead": "It’s your turn to begin a story. Would you leave a detail unexplained, put a playful twist on a familiar scene, or start with a line someone else can finish? Make six choices and read the full storyteller portrait for free.",
+      "interpretation": "Try three openings for the same scene. One might invite a question, another a laugh, and another a line from the next person."
+    }
+  },
+  "celebrating-a-friend": {
+    "zh": {
+      "lead": "朋友说终于做完了一个喜欢的项目。你会问他最开心的是哪一段、写句具体的祝贺，还是问要不要一起小庆祝？六次选择后可免费读完整画像。",
+      "interpretation": "下次听到一个好消息，可以先回应对方实际说过的一处，再问他们有没有想讲下去。庆不庆祝也由对方选。"
+    },
+    "zh-TW": {
+      "lead": "朋友說他終於把喜歡的企畫做完了。你會先問哪一段最有成就感、傳一句寫給他的祝賀，還是問要不要找時間小小慶祝？選六次可免費看完整側寫。",
+      "interpretation": "聽到好消息時，先接住對方講到的一個細節。想聊聊、收一句祝福，還是約出去走走，可以請他自己選。"
+    },
+    "en": {
+      "lead": "A friend just finished a project they loved. Would you ask which part made them proud, send a note about something they shared, or ask if they want a little celebration? Make six choices and read the full portrait for free.",
+      "interpretation": "When someone shares good news, start with one detail from their version. Then give them a choice about whether to talk, celebrate together, or simply enjoy the moment."
+    }
+  },
+  "celebration-planner": {
+    "zh": {
+      "lead": "大家想给朋友庆祝一下。你会先问朋友喜欢什么、想一个值得记住的小瞬间，还是邀请有兴趣的人各添一点？选完六个场景可免费读完整画像。",
+      "interpretation": "从需要庆祝的那个人出发，先确认他们想怎样被祝贺。再挑一个大家能轻松完成的小环节，让想参与的人自己认领。"
+    },
+    "zh-TW": {
+      "lead": "大家想替朋友慶祝，你會先問他想怎麼過、留一件當天特別想做的小事，還是找願意加入的人一起張羅？選完六題可免費讀完整側寫。",
+      "interpretation": "可以先問當事人想熱鬧一點還是簡單就好。再挑一個他會喜歡、大家做得到的環節，想幫忙的人再自己接手。"
+    },
+    "en": {
+      "lead": "A group wants to celebrate a friend. Do you ask what the friend would enjoy, plan one memorable moment, or invite people to contribute something small? Make six choices and read the full portrait for free.",
+      "interpretation": "Start with the person being celebrated. Once you know what would feel welcome, try one small plan and leave any extra help up to the group."
+    }
+  },
+  "choosing-together": {
+    "zh": {
+      "lead": "两个人想做不同的事。你会先说各自在意的条件、轮流选、短试一下，还是拆成可以分别安排的部分？做完六次选择可免费读完整画像。",
+      "interpretation": "遇到一个无关紧要的小分歧时，试一种双方都能随时调整的办法，比一次定好所有细节更容易开始。"
+    },
+    "zh-TW": {
+      "lead": "兩個人想做的事不一樣。你會先聊各自在意的條件、乾脆輪流選、挑一個短短試一下，還是拆成各自安排的幾段？選完六題可免費讀完整側寫。",
+      "interpretation": "從一件小事練習就好。先找彼此還有選擇的做法，試了一下覺得不合適，也能一起改。"
+    },
+    "en": {
+      "lead": "You want different things from a small shared plan. Would you name your must-haves, take turns choosing, try something briefly, or make space for separate choices? Make six choices and read the full portrait for free.",
+      "interpretation": "Try one approach on a low-stakes decision. See whether you can both say what you want and change the plan if the first try doesn’t fit."
+    }
+  },
+  "city-wanderer": {
+    "zh": {
+      "lead": "来到街区边缘，你会先看巷子怎么相连、人们在哪儿停留，还是建筑上留着什么旧痕迹？六次选择后可免费读完整的闲逛画像。",
+      "interpretation": "沿熟悉的街道走一小段，换一个平时不先看的角度。留意一处通路、一个停留点或一块有旧名字的路牌。"
+    },
+    "zh-TW": {
+      "lead": "走到一個街區的邊緣，你會先看小路接到哪裡、大家常在哪裡停下，還是認出建築上以前留下的痕跡？選完六次可免費看完整側寫。",
+      "interpretation": "走一段常走的路試試看：哪條小巷通去哪裡、哪裡總有人停一下，或哪個路名會讓你想知道這裡以前是什麼。"
+    },
+    "en": {
+      "lead": "At the edge of a neighborhood, what catches your eye: how the streets connect, where people pause, or traces of what used to be there? Make six choices and read the full wanderer portrait for free.",
+      "interpretation": "On a familiar walk, notice one detail you usually pass: a shortcut, a spot where people linger, or a street name that makes you wonder what came before."
+    }
+  },
+  "cloud-drift": {
+    "zh": {
+      "lead": "一朵云有长弧，也凸起一小块。你会看成一只小动物、想象它正往哪走，还是只看形状？六次想象选择后可免费读完整画像。",
+      "interpretation": "挑一朵云试三种看法：给它一个轮廓、想象发生了一件事，或再等一会儿，看看它会不会变出新形状。"
+    },
+    "zh-TW": {
+      "lead": "雲有一道長長的弧線，旁邊凸出一小塊。你會把它看成小動物、想像它正在移動，還是就這樣看著？選完六次可免費讀完整側寫。",
+      "interpretation": "看到形狀有趣的雲時，可以描出一個輪廓、想一句故事開頭，也可以先不取名字，等下一陣風。"
+    },
+    "en": {
+      "lead": "A cloud has a long curve and a small bump. Do you see a creature, picture something moving, or enjoy the shape before deciding what it is? Make six choices and read the full portrait for free.",
+      "interpretation": "Try looking at one cloud three ways: trace a shape, imagine one small event, or give it time to change before you name anything."
+    }
+  },
+  "comfort-offer": {
+    "zh": {
+      "lead": "朋友说今天有点累。你会提议帮一件小事、问要不要说说，还是安静地陪一会儿？在六个日常场景里选过后，可免费读完整画像。",
+      "interpretation": "想帮忙时，试着把能做的事说得小一点，顺便让对方知道可以拒绝。安静陪着和听对方说，适不适合也可以先问。"
+    },
+    "zh-TW": {
+      "lead": "朋友說今天有點累，你會問有沒有一件事能幫忙、陪他聊聊，還是一起安靜坐一會兒？選完六個日常情境即可免費看完整側寫。",
+      "interpretation": "可以先把一個做得到的小提議說清楚，也讓朋友知道不需要答應。對方想說話、想有人陪，還是想自己待著，都可以由他選。"
+    },
+    "en": {
+      "lead": "A friend says it’s been a tiring day. Would you offer one small practical favor, give them room to talk, or keep them quiet company? Make six choices and read the full portrait for free.",
+      "interpretation": "Make a small offer and give your friend an easy way to decline. Even a well-meant conversation may be less welcome than a quiet moment together."
+    }
+  },
+  "community-fair": {
+    "zh": {
+      "lead": "市集在找志愿帮手，你会先说能帮多久、想做完哪件小任务，还是怎么把信息交给下一位？六次选择后可免费读完整帮手画像。",
+      "interpretation": "下次搭把手前，先说清你能做到哪一步。走的时候给下一位留一句简短说明：做完什么、还剩什么。"
+    },
+    "zh-TW": {
+      "lead": "市集在找人幫忙。你會先說哪段時間有空、能接下哪件小事，還是想怎麼跟接手的人交代清楚？選完六題可免費讀完整側寫。",
+      "interpretation": "接下一件事前，可以先約好你要做到哪裡。離開時留一句話，讓下一個人知道哪些已經做完、接下來要做什麼。"
+    },
+    "en": {
+      "lead": "A community fair asks for a hand. Would you name a shift you can cover, offer to finish one task, or make the next helper’s handoff easier? Make six choices and read the full helper portrait for free.",
+      "interpretation": "On a short volunteer shift, say what you can finish before you begin. When you leave, tell the next person one thing that’s done and one thing that still needs attention."
+    }
+  },
+  "compliment-style": {
+    "zh": {
+      "lead": "朋友给你看手作，你会先说喜欢哪个细节、回应对方主动提过的步骤，还是说这件作品让你注意到了什么？选六次可免费读完整画像。",
+      "interpretation": "下次想夸人时，试着把“真不错”换成一件能指出来的事。只说你确实看到、听到或感觉到的那一点。"
+    },
+    "zh-TW": {
+      "lead": "朋友拿手作給你看。你會說哪個地方讓你停下來多看一眼、哪個他講過的步驟讓你印象深，還是這件作品讓你注意到什麼？選完六題可免費看完整側寫。",
+      "interpretation": "想說一句真心的稱讚時，先挑自己真的注意到的一點。也可以等對方提起做法，再回應他願意分享的過程。"
+    },
+    "en": {
+      "lead": "A friend shows you something they made. Would you praise a detail, respond to a step they told you about, or say what the piece helped you notice? Make six choices and read the full portrait for free.",
+      "interpretation": "Trade a broad “I love it” for one thing you can point to. Keep it to what you saw, heard from them, or genuinely enjoyed."
+    }
+  },
+  "cozy-object": {
+    "zh": {
+      "lead": "一个温暖的小场景会从哪里开始：熟悉的杯子、放好的一条薄毯，还是翻开的一页空白？六次选择后可免费读完整场景画像。",
+      "interpretation": "看看手边的小物件能做什么：帮你开始一件熟悉的小事、留一处能坐下的角落，或让一个念头先落在纸上。"
+    },
+    "zh-TW": {
+      "lead": "你想從哪件小東西開始一段舒服的時間？是最熟悉的杯子、攤好的一條薄毯，還是一本打開等你寫字的筆記本？選完六次可免費讀完整側寫。",
+      "interpretation": "不妨從手邊現有的小物選一樣試試：用杯子慢慢喝幾口，留個能坐下的位置，或先在空白頁寫一行。"
+    },
+    "en": {
+      "lead": "What starts a quietly cozy scene for you: a familiar cup, a light blanket, or a notebook opened to a blank page? Make six choices and read the full scene portrait for free.",
+      "interpretation": "Start with one thing already nearby. It might set a familiar ritual in motion, make a place to sit, or leave room for a half-formed idea."
+    }
+  },
+  "creative-spark": {
+    "zh": {
+      "lead": "想试一个小点子，你会把两件意外的东西放在一起、先做出个粗样，还是讲给愿意听的人？六次选择后可免费读完整创意画像。",
+      "interpretation": "选一个用十分钟就能碰一碰的想法。也许你需要换个问法、随手画一版，或者听听别人会先问什么。"
+    },
+    "zh-TW": {
+      "lead": "冒出一個想試的小點子，你會先湊兩件平常搭不到一起的東西、做個看得見的雛形，還是說給願意聽的人？選完六次就能免費看完整側寫。",
+      "interpretation": "挑一個不用花太久的想法來試試。可以改問一個問題、拿紙筆畫一版，或請朋友聽完一句話後問你一件事。"
+    },
+    "en": {
+      "lead": "A small idea is taking shape. Would you combine two unlikely objects, make a rough version, or tell an interested friend one sentence about it? Make six choices and read the full creative portrait for free.",
+      "interpretation": "Pick an idea you could touch for ten minutes. Try a different question, make something you can point to, or listen for the first question someone asks."
+    }
+  },
+  "date-plan-detour": {
+    "zh": {
+      "lead": "约好的地方没开门。你会先问对方最想保留哪一段、确认大家还想不想继续，还是提议试试旁边的备选？选完六题可免费读完整画像。",
+      "interpretation": "遇到临时变动，可以先问“我们还想要什么”，再把附近的一个选项说出来。对方也可以选今天到此为止。"
+    },
+    "zh-TW": {
+      "lead": "原本約去的地方沒營業。你會先問對方最想留住哪個部分、確認還要不要繼續，還是提出附近一個可以試試的地方？選完六次可免費看完整側寫。",
+      "interpretation": "臨時改行程時，可以先問彼此還想不想再走一段；有想法就提一個，也把今天先回家的選擇留著。"
+    },
+    "en": {
+      "lead": "Your planned stop is closed. Would you ask what each person wanted most, check whether everyone still wants to go out, or suggest an easy alternative nearby? Make six choices and read the full portrait for free.",
+      "interpretation": "When plans change, try asking what you still want from the outing. Offer one option everyone can decline, including calling it a day."
+    }
+  },
+  "desert-oasis": {
+    "zh": {
+      "lead": "给想象的绿洲加一件东西，你会先画清楚路线、做一面大家能添图案的拼画，还是放一张避开人来人往的长椅？六次选择后可免费读完整设计画像。",
+      "interpretation": "画一张歇脚站草图试试：新来的人先看到什么？想留下点东西的人在哪里动手？累了可以去哪个安静的角落？"
+    },
+    "zh-TW": {
+      "lead": "你能為畫裡的綠洲入口加一樣東西。會是看得懂的地圖、大家能拼出圖樣的牆，還是遠離人潮的一張長椅？選完六題可免費看完整側寫。",
+      "interpretation": "試畫一間想像中的休息站。從第一次來的人想起：他能不能找到方向、留下自己的小記號，或安靜坐上一會兒？"
+    },
+    "en": {
+      "lead": "You can add one thing at the entrance to an imaginary oasis: an easy-to-read map, a mosaic visitors can add to, or a quiet bench off the main path. Make six choices and read the full design portrait for free.",
+      "interpretation": "Sketch a rest stop from a visitor’s point of view. Where could they find their way, add something to the place, or sit down away from the traffic?"
+    }
+  },
+  "desk-reset": {
+    "zh": {
+      "lead": "小创作要开始了。你想把常用工具放在老地方、拿出这次用得到的小工具包，还是清出一块只够摆第一件东西的空桌面？六次选择后可免费读完整画像。",
+      "interpretation": "下次开始前只调整桌面的一小块。试试工具伸手就能拿到、用一个小盒装齐，或先让第一步有地方做。"
+    },
+    "zh-TW": {
+      "lead": "準備做點小東西時，你想要工具都在熟悉的位置、這次用得到的都裝在小盒裡，還是先清出一塊空桌面只放第一樣？選完六題可免費看完整側寫。",
+      "interpretation": "不需要一次整理整張桌子。下次只試著把用得到的東西移近一點，或為你第一個要做的動作留塊空間。"
+    },
+    "en": {
+      "lead": "Before a small creative task, would you put your favorite tools within reach, bring out a kit for just this job, or clear a spot for the very first step? Make six choices and read the full portrait for free.",
+      "interpretation": "Change one small part of your workspace before you begin. Try grouping what you need, putting a tool where you can reach it, or leaving one clear patch for the first step."
+    }
+  },
+  "dinner-host": {
+    "zh": {
+      "lead": "准备一顿想象中的家常晚饭，你会先理清上菜顺序、准备几样可以自由搭配的东西，还是把准备工作减到自己也能坐下来吃？六次选择后可免费读完整画像。",
+      "interpretation": "下次请人吃饭时，可以把最在意的一件事先留出来：容易上桌、客人好选择，或你有时间一起吃。"
+    },
+    "zh-TW": {
+      "lead": "想像在家請朋友吃頓飯。你會先排好上菜的順序、準備大家可以自己搭的幾樣菜，還是把事情簡化，好讓你也有空坐下來吃？選完六題可免費讀完整側寫。",
+      "interpretation": "下次想請客，可以先安排一件讓餐桌舒服的事：好上菜、大家挑得到喜歡的，或主人也能坐下來一起聊。"
+    },
+    "en": {
+      "lead": "You’re planning an imaginary dinner. Would you work out what comes out when, set up dishes people can mix and match, or simplify the prep so you can sit down too? Make six choices and read the full host portrait for free.",
+      "interpretation": "Before a casual dinner, decide what you most want to make easy: serving the food, letting guests choose, or joining them at the table."
+    }
+  },
+  "dragon-housemate": {
+    "zh": {
+      "lead": "合住的龙把亮纽扣收得快铺满桌子了。你会约一块展示区、一起找时间整理，还是做个能收起来的小架子？选六次可免费读完整合住画像。",
+      "interpretation": "假如把龙换成熟悉的人，试着说出哪一点最好商量：桌上各留多少、一块儿收几分钟，或把东西换个地方摆。"
+    },
+    "zh-TW": {
+      "lead": "龍收藏的亮扣子快把共用桌面佔滿了。你會和牠劃一塊展示區、約時間一起收，還是做個能摺起來的小架子？做完六次選擇可免費看完整側寫。",
+      "interpretation": "把故事換成家裡的共用桌子想想。先說彼此都能接受的空間，或試一種大家願意一起做的小整理。"
+    },
+    "en": {
+      "lead": "Your dragon housemate’s shiny buttons are taking over the table. Would you agree on a display zone, set aside time to sort them together, or build a shelf that folds away? Make six choices and read the full portrait for free.",
+      "interpretation": "Back in a real shared space, try one easy agreement. You can set aside a corner, sort together for a few minutes, or find a different way to store things."
+    }
+  },
+  "escape-room-role": {
+    "zh": {
+      "lead": "桌上摆着符号卡、地图和数字条。你会先找它们的共同点、试一个具体的对应关系，还是帮小队记下已经查过什么？选完六题可免费读完整队友画像。",
+      "interpretation": "下次玩谜题时，试着先对队友说清这一步在做什么：连两条线索、检验一种猜法，或确认哪件事不用再查。"
+    },
+    "zh-TW": {
+      "lead": "桌上有符號卡、地圖和一串數字。你會先把線索排在一起、試一種對應方式，還是告訴隊友哪些已經查過？選六次可免費看完整側寫。",
+      "interpretation": "遇到大家卡住的時候，不妨先分清是在找關聯、驗證一個猜想，還是整理查過的線索，隊友會更容易跟上。"
+    },
+    "en": {
+      "lead": "A symbol card, a map, and a number strip sit on the table. Would you look for a link, test one matching rule, or keep track of what the team has checked? Make six choices and read the full teammate portrait for free.",
+      "interpretation": "When a group puzzle stalls, name the next move out loud. Someone can connect two clues, test one guess, or cross an already checked clue off the list."
+    }
+  },
+  "fantasy-party-role": {
+    "zh": {
+      "lead": "冒险队里你可以挑一张会回答问题的地图、一盏标出歇脚点的灯，或一盒能重拼的咒语碎片。六次选择后可免费读完整队伍角色画像。",
+      "interpretation": "读完看看你选的工具帮队伍完成了哪一步：弄清往哪走、留一段休整时间，或把现有东西拼成一个解法。"
+    },
+    "zh-TW": {
+      "lead": "出發前你能挑一件道具：問對問題就顯出路線的地圖、指出歇腳處的燈，或能拆開重組的咒語碎片。選完六次可免費讀完整隊伍角色側寫。",
+      "interpretation": "回頭看看你選的道具幫夥伴做了什麼：找到路、好好歇一下，還是用手上的東西拼出另一個辦法。"
+    },
+    "en": {
+      "lead": "The adventure party can choose a map that answers a good question, a lantern that marks a safe rest, or a box of spell fragments to piece together. Make six choices and read the full role portrait for free.",
+      "interpretation": "Look at what your choices help the party do: find a route, stop for a rest, or put what’s already in the box to a new use."
+    }
+  },
+  "festival-companion": {
+    "zh": {
+      "lead": "节庆节目太多，逛不完。你想先约好大家最想同看的一个节目、定个会合时间分头逛，还是一起试个没见过的短活动？选完六题可免费读完整同行画像。",
+      "interpretation": "和朋友出门时，可以先决定一件想一起做的事，再聊哪些时段可以分开逛、愿不愿意临时尝试新活动。"
+    },
+    "zh-TW": {
+      "lead": "節慶節目單排得滿滿的，你會先挑一場大家想一起看的、各逛各的再約個時間碰面，還是一起試一個沒玩過的小活動？選六次可免費讀完整側寫。",
+      "interpretation": "下次約朋友逛活動時，先把想一起做的一件事說清楚，也留一點時間讓大家各自看看想逛什麼。"
+    },
+    "en": {
+      "lead": "There’s more on the festival program than your group can fit in. Would you pick one shared highlight, split up and set a meeting time, or try something unfamiliar together? Make six choices and read the full portrait for free.",
+      "interpretation": "Before heading out with friends, agree on one thing you’d all like to do. Leave time to browse separately or to try something you didn’t plan for."
+    }
+  },
+  "festival-mask": {
+    "zh": {
+      "lead": "给虚构节庆做面具，你会添一串回应手势的小铃、给景物开个小窗，还是让纸带画下动作的方向？选完六次可免费读完整角色画像。",
+      "interpretation": "试着先想面具在现场怎样被看见或听见，再选一种轻便的设计，把一个动作、一处景物或一段移动表现出来。"
+    },
+    "zh-TW": {
+      "lead": "你在替虛構節慶做面具。會想加上隨手勢輕響的小鈴、框出一角風景的小窗，還是沿著動作飄起的紙帶？選完六題可免費看完整側寫。",
+      "interpretation": "設計時可以先練一個動作，再決定用什麼讓人注意到它。叮一聲、框住一眼看到的景色，或讓紙帶接著往前飛，各有不同效果。"
+    },
+    "en": {
+      "lead": "Would your imaginary festival mask chime at a gesture, frame a view in a tiny window, or trace a movement with ribbons? Make six design choices and read the full character portrait for free.",
+      "interpretation": "Try designing for one moment. Think about what somebody nearby should hear, see in a little frame, or follow as you move."
+    }
+  },
+  "fictional-cafe": {
+    "zh": {
+      "lead": "如果咖啡馆里能发生一件不可能的小事，你想让碟子变成舞台、让客人借一句话改写，还是请他们调一种还没名字的颜色？六次选择后可免费读完整画像。",
+      "interpretation": "挑一个最吸引你的设定，再想一位刚到的客人会怎样用它。改一行字、转一下碟子或给颜色起名，都够写成一个小场景。"
+    },
+    "zh-TW": {
+      "lead": "如果咖啡館能發生一件不可能的小事，你想讓小碟子變舞臺、讓客人借句話回去改，還是調出還沒取名的顏色？選完六題就能免費看完整側寫。",
+      "interpretation": "選一件好玩的設定，想像第一位客人進來後會做什麼。一句改過的話、一個小演出，或一個客人新取的色名，都能開場。"
+    },
+    "en": {
+      "lead": "What’s impossible about your imaginary café? A saucer could become a stage, a guest could borrow and rewrite a sentence, or someone could mix a color with no name. Make six choices and read the full portrait for free.",
+      "interpretation": "Pick one feature and imagine what a first-time visitor could do with it. The way they bend a sentence or name a color is enough to start a little scene."
+    }
+  },
+  "floating-house": {
+    "zh": {
+      "lead": "小屋刚刚飘起来，你想先系住熟悉的花园、找几条可以漂去的路线，还是装一块让客人上来坐一会儿的台阶？六次选择后可免费读完整小屋画像。",
+      "interpretation": "画张小屋草图，想想哪些联系此刻值得保留：熟悉的一片地、几个还没决定的去处，或一个别人可以选择来访的入口。"
+    },
+    "zh-TW": {
+      "lead": "小屋慢慢離開地面了，你會先繫上通往花園的繩子、畫幾條能漂去的路，還是替受邀的客人留個小台階？選完六次可免費看完整側寫。",
+      "interpretation": "不妨畫一個小屋的側面，想想和地面留下哪一種連結：回得去的花園、有彈性的路線，或讓客人能短暫來坐的一層台階。"
+    },
+    "en": {
+      "lead": "Your house lifts off the ground. Would you tether it to the garden, mark a few drifting routes, or add a little step for invited guests? Make six choices and read the full house portrait for free.",
+      "interpretation": "Sketch the house and one link to the ground. It could give you a place to return, a choice about where to go, or a way to invite somebody for a short visit."
+    }
+  },
+  "friendship-invitation": {
+    "zh": {
+      "lead": "想约朋友一起出门，你会先说清时间地点、提到对方喜欢的事，还是留一个舒服的拒绝方式？在六个场景里选过后可免费读完整邀请画像。",
+      "interpretation": "写下次邀请时可以用两句话：一句把活动说清楚，另一句让朋友知道不方便也完全可以。"
+    },
+    "zh-TW": {
+      "lead": "要約朋友出去走走，你會先講清楚大約何時何地、說說為什麼想到他，還是讓他很容易回覆不方便？選完六次就能免費看完整側寫。",
+      "interpretation": "下次傳邀約，可以先說你想做的事，再讓對方知道可以改時間、提別的點子，也可以下次再約。"
+    },
+    "en": {
+      "lead": "How would you invite a friend out? Would you give them a clear plan, mention the interest that made you think of them, or make it easy for them to say no? Make six choices and read the full invitation portrait for free.",
+      "interpretation": "Try two sentences next time you invite someone. One can give the plan, and the other can make it easy to suggest a change or decline."
+    }
+  },
+  "garden-season": {
+    "en": {
+      "lead": "An empty garden patch is yours for a season. Would you try something new, care for what’s already growing or let the soil rest? Make six choices and read the free garden portraits.",
+      "interpretation": "Think of a single corner you’d leave alone and one you’d visit regularly. Both can belong in the same imagined garden."
+    },
+    "zh": {
+      "lead": "假设有一小块花园归你照料。你会先试种一点新东西，照顾已有的植物，还是让土歇一歇？做完六次选择，就能免费看春、夏、冬三种完整画像。",
+      "interpretation": "想一块愿意留白的地方，再想一处愿意常去照看的角落。它们可以在同一座花园里。"
+    },
+    "zh-TW": {
+      "lead": "花園空出一小塊地。你想試種沒種過的植物、照顧已經在長的葉苗，還是先讓土休息？選完六個情境，就能免費看春、夏、冬三種完整側寫。",
+      "interpretation": "在心裡留一塊暫時不動的地，再挑個你會常去看的角落。一座花園可以有兩種步調。"
+    }
+  },
+  "gift-note": {
+    "en": {
+      "lead": "You get two lines on an imaginary gift tag. Would you start with a moment you shared, a specific thank-you or a wish for something they’re hoping for? Pick from ready-made choices in all six scenes.",
+      "interpretation": "Try reading a line with the gift out of sight. Is there still something the other person could recognize as meant for them?"
+    },
+    "zh": {
+      "lead": "礼物标签只有两行，你先留下一段共同回忆、一句具体的感谢，还是给对方写个不设条件的祝愿？六个场景都只要选现成的说法。",
+      "interpretation": "把礼物先放到一旁，单看那句话。对方能不能从中认出一处和自己有关的细节？"
+    },
+    "zh-TW": {
+      "lead": "卡片只夠寫兩行，你會從哪裡起筆？可以提一件你們都記得的小事、謝謝對方做過的一件事，或祝對方如願。六題都用選的。",
+      "interpretation": "想像對方只收到一句話。讀到哪個細節時，會知道這張卡片是寫給自己的？"
+    }
+  },
+  "group-project-finale": {
+    "en": {
+      "lead": "The group has put down the last piece of its paper model. What would you do before everyone leaves? Make six choices about thanking contributors, handing over the finished work and taking a moment together.",
+      "interpretation": "Imagine someone who helped early on but missed the last meeting. What should they be able to find afterward, and what would you like them to hear?"
+    },
+    "zh": {
+      "lead": "纸模型的最后一块已经装好，大家准备散场。你会说清每个人帮了什么、安排成品交接，还是邀请大家一起再看一眼？六道题都围绕这次收尾。",
+      "interpretation": "想想早期帮过忙、最后没到场的人。结束后，他们该在哪里找到成品？你还想让他们知道什么？"
+    },
+    "zh-TW": {
+      "lead": "紙模型拼好了，大家正要回家。你會一一謝謝幫忙的人、講好成品交給誰，還是先請大家一起看一眼？做六次選擇，看看你習慣先顧到哪件事。",
+      "interpretation": "有位夥伴一開始幫了很多忙，最後一次卻沒到。想想你會怎麼讓他看到大家做完的作品，又會怎麼提起他的貢獻。"
+    }
+  },
+  "group-trip-seatmate": {
+    "en": {
+      "lead": "You’ve just sat down on a short trip with someone beside you. Would you start with a hello, settle into your own activity or check where to put the bags? Six scenes show how you might share the ride.",
+      "interpretation": "Think of a time on the trip when it would be welcome to talk and one when both of you might prefer quiet. Your answer can change along the way."
+    },
+    "zh": {
+      "lead": "短途旅行刚坐下，你会先和邻座打个招呼、安静做自己的事，还是问问包放哪儿合适？六个场景都可以独自作答。",
+      "interpretation": "一段路上，刚坐下和快到站时可能想做不同的事。想想什么时候想聊天，什么时候只想各自休息。"
+    },
+    "zh-TW": {
+      "lead": "和別人坐隔壁搭車，你會先打聲招呼、拿出自己的書，還是問行李放哪裡比較方便？六個情境自己就能選，不用找旅伴一起答。",
+      "interpretation": "想想剛上車和快到站時，你會不會想換個相處方式。聊幾句和各自休息，可以出現在同一趟路上。"
+    }
+  },
+  "inside-joke": {
+    "en": {
+      "lead": "Someone repeats a joke from the last meetup. Would you catch a newcomer up, give the line a new twist or let the laugh be enough? Choose your response in six fictional moments.",
+      "interpretation": "Try imagining that someone missed the original joke. What would they need to join in, and could the group also let the moment pass?"
+    },
+    "zh": {
+      "lead": "聚会又有人接起上次的梗。你会补一句来龙去脉、拿眼前的事接出新花样，还是笑一声就让话题过去？六个场景都不用自己编笑话。",
+      "interpretation": "想象有人刚加入，没听过这个梗。你会用哪句话帮他们听明白？也可以想想，这个笑点有没有必要继续。"
+    },
+    "zh-TW": {
+      "lead": "有人提起上次聚會的梗，你會幫新人補個前情、用現場發生的事接一句，還是笑完就聊別的？六題都只要選你會採取的做法。",
+      "interpretation": "想想第一次聽的人能不能跟上。有時一句話就夠，有時讓話題自然過去也很好。"
+    }
+  },
+  "lost-key-search": {
+    "en": {
+      "lead": "The keys aren’t in their usual tray. Would you retrace your steps, check one area thoroughly or ask who last saw them? Choose what you’d try in six untimed, imagined scenes.",
+      "interpretation": "Pick one point where you’d switch approaches. If you can’t remember what happened after coming home, what could someone else tell you that would narrow it down?"
+    },
+    "zh": {
+      "lead": "钥匙不在平常放的地方，你会先回想进门后去了哪儿、查完手边这一片，还是问谁最后见过？在六个想象场景里，选你会试的办法。",
+      "interpretation": "想想什么情况会让你换个找法。要是记不清进门后做过什么，你会问谁一个什么问题来缩小范围？"
+    },
+    "zh-TW": {
+      "lead": "鑰匙沒在平常放的地方。你會先回想進門後做了什麼、把附近一區找完，還是問誰最後看過？六個情境都在想像中進行，也不計時。",
+      "interpretation": "想想你找了一陣子後，什麼新線索會讓你換個方向。也許關鍵是別人看見鑰匙的時間，而不是多翻一遍同一個抽屜。"
+    }
+  },
+  "note-taking-doodles": {
+    "en": {
+      "lead": "A small idea comes to you while making something. Would you leave yourself a sentence, a rough sketch or a link between two pieces? In six written scenes, choose the note you’d want to find later.",
+      "interpretation": "Imagine opening the note tomorrow. What one detail would tell you where to pick up, even if the rest of the idea had faded?"
+    },
+    "zh": {
+      "lead": "做东西时突然冒出个小点子，你会写一句好懂的话、画张草图，还是把两条线索连起来？六道文字题都只需要选一种记法。",
+      "interpretation": "假设明天才翻开这张纸。哪一个细节能告诉你从哪里接着做？"
+    },
+    "zh-TW": {
+      "lead": "手上的東西做到一半，突然想到一個點子。你會留一句話、畫個大概，還是用箭頭把兩個想法連起來？六題都用選的，不用交筆記或畫圖。",
+      "interpretation": "想像隔天才看到這張便條。有哪個字、記號或箭頭，能提醒你接下來原本想做什麼？"
+    }
+  },
+  "photo-group-role": {
+    "en": {
+      "lead": "A willing group is about to take one photo. Would you make sure everyone in the shot can be seen, make it easy to step out or agree on the moment you want to remember? The six scenes require no real photo.",
+      "interpretation": "Imagine someone is happy to be in the photo but would rather it stay off group chat. What would you ask before anyone shares?"
+    },
+    "zh": {
+      "lead": "大家准备拍一张合影。你会先看看入镜的人是否都能看见、让不想入镜的人方便退出，还是问大家想留下哪个瞬间？六道题无需拍照或上传。",
+      "interpretation": "如果有人愿意入镜，但希望照片不要发到群里，分享前可以先确认照片准备留在哪里、给谁看。"
+    },
+    "zh-TW": {
+      "lead": "朋友們說來張合照。你會先確認入鏡的人都看得到、留個位置讓不想拍的人站旁邊，還是問大家想記住哪個片刻？六個情境都不用真的拍照。",
+      "interpretation": "有人想入鏡，卻希望照片別貼到群組。按下分享之前，可以確認對方願意讓哪些人看到。"
+    }
+  },
+  "playlist-maker": {
+    "en": {
+      "lead": "You’re choosing the first song. Would you set up where the playlist is going, listen for what fits the room or give people a track they might not know? Make six choices without playing or uploading music.",
+      "interpretation": "Imagine playing the same track as people arrive and just before they leave. Would you keep it in both places?"
+    },
+    "zh": {
+      "lead": "给一段时间配歌，你会先想第一首怎样带出后面的歌、现场的人听起来舒不舒服，还是放一首新鲜的歌让大家认识？六道文字题无需播放或上传音乐。",
+      "interpretation": "想想同一首歌放在大家刚来时和快散场时，听起来会不会不同。你还会把它留在两个位置吗？"
+    },
+    "zh-TW": {
+      "lead": "幫一場小聚會排歌，你會先想曲子怎麼接、現場的人聽起來是否自在，還是放一首大家可能沒聽過的歌？六題都是文字情境，不用播放音樂或登入串流帳號。",
+      "interpretation": "挑同一首歌，分別想像客人剛到和要回家時播。哪個時候你會留下它？也可能兩個時候都適合。"
+    }
+  },
+  "potluck-contribution": {
+    "en": {
+      "lead": "Everyone’s bringing something to a shared meal. Would you fill a gap on the table, make the drop-off easy or leave a note so people know what you brought? Choose in six imaginary scenes.",
+      "interpretation": "Picture arriving while the host is busy. What could you settle before you get there, and what should be easy to see once your dish is on the table?"
+    },
+    "zh": {
+      "lead": "聚餐各带一道菜，你会先看桌上缺什么、想好到了怎么交接，还是附一张让大家看得懂的说明？六个想象场景都不要求实际下厨。",
+      "interpretation": "想象你到的时候主人正忙。哪件事可以提前说好？菜放上桌以后，有什么信息最好让人一眼就看到？"
+    },
+    "zh-TW": {
+      "lead": "大家約好一人帶一道菜，你會先看菜色少了什麼、問餐盒送到哪裡，還是寫張小卡讓大家知道你帶了什麼？六題都在想像中進行。",
+      "interpretation": "如果到場時主人正忙，想想有什麼可以先問，好讓你一到就知道怎麼放；哪些資訊則能直接留在菜旁邊。"
+    }
+  },
+  "rainy-window": {
+    "zh": {
+      "lead": "雨点打在窗上，你会先画窗台的物件、玻璃里的倒影，还是远处的屋顶？六道文字选择带你试不同的取景方式。",
+      "interpretation": "再看一扇窗时，可以选一个物件作主角，想一想倒影和远景哪一层能让它更清楚。"
+    },
+    "zh-TW": {
+      "lead": "下雨時望向窗邊，你先看見窗台上的小東西、玻璃裡的倒影，還是對面的屋頂？用六道文字題試試不同的構圖。",
+      "interpretation": "找一扇窗試著換個位置，看看倒影移到哪裡，又有哪些東西一直留在你看得到的範圍。"
+    },
+    "en": {
+      "lead": "Picture a window on a rainy day. Would you frame the objects on the sill, the reflections in the pane, or the rooftops beyond? Try six choices about what to put in focus.",
+      "interpretation": "Pick one detail to keep in the frame. Then try moving the viewpoint and notice what the reflection adds or hides."
+    }
+  },
+  "reunion-style": {
+    "zh": {
+      "lead": "和许久没联系的人重新开口，你会提起一段共同回忆、问问对方现在过得怎样，还是约个短见面？在六个想象情境里选你愿意先做的一步。",
+      "interpretation": "想一条自己愿意收到的开场消息，然后看看对方能不能轻松地回一句、晚一点回，或先不回。"
+    },
+    "zh-TW": {
+      "lead": "好一陣子沒和對方聯絡了。你會從一件一起做過的事聊起、問問對方近況，還是找個時間碰個面？六個情境，看看你會怎麼開口。",
+      "interpretation": "想像自己是收到訊息的人：哪一句可以只回一兩句，也能讓彼此知道要不要繼續聊？"
+    },
+    "en": {
+      "lead": "It’s been a while since you last talked. Would you pick up an old joke, ask what life is like now, or suggest a quick catch-up? Try six imagined ways to reconnect.",
+      "interpretation": "Imagine the opening from the recipient’s side. Can they reply briefly, reply another day, or leave it there?"
+    }
+  },
+  "road-trip-dj": {
+    "zh": {
+      "lead": "同车的人都想放歌时，你会让大家轮流点歌、挑一首能衔接不同口味的歌，还是先留一段安静时间？六道文字题，不会播放音乐。",
+      "interpretation": "下次帮大家排歌，可以约一个换手信号，比如一首歌播完后再问谁想接着放。"
+    },
+    "zh-TW": {
+      "lead": "一車人都想放自己喜歡的歌，你會請大家輪流點歌、找一首兩邊都聽得下去的歌，還是先讓車裡安靜一下？六道文字題，頁面不會播歌。",
+      "interpretation": "下次一起聽歌時，可以先講好什麼時候換人點歌，也讓想休息的人有機會開口。"
+    },
+    "en": {
+      "lead": "Your passengers have very different requests. Would you take turns, find a song that bridges two tastes, or make room for a quiet stretch? Answer six written scenarios; the quiz plays no audio.",
+      "interpretation": "Try agreeing what marks the next turn and how anyone can ask for some quiet before you fill the whole queue."
+    }
+  },
+  "seasonal-table": {
+    "zh": {
+      "lead": "想象换季时的桌面：你会留一件上个季节的小物、清出一块地方，还是请别人也添上一样？在六个情境里选你愿意做的改变。",
+      "interpretation": "挑一小块桌面想象两种摆法：先决定想留下什么，再看看如果什么也不添，会不会更合用。"
+    },
+    "zh-TW": {
+      "lead": "季節要換了，你會在桌上留一件上季的小物、空出一個位置，還是問家人或朋友想放些什麼？用六個情境想像這張桌子的變化。",
+      "interpretation": "看看手邊一個角落：能不能只移動一樣東西，其他先照原樣留著，過幾天再決定？"
+    },
+    "en": {
+      "lead": "What might change on a table at the turn of a season? Keep one small object from the last season, leave a spot open, or invite someone to add something in six imagined scenes.",
+      "interpretation": "Try picturing what the table could be used for next. This may make it easier to see whether one object, an open spot, or a shared addition belongs there."
+    }
+  },
+  "secret-garden-gate": {
+    "zh": {
+      "lead": "把自己的小作品想成一座花园。有人来敲门时，你会先给人看完工的一角、聊聊怎么做的，还是请对方也添一点？六次选择，看看你更愿意从哪里开始分享。",
+      "interpretation": "下次分享一张草图前，试着用一句话说清楚：你是想让对方看看、听听你的做法，还是给一点反馈？"
+    },
+    "zh-TW": {
+      "lead": "如果小作品是一座花園，有人來敲門時，你想先讓對方看做好的地方、聽你聊怎麼做，還是留一角讓他也加點東西？六個情境，看看你想怎麼分享。",
+      "interpretation": "要給別人看小作品時，可以先問一句：「你想看看就好，還是有興趣一起想一個小點子？」"
+    },
+    "en": {
+      "lead": "Imagine your latest little project as a garden. When someone knocks at the gate, would you show one finished corner, share a note about making it, or invite them to add something? Try six choices about what to share.",
+      "interpretation": "The next time you show someone a draft, try stating what kind of invitation you’re making: a look, a conversation, or an optional contribution."
+    }
+  },
+  "shared-hobby": {
+    "zh": {
+      "lead": "你和朋友喜欢做不同的事。见面时，你会请对方试一小段自己的爱好、各做各的但待在一起，还是轮流教对方一点？六个想象情境让你尝试不同安排。",
+      "interpretation": "约下次见面时，可以先试十分钟。时间到了，各自说说想继续一起做，还是改成做自己的事。"
+    },
+    "zh-TW": {
+      "lead": "你和朋友愛做的事不一樣。下次碰面，你會邀對方試一小段、坐在一起各做各的，還是輪流教對方一招？從六個情境看看自己偏好的安排。",
+      "interpretation": "下回約朋友，可以先問「想一起玩一輪，還是我們在同一個地方各做各的？」不用一開始就把整個下午排好。"
+    },
+    "en": {
+      "lead": "You and a friend have different hobbies. Would you invite them to try one round, work on separate projects side by side, or trade short turns showing each other what you like? Try six imagined visits.",
+      "interpretation": "Before meeting up, agree on a short amount of time to try the activity. Check whether you both want more, or would enjoy doing different things nearby."
+    }
+  },
+  "shared-workspace": {
+    "zh": {
+      "lead": "共用的手工桌上有张没做完的作品，还有下个人要用的工具。你会留张说明、整理公用工具，还是先问对方要不要反馈？在六个想象情境里试一次。",
+      "interpretation": "下次离开共用桌前，试着留一句能让下个人行动的话，例如“这一页还在做，剪刀可以拿走”。"
+    },
+    "zh-TW": {
+      "lead": "大家共用一張手作桌：桌上有還沒完成的作品，也有人接著要用工具。你會留張便條、收好大家要用的東西，還是問對方想不想聽建議？六個情境讓你選。",
+      "interpretation": "離開共用桌前，想想下一個人最需要知道什麼。寫一句「這張還在做，剪刀可以用」就可能夠了。"
+    },
+    "en": {
+      "lead": "At a shared craft table, someone has left a half-finished page and the next person needs the tools. Would you leave a note, sort out the tools, or ask if the maker wants feedback? Try six imagined handovers.",
+      "interpretation": "Before leaving a shared table, write the one sentence the next person can act on: “I’m still working on this page; the scissors are free.”"
+    }
+  },
+  "stargazing-role": {
+    "zh": {
+      "lead": "面对一张虚构星图，你会先连出一个图案、给星星编个故事，还是想办法让大家都看得见？用六道题试试，你不需要认出真实星座。",
+      "interpretation": "朋友围着一张图时，可以留意谁还没看到，再决定是先挪个位置，还是接着讲刚发现的细节。"
+    },
+    "zh-TW": {
+      "lead": "大家圍在一張想像的星圖旁。你會先找星點能連成什麼、幫圖案編個故事，還是把位置讓給看不清楚的人？六題就能玩，不用認星座。",
+      "interpretation": "一起看一張圖的時候，可以先問有沒有人看不清楚，再把你剛發現的地方指給大家看。"
+    },
+    "en": {
+      "lead": "Gather around a made-up sky chart. Would you trace a pattern, invent a story, or help everyone find a good spot to see? Try six scenes without having to name a real constellation.",
+      "interpretation": "Next time people crowd around a picture, check who can see before you point out your favorite detail."
+    }
+  },
+  "team-name-maker": {
+    "zh": {
+      "lead": "给临时小队取名，你会玩一个双关、找大家都明白的梗，还是先列几个名字一起挑？六道选择看看你会怎样参与取名。",
+      "interpretation": "取名时不妨请刚加入的人复述一下名字的意思，看看是需要多解释一句，还是该换个大家更容易记住的名字。"
+    },
+    "zh-TW": {
+      "lead": "臨時組隊要取名字，你會玩諧音、找大家都懂的梗，還是先列幾個選項一起挑？用六道題想想自己會怎麼幫忙取名。",
+      "interpretation": "想好名字後，請剛加入的人念念看，也聽聽他怎麼理解。這比直接問「好不好聽」更容易找出需要改的地方。"
+    },
+    "en": {
+      "lead": "A temporary team needs a name. Would you start with a pun, find a reference everyone knows, or make a shortlist to choose together? Pick your approach in six scenes.",
+      "interpretation": "Ask the newest person on the team to say the name aloud and explain what they think it means. Their answer can show whether an inside reference needs a better entry point."
+    }
+  },
+  "thrift-shop-find": {
+    "zh": {
+      "lead": "在想象中的旧物店里，你会先注意马上用得上的东西、一改就好用的东西，还是留下了使用痕迹的东西？六个情境都只需选答案。",
+      "interpretation": "看中一样旧物时，可以先想你会把它放在哪、什么时候用；如果只想了解它的来历，也可以先放回去。"
+    },
+    "zh-TW": {
+      "lead": "逛想像中的二手店，你會拿起剛好用得著的小物、稍微改一下就好用的東西，還是有使用痕跡的物件？六道題用文字就能玩。",
+      "interpretation": "下次逛二手店前先想好一個放它的地方。就算最後只多看了幾眼，也可以把這段發現留在店裡。"
+    },
+    "en": {
+      "lead": "Browse an imaginary thrift shelf. Would you stop at something you can use today, a piece you could remake, or an object with an interesting trace of wear? Choose in six scenes.",
+      "interpretation": "Before taking a find home, picture where it would go and how you’d use it. If what caught you was a trace of its history, that can be a good reason to look without buying."
+    }
+  },
+  "tiny-superpower": {
+    "zh": {
+      "lead": "在故事里，你可以把一句含糊的话说得更明白、让大家有机会停一下，或描出图中已有的轮廓。六次选择，看看你更常用哪一种小能力。",
+      "interpretation": "卡在一个小任务时，试着只做一件事：换一个词、停一会儿，或圈出目前看得清楚的那部分。"
+    },
+    "zh-TW": {
+      "lead": "如果有三種小超能力可以選，你想把一句話說清楚一點、讓大家先歇一下，還是把圖上原本就有的邊線描出來？六個故事情境，看看你會選什麼。",
+      "interpretation": "畫圖或寫東西卡住時，可以先選一個小動作：改一個字、休息一下，或用筆圈出你已經知道的地方。"
+    },
+    "en": {
+      "lead": "Give yourself a tiny fictional power: make one label clearer, offer a chance to pause, or trace an edge that’s already there. Make six choices about where you’d put it to use.",
+      "interpretation": "When a small task stalls, try one move on its own: change a word, take a pause, or outline the part you can already see."
+    }
+  },
+  "firefly-evening": {
+    "zh": {
+      "lead": "纸萤灯展快结束了。你会和大家再看一会儿、给个结束的信号，还是留一份安静的纪念？在短篇故事里做三次选择，读到一个完整结局。",
+      "interpretation": "回看通向结局的三次选择，找一处你先照顾了别人的节奏，或替自己留了片刻时间。"
+    },
+    "zh-TW": {
+      "lead": "紙螢燈展要收場了。你會邀大家再看一眼、用一盞燈讓人知道時間到了，還是安靜地留個紀念？一路選三次，就能讀到一個完整結局。",
+      "interpretation": "讀完後回想路上的三個決定：有哪次是想讓大家一起做，有哪次是希望有人可以先離開？"
+    },
+    "en": {
+      "lead": "The paper-firefly display is nearly over. Would you watch a final moment together, signal that it’s time to leave, or keep a quiet reminder? Make three linked choices and read a complete ending.",
+      "interpretation": "Look back over the three choices you made. Notice where you made a moment for the group and where you left room for someone to leave."
+    }
+  },
+  "attraction-experiences": {
+    "zh": {
+      "method": "回顾过去十二个月，只回答自己的经历。没经历过浪漫吸引时，可以不同意“反复出现”的陈述；需要比较熟悉前后或不同情境的题目，可选不计分。每组须有三条有效回答才显示均值。"
+    },
+    "zh-TW": {
+      "method": "回想過去十二個月的自身經驗。如果沒有感受過浪漫吸引，可以不同意「反覆出現」這類敘述；若題目要比較熟悉前後或不同情境，沒有經驗可比就選不計分。每組三題都能計分才會顯示平均。"
+    },
+    "en": {
+      "method": "Answer about your own experiences over the past year. You can disagree with a statement about recurring attraction if you haven’t experienced it. For comparisons you can’t make, choose the unscored response. Each area needs three numeric answers for a mean."
+    }
+  },
+  "body-frame-observations": {
+    "zh": {
+      "method": "只凭你已经熟悉的日常印象作答。想不起某一处，或不愿评那条描述，可以不计分；每组四条有至少三条有效回答才会计算。三份完整指南都能直接读。"
+    },
+    "zh-TW": {
+      "method": "用平常已經知道的印象作答就好。遇到沒把握或不想評的描述，可以略過計分；每組四題有三題以上可計分，才會顯示平均。三份完整指南也可以先讀。"
+    },
+    "en": {
+      "method": "Use the everyday impressions you already have. If you don’t remember a detail or would rather leave it unrated, choose the unscored response. An area needs three of its four ratings for a mean. You can open all three guides without answering."
+    }
+  },
+  "competency-test": {
+    "zh": {
+      "interpretation": "挑一项这四周真有机会做的行为，比如把请求说清楚。回想对方是否知道下一步，以及你是否需要补一句。频次和这次沟通的效果可以分开看。"
+    },
+    "zh-TW": {
+      "interpretation": "從最近四週有機會做的事挑一件，例如把請求說明白。回想對方後來知不知道下一步、你需不需要再補一句。常做一件事和那次是否有幫助，可以分開看。"
+    },
+    "en": {
+      "interpretation": "Pick one action you had a chance to take in the past four weeks, such as spelling out a request. Ask what the other person could do next and whether you had to clarify. Frequency and usefulness are different things to notice."
+    }
+  },
+  "connection-meaning-reflection": {
+    "zh": {
+      "interpretation": "读“熟悉感”和“确认理解”时，可以想想同一次交谈：一句话听起来熟悉，你有没有机会确认自己理解对了？只回看自己的感受和行动。"
+    },
+    "zh-TW": {
+      "interpretation": "看「熟悉感」和「確認理解」時，可以想起同一次普通對話。覺得對方的說法很熟悉之後，你有沒有機會問清楚自己聽懂了沒？回想自己的部分就好。"
+    },
+    "en": {
+      "interpretation": "Compare familiarity and checking understanding in one ordinary conversation. If something sounded familiar, did you have a chance to check what you took it to mean? Keep the reflection to your own experience."
+    }
+  },
+  "culture-fit": {
+    "zh": {
+      "method": "把每一对安排放在一件两种做法都可行的小任务里想。两种安排的先后会互换。两种做法都可以时选中点；想不出合适的情况或不想答时，另选不计分。"
+    },
+    "zh-TW": {
+      "method": "先想一件兩種做法都適用的工作小事，再挑你目前比較想用的安排。選項先後會互換。兩種都可以就選中間；沒有適合的情境，或不想評，就用不計分的選項。"
+    },
+    "en": {
+      "method": "Imagine a small task where either arrangement would work. The two options switch positions across questions. Use the midpoint if you have no clear preference, and the unscored response if the situation doesn’t fit or you’d rather skip it."
+    }
+  },
+  "dark-tetrad-sd4": {
+    "zh": {
+      "method": "按发表版的五级同意程度回答自己。每个分量表七条都给出数字回答才显示均值；略过只影响所在分量表，四项单独阅读。"
+    },
+    "zh-TW": {
+      "method": "以發表版的五種同意程度回答自己的看法。每個分量表的七題都能計分才會顯示平均。略過一題，只會讓那一組暫無讀數。"
+    },
+    "en": {
+      "method": "Use the published five agreement choices for your own views. Each subscale needs all seven numeric answers for a mean. Leaving one item unscored only withholds the mean for its own subscale."
+    }
+  },
+  "dark-triad": {
+    "zh": {
+      "method": "回顾近三个月，选每条陈述对自己的做法描述得有多准。不确定和视情况而定可选中间档。不愿回答可另选不计分；三组各自至少四条有效回答才显示均值。"
+    },
+    "zh-TW": {
+      "method": "回想近三個月，評估各句話有多符合你的做法。覺得不確定或要看情形時可選中間值；不願作答就另外選不計分。每組至少有四個可計分的答案才顯示平均。"
+    },
+    "en": {
+      "method": "Rate how well each statement describes your approach over the past three months. The middle choice allows for uncertainty or “it depends.” You can also choose an unscored response. Each area needs at least four numeric answers for a mean."
+    }
+  },
+  "dating-outlook": {
+    "zh": {
+      "interpretation": "挑一条你确实赞同的约会看法，想它会怎样改变一个很小的决定，例如要不要再聊几句、给自己多一点时间，或把期待说得更清楚。"
+    },
+    "zh-TW": {
+      "interpretation": "選一句符合你目前想法的敘述，看看它會怎麼影響下一個小決定。像是願不願意再聊一下、想多留一點時間，或想先說清楚自己的期待。"
+    },
+    "en": {
+      "interpretation": "Choose one belief that feels true for you right now. Notice how it might affect a small decision: whether to keep talking, take more time, or say what you hope for."
+    }
+  },
+  "deep-desire": {
+    "zh": {
+      "interpretation": "想一件最近你愿意继续做的小事。是你能自己决定、和别人有联系，还是能看到练习的进展？可以用同一个例子理解几项并存的读数。"
+    },
+    "zh-TW": {
+      "interpretation": "想起一件最近做了還想繼續的事。你在意的是自己能做主、有人一起，還是練習後看得出進步？同一件事也可能符合好幾個主題。"
+    },
+    "en": {
+      "interpretation": "Choose something recent that you wanted to keep doing. Did it offer a choice, a sense of connection, progress with practice, or several of those at once? One example can help you read more than one theme."
+    }
+  },
+  "egogram": {
+    "zh": {
+      "interpretation": "看五项时，可以回想一个大家一起做的安排。什么时候你解释了标准、什么时候你先听别人说、什么时候只顾着把眼前情况核对清楚？几种行动可以出现在同一天。"
+    },
+    "zh-TW": {
+      "interpretation": "讀五組數據時，想一個大家一起做的安排：你什麼時候把標準說清楚、什麼時候聽人把話說完、又在何時先確認手邊的資訊？同一件事也能出現不同做法。"
+    },
+    "en": {
+      "interpretation": "Read the five scores alongside one shared plan. When did you name a standard, offer support, or check what was actually happening? Several of these actions can occur in the same situation."
+    }
+  },
+  "empathy": {
+    "zh": {
+      "method": "十条都选择可以计分的答案，才会有一项关怀倾向原始总分。反向题由系统处理；略过时可以继续读完整指南。"
+    },
+    "zh-TW": {
+      "method": "十題都選可計分的答案，才會顯示關懷傾向的原始總分。系統會處理反向題；有題目選擇略過，一樣能讀完整指南。"
+    },
+    "en": {
+      "method": "You’ll get one raw Compassion total if all ten items have numeric ratings. The scoring handles reverse-keyed items. If you skip a rating, you can still read the complete guide."
+    }
+  },
+  "energy-flow": {
+    "zh": {
+      "interpretation": "回看近两周同一种事，比如读一篇资料。比较什么时间开始、做多久和周围是否容易被打断。几项读数相近时，可以先留意哪种条件最容易调整。"
+    },
+    "zh-TW": {
+      "interpretation": "回想最近兩週做過的一類事情，例如讀一份資料。看看什麼時候比較好開始、能做多久、周圍會不會打岔。可以先挑一個你比較能調整的條件。"
+    },
+    "en": {
+      "interpretation": "Look back at one kind of task you did in the last two weeks. Compare when you started, how long you worked, and what interrupted you. If several ratings feel useful, begin with a condition you can change."
+    }
+  },
+  "eq-dashboard": {
+    "zh": {
+      "interpretation": "用同一个工作、学习或志愿活动情境回看八类体验。比如任务有进展时的愉快，和等待新消息时的期待，可以分别观察。没碰到的情境可选不计分。"
+    },
+    "zh-TW": {
+      "interpretation": "用同一個工作、讀書或志工場合來看八類感受。事情有進展時的開心，和等消息時的期待，可以分開回想。那段時間沒遇到的情況就選不計分。"
+    },
+    "en": {
+      "interpretation": "Keep one work, study, or volunteer setting in mind. Feeling pleased when a task moves forward and anticipating news are separate experiences. Leave a situation unscored if it didn’t come up for you."
+    }
+  },
+  "eras-of-you-test": {
+    "zh": {
+      "interpretation": "找一件持续四周的小事，看看你在哪一刻尝试了新办法，又在哪一刻保留了旧节奏。调整和坚持可能同时出现在一件事里。"
+    },
+    "zh-TW": {
+      "interpretation": "想想最近四週一直在做的一件小事。你什麼時候改了做法，什麼時候又選擇維持原來的步調？兩種做法也可能同時出現。"
+    },
+    "en": {
+      "interpretation": "Choose something you kept doing over the past four weeks. Look for one moment you tried a different approach and another when you kept a rhythm that worked. A single project can show both."
+    }
+  },
+  "everyday-control-style": {
+    "zh": {
+      "interpretation": "回看一件共同安排，看看你何时说清了自己的理由、何时请别人给意见、又何时把决定交回去。六项读数可以用来区分这些动作。"
+    },
+    "zh-TW": {
+      "interpretation": "想一件和別人一起安排的事。分開回想你何時先說自己的理由、請對方提意見，或把決定讓回給別人。六組結果能幫你拆開看這些動作。"
+    },
+    "en": {
+      "interpretation": "Think about one shared plan. Notice when you explained a reason, asked what others wanted, or handed the decision back. Use the separate readings to look at those actions one at a time."
+    }
+  },
+  "face-self-image": {
+    "zh": {
+      "interpretation": "读数可以分开看。你可能很喜欢自己选的日常打理方式，却在被拍照时不太放松。凭过去一个月的回忆作答即可，不需要另拍照片。"
+    },
+    "zh-TW": {
+      "interpretation": "四組讀數可以分開看。你可能喜歡自己平常選的打理方式，但拍照時沒那麼自在。想想最近一個月遇到的情況就好，不用現在再拍一張。"
+    },
+    "en": {
+      "interpretation": "Read the four areas separately. You might enjoy a routine you chose and still feel uneasy in photos. Use what you remember from the past month; there’s no need to take a new picture."
+    }
+  },
+  "feminine-energy": {
+    "zh": {
+      "interpretation": "选一个近四周想表达自己的日常场合，想想当时你用了玩笑、穿搭细节，还是简洁地说清了想法。读数描述那段时间做过的事。"
+    },
+    "zh-TW": {
+      "interpretation": "找一個最近四週想表達自己的日常場合。你是開了個能一起接的玩笑、用細節表達心情，還是把想說的話講得很清楚？從當時做過的事來看各項結果。"
+    },
+    "en": {
+      "interpretation": "Pick a recent moment you wanted to express yourself. You might have made a shared joke, chosen a detail that felt right, or said something plainly. Read each area in light of what you actually did."
+    }
+  },
+  "grit-test": {
+    "zh": {
+      "interpretation": "用同一个打算坚持至少半年的目标来看两组读数。你可能仍给它留了时间，却在受挫后暂时没回到原来的做法。目标的延续和重新投入可以分开看。"
+    },
+    "zh-TW": {
+      "interpretation": "用同一個本來打算做至少半年的目標來看兩組結果。你可能還在替它留時間，但遇到挫折後一時接不上原來的進度。兩件事可以分開想。"
+    },
+    "en": {
+      "interpretation": "Keep the same aim in mind for both readings. You might still make time for it and find it hard to resume after a setback. Staying with an aim and returning to the work can look different."
+    }
+  },
+  "growth-mindset-fixed-mindset": {
+    "zh": {
+      "interpretation": "先想定一种眼下正在学或想学的技能。读完可以把“这种能力还能不能变”换成更具体的问题：哪种练习、反馈或帮助，会值得再试一次？"
+    },
+    "zh-TW": {
+      "interpretation": "先想好一項現在在學、或想開始學的技能。讀完可以問自己：哪一種練習、回饋或協助，會讓你願意再試一次？只要回到那項技能就好。"
+    },
+    "en": {
+      "interpretation": "Choose one skill you’re learning or thinking about learning. After reading your result, ask what kind of practice, feedback, or help would make another attempt worth trying for that particular skill."
+    }
+  },
+  "hsp-sensitivity-quiz": {
+    "zh": {
+      "interpretation": "用近四周真实遇到的一件事来读结果。比如在信息很多的场合，留意你记住了什么细节、后来又怎么想。没有合适的情境可以不计分。"
+    },
+    "zh-TW": {
+      "interpretation": "想起最近四週確實遇過的場合來看結果。例如周圍訊息很多時，你先注意到什麼，事後又想到什麼？沒有合適的經驗就用不計分的選項。"
+    },
+    "en": {
+      "interpretation": "Use a situation that already happened in the past four weeks. In a busy setting, you might have noticed one small change and reflected on it later. If nothing fits the prompt, leave it unrated."
+    }
+  },
+  "interpersonal-preferences": {
+    "zh": {
+      "interpretation": "把你实际发过的邀请和你希望收到的邀请分开想。比如你不常邀别人参加活动，却仍喜欢在大家安排行程时被问到。"
+    },
+    "zh-TW": {
+      "interpretation": "分開想你平常主動做的事，以及你希望別人做的事。你可能很少開口約人，卻很喜歡大家在排行程前先問你要不要一起。"
+    },
+    "en": {
+      "interpretation": "Compare what you did with what you wanted. You might rarely invite others and still appreciate being asked before a group makes its plans."
+    }
+  },
+  "jealousy-scale": {
+    "zh": {
+      "method": "围绕同一段关系作答。回顾最近四周；已结束的关系回顾最后四周。念头和行动问出现频率，不适感问当时有多强。没有合适经历、记不清或不愿回答时，可选不计分。"
+    },
+    "zh-TW": {
+      "method": "全程想同一段關係，回想最近四週；關係已結束就想最後四週。念頭和行動填發生的頻率，不舒服的感受填當時有多強。沒遇過、想不起來或不想回答，就選不計分。"
+    },
+    "en": {
+      "method": "Keep one relationship in mind. Look back four weeks, or at its final four weeks if it has ended. Rate how often thoughts and actions occurred, and how strong discomfort felt when it arose. You can leave an item unscored if it doesn’t fit or you would rather skip it."
+    }
+  },
+  "learning-style": {
+    "zh": {
+      "interpretation": "想一段现在要学的材料，看看你想先看示意图、听解释、写下步骤，还是动手试。换一种材料，可以重新选一种更方便入手的方式。"
+    },
+    "zh-TW": {
+      "interpretation": "拿手邊要學的內容想想：你會先看一張圖、聽人解釋、把步驟寫下來，還是從一個例子試起？下次換內容，可以再選最方便開始的做法。"
+    },
+    "en": {
+      "interpretation": "Think about material you want to learn now. Would you start with a diagram, a spoken explanation, written steps, or a small trial? When the material changes, choose the starting point that makes sense then."
+    }
+  },
+  "libertarian": {
+    "zh": {
+      "interpretation": "挑一条你犹豫过的假设，想想还缺什么信息。例如各方能不能拒绝、同意怎样达成，或者谁在承担后果。可用指南对照各主题的边界。"
+    },
+    "zh-TW": {
+      "interpretation": "找一句你原本想了一下才回答的假設，看看還想知道哪些條件。像是誰能拒絕、怎麼達成同意，或哪些人要承擔結果。也可以再看那一組的指南。"
+    },
+    "en": {
+      "interpretation": "Pick one hypothetical statement you hesitated over. What would you need to know about consent, the option to refuse, or who bears the consequences? Use the guide for the relevant theme to explore that question."
+    }
+  },
+  "light-triad-test": {
+    "zh": {
+      "method": "这十二条问你通常有多同意。每个侧面须四条都有效才会给出读数，整体原始分须十二条都有效；未评分不会折成中间值。"
+    },
+    "zh-TW": {
+      "method": "這十二題請你選平常的同意程度。每個側面四題都能計分才有讀數，十二題都能計分才有整體原始分數。未評的答案會留空，不會算成中間值。"
+    },
+    "en": {
+      "method": "Rate your usual agreement with the twelve statements. A facet needs all four numeric ratings, and the overall raw score needs all twelve. Missing answers stay unscored."
+    }
+  },
+  "locus-of-control": {
+    "zh": {
+      "method": "读数是这二十条控制相关自述的原始总分，其中十条由系统反向计分。只有全部条目都有有效回答才会出分；完整指南可以先读。"
+    },
+    "zh-TW": {
+      "method": "結果是二十題控制相關自述的原始總分，其中十題會由系統反向計分。每題都選了可計分的答案才有總分，完整指南也可以先讀。"
+    },
+    "en": {
+      "method": "The result is one raw total from twenty statements. The scoring handles ten reverse-keyed items, and a total requires a numeric rating on every item. You can read the complete guide first."
+    }
+  },
+  "multiple-intelligences": {
+    "zh": {
+      "interpretation": "按你平时能用的工具和条件，想象一件熟悉的小活动。把“我能做出什么”和“我现在有几分把握”分开看。没机会接触的活动可以选不计分。"
+    },
+    "zh-TW": {
+      "interpretation": "用平常可以取得的工具和條件，想一件自己熟悉的活動。這裡填的是現在有多大把握，有沒有做過或接觸過也會影響你的判斷；沒把握評時可不計分。"
+    },
+    "en": {
+      "interpretation": "Consider a familiar activity with the tools or adaptations you usually use. Rate how confident you feel about it. If you haven’t had a chance to try it or can’t judge, choose the unscored response."
+    }
+  },
+  "outfit-line-preferences": {
+    "zh": {
+      "interpretation": "同一件衣服，站着看也许喜欢长线条，坐下来却更想留活动空间。读结果时可以先想到要穿去做什么，再看哪项偏好更适用。"
+    },
+    "zh-TW": {
+      "interpretation": "同一套衣服，出門走路時也許喜歡線條俐落，久坐時又更在意活動空間。讀結果時，可以先想要穿去哪裡、要做什麼，再看哪項偏好派得上用場。"
+    },
+    "en": {
+      "interpretation": "An outfit you like for its long line might feel different when you need to sit or move for hours. Think of where you’d wear it and what you’d do there before reading the preferences together."
+    }
+  },
+  "procrastinator-type-test": {
+    "en": {
+      "lead": "Think of an ordinary task you meant to do and had the conditions to take on at the time. These 24 questions describe six ways a delay can happen. You get six separate readings."
+    },
+    "zh": {
+      "lead": "想一件过去四周本来打算做、当时也具备条件的事。24 道题分别回看六种拖延做法，其中包括一直想把标准再提高一点、等快到期限才开始，或答应的事情太多。结果分六项阅读。"
+    },
+    "zh-TW": {
+      "lead": "回想最近四週一件你原本想做、當時也有條件開始的事。24 題分別看看你會不會卡在想法、一直加高標準，或等快到期限才動手。結果會分開顯示六組做法。"
+    }
+  },
+  "relationship-worry-habits": {
+    "en": {
+      "lead": "Think about the last three months with one close adult in mind. These 16 prompts ask about your own responses, such as asking again if things are okay, noticing who gets their attention, offering extra help or checking indirectly."
+    },
+    "zh": {
+      "lead": "想一位关系亲近的成年人，回看过去三个月自己做过什么。16 道题分别问到反复确认彼此有没有事、留意对方把注意力给了谁、为了维持联系而多做一些，以及绕个弯试探。"
+    },
+    "zh-TW": {
+      "lead": "心裡想一位和你親近的成年人，回顧這三個月自己在關係裡的反應。16 題分開問你曾不曾再問一次「我們還好嗎」、留意對方在關心誰、為了維持聯絡多做一些，或拐個彎試探。"
+    }
+  },
+  "sdt-motivation": {
+    "en": {
+      "lead": "Think of one course, hobby or shared task from the past four weeks. Answer all 24 questions with that same activity in mind, from how willingly you took part to how supported or held back you felt.",
+      "method": "Read the six results separately. For autonomy, competence and connection, the questions cover experiences that supported each one and experiences that got in its way."
+    },
+    "zh": {
+      "lead": "从过去四周选一个熟悉的场景，例如上课、参加兴趣活动或做一件共同任务。回答 24 道题时都想同一件事，留意自己有多少选择、做起来能不能胜任，以及有没有感到被接纳。",
+      "method": "自主、胜任和联结各有两项，分别对应满足与受阻的体验。结果按六项分开读。"
+    },
+    "zh-TW": {
+      "lead": "想想最近四週自己上過的一堂課、參加過的活動，或和別人一起完成的事。24 題都用同一個例子來想，看看你能不能自己作主、覺得自己做得來，以及和其他人有沒有連結。",
+      "method": "每個主題分成兩組題目，一組問哪些經驗讓你感到滿足，另一組問在哪些時候覺得受阻。六項結果各自呈現。"
+    }
+  },
+  "tech-savvy": {
+    "en": {
+      "lead": "Rate how confident you feel about learning six everyday digital tasks, such as trying an unfamiliar app with sample data. You answer from experience and can leave any task unrated.",
+      "method": "The result reports how many tasks you rated. You need at least four numeric ratings to get an average."
+    },
+    "zh": {
+      "lead": "想想过去一个月自己学习数字工具的情境，例如用示例数据试一个陌生应用。六道题问的是你有多少把握，可以把不便判断的题留作不计分。",
+      "method": "结果会显示你给几道题打了分。至少四题有数字评分才计算平均分。"
+    },
+    "zh-TW": {
+      "lead": "回想最近一個月學用數位工具的經驗，例如用範例資料摸索一個沒用過的 App。六題都讓你依自己的把握程度作答，也可以選擇不評分。",
+      "method": "結果會列出有幾題給了數字評分。至少評了四題，才會顯示平均分數。"
+    }
+  },
+  "type-ab": {
+    "en": {
+      "lead": "How often did you rush a task with no deadline, compare yourself with others, get impatient while waiting or find it hard to stop something you chose to do? These 20 questions give four separate readings without assigning an A or B type."
+    },
+    "zh": {
+      "lead": "过去四周，没有临近的期限时你也会赶着做事吗？20 道题分别回看赶时间、与人比较、等待时烦躁，以及难以停下自己选的活动。结果按四项呈现，不归为 A 型或 B 型。"
+    },
+    "zh-TW": {
+      "lead": "最近四週，你有沒有在不必趕時間時還是急著做完，也會在等候時煩躁？20 題會分開問這兩件事、跟別人比較，以及自己想做的事很難停下來。結果有四項，無需套進 A 型或 B 型。"
+    }
+  },
+  "work-activity-interests": {
+    "en": {
+      "lead": "Imagine you have reasonable training and tools. How much would you like repairing something, checking evidence, designing a piece or helping someone learn? Rate your interest in 60 tasks and see six separate readings, without a job match."
+    },
+    "zh": {
+      "lead": "假设有合适的培训和工具，你会喜欢修理东西、核对线索、设计作品或教别人做一件事吗？60 道题只问你对任务本身有多感兴趣，结果分六组呈现，不推荐岗位。"
+    },
+    "zh-TW": {
+      "lead": "假設有人教你、工具也備妥了，你會想修東西、查資料、做設計，或帶著別人學一項任務嗎？60 題問的是你喜不喜歡做那件事，結果分成六組興趣，沒有職缺或職業配對。"
+    }
+  },
+  "freelance-ready": {
+    "en": {
+      "lead": "Pick one freelance project, even if it’s still an idea. Think through what you would deliver, what you have agreed and what you have tried. The 20 prompts record the stage of specific actions for that project."
+    },
+    "zh": {
+      "lead": "只选一个正在考虑或安排的自由职业项目。想清楚会交付什么、已经说定哪些事项、实际试过哪些步骤。20 道题记录这一个项目里的准备进展。"
+    },
+    "zh-TW": {
+      "lead": "先挑一件想接或正在安排的自由接案。想想要交出什麼、哪些事已經談好、哪些步驟曾經試做。20 題只記下這一案的準備進度。"
+    }
+  },
+  "remote-work": {
+    "en": {
+      "lead": "Choose one planned or current remote arrangement and one task you would do in it. The 20 prompts let you record practical steps you’ve taken, such as trying access to the approved tools or working out how to hand something over."
+    },
+    "zh": {
+      "lead": "先选一个正在用或准备采用的远程工作安排，再想一件其中常做的任务。20 道题记录具体准备，例如有没有试用允许使用的工具、交接时该把材料交给谁。"
+    },
+    "zh-TW": {
+      "lead": "挑一個你正在用或打算採用的遠端工作方式，再想一件會在這個安排下做的事。20 題記下你已試過哪些準備，例如能不能登入會用到的工具，或怎麼把手上的事情交給同事。"
+    }
+  },
+  "skills-audit": {
+    "en": {
+      "lead": "For each of 20 tasks, choose whether you can recall a recent example, remember only an older one, want to explore it or would rather leave it unrecorded. The result is an inventory of the states you selected."
+    },
+    "zh": {
+      "lead": "看过 20 项任务后，看看你是记得最近一年做过、只想得起更早的例子、想试试，还是暂不记录。结果分别列出你为每项任务选择的状态。"
+    },
+    "zh-TW": {
+      "lead": "20 項任務逐一看，選你記得的情況。過去一年做過、只想得起更早的例子、想試試看，或先不記，都可以。結果會整理你每一項選了什麼。"
+    }
+  },
+  "island-day": {
+    "zh": {
+      "lead": "明信片岛上，广场的钟一早没响，小巷的壁画还空着一格。你想先去哪儿？沿着选项读完这一天，再看看岛的另外两种收尾。"
+    },
+    "zh-TW": {
+      "lead": "明信片島上，廣場的鐘今天還沒響，巷子裡的壁畫也空著一格。你會先去哪裡？選著讀完今天的故事，三個完整結局都可以免費看。"
+    },
+    "en": {
+      "lead": "On Postcard Island the square’s bell has been quiet all morning, and a mural down the lane has room for one more mark. Choose where to start, then see how your day on the island ends."
+    }
+  },
+  "lost-letter-adventure": {
+    "zh": {
+      "lead": "找到一封没有送到的信，你想先去广场找线索，还是到车站等等？跟着选择找到一个结局，再从公开指南读另外两种走法的结尾。"
+    },
+    "zh-TW": {
+      "lead": "一封信還沒送到。你會先去廣場問問，還是到車站等一等？選著走到一個結局，三篇完整結尾也都能免費閱讀。"
+    },
+    "en": {
+      "lead": "A letter hasn’t reached its destination. Would you start at the town square or the quiet station? Follow your choices to one ending, or read any of the three in full."
+    }
+  },
+  "moon-market": {
+    "zh": {
+      "lead": "月亮集市刚开张，一摊借出未命名的星图，另一摊有能变成画稿的纸种子。你会先逛哪一摊？沿路选下去，读完你的集市结局。"
+    },
+    "zh-TW": {
+      "lead": "月亮市集裡，一攤可以借星圖，另一攤的紙種子會攤開成一張畫。你想先看看哪一攤？選著逛下去，看看這趟會帶什麼回家。"
+    },
+    "en": {
+      "lead": "At the Moon Market, one stall lends maps of unnamed stars and another sells paper seeds that unfold into sketches. Pick your first stall and follow the story to one complete ending."
+    }
+  },
+  "portal-choice": {
+    "zh": {
+      "lead": "空杯上方的热气里浮出一扇门，旁边的纸门框上则折着一张小地图。你会推开哪一扇？沿选项走到灯笼港、画廊或寄回家的明信片。"
+    },
+    "zh-TW": {
+      "lead": "杯口的霧氣裡出現一扇門，旁邊還有一道折著小地圖的紙門。你想從哪裡走進去？選著走到港口、美術館，或一張帶你回家的明信片。"
+    },
+    "en": {
+      "lead": "One doorway appears in the steam above an empty cup. The other is a paper doorway with a map folded into its edge. Choose one and follow its route to the harbor, gallery, or postcard ending."
+    }
+  },
+  "secret-door": {
+    "zh": {
+      "lead": "你收到一把似乎寄错的钥匙。附上的便条留了归还地址：先问主人，还是把钥匙交到有人值守的服务台？跟着选择读一个完整结局。"
+    },
+    "zh-TW": {
+      "lead": "有人把一把可能送錯的鑰匙交到你手上，便條上有退回地址。你會先聯絡主人，還是把鑰匙交到有人值班的服務台？選著讀到故事結尾。"
+    },
+    "en": {
+      "lead": "You have a key that may have been sent to the wrong person. Would you ask its owner first or leave it at a staffed return desk? Follow your decision to one complete ending."
+    }
+  },
+  "story-ending": {
+    "zh": {
+      "lead": "纸上游行来到广场。你会先跟上拿着旧标牌的人，还是去帮大家布置空着的圆圈？接着选下去，看最后一页会留下什么。"
+    },
+    "zh-TW": {
+      "lead": "紙做的遊行隊伍到了廣場。你想跟著拿舊牌子的人走，還是看看大家在空地上圍出的圓？選著讀到最後一頁，另外兩篇結局也可以直接看。"
+    },
+    "en": {
+      "lead": "The paper parade has reached the square. Will you follow someone carrying a sign that belongs elsewhere, or see what the group is doing with an empty circle? Your choices shape the last page."
+    }
+  },
+  "apocalypse-survival-type-test": {
+    "zh": {
+      "lead": "和朋友一起写一段虚构营地故事，开场在空车站。你想先排任务、写人物对话，还是查一条地图线索？24 道题让你选想参与的故事片段，结果不评真实求生能力。"
+    },
+    "zh-TW": {
+      "lead": "和朋友寫一個末日後的營地故事，第一幕在空蕩蕩的車站。你比較想安排大家先做什麼、寫一句台詞，還是看看地圖上有哪些線索？24 題比較你想參與的故事片段，不考真的求生技巧。"
+    },
+    "en": {
+      "lead": "You and some friends are writing a fictional camp story that opens at an empty station. Would you plan the first tasks, write a line for a character, or look for a clue on the map? The 24 choices are about what you’d add to the story. They don’t assess survival skills."
+    }
+  },
+  "big-fish-energy-test": {
+    "zh": {
+      "lead": "做一张海洋主题的周末卡时，你会写下一件想做完的小事、约人轻松见一面，还是干脆留半天空白？在 18 个日常情境里选你想先做的事，再看六种海洋意象。"
+    },
+    "zh-TW": {
+      "lead": "想做一張海洋風的週末小卡，你會先排一件想完成的事、約朋友坐一坐，還是留段時間慢慢看書？18 題都從小情境出發，結果用六種海洋生物比喻你的選擇。"
+    },
+    "en": {
+      "lead": "Make a little ocean-themed card for the weekend. Would you give a small task a definite time, invite a friend, or leave yourself an unhurried stretch? Choose what you’d do in 18 scenes and compare six sea-creature portraits."
+    }
+  },
+  "delulu-test": {
+    "zh": {
+      "lead": "收到手工课的确认邮件，你会先想象作品摆上桌，还是在脑海里给这个普通时刻配一段片头音乐？18 道题比较你怎么给日常添一点想象。"
+    },
+    "zh-TW": {
+      "lead": "手作課寄來報名成功的通知，你已經在想成品擺上桌的樣子，還是忍不住替這封信配上影集片頭？18 個小情境，看看你會怎麼替平常的事加一點想像。"
+    },
+    "en": {
+      "lead": "Your workshop confirmation arrives. Do you already picture the finished piece, or give the ordinary email a soundtrack in your head? Explore the little stories you make up about the future in 18 scenarios."
+    }
+  },
+  "intelligence-type-test": {
+    "zh": {
+      "lead": "给临时展览做入口提示，你会先写一句话、列出进门的步骤，还是问同伴他们怎么理解？18 道题记录你更常想从哪一步开始，不测 IQ。"
+    },
+    "zh-TW": {
+      "lead": "臨時展覽需要一句入口提醒，你會先寫幾個字、把進場步驟排好，還是問朋友看不看得懂？在 18 個小情境裡挑你會先試的做法。這份測驗不量智商。"
+    },
+    "en": {
+      "lead": "A pop-up exhibition needs a sign at the entrance. Would you write a sentence, map the steps, or ask someone how they’d interpret it? Pick a first move in 18 situations. The result describes how you chose to get started and does not measure IQ."
+    }
+  },
+  "star-wars-character": {
+    "zh": {
+      "lead": "桌上只有几样材料，要做一张卡片。你会先就地取材、选一个步骤开始，还是和一起做的人说说各自的想法？用 21 个日常情境比较七位《星球大战》角色对应的做法。"
+    },
+    "zh-TW": {
+      "lead": "手邊材料不多，還是要做一張小卡。你會先看看有什麼能用、挑一個步驟做起來，還是問一起做的人想怎麼安排？這 21 題用日常選擇來對照七位《星際大戰》角色，不考劇情，也不分善惡。"
+    },
+    "en": {
+      "lead": "You have a few materials and want to make a card. Would you improvise with what’s there, pick one step to start, or ask how the others want to work together? Compare the approaches in 21 everyday scenes with seven unofficial Star Wars character guides."
+    }
+  },
+  "villain-era-archetype-test": {
+    "zh": {
+      "lead": "你答应帮忙看摊半小时，对方却问你能不能留一下午。你会先讲清时间、温和拒绝，还是问能不能把额外时段另行安排？18 道情境题让你挑自己愿意说的开场。"
+    },
+    "zh-TW": {
+      "lead": "本來說好幫忙顧攤半小時，對方卻問你能不能待一整個下午。你會直接說能留多久、客氣拒絕，還是提議把多出來的時段另外找人？用 18 個情境試試你想怎麼開口。"
+    },
+    "en": {
+      "lead": "You agreed to help at a craft stall for half an hour. Now you’re asked to stay all afternoon. Would you state your limit, decline warmly, or suggest finding someone for the extra shift? Choose how you’d open the conversation in 18 fictional scenes."
+    }
+  },
+  "ai-literacy": {
+    "zh": {
+      "interpretation": "复习错题时先圈出题目写明的条件：模型知道什么、工具能做什么、用户允许什么。再用解析核对，你的选项是不是偷偷多假设了一件事。"
+    },
+    "zh-TW": {
+      "interpretation": "回看一題時，先把題目寫明的資料、工具能力和權限分開。再查解析，看看有沒有把「有辦法做」誤當成「已經得到同意」。"
+    },
+    "en": {
+      "interpretation": "When you review an item, list what the model knows, what the tool can do, and what the user has allowed. Then check whether your answer assumed an extra capability or permission."
+    }
+  },
+  "customer-service-aptitude": {
+    "zh": {
+      "interpretation": "先重读用户说过的事实和希望得到的结果，再核对题目给出的规则。复盘时试着把你能确认的事，和还需要问一句的事分开。"
+    },
+    "zh-TW": {
+      "interpretation": "複習時先找出顧客說了什麼、想要的結果是什麼，再核對這一題的規則。看看你選的回覆有沒有把兩件事都確認清楚。"
+    },
+    "en": {
+      "interpretation": "In the answer review, separate what the customer says happened from what they want to happen next. Check both against the fictional policy before rereading the reply you chose."
+    }
+  },
+  "cybersecurity-awareness": {
+    "zh": {
+      "interpretation": "复盘时先找需要另外核实的消息，再看哪种做法能用已经知道的正规渠道确认。题目只用模拟情境，练习时无需填写真实账号或验证码。"
+    },
+    "zh-TW": {
+      "interpretation": "複習時先找出哪一則訊息還需要查證，再看看能不能從你已知的正式管道確認。整份練習都用虛構情境，可以把真的帳號、密碼和驗證碼留在題目外。"
+    },
+    "en": {
+      "interpretation": "In the review, identify what still needs verification and look for a known, official way to check it independently. Work with the fictional details in the question and keep real credentials out of the exercise."
+    }
+  },
+  "digital-ethics-citizenship": {
+    "zh": {
+      "interpretation": "复盘表单和权限题，可以先写一句“这项操作的目的是什么”，再检查哪些信息或权限确实为这个目的所需。用题目给出的事实支持你的判断。"
+    },
+    "zh-TW": {
+      "interpretation": "回看表單和權限題時，先說出這個操作的用途，再對照哪些欄位或權限真的用得到。只用題目給的條件核對答案。"
+    },
+    "en": {
+      "interpretation": "For a form or permission question, state the purpose first. Then compare what the scenario actually needs with what it asks someone to share or allow."
+    }
+  },
+  "excel-skills": {
+    "zh": {
+      "interpretation": "回看公式题时先标出单元格中存的是数字、文本还是空值，再核对公式范围和题目给出的匹配条件。这样更容易定位哪一步与标准答案不同。"
+    },
+    "zh-TW": {
+      "interpretation": "複習公式時，可以先分清楚各格裝的是數字、文字或空值，再核對參照範圍與比對條件。找出從哪一步開始和解析不一樣。"
+    },
+    "en": {
+      "interpretation": "When reviewing formulas, mark which cells hold numbers, text, or blanks. Then check the range and matching conditions. That can show exactly where your answer took a different path."
+    }
+  },
+  "java-test": {
+    "zh": {
+      "interpretation": "先检查程序能否编译，再手写第一步的值或类型。对照解析时留意你在哪一步读错了表达式、控制流程、对象或集合。"
+    },
+    "zh-TW": {
+      "interpretation": "看解答前，先判斷程式能不能編譯，再手寫出第一步的值和型別。回看解析時，找出是哪一行讓你的預測和實際輸出分開。"
+    },
+    "en": {
+      "interpretation": "Before tracing output, decide whether the program can compile. Write down one intermediate value or type, then use the explanation to locate the first place your trace went off track."
+    }
+  },
+  "javascript-test": {
+    "zh": {
+      "interpretation": "复习时先按题目固定的 Node ES 模块环境判断语法，再跟踪值和执行顺序。对照答案时找第一处不同，尤其留意字符串、布尔值和报错输出的区别。"
+    },
+    "zh-TW": {
+      "interpretation": "回看程式題時，先依這套題本的 Node ES 模組規則判斷語法，再追蹤值跑到哪裡。和解析對照時，注意你選的是確切輸出，還是語法錯誤。"
+    },
+    "en": {
+      "interpretation": "Use the question bank’s Node ES module rules when reviewing an item. Check syntax, trace the values, and compare the first point at which your predicted output differs from the explanation."
+    }
+  },
+  "mechanical-reasoning": {
+    "zh": {
+      "interpretation": "在复习纸上写下题给的单位、受力方向和观察位置，再画一张最小示意图。回看解析时，核对哪一项条件改变了计算。"
+    },
+    "zh-TW": {
+      "interpretation": "回看一題時，先畫小圖，把單位、出力方向和從哪一側看標上去。再對照解析，看看有哪個條件會改變算式。"
+    },
+    "en": {
+      "interpretation": "Sketch the smallest model you need, with the given units, force directions, and viewpoint. In the worked answer, look for the assumption that made the most difference."
+    }
+  },
+  "personal-finance-literacy": {
+    "zh": {
+      "interpretation": "复盘时把题目中写明的金额、比例和费用分别记下来，再核对它们是每期的数还是一次性的数。用虚构条件重算该题即可。"
+    },
+    "zh-TW": {
+      "interpretation": "複習時把題目給的金額、利率和費用先分開，看看哪些每期都會發生、哪些只算一次。再用這些虛構數字核對解析。"
+    },
+    "en": {
+      "interpretation": "When reviewing an item, separate recurring amounts from one-time amounts, and keep any stated rate or fee in view. Rework the fictional calculation using only those conditions."
+    }
+  },
+  "project-management": {
+    "zh": {
+      "interpretation": "先写下案例里的验收条件或权限，再检查选项是否逐条符合。看错题时可以圈出哪条条件被遗漏，或者哪一项多加了题目没说的前提。"
+    },
+    "zh-TW": {
+      "interpretation": "複習時先抄下案例的驗收條件或決定權，再逐條比對。看解析時找出是漏了一項條件，還是把題目沒給的前提當成已知。"
+    },
+    "en": {
+      "interpretation": "In the review, write down the exact acceptance conditions or who has authority to decide. Compare your choice line by line and look for a condition it missed or an assumption it added."
+    }
+  },
+  "python-test": {
+    "zh": {
+      "interpretation": "复习代码时先看缩进和每行执行次序，写下一个中间值，再核对输出文本。把语法错误和能运行但输出不同的情况分开。"
+    },
+    "zh-TW": {
+      "interpretation": "看解析前，先用題給的縮排走一次程式，隨手記一個中間值。對照時留意你遇到的是語法錯誤，還是程式能跑、結果與預測不同。"
+    },
+    "en": {
+      "interpretation": "Trace the snippet using its original indentation. Note one intermediate value before comparing the exact printed text. Keep syntax errors separate from programs that run but print something unexpected."
+    }
+  },
+  "spanish-proficiency": {
+    "zh": {
+      "interpretation": "看错题解析时，先圈出那句西班牙语里决定答案的线索，例如人称、时间或对话的目的。把它和你选的词放回同一个句子里再读一遍。"
+    },
+    "zh-TW": {
+      "interpretation": "回看一題時，先找西文原句裡決定答案的線索，像是人稱、時間，或這句話要達到什麼目的。再把答案放回原句讀一遍。"
+    },
+    "en": {
+      "interpretation": "In the answer review, point to the Spanish clue that supports the answer: a person, a time marker, or the purpose of a message. Read the chosen form in that same sentence."
+    }
+  },
+  "spatial-reasoning": {
+    "zh": {
+      "interpretation": "错题复盘先写清坐标轴和观察方向，再标一个跟着图形移动的点。做完一步就核对位置，容易找出把移动物体读成移动坐标轴的地方。"
+    },
+    "zh-TW": {
+      "interpretation": "複習轉動或摺紙題時，先把觀察方向和座標軸畫出來，再挑一個點跟著圖形移動。每一步停一下，就能知道自己在哪裡換了方向。"
+    },
+    "en": {
+      "interpretation": "Mark the fixed axes and viewpoint first, then trace one point through the move or fold. Checking that point at each step makes it easier to spot where your orientation changed."
+    }
+  },
+  "sql-test": {
+    "zh": {
+      "interpretation": "先从题给的小表逐行写下哪些行通过条件，再看连接、分组或排序改变了什么。回到解析时重点核对空值处理和题目要求的顺序。"
+    },
+    "zh-TW": {
+      "interpretation": "複習時先在題目給的表格裡標出哪些資料列符合條件，再依序看連接、分組或排序改變了什麼。也留意 NULL 在這一題是怎麼處理的。"
+    },
+    "en": {
+      "interpretation": "Start with the small table and mark which rows meet the stated condition. Trace any join, grouping, or requested ordering before checking the explanation, especially where a NULL is involved."
+    }
+  },
+  "verbal-reasoning": {
+    "zh": {
+      "interpretation": "复习时标注哪几个词或哪一句原文支持答案。遇到推断题，可以再问：如果去掉我自己补的一条常识，这个结论还成立吗？"
+    },
+    "zh-TW": {
+      "interpretation": "回看題目時，先圈出能支持答案的原文。做推論題可以再問：如果只留下文章寫出的資訊，這個結論還能推出來嗎？"
+    },
+    "en": {
+      "interpretation": "In your review, mark the words or sentence that supports the answer. For a deduction, ask whether the conclusion still follows when you remove any assumption you brought in yourself."
+    }
+  },
+  "workplace-technology": {
+    "zh": {
+      "interpretation": "复盘协作题时可以做一张小清单，列出记录里确实有的字段、允许的权限和时间条件。用清单核对你选的方案有没有遗漏。"
+    },
+    "zh-TW": {
+      "interpretation": "複習時先把交接紀錄、允許的權限和時間條件寫成小清單，再核對你挑的做法是否一項都沒漏。"
+    },
+    "en": {
+      "interpretation": "Use a short checklist in the review: the fields the record actually contains, the permissions allowed, and any time constraints. See whether your chosen action preserved them all."
+    }
+  },
+  "watson-glaser-practice-test": {
+    "zh": {
+      "method": "计时模式用同一个 30 分钟时钟覆盖五个部分，读规则和返回翻题也计入。可选择明确留空；提交或时间到会锁定整次作答。复盘分别显示答错和未答。"
+    },
+    "zh-TW": {
+      "method": "計時模式五部分共用 30 分鐘，讀規則和回頭看題的時間也算在內。可以明確選擇留白。送出或時間到會鎖住整份作答，複習時分開看答錯和沒答的題。"
+    },
+    "en": {
+      "method": "Timed mode uses one 30-minute clock for all five parts, including reading rules and moving between questions. You can leave an item unanswered. Submission or expiry locks the attempt and the review distinguishes unanswered items from wrong choices."
+    }
+  },
+  "asvab-practice-test": {
+    "zh": {
+      "method": "计时模式按部分启动。当前部分还开着时可以返回修改，也可以明确留空；提前结束或时间到将锁定这一部分。完成四部分后，免费核对每题答案和解释。"
+    },
+    "zh-TW": {
+      "method": "計時模式每一部分都要自己開始。這部分還沒結束時，可以回頭改答案，也可以選擇留白。提早交出或時間到就會鎖定；四部分做完後，免費查看每題解析。"
+    },
+    "en": {
+      "method": "In timed mode you start each part separately. While a part is open, you can revisit a question or leave it unanswered. Finishing early or reaching its deadline locks that part. After all four parts, review every answer and explanation for free."
+    }
+  },
+  "asvab-science-mechanical-practice-test": {
+    "zh": {
+      "method": "五部分各六题。开始下一部分前要单独确认；当前部分可以回看或留空，交卷或到时后锁定。完成全部部分可免费读原英文题的逐题答案和双语解释。"
+    },
+    "zh-TW": {
+      "method": "五部分各六題，每一部分都要自行按開始。進行中可以回頭改，也能選擇留白；送出或時間到後不能再改。全做完就能免費核對英文題目與逐題解說。"
+    },
+    "en": {
+      "method": "The five parts have six questions each. Start each part yourself. While it is open, you can edit choices or leave questions unanswered. Finishing or timing out locks the part. After all five, review every answer and bilingual explanation for free."
+    }
+  },
+  "employer-reasoning-practice-test": {
+    "zh": {
+      "method": "三部分各六题，分别按开始才进入。当前部分可回看、改选或留空；交卷或时间到后锁定。题干和选项用英文，完成后可以免费核对各题答案和解释。"
+    },
+    "zh-TW": {
+      "method": "三部分各六題，按下開始才進入該部分。還在作答時可以回頭改選或留白；交出、或時間一到，就不能再改。題目和選項保留英文，交卷後可以免費看逐題說明。"
+    },
+    "en": {
+      "method": "Start each six-item part separately. You can revisit answers or leave an item unanswered while its part is open. Submitting or reaching its deadline locks the part. The questions and options stay in English, and the answer review is free."
+    }
+  },
+  "ten-key-test": {
+    "zh": {
+      "interpretation": "按同一种数字列表比较两轮更容易看懂差别。复盘可先检查小数点和前导零，再看速度与错误数。截止前未确认的最后一笔不计入。"
+    },
+    "zh-TW": {
+      "interpretation": "用同一種清單再做一輪，比較容易看出哪裡變了。先看有沒有漏小數點或前導零，再對照速度和錯誤。時間到前還沒確認的最後一筆不列入。"
+    },
+    "en": {
+      "interpretation": "Compare two runs on the same kind of list. In the row review, look for missing decimal points or leading zeros before comparing speed. The last entry only counts if it was confirmed before the deadline."
+    }
+  },
+  "typing-speed": {
+    "zh": {
+      "interpretation": "复盘时尽量在同一种语言模式下比较两轮，再看速度和位置准确率。英文以 WPM 显示，中文以 CPM 显示；两种单位分别读。"
+    },
+    "zh-TW": {
+      "interpretation": "比較時可以用同一種語言模式再打一輪，再看輸入速度和位置正確率。英文用 WPM，中文用 CPM，讀結果時各看各的單位。"
+    },
+    "en": {
+      "interpretation": "Compare two rounds in the same language mode to see what changed in your speed and positional accuracy. English uses WPM and Chinese uses CPM; read each in its own unit."
+    }
+  },
+  "anger-issues-screener": {
+    "en": {
+      "lead": "Think of ordinary moments in the past four weeks. Twenty prompts ask when anger came up, what you showed or kept to yourself, and whether you felt you had a choice about how to respond."
+    },
+    "zh": {
+      "lead": "回想过去四周的普通小事。20 道题分别问你什么时候生气、当时怎么表现、哪些感受留在心里，以及你觉得自己能不能选择如何回应。"
+    },
+    "zh-TW": {
+      "lead": "回想最近四週的日常小事。20 題分開問你什麼時候覺得生氣、當時表現出什麼、哪些感受沒說出口，以及你覺得自己有沒有選擇怎麼回應的空間。"
+    }
+  },
+  "arabic-personality-compass": {
+    "en": {
+      "lead": "Friends are planning a meal and no one has taken the lead. Would you get something moving, help people join, get the details straight or suggest another approach? Make 36 choices and see how often you picked each of the four directions. This is FermatMind’s own exercise."
+    },
+    "zh": {
+      "lead": "朋友想凑一桌饭，却还没人张罗。你会先往前推一步、问问谁想参加、理清安排，还是提个别的办法？做完 36 道情境题，就能看到四种做法分别选了多少次。这是费马原创练习。"
+    },
+    "zh-TW": {
+      "lead": "朋友約了要一起吃飯，但還沒有人開始張羅。你會先定一個下一步、問大家怎麼參加、把順序理清楚，還是提個新辦法？做完 36 題，四種方向選了幾次都看得到。這是費馬自己的原創練習。"
+    }
+  },
+  "burnout-risk": {
+    "en": {
+      "lead": "This version uses two Copenhagen Burnout Inventory (CBI) modules. There are six questions about exhaustion in general and seven about exhaustion related to your own work. Each module has a separate result and guide."
+    },
+    "zh": {
+      "lead": "这里使用哥本哈根倦怠量表（CBI）的两个模块。六道题问你平时的疲惫，七道题问与你自己工作有关的疲惫。两组结果和指南分开阅读。中文为工作译文。"
+    },
+    "zh-TW": {
+      "lead": "這一版使用哥本哈根倦怠量表（CBI）的兩個部分。六題問平時有多疲憊，另外七題問和自己工作有關的疲憊。兩組各有一份完整指南，也會分開顯示結果。中文為工作譯文。"
+    }
+  },
+  "caliper-style-assessment-test": {
+    "en": {
+      "lead": "In each of 16 blocks, choose the statement most like you and a different one least like you. This independent practice shows which topics you chose in either role, with free guides for all eight topics."
+    },
+    "zh": {
+      "lead": "每组有四条陈述。选一条最像自己的，再选另一条最不像自己的。做完 16 组后，你可以看到八个主题各有多少次被选为最像或最不像，也可以读完整指南。"
+    },
+    "zh-TW": {
+      "lead": "每組會列出四句話，先挑一句最像自己，再挑另一句最不像自己的。16 組做完後，你可以查看八個主題各被選為最像或最不像幾次，並閱讀完整說明。"
+    }
+  },
+  "care-feelings-reflection": {
+    "en": {
+      "lead": "The first 15 prompts concern what you remember about feelings and support in childhood or adolescence. The last five concern the past four weeks. The four guides are free to read whenever you want."
+    },
+    "zh": {
+      "lead": "前 15 道题问你记得的童年或青少年时期的感受和支持，后 5 道题问过去四周。四篇完整指南可以直接免费阅读。"
+    },
+    "zh-TW": {
+      "lead": "前 15 題回顧你記得的童年或青少年時期的感受、回應和安慰。最後 5 題問的是這四週。四份完整指南都可以免費先看。"
+    }
+  },
+  "considering-support-reflection": {
+    "en": {
+      "lead": "Read 18 statements about recent concerns, daily life, support you can access and questions you might have about professional support. Each statement offers six ways to record what you know. Four free guides are available without answering."
+    },
+    "zh": {
+      "lead": "18 道题分别回顾近期困扰、日常活动受到的影响、身边能得到的支持，以及对专业支持的疑问。每道题都有六种回答可选，四篇完整指南不用作答也能免费读。"
+    },
+    "zh-TW": {
+      "lead": "你可以用 18 道題回想最近在意的事、它對日常生活的影響、身邊有哪些支持，以及對專業協助有什麼疑問。每題提供六種選法，四篇完整指南不用答題也能免費閱讀。"
+    }
+  },
+  "executive-function": {
+    "en": {
+      "lead": "This 14-item ADEXI self-report asks adults how well statements describe them, such as having difficulty remembering long instructions. It provides separate readings for working memory, inhibition and the overall raw sum."
+    },
+    "zh": {
+      "lead": "ADEXI 成人自评有 14 道题，例如“我很难记住较长的说明”。按陈述符合自己的程度作答，可以分别查看工作记忆、抑制控制与整体原始总分的读法。"
+    },
+    "zh-TW": {
+      "lead": "這份成人 ADEXI 自評有 14 題，例如「我很難記住很長的指示」。依照每句話符合自己的程度作答，結果有工作記憶、抑制控制及原始總分三份讀法。"
+    }
+  },
+  "feedback-self-worth-reflection": {
+    "en": {
+      "lead": "Think of feedback you received in the past four weeks. Twelve prompts ask how it felt, whether it affected how you saw yourself, and when the comment came back to mind. You can read all three guides without answering."
+    },
+    "zh": {
+      "lead": "回想过去四周收到过的反馈。12 道题分别问你听到时有什么感受、后来是否影响了你对自己的看法，以及那句话会不会又浮现在脑海里。三篇完整指南无需作答即可阅读。"
+    },
+    "zh-TW": {
+      "lead": "想想最近四週有人給過你的意見。12 題分開問你當下的感受、這些話有沒有改變你對自己的看法，以及後來還會不會再想起來。三篇完整指南可以直接閱讀。"
+    }
+  },
+  "mattering": {
+    "zh": {
+      "interpretation": "两组结果各自阅读。一个人可能记得被认真对待的场合，也会在别的场合觉得自己无足轻重。可以在两篇指南中分别看各自的例子。"
+    },
+    "zh-TW": {
+      "interpretation": "兩組讀數可以分開看。有時你感覺別人在意自己的存在，有時又覺得自己被忽略。可以各自看看兩篇指南的例子。"
+    },
+    "en": {
+      "interpretation": "Read the two scores separately. You might recall being taken seriously in one setting and feeling overlooked in another. The two guides give examples for reading each experience on its own."
+    }
+  },
+  "number-context-reflection": {
+    "zh": {
+      "interpretation": "回想过去四周遇到数字的一件小事，例如跟着收据看金额或读一份时间表。只回看当时留意到了什么，可以继续用平常用的辅助方式。"
+    },
+    "zh-TW": {
+      "interpretation": "想一件最近四週遇到數字的日常小事，例如讀時刻表或看收據。依原先的印象回答就好，平常有用的工具也照樣保留。"
+    },
+    "en": {
+      "interpretation": "Think of one ordinary encounter with numbers in the past four weeks, such as reading a timetable or checking a receipt. Answer from what you remember, with your usual aids in mind."
+    }
+  },
+  "perceived-stress-scale-4": {
+    "zh": {
+      "method": "四题都选有效频次才显示 0–16 原始总分。第 2、3 题以 4 减所选分数计入，结果可逐题核对；完整指南始终可读。"
+    },
+    "zh-TW": {
+      "method": "四題都有可計分的頻率選項，才會顯示 0 到 16 分的原始總分。第 2、3 題用 4 減去所選分數，結果會列出每題怎麼算；也可以先讀完整指南。"
+    },
+    "en": {
+      "method": "A 0–16 raw total needs a valid frequency choice on every item. Items 2 and 3 contribute four minus the selected value. You can check each contribution in the result and open the full guide at any time."
+    }
+  },
+  "pressure-response-actions": {
+    "zh": {
+      "interpretation": "回想过去四周的一次普通意见分歧，可以分开留意你说过什么、什么时候想退开，以及有没有一时接不上话。只看已有印象，想不起来可不计分。"
+    },
+    "zh-TW": {
+      "interpretation": "想起最近四週一次平常的意見不同。你可能記得自己先說了什麼，卻不清楚後來為什麼停下來。想得起來的部分照實選，其餘可以不計分。"
+    },
+    "en": {
+      "interpretation": "Think of an ordinary disagreement from the past four weeks. You may remember what you said first and be unsure about the moment you stopped speaking. Leave parts you don’t recall unscored."
+    }
+  },
+  "self-compassion": {
+    "zh": {
+      "method": "按平时遇到困难时的反应选频率。某题选不计分，只会让所在分项及整体均值暂时没有读数，其他完整分项与公开指南仍可查看。"
+    },
+    "zh-TW": {
+      "method": "依你平常遇到困難時的反應選頻率。有一題不計分，該部分與整體先不計算平均，其他答完整的部分及公開指南照樣可以讀。"
+    },
+    "en": {
+      "method": "Rate how often you usually respond this way in difficult times. An unscored answer leaves its part and the overall mean unavailable. You can still see any other complete part and read all the public guides."
+    }
+  },
+  "sensory-sensitivity": {
+    "zh": {
+      "interpretation": "用过去四周已经发生的普通场景读结果。听见一阵声音、被它打断、想减弱声音是不同体验；按各题的场景和原因分别看。"
+    },
+    "zh-TW": {
+      "interpretation": "用最近四週確實遇到的情況看結果。留意到聲音、被它打岔，或想把音量調小，是不同的經驗。可以照每題描述的場合分開想。"
+    },
+    "en": {
+      "interpretation": "Read the results using situations that already happened in the past four weeks. Noticing a sound, being interrupted by it, and wanting less input can be separate experiences. Use the context given in each question."
+    }
+  },
+  "sleep-experiences-reflection": {
+    "zh": {
+      "interpretation": "想想过去两周主要的那段睡眠，无论在白天还是晚上。把入睡前的经历、睡到一半的醒来和白天的感觉分开回看；选项只记录你记得的经历。"
+    },
+    "zh-TW": {
+      "interpretation": "回想最近兩週主要的睡眠時段，不論是在白天還是晚上。可以分開看入睡前、睡到一半醒來，以及起床後的印象，只照你記得的部分回答。"
+    },
+    "en": {
+      "interpretation": "Think of your main sleep over the past two weeks, whatever time of day it happens. Read settling to sleep, waking during rest, and daytime experiences separately, using only what you remember."
+    }
+  },
+  "spatial-thinking-reflection": {
+    "zh": {
+      "method": "从记得的日常场合选类别，例如当时是否想到要在某处转弯，或有没有把握判断物品相对位置。没有合适的经历或不愿回答，可选不计分；没有空间操作或答案对错。"
+    },
+    "zh-TW": {
+      "method": "只依記得的日常經驗選一項，像是當時怎麼想轉彎方向、能不能說出物品的相對位置。沒遇過或不想答，可以選不計分；這裡不用做空間操作，也不判定答對或答錯。"
+    },
+    "en": {
+      "method": "Choose a category from an everyday situation you remember, such as thinking through a turn or where one object sits relative to another. Leave it unrated if you can’t recall a suitable example or would rather skip it. There’s no task to perform or answer key."
+    }
+  },
+  "stress-check-in-test": {
+    "zh": {
+      "method": "这是四条原创回顾。第 2、4 题按 4 减所选分数计入，四条都有效作答后显示 0–16 原始总分，也可直接读完整指南。"
+    },
+    "zh-TW": {
+      "method": "這四題是費馬的原創回顧。第 2、4 題用 4 減去所選分數，四題全都能計分才顯示 0 到 16 分的原始總分。也可以先看完整指南。"
+    },
+    "en": {
+      "method": "This check-in uses four original prompts. Items 2 and 4 contribute four minus the selected value. A 0–16 raw total needs a valid answer on every item, and the full guide is available before you begin."
+    }
+  },
+  "stress-response-patterns-test": {
+    "zh": {
+      "interpretation": "用近三个月的一次普通情况对照五项读数。你可能先减少说话，稍后又解释自己的理由。几种做法可以先后出现，分别读就好。"
+    },
+    "zh-TW": {
+      "interpretation": "拿近三個月的一次平常情況來看五組讀數。你可能一開始話變少，過一會兒又說清楚自己的立場。這些反應可以在同一件事裡先後發生。"
+    },
+    "en": {
+      "interpretation": "Picture one ordinary situation from the past three months. You might have said less at first and explained your position later. You can read the five areas separately, even when several apply to the same moment."
+    }
+  },
+  "tipi-10": {
+    "zh": {
+      "method": "每条把两个特质词放在一起选整体同意程度。有一个词更像自己时，仍按词组整体回答。十条有效选择后，五个维度各显示两题计算的均值。"
+    },
+    "zh-TW": {
+      "method": "每題有兩個特質詞，請依整組來選同意程度。就算其中一個詞更像你，也用兩個詞一起判斷。十題都作答後，五個面向會各自顯示兩題算出的平均。"
+    },
+    "en": {
+      "method": "Rate each pair of traits as a whole, even when one word fits you better than the other. After ten valid responses, you’ll see five separate means, each calculated from two items."
+    }
+  },
+  "uncertainty-ease-reflection": {
+    "zh": {
+      "method": "只用过去四周容易回想的小事作答。没有经历、记不清和不想回答有各自的选项。六条回答整理成一份记录，保留各项原类别。"
+    },
+    "zh-TW": {
+      "method": "回想最近四週容易記起來的小事就好。「沒有遇過」「不確定」和「不想回答」各有自己的選項。六個回答只整理成保留原選項的紀錄。"
+    },
+    "en": {
+      "method": "Use an ordinary low-stakes situation from the past four weeks. There are separate choices for no experience, uncertainty, and preferring not to answer. The six responses are recorded as the categories you chose."
+    }
+  },
+  "written-language-context-reflection": {
+    "zh": {
+      "interpretation": "想想过去四周读一段文字或写一条留言时，哪些条件让你更方便获取信息。按当时用的语言、场合和工具回看；不用现在读一段或抄一遍来验证。"
+    },
+    "zh-TW": {
+      "interpretation": "回想最近四週讀文字或寫留言的一次經驗。用當時的語言、場合與工具來看，哪些做法讓資訊好讀一點？照記憶回答就好，不必現在重讀或抄寫。"
+    },
+    "en": {
+      "interpretation": "Recall a time you read something or wrote a message in the past four weeks. Think about the language, setting, and tools you used. You can answer from memory without reading or copying anything now."
+    }
+  }
+}

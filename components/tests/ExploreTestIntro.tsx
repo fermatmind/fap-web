@@ -4,6 +4,7 @@ import portfolio from "@/lib/entertainment/portfolioLandingEntries.json";
 import catalog from "@/lib/questionnaires/catalog.json";
 import { ExploreTestEntry } from "./ExploreTestEntry";
 import { ExploreHeroArtwork } from "./ExploreHeroArtwork";
+import { ArchiveLandingReading, getArchiveLandingCopy } from "./ArchiveLandingReading";
 
 /** The original title, instructions and actual engine remain the source of truth. */
 export function ExploreTestIntro({
@@ -12,12 +13,16 @@ export function ExploreTestIntro({
   entryLink = false,
   sideContent,
   locale = "zh",
+  readingLocale = locale,
+  readingLeadInHero = false,
 }: {
   children: ReactNode;
   slug: string;
   entryLink?: boolean;
   sideContent?: ReactNode;
   locale?: DisplayLocale;
+  readingLocale?: DisplayLocale;
+  readingLeadInHero?: boolean;
 }) {
   const category =
     catalog.find((item) => item.slug === slug)?.category ?? "framework";
@@ -32,8 +37,9 @@ export function ExploreTestIntro({
     "data-entry",
     "written-coordination-practice",
   ].includes(slug);
+  const reading = getArchiveLandingCopy(slug, readingLocale);
   return (
-    <header className="explore-intro">
+    <><header className="explore-intro">
       <div className="explore-intro-content">
       {children}
       {entryLink && <ExploreTestEntry locale={locale} tool={tool} />}
@@ -45,5 +51,7 @@ export function ExploreTestIntro({
         <ExploreHeroArtwork slug={slug} category={category} />
       </div>}
     </header>
+    {reading && <ArchiveLandingReading copy={reading} locale={readingLocale} slug={slug} leadInHero={readingLeadInHero} />}
+    </>
   );
 }

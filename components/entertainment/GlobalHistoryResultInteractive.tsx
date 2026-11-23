@@ -65,6 +65,11 @@ export function GlobalHistoryReveal({ id, locale, axisNames, profile, canonical,
   </>;
 }
 
+export function GlobalHistoryResultFollowup({ id, matched = false, children }: { id: string; matched?: boolean; children: ReactNode }) {
+  const vector = useGlobalHistoryVector(id);
+  return Boolean(vector) === matched ? children : null;
+}
+
 export function GlobalHistoryDirectory({ labels, regions, fields, bands, entries }: {
   labels: { summary: string; all: string; region: string; field: string; band: string; empty: string };
   regions: { id: string; label: string }[]; fields: { id: string; label: string }[]; bands: { id: string; label: string }[];

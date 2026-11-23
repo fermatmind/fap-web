@@ -51,12 +51,11 @@ export function ActivityEngagementClient({ quiz, locale }: { quiz: Questionnaire
       <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere]">{quiz.resultHeading![locale]}</h2>
       <ActivityEngagementReport quiz={quiz} result={result} locale={locale} displayLocale={displayLocale} copy={displayText} />
       <button className={button} onClick={() => reset("answer")}>{zh ? displayText("重新测试") : "Retake test"}</button>
-      <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{zh ? displayText("五份说明已完整开放，可以在这里结束") : "All five guides are open. You may finish here."}</h3>
-        <p className="my-4 leading-8">{zh ? displayText("已有能量与心流题本关注时间、分段投入、专注与暂停，工作角色观察关注任务责任。都是独立任务，分数不换算；是否另作答由你决定。") : "The existing Energy & Flow form concerns timing, bounded effort, focus and pauses. Work Role Reflection concerns task responsibilities. They are separate tasks without score conversion; another attempt is optional."}</p>
-        <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests/explore/energy-flow`}>{zh ? displayText("了解独立的能量与心流题本") : "Read about the separate Energy & Flow form"}</Link><br />
-        <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/explore/work-role-reflection`}>{zh ? displayText("了解独立的工作角色观察") : "Read about the separate Work Role Reflection form"}</Link><br />
-        <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests#more-tests`}>{zh ? displayText("返回全部测试") : "Back to all tests"}</Link>
-      </section>
+      <QuestionnaireLegacyControl>
+        <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{zh ? displayText("五份说明已完整开放，可以在这里结束") : "All five guides are open. You may finish here."}</h3>
+          <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests#more-tests`}>{zh ? displayText("返回全部测试") : "Back to all tests"}</Link>
+        </section>
+      </QuestionnaireLegacyControl>
     </>}
     <p data-aep-privacy className="mb-5 rounded-lg bg-slate-50 p-4 text-sm leading-7">{zh ? displayText("仅本人作答。答案只留当前页面内存，不保存进度、不发送测试流程统计、不分享个人结果；刷新或换语言会重新开始；可用退出并清除来放弃进度。") : "Answer only for yourself. Answers remain in this page’s memory without saved drafts or personal-result sharing; no quiz-flow statistics are sent. Refreshing or changing language starts fresh. Use Exit and clear to discard current progress."}</p>
     {message && <p role="status" className="mt-5 rounded-lg bg-amber-50 p-3 text-sm leading-7">{message}</p>}

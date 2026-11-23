@@ -19,6 +19,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
+import { ArchiveLandingLead } from "@/components/tests/ArchiveLandingReading";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireClient";
 import { QuestionnaireReport } from "@/components/questionnaires/QuestionnaireReport";
@@ -326,9 +327,9 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
   const adultAgeCopy = slug === "adult-age-preferences" ? await loadTraditionalAssessmentText() : undefined;
   return <div className="mx-auto w-full max-w-[1160px] space-y-8 px-[var(--fm-container-gutter)] py-10">
     {languages}
-    <ExploreTestIntro slug={slug} locale="zh-TW">
+    <ExploreTestIntro slug={slug} locale="zh-TW" readingLeadInHero>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title.zh}</h1>
-      <p className="mt-5 text-lg leading-8">{quiz.description.zh}</p>
+      <ArchiveLandingLead slug={slug} locale="zh-TW" className="mt-5 text-lg leading-8" original={quiz.description.zh} />
       <QuestionnaireTakeEntry quiz={hasTraditionalSelfEvaluation(slug) ? item.takeQuiz ?? quiz : quiz} locale="zh" displayLocale="zh-TW" />
     </ExploreTestIntro>
     {RelationshipOverview && relationshipCopy && <RelationshipOverview quiz={quiz} locale="zh" traditionalCopy={relationshipCopy} />}

@@ -9,7 +9,7 @@ import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { StoryTakeEntry } from "./StoryTakeEntry";
+import { StoryLandingLead, StoryTakeEntry } from "./StoryTakeEntry";
 import { additionalStoryEditorials, type StoryEditorial } from "./AdditionalStoryEditorials";
 
 export function StoryEditorialPage({
@@ -32,9 +32,9 @@ export function StoryEditorialPage({
     <JsonLd id="fun-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? displayText("全部测试") : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="fun-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.seo.description[locale], locale })} />
     </>}
-    <ExploreTestIntro slug={quiz.slug} locale={locale}>
+    <ExploreTestIntro slug={quiz.slug} locale={locale} readingLocale={displayLocale} readingLeadInHero>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
-      <p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
+      <StoryLandingLead quiz={quiz} locale={displayLocale} />
       <div className="explore-intro-meta"><span>{zh ? displayText(`${count}次选择 · 约${quiz.minutes}分钟 · 无需注册`) : `${count} choices · About ${quiz.minutes} minutes · No registration`}</span><span>{editorial.label[locale]}</span></div>
       <StoryTakeEntry quiz={quiz} locale={locale} displayLocale={displayLocale} compactLanding landingInstructions={editorial.instructions} />
     </ExploreTestIntro>
@@ -47,7 +47,7 @@ export function StoryEditorialPage({
     </div></section>
     <section className="my-8" aria-labelledby="possible-results"><h2 id="possible-results" className="text-2xl font-semibold">{branch ? (zh ? displayText("三篇完整结局与公开指南") : "Three complete endings and public guides") : (zh ? displayText(`${four ? "四" : "三"}篇完整画像与公开指南`) : `${four ? "Four" : "Three"} complete portraits and public guides`)}</h2>
       <p className="my-4 leading-8">{branch ? (zh ? displayText("每篇保留完整概述、例子、用处、取舍与可选尝试。本次路线到达一篇结局，另外两篇也可直接阅读；公开指南不改变你的路线。") : "Every ending retains its full summary, example, possible benefit, tradeoff and optional experiment. Your route reaches one ending; read the other two directly without changing that route.") : (zh ? displayText("每篇包含完整概述、例子、用处、取舍与可选尝试。可直接阅读全部指南；本次结果会保留并完整显示所有最高并列。") : "Every guide includes its full summary, example, possible benefit, tradeoff and optional experiment. Read all guides directly; your result retains every highest tie in full.")}</p>
-      <div className={four ? "grid gap-4 md:grid-cols-2 xl:grid-cols-4" : "grid gap-4 md:grid-cols-3"}>{quiz.results.map(result=><article className="rounded-lg border bg-white p-5" key={result.id}><h3 className="text-lg font-semibold"><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={resultPath(displayLocale,quiz.slug,result.id)}>{result.title[locale]}</Link></h3><p className="mt-2 leading-7">{result.summary[locale]}</p></article>)}</div>
+      <div className={four ? "grid gap-4 md:grid-cols-2 xl:grid-cols-4" : "grid gap-4 md:grid-cols-3"}>{quiz.results.map(result=><article className="rounded-lg border bg-white p-5" key={result.id} data-ent-result-id={result.id}><h3 className="text-lg font-semibold"><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={resultPath(displayLocale,quiz.slug,result.id)}>{result.title[locale]}</Link></h3><p className="mt-2 leading-7">{result.summary[locale]}</p></article>)}</div>
     </section>
     <section className="my-10 space-y-5 leading-8" aria-labelledby="quiz-faq"><h2 id="quiz-faq" className="text-2xl font-semibold">{zh ? displayText("玩法、结果与使用问题") : "Questions about the story, results and use"}</h2>{[quiz.seo.faq,...editorial.faq].map((f,i)=><div key={i}><h3 className="font-semibold">{f.question[locale]}</h3><p className="mt-2">{f.answer[locale]}</p></div>)}</section>
     <section className="my-8 leading-8" aria-labelledby="story-references"><h2 id="story-references" className="text-xl font-semibold">{zh ? displayText("情境与实用资料参考") : "Context and practical references"}</h2><ol className="mt-4 space-y-2">{editorial.references.map((ref,i)=><li id={`${quiz.slug}-reference-${i+1}`} key={ref.url}><a className="underline" rel="noopener noreferrer" href={ref.url}>{i+1}. {ref.label[locale]}</a></li>)}</ol></section>

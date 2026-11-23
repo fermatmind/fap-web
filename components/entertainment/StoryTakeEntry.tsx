@@ -1,6 +1,11 @@
+import { ArchiveLandingLead } from "@/components/tests/ArchiveLandingReading";
 import { StartTestButton } from "@/components/tests/StartTestButton";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
+
+export function StoryLandingLead({ quiz, locale }: { quiz: FunQuiz; locale: DisplayLocale }) {
+  return <ArchiveLandingLead slug={quiz.slug} locale={locale} original={quiz.seo.description[locale === "en" ? "en" : "zh"]} className="mt-5 text-lg leading-8" />;
+}
 
 export function StoryTakeEntry({ quiz, locale, landingInstructions, compactLanding = false, displayLocale = locale }: { quiz: FunQuiz; locale: Locale; compactLanding?: boolean; displayLocale?: DisplayLocale; landingInstructions?: { en: string; zh: string } }) {
   return <div id="play" className="my-6 space-y-4" data-story-take-entry>

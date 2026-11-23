@@ -1,6 +1,7 @@
 import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { Fragment } from "react";
 import { careFeelingsSections, careFeelingsFaq } from "./CareFeelingsLandingEditorial";
+import { ArchiveLandingLead } from "@/components/tests/ArchiveLandingReading";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
@@ -29,8 +30,8 @@ export function CareFeelingsPage({ quiz, locale, take = false, displayLocale = l
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${displayLocale}` }, { name: zh ? copy("全部测试") : "All tests", path: `/${displayLocale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale: displayLocale })} />
-    <ExploreTestIntro slug={quiz.slug} locale={locale}>
-      <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
+    <ExploreTestIntro slug={quiz.slug} locale={locale} readingLocale={displayLocale} readingLeadInHero>
+      <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><ArchiveLandingLead slug={quiz.slug} locale={displayLocale} className="mt-5 text-lg leading-8" original={quiz.description[locale]} />
       <div className="explore-intro-meta"><span>{zh ? copy(`20条描述 · 约${quiz.minutes}分钟`) : `20 descriptions · About ${quiz.minutes} minutes`}</span><span>{zh ? copy("完整读法免费 · 无需注册") : "Full readings free · No registration"}</span></div>
       <QuestionnaireTakeEntry quiz={quiz} locale={locale} displayLocale={displayLocale} />
     </ExploreTestIntro>

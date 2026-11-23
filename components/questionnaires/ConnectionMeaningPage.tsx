@@ -24,7 +24,7 @@ export function ConnectionMeaningPage({ quiz, locale, take = false, displayLocal
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${displayLocale}` }, { name: zh ? copy("全部测试") : "All tests", path: `/${displayLocale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale: displayLocale })} />
-    <ExploreTestIntro slug={quiz.slug} locale={locale}>
+    <ExploreTestIntro slug={quiz.slug} locale={locale} readingLocale={displayLocale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
       <p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
       <p className="explore-intro-meta">{zh ? copy("15条陈述 · 约4分钟 · 无需注册 · 完整指南免费") : "15 statements · about 4 minutes · no signup · full guides free"}</p>

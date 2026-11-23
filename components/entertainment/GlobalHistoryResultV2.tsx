@@ -1,15 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { ArchiveQuestionnaireNextStep } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import { Container } from "@/components/layout/Container";
 import { SITE_URL } from "@/lib/site";
 import type { DisplayLocale } from "@/lib/i18n/locales";
-import { GLOBAL_HISTORY_QUESTION_COUNT, globalHistoryMethod, globalHistoryPath, globalHistoryPortraitPath, globalHistoryPosterPath, globalHistoryResultPath } from "@/lib/entertainment/global-history/config";
+import { GLOBAL_HISTORY_QUESTION_COUNT, GLOBAL_HISTORY_SLUG, globalHistoryMethod, globalHistoryPath, globalHistoryPortraitPath, globalHistoryPosterPath, globalHistoryResultPath } from "@/lib/entertainment/global-history/config";
 import { coxStudy, coxTranscription, getCoxEstimate, getHistoryResult, historyResultPeers, resultCopy } from "@/lib/entertainment/global-history/result-v2";
 import { historyPeople, type HistoryPerson } from "@/lib/entertainment/global-history/people";
 import { historyAxes } from "@/lib/entertainment/global-history/questions";
 import { displayHistoryPerson } from "@/lib/entertainment/global-history/traditional-roster";
-import { GlobalHistoryDirectory, GlobalHistoryReveal } from "./GlobalHistoryResultInteractive";
+import { GlobalHistoryDirectory, GlobalHistoryResultFollowup, GlobalHistoryReveal } from "./GlobalHistoryResultInteractive";
 import styles from "./GlobalHistoryResultV2.module.css";
 
 const continents = {
@@ -161,18 +162,20 @@ export function GlobalHistoryResultV2({ person, locale, result, traditionalCopy 
                 <path d="M0 115 C100 115 104 14 180 14 S260 115 360 115 Z" fill="currentColor" opacity=".12" />
                 <path d="M0 115 C100 115 104 14 180 14 S260 115 360 115" fill="none" stroke="currentColor" strokeWidth="2" />
               </svg>
-              <span className={styles.unlock}>{t("你的推理位置 · 待解锁", "你的推理位置 · 待解鎖", "Your reasoning · Locked")}</span>
+              <GlobalHistoryResultFollowup id={person.id}><span className={styles.unlock}>{t("你的推理位置 · 待解锁", "你的推理位置 · 待解鎖", "Your reasoning · Locked")}</span></GlobalHistoryResultFollowup>
               <span className={styles.coxMarker}>Cox {benchmark.estimate.youth_corrected}</span>
             </div> : <div className={styles.giftCard}>
               <span>{t("作品里的认知天赋", "作品裡的認知天賦", "Cognitive gift in the work")}</span>
               <strong>{gift}</strong>
-              <small>{t("你的推理表现 · 待解锁", "你的推理表現 · 待解鎖", "Your reasoning · Locked")}</small>
+              <GlobalHistoryResultFollowup id={person.id}><small>{t("你的推理表现 · 待解锁", "你的推理表現 · 待解鎖", "Your reasoning · Locked")}</small></GlobalHistoryResultFollowup>
             </div>}
             {benchmark.has_cox_data && <p className={styles.iqValues}>{iqAnswer}</p>}
             <p className={styles.note}>{benchmark.has_cox_data ? coxNote : noCox}</p>
-            <Link className={styles.conversion} prefetch={false} href={`/${locale}/tests/iq-test-intelligence-quotient-assessment`}>
-              {t("测测你的抽象推理与空间逻辑 →", "測測你的抽象推理與空間邏輯 →", "Try the abstract and spatial reasoning test →")}
-            </Link>
+            <GlobalHistoryResultFollowup id={person.id}>
+              <Link className={styles.conversion} prefetch={false} href={`/${locale}/tests/iq-test-intelligence-quotient-assessment`}>
+                {t("测测你的抽象推理与空间逻辑 →", "測測你的抽象推理與空間邏輯 →", "Try the abstract and spatial reasoning test →")}
+              </Link>
+            </GlobalHistoryResultFollowup>
           </div>
           <div className={styles.coordinate}>
             <h3>{t("人格原型坐标", "人格原型座標", "Personality archetype")}</h3>
@@ -187,12 +190,14 @@ export function GlobalHistoryResultV2({ person, locale, result, traditionalCopy 
             })}</ul>
             <ul className={styles.traits}>{personality.big_five_traits[locale].map(trait => <li key={trait}>{trait}</li>)}</ul>
             <p className={styles.note}>{personalityNote}</p>
-            <Link className={styles.conversion} prefetch={false} href={`/${locale}/tests/mbti-personality-test-16-personality-types`}>
-              {t("你和他是同一型吗？进入 16 型人格测评 →", "你和他是同一型嗎？進入 16 型人格測驗 →", "Share the same type? Take the 16-type assessment →")}
-            </Link>
-            <Link className={styles.textLink} prefetch={false} href={`/${locale}/tests/big-five-personality-test-ocean-model`}>
-              {t("测我的大五人格 ↗", "測我的大五人格 ↗", "Explore my Big Five traits ↗")}
-            </Link>
+            <GlobalHistoryResultFollowup id={person.id}>
+              <Link className={styles.conversion} prefetch={false} href={`/${locale}/tests/mbti-personality-test-16-personality-types`}>
+                {t("你和他是同一型吗？进入 16 型人格测评 →", "你和他是同一型嗎？進入 16 型人格測驗 →", "Share the same type? Take the 16-type assessment →")}
+              </Link>
+              <Link className={styles.textLink} prefetch={false} href={`/${locale}/tests/big-five-personality-test-ocean-model`}>
+                {t("测我的大五人格 ↗", "測我的大五人格 ↗", "Explore my Big Five traits ↗")}
+              </Link>
+            </GlobalHistoryResultFollowup>
           </div>
         </div>
       </section>
@@ -232,6 +237,9 @@ export function GlobalHistoryResultV2({ person, locale, result, traditionalCopy 
           <div className={styles.references}><a href={coxStudy}>Catharine Cox (1926) · 12A / 12B ↗</a>
             <a href={coxTranscription}>{t("折页转录 CSV ↗", "摺頁轉錄 CSV ↗", "Foldout transcription CSV ↗")}</a></div>
         </details>
+        <GlobalHistoryResultFollowup id={person.id} matched>
+          <ArchiveQuestionnaireNextStep slug={GLOBAL_HISTORY_SLUG} locale={locale} />
+        </GlobalHistoryResultFollowup>
       </div>
     </Container>
   </Shell>;

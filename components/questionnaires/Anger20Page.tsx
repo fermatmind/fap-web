@@ -1,4 +1,5 @@
 import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
+import { ArchiveLandingLead } from "@/components/tests/ArchiveLandingReading";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -23,10 +24,10 @@ export function Anger20Page({ quiz, locale , take = false }: { quiz: Anger20Ques
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="anger20-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="anger20-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
-    <ExploreTestIntro slug={quiz.slug} locale={locale}>
+    <ExploreTestIntro slug={quiz.slug} locale={locale} readingLeadInHero>
 
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
-    <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
+    <ArchiveLandingLead slug={quiz.slug} locale={locale} className="mt-5 text-lg leading-8 text-slate-700" original={quiz.description[locale]} />
     <div className="explore-intro-meta"><span>{zh ? "20条描述 · 约6分钟 · 不计时 · 18岁及以上 · 无需注册" : "20 prompts · About 6 minutes · Untimed · Ages 18+ · No signup"}</span><span>{zh ? "原创愤怒反应回顾 · 四篇完整读法免费" : "Original anger response reflection · Four full guides free"}</span></div>
     <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>

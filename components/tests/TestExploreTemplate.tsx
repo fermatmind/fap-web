@@ -50,6 +50,13 @@ type ExploreTemplateProps = {
   rootAttributes?: Record<`data-${string}`, string>;
 };
 
+export function TestExploreMethod({ children, mark, supplement }: { children: ReactNode; mark?: boolean; supplement?: ReactNode }) {
+  return <section className={styles.insightBand} data-ent-module={mark ? "method" : undefined}>
+    <div className={styles.insightInner}>{children}</div>
+    {supplement}
+  </section>;
+}
+
 export function TestExploreTemplate({
   copy, start, guideHref, sample, insight, afterProfiles, rules, profilesId, profiles, exploreLinks, compareLinks, rootAttributes, characterSlot, heading, endStartLabel, heroLinks, methodSupplement, relatedSupplement, slot,
 }: ExploreTemplateProps) {
@@ -81,10 +88,7 @@ export function TestExploreTemplate({
       )}</div>
     </section>
 
-    <section className={styles.insightBand} data-ent-module={contractMarker("method")}>
-      <div className={styles.insightInner}>{insight}</div>
-      {methodSupplement}
-    </section>
+    <TestExploreMethod mark={Boolean(activeSlot)} supplement={methodSupplement}>{insight}</TestExploreMethod>
 
     <section id={profilesId} className={styles.section} data-ent-module={contractMarker("profiles")}>
       <h2>{copy.stylesTitle}</h2>

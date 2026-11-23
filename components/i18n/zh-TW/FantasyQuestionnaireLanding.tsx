@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArchiveLandingLead } from "@/components/tests/ArchiveLandingReading";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { FantasyRoster } from "@/components/questionnaires/FantasyRoster";
 import { QuestionnaireTakeEntry } from "@/components/questionnaires/QuestionnaireTakeEntry";
@@ -8,9 +9,9 @@ import type { Questionnaire } from "@/lib/questionnaires/types";
 export function FantasyQuestionnaireLanding({ quiz }: { quiz: Questionnaire }) {
   const [method] = quiz.guide;
   return <div className="mx-auto max-w-3xl space-y-8">
-    <ExploreTestIntro slug={quiz.slug} locale="zh">
+    <ExploreTestIntro slug={quiz.slug} locale="zh" readingLocale="zh-TW" readingLeadInHero>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title.zh}</h1>
-      <p className="mt-5 text-lg leading-8">{quiz.description.zh}</p>
+      <ArchiveLandingLead slug={quiz.slug} locale="zh-TW" className="mt-5 text-lg leading-8" original={quiz.description.zh} />
       <p className="explore-intro-meta"><span>{quiz.questions.length} 題 · 約 {quiz.minutes} 分鐘 · 無需註冊</span><span>原創象徵測驗 · 完整結果免費</span></p>
       <QuestionnaireTakeEntry quiz={quiz} locale="zh" displayLocale="zh-TW" />
     </ExploreTestIntro>

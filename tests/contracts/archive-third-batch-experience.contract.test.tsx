@@ -1,6 +1,8 @@
 import { render } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
+import { GlobalHistoryResultV2 } from "@/components/entertainment/GlobalHistoryResultV2";
+import { getHistoryResult } from "@/lib/entertainment/global-history/result-v2";
 import { GlobalHistoryReport } from "@/components/entertainment/GlobalHistoryReport";
 import { ArchiveGuideShare } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import { archive90Topic, archiveTopic } from "@/lib/entertainment/archive90";
@@ -61,6 +63,30 @@ describe("third archive experience cohort", () => {
       expect(report.compareDocumentPosition(next) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
       expect(next.querySelectorAll("a")).toHaveLength(1);
       expect(next.querySelector("a")).toHaveAttribute("href", "/zh-TW/tests/big-five-personality-test-ocean-model");
+    } finally {
+      sessionStorage.removeItem(globalHistoryResultKey);
+    }
+  });
+
+  it("keeps the public portrait links and gives a matched World Edition result only one optional assessment", () => {
+    const person = historyPeople.find(item => item.id === "isaac-newton")!;
+    const result = getHistoryResult(person)!;
+    const page = <GlobalHistoryResultV2 person={person} locale="en" result={result} traditionalCopy={text => text} />;
+    const links = (container: HTMLElement) => [...container.querySelectorAll<HTMLAnchorElement>("a[href]")]
+      .map(link => link.getAttribute("href"))
+      .filter(href => /^\/en\/tests\/(iq-test-|mbti-personality-test-|big-five-personality-test-)/u.test(href ?? ""));
+    sessionStorage.removeItem(globalHistoryResultKey);
+    const visitor = render(page);
+    expect(links(visitor.container)).toHaveLength(3);
+    expect(visitor.container.querySelector("[data-archive-next-step]")).toBeNull();
+    visitor.unmount();
+
+    sessionStorage.setItem(globalHistoryResultKey, JSON.stringify({ id: person.id, vector: [1, 2, 3, 4, 5, 6] }));
+    try {
+      const player = render(page);
+      expect(player.container.querySelector('[data-history-state="matched"]')).toBeInTheDocument();
+      expect(links(player.container)).toEqual(["/en/tests/big-five-personality-test-ocean-model"]);
+      expect(player.container.querySelectorAll("[data-archive-next-step] a")).toHaveLength(1);
     } finally {
       sessionStorage.removeItem(globalHistoryResultKey);
     }

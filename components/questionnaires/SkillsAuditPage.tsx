@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { ArchiveLandingLead } from "@/components/tests/ArchiveLandingReading";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -24,8 +25,8 @@ export function SkillsAuditPage({ quiz, locale , take = false }: { quiz: Questio
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
-    <ExploreTestIntro slug={quiz.slug} locale={locale}>
-      <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
+    <ExploreTestIntro slug={quiz.slug} locale={locale} readingLeadInHero>
+      <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><ArchiveLandingLead slug={quiz.slug} locale={locale} className="mt-5 text-lg leading-8" original={quiz.description[locale]} />
       <div className="explore-intro-meta"><span>{zh ? "20项 · 约6分钟 · 无需注册" : "20 tasks · About 6 minutes · No registration"}</span><span>{zh ? "四类任务 · 四种记录状态 · 全文免费" : "Four task areas · Four record states · Full guides free"}</span></div>
       <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>

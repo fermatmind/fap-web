@@ -202,3 +202,61 @@
 [data-profile-theme="bleach"] .insightBand { background: #f1eef9; }
 [data-profile-theme="bleach"] .primary { background: #504c79; }
 [data-profile-theme="bleach"] .profileImage { aspect-ratio: 1; }
+
+.archiveReading {
+  margin-block: 1.5rem 2rem;
+  border: 1px solid var(--rule);
+  border-radius: .75rem;
+  overflow: hidden;
+}
+
+.archiveSummary {
+  padding: 1.05rem 1.2rem;
+  background: var(--paper);
+}
+
+.archiveSummary h2,
+.archiveReading .insightInner h2 {
+  font-size: 1.15rem;
+  font-weight: 740;
+}
+
+.archiveSummary p {
+  margin-block-start: .45rem;
+  color: var(--muted);
+}
+
+.archiveReading .insightBand {
+  border-bottom: 0;
+}
+
+.archiveReading .insightInner {
+  width: calc(100% - 2.4rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 1rem 1.6rem;
+  padding-block: 1.05rem;
+}
+
+.archiveScale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  align-items: baseline;
+}
+
+.archiveScale strong {
+  color: var(--accent);
+}
+
+@media (max-width: 42rem) {
+  .archiveReading .insightInner { grid-template-columns: minmax(0, 1fr); }
+}
+
+.archiveReading .insightInner > :only-child { grid-column: 1 / -1; }
+.archiveScaleTrack {
+  width: min(6rem, 25vw);
+  height: .35rem;
+  border-radius: .25rem;
+  background: linear-gradient(to right, var(--rule), var(--accent));
+}

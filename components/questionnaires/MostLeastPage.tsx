@@ -1,4 +1,5 @@
 import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
+import { ArchiveLandingLead } from "@/components/tests/ArchiveLandingReading";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -23,10 +24,10 @@ export function MostLeastPage({ quiz, locale , take = false }: { quiz: Questionn
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="most-least-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="most-least-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
-    <ExploreTestIntro slug={quiz.slug} locale={locale}>
+    <ExploreTestIntro slug={quiz.slug} locale={locale} readingLeadInHero>
 
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
-    <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
+    <ArchiveLandingLead slug={quiz.slug} locale={locale} className="mt-5 text-lg leading-8 text-slate-700" original={quiz.description[locale]} />
     <div className="explore-intro-meta"><span>{zh ? "16组 · 64条原创陈述 · 约8分钟 · 不计时 · 无需注册" : "16 blocks · 64 original statements · About 8 minutes · Untimed · No signup"}</span><span>{zh ? "独立原创题式练习 · 八份完整读法免费" : "Independent original format practice · Eight full guides free"}</span></div>
     <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>

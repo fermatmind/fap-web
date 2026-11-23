@@ -3,6 +3,8 @@ import { Fragment } from "react";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { PortfolioRadarSamples } from "@/components/tests/PortfolioRadarSamples";
+import { scoreLikertQuestionnaire } from "@/lib/questionnaires/basicScoring";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -14,6 +16,37 @@ import { activityLandingSections, activityLandingFaq } from "./ActivityEngagemen
 function Copy({ text }: { text: string }) {
   return <>{text.split(/(\[\d+\])/g).map((part, i) => /^\[\d+\]$/.test(part) ? <sup key={i}><a className="ml-1 underline" href={`#activity-reference-${part.slice(1, -1)}`}>{part}</a></sup> : <Fragment key={i}>{part}</Fragment>)}</>;
 }
+const radarCopy = {
+  zh: { label: "切换结果示例", legend: "合成答卷 · 五项原始均值（1–5）", guide: "阅读对应指南" },
+  "zh-TW": { label: "切換結果範例", legend: "模擬作答 · 五項原始平均（1–5）", guide: "閱讀這一項的指南" },
+  en: { label: "Switch sample results", legend: "Example answers · Five raw means (1–5)", guide: "Read this guide" },
+};
+
+function ActivityEngagementSamples({ quiz, locale, displayLocale }: { quiz: Questionnaire; locale: Locale; displayLocale: DisplayLocale }) {
+  const text = radarCopy[displayLocale];
+  const samples = ["self-starting", "responding-to-opportunities", "invited-contribution"].flatMap(id => {
+    const direction = quiz.directions.find(item => item.id === id);
+    const profile = quiz.profiles.find(item => item.directionIds.includes(id));
+    if (!direction || !profile) return [];
+    const answers = Object.fromEntries(quiz.questions.map(question => [
+      question.id,
+      question.options.find(option => option.score === (option.directionId === id ? 4 : 2))?.id,
+    ]));
+    const result = scoreLikertQuestionnaire(quiz, answers);
+    if (result.status !== "complete") return [];
+    return [{
+      id,
+      title: direction.title[locale],
+      guideHref: questionnaireGuidePath(displayLocale, quiz.slug, profile.id),
+      axes: quiz.directions.flatMap(axis => {
+        const value = result.facets[axis.id]?.mean;
+        return value == null ? [] : [{ id: axis.id, title: axis.title[locale], value, maximum: 5 }];
+      }),
+    }];
+  });
+  return samples.length ? <PortfolioRadarSamples samples={samples} label={text.label} legend={text.legend} guideLabel={text.guide} /> : null;
+}
+
 export function ActivityEngagementPage({ quiz, locale, take = false, displayLocale = locale, copy = text => text, sections = activityLandingSections, faq = activityLandingFaq }: {
   quiz: Questionnaire; locale: Locale; take?: boolean; displayLocale?: DisplayLocale; copy?: (text: string) => string;
   sections?: Questionnaire["guide"]; faq?: Questionnaire["faq"];
@@ -24,7 +57,7 @@ export function ActivityEngagementPage({ quiz, locale, take = false, displayLoca
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${displayLocale}` }, { name: zh ? copy("全部测试") : "All tests", path: `/${displayLocale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale: displayLocale })} />
-    <ExploreTestIntro slug={quiz.slug} locale={locale}>
+    <ExploreTestIntro slug={quiz.slug} locale={locale} readingLocale={displayLocale} sideContent={<ActivityEngagementSamples quiz={quiz} locale={locale} displayLocale={displayLocale} />}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
       <p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
       <p className="explore-intro-meta">{zh ? copy("20条陈述 · 约4分钟 · 无需注册 · 完整指南免费") : "20 statements · about 4 minutes · no signup · full guides free"}</p>
