@@ -54,7 +54,7 @@ describe("HELP-SERVICE-FAQ-SCHEMA-RUNTIME-R2-01", () => {
   });
 
   it("keeps Help FAQPage rendering gated on backend schemaEnabled and visible parity", () => {
-    const source = read("app/(localized)/[locale]/help/[slug]/page.tsx");
+    const source = read("app/(localized)/[locale]/support/[slug]/page.tsx");
 
     const gate = read("lib/cms/visible-help-faq.ts");
     expect(source).toContain("getContentPage(contentSlug(slug), locale)");

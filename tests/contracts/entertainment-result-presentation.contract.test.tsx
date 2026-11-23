@@ -30,7 +30,8 @@ describe("entertainment result consumer coverage and presentation boundaries", (
       expect(quiz?.slug, entry.slug).toBe(entry.slug);
       expect(quiz?.profiles.map(profile => profile.id), entry.slug).toEqual(entry.resultSlugs);
       for (const locale of ["en", "zh"] as const) {
-        expect(questionnairePath(locale, entry.slug)).toBe(`/${locale}/tests/${entry.collection}/${entry.slug}`);
+        const path = entry.slug === "career-match" ? `/${locale}/career/match` : `/${locale}/tests/explore/${entry.slug}`;
+        expect(questionnairePath(locale, entry.slug)).toBe(path);
         for (const id of entry.resultSlugs) routes.add(questionnaireGuidePath(locale, entry.slug, id));
       }
     }

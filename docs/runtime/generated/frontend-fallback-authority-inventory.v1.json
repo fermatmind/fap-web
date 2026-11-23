@@ -49,7 +49,7 @@
       "id": "topic_cta_fallback",
       "surface": "topic detail CTA fallback",
       "sources": ["app/(localized)/[locale]/topics/[slug]/page.tsx"],
-      "requiredSourceTokens": ["landingSurface?.ctaBundle", "localizedPath(\"/help/faq\", locale)"],
+      "requiredSourceTokens": ["landingSurface?.ctaBundle", "localizedPath(\"/support/faq\", locale)"],
       "classification": "migration_required",
       "canBecomePublicTruth": true,
       "seoGeoRisk": true,

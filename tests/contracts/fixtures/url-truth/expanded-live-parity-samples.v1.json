@@ -23,7 +23,7 @@
       "forbiddenTokens": []
     },
     {
-      "source": "app/(localized)/[locale]/help/[slug]/page.tsx",
+      "source": "app/(localized)/[locale]/support/[slug]/page.tsx",
       "requiredTokens": [
         "buildPageMetadata",
         "alternatesByLocale",
@@ -139,17 +139,17 @@
       "routeFamily": "help_detail",
       "pairKey": "help_faq",
       "locale": "en",
-      "path": "/en/help/faq",
-      "canonicalUrl": "https://fermatmind.com/en/help/faq",
+      "path": "/en/support/faq",
+      "canonicalUrl": "https://fermatmind.com/en/support/faq",
       "expectedInSitemap": true,
       "alternates": {
-        "en": "https://fermatmind.com/en/help/faq",
-        "zh-CN": "https://fermatmind.com/zh/help/faq",
+        "en": "https://fermatmind.com/en/support/faq",
+        "zh-CN": "https://fermatmind.com/zh/support/faq",
         "x-default": "https://fermatmind.com"
       },
       "jsonLdReferences": [
-        "https://fermatmind.com/en/help/faq",
-        "https://fermatmind.com/en/help/faq#webpage"
+        "https://fermatmind.com/en/support/faq",
+        "https://fermatmind.com/en/support/faq#webpage"
       ]
     },
     {
@@ -157,17 +157,17 @@
       "routeFamily": "help_detail",
       "pairKey": "help_faq",
       "locale": "zh-CN",
-      "path": "/zh/help/faq",
-      "canonicalUrl": "https://fermatmind.com/zh/help/faq",
+      "path": "/zh/support/faq",
+      "canonicalUrl": "https://fermatmind.com/zh/support/faq",
       "expectedInSitemap": true,
       "alternates": {
-        "en": "https://fermatmind.com/en/help/faq",
-        "zh-CN": "https://fermatmind.com/zh/help/faq",
+        "en": "https://fermatmind.com/en/support/faq",
+        "zh-CN": "https://fermatmind.com/zh/support/faq",
         "x-default": "https://fermatmind.com"
       },
       "jsonLdReferences": [
-        "https://fermatmind.com/zh/help/faq",
-        "https://fermatmind.com/zh/help/faq#webpage"
+        "https://fermatmind.com/zh/support/faq",
+        "https://fermatmind.com/zh/support/faq#webpage"
       ]
     }
   ],

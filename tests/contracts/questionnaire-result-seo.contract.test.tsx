@@ -73,7 +73,8 @@ describe("Result-specific bilingual search assets for the four early complete qu
           expect(body!.textContent).toContain(reading.scoreReading[locale]);
           for (const section of reading.sections) for (const paragraph of section.paragraphs) expect(body!.textContent).toContain(paragraph[locale]);
           const links = Array.from(dom.querySelectorAll("a"), a => a.getAttribute("href"));
-          expect(links).toContain(`${questionnairePath(locale, slug)}#take-test`);
+          const landing = slug === "disc" ? `/${locale}/tests/disc-behavioral-style-test` : questionnairePath(locale, slug);
+          expect(links).toContain(`${landing}#take-test`);
           for (const other of quiz.profiles.filter(p => p.id !== profile.id)) expect(links).toContain(questionnaireGuidePath(locale, slug, other.id));
           expect(dom.querySelectorAll("[data-facet-score], [data-archetype-count]")).toHaveLength(0);
         }

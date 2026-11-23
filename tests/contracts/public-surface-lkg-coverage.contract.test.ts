@@ -29,7 +29,7 @@ describe("public CMS surface LKG coverage", () => {
     const articleDetail = read("app/(localized)/[locale]/articles/[slug]/page.tsx");
     const testDetail = read("app/(localized)/[locale]/tests/[slug]/page.tsx");
     const contentPageRoute = read("app/(localized)/[locale]/contentPageRoute.tsx");
-    const helpDetail = read("app/(localized)/[locale]/help/[slug]/page.tsx");
+    const helpDetail = read("app/(localized)/[locale]/support/[slug]/page.tsx");
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("lib/seo/llmsFullRoute.ts");
 
