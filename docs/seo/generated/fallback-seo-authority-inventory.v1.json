@@ -33,17 +33,17 @@
     },
     {
       "id": "tests_landing_surface",
-      "routeFamily": "tests_hub_and_category",
+      "routeFamily": "tests_hub",
       "files": [
         "app/(localized)/[locale]/tests/page.tsx",
-        "app/(localized)/[locale]/tests/category/[slug]/page.tsx",
+        "app/(traditional)/zh-TW/tests/page.tsx",
         "lib/marketing/testsHubContent.ts"
       ],
-      "cmsAuthority": "landing_surfaces:tests and landing_surfaces:tests_category_*",
-      "frontendFallback": "CMS fetch failure returns noindex/minimal shell behavior; category content is still rendered from typed product surface when CMS is unavailable.",
+      "cmsAuthority": "landing_surfaces:tests",
+      "frontendFallback": "CMS fetch failure uses the tests hub minimal shell or the existing Traditional Chinese pilot.",
       "classification": "watchlist",
       "risk": "P2",
-      "recommendedAction": "Before expanding test category SEO, verify category metadata is backend-authoritative and no frontend editorial fallback can become indexable."
+      "recommendedAction": "Keep tests hub metadata bound to its published surface and its localized fallback behavior."
     },
     {
       "id": "articles_detail",
