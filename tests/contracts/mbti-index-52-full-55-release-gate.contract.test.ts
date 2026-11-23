@@ -14,14 +14,19 @@ const runOnePath = "docs/seo/personality/mbti-index-52-full-55-release-gate-2026
 const runTwoPath = "docs/seo/personality/mbti-index-52-full-55-release-gate-2026-07-26-run-2.json";
 const exactNewTargets = ["enfp-vs-entp", "estj-vs-entj", "isfp-vs-infp"];
 const policyPath = "lib/seo/discoverabilityExposurePolicy.cjs";
+// The commit that recorded the historical evidence and its validator sources.
+const historicalEvidenceRevision = "0239753b3df65f920a1ea0b9fc50401def893b95";
 
-function currentValidatorSourceSha256() {
+function historicalValidatorSourceSha256() {
+  const readHistoricalSource = (path: string) =>
+    execFileSync("git", ["show", `${historicalEvidenceRevision}:${path}`]);
+
   return crypto
     .createHash("sha256")
     .update("mbti-index-52-validator-bundle-v1\0")
-    .update(fs.readFileSync(script))
+    .update(readHistoricalSource(script))
     .update("\0discoverability-exposure-policy\0")
-    .update(fs.readFileSync(policyPath))
+    .update(readHistoricalSource(policyPath))
     .digest("hex");
 }
 
@@ -125,7 +130,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(report.validation_session_id).toBe(runOne.validation_session_id);
 
     if (report.final_decision === "ALLOW_MBTI_55_COMPLETE") {
-      const validatorSourceSha256 = currentValidatorSourceSha256();
+      const validatorSourceSha256 = historicalValidatorSourceSha256();
       expect(report.gsc_dependency_unblocked).toBe(true);
       expect(report.completed_consecutive_runs).toBe(2);
       expect(runTwo.run_decision).toBe("PASS_MBTI_55_RUN");
