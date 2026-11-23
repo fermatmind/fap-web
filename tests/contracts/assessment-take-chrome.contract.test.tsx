@@ -22,7 +22,7 @@ describe("Assessment take chrome", () => {
     expect(screen.getByRole("link", { name: locale === "zh" ? "隐私保护" : "Privacy" })).toHaveAttribute("href", `/${locale}/privacy`);
   });
 
-  it.each(["tests/mbti-personality-test-16-personality-types", "tests/explore/chiikawa", "tests/play/friendship-quiz"])("uses shared navigation and a Taiwan return link for %s", (path) => {
+  it.each(["tests/mbti-personality-test-16-personality-types", "tests/explore/chiikawa", "tests/explore/friendship-quiz"])("uses shared navigation and a Taiwan return link for %s", (path) => {
     route.pathname = `/zh-TW/${path}/take`;
     render(<AssessmentSiteFrame locale="zh-TW" header={<nav>Full navigation</nav>} footer={<footer>Full footer</footer>}><main>題目</main></AssessmentSiteFrame>);
     expect(screen.getByText("Full navigation")).toBeInTheDocument();

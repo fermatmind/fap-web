@@ -116,7 +116,7 @@
       "routeFamily": "content_pages",
       "files": [
         "app/(localized)/[locale]/contentPageRoute.tsx",
-        "app/(localized)/[locale]/help/[slug]/page.tsx",
+        "app/(localized)/[locale]/support/[slug]/page.tsx",
         "lib/cms/content-pages.ts"
       ],
       "cmsAuthority": "CMS content_pages",

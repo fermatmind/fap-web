@@ -212,7 +212,7 @@ describe("schema injection contract", () => {
   });
 
   it("help detail page injects webpage and breadcrumb jsonld from content pages", () => {
-    const source = read("app/(localized)/[locale]/help/[slug]/page.tsx");
+    const source = read("app/(localized)/[locale]/support/[slug]/page.tsx");
     expect(source).toContain("JsonLd");
     expect(source).toContain("buildWebPageJsonLd");
     expect(source).toContain("buildBreadcrumbJsonLd");

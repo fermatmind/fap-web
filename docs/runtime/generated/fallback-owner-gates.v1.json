@@ -107,7 +107,7 @@
       "source": "app/(localized)/[locale]/topics/[slug]/page.tsx",
       "requiredTokens": [
         "landingSurface?.ctaBundle",
-        "localizedPath(\"/help/faq\", locale)"
+        "localizedPath(\"/support/faq\", locale)"
       ],
       "coveredByFallbackId": "topic_cta_fallback"
     },
@@ -230,7 +230,7 @@
           "path": "app/(localized)/[locale]/topics/[slug]/page.tsx",
           "requiredTokens": [
             "landingSurface?.ctaBundle",
-            "localizedPath(\"/help/faq\", locale)"
+            "localizedPath(\"/support/faq\", locale)"
           ]
         }
       ],

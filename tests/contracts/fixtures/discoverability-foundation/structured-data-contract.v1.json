@@ -44,7 +44,7 @@
     },
     {
       "name": "help_detail",
-      "source": "app/(localized)/[locale]/help/[slug]/page.tsx",
+      "source": "app/(localized)/[locale]/support/[slug]/page.tsx",
       "authority": "cms_content_page_visible_content",
       "allowedTypes": ["WebPage", "BreadcrumbList", "FAQPage"],
       "requiredTokens": ["buildWebPageJsonLd", "buildBreadcrumbJsonLd", "buildVisibleHelpFaqJsonLd"],

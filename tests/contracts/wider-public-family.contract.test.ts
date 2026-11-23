@@ -21,7 +21,7 @@ describe("wider public family contract", () => {
 
   it("help routes redirect the root to support and keep detail pages on backend ContentPage surfaces", () => {
     const helpIndex = read("app/(localized)/[locale]/help/page.tsx");
-    const helpDetail = read("app/(localized)/[locale]/help/[slug]/page.tsx");
+    const helpDetail = read("app/(localized)/[locale]/support/[slug]/page.tsx");
 
     expect(helpIndex).toContain('from "next/navigation"');
     expect(helpIndex).toContain("permanentRedirect(localizedPath(\"/support\", locale))");

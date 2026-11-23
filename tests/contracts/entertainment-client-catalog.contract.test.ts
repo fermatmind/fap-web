@@ -21,7 +21,7 @@ describe("client catalog projection", () => {
   });
   it("preserves every bilingual questionnaire entry and result URL", () => {
     for (const locale of ["en", "zh"] as const) for (const item of native) {
-      const path = `/${locale}/tests/${item.collection}/${item.slug}`;
+      const path = item.slug === "career-match" ? `/${locale}/career/match` : `/${locale}/tests/explore/${item.slug}`;
       expect(questionnairePath(locale, item.slug)).toBe(path);
       for (const id of item.resultSlugs) expect(questionnaireGuidePath(locale, item.slug, id)).toBe(`${path}/results/${id}`);
     }
