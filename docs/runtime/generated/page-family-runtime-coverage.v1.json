@@ -58,10 +58,10 @@
     {
       "id": "tests_hub",
       "pageFamily": "tests hub",
-      "routePatterns": ["/:locale/tests", "/:locale/tests/category/:slug"],
+      "routePatterns": ["/:locale/tests"],
       "routeExists": true,
       "rendererExists": true,
-      "rendererSources": ["app/(localized)/[locale]/tests/page.tsx", "app/(localized)/[locale]/tests/category/[slug]/page.tsx"],
+      "rendererSources": ["app/(localized)/[locale]/tests/page.tsx", "app/(traditional)/zh-TW/tests/page.tsx"],
       "backendApiConsumed": true,
       "backendEvidence": ["backend/routes/api.php:/api/v0.3/scales/catalog"],
       "cmsDataConsumed": true,
