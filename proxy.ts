@@ -645,8 +645,16 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
 
   const isDiscLanding = getLocaleFromPathname(pathname) !== null && strippedPath.replace(/\/$/u, "") === DISC_LANDING_PATH;
   if (request.method === "GET" && request.headers.get("accept")?.includes("text/html") && !request.headers.has("rsc") && isDiscLanding) {
-    const scripts = initialQuestionnaireScripts("disc");
-    if (scripts.length) response.headers.append("Link", scripts.map(href => `<${href}>; rel=preload; as=script; fetchpriority=high; nonce="${cspNonce}"`).join(", "));
+    // Preserve room for Next.js headers and cookies under the public proxy's header limit.
+    const maxPreloadHeaderBytes = 512;
+    let preloadHeader = "";
+    for (const href of initialQuestionnaireScripts("disc")) {
+      const link = `<${href}>; rel=preload; as=script; fetchpriority=high; nonce="${cspNonce}"`;
+      const candidate = preloadHeader ? `${preloadHeader}, ${link}` : link;
+      if (Buffer.byteLength(candidate) > maxPreloadHeaderBytes) break;
+      preloadHeader = candidate;
+    }
+    if (preloadHeader) response.headers.append("Link", preloadHeader);
   }
 
   if (shouldAttachAnon && resolvedAnonId && (!cookieAnonId || cookieAnonId !== resolvedAnonId)) {

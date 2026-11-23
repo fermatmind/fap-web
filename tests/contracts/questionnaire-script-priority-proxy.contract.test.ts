@@ -15,6 +15,15 @@ describe("Focused questionnaire document priority", () => {
     expect(response.headers.get("Link")).not.toContain("PRIVATE_INPUT");
     expect(scripts).toHaveBeenCalledWith("disc");
   });
+  it("bounds preload headers for builds with many chunks", async () => {
+    const chunks = Array.from({ length: 24 }, (_, index) => `/_next/static/chunks/current-tool-${index}.js`);
+    scripts.mockReturnValueOnce(chunks);
+    const response = await proxy(new NextRequest("https://fermatmind.com/en/tests/disc-behavioral-style-test", { headers: { accept: "text/html" } }));
+    const header = response.headers.get("Link")!;
+    expect(Buffer.byteLength(header)).toBeLessThanOrEqual(512);
+    expect(header).toContain(chunks[0]);
+    expect(header).not.toContain(chunks.at(-1));
+  });
   const excludedRequests: { path: string; method: string; headers: Record<string, string> }[] = [
     { path: "/en/tests/disc-behavioral-style-test", method: "GET", headers: { accept: "text/html", rsc: "1" } },
     { path: "/en/tests/disc-behavioral-style-test", method: "POST", headers: { accept: "text/html" } },
