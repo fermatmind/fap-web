@@ -5,7 +5,7 @@ import { loadFixedSample } from "@/lib/reports/fixedSamples";
 export type ExtendedKind = "jung" | "disc" | "eq";
 
 const discLanding = "/zh/tests/explore/disc";
-const jungSample = "/zh/tests/jung-archetypes/sample";
+const jungSample = "/zh/reports/samples/archetypes";
 const discSample = "/zh/reports/samples/disc";
 const eqSample = "/zh/reports/samples/eq";
 const eqGuide = "/zh/articles/eq60-score-and-results-guide";

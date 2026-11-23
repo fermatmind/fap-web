@@ -22,22 +22,22 @@ describe("friendship search intent and one canonical tool", () => {
     expect(take.container.querySelectorAll('[data-testid="live-game"]')).toHaveLength(1);
     expect(take.container.querySelector('[data-testid="live-game"]')).toHaveAttribute("data-locale", locale);
     expect(container.querySelectorAll('#create')).toHaveLength(1);
-    expect(container.querySelectorAll(`a[href="/${locale}/tests/play/friendship-quiz/take"]`)).toHaveLength(3);
+    expect(container.querySelectorAll(`a[href="/${locale}/tests/explore/friendship-quiz/take"]`)).toHaveLength(3);
     const links = Array.from(container.querySelectorAll('a[href]'), a => a.getAttribute("href"));
-    for (const path of ["questions", "how-to-play", "scores"]) expect(links).toContain(`/${locale}/tests/play/friendship-quiz/${path}`);
+    for (const path of ["questions", "how-to-play", "scores"]) expect(links).toContain(`/${locale}/tests/explore/friendship-quiz/${path}`);
     for (const [kind, fragment] of [["questions", "quick-round"], ["how-to-play", "received-invite"], ["scores", "sample-score"]] as const) {
-      expect(links).toContain(`/${locale}/tests/play/friendship-quiz/${kind}#${fragment}`);
+      expect(links).toContain(`/${locale}/tests/explore/friendship-quiz/${kind}#${fragment}`);
       const resource = render(<PublicResource locale={locale} kind={kind} />);
       expect(resource.container.querySelector(`#${fragment}`)).not.toBeNull();
       resource.unmount();
     }
     expect(links.some(path => /\/bff-test|\/who-knows-me-best|\/friendship-quiz-maker/.test(path ?? ""))).toBe(false);
     const metadata = await generateMetadata({ params: Promise.resolve({ locale }) });
-    expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/play/friendship-quiz`);
+    expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/explore/friendship-quiz`);
     expect(metadata.alternates?.languages).toMatchObject({
-      en: "https://fermatmind.com/en/tests/play/friendship-quiz",
-      "zh-CN": "https://fermatmind.com/zh/tests/play/friendship-quiz",
-      "zh-TW": "https://fermatmind.com/zh-TW/tests/play/friendship-quiz",
+      en: "https://fermatmind.com/en/tests/explore/friendship-quiz",
+      "zh-CN": "https://fermatmind.com/zh/tests/explore/friendship-quiz",
+      "zh-TW": "https://fermatmind.com/zh-TW/tests/explore/friendship-quiz",
     });
     expect(metadata.robots).not.toMatchObject({ index: false });
     const schema = JSON.parse(container.querySelector('script[type="application/ld+json"]')!.textContent!);
@@ -110,8 +110,8 @@ describe("friendship search intent and one canonical tool", () => {
     expect(comparison.textContent).toContain(locale === "en" ? "no import" : "不能直接导入");
     expect(comparison.textContent).toContain(locale === "en" ? "Another device may still repeat" : "换设备仍可能重复");
     const links = Array.from(comparison.querySelectorAll("a"), a => a.getAttribute("href"));
-    expect(comparison.querySelector('a.fq-primary')).toHaveAttribute("href", `/${locale}/tests/play/friendship-quiz/take`);
-    for (const path of ["/questions", "/how-to-play", "/scores"]) expect(links).toContain(`/${locale}/tests/play/friendship-quiz${path}`);
+    expect(comparison.querySelector('a.fq-primary')).toHaveAttribute("href", `/${locale}/tests/explore/friendship-quiz/take`);
+    for (const path of ["/questions", "/how-to-play", "/scores"]) expect(links).toContain(`/${locale}/tests/explore/friendship-quiz${path}`);
     expect(links).toContain("https://rikaido.me/en/guide.html");
     expect(links).toContain("https://rikaido.me/en/lab/read-results/");
     expect(container.querySelectorAll('a[href="#rikaido-alternative"]')).toHaveLength(1);

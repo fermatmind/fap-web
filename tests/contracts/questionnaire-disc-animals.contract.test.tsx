@@ -57,7 +57,7 @@ describe("T066 transparently reuses T001 DISC; animal names add no measurement",
           if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
         }
       }
-      expect(map.filter(x => /\/tests\/explore\/disc(?:\/|$)/.test(x.loc))).toHaveLength(32); expect(map.some(x => x.loc.includes("thai-four-animals"))).toBe(false);
+      expect(map.filter(x => /\/tests\/(?:explore\/disc\/results\/|disc-behavioral-style-test$)/.test(x.loc))).toHaveLength(32); expect(map.some(x => x.loc.includes("thai-four-animals"))).toBe(false);
     } finally { vi.unstubAllEnvs(); vi.resetModules(); }
   });
 });

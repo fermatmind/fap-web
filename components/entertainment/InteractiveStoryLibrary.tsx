@@ -10,7 +10,7 @@ import { StoryDirectory } from "./StoryDirectory";
 export function InteractiveStoryLibrary({ locale }: { locale: DisplayLocale }) {
   const sourceLocale = locale === "zh-TW" ? "zh" : locale;
   const items = storyQuizzes.map((quiz) => {
-    const source = { slug: quiz.slug, title: quiz.title[sourceLocale], description: directoryDescription(quiz)[sourceLocale], href: `/${sourceLocale}/tests/play/${quiz.slug}` };
+    const source = { slug: quiz.slug, title: quiz.title[sourceLocale], description: directoryDescription(quiz)[sourceLocale], href: `/${sourceLocale}/tests/explore/${quiz.slug}` };
     const count = quiz.minQuestionCount === quiz.questionCount ? quiz.questionCount : `${quiz.minQuestionCount}–${quiz.questionCount}`;
     return {
     ...source,

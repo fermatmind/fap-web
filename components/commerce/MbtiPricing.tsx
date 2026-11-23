@@ -100,7 +100,7 @@ export function MbtiPricingDetails({ locale }: { locale: DisplayLocale }) {
   const test = locale === "zh-TW"
     ? { href: `/zh-TW${testPath}`, label: copy.test }
     : destination(testPath, copy.test);
-  const policyLinks = [destination("/help/payment-refund", copy.refund), destination("/terms", copy.terms), destination("/support", copy.support)];
+  const policyLinks = [destination("/support/payment-refund", copy.refund), destination("/terms", copy.terms), destination("/support", copy.support)];
   return (
     <div className="space-y-8" data-testid="mbti-pricing-details">
       <header className="space-y-3">

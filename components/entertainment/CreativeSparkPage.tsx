@@ -19,7 +19,7 @@ export function CreativeSparkPage({ quiz, locale, displayLocale = locale }: { qu
   if (quiz.slug !== "creative-spark") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/creative-spark`;
+  const path = `/${displayLocale}/tests/explore/creative-spark`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: creativeSparkSections, faq: creativeSparkFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

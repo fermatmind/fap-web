@@ -22,7 +22,7 @@ export function StoryEditorialPage({
   const count = card.minQuestionCount === card.questionCount ? `${card.questionCount}` : `${card.minQuestionCount}–${card.questionCount}`;
   const branch = quiz.mechanism === "branch";
   const four = quiz.results.length === 4;
-  const zh = locale === "zh", path = `/${displayLocale}/tests/play/${quiz.slug}`;
+  const zh = locale === "zh", path = `/${displayLocale}/tests/explore/${quiz.slug}`;
   const Surface = displayLocale === "zh-TW" ? "div" : "main";
   function Copy({ text }: { text: string }) {
     return <>{text.split(/(\[\d+\])/g).map((part, i) => /^\[\d+\]$/.test(part) ? <sup key={i}><a className="ml-1 underline" href={`#${quiz.slug}-reference-${part.slice(1, -1)}`}>{part}</a></sup> : <Fragment key={i}>{part}</Fragment>)}</>;

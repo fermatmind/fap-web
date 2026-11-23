@@ -1,3 +1,4 @@
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import Link from "next/link";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import { gta6CareerDimensions, gta6CareerRows, gta6CareerTopics } from "@/lib/questionnaires/gta6CareerEditorial";
@@ -22,14 +23,14 @@ const tools = [
   {
     title: ["FermatMind Career Assessment · 94 questions", "费马职业测试（94 题）", "費馬職業測驗（94 題）"],
     body: ["Review interest, work style and work environment together to build a shortlist of careers to explore.", "结合职业兴趣、工作风格和环境偏好，整理一份值得继续调研的职业清单。", "把職業興趣、工作方式和環境偏好放在一起看，整理下一步想研究的幾項工作。"],
-    links: [["/career/assessment", "Open the 94-question assessment", "打开 94 题费马职业测试", "開啟 94 題費馬職業測驗"]],
+    links: [[CAREER_ASSESSMENT_LANDING_PATH, "Open the 94-question assessment", "打开 94 题费马职业测试", "開啟 94 題費馬職業測驗"]],
   },
   {
     title: ["Compare two careers and record your next step", "两职业对比与探索工作表", "比較兩種職業，記下下一步"],
     body: ["Compare actual tasks and entry requirements, or use the worksheet to record what you want to check next.", "并排比较岗位任务与入行条件，用工作表记下待核对的条件和下一步。", "把兩種工作的日常和入行條件排在一起看，用工作表記下接著想查什麼。"],
     links: [
       ["/career/compare", "Compare two careers", "打开两职业对比工具", "比較兩種職業"],
-      ["/holland-test/pdf-download", "Get the exploration worksheet", "获取职业探索工作表", "取得職涯探索工作表"],
+      ["/career/interest-worksheet", "Get the exploration worksheet", "获取职业探索工作表", "取得職涯探索工作表"],
       ["/career", "Browse the career directory", "浏览职业库", "瀏覽職業資料庫"],
     ],
   },

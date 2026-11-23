@@ -1,3 +1,4 @@
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import { Container } from "@/components/layout/Container";
 import { BrandLogo } from "@/components/layout/BrandLogo";
 import { DeferredSiteFooterSocialRail as SiteFooterSocialRail, DeferredSiteFooterPlatforms as SiteFooterPlatforms } from "@/components/layout/DeferredFooterFeatures";
@@ -29,7 +30,7 @@ export function SiteFooter({ locale = "en", allowWebViewImageStyles }: { locale?
 
   const testLinks = filterVisiblePublicTestEntries([
     { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI" },
-    { href: "/career/assessment", label: label("职业测试", "Career Assessment", "職涯測驗") },
+    { href: CAREER_ASSESSMENT_LANDING_PATH, label: label("职业测试", "Career Assessment", "職涯測驗") },
     { href: "/tests/big-five-personality-test-ocean-model", label: label("大五人格", "Big Five", "大五人格") },
     { href: "/tests/enneagram-personality-test-nine-types", label: label("九型人格", "Enneagram", "九型人格") },
     { href: "/tests/holland-career-interest-test-riasec", label: label("霍兰德职业兴趣测试", "RIASEC", "霍蘭德職業興趣測驗") },
@@ -106,9 +107,9 @@ export function SiteFooter({ locale = "en", allowWebViewImageStyles }: { locale?
         ];
   policyLinks.push(
     { href: "/pricing", label: label("价格与报告内容", "Pricing & report contents", "價格與報告內容") },
-    { href: "/help/payment-refund", label: label("退款与取消政策", "Refunds & cancellation", "退款與取消政策") },
+    { href: "/support/payment-refund", label: label("退款与取消政策", "Refunds & cancellation", "退款與取消政策") },
   );
-  if (taiwan) policyLinks.push({ href: "/help/contact", label: "聯絡支援" });
+  if (taiwan) policyLinks.push({ href: "/support/contact", label: "聯絡支援" });
   const footerGroups: FooterGroup[] = [
     { key: "tests", title: footerGroupTitles.tests, links: testLinks },
     { key: "articles", title: footerGroupTitles.articles, links: articleLinks },

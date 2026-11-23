@@ -76,7 +76,7 @@ describe("DISC evidence-led landing copy", () => {
       const guide = await import("@/components/questionnaires/QuestionnaireGuide");
       const report = document.createElement("div");
       report.innerHTML = renderToStaticMarkup(await guide.default({ params: Promise.resolve({ locale, slug: "disc", profile: "single-d" }) }));
-      for (const citation of report.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(citation.getAttribute("href")).toMatch(new RegExp(`^/${locale}/tests/explore/disc#disc-reference-[1-3]$`));
+      for (const citation of report.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(citation.getAttribute("href")).toMatch(new RegExp(`^/${locale}/tests/disc-behavioral-style-test#disc-reference-[1-3]$`));
     }
   });
 });

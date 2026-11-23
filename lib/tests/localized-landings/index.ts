@@ -1,3 +1,5 @@
+import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import { appliedProfiles } from "./applied";
 import { coreProfiles } from "./core";
 import { traitProfiles } from "./traits";
@@ -18,7 +20,7 @@ export function getLocalizedLanding(locale: LocalizedLandingLocale, kind: Locali
 }
 
 export const assessmentLandingPaths: Record<LocalizedLandingKind, string> = {
-  mbti: `/tests/${slugs.MBTI}`, holland: `/tests/${slugs.RIASEC}`, career: "/career/assessment",
+  mbti: `/tests/${slugs.MBTI}`, holland: `/tests/${slugs.RIASEC}`, career: CAREER_ASSESSMENT_LANDING_PATH,
   big5: `/tests/${slugs.BIG5_OCEAN}`, iq: `/tests/${slugs.IQ_RAVEN}`, enneagram: `/tests/${slugs.ENNEAGRAM}`,
-  jung: "/tests/jung-test", disc: "/tests/explore/disc", eq: `/tests/${slugs.EQ_60}`,
+  jung: "/tests/jung-test", disc: DISC_LANDING_PATH, eq: `/tests/${slugs.EQ_60}`,
 };

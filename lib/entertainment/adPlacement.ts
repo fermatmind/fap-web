@@ -1,3 +1,4 @@
+import { entertainmentReaderPath } from "./playRoutes.mjs";
 import legacy from "./catalog.json";
 import native from "@/lib/questionnaires/catalog.json";
 import { ANALYTICS_DISABLED_QUESTIONNAIRE_PATHS } from "@/lib/tracking/privacy";
@@ -14,7 +15,7 @@ const questionnairePaths = new Set(native
 const privateTakeSlugs = new Set(["8-values-political", "friendship-quiz", "mental-age", "political-coordinates"]);
 
 export function entertainmentAdPlacement(pathname: string, query: URLSearchParams) {
-  const match = /^\/(?:en|zh|zh-TW)(\/tests\/(play|explore)\/([a-z0-9-]+))(\/take|\/results\/[a-z0-9-]+)?\/?$/.exec(pathname);
+  const match = /^\/(?:en|zh|zh-TW)(\/tests\/(play|explore)\/([a-z0-9-]+))(\/take|\/results\/[a-z0-9-]+)?\/?$/.exec(entertainmentReaderPath(pathname));
   if (!match) return null;
   const [, testPath, collection, slug, suffix] = match;
   const take = suffix === "/take";

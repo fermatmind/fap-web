@@ -46,7 +46,7 @@ export function trackCareerToolEvent(eventName: CareerToolEvent, {
     entry_surface: surface,
     source_page_type: surface,
     target_action: eventName.slice(7),
-    landing_path: compare ? `/${locale}/career/compare` : `/${locale}/holland-test/pdf-download`,
+    landing_path: compare ? `/${locale}/career/compare` : `/${locale}/career/interest-worksheet`,
     route_family: compare ? "compare" : "worksheet",
     subject_kind: "none",
     query_mode: "non_query",

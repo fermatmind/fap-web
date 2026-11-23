@@ -43,7 +43,7 @@ describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
       `/${locale}/tests/big-five-personality-test-ocean-model`,
     ]);
     expect(document.querySelectorAll('[data-testid="career-tests-holland-mbti-comparison"] tbody tr')).toHaveLength(4);
-    expect(document.querySelector(`a[href="/${locale}/holland-test/pdf-download"]`)).not.toBeNull();
+    expect(document.querySelector(`a[href="/${locale}/career/interest-worksheet"]`)).not.toBeNull();
     const reading = document.querySelector('[data-testid="career-tests-comparison-reading"]')!;
     expect([...reading.querySelectorAll("a")].map(a => a.getAttribute("href"))).toEqual([
       `/${locale}/articles/${locale === "zh" ? "mbti-vs-holland-career-choice" : "mbti-vs-holland-code-career-choice"}`,
@@ -77,10 +77,10 @@ describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
     const file = fs.readFileSync(path.join(process.cwd(), "public", download.getAttribute("href")!));
     expect(file.subarray(0, 5).toString()).toBe("%PDF-");
     const meta = await pdfMetadata({ params: params() });
-    expect(meta.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/holland-test/pdf-download`);
+    expect(meta.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/career/interest-worksheet`);
     expect(meta.alternates?.languages).toMatchObject({
-      en: "https://fermatmind.com/en/holland-test/pdf-download",
-      "zh-CN": "https://fermatmind.com/zh/holland-test/pdf-download",
+      en: "https://fermatmind.com/en/career/interest-worksheet",
+      "zh-CN": "https://fermatmind.com/zh/career/interest-worksheet",
     });
     const schemas = [...document.querySelectorAll('script[type="application/ld+json"]')].map(script => JSON.parse(script.textContent!));
     expect(schemas.map(schema => schema["@type"])).toEqual(["WebPage", "BreadcrumbList"]);
@@ -141,7 +141,7 @@ describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
         ...suggestedHrefs.map(href => `#career-${href!.split("/").at(-1)}`), "/zh/career",
       ]);
       for (const href of hrefs.slice(0, -1)) expect(document.getElementById(href!.slice(1))).not.toBeNull();
-    } else expect(hrefs).toEqual([`/${locale}/holland-test/pdf-download#interpret-results`, `/${locale}/career`, `/${locale}/career/guides`, `/${locale}/career/tests`, `/${locale}/career/jobs/industrial-designers`, `/${locale}/career/jobs/graphic-designers`, `/${locale}/career/jobs/architects-except-landscape-and-naval`, ...(locale === "zh" ? [DESIGN_COMPARE_HREF] : []), `/${locale}/career/compare`, `/${locale}/holland-test/pdf-download`]);
+    } else expect(hrefs).toEqual([`/${locale}/career/interest-worksheet#interpret-results`, `/${locale}/career`, `/${locale}/career/guides`, `/${locale}/career/tests`, `/${locale}/career/jobs/industrial-designers`, `/${locale}/career/jobs/graphic-designers`, `/${locale}/career/jobs/architects-except-landscape-and-naval`, ...(locale === "zh" ? [DESIGN_COMPARE_HREF] : []), `/${locale}/career/compare`, `/${locale}/career/interest-worksheet`]);
     if (locale === "zh") {
       const { container, unmount } = render(<RiasecResultShell locale={locale} displayLocale="zh-TW" viewModel={vm} attemptId="private-attempt" />);
       const steps = await screen.findByTestId("riasec-career-next-steps");

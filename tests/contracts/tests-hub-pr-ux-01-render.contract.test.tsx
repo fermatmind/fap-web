@@ -57,9 +57,9 @@ describe("tests hub PR-UX-01 render contract", () => {
     const card = container.querySelector("#core-tests .catalog-core-disc") as HTMLElement;
     const link = within(card).getByRole("link", { name: "查看 DISC 測驗" });
     expect(card).toHaveTextContent("四類行為傾向");
-    expect(link).toHaveAttribute("href", "/zh-TW/tests/explore/disc");
+    expect(link).toHaveAttribute("href", "/zh-TW/tests/disc-behavioral-style-test");
     expect(link).toHaveAttribute("hreflang", "zh-TW");
-    expect(container.querySelector('#more-tests a[href="/zh-TW/tests/explore/disc"]')).toBeNull();
+    expect(container.querySelector('#more-tests a[href="/zh-TW/tests/disc-behavioral-style-test"]')).toBeNull();
   });
 
   it.each([
@@ -73,7 +73,7 @@ describe("tests hub PR-UX-01 render contract", () => {
     const card = within(grid).getByRole("heading", { name: title }).closest("article")!;
     expect(card).toHaveTextContent(questions);
     const link = within(card).getByRole("link", { name: label });
-    expect(link).toHaveAttribute("href", `/${locale}/career/assessment`);
+    expect(link).toHaveAttribute("href", `/${locale}/tests/career-planning-and-work-style-test`);
     if (locale === "zh-TW") expect(link).toHaveAttribute("hreflang", "zh-TW");
     expect(grid.querySelector('.catalog-core-riasec a[href*="/tests/career-riasec"]')).not.toBeNull();
 

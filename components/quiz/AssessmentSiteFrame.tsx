@@ -46,7 +46,7 @@ export function AssessmentSiteFrame({ children, header, footer, locale }: {
     <div className={`${styles.siteFrame} ${styles.pageChrome}`}>
       {header}
       {!careerTake && <div className={styles.assessmentExit}>
-        <Link prefetch={questionnaireTake || friendshipInvite ? false : undefined} href={friendshipInvite ? withLocale("/tests/play/friendship-quiz") : questionnaireTake ? (taiwan ? withLocale(questionnaireTake.landing.slice("/zh".length)) : questionnaireTake.landing) : withLocale(jungTake ? JUNG_TEST_PATH : `/tests/${focusedSlug}`)} className={styles.exitLink}>
+        <Link prefetch={questionnaireTake || friendshipInvite ? false : undefined} href={friendshipInvite ? withLocale("/tests/explore/friendship-quiz") : questionnaireTake ? (taiwan ? withLocale(questionnaireTake.landing.slice("/zh".length)) : questionnaireTake.landing) : withLocale(jungTake ? JUNG_TEST_PATH : `/tests/${focusedSlug}`)} className={styles.exitLink}>
           {taiwan ? "返回測驗介紹" : locale === "zh" ? "返回测评介绍" : "Back to assessment"}<span aria-hidden>↗</span>
         </Link>
       </div>}

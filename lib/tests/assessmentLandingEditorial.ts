@@ -8,7 +8,7 @@ export const assessmentLinks = {
   holland: `/zh${coreHubPaths.holland}`,
   career: `/zh${coreHubPaths.career}`,
   compare: "/zh/career/compare",
-  worksheet: "/zh/holland-test/pdf-download",
+  worksheet: "/zh/career/interest-worksheet",
   personality: "/zh/personality",
 } as const;
 

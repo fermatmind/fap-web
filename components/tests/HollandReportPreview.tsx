@@ -90,7 +90,7 @@ export function HollandReportPreview({ samplePath }: { samplePath: string }) {
           <li><Link href="/zh/career/jobs/data-scientists">数据科学家 · 分析数据并解释发现</Link></li>
           <li><Link href="/zh/career/jobs/graphic-designers">平面设计师 · 把信息转成视觉设计</Link></li>
           <li><Link href="/zh/career/compare">打开双职业对比</Link></li>
-          <li><Link href="/zh/holland-test/pdf-download">填写职业探索行动工作表</Link></li>
+          <li><Link href="/zh/career/interest-worksheet">填写职业探索行动工作表</Link></li>
         </ul></> : null}
         <Link className={styles.sampleLink} href={samplePath} prefetch={false}>打开深度报告示例 <ArrowUpRight size={16} aria-hidden="true" /></Link>
       </div>

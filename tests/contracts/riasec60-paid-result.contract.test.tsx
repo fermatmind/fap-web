@@ -12,7 +12,7 @@ describe("Holland 60 official paid result", () => {
     render(<RiasecPaidResult data={{ok:true}} purchase={purchase} locale={locale} />);
     expect(screen.queryByText("Authorized full report")).not.toBeInTheDocument();
     expect(screen.getByText(`Checkout ${locale}: 1`)).toBeVisible();
-    expect(screen.getByRole("link", {name:"Sample"})).toHaveAttribute("href", `/${locale}/tests/holland-career-interest-test-riasec/sample`);
+    expect(screen.getByRole("link", {name:"Sample"})).toHaveAttribute("href", `/${locale}/reports/samples/holland`);
   });
   it("shows the actual report only after server verification and removes it after refund", () => {
     render(<RiasecPaidResult data={{ok:true}} purchase={{...purchase, unlocked:true, order_no:"owned-order", payment_state:"paid"}} locale="en" />);

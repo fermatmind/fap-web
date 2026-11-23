@@ -19,7 +19,7 @@ export function GameNightResetPage({ quiz, locale, displayLocale = locale }: { q
   if (quiz.slug !== "game-night-reset") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/game-night-reset`;
+  const path = `/${displayLocale}/tests/explore/game-night-reset`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: gameNightResetSections, faq: gameNightResetFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

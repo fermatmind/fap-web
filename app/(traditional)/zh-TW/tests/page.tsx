@@ -66,7 +66,7 @@ export default async function TraditionalTestsDirectory() {
     <Container className="space-y-8 pb-16">
       <section aria-labelledby="traditional-interactive-stories" className="space-y-4">
         <h2 id="traditional-interactive-stories" className="text-2xl font-bold">互動故事</h2>
-        <Link prefetch={false} href="/zh-TW/tests/play" className="block rounded-xl border border-slate-200 bg-white p-5 underline">
+        <Link prefetch={false} href="/zh-TW/tests/explore" className="block rounded-xl border border-slate-200 bg-white p-5 underline">
           瀏覽繁體故事測驗
         </Link>
         <Link prefetch={false} href={globalHistoryPath("zh-TW")} className="block rounded-xl border border-slate-200 bg-white p-5 underline">

@@ -1,8 +1,9 @@
+import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
 import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import Link from "next/link";
 import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
-import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
+import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { discEntryDefinition } from "@/lib/questionnaires/discEntry";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -15,7 +16,7 @@ import { DiscEntryClient } from "./DiscEntryClient";
 export function DiscPage({ quiz, locale, take = false, displayLocale = locale, displayText = text => text }: {
   quiz: Questionnaire; locale: Locale; take?: boolean; displayLocale?: DisplayLocale; displayText?: (text: string) => string;
 }) {
-  const zh = locale === "zh", path = questionnairePath(displayLocale, quiz.slug);
+  const zh = locale === "zh", path = `/${displayLocale}${DISC_LANDING_PATH}`;
   const methods = ["raw-wins-explanation", "ties-explanation", "low-direction-explanation"];
   const references = (quiz.references ?? []).filter(reference => !["jobcannon.io", "idrlabs.com"].includes(new URL(reference.url).hostname.replace(/^www\./, "")));
   const copy = (text: string) => <DiscCitations text={text} locale={locale} referencePrefix="disc" />;

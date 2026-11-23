@@ -1,3 +1,4 @@
+import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
 import { isModeABatchFour } from "@/lib/entertainment/modeABatchFour";
 import { isModeABatchThree } from "@/lib/entertainment/modeABatchThree";
 import { isModeABatchTwo } from "@/lib/entertainment/modeABatchTwo";
@@ -21,9 +22,9 @@ const traditionalB1NativeTests = new Set([
 
 function listTraditionalModeAEntries() {
   const native = catalog.filter((test) => traditionalB1NativeTests.has(test.slug) || isModeABatchTwo(test.slug) || isModeABatchThree(test.slug) || isModeABatchFour(test.slug)).flatMap((test) => {
-    const base = `/tests/${test.collection}/${test.slug}`;
+    const base = `/tests/explore/${test.slug}`;
     const copy = taiwanDirectoryEntry({ slug: test.slug, title: test.title.zh, description: test.description.zh, href: `/zh${base}` });
-    const entry = { locale: "zh-TW" as const, path: copy.href, title: copy.title, type: "native_test",
+    const entry = { locale: "zh-TW" as const, path: test.slug === "disc" ? `/zh-TW${DISC_LANDING_PATH}` : copy.href, title: copy.title, type: "native_test",
       summary: copy.description, updatedAt: test.updated };
     return [entry, ...test.resultSlugs.map((id) => ({ ...entry, path: `${copy.href}/results/${id}`,
       title: `${copy.title} — 公開結果指南`, type: "native_test_guide", summary: "" }))];
@@ -42,11 +43,11 @@ function listTraditionalModeAEntries() {
 // These code-owned products use this same public catalog for their routes and
 // sitemap. They are a separate source, never a fallback for backend/CMS tests.
 export function listNativeTestLlmsEntries() {
-  const questionnaires = catalog.flatMap((test) => (["en", "zh"] as const).flatMap((locale: Locale) => {
-    const path = `/${locale}/tests/${test.collection}/${test.slug}`;
+  const questionnaires = catalog.filter(test => test.slug !== "career-match").flatMap((test) => (["en", "zh"] as const).flatMap((locale: Locale) => {
+    const path = `/${locale}/tests/explore/${test.slug}`;
     const entry = {
       locale,
-      path,
+      path: test.slug === "disc" ? `/${locale}${DISC_LANDING_PATH}` : path,
       title: test.title[locale],
       type: "native_test",
       summary: test.description[locale],

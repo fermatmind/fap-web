@@ -51,11 +51,12 @@ describe("Mode A portfolio flagship landings", () => {
   it("serves the complete English and Simplified Chinese landings through the public entry routes", async () => {
     const { default: ExplorePage } = await import("@/app/(localized)/[locale]/tests/explore/[slug]/page");
     const { default: PlayPage } = await import("@/app/(localized)/[locale]/tests/play/[slug]/page");
+    const { entertainmentReaderPath } = await import("@/lib/entertainment/playRoutes.mjs");
     for (const locale of ["en", "zh"] as const) {
       for (const slug of Object.keys(entries)) {
         const path = questionnairePath(locale, slug);
         const props = { params: Promise.resolve({ slug, locale }) };
-        const element = path.includes("/play/") ? await PlayPage(props) : await ExplorePage(props);
+        const element = entertainmentReaderPath(path).includes("/play/") ? await PlayPage(props) : await ExplorePage(props);
         checkFlagshipLanding(renderToStaticMarkup(element), slug, path);
       }
     }
@@ -64,12 +65,13 @@ describe("Mode A portfolio flagship landings", () => {
   it("connects all Traditional Chinese entries to their existing localised readers", async () => {
     const { default: ExplorePage } = await import("@/app/(traditional)/zh-TW/[...path]/page");
     const { default: PlayPage } = await import("@/app/(traditional)/zh-TW/tests/play/[slug]/page");
+    const { entertainmentReaderPath } = await import("@/lib/entertainment/playRoutes.mjs");
     for (const slug of Object.keys(entries)) {
-      const path = questionnairePath("zh-TW", slug).split("/").slice(2);
-      const element = path[1] === "play"
+      const path = questionnairePath("zh-TW", slug);
+      const element = entertainmentReaderPath(path).includes("/play/")
         ? await PlayPage({ params: Promise.resolve({ slug }) })
-        : await ExplorePage({ params: Promise.resolve({ path }) });
-      checkFlagshipLanding(renderToStaticMarkup(element), slug, path.join("/"));
+        : await ExplorePage({ params: Promise.resolve({ path: path.split("/").slice(2) }) });
+      checkFlagshipLanding(renderToStaticMarkup(element), slug, path);
     }
   }, 120_000);
 
@@ -77,7 +79,7 @@ describe("Mode A portfolio flagship landings", () => {
     const quiz = (await loadQuestionnaire("response-color"))!;
     const markup = renderToStaticMarkup(<PortfolioFlagshipLanding quiz={quiz} locale="en" />);
     expect(markup).toContain('data-flagship-entry="response-color"');
-    expect(markup).toContain('/en/tests/play/response-color/results/');
+    expect(markup).toContain('/en/tests/explore/response-color/results/');
     expect(markup).toContain("<h1");
   });
 

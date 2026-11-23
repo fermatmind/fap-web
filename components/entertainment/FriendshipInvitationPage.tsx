@@ -19,7 +19,7 @@ export function FriendshipInvitationPage({ quiz, locale, displayLocale = locale 
   if (quiz.slug !== "friendship-invitation") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/friendship-invitation`;
+  const path = `/${displayLocale}/tests/explore/friendship-invitation`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: friendshipInvitationSections, faq: friendshipInvitationFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

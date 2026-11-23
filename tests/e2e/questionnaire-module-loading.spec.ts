@@ -39,12 +39,12 @@ for (const locale of ["en", "zh"] as const) {
   test(`@release DISC ${locale}: retry interrupted engine, discard old drafts and reload safely`, async ({ page }) => {
     const zh = locale === "zh", chunks = "**/_next/static/chunks/*.js";
     const failure = page.locator("[data-disc-prepare-return]").locator("..").getByRole("alert");
-    await page.goto(`/${locale}/tests/explore/disc`);
-    await expect(page.locator("[data-explore-start]")).toBeEnabled();
+    await page.goto(`/${locale}/tests/disc-behavioral-style-test`);
+    await expect(page.locator("#take-test [data-explore-start]")).toBeEnabled();
     let interrupted = 0;
     await page.route(chunks, route => { if (selectedChunks.disc.has(new URL(route.request().url()).pathname)) { interrupted++; return route.abort("failed"); } return route.continue(); });
     const injectedFailure = page.waitForEvent("requestfailed", { predicate: request => selectedChunks.disc.has(new URL(request.url()).pathname) });
-    await page.locator("[data-explore-start]").click();
+    await page.locator("#take-test [data-explore-start]").click();
     await injectedFailure;
     await expect(failure).toContainText(zh ? "加载失败" : "could not load");
     expect(interrupted).toBeGreaterThan(0);

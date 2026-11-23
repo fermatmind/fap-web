@@ -63,7 +63,7 @@ describe("staging discoverability containment", () => {
 
   it("retains the staging noindex header for the public World Edition portraits", () => {
     for (const locale of ["en", "zh", "zh-TW"]) {
-      const portrait = `/${locale}/tests/play/global-history-quiz/results/isaac-newton`;
+      const portrait = `/${locale}/tests/explore/global-history-quiz/results/isaac-newton`;
       expect(proxy(new NextRequest(STAGING_URL + portrait)).headers.get("x-robots-tag")).toBe(NOINDEX);
       expect(proxy(new NextRequest("https://fermatmind.com" + portrait)).headers.get("x-robots-tag")).toBeNull();
     }

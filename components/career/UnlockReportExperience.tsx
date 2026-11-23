@@ -32,7 +32,7 @@ export function UnlockReportExperience({ model, locale, assessment = "riasec60",
         t("海外银行卡 · US$2.99", "海外銀行卡 · US$2.99", "International card · US$2.99"),
       ].map(label => <button key={label} type="button" disabled>{label}</button>)}
       <p>{t("一次付款，解锁本次完整报告。", "一次付款，解鎖本次完整報告。", "One payment unlocks this full report.")}</p>
-      <p><Link className="underline" href={displayNavigationPath("/help/payment-refund", locale)}>{t("付款与退款说明", "付款與退款說明", "Payment and refund information")}</Link></p>
+      <p><Link className="underline" href={displayNavigationPath("/support/payment-refund", locale)}>{t("付款与退款说明", "付款與退款說明", "Payment and refund information")}</Link></p>
     </div>
   ) : undefined;
   const [selectedDimension, setSelectedDimension] = useState(model.primaryType);

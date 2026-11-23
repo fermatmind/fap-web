@@ -1,3 +1,4 @@
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import { isBilingualInterestDirectoryPath } from "@/lib/career/interestDirectoryRoutes";
 import { indexableCareerInterestPilots } from "@/lib/career/explorationPilot";
 import { entertainmentSearchPaths } from "@/lib/entertainment/searchEntries";
@@ -14,13 +15,13 @@ export function hasTraditionalCareerInterestSearchPath(path: string): boolean {
   return !isBilingualInterestDirectoryPath(path) && publicCareerInterestPaths.has(path);
 }
 
-const publicCareerEntryPaths = new Set(["/career", "/career/tests", "/career/assessment", "/career/recommendations"]);
+const publicCareerEntryPaths = new Set(["/career", "/career/tests", CAREER_ASSESSMENT_LANDING_PATH, "/career/recommendations"]);
 
 export function hasTraditionalCareerEntrySearchPath(path: string): boolean {
   return publicCareerEntryPaths.has(path);
 }
 
-const publicResourcePaths = new Set(["/business", "/support", "/holland-test/pdf-download", "/tests/enneagram-personality-test-nine-types/technical-note"]);
+const publicResourcePaths = new Set(["/business", "/support", "/career/interest-worksheet", "/tests/enneagram-personality-test-nine-types/technical-note"]);
 
 export function hasTraditionalPublicResourceSearchPath(path: string): boolean {
   return publicResourcePaths.has(path);

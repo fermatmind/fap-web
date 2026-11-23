@@ -31,7 +31,7 @@ export function CareerAssessmentIntro({ locale, title, description, choice }: {
           <TrackedEntryCtaLink href={choice.href!} prefetch={false} data-testid={choice.testId} eventProperties={{}} className={styles.cta}>
             {choice.label}<ArrowRight size={19} aria-hidden />
           </TrackedEntryCtaLink>
-          <Link href={`/${readingLocale}/career/assessment/sample`} prefetch={false} className={styles.sample}>{t("先看看报告示例", "查看報告範例（簡體中文）", "Explore a sample report")} ↗</Link>
+          <Link href={`/${readingLocale}/reports/samples/career94`} prefetch={false} className={styles.sample}>{t("先看看报告示例", "查看報告範例（簡體中文）", "Explore a sample report")} ↗</Link>
         </div>
         <p className={styles.note}>{t("约 12–15 分钟 · 无需注册 · 兴趣概览免费", "約 12–15 分鐘 · 無須註冊 · 興趣概覽免費", "About 12–15 minutes · No signup · Free interest overview")}</p>
         <p className={styles.pricing}>{t("完整深度报告可选付费，付款前可查看内容与价格。", "完整深度報告可選購，付款前可查看內容與價格。", "The deep report is an optional purchase. Review its contents and price before paying.")}</p>

@@ -1,3 +1,4 @@
+import { supportDetailPath } from "@/lib/support/publicPaths";
 import { revalidatePath, revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import { articleDetailCacheTag, articleSeoCacheTag } from "@/lib/cms/articleCacheTags";
@@ -99,9 +100,10 @@ function normalizePath(path: string, requestOrigin: string): string | null {
   return normalized.startsWith("/") ? normalized : `/${normalized}`;
 }
 
-const TRADITIONAL_CMS_CACHE_PATHS = new Set(["/zh-TW/about", "/zh-TW/brand", "/zh-TW/charter", "/zh-TW/careers", "/zh-TW/privacy", "/zh-TW/terms", "/zh-TW/method-boundaries", "/zh-TW/science", "/zh-TW/help/contact", "/zh-TW/foundation", "/zh-TW/policies", "/zh-TW/help/faq", "/zh-TW/help/about", "/zh-TW/help/team", "/zh-TW/help/used-and-mentioned", "/zh-TW/help/for-business-and-research", "/zh-TW/common-misconceptions", "/zh-TW/data-privacy", "/zh-TW/help/data-deletion", "/zh-TW/help/payment-refund", "/zh-TW/help/privacy-data", "/zh-TW/help/result-recovery", "/zh-TW/help/unlock-failure", "/zh-TW/item-design-notes", "/zh-TW/reliability-validity", "/zh-TW/personality/big-five/methodology", "/zh-TW/personality/big-five/source-review-policy"]);
+const TRADITIONAL_CMS_CACHE_PATHS = new Set(["/zh-TW/about", "/zh-TW/brand", "/zh-TW/charter", "/zh-TW/careers", "/zh-TW/privacy", "/zh-TW/terms", "/zh-TW/method-boundaries", "/zh-TW/science", "/zh-TW/support/contact", "/zh-TW/foundation", "/zh-TW/policies", "/zh-TW/support/faq", "/zh-TW/support/about", "/zh-TW/support/team", "/zh-TW/support/used-and-mentioned", "/zh-TW/support/for-business-and-research", "/zh-TW/common-misconceptions", "/zh-TW/data-privacy", "/zh-TW/support/data-deletion", "/zh-TW/support/payment-refund", "/zh-TW/support/privacy-data", "/zh-TW/support/result-recovery", "/zh-TW/support/unlock-failure", "/zh-TW/item-design-notes", "/zh-TW/reliability-validity", "/zh-TW/personality/big-five/methodology", "/zh-TW/personality/big-five/source-review-policy"]);
 
-function localizedPath(path: string, locale: "en" | "zh"): string {
+function localizedPath(sourcePath: string, locale: "en" | "zh"): string {
+  const path = supportDetailPath(sourcePath);
   if (TRADITIONAL_CMS_CACHE_PATHS.has(path)) return path;
   if (path === "/") {
     return locale === "zh" ? "/" : "/en";

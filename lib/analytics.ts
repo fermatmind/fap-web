@@ -1,3 +1,5 @@
+import { entertainmentReaderPath } from "@/lib/entertainment/playRoutes.mjs";
+import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
 import { trackClientEvent, trackNetworkObservableFunnelEvent } from "@/lib/tracking/client";
 import { getLocaleFromPathname } from "@/lib/i18n/locales";
 import { native as questionnaires } from "@/lib/entertainment/clientCatalog.json";
@@ -197,9 +199,11 @@ export function trackLandingPageView(properties: AnalyticsProperties = {}): void
   const currentPath = currentBrowserPath();
   if (shouldHardStopPublicAnalyticsForUrl(currentPath)) return;
 
-  const [routeLocale, family, collection, quizSlug, ...remaining] = routeSegments(currentPath);
-  const questionnaire = (routeLocale === "en" || routeLocale === "zh") && family === "tests" && (collection === "explore" || collection === "play")
-    ? questionnaires.find(quiz => quiz.slug === quizSlug && quiz.collection === collection) : undefined;
+  const [routeLocale, family, collection, quizSlug, ...remaining] = routeSegments(entertainmentReaderPath(currentPath));
+  const isDiscLanding = family === "tests" && !quizSlug && `/tests/${collection}` === DISC_LANDING_PATH;
+  const questionnaire = (routeLocale === "en" || routeLocale === "zh") && family === "tests"
+    ? questionnaires.find(quiz => isDiscLanding ? quiz.slug === "disc" : quiz.slug === quizSlug && quiz.collection === collection)
+    : undefined;
   const isQuestionnaireGuide = Boolean(questionnaire && remaining.length === 2 && remaining[0] === "results" && questionnaire.resultSlugs.includes(remaining[1]));
   const isQuestionnaireEntry = Boolean(questionnaire && (remaining.length === 0 || (remaining.length === 1 && remaining[0] === "take") || isQuestionnaireGuide));
   const isEntertainmentGuide = remaining.length === 2 && remaining[0] === "results" && /^[a-z]+(?:-[a-z]+)*$/.test(remaining[1]);

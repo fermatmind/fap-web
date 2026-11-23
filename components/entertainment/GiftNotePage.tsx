@@ -19,7 +19,7 @@ export function GiftNotePage({ quiz, locale, displayLocale = locale }: { quiz: F
   if (quiz.slug !== "gift-note") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/gift-note`;
+  const path = `/${displayLocale}/tests/explore/gift-note`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: giftNoteSections, faq: giftNoteFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

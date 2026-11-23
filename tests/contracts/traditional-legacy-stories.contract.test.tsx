@@ -54,9 +54,9 @@ it("binds all 60 readers to current source and keeps all 181 result identities a
     }
   }
   expect(portraits).toBe(181);
-  expect(traditionalPath("/zh/tests/play/changan-history-quiz")).toBe("/zh-TW/tests/play/changan-history-quiz");
-  expect(traditionalPath("/zh/tests/play/changan-history-quiz/results/not-real")).toBeNull();
-  expect(traditionalPath("/zh/tests/play/woodland-animal/results/not-real")).toBeNull();
+  expect(traditionalPath("/zh/tests/explore/changan-history-quiz")).toBe("/zh-TW/tests/explore/changan-history-quiz");
+  expect(traditionalPath("/zh/tests/explore/changan-history-quiz/results/not-real")).toBeNull();
+  expect(traditionalPath("/zh/tests/explore/woodland-animal/results/not-real")).toBeNull();
 });
 
 it.each(["woodland-animal", "house-of-doors"])("renders and completes the Taiwan story %s in the existing client", async (slug) => {
@@ -66,14 +66,14 @@ it.each(["woodland-animal", "house-of-doors"])("renders and completes the Taiwan
   const result = quiz.results.find((portrait) => portrait.id === state.resultIds[0])!;
   const params = Promise.resolve({ slug });
   const portrait = Promise.resolve({ slug, portrait: resultSlug(result.id) });
-  const index = !isArchivedEntertainmentPath(`/zh-TW/tests/play/${slug}`);
+  const index = !isArchivedEntertainmentPath(`/zh-TW/tests/explore/${slug}`);
   expect(await landingMetadata({ params })).toMatchObject({ robots: { index, follow: true } });
   expect(await portraitMetadata({ params: portrait })).toMatchObject({ robots: { index, follow: true } });
   render(await Landing({ params }));
   expect(screen.getByRole("heading", { name: quiz.title.zh })).toBeVisible();
   expect(screen.getByText(editorial.sections[0].paragraphs[0].zh)).toBeVisible();
   const startForm = screen.getByRole("button", { name: "開始測驗" }).closest("form");
-  expect(startForm).toHaveAttribute("action", `/zh-TW/tests/play/${slug}/take`);
+  expect(startForm).toHaveAttribute("action", `/zh-TW/tests/explore/${slug}/take`);
   expect(startForm?.querySelector('input[name="start"]')).toHaveValue("1");
   cleanup();
   render(await Portrait({ params: portrait }));
@@ -101,12 +101,12 @@ it.each(traditionalBespokeStorySlugs)("keeps the original editorial, scoring and
   expect(resolveFunQuiz(quiz, answers)).toEqual(state);
   expect(quiz.results.map(result => result.id)).toEqual(original.results.map(result => result.id));
   const params = Promise.resolve({ slug });
-  const index = !isArchivedEntertainmentPath(`/zh-TW/tests/play/${slug}`);
+  const index = !isArchivedEntertainmentPath(`/zh-TW/tests/explore/${slug}`);
   expect(await landingMetadata({ params })).toMatchObject({ robots: { index, follow: true } });
   render(await Landing({ params }));
   expect(screen.getByRole("heading", { name: quiz.title.zh })).toBeVisible();
   const form = screen.getByRole("button", { name: "開始測驗" }).closest("form");
-  expect(form).toHaveAttribute("action", `/zh-TW/tests/play/${slug}/take`);
+  expect(form).toHaveAttribute("action", `/zh-TW/tests/explore/${slug}/take`);
   const links = screen.getAllByRole("link").map(link => link.getAttribute("href"));
   expect(links.filter(href => href?.startsWith("https://")).length).toBeGreaterThanOrEqual(2);
   for (const result of quiz.results) {
@@ -114,5 +114,5 @@ it.each(traditionalBespokeStorySlugs)("keeps the original editorial, scoring and
     expect(links).toContain(path);
     expect(traditionalPath(path)).toBe(path);
   }
-  expect(traditionalPath(`/zh-TW/tests/play/${slug}/results/not-real`)).toBeNull();
+  expect(traditionalPath(`/zh-TW/tests/explore/${slug}/results/not-real`)).toBeNull();
 });

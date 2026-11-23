@@ -35,7 +35,7 @@ describe("DreamTrain: actual branching story and bilingual editorial", () => {
     expect(d.querySelectorAll('[aria-labelledby="quiz-faq"] h3')).toHaveLength(12);
     expect(d.querySelector("#play h2")?.textContent).toBe(locale === "zh" ? "短篇分支故事的阅读说明" : "Reading a short branching story");
     expect(d.querySelectorAll("[data-explore-start]")).toHaveLength(1);expect(d.querySelectorAll('input[type="checkbox"]')).toHaveLength(0);
-    for(const r of quiz.results) { expect(d.querySelector(`a[href="/${locale}/tests/play/dream-train/results/${r.id}"]`)).not.toBeNull();expect(d.textContent).toContain(r.summary[locale]); }
+    for(const r of quiz.results) { expect(d.querySelector(`a[href="/${locale}/tests/explore/dream-train/results/${r.id}"]`)).not.toBeNull();expect(d.textContent).toContain(r.summary[locale]); }
     const ids=[...d.querySelectorAll("[id]")].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);
     for(const a of d.querySelectorAll('a[href^="#dream-train-reference-"]')) expect(d.querySelector(a.getAttribute("href")!)).not.toBeNull();
     expect(d.textContent).not.toContain(locale==="zh"?"内容与规则版本":"Content and rules version");
@@ -49,5 +49,5 @@ describe("DreamTrain: actual branching story and bilingual editorial", () => {
    const meta=await entry.generateMetadata(props);const dom=document.createElement("div");dom.innerHTML=renderToStaticMarkup(await entry.default(props));
    expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);expect(meta.title).toBe(quiz.seo.title[locale]);expect(meta.description).toBe(quiz.seo.description[locale]);
    expect(dom.querySelectorAll('[aria-labelledby="quiz-faq"] h3')).toHaveLength(12);expect(dom.querySelector("#play")?.textContent).toContain(locale === "zh" ? "会变车票" : "changing-ticket scene");expect(dom.querySelectorAll('script[type="application/ld+json"]')).toHaveLength(2);
-   expect(meta.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/play/dream-train`);
+   expect(meta.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/explore/dream-train`);
  });

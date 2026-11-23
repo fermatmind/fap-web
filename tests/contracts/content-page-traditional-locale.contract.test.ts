@@ -37,15 +37,15 @@ describe("CMS Traditional locale reader", () => {
   });
   it("exposes the published contact variant without adding unavailable siblings or search alternates", async () => {
     const { traditionalPath, TRADITIONAL_CMS_PUBLISHED_PATHS, TRADITIONAL_PUBLIC_PATHS } = await import("@/lib/i18n/traditionalRoutes");
-    expect(traditionalPath("/zh-TW/help/contact")).toBe("/zh-TW/help/contact");
-    expect(traditionalPath("/en/help/contact")).toBe("/zh-TW/help/contact");
-    expect(traditionalPath("/zh/help/contact")).toBe("/zh-TW/help/contact");
-    expect(traditionalPath("/zh-TW/help/contact/private")).toBeNull();
-    expect(traditionalPath("/zh-TW/help/faq")).toBe("/zh-TW/help/faq");
-    expect(TRADITIONAL_CMS_PUBLISHED_PATHS).toContain("/help/contact");
-    expect(TRADITIONAL_PUBLIC_PATHS).not.toContain("/help/contact");
+    expect(traditionalPath("/zh-TW/support/contact")).toBe("/zh-TW/support/contact");
+    expect(traditionalPath("/en/support/contact")).toBe("/zh-TW/support/contact");
+    expect(traditionalPath("/zh/support/contact")).toBe("/zh-TW/support/contact");
+    expect(traditionalPath("/zh-TW/support/contact/private")).toBeNull();
+    expect(traditionalPath("/zh-TW/support/faq")).toBe("/zh-TW/support/faq");
+    expect(TRADITIONAL_CMS_PUBLISHED_PATHS).toContain("/support/contact");
+    expect(TRADITIONAL_PUBLIC_PATHS).not.toContain("/support/contact");
   });
-  it.each(["/foundation", "/policies", "/help/faq", "/help/about", "/help/team", "/help/used-and-mentioned", "/help/for-business-and-research"])("opens the published %s reader for language switching without a search alternate", async path => {
+  it.each(["/foundation", "/policies", "/support/faq", "/support/about", "/support/team", "/support/used-and-mentioned", "/support/for-business-and-research"])("opens the published %s reader for language switching without a search alternate", async path => {
     const { traditionalPath, traditionalEquivalent, TRADITIONAL_CMS_PUBLISHED_PATHS, TRADITIONAL_PUBLIC_PATHS } = await import("@/lib/i18n/traditionalRoutes");
     expect(traditionalPath(`/zh-TW${path}`)).toBe(`/zh-TW${path}`);
     for (const locale of ["en", "zh"]) expect(traditionalPath(`/${locale}${path}`)).toBe(`/zh-TW${path}`);
@@ -54,7 +54,7 @@ describe("CMS Traditional locale reader", () => {
     expect(TRADITIONAL_CMS_PUBLISHED_PATHS).toContain(path);
     expect(TRADITIONAL_PUBLIC_PATHS).not.toContain(path);
   });
-  it.each(["/common-misconceptions", "/data-privacy", "/help/data-deletion", "/help/payment-refund", "/help/privacy-data", "/help/result-recovery", "/help/unlock-failure", "/item-design-notes", "/reliability-validity"])("opens %s for language switching while withholding search discovery", async path => {
+  it.each(["/common-misconceptions", "/data-privacy", "/support/data-deletion", "/support/payment-refund", "/support/privacy-data", "/support/result-recovery", "/support/unlock-failure", "/item-design-notes", "/reliability-validity"])("opens %s for language switching while withholding search discovery", async path => {
     const { traditionalPath, traditionalEquivalent, TRADITIONAL_CMS_PUBLISHED_PATHS, TRADITIONAL_PUBLIC_PATHS } = await import("@/lib/i18n/traditionalRoutes");
     expect(traditionalPath(`/zh-TW${path}`)).toBe(`/zh-TW${path}`);
     expect(traditionalPath(`/zh${path}`)).toBe(`/zh-TW${path}`);
@@ -90,7 +90,7 @@ describe("CMS Traditional locale reader", () => {
     expect(get.mock.calls[0][0]).toContain("locale=zh-TW");
     expect(get.mock.calls[0][1]).toMatchObject({ skipAuth: true, headers: { "X-FAP-Locale": "zh-TW" } });
     expect(cms.buildContentPagePath("about", "zh-TW")).toBe("/zh-TW/about");
-    expect(cms.buildContentPagePath("help-contact", "zh-TW")).toBe("/zh-TW/help/contact");
+    expect(cms.buildContentPagePath("help-contact", "zh-TW")).toBe("/zh-TW/support/contact");
   });
 
   it.each([

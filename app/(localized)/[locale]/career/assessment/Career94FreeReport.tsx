@@ -1,5 +1,6 @@
 "use client";
 
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import Link from "next/link";
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { RiasecReadingReport } from "@/components/result/riasec/RiasecReadingReport";
@@ -68,23 +69,24 @@ export function Career94FreeReport({ locale, sample = false, overview = false, d
 
   if (model && overview) return <>
     {!designPreview && <aside className={styles.previewBanner}>{t("本地设计预览 · 虚构作答 · 支付按钮不可用，不会创建订单", "Local design preview · Fictional responses · Payments are disabled; no orders are created")}</aside>}
-    <UnlockReportExperience model={model} locale={locale} assessment="career94" designPreview={designPreview && sample} sampleHref={`/${locale}/career/assessment/sample`} purchase={
+    <UnlockReportExperience model={model} locale={locale} assessment="career94" designPreview={designPreview && sample} sampleHref={`/${locale}/reports/samples/career94`} purchase={
       <div className={styles.purchase}>{offers.map(offer => <button type="button" disabled className={styles.cta} key={`${offer.provider}:${offer.currency}`}>
         {offer.provider === "alipay" ? t("支付宝", "Alipay") : offer.currency === "CNY" ? t("微信支付", "WeChat Pay") : t("海外银行卡", "International card")} · {offer.currency === "CNY" ? "¥" : "US$"}{(offer.amount_cents / 100).toFixed(2)}
       </button>)}<p>{t("一次付款，解锁本次完整报告。", "One payment unlocks this full report.")}</p></div>
     } />
     {designPreview && sample && <div className={unlockStyles.previewExplore}>
       <ResultPreviewShare name={t("职业测试", "Career assessment")} locale={locale}
-        samplePath={`/${locale}/career/assessment/sample`} highlight="" story={interestPreviewStory(model, locale)} />
+        samplePath={`/${locale}/reports/samples/career94`} highlight="" story={interestPreviewStory(model, locale)} />
     </div>}
   </>;
-  if (model) return <Career94ReportView model={model} locale={locale} sample={sample} backHref={`/${locale}/career/assessment${sample ? "" : "/take"}`} />;
+  const backHref = `/${locale}${sample ? CAREER_ASSESSMENT_LANDING_PATH : "/career/assessment/take"}`;
+  if (model) return <Career94ReportView model={model} locale={locale} sample={sample} backHref={backHref} />;
   const unavailable = failed || !sample;
   return <div className={styles.readingEmpty}>
     <p role={unavailable ? "alert" : "status"}>{unavailable
       ? sample ? t("示例报告暂时无法加载。", "The sample report is temporarily unavailable.") : t("此浏览器标签页中没有可读取的结果，或保留时间已过。请返回测试结果概览重新打开。", "No result is available in this browser tab, or it has expired. Open this page again from your result overview.")
       : t("正在加载报告…", "Loading the report…")}</p>
     {failed && sample && <button type="button" onClick={() => { setFailed(false); setRetry(value => value + 1); }}>{t("重试", "Retry")}</button>}
-    <Link href={`/${locale}/career/assessment${sample ? "" : "/take"}`}>{t("返回职业测试", "Back to the career test")}</Link>
+    <Link href={backHref}>{t("返回职业测试", "Back to the career test")}</Link>
   </div>;
 }

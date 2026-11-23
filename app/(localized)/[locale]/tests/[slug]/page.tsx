@@ -1758,7 +1758,7 @@ export default async function TestLandingPage({
               <p className="m-0 text-sm leading-6">{displayText("六维兴趣分数（0–100）：")}{RIASEC_RESULT_EXAMPLES[0].scores.map((score, index) => `${"RIASEC"[index]} ${score}`).join("、")}{displayText("。本例前三维是研究型、艺术型和社会型，代码为 IAS。")}</p>
               <p className="m-0 text-sm leading-6">{displayText("数字仅用于演示读法。可以先试一项相关活动，例如整理资料并写一页发现，再观察自己是否愿意继续做。分数不能判断能力或职业资格。")}</p>
               <p className="m-0 flex flex-wrap gap-x-4 gap-y-2 text-sm">
-                <Link className="underline underline-offset-4" href={displayHref("/zh/holland-test/pdf-download#result-examples")}>{displayText("看分数接近与并列时怎么读")}</Link>
+                <Link className="underline underline-offset-4" href={displayHref("/zh/career/interest-worksheet#result-examples")}>{displayText("看分数接近与并列时怎么读")}</Link>
                 <Link className="underline underline-offset-4" href={displayHref("/zh/career")}>{displayText("查职业的实际工作任务")}</Link>
                 <Link className="underline underline-offset-4" href={displayHref("/zh/career/tests")}>{displayText("比较霍兰德、MBTI 与大五")}</Link>
                 <Link className="underline underline-offset-4" href={displayHref("/zh/datasets/occupations/method")}>{displayText("从兴趣结果查职业任务与来源")}</Link>
@@ -1770,7 +1770,7 @@ export default async function TestLandingPage({
               <h2 className="m-0 text-lg font-semibold">See how to read a result</h2>
               <p className="mb-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">Explore clearly labeled synthetic examples of six interest dimensions, Top 3, and close or tied scores, then connect your result with real work tasks.</p>
               <div className="mt-3 flex flex-col items-start gap-3 text-sm">
-                <Link className="underline underline-offset-4" href={`${localizedPath("/holland-test/pdf-download", locale)}#result-examples`}>View synthetic result examples and reading steps</Link>
+                <Link className="underline underline-offset-4" href={`${localizedPath("/career/interest-worksheet", locale)}#result-examples`}>View synthetic result examples and reading steps</Link>
                 <Link className="underline underline-offset-4" href={localizedPath("/articles/what-is-riasec-holland-code-career-interest-test", locale)}>Read the RIASEC and Holland Code guide</Link>
                 <Link className="underline underline-offset-4" href={localizedPath("/datasets/occupations/method", locale)}>Use your interests to explore job tasks and their sources</Link>
               </div>

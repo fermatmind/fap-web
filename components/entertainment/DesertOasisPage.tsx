@@ -19,7 +19,7 @@ export function DesertOasisPage({ quiz, locale, displayLocale = locale }: { quiz
   if (quiz.slug !== "desert-oasis") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/desert-oasis`;
+  const path = `/${displayLocale}/tests/explore/desert-oasis`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: desertOasisSections, faq: desertOasisFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

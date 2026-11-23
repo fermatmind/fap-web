@@ -31,12 +31,12 @@ for (const {slug,hash,mapping} of fixtures) describe(slug,()=>{
   for(const section of editorial.sections)for(const p of section.paragraphs)expect(dom.textContent?.replace(/\s*\[\d+\]/g, "")).toContain(p[locale].replace(/\s*\[\d+\]/g,""));
   for(const f of editorial.faq)expect(dom.textContent).toContain(f.answer[locale]);
   expect(dom.querySelector("#play")?.textContent).toContain(editorial.instructions[locale]);expect(dom.querySelectorAll("[data-explore-start]")).toHaveLength(1);
-  expect(dom.querySelectorAll('#play input:not([type="hidden"])')).toHaveLength(0);expect(dom.querySelector("#play form")?.getAttribute("action")).toBe(`/${locale}/tests/play/${quiz.slug}/take`);expect([...dom.querySelectorAll<HTMLInputElement>('#play input[type="hidden"]')].map(input => [input.name, input.value])).toEqual([["start", "1"]]);expect(dom.querySelectorAll("main")).toHaveLength(1);
+  expect(dom.querySelectorAll('#play input:not([type="hidden"])')).toHaveLength(0);expect(dom.querySelector("#play form")?.getAttribute("action")).toBe(`/${locale}/tests/explore/${quiz.slug}/take`);expect([...dom.querySelectorAll<HTMLInputElement>('#play input[type="hidden"]')].map(input => [input.name, input.value])).toEqual([["start", "1"]]);expect(dom.querySelectorAll("main")).toHaveLength(1);
   expect(dom.textContent).toContain(locale === "zh" ? "四篇完整画像与公开指南" : "Four complete portraits and public guides");
-  for(const result of quiz.results){expect(dom.querySelector(`a[href="/${locale}/tests/play/${slug}/results/${result.id}"]`)).not.toBeNull();expect(dom.textContent).toContain(result.summary[locale]);}
+  for(const result of quiz.results){expect(dom.querySelector(`a[href="/${locale}/tests/explore/${slug}/results/${result.id}"]`)).not.toBeNull();expect(dom.textContent).toContain(result.summary[locale]);}
   for(const a of dom.querySelectorAll(`a[href^="#${slug}-reference-"]`))expect(dom.querySelector(a.getAttribute("href")!)).not.toBeNull();
   const ids=[...dom.querySelectorAll("[id]")].map(n=>n.id);expect(ids.length).toBe(new Set(ids).size);
   const meta=await route.generateMetadata(props);expect(meta.title).toBe(quiz.seo.title[locale]);expect(meta.description).toBe(quiz.seo.description[locale]);
-  expect(meta.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/play/${slug}`);
+  expect(meta.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/explore/${slug}`);
  });
 });

@@ -53,7 +53,7 @@ describe("Help page noindex runtime", () => {
   it("uses backend ContentPage isIndexable=false for Help detail metadata robots", async () => {
     getContentPageMock.mockResolvedValueOnce(makeHelpPage({ isIndexable: false }));
 
-    const { generateMetadata } = await import("@/app/(localized)/[locale]/help/[slug]/page");
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/support/[slug]/page");
     const metadata = await generateMetadata({
       params: Promise.resolve({ locale: "en", slug: "unlock-failure" }),
     });
@@ -69,7 +69,7 @@ describe("Help page noindex runtime", () => {
   it("allows Help detail metadata to index only when backend ContentPage isIndexable=true", async () => {
     getContentPageMock.mockResolvedValueOnce(makeHelpPage({ isIndexable: true }));
 
-    const { generateMetadata } = await import("@/app/(localized)/[locale]/help/[slug]/page");
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/support/[slug]/page");
     const metadata = await generateMetadata({
       params: Promise.resolve({ locale: "en", slug: "unlock-failure" }),
     });

@@ -19,7 +19,7 @@ export function EscapeRoomRolePage({ quiz, locale, displayLocale = locale }: { q
   if (quiz.slug !== "escape-room-role") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/escape-room-role`;
+  const path = `/${displayLocale}/tests/explore/escape-room-role`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: escapeRoomRoleSections, faq: escapeRoomRoleFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

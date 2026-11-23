@@ -1,3 +1,4 @@
+import { migratedPlaySlugs } from "./lib/entertainment/playRoutes.mjs";
 import { llmsGeneratorFingerprint } from "./scripts/release/llms-generator-fingerprint.mjs";
 import { HTML_LIMITED_BOT_UA_RE } from "next/dist/shared/lib/router/utils/html-bots.js";
 
@@ -8,6 +9,16 @@ const legacyPathMode = String(process.env.FAP_LEGACY_PATH_MODE || "redirect").tr
 const enableRootQuizRedirects = legacyPathMode !== "gone";
 const remotePatternHostnames = ["**.fermatmind.com"];
 const careerAssessmentPreviewOrigin = process.env.CAREER_ASSESSMENT_PREVIEW_ORIGIN || apiOrigin;
+const entertainmentPlaySlug = `:slug(${migratedPlaySlugs.join("|")})`;
+const helpDetailSlug = ":slug(about|contact|data-deletion|faq|for-business-and-research|payment-refund|privacy-data|result-recovery|team|unlock-failure|used-and-mentioned)";
+const relocatedPublicPaths = [
+  ["en|zh", "/career/assessment/sample", "/reports/samples/career94"],
+  ["zh", "/tests/jung-archetypes/sample", "/reports/samples/archetypes"],
+  ["en|zh|zh-TW", "/tests/holland-career-interest-test-riasec/sample", "/reports/samples/holland"],
+  ["en|zh|zh-TW", "/holland-test/pdf-download", "/career/interest-worksheet"],
+  ["en|zh|zh-TW", "/tests/explore/career-match", "/career/match"],
+];
+
 const publicV05ApiProxySources = [
   "/api/v0.5/articles",
   "/api/v0.5/articles/:slug",
@@ -319,6 +330,31 @@ const nextConfig = {
         permanent: true,
       },
       ...historicalTestExact301Redirects,
+      {
+        source: `/:locale(en|zh|zh-TW)/tests/play/${entertainmentPlaySlug}/:path*`,
+        destination: "/:locale/tests/explore/:slug/:path*",
+        permanent: true,
+      },
+      {
+        source: "/zh-TW/tests/play",
+        destination: "/zh-TW/tests/explore",
+        permanent: true,
+      },
+      {
+        source: `/:locale(en|zh|zh-TW)/help/${helpDetailSlug}`,
+        destination: "/:locale/support/:slug",
+        permanent: true,
+      },
+      ...relocatedPublicPaths.map(([locales, legacy, current]) => ({
+        source: `/:locale(${locales})${legacy}`,
+        destination: `/:locale${current}`,
+        permanent: true,
+      })),
+      {
+        source: "/holland-test/pdf-download",
+        destination: "/zh/career/interest-worksheet",
+        permanent: true,
+      },
       ...[
         ["jungian-archetype", "jung-archetypes"],
       ].flatMap(([legacy, current]) => ["", "/take"].map((suffix) => ({
@@ -446,17 +482,27 @@ const nextConfig = {
       },
       {
         source: "/refund",
-        destination: "/en/help/payment-refund",
+        destination: "/en/support/payment-refund",
         permanent: true,
       },
       {
         source: "/en/refund",
-        destination: "/en/help/payment-refund",
+        destination: "/en/support/payment-refund",
         permanent: true,
       },
       {
         source: "/zh/refund",
-        destination: "/zh/help/payment-refund",
+        destination: "/zh/support/payment-refund",
+        permanent: true,
+      },
+      {
+        source: "/:locale(en|zh|zh-TW)/career/assessment",
+        destination: "/:locale/tests/career-planning-and-work-style-test",
+        permanent: true,
+      },
+      {
+        source: "/:locale(en|zh|zh-TW)/tests/explore/disc",
+        destination: "/:locale/tests/disc-behavioral-style-test",
         permanent: true,
       },
       ...gscLegacyRedirects,
@@ -489,6 +535,20 @@ const nextConfig = {
   async rewrites() {
     return {
       beforeFiles: [
+        ...["", "/take", "/results/:outcome"].map(suffix => ({
+          source: `/:locale(en|zh|zh-TW)/tests/explore/${entertainmentPlaySlug}${suffix}`,
+          destination: `/:locale/ad-placement/play/:slug${suffix}`,
+          has: [{ type: "header", key: "x-fermat-entertainment-ad", value: "enabled|preview" }],
+        })),
+        {
+          source: `/:locale(en|zh|zh-TW)/tests/explore/${entertainmentPlaySlug}/:path*`,
+          destination: "/:locale/tests/play/:slug/:path*",
+        },
+        { source: "/zh-TW/tests/explore", destination: "/zh-TW/tests/play" },
+        ...relocatedPublicPaths.map(([locales, legacy, current]) => ({
+          source: `/:locale(${locales})${current}`,
+          destination: `/:locale${legacy}`,
+        })),
         // Use a relative rewrite after proxy.ts assigns the trusted placement header.
         ...["", "/take", "/results/:outcome"].map(suffix => ({
           source: `/:locale(en|zh|zh-TW)/tests/:collection(play|explore)/:slug${suffix}`,

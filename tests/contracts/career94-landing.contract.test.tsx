@@ -21,7 +21,7 @@ describe("Career94 landing page", () => {
       fireEvent.click(entry);
       expect(trackEvent).toHaveBeenLastCalledWith("start_click", {});
     }
-    const sampleLinks = Array.from(container.querySelectorAll<HTMLAnchorElement>(`main a[href="/${takeLocale}/career/assessment/sample"]`));
+    const sampleLinks = Array.from(container.querySelectorAll<HTMLAnchorElement>(`main a[href="/${takeLocale}/reports/samples/career94"]`));
     expect(sampleLinks).toHaveLength(1);
     const structuredFaq = JSON.parse(container.querySelector<HTMLScriptElement>("#free-assessment-faq")!.textContent!);
     const visibleFaq = Array.from(container.querySelectorAll("#assessment-faq details"));
@@ -53,8 +53,12 @@ describe("Career94 landing page", () => {
     expect(freeAssessmentMetadata("career", "zh").title).toEqual({ absolute: "免费职业测试（94题完整版）：职业规划、工作方式与职业条件评估｜FermatMind" });
     for (const locale of ["zh", "en", "zh-TW"] as const) {
       const metadata = freeAssessmentMetadata("career", locale);
-      expect(metadata.alternates?.canonical).toContain(`/${locale}/career/assessment`);
-      expect(metadata.alternates?.languages).toMatchObject({ en: expect.stringContaining("/en/career/assessment"), "zh-CN": expect.stringContaining("/zh/career/assessment") });
+      expect(metadata.alternates?.canonical).toContain(`/${locale}/tests/career-planning-and-work-style-test`);
+      expect(metadata.alternates?.languages).toMatchObject({
+        en: expect.stringContaining("/en/tests/career-planning-and-work-style-test"),
+        "zh-CN": expect.stringContaining("/zh/tests/career-planning-and-work-style-test"),
+        "zh-TW": expect.stringContaining("/zh-TW/tests/career-planning-and-work-style-test"),
+      });
     }
   });
 

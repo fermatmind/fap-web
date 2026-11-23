@@ -14,7 +14,7 @@ test.beforeAll(async ({ browser, baseURL }) => {
         if (/data-site-header|data-cookie-banner|switchToEnglish/.test(body)) background.add(new URL(response.url()).pathname);
       }).catch(() => {}));
     });
-    await page.goto("/en/tests/explore/disc");
+    await page.goto("/en/tests/disc-behavioral-style-test");
     await page.waitForLoadState("networkidle");
     await Promise.all(reads);
     expect(background.size).toBeGreaterThan(0);
@@ -34,7 +34,7 @@ for (const locale of ["en", "zh"] as const) {
         await route.continue();
       });
       try {
-        await page.goto(`/${locale}/tests/explore/disc`, { waitUntil: "domcontentloaded" });
+        await page.goto(`/${locale}/tests/disc-behavioral-style-test`, { waitUntil: "domcontentloaded" });
         const start = page.locator("#take-test [data-explore-start]");
         await expect(start).toBeEnabled();
         await start.click();

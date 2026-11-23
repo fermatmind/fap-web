@@ -8,17 +8,17 @@ import { proxy } from "@/proxy";
 beforeEach(() => { scripts.mockReset().mockReturnValue(["/_next/static/chunks/current-tool.js"]); });
 
 describe("Focused questionnaire document priority", () => {
-  it.each(["/en/tests/explore/disc", "/zh/tests/explore/disc"])("hints installed scripts on the %s document without including query input", async path => {
+  it.each(["/en/tests/disc-behavioral-style-test", "/zh/tests/disc-behavioral-style-test"])("hints installed scripts on the %s document without including query input", async path => {
     const response = await proxy(new NextRequest(`https://fermatmind.com${path}?input=PRIVATE_INPUT`, { headers: { accept: "text/html" } }));
     expect(response.status).toBe(200);
     expect(response.headers.get("Link")).toMatch(/^<\/_next\/static\/chunks\/current-tool\.js>; rel=preload; as=script; fetchpriority=high; nonce="[A-Za-z0-9+/=_-]+"$/);
     expect(response.headers.get("Link")).not.toContain("PRIVATE_INPUT");
-    expect(scripts).toHaveBeenCalledWith(path.split("/").at(-1));
+    expect(scripts).toHaveBeenCalledWith("disc");
   });
   const excludedRequests: { path: string; method: string; headers: Record<string, string> }[] = [
-    { path: "/en/tests/explore/disc", method: "GET", headers: { accept: "text/html", rsc: "1" } },
-    { path: "/en/tests/explore/disc", method: "POST", headers: { accept: "text/html" } },
-    { path: "/en/tests/explore/disc", method: "GET", headers: { accept: "application/json" } },
+    { path: "/en/tests/disc-behavioral-style-test", method: "GET", headers: { accept: "text/html", rsc: "1" } },
+    { path: "/en/tests/disc-behavioral-style-test", method: "POST", headers: { accept: "text/html" } },
+    { path: "/en/tests/disc-behavioral-style-test", method: "GET", headers: { accept: "application/json" } },
     { path: "/en/tests/explore/disc/results/single-d", method: "GET", headers: { accept: "text/html" } },
     { path: "/en/tests/explore/career-match", method: "GET", headers: { accept: "text/html" } },
     { path: "/en/result/00000000-0000-4000-8000-000000000001?surface=mbti.result_page_snapshot.v4", method: "GET", headers: { accept: "text/html" } },
@@ -31,7 +31,7 @@ describe("Focused questionnaire document priority", () => {
   });
   it("does not invent a script list when the installed manifest is unavailable", async () => {
     scripts.mockReturnValueOnce([]);
-    const response = await proxy(new NextRequest("https://fermatmind.com/en/tests/explore/disc", { headers: { accept: "text/html" } }));
+    const response = await proxy(new NextRequest("https://fermatmind.com/en/tests/disc-behavioral-style-test", { headers: { accept: "text/html" } }));
     expect(response.status).toBe(200);
     expect(response.headers.get("Link")).toBeNull();
   });

@@ -1,3 +1,4 @@
+import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
 import { isModeABatchFour } from "@/lib/entertainment/modeABatchFour";
 import { isModeABatchThree } from "@/lib/entertainment/modeABatchThree";
 import { PublicGuideShare } from "@/components/questionnaires/PublicGuideShare";
@@ -116,7 +117,7 @@ export const requireLikert = cache(async (slug: string): Promise<LikertReader> =
 export async function traditionalLikertMetadata({ slug, take, profile }: Stage): Promise<Metadata> {
   const { quiz } = await requireLikert(slug);
   const entry = questionnairePath("zh-TW", slug);
-  if (take) return questionnaireTakeMetadata(quiz.title.zh, entry);
+  if (take) return questionnaireTakeMetadata(quiz.title.zh, slug === "disc" ? `/zh-TW${DISC_LANDING_PATH}` : entry);
   const result = profile ? quiz.profiles.find(item => item.id === profile) : undefined;
   if (profile && !result) notFound();
   const title = result?.seo?.title.zh ?? result?.title.zh ?? quiz.seoTitle.zh;
@@ -216,7 +217,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
           ? (await import("@/components/questionnaires/AttractionExperiencesClient")).AttractionExperiencesClient
           : QuestionnaireClient;
     return <TraditionalQuestionnaireCopy>
-      <QuestionnaireTakeDocument quiz={quiz} locale="zh" landing={entry}>
+      <QuestionnaireTakeDocument quiz={quiz} locale="zh" landing={slug === "disc" ? `/zh-TW${DISC_LANDING_PATH}` : entry}>
         {Disc ? <Disc quiz={quiz} locale="zh" displayLocale="zh-TW" take /> : Specialist ? <Specialist quiz={quiz} locale="zh" take /> : <Client quiz={quiz} locale="zh" />}
       </QuestionnaireTakeDocument>
     </TraditionalQuestionnaireCopy>;
@@ -274,7 +275,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
   </section> : null;
   if (result) return <article className="mx-auto w-full max-w-3xl space-y-6 px-[var(--fm-container-gutter)] py-10">
     {languages}
-    <Link href={entry} className="inline-block min-h-11 py-2 underline">{quiz.title.zh}</Link>
+    <Link href={slug === "disc" ? `/zh-TW${DISC_LANDING_PATH}` : entry} className="inline-block min-h-11 py-2 underline">{quiz.title.zh}</Link>
     <h1 className="text-3xl font-bold">{result.title.zh}</h1>
     {(isModeABatchThree(slug) || isModeABatchFour(slug)) && <PublicGuideShare url={CANONICAL_SITE_URL + questionnaireGuidePath("zh-TW", slug, result.id)} locale="zh-TW" />}
     <p className="leading-8">{result.summary.zh}</p>

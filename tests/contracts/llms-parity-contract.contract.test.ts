@@ -448,22 +448,22 @@ describe("llms parity governance", () => {
     const taiwanModeAPaths = paths.filter((path) => path.startsWith("/zh-TW/") && !gta6Paths.includes(path));
     const batchTwo = catalog.filter(({ slug }) => isModeABatchTwo(slug));
     expect(batchTwo).toHaveLength(25);
-    const batchTwoPaths = batchTwo.flatMap(({ slug, collection, resultSlugs }) => {
-      const base = `/zh-TW/tests/${collection}/${slug}`;
+    const batchTwoPaths = batchTwo.flatMap(({ slug, resultSlugs }) => {
+      const base = `/zh-TW/tests/explore/${slug}`;
       return [base, ...resultSlugs.map((id) => `${base}/results/${id}`)];
     });
     expect(batchTwoPaths).toHaveLength(216);
     const batchThree = catalog.filter(({ slug }) => isModeABatchThree(slug));
     expect(batchThree).toHaveLength(25);
-    const batchThreePaths = batchThree.flatMap(({ slug, collection, resultSlugs }) => {
-      const base = `/zh-TW/tests/${collection}/${slug}`;
+    const batchThreePaths = batchThree.flatMap(({ slug, resultSlugs }) => {
+      const base = `/zh-TW/tests/explore/${slug}`;
       return [base, ...resultSlugs.map((id) => `${base}/results/${id}`)];
     });
     expect(batchThreePaths).toHaveLength(219);
     const batchFour = catalog.filter(({ slug }) => isModeABatchFour(slug));
     expect(batchFour).toHaveLength(25);
-    const batchFourPaths = batchFour.flatMap(({ slug, collection, resultSlugs }) => {
-      const base = `/zh-TW/tests/${collection}/${slug}`;
+    const batchFourPaths = batchFour.flatMap(({ slug, resultSlugs }) => {
+      const base = `/zh-TW/tests/explore/${slug}`;
       return [base, ...resultSlugs.map((id) => `${base}/results/${id}`)];
     });
     expect(batchFourPaths).toHaveLength(154);
@@ -472,11 +472,12 @@ describe("llms parity governance", () => {
     expect(taiwanModeAPaths).toEqual(expect.arrayContaining(batchThreePaths));
     expect(taiwanModeAPaths).toEqual(expect.arrayContaining(batchTwoPaths));
     expect(taiwanModeAPaths).toContain("/zh-TW/tests/explore/cyberpunk-edgerunners/results/lucy");
-    expect(taiwanModeAPaths).toContain("/zh-TW/tests/play/friendship-quiz/scores");
-    expect(taiwanModeAPaths).not.toContain("/zh-TW/tests/play/weekend-pace");
-    expect(new Set(paths).size).toBe(2 * catalog.reduce((sum, test) => sum + 1 + test.resultSlugs.length, 0) + gta6Paths.length + taiwanModeAPaths.length);
+    expect(taiwanModeAPaths).toContain("/zh-TW/tests/explore/friendship-quiz/scores");
+    expect(taiwanModeAPaths).not.toContain("/zh-TW/tests/explore/weekend-pace");
+    const publicCatalog = catalog.filter(({ slug }) => slug !== "career-match");
+    expect(new Set(paths).size).toBe(2 * publicCatalog.reduce((sum, test) => sum + 1 + test.resultSlugs.length, 0) + gta6Paths.length + taiwanModeAPaths.length);
     expect(paths.filter((path) => path.includes("/gta-6-character-quiz"))).toEqual(gta6Paths);
-    expect(entries.filter((entry) => entry.type === "native_test")).toHaveLength(2 * catalog.length + 3 + 19 + batchTwo.length + batchThree.length + batchFour.length);
+    expect(entries.filter((entry) => entry.type === "native_test")).toHaveLength(2 * publicCatalog.length + 3 + 19 + batchTwo.length + batchThree.length + batchFour.length);
     expect(entries.every((entry) => !/\?|#|\/(?:take|result|share|api|pay|payment)(?:\/|$)/.test(entry.path))).toBe(true);
     expect(entries.every((entry) => Object.keys(entry).sort().join(",") === "locale,path,summary,title,type,updatedAt")).toBe(true);
     const [short, full, degraded] = await Promise.all([

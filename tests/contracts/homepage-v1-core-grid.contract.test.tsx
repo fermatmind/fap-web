@@ -199,12 +199,12 @@ describe("homepage v1 core grid contract", () => {
     expect(cards.map(card => Array.from(card.querySelectorAll("a"), link => link.getAttribute("href")))).toEqual([
       [`/${locale}/tests/mbti-personality-test-16-personality-types`],
       [`/${locale}/tests/holland-career-interest-test-riasec`],
-      [`/${locale}/career/assessment`],
+      [`/${locale}/tests/career-planning-and-work-style-test`],
       [`/${locale}/tests/iq-test-intelligence-quotient-assessment`],
       [`/${locale}/tests/big-five-personality-test-ocean-model`],
       [`/${locale}/tests/enneagram-personality-test-nine-types`],
       [`/${locale}/tests/jung-test`],
-      [`/${locale}/tests/explore/disc`],
+      [`/${locale}/tests/disc-behavioral-style-test`],
       [`/${locale}/tests/eq-test-emotional-intelligence-assessment`],
     ]);
     [5, 5, 5, 5, 4, 4, 4, 4, 3].forEach((count, index) => {
@@ -214,11 +214,12 @@ describe("homepage v1 core grid contract", () => {
       expect(stars.querySelectorAll("span")).toHaveLength(count);
     });
     expect(cards[2]).toHaveTextContent(/94/);
-    expect(cards[6]).toHaveTextContent(/48 \/ 64/);
+    expect(cards[6]).toHaveTextContent(/48 (?:questions|题)/);
+    expect(cards[6]).not.toHaveTextContent(/64/);
     expect(within(fun).getAllByRole("heading", { level: 3 })).toHaveLength(9);
     expect(Array.from(fun.querySelectorAll("h3"), heading => heading.closest("a")?.getAttribute("href"))).toEqual([
-      "explore/gta-6-character-quiz", "play/friendship-quiz", "explore/seven-sins-virtues-test",
-      "explore/mental-age", "play/global-history-quiz", "explore/tsundere-dere-type",
+      "explore/gta-6-character-quiz", "explore/friendship-quiz", "explore/seven-sins-virtues-test",
+      "explore/mental-age", "explore/global-history-quiz", "explore/tsundere-dere-type",
       "explore/chiikawa", "explore/cyberpunk-edgerunners", "explore/moral-alignment",
     ].map(path => `/${locale}/tests/${path}`));
     if (locale === "en") {

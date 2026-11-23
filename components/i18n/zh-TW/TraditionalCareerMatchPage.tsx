@@ -5,7 +5,7 @@ import { CareerMatchPage } from "@/components/questionnaires/CareerMatchPage";
 import { loadTraditionalCareerMatch } from "@/lib/i18n/zh-TW/officeCareerTools";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 
-const entry = "/zh-TW/tests/explore/career-match";
+const entry = "/zh-TW/career/match";
 
 export async function traditionalCareerMatchMetadata(): Promise<Metadata> {
   const item = await loadTraditionalCareerMatch();
@@ -24,8 +24,8 @@ export async function TraditionalCareerMatchPage() {
   if (!item) notFound();
   return <>
     <nav aria-label="測驗語言" className="mx-auto flex max-w-3xl gap-5 py-3 text-sm">
-      <Link className="underline" lang="zh-CN" href="/zh/tests/explore/career-match">简体中文</Link>
-      <Link className="underline" lang="en" href="/en/tests/explore/career-match">English</Link>
+      <Link className="underline" lang="zh-CN" href="/zh/career/match">简体中文</Link>
+      <Link className="underline" lang="en" href="/en/career/match">English</Link>
     </nav>
     <CareerMatchPage quiz={item.quiz} locale="zh" traditionalCopy={copy} editorial={item.editorial} readings={item.readings} />
   </>;

@@ -27,7 +27,7 @@ async function loadPortrait(params: Props["params"]) {
 }
 
 async function readMetadata({ params }: Props): Promise<Metadata> {
-  const directional = traditionalDirectionalRoute(`/tests/play/${(await params).slug}/results/${(await params).portrait}`);
+  const directional = traditionalDirectionalRoute(`/tests/explore/${(await params).slug}/results/${(await params).portrait}`);
   if (directional) {
     const { traditionalLikertMetadata } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
     return traditionalLikertMetadata(directional);
@@ -45,7 +45,7 @@ async function readMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function TraditionalStoryPortraitPage({ params }: Props) {
-  const directional = traditionalDirectionalRoute(`/tests/play/${(await params).slug}/results/${(await params).portrait}`);
+  const directional = traditionalDirectionalRoute(`/tests/explore/${(await params).slug}/results/${(await params).portrait}`);
   if (directional) {
     const { LikertQuestionnairePage } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
     return <LikertQuestionnairePage {...directional} />;
@@ -118,5 +118,5 @@ export default async function TraditionalStoryPortraitPage({ params }: Props) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  return traditionalSearchMetadata(`/zh-TW/tests/play/${(await params).slug}/results/${(await params).portrait}`, await readMetadata({ params }));
+  return traditionalSearchMetadata(`/zh-TW/tests/explore/${(await params).slug}/results/${(await params).portrait}`, await readMetadata({ params }));
 }

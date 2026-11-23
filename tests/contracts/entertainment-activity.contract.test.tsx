@@ -32,13 +32,13 @@ describe("anonymous entertainment activity", () => {
       expect(Object.keys(definition).sort()).toEqual(["path", "privacy", "roles", "slug", "title"]);
       if (definition.slug === "friendship-quiz") continue;
       if (definition.slug === globalHistoryStory.slug) {
-        expect(definition).toMatchObject({ title: globalHistoryStory.title, path: `/tests/play/${globalHistoryStory.slug}`, roles: ["single"] });
+        expect(definition).toMatchObject({ title: globalHistoryStory.title, path: `/tests/explore/${globalHistoryStory.slug}`, roles: ["single"] });
         continue;
       }
       const native = questionnaires.find(item => item.slug === definition.slug);
       const source = native ?? legacy.find(item => item.slug === definition.slug)!;
       expect(definition.title).toEqual(source.title);
-      expect(definition.path).toBe(native ? `/tests/${native.collection ?? "explore"}/${definition.slug}` : `/tests/play/${definition.slug}`);
+      expect(definition.path).toBe(definition.slug === "career-match" ? "/career/match" : `/tests/explore/${definition.slug}`);
       const body = JSON.parse(readFileSync(`lib/${native ? "questionnaires" : "entertainment"}/data/${definition.slug}.json`, "utf8"));
       expect(body.slug).toBe(definition.slug);
     }
@@ -70,7 +70,7 @@ describe("anonymous entertainment activity", () => {
     const init = fetch.mock.calls[0][1]; const body = JSON.parse(init.body);
     expect(init).toMatchObject({ credentials: "omit", referrerPolicy: "no-referrer" });
     expect(body.anonymousId).toBe("");
-    expect(body.path).toBe("/zh/tests/play/friendship-quiz");
+    expect(body.path).toBe("/zh/tests/explore/friendship-quiz");
     expect(Object.keys(body.payload).sort()).toEqual(["consent_state", "entry_surface", "form_code", "locale", "slug", "target_action"]);
     expect(body.payload.entry_surface).toBe("friend");
   });

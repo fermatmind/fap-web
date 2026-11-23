@@ -50,8 +50,8 @@ export default async function Preview({params,searchParams}:{params:Promise<{loc
    MBTI: "mbti", BIG5_OCEAN: "big5", ENNEAGRAM: "enneagram", IQ_RAVEN: "iq30", IQ_INTELLIGENCE_QUOTIENT: "iq40",
    EQ_60: "eq", JUNG_ARCHETYPES: "archetypes", DISC_BEHAVIOR: "disc",
  };
- const samplePath = discProfile ? discResultPreviewPath(locale, discProfile.id) : scale === "EQ_60" ? `/${locale}/dev/eq-result${query.result ? `?result=${encodeURIComponent(query.result)}` : ""}` : scale === "RIASEC" ? `/${locale}/tests/holland-career-interest-test-riasec/sample`
-   : scale === "CAREER" ? `/${locale === "en" ? "en" : "zh"}/career/assessment/sample`
+ const samplePath = discProfile ? discResultPreviewPath(locale, discProfile.id) : scale === "EQ_60" ? `/${locale}/dev/eq-result${query.result ? `?result=${encodeURIComponent(query.result)}` : ""}` : scale === "RIASEC" ? `/${locale}/reports/samples/holland`
+   : scale === "CAREER" ? `/${locale === "en" ? "en" : "zh"}/reports/samples/career94`
    : `/${locale}/reports/samples/${sampleKeys[scale]}`;
  const englishNames: Record<string, string> = { BIG5_OCEAN:"Big Five", ENNEAGRAM:"Enneagram", MBTI:"MBTI", IQ_RAVEN:"Reasoning test", IQ_INTELLIGENCE_QUOTIENT:"Reasoning test", EQ_60:"Emotional intelligence", JUNG_ARCHETYPES:"Jungian archetypes", DISC_BEHAVIOR:"DISC", RIASEC:"Holland career interests", CAREER:"Career assessment" };
  const traditionalNames: Record<string, string> = { IQ_RAVEN:"智商測驗", IQ_INTELLIGENCE_QUOTIENT:"智商測驗", EQ_60:"情商測驗", JUNG_ARCHETYPES:"榮格原型", RIASEC:"霍蘭德職涯興趣", CAREER:"職涯測驗" };
@@ -130,7 +130,7 @@ export default async function Preview({params,searchParams}:{params:Promise<{loc
      designPreview
      readings={holland.readings}
      chainReading={holland.chainReading}
-     sampleHref={`/${locale}/tests/holland-career-interest-test-riasec/sample`}
+     sampleHref={`/${locale}/reports/samples/holland`}
    />
  ) : scale === "CAREER" ? (
    <Career94FreeReport locale={locale === "en" ? "en" : "zh"} sample overview designPreview />

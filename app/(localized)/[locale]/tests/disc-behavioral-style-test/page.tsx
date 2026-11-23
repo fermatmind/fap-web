@@ -1,3 +1,4 @@
+import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
 import { LocalizedAssessmentLanding } from "@/components/tests/LocalizedAssessmentLanding";
 import { getLocalizedLanding } from "@/lib/tests/localized-landings";
 import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
@@ -28,12 +29,12 @@ async function entry(params: Props["params"]) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, quiz } = await entry(params);
   const profile = locale === "zh" ? null : getLocalizedLanding(locale, "disc");
-  const path = questionnairePath(locale, quiz.slug);
+  const path = `/${locale}${DISC_LANDING_PATH}`;
   const metadata = buildPageMetadata({
     locale: locale === "zh-TW" ? "zh" : locale, pathname: path,
     title: profile?.seoTitle ?? quiz.seoTitle.zh, description: profile?.seoDescription ?? quiz.description.zh,
     imagePath: `/og/fun/${quiz.slug}?locale=${locale}&v=${quiz.version}`,
-    alternatesByLocale: {en: questionnairePath("en", quiz.slug), zh: questionnairePath("zh", quiz.slug), xDefault: questionnairePath("en", quiz.slug)},
+    alternatesByLocale: {en: `/en${DISC_LANDING_PATH}`, zh: `/zh${DISC_LANDING_PATH}`, xDefault: `/en${DISC_LANDING_PATH}`},
   });
   return locale === "zh-TW" ? traditionalSearchMetadata(path, {
     ...metadata, alternates: {...metadata.alternates, canonical: path},
@@ -43,8 +44,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 export default async function Page({ params }: Props) {
   const { locale, quiz } = await entry(params);
+  const take = `${questionnairePath(locale, quiz.slug)}/take?start=1`;
   if (locale === "zh") {
-    const path = questionnairePath(locale, quiz.slug);
+    const path = `/${locale}${DISC_LANDING_PATH}`;
     const title = quiz.title[locale];
     const faq = trioProfiles.disc.faq.map(([q,a])=>({q,a}));
     return <main>
@@ -54,7 +56,7 @@ export default async function Page({ params }: Props) {
       <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({path,title,description:quiz.description[locale],locale})} />
       <JsonLd id="questionnaire-faq" data={buildFAQPageJsonLd(faq.map(({q,a})=>({question:q,answer:a})))} />
       <TrioLanding kind="disc" title={title} faq={faq}
-        entries={[{href:`${path}/take?start=1`,label:"开始 DISC 测试",testId:"disc-entry",nativeGet:true}]}
+        entries={[{href:take,label:"开始 DISC 测试",testId:"disc-entry",nativeGet:true}]}
         additional={<div className="mt-6 space-y-4">
           <details className="rounded-lg border border-slate-200 bg-white p-3">
             <summary className="min-h-11 cursor-pointer content-center font-semibold">查看全部 15 种结果指南</summary>
@@ -70,12 +72,11 @@ export default async function Page({ params }: Props) {
       />
     </main>;
   }
-  const path = questionnairePath(locale, quiz.slug);
   const english = locale === "en";
   const copyLocale = english ? "en" : "zh";
   return <main>
     <LocalizedAssessmentLanding kind="disc" locale={locale} entries={[{
-      href: `${path}/take?start=1`, label: english ? "Start the free DISC test" : "開始免費 DISC 測驗", testId: "disc-entry", nativeGet:true,
+      href: take, label: english ? "Start the free DISC test" : "開始免費 DISC 測驗", testId: "disc-entry", nativeGet:true,
     }]}>
       <div className="mt-6 space-y-4">
         <details className="rounded-lg border border-slate-200 bg-white p-3">

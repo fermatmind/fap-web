@@ -1,3 +1,6 @@
+import { supportDetailPath } from "@/lib/support/publicPaths";
+import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import { JUNG_TEST_PATH, jungAssessmentForSlug } from "@/lib/tests/freeAssessmentLanding";
 import { isBilingualInterestDirectoryPath } from "@/lib/career/interestDirectoryRoutes";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
@@ -32,17 +35,17 @@ export const TRADITIONAL_SEVEN_SINS_PATH = "/tests/explore/seven-sins-virtues-te
 export const TRADITIONAL_SEVEN_SINS_PROFILE_IDS = ["recognition-reading", "resources-reading", "desire-boundaries-reading", "comparison-reading", "rewards-reading", "anger-reading", "starting-rest-reading"] as const;
 // Direct readers are deployed before their native CMS publication. Missing
 // variants stay 404; only published pages enter cross-language navigation.
-export const TRADITIONAL_CMS_READER_PATHS = ["/about", "/brand", "/charter", "/careers", "/privacy", "/terms", "/method-boundaries", "/science", "/help/contact", "/foundation", "/policies", "/help/faq", "/help/about", "/help/team", "/help/used-and-mentioned", "/help/for-business-and-research", "/common-misconceptions", "/data-privacy", "/help/data-deletion", "/help/payment-refund", "/help/privacy-data", "/help/result-recovery", "/help/unlock-failure", "/item-design-notes", "/reliability-validity", "/personality/big-five/methodology", "/personality/big-five/source-review-policy"] as const;
+export const TRADITIONAL_CMS_READER_PATHS = ["/about", "/brand", "/charter", "/careers", "/privacy", "/terms", "/method-boundaries", "/science", "/support/contact", "/foundation", "/policies", "/support/faq", "/support/about", "/support/team", "/support/used-and-mentioned", "/support/for-business-and-research", "/common-misconceptions", "/data-privacy", "/support/data-deletion", "/support/payment-refund", "/support/privacy-data", "/support/result-recovery", "/support/unlock-failure", "/item-design-notes", "/reliability-validity", "/personality/big-five/methodology", "/personality/big-five/source-review-policy"] as const;
 // Expanded only after the corresponding native CMS variants are published.
 // Reader deployment and published navigation remain separate inventories.
-export const TRADITIONAL_CMS_PUBLISHED_PATHS = ["/about", "/brand", "/charter", "/careers", "/privacy", "/terms", "/method-boundaries", "/science", "/help/contact", "/foundation", "/policies", "/help/faq", "/help/about", "/help/team", "/help/used-and-mentioned", "/help/for-business-and-research", "/common-misconceptions", "/data-privacy", "/help/data-deletion", "/help/payment-refund", "/help/privacy-data", "/help/result-recovery", "/help/unlock-failure", "/item-design-notes", "/reliability-validity"] as const;
+export const TRADITIONAL_CMS_PUBLISHED_PATHS = ["/about", "/brand", "/charter", "/careers", "/privacy", "/terms", "/method-boundaries", "/science", "/support/contact", "/foundation", "/policies", "/support/faq", "/support/about", "/support/team", "/support/used-and-mentioned", "/support/for-business-and-research", "/common-misconceptions", "/data-privacy", "/support/data-deletion", "/support/payment-refund", "/support/privacy-data", "/support/result-recovery", "/support/unlock-failure", "/item-design-notes", "/reliability-validity"] as const;
 export const TRADITIONAL_PUBLIC_PATHS = ["", "/tests", TRADITIONAL_QUIZ_PATH, ...TRADITIONAL_PROFILE_IDS.map(id => `${TRADITIONAL_QUIZ_PATH}/results/${id}`), TRADITIONAL_SEVEN_SINS_PATH, ...TRADITIONAL_SEVEN_SINS_PROFILE_IDS.map(id => `${TRADITIONAL_SEVEN_SINS_PATH}/results/${id}`)];
 
 export function traditionalPath(pathname: string): string | null {
   if (pathname === "/") return "/zh-TW";
   const prefix = pathname.split("/")[1];
   if (!normalizeDisplayLocale(prefix)) return null;
-  const path = pathname.replace(/^\/(?:en|zh|zh-TW)(?=\/|$)/, "").replace(/\/$/, "");
+  const path = supportDetailPath(pathname.replace(/^\/(?:en|zh|zh-TW)(?=\/|$)/, "").replace(/\/$/, ""));
   if (process.env.NODE_ENV === "development" && ["/dev/eq-result", "/dev/mainstream-unlock"].includes(path)) return `/zh-TW${path}`;
   if (/^\/reports\/samples\/(?:mbti|big5|enneagram|iq30|iq40|eq|archetypes|cognitive|disc)$/u.test(path)) return `/zh-TW${path}`;
   if (process.env.NODE_ENV === "development" && prefix === "zh-TW"
@@ -55,7 +58,7 @@ export function traditionalPath(pathname: string): string | null {
   if (prefix === "zh-TW" && (["/personality", "/personality/big-five", "/personality/enneagram", "/tests/play"].includes(path))) return `/zh-TW${path}`;
   if (path === "/articles" || path === "/topics") return `/zh-TW${path}`;
   if (path === "/support" || path === "/business") return `/zh-TW${path}`;
-  if (path === "/holland-test/pdf-download") return "/zh-TW/holland-test/pdf-download";
+  if (path === "/career/interest-worksheet") return "/zh-TW/career/interest-worksheet";
   if (path === "/pricing") return "/zh-TW/pricing";
   if (isCoreSharePath(path)) return `/zh-TW${path}`;
   if (isGta6PublicPath(`/zh-TW${path}`)) return `/zh-TW${path}`;
@@ -63,7 +66,7 @@ export function traditionalPath(pathname: string): string | null {
   if (traditionalLegacyStoryPath(path)) return `/zh-TW${path}`;
   if (relationshipQuestionnaireRoute(path) || traditionalArchetypeRoute(path) || traditionalPracticeRoute(path) || traditionalLikertRoute(path) || traditionalDirectionalRoute(path) || traditionalObservationRoute(path)) return `/zh-TW${path}`;
   if (traditionalCulturalSymbolRoute(path) || traditionalMixedQuestionnaireRoute(path)) return `/zh-TW${path}`;
-  if (path === "/tests/explore/career-match") return `/zh-TW${path}`;
+  if (path === "/career/match" || path === "/tests/explore/career-match") return `/zh-TW${path}`;
   if (path === "/career") return "/zh-TW/career";
   if (path === "/career/tests") return "/zh-TW/career/tests";
   if (isBilingualInterestDirectoryPath(path)) return null;
@@ -82,8 +85,8 @@ export function traditionalPath(pathname: string): string | null {
   // Keep it out of the sitemap list and reciprocal search alternates.
   if (TRADITIONAL_CMS_PUBLISHED_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (path === "/tests/enneagram-personality-test-nine-types/technical-note") return `/zh-TW${path}`;
-  if (path === "/tests/holland-career-interest-test-riasec/sample") return `/zh-TW${path}`;
-  if (path === "/career/assessment") return "/zh-TW/career/assessment";
+  if (path === "/reports/samples/holland") return `/zh-TW${path}`;
+  if (path === CAREER_ASSESSMENT_LANDING_PATH || path === DISC_LANDING_PATH) return `/zh-TW${path}`;
   if (path === JUNG_TEST_PATH) return `/zh-TW${path}`;
   const coreAssessment = /^\/tests\/([a-z0-9_-]+)(?:\/take)?$/iu.exec(path);
   if (prefix === "zh-TW" && coreAssessment && isCoreAssessmentSlug(coreAssessment[1])) return `/zh-TW${path}`;

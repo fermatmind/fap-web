@@ -3,7 +3,7 @@ import HistoryPage, { generateMetadata as historyMetadata } from "@/app/(localiz
 
 const props = { params: Promise.resolve({ locale: "zh-TW" }) };
 export const generateMetadata = async () =>
-  traditionalSearchMetadata("/zh-TW/tests/play/global-history-quiz", await historyMetadata(props));
+  traditionalSearchMetadata("/zh-TW/tests/explore/global-history-quiz", await historyMetadata(props));
 export default function Page() {
   return <HistoryPage {...props} />;
 }

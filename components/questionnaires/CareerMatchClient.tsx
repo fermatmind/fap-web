@@ -88,7 +88,7 @@ function ValidCareerMatchClient({ quiz, locale, readings }: { quiz: Questionnair
   }
 
   async function share() {
-    const text = `${quiz.title[locale]}\nhttps://fermatmind.com/${displayLocale}/tests/explore/career-match`, copiedRevision = revision.current;
+    const text = `${quiz.title[locale]}\nhttps://fermatmind.com/${displayLocale}/career/match`, copiedRevision = revision.current;
     try {
       await navigator.clipboard.writeText(text); if (copiedRevision !== revision.current) return;
       metrics.share(); setManual(""); setMessage(zh ? displayText("已复制公开入口，不含兴趣选择或所选职业。") : "Copied the public entry, without interest selections or selected roles.");

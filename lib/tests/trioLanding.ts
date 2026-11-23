@@ -1,3 +1,4 @@
+import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
 import { SCALE_CANONICAL_SLUG_MAP as slugs } from "@/lib/assessmentSlugMap";
 import { loadFixedSample } from "@/lib/reports/fixedSamples";
 import type { DisplayLocale } from "@/lib/i18n/locales";
@@ -28,7 +29,7 @@ export function findTrioKind(slug: string): TrioKind | null {
 }
 
 export const trioRoutes = {big5: "/zh/tests/" + slugs.BIG5_OCEAN, iq: "/zh/tests/" + slugs.IQ_RAVEN, enneagram: "/zh/tests/" + slugs.ENNEAGRAM,
-  jung: "/zh/tests/jung-test", disc: "/zh/tests/explore/disc", eq: "/zh/tests/" + slugs.EQ_60};
+  jung: "/zh/tests/jung-test", disc: `/zh${DISC_LANDING_PATH}`, eq: "/zh/tests/" + slugs.EQ_60};
 const big5Hub = "/zh/personality/big-five";
 const enneagramHub = "/zh/personality/enneagram";
 

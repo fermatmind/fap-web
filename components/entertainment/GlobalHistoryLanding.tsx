@@ -115,7 +115,7 @@ export async function GlobalHistoryLanding({ locale }: { locale: DisplayLocale }
     }];
   });
   const links = [
-    displayNavigationPath("/tests/play/changan-history-quiz", locale),
+    displayNavigationPath("/tests/explore/changan-history-quiz", locale),
     mbtiPath,
     `/${locale}/tests#interactive-stories`,
   ];

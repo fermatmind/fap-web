@@ -19,7 +19,7 @@ export function BrowserTabsPage({ quiz, locale, displayLocale = locale }: { quiz
   if (quiz.slug !== "browser-tabs") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/browser-tabs`;
+  const path = `/${displayLocale}/tests/explore/browser-tabs`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: browserTabsSections, faq: browserTabsFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

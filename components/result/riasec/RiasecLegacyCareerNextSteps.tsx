@@ -43,7 +43,7 @@ export function RiasecLegacyCareerNextSteps({ locale, displayLocale = locale, ac
       <p>{text("你的六维分数比较接近。可以先从感兴趣的具体任务出发，在职业中心比较几个方向。", "Your six scores are close together. Start with a task that interests you and compare a few directions in the career center.", "你的六向度分數較接近。可以先從有興趣的具體任務出發，在職涯中心比較幾個方向。")}</p>
     ) : null}
     <ol className="list-decimal space-y-3 pl-5">
-      <li><Link className="underline underline-offset-4" href={`${path("/holland-test/pdf-download")}#interpret-results`}>{text(
+      <li><Link className="underline underline-offset-4" href={`${path("/career/interest-worksheet")}#interpret-results`}>{text(
         "读懂结果：六维、Top 3 与接近/并列",
         "Understand your result: six dimensions, Top 3, and ties",
         "讀懂結果：六向度、Top 3 與分數相近或並列",
@@ -90,7 +90,7 @@ export function RiasecLegacyCareerNextSteps({ locale, displayLocale = locale, ac
       ": choose two from industrial designers, graphic designers and architects only. For other roles, use their profiles and the guides.",
       "（僅可從工業設計師、平面設計師和建築師中選擇兩個。其他職業請閱讀職業檔案與指南。）",
     )}</p>
-    <p><Link className="underline underline-offset-4" href={path("/holland-test/pdf-download")}>{text(
+    <p><Link className="underline underline-offset-4" href={path("/career/interest-worksheet")}>{text(
       "打开本人探索工作表",
       "Open my exploration worksheet",
       "開啟個人探索工作表",

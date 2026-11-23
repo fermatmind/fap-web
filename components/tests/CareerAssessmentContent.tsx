@@ -76,7 +76,7 @@ export function CareerAssessmentContent({ locale, choice, faq, rows }: Props) {
       <p className={styles.exampleNote}>{t("以下为虚构探索情境，用来说明如何使用偏好线索；不是用户评价，也不代表某类岗位都有相同安排。", "以下為虛構探索情境，說明如何使用偏好線索；並非使用者評價，也不代表某類職位都有相同安排。", "An illustrative scenario, not a customer story. The working arrangements below are fictional and do not describe every role with these titles.")}</p>
       <ol className={styles.steps}>{steps.map(([heading, body], index) => <li key={heading}><span aria-hidden>{String(index + 1).padStart(2, "0")}</span><div><h3>{heading}</h3><p>{body}</p></div></li>)}</ol>
       <p className={styles.takeaway}>{t("你要带走的，是比较工作的依据，以及下一步值得问的问题。选择仍由你结合经历和实际机会来判断。", "你要帶走的，是比較工作的依據，以及下一步值得問的問題。選擇仍由你結合經驗與實際機會判斷。", "The aim is to build your own criteria and better questions. Your experience and the opportunities available still shape the decision.")}</p>
-      <Link className={styles.textLink} href={`/${readingLocale}/career/assessment/sample`} prefetch={false}>{t("在独立页面查看报告示例", "在獨立頁面查看報告範例（簡體中文）", "Explore the sample on its own page")} <ArrowRight size={16} aria-hidden /></Link>
+      <Link className={styles.textLink} href={`/${readingLocale}/reports/samples/career94`} prefetch={false}>{t("在独立页面查看报告示例", "在獨立頁面查看報告範例（簡體中文）", "Explore the sample on its own page")} <ArrowRight size={16} aria-hidden /></Link>
     </section>
 
     <section className={styles.methodSection} id="career-method" aria-labelledby="career-method-title">

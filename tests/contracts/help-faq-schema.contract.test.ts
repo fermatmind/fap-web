@@ -84,7 +84,7 @@ async function renderHelpPage(slug: string, page: ContentPage) {
     };
   });
 
-  const { default: HelpDetailPage } = await import("@/app/(localized)/[locale]/help/[slug]/page");
+  const { default: HelpDetailPage } = await import("@/app/(localized)/[locale]/support/[slug]/page");
   const node = await HelpDetailPage({
     params: Promise.resolve({ locale: page.locale, slug }),
   });

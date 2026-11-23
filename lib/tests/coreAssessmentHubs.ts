@@ -1,3 +1,4 @@
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 
@@ -5,7 +6,7 @@ type Copy = readonly [zh: string, traditional: string, en: string];
 export type CoreHub = "career" | "mbti" | "holland";
 
 export const coreHubPaths = {
-  career: "/career/assessment",
+  career: CAREER_ASSESSMENT_LANDING_PATH,
   mbti: `/tests/${SCALE_CANONICAL_SLUG_MAP.MBTI}`,
   holland: `/tests/${SCALE_CANONICAL_SLUG_MAP.RIASEC}`,
 } as const;

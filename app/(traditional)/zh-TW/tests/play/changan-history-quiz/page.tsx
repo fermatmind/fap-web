@@ -28,7 +28,7 @@ export default async function TraditionalChanganLanding() {
   if (!quiz) notFound();
   return <Container as="main" className="max-w-3xl space-y-6 py-10">
     <nav aria-label="測驗語言與導覽" className="flex flex-wrap gap-4 text-sm">
-      <Link href="/zh-TW/tests/play" className="min-h-11 py-2 underline">互動故事測驗</Link>
+      <Link href="/zh-TW/tests/explore" className="min-h-11 py-2 underline">互動故事測驗</Link>
       <Link href={quizPath("zh", CHANGAN_SLUG)} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
       <Link href={quizPath("en", CHANGAN_SLUG)} lang="en" className="min-h-11 py-2 underline">English</Link>
     </nav>
@@ -72,5 +72,5 @@ export default async function TraditionalChanganLanding() {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  return traditionalSearchMetadata("/zh-TW/tests/play/changan-history-quiz", await readMetadata());
+  return traditionalSearchMetadata("/zh-TW/tests/explore/changan-history-quiz", await readMetadata());
 }

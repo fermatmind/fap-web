@@ -19,7 +19,7 @@ export function CozyObjectPage({ quiz, locale, displayLocale = locale }: { quiz:
   if (quiz.slug !== "cozy-object") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/cozy-object`;
+  const path = `/${displayLocale}/tests/explore/cozy-object`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: cozyObjectSections, faq: cozyObjectFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

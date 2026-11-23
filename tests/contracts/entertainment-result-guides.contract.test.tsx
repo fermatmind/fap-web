@@ -43,10 +43,10 @@ describe("complete public entertainment result assets", () => {
         for (const locale of ["en", "zh"] as const) expect(isMissingFunRoute(resultPath(locale, quiz.slug, result.id))).toBe(false);
       }
     }
-    expect(isMissingFunRoute("/en/tests/play/woodland-animal/results/not-a-portrait")).toBe(true);
-    expect(isMissingFunRoute("/en/tests/play/not-a-quiz/results/jay")).toBe(true);
-    expect(isMissingFunRoute("/en/tests/play/relationship-values/results/romantic_expression")).toBe(true);
-    expect(isMissingFunRoute("/en/tests/play/woodland-animal/results/jay/extra")).toBe(true);
+    expect(isMissingFunRoute("/en/tests/explore/woodland-animal/results/not-a-portrait")).toBe(true);
+    expect(isMissingFunRoute("/en/tests/explore/not-a-quiz/results/jay")).toBe(true);
+    expect(isMissingFunRoute("/en/tests/explore/relationship-values/results/romantic_expression")).toBe(true);
+    expect(isMissingFunRoute("/en/tests/explore/woodland-animal/results/jay/extra")).toBe(true);
   });
 
   it("retains public metadata identities and versioned OG URLs after result-copy edits without rendering full guides", async () => {
@@ -57,7 +57,7 @@ describe("complete public entertainment result assets", () => {
         const quiz = (await loadFunQuiz(card.slug))!;
         for (const portrait of quiz.results) for (const locale of ["en", "zh"] as const) {
           const id = portrait.id.replaceAll("_", "-");
-          const path = (language: string) => `https://fermatmind.com/${language}/tests/play/${quiz.slug}/results/${id}`;
+          const path = (language: string) => `https://fermatmind.com/${language}/tests/explore/${quiz.slug}/results/${id}`;
           const metadata = await generateMetadata({ params: Promise.resolve({ locale, slug: quiz.slug, portrait: id }) });
           expect(metadata.alternates?.canonical).toBe(path(locale));
           const index = !isArchivedEntertainmentPath(new URL(String(metadata.alternates?.canonical)).pathname);
@@ -99,7 +99,7 @@ describe("complete public entertainment result assets", () => {
           const webpage = [...dom.querySelectorAll('script[type="application/ld+json"]')].map(node => JSON.parse(node.textContent!)).find(data => data["@type"] === "WebPage");
           expect(webpage.url).toBe(canonical); expect(webpage.name).toBe(result.title[locale]);
           const hrefs = [...dom.querySelectorAll("a[href]")].map(node => node.getAttribute("href"));
-          expect(hrefs).toContain(`/${locale}/tests/play/${quiz.slug}#play`);
+          expect(hrefs).toContain(`/${locale}/tests/explore/${quiz.slug}#play`);
           for (const other of quiz.results.filter(other => other.id !== result.id)) expect(hrefs).toContain(resultPath(locale, quiz.slug, other.id));
           expect(dom.querySelectorAll("input, textarea")).toHaveLength(0);
           expect(dom.querySelector("#rules details")?.textContent).toContain(portraitRuleExample(quiz, result.id)[0].choice[locale]);

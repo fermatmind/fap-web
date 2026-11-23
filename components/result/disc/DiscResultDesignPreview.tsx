@@ -1,5 +1,6 @@
 "use client";
 
+import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -8,7 +9,6 @@ import type { DisplayLocale } from "@/lib/i18n/locales";
 import { LANGUAGE_MENU_LABELS } from "@/lib/i18n/locales";
 import { discPreviewLocales, discResultPreviewPath, discUnlockPreviewPath } from "./discPreviewLocale";
 import { discDirections as directions, discPreviewProfiles, findDiscPreviewProfile, isDiscPreviewScoreValid } from "./discPreviewProfiles";
-import { questionnairePath } from "@/lib/questionnaires/paths";
 import styles from "./disc-result-preview.module.css";
 
 /** Shared presentation; live callers supply server-scored counts and identity. */
@@ -23,7 +23,7 @@ export function DiscResultDesignPreview({ counts, profileId = "single-d", locale
   const tied = profile.leaders.length > 1;
   const others = localizedDirections.filter(direction => !profile.leaders.includes(direction.code));
 
-  const testPath = questionnairePath(locale, "disc");
+  const testPath = `/${locale}${DISC_LANDING_PATH}`;
   return <main className={styles.page} lang={locale === "zh" ? "zh-CN" : locale} data-disc-preview-root>
     <div className={styles.container}>
       {mode !== "result" && <div className={styles.sampleNote}><span><i /> {ui.sample}</span><p>{ui.sampleNote}</p><span>{ui.form}</span></div>}

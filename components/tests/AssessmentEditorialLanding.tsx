@@ -42,7 +42,7 @@ const careerActions = [
 ] as const;
 
 function MethodPanel({ profile }: { profile: LandingProfile }) {
-  return <section className={`${shared.shell} ${shared.methodSection}`} aria-labelledby="assessment-method">
+  return <section id={profile === "mbti" ? "method-and-evidence" : undefined} className={`${shared.shell} ${shared.methodSection}`} aria-labelledby="assessment-method">
     <div className={`${shared.method} ${styles.method}`}>
       <h2 id="assessment-method">测评科学与计分方法</h2>
       {profile === "mbti" ? <div className={styles.methodBlocks}>
@@ -82,7 +82,7 @@ export function AssessmentEditorialLanding({ profile, choices, faq, fullMbtiRepo
   const available = choices.filter((choice): choice is Choice & { href: string } => Boolean(choice.href));
   const primary = (mbti ? available.find(choice => choice.key === "mbti_93") : undefined) ?? available[0];
   const reportAccess = mbti ? mbtiReportAccess(fullMbtiReport) : careerFree;
-  const sampleHref = "/zh/career/assessment/sample";
+  const sampleHref = "/zh/reports/samples/career94";
   const benefits = mbti ? [
     ["四个字母怎么来的？", "看每组偏好背后的两种做法。比如遇到难题，你更常先聊一聊，还是独自想出个头绪？"],
     ["哪一组最接近五五开？", "52% P 和 48% J 很接近。可以回想，在什么事上你习惯先安排好，什么时候愿意临场再定。"],

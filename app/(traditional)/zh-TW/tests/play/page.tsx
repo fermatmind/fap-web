@@ -12,7 +12,7 @@ import { traditionalBespokeStoryTitle } from "@/lib/i18n/zh-TW/bespokeStories";
 export const metadata: Metadata = {
   title: "互動故事測驗",
   description: "從生活情境、虛構故事和想像角色中挑選一項免費測驗。",
-  alternates: { canonical: "/zh-TW/tests/play" },
+  alternates: { canonical: "/zh-TW/tests/explore" },
   robots: { index: false, follow: true },
 };
 

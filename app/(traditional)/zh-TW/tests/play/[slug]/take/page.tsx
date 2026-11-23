@@ -10,7 +10,7 @@ import { requireTraditionalStoryQuiz } from "@/lib/i18n/zh-TW/legacyStoryReader"
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Props) {
-  const directional = traditionalDirectionalRoute(`/tests/play/${(await params).slug}/take`);
+  const directional = traditionalDirectionalRoute(`/tests/explore/${(await params).slug}/take`);
   if (directional) {
     const { traditionalLikertMetadata } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
     return traditionalLikertMetadata(directional);
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function TraditionalStoryTakePage({ params }: Props) {
-  const directional = traditionalDirectionalRoute(`/tests/play/${(await params).slug}/take`);
+  const directional = traditionalDirectionalRoute(`/tests/explore/${(await params).slug}/take`);
   if (directional) {
     const { LikertQuestionnairePage } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
     return <LikertQuestionnairePage {...directional} />;

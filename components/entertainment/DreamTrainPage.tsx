@@ -19,7 +19,7 @@ export function DreamTrainPage({ quiz, locale, displayLocale = locale }: { quiz:
   if (quiz.slug !== "dream-train") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/dream-train`;
+  const path = `/${displayLocale}/tests/explore/dream-train`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: dreamTrainSections, faq: dreamTrainFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

@@ -3,8 +3,8 @@ import { loadTrioSamples, type Sample } from "../trioLanding";
 import type { LocalizedLandingKind, LocalizedLandingLocale, LocalizedLandingProfile } from "./types";
 
 const samplePaths: Record<LocalizedLandingKind, string> = {
-  mbti: "/reports/samples/mbti", holland: "/tests/holland-career-interest-test-riasec/sample",
-  career: "/career/assessment/sample", big5: "/reports/samples/big5", iq: "/reports/samples/iq30",
+  mbti: "/reports/samples/mbti", holland: "/reports/samples/holland",
+  career: "/reports/samples/career94", big5: "/reports/samples/big5", iq: "/reports/samples/iq30",
   enneagram: "/reports/samples/enneagram", jung: "/reports/samples/archetypes",
   disc: "/reports/samples/disc", eq: "/reports/samples/eq",
 };

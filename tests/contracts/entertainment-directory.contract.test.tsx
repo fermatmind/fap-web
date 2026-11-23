@@ -11,11 +11,11 @@ describe("assessment directory correction", () => {
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<MoreTests locale={locale} />);
       for (const card of catalog) {
-        const link = `href="/${locale}/tests/play/${card.slug}"`;
+        const link = `href="/${locale}/tests/explore/${card.slug}"`;
         if (isDirectoryQuiz(card.slug)) expect(html).toContain(link);
         else expect(html).not.toContain(link);
-        expect(isMissingFunRoute(`/${locale}/tests/play/${card.slug}`)).toBe(false);
-        for (const result of card.resultSlugs) expect(isMissingFunRoute(`/${locale}/tests/play/${card.slug}/results/${result}`)).toBe(false);
+        expect(isMissingFunRoute(`/${locale}/tests/explore/${card.slug}`)).toBe(false);
+        for (const result of card.resultSlugs) expect(isMissingFunRoute(`/${locale}/tests/explore/${card.slug}/results/${result}`)).toBe(false);
       }
       expect(html).toContain(locale === "zh" ? "24 题" : "24 questions");
       const rendered = document.createElement("div");

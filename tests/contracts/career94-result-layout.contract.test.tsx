@@ -35,7 +35,7 @@ describe("Career94 result and separate reading routes", () => {
     render(<CareerAssessmentResult model={vm} locale="zh" purchase={<button>微信支付 · ¥2.99</button>} />);
     expect(screen.getByRole("heading", { level: 1, name: "研究型" })).toBeVisible();
     const offer = within(screen.getByRole("region", { name: "职业深度报告" }));
-    expect(offer.getByRole("link", { name: "查看示例报告" })).toHaveAttribute("href", "/zh/career/assessment/sample");
+    expect(offer.getByRole("link", { name: "查看示例报告" })).toHaveAttribute("href", "/zh/reports/samples/career94");
     expect(offer.getByRole("link", { name: "查看示例报告" })).toHaveAttribute("target", "_blank");
     expect(screen.queryByText("展开一份示例 · 研究型与现实型")).not.toBeInTheDocument();
     expect(document.querySelector("#career94-free-report")).toBeNull();

@@ -19,7 +19,7 @@ export function BeachcomberPage({ quiz, locale, displayLocale = locale }: { quiz
   if (quiz.slug !== "beachcomber") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/beachcomber`;
+  const path = `/${displayLocale}/tests/explore/beachcomber`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: beachcomberSections, faq: beachcomberFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

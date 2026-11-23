@@ -106,7 +106,7 @@ const selections = featuredSlugs.flatMap<Selection>(slug => {
   }];
   const quiz = questionnaires.find(item => item.slug === slug);
   return quiz ? [{
-    slug, path: `/tests/${quiz.collection}/${quiz.slug}`, title: quiz.title,
+    slug, path: `/tests/explore/${quiz.slug}`, title: quiz.title,
     meta: quizMeta(quiz.questionCount, quiz.minutes),
   }] : [];
 });

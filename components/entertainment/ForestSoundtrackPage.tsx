@@ -19,7 +19,7 @@ export function ForestSoundtrackPage({ quiz, locale, displayLocale = locale }: {
   if (quiz.slug !== "forest-soundtrack") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/forest-soundtrack`;
+  const path = `/${displayLocale}/tests/explore/forest-soundtrack`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: forestSoundtrackSections, faq: forestSoundtrackFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

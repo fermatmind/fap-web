@@ -82,7 +82,7 @@ const COPY = {
       { title: "读懂六维兴趣与三字代码", body: "保留完整分布和分数差距；方向接近时，一起探索，不必强选唯一类型。", href: "/articles/riasec-holland-career-interest-test-explained" },
       { title: "了解职业与真实工作任务", body: "从职业中心继续查找工作内容和探索路径，结合入行条件形成候选方向。", href: "/career" },
       { title: "制定职业探索行动", body: "阅读职业路径指南，用小项目、访谈或课程体验补充判断依据。", href: "/career/guides" },
-      { title: "下载结果解读与职业探索 PDF 工作表", body: "免费预览和打印兴趣记录与行动计划；这不是量表题本或个人报告。", href: "/holland-test/pdf-download" },
+      { title: "下载结果解读与职业探索 PDF 工作表", body: "免费预览和打印兴趣记录与行动计划；这不是量表题本或个人报告。", href: "/career/interest-worksheet" },
     ],
     faqTitle: "关于职业测试的常见问题",
     faq: [
@@ -130,7 +130,7 @@ const COPY = {
       { title: "Read your six interests and Holland Code", body: "Keep the full profile and score differences in view. Explore close interests together rather than forcing one type.", href: "/articles/what-is-riasec-holland-code-career-interest-test" },
       { title: "Explore careers and real work activities", body: "Use the career center to continue exploring work and entry requirements, then build a shortlist.", href: "/career" },
       { title: "Plan your next exploration step", body: "Use career guides to plan a small project, conversation or course experience that adds practical evidence.", href: "/career/guides" },
-      { title: "Download the results and career exploration PDF worksheet", body: "Preview and print interest notes and an action plan for free. Not a questionnaire or personal report.", href: "/holland-test/pdf-download" },
+      { title: "Download the results and career exploration PDF worksheet", body: "Preview and print interest notes and an action plan for free. Not a questionnaire or personal report.", href: "/career/interest-worksheet" },
     ],
     faqTitle: "Career test questions",
     faq: [

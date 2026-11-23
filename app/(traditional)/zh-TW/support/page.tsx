@@ -1,3 +1,4 @@
+import { supportDetailPath } from "@/lib/support/publicPaths";
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -23,7 +24,7 @@ async function readSupportLanding() {
   if (!landing || !hero?.title || !hero.body) notFound();
 
   const cards = helpSlugs.map(slug =>
-    landing.discoverabilityItems.find(item => item.key === slug && item.href === `/zh/help/${slug}` && item.title && item.summary));
+    landing.discoverabilityItems.find(item => item.key === slug && supportDetailPath(item.href) === `/zh/support/${slug}` && item.title && item.summary));
   const tools = Object.entries(toolPaths).map(([key, path]) =>
     landing.ctaBundle.find(tool => tool.key === key && tool.href === path));
   if (cards.some(card => !card) || tools.some(tool => !tool)) notFound();
@@ -32,6 +33,7 @@ async function readSupportLanding() {
 }
 
 function displayLink(path: string, label: string) {
+  path = supportDetailPath(path);
   const localized = traditionalPath(path);
   return localized ? { href: localized, title: label } : { href: path, title: `${label}（簡體中文）` };
 }
@@ -65,7 +67,7 @@ export default async function TraditionalSupportPage() {
   const contact = cards.find(item => item.key === "contact");
   const entries: HelpEntry[] = [
     { key: "pricing", ...displayLink("/zh/pricing", "價格與報告內容"), summary: "單次測評完整報告的價格、免登入付款與交付範圍。", topic: "orders", kind: "article" },
-    { key: "refund_policy", ...displayLink("/zh/help/payment-refund", "退款與取消政策"), summary: "", topic: "orders", kind: "article" },
+    { key: "refund_policy", ...displayLink("/zh/support/payment-refund", "退款與取消政策"), summary: "", topic: "orders", kind: "article" },
     { key: "result_lookup", href: "/zh-TW/results/lookup", title: "找回已儲存的結果", summary: "使用儲存結果時填寫的電子郵件地址查詢。", topic: "results", kind: "tool" },
     ...tools.map((tool): HelpEntry => ({
       key: tool.key, title: tool.label, summary: "", href: tool.href, topic: helpTopicFor(tool.key), kind: "tool",

@@ -1,3 +1,4 @@
+import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 const en = {
   headline: "Vice City · One night on the waterfront",
   sample: "Preview three character matches",
@@ -95,7 +96,7 @@ export const gta6LandingContent = { en, zh, "zh-TW": tw } as const;
 export const gta6AssessmentPaths = [
   "/tests/mbti-personality-test-16-personality-types",
   "/tests/holland-career-interest-test-riasec",
-  "/career/assessment",
+  CAREER_ASSESSMENT_LANDING_PATH,
 ] as const;
 
 export const gta6AssessmentByRole = {

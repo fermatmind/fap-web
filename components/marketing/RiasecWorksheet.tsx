@@ -121,7 +121,7 @@ export function RiasecWorksheet({ locale: initialLocale }: { locale: DisplayLoca
     </div>
     <article data-worksheet-print className={styles.printRecord} aria-label={text("当前记录打印版", "Current record print view", "當前記錄列印版")}>
       <h2>{copy.title}</h2><p>{example ? (text("合成填写示例（不是本人记录）", "Synthetic example (not my record)", "合成填寫示例（不是本人記錄）")) : (text("本人探索记录", "My exploration record", "本人探索記錄"))} · {WORKSHEET_VERSION}</p><p>{copy.intro}</p>
-      <p>FermatMind · https://fermatmind.com/{locale}/holland-test/pdf-download</p>
+      <p>FermatMind · https://fermatmind.com/{locale}/career/interest-worksheet</p>
       {copy.pages.flatMap(page => page.sections).map((section, index) => <section key={index}><h3>{section.heading}</h3><dl>{WORKSHEET_FIELDS.filter(field => field[3] === index).map(field => <div key={field[0]}><dt>{worksheetLabel(field, locale)}</dt><dd className={styles.value} data-print-field={field[0]}>{active[field[0]] || "—"}</dd></div>)}</dl></section>)}
     </article>
   </section>;

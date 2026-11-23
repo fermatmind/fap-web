@@ -19,7 +19,7 @@ export function CityWandererPage({ quiz, locale, displayLocale = locale }: { qui
   if (quiz.slug !== "city-wanderer") notFound();
   const traditional = displayLocale === "zh-TW";
   const text = (zh: string, en: string, tw: string) => traditional ? tw : locale === "zh" ? zh : en;
-  const path = `/${displayLocale}/tests/play/city-wanderer`;
+  const path = `/${displayLocale}/tests/explore/city-wanderer`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: cityWandererSections, faq: cityWandererFaq };
   const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;

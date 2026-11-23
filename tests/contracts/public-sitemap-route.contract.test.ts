@@ -23,8 +23,8 @@ const TEST_URL = "https://fermatmind.com/en/tests/mbti-personality-test-16-perso
 const CAREER_URL = "https://fermatmind.com/zh/career/jobs/software-developers";
 const CAREER_ROOT_EN_URL = "https://fermatmind.com/en/career";
 const CAREER_ROOT_ZH_URL = "https://fermatmind.com/zh/career";
-const RESOURCE_EN_URL = "https://fermatmind.com/en/holland-test/pdf-download";
-const RESOURCE_ZH_URL = "https://fermatmind.com/zh/holland-test/pdf-download";
+const RESOURCE_EN_URL = "https://fermatmind.com/en/career/interest-worksheet";
+const RESOURCE_ZH_URL = "https://fermatmind.com/zh/career/interest-worksheet";
 const OTHER_URL = "https://fermatmind.com/en/method-boundaries";
 
 function backendSitemapPayload() {
@@ -38,8 +38,8 @@ function backendSitemapPayload() {
       { loc: CAREER_URL, lastmod: "2026-07-04" },
       { loc: CAREER_ROOT_EN_URL },
       { loc: CAREER_ROOT_ZH_URL },
-      { loc: RESOURCE_EN_URL },
-      { loc: RESOURCE_ZH_URL },
+      { loc: RESOURCE_EN_URL.replace("/career/interest-worksheet", "/holland-test/pdf-download") },
+      { loc: RESOURCE_ZH_URL.replace("/career/interest-worksheet", "/holland-test/pdf-download") },
       { loc: CAREER_ROOT_EN_URL },
       { loc: OTHER_URL, lastmod: "2026-07-05" },
       { loc: "https://www.fermatmind.com/zh/articles/major-career-mismatch-job-search-skills-plan" },
@@ -61,6 +61,25 @@ afterEach(() => {
 });
 
 describe("public sitemap route", () => {
+  it("lists the Career94 landing in the tests sitemap and omits its legacy URL", async () => {
+    const payload = {
+      ok: true,
+      items: ["en", "zh"].map((locale) => ({ loc: `https://fermatmind.com/${locale}/career/assessment` })),
+    };
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify(payload))));
+    const root = await (await getRootSitemap()).text();
+    const family = await (await getFamilySitemap(new Request("https://fermatmind.com/sitemaps/tests.xml"), {
+      params: Promise.resolve({ family: "tests.xml" }),
+    })).text();
+
+    for (const xml of [root, family]) {
+      for (const locale of ["en", "zh", "zh-TW"]) {
+        expect(xml).toContain(`<loc>https://fermatmind.com/${locale}/tests/career-planning-and-work-style-test</loc>`);
+      }
+      expect(xml).not.toContain("/career/assessment</loc>");
+    }
+  });
+
   it("excludes archived test entries and guides without excluding neighboring tests", async () => {
     const entry = "/tests/explore/time-of-year-context-reflection";
     const guide = `${entry}/results/mood-and-energy-across-the-year-reading`;
@@ -157,8 +176,8 @@ describe("public sitemap route", () => {
       TEST_URL,
       ARTICLE_URL,
       CAREER_ROOT_ZH_URL,
-      CAREER_URL,
       RESOURCE_ZH_URL,
+      CAREER_URL,
     ]);
     expect(xml).toContain(`<loc>${ARTICLE_URL}</loc>`);
     expect(xml).toContain(`<loc>${ARTICLE_EN_URL}</loc>`);
@@ -239,9 +258,9 @@ describe("public sitemap route", () => {
 
     expect(families.tests.map((entry) => entry.loc)).toEqual([TEST_URL]);
     expect(families.articles.map((entry) => entry.loc)).toEqual([ARTICLE_EN_URL, ARTICLE_URL]);
-    expect(families.career.map((entry) => entry.loc)).toEqual([CAREER_ROOT_EN_URL, CAREER_ROOT_ZH_URL, CAREER_URL]);
+    expect(families.career.map((entry) => entry.loc)).toEqual([CAREER_ROOT_EN_URL, RESOURCE_EN_URL, CAREER_ROOT_ZH_URL, RESOURCE_ZH_URL, CAREER_URL]);
     expect(families.personality.map((entry) => entry.loc)).toEqual([PERSONALITY_COMPARISON_URL]);
-    expect(families.other.map((entry) => entry.loc)).toEqual([RESOURCE_EN_URL, OTHER_URL, RESOURCE_ZH_URL]);
+    expect(families.other.map((entry) => entry.loc)).toEqual([OTHER_URL]);
     expect(new Set(familyEntries.map((entry) => entry.loc))).toEqual(
       new Set(rootEntries.map((entry) => entry.loc))
     );

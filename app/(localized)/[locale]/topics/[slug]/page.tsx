@@ -391,7 +391,7 @@ export default async function TopicDetailPage({
                           <Link href={mbtiTopicHubHref} className="fm-help-chip-link">
                             {locale === "zh" ? "MBTI 主题页" : "MBTI topic hub"}
                           </Link>
-                          <Link href={localizedPath("/help/faq", locale)} className="fm-help-chip-link">
+                          <Link href={localizedPath("/support/faq", locale)} className="fm-help-chip-link">
                             {locale === "zh" ? "帮助与常见问题" : "Help and FAQ"}
                           </Link>
                         </>

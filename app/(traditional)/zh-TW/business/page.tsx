@@ -37,7 +37,7 @@ export default function TraditionalBusinessPage() {
         <p className="m-0 max-w-3xl text-[var(--fm-text-muted)]">
           費馬測試可用於探索團隊的自我觀察與溝通需求。測評內容不適用於招募篩選、錄用、升遷或職務適配判斷。請聯絡客服確認可提供的服務範圍。
         </p>
-        <Link href="/zh-TW/help/contact" className={buttonVariants({})}>聯絡企業服務</Link>
+        <Link href="/zh-TW/support/contact" className={buttonVariants({})}>聯絡企業服務</Link>
       </section>
       <section className="grid gap-4 md:grid-cols-3">
         {pillars.map(({ title, body }) => (

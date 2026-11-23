@@ -73,7 +73,7 @@ describe("shared discoverability exposure policy", () => {
       "/en/personality/intj-a",
       "/zh/topics/mbti",
       "/en/support",
-      "/zh/career/assessment",
+      "/zh/tests/career-planning-and-work-style-test",
     ]) {
       expect(stripDiscoverabilityLocalePrefix(sample), sample).toMatch(/^\/(tests|personality|topics|support|career)/);
       expect(isSharedDiscoverabilityDeniedPath(sample), sample).toBe(false);
