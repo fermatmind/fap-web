@@ -22,8 +22,6 @@
     "/zh-TW/holland-test/pdf-download",
     "/zh-TW/support",
     "/zh-TW/tests/big-five-personality-test-ocean-model",
-    "/zh-TW/tests/category/career",
-    "/zh-TW/tests/category/personality",
     "/zh-TW/tests/enneagram-personality-test-nine-types",
     "/zh-TW/tests/enneagram-personality-test-nine-types/technical-note",
     "/zh-TW/tests/eq-test-emotional-intelligence-assessment",
@@ -2381,11 +2379,6 @@
       "zh-TW": "/zh-TW/tests/mbti-personality-test-16-personality-types",
       "zh-CN": "/zh/tests/mbti-personality-test-16-personality-types",
       "en": "/en/tests/mbti-personality-test-16-personality-types"
-    },
-    {
-      "zh-TW": "/zh-TW/tests/category/career",
-      "zh-CN": "/zh/tests/category/career",
-      "en": "/en/tests/category/career"
     },
     {
       "zh-TW": "/zh-TW/tests/explore/sbti-test",

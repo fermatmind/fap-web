@@ -1,24 +1,26 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
+import { GLOBAL_HISTORY_MINUTES, GLOBAL_HISTORY_PATH, GLOBAL_HISTORY_QUESTION_COUNT, GLOBAL_HISTORY_SLUG, globalHistoryTitle } from "@/lib/entertainment/global-history/config";
 import { PUBLIC_PATH } from "@/lib/friendship/core";
 import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
 import { gta6Name, gta6Slug, gta6LandingPath } from "@/lib/questionnaires/gta6CharacterQuiz";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import questionnaires from "@/lib/questionnaires/catalog.json";
 
-// Ordered by production completion events for Nov 5–11, 2026 (Asia/Shanghai).
-const rankedSlugs = [
-  "seven-sins-virtues-test",
+const featuredSlugs = [
   "friendship-quiz",
+  "seven-sins-virtues-test",
+  "mental-age",
+  GLOBAL_HISTORY_SLUG,
+  "tsundere-dere-type",
   "chiikawa",
   "cyberpunk-edgerunners",
   "moral-alignment",
-  "attachment-styles",
 ] as const;
 
 type CardCopy = Record<DisplayLocale, string>;
 
-const descriptions: Record<(typeof rankedSlugs)[number] | typeof gta6Slug, CardCopy> = {
+const descriptions: Record<(typeof featuredSlugs)[number] | typeof gta6Slug, CardCopy> = {
   [gta6Slug]: {
     zh: "你更像露西娅、杰森还是布莱恩？在八组罪恶都市角色中测出你的救场风格。",
     "zh-TW": "你比較像露西婭、傑森，還是布萊恩？到罪惡城市找找你會怎麼救場。",
@@ -49,39 +51,63 @@ const descriptions: Record<(typeof rankedSlugs)[number] | typeof gta6Slug, CardC
     "zh-TW": "面對情境選擇，你更傾向守序還是混亂？看看你在道德陣營九宮格裡的位置。",
     en: "How do your choices balance order and chaos, good and evil? Find your place on the nine-alignment grid.",
   },
-  "attachment-styles": {
-    zh: "回顾一段亲密关系中的担心和退缩，探索你的依恋风格。",
-    "zh-TW": "回顧一段親密關係中的擔心和退縮，探索你的依附風格。",
-    en: "Reflect on worry and distance in a close relationship and explore your attachment style.",
+  "mental-age": {
+    zh: "用日常习惯和偏好测一个趣味心理年龄，还能生成分享卡和朋友比一比。",
+    "zh-TW": "用日常習慣和偏好測出趣味心理年齡，再做一張分享卡和朋友比一比。",
+    en: "Answer questions about your everyday preferences, get a playful mental age, and share your result with friends.",
+  },
+  [GLOBAL_HISTORY_SLUG]: {
+    zh: "走进历史展馆，做 12 次情境选择，看看哪位历史人物的做事方式最像你。",
+    "zh-TW": "走進歷史展館，做 12 次情境選擇，看看哪位歷史人物的做事方式最像你。",
+    en: "Step into a history exhibition and find the historical figure whose approach is closest to yours.",
+  },
+  "tsundere-dere-type": {
+    zh: "你会怎样表达关心？用日常情境比较傲娇、冷娇、闷娇和热娇四种表达方式。",
+    "zh-TW": "你會怎麼表達關心？用日常情境比較傲嬌、冷嬌、悶嬌和熱嬌四種表達方式。",
+    en: "How do you show you care? Compare four fictional archetypes in everyday situations.",
   },
 };
 
-const taiwanTitles: Record<(typeof rankedSlugs)[number], string> = {
+const taiwanTitles: Record<(typeof featuredSlugs)[number], string> = {
   "seven-sins-virtues-test": "七宗罪與七美德測驗",
   "friendship-quiz": "朋友默契：你有多了解我？",
   chiikawa: "吉伊卡哇角色測驗",
   "cyberpunk-edgerunners": "《電馭叛客：邊緣行者》角色測驗",
   "moral-alignment": "道德陣營測驗",
-  "attachment-styles": "依附風格測驗",
+  "mental-age": "心理年齡測驗",
+  [GLOBAL_HISTORY_SLUG]: "歷史人物靈魂測驗（全球篇）",
+  "tsundere-dere-type": "傲嬌類型測驗",
 };
 
 type Selection = {
-  slug: (typeof rankedSlugs)[number] | typeof gta6Slug;
+  slug: (typeof featuredSlugs)[number] | typeof gta6Slug;
   path: string;
   title: Record<"zh" | "en", string>;
   meta: CardCopy;
 };
 
-const selections = rankedSlugs.flatMap<Selection>(slug => {
+function quizMeta(questions: number, minutes: number): CardCopy {
+  return {
+    zh: `${questions}题 · 约${minutes}分钟`,
+    "zh-TW": `${questions} 題 · 約 ${minutes} 分鐘`,
+    en: `${questions} questions · About ${minutes} minutes`,
+  };
+}
+
+const selections = featuredSlugs.flatMap<Selection>(slug => {
   if (slug === "friendship-quiz") return [{
     slug, path: PUBLIC_PATH,
     title: { zh: "朋友默契：你有多了解我？", en: "How Well Do You Know Me?" },
     meta: { zh: "30–150题 · 双人及多人", "zh-TW": "30–150 題 · 雙人及多人", en: "30–150 questions · Play with friends" },
   }];
+  if (slug === GLOBAL_HISTORY_SLUG) return [{
+    slug, path: GLOBAL_HISTORY_PATH, title: globalHistoryTitle,
+    meta: quizMeta(GLOBAL_HISTORY_QUESTION_COUNT, GLOBAL_HISTORY_MINUTES),
+  }];
   const quiz = questionnaires.find(item => item.slug === slug);
   return quiz ? [{
     slug, path: `/tests/${quiz.collection}/${quiz.slug}`, title: quiz.title,
-    meta: { zh: `${quiz.questionCount}题 · 约${quiz.minutes}分钟`, "zh-TW": `${quiz.questionCount} 題 · 約 ${quiz.minutes} 分鐘`, en: `${quiz.questionCount} questions · About ${quiz.minutes} minutes` },
+    meta: quizMeta(quiz.questionCount, quiz.minutes),
   }] : [];
 });
 
@@ -99,8 +125,7 @@ export function HomepageFunTests({ locale }: { locale: DisplayLocale }) {
   };
   const cards = [
     gta6Card,
-    ...selections.filter(item => item.slug === "friendship-quiz"),
-    ...selections.filter(item => item.slug !== "friendship-quiz" && item.slug !== "attachment-styles"),
+    ...selections,
   ];
   return <section className="fm-page-background pb-10 md:pb-12" aria-labelledby="homepage-fun-tests-title">
     <Container className="max-w-[82rem] px-6 md:px-8">

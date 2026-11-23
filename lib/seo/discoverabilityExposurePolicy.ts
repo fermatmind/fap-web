@@ -18,6 +18,7 @@ export const PRIVATE_FLOW_ROUTE_EXCLUDES = [
 ] as const;
 
 export const SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS: readonly RegExp[] = [
+  /^\/tests\/category\/(?:personality|personalit|career)(?:\/|$)/i,
   /^\/tests\/(?:jung-cognitive-functions|(?:explore|play)\/cognitive-functions-test)(?:\/|$)/i,
   /^\/email(\/|$)/i,
   /^\/account(\/|$)/i,

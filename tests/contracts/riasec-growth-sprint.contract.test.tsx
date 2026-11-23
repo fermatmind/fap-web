@@ -150,7 +150,7 @@ describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
       const links = [...steps.querySelectorAll("a")].map(link => link.getAttribute("href")!);
       expect(steps.textContent).toContain(form === 60 ? "職業興趣相似度一覽" : "探索興趣輪廓相近的職業");
       expect(careerLinks).toEqual(suggestedHrefs.map(href => href!.replace("/zh/", "/zh-TW/")));
-      expect(links).toContain(form === 60 ? "/zh-TW/career" : "/zh-TW/tests/category/career");
+      expect(links).toContain(form === 60 ? "/zh-TW/career" : "/zh-TW/career/tests");
       for (const href of links) {
         if (href.startsWith("#")) {
           expect(container.querySelector(href)).not.toBeNull();

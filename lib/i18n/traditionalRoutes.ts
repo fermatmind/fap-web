@@ -37,8 +37,6 @@ export const TRADITIONAL_CMS_READER_PATHS = ["/about", "/brand", "/charter", "/c
 // Reader deployment and published navigation remain separate inventories.
 export const TRADITIONAL_CMS_PUBLISHED_PATHS = ["/about", "/brand", "/charter", "/careers", "/privacy", "/terms", "/method-boundaries", "/science", "/help/contact", "/foundation", "/policies", "/help/faq", "/help/about", "/help/team", "/help/used-and-mentioned", "/help/for-business-and-research", "/common-misconceptions", "/data-privacy", "/help/data-deletion", "/help/payment-refund", "/help/privacy-data", "/help/result-recovery", "/help/unlock-failure", "/item-design-notes", "/reliability-validity"] as const;
 export const TRADITIONAL_PUBLIC_PATHS = ["", "/tests", TRADITIONAL_QUIZ_PATH, ...TRADITIONAL_PROFILE_IDS.map(id => `${TRADITIONAL_QUIZ_PATH}/results/${id}`), TRADITIONAL_SEVEN_SINS_PATH, ...TRADITIONAL_SEVEN_SINS_PROFILE_IDS.map(id => `${TRADITIONAL_SEVEN_SINS_PATH}/results/${id}`)];
-// Published assessment categories are available in the language menu only.
-const TRADITIONAL_CATEGORY_PATHS = ["/tests/category/personality", "/tests/category/career"] as const;
 
 export function traditionalPath(pathname: string): string | null {
   if (pathname === "/") return "/zh-TW";
@@ -83,7 +81,6 @@ export function traditionalPath(pathname: string): string | null {
   // Published CMS pilot: available for language navigation, but not indexable.
   // Keep it out of the sitemap list and reciprocal search alternates.
   if (TRADITIONAL_CMS_PUBLISHED_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
-  if (TRADITIONAL_CATEGORY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (path === "/tests/enneagram-personality-test-nine-types/technical-note") return `/zh-TW${path}`;
   if (path === "/tests/holland-career-interest-test-riasec/sample") return `/zh-TW${path}`;
   if (path === "/career/assessment") return "/zh-TW/career/assessment";
@@ -100,8 +97,7 @@ export function traditionalPath(pathname: string): string | null {
 export function hasTraditionalAssessmentSearchPath(path: string): boolean {
   const entry = /^\/tests\/([a-z0-9-]+)$/u.exec(path)?.[1];
   return path === JUNG_TEST_PATH
-    || (entry !== undefined && !jungAssessmentForSlug(entry) && resolveCanonicalSlug(entry) === entry && isCoreAssessmentSlug(entry))
-    || TRADITIONAL_CATEGORY_PATHS.some(category => category === path);
+    || (entry !== undefined && !jungAssessmentForSlug(entry) && resolveCanonicalSlug(entry) === entry && isCoreAssessmentSlug(entry));
 }
 
 export function traditionalEquivalent(pathname: string): string | null {

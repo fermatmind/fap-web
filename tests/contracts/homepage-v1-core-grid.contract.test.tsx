@@ -189,7 +189,7 @@ const EXPECTED_ZH_CARDS = [
 ];
 
 describe("homepage v1 core grid contract", () => {
-  it.each(["en", "zh"] as const)("places the three promoted assessments before the six localized fun quizzes in %s", async locale => {
+  it.each(["en", "zh"] as const)("places the three promoted assessments before the nine localized fun quizzes in %s", async locale => {
     render(<HomePageExperience locale={locale} copy={await getHomePageContent(locale)} />);
     const core = screen.getByRole("heading", { level: 2, name: locale === "zh" ? "热门测评" : "Popular assessments" }).closest("section")!;
     const fun = screen.getByRole("heading", { level: 2, name: locale === "zh" ? "热门娱乐测试" : "Popular Entertainment Quizzes" }).closest("section")!;
@@ -215,9 +215,10 @@ describe("homepage v1 core grid contract", () => {
     });
     expect(cards[2]).toHaveTextContent(/94/);
     expect(cards[6]).toHaveTextContent(/48 \/ 64/);
-    expect(within(fun).getAllByRole("heading", { level: 3 })).toHaveLength(6);
+    expect(within(fun).getAllByRole("heading", { level: 3 })).toHaveLength(9);
     expect(Array.from(fun.querySelectorAll("h3"), heading => heading.closest("a")?.getAttribute("href"))).toEqual([
       "explore/gta-6-character-quiz", "play/friendship-quiz", "explore/seven-sins-virtues-test",
+      "explore/mental-age", "play/global-history-quiz", "explore/tsundere-dere-type",
       "explore/chiikawa", "explore/cyberpunk-edgerunners", "explore/moral-alignment",
     ].map(path => `/${locale}/tests/${path}`));
     if (locale === "en") {

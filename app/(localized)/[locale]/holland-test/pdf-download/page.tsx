@@ -47,7 +47,7 @@ export default async function HollandPdfPage({ params }: Props) {
   const pathname = path("/holland-test/pdf-download");
   const breadcrumbs = [
     { name: text("首页", "Home", "首頁"), path: path("/") },
-    { name: text("职业测试", "Career tests", "職業測試"), path: path(traditional ? "/tests/category/career" : "/career/tests") },
+    { name: text("职业测试", "Career tests", "職業測試"), path: path("/career/tests") },
     { name: text("PDF 工作表", "PDF worksheet", "PDF 工作表"), path: pathname },
   ];
   return (
