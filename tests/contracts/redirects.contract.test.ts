@@ -75,6 +75,14 @@ describe("legacy redirect hygiene contract", () => {
     }
   });
 
+  it("keeps the available Career94 sample accessible from Traditional Chinese paths", async () => {
+    const redirects = await loadRedirects();
+    expect(redirects.filter((rule) => rule.source.startsWith("/zh-TW/") && rule.destination === "/zh/reports/samples/career94"))
+      .toEqual(["/zh-TW/career/assessment/sample", "/zh-TW/reports/samples/career94"].map(source => ({
+        source, destination: "/zh/reports/samples/career94", permanent: true,
+      })));
+  });
+
   it("keeps GSC legacy redirects exact without cross-locale editorial substitution", async () => {
     const redirects = await loadRedirects();
 

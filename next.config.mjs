@@ -350,6 +350,11 @@ const nextConfig = {
         destination: `/:locale${current}`,
         permanent: true,
       })),
+      ...["/zh-TW/career/assessment/sample", "/zh-TW/reports/samples/career94"].map(source => ({
+        source,
+        destination: "/zh/reports/samples/career94",
+        permanent: true,
+      })),
       {
         source: "/holland-test/pdf-download",
         destination: "/zh/career/interest-worksheet",
