@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { questionnairePath } from "@/lib/questionnaires/paths";
 import { careerAssessmentEntry } from "@/lib/career/assessmentEntry";
 import { InteractiveStoryLibrary } from "@/components/entertainment/InteractiveStoryLibrary";
@@ -25,6 +24,12 @@ const discCardCopy = {
   en: { title: "DISC Behavioral Assessment", description: "Compare four behavioral tendencies through paired choices in work situations.", questionsLabel: "24 paired choices", durationLabel: "About 5 min", outputLabel: "Four behavioral tendencies", primaryLabel: "View DISC assessment" },
   zh: { title: "DISC 行为测试", description: "通过工作情境二选一，比较四类行为倾向。", questionsLabel: "24 组选择", durationLabel: "约 5 分钟", outputLabel: "四类行为倾向", primaryLabel: "查看 DISC 测试" },
   "zh-TW": { title: "DISC 行為測驗", description: "透過工作情境二選一，比較四類行為傾向。", questionsLabel: "24 組選擇", durationLabel: "約 5 分鐘", outputLabel: "四類行為傾向", primaryLabel: "查看 DISC 測驗" },
+} satisfies Record<DisplayLocale, Pick<HubTestCardItem, "title" | "description" | "questionsLabel" | "durationLabel" | "outputLabel" | "primaryLabel">>;
+
+const careerCardCopy = {
+  en: { title: "FermatMind Career Assessment", description: "Explore your interests, work style, job conditions and current circumstances to compare career directions.", questionsLabel: "94 questions", durationLabel: "About 12–15 min", outputLabel: "Interests, work style and conditions", primaryLabel: "View Career Assessment" },
+  zh: { title: "费马职业测试", description: "把职业兴趣、工作方式、工作条件和当前处境一起考虑，找出值得进一步了解的职业方向。", questionsLabel: "94 题", durationLabel: "约 12–15 分钟", outputLabel: "职业兴趣、工作方式与条件", primaryLabel: "查看费马职业测试" },
+  "zh-TW": { title: "費馬職業測驗", description: "把職涯興趣、工作方式、工作條件和目前處境一起考量，找出值得進一步了解的職涯方向。", questionsLabel: "94 題", durationLabel: "約 12–15 分鐘", outputLabel: "職涯興趣、工作方式與條件", primaryLabel: "查看費馬職業測驗" },
 } satisfies Record<DisplayLocale, Pick<HubTestCardItem, "title" | "description" | "questionsLabel" | "durationLabel" | "outputLabel" | "primaryLabel">>;
 
 function getCoreIndex(item: {
@@ -97,17 +102,17 @@ export function TestsHubExperience({
     href: questionnairePath(locale, "disc"),
     previewVariant: "bars",
   };
-  const careerEntry = careerAssessmentEntry(locale);
+  const careerCard: HubTestCardItem = {
+    ...careerCardCopy[locale],
+    key: "career-assessment",
+    href: careerAssessmentEntry(locale).href,
+    previewVariant: "summary",
+  };
   return (
     <>
-    <p className="mx-auto my-4 max-w-6xl px-[var(--fm-container-gutter)]">
-      <Link href={careerEntry.href} className="font-medium text-[var(--fm-accent)] underline underline-offset-4">
-        {careerEntry.label}
-      </Link>
-    </p>
     <MoreTests
       locale={locale}
-      coreTests={[...displayCoreTests, discCard]}
+      coreTests={[...displayCoreTests, discCard, careerCard]}
       heroTitle={content.hero.title}
     />
     <InteractiveStoryLibrary locale={locale} />

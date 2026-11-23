@@ -114,6 +114,16 @@ function normalizeSearch(value: string) {
 }
 
 function coreIdentity(item: HubTestCardItem) {
+  if (item.key === "career-assessment") {
+    return {
+      code: "Career94",
+      label: { zh: item.outputLabel, "zh-TW": item.outputLabel, en: item.outputLabel },
+      description: { zh: item.description, "zh-TW": item.description, en: item.description },
+      purpose: { zh: "探索职业", "zh-TW": "探索職涯", en: "Career exploration" },
+      className: "career",
+      titleZh: undefined,
+    };
+  }
   if (item.key === "disc") {
     return {
       code: "DISC",
@@ -299,20 +309,19 @@ export function TestDirectory({
                 <header>
                   <div>
                     <h2 id="catalog-core-title">
-                      {taiwan ? "國際經典測評，科學認識自己" : zh
-                        ? "国际经典测评，科学认识自己"
-                        : "Established frameworks. A clearer view of you."}
+                      {taiwan ? "主要測驗" : zh ? "主要测评" : "Core assessments"}
                     </h2>
                     <p>
-                      {taiwan ? "全球廣泛應用的經典測評體系，全方位解讀性格特質、職涯興趣、思維方式與情緒模式。" : zh
-                        ? "全球广泛应用的经典测评体系，全方位解读性格特质、职业兴趣、思维方式与情绪模式。"
-                        : "Internationally used assessment frameworks for a multidimensional understanding of personality traits, career interests, thinking styles and emotional patterns."}
+                      {taiwan ? "探索性格特質、職涯方向、推理表現與情緒模式。" : zh
+                        ? "探索性格特质、职业方向、推理表现与情绪模式。"
+                        : "Explore personality traits, career directions, reasoning and emotional patterns."}
                     </p>
                   </div>
                 </header>
                 <div className="catalog-core-grid">
                   {filteredCore.map((item) => {
                     const identity = coreIdentity(item);
+                    const hasLocalizedEntry = identity.className === "disc" || identity.className === "career";
                     return (
                       <article
                         key={item.key}
@@ -326,7 +335,7 @@ export function TestDirectory({
                             {identity.label[locale]}
                           </span>
                         </div>
-                        {identity.className !== "jung" && identity.className !== "disc" && <AssessmentStructureArt
+                        {identity.className !== "jung" && !hasLocalizedEntry && <AssessmentStructureArt
                           kind={identity.className}
                           locale={locale}
                         />}
@@ -347,13 +356,13 @@ export function TestDirectory({
                           className="catalog-core-start"
                           prefetch={false}
                           href={item.detailsHref ?? item.href}
-                          hrefLang={taiwan ? (identity.className === "disc" ? "zh-TW" : "zh-CN") : undefined}
+                          hrefLang={taiwan ? (hasLocalizedEntry ? "zh-TW" : "zh-CN") : undefined}
                           aria-label={
-                            identity.className === "disc" ? item.primaryLabel
+                            hasLocalizedEntry ? item.primaryLabel
                               : taiwan ? item.primaryLabel + "（簡體中文）" : zh ? item.primaryLabel : "Start the free test"
                           }
                         >
-                          <span>{identity.className === "disc" ? item.primaryLabel : taiwan ? "開始測驗（簡體中文）" : zh ? "开始测试" : "Start test"}</span>
+                          <span>{hasLocalizedEntry ? item.primaryLabel : taiwan ? "開始測驗（簡體中文）" : zh ? "开始测试" : "Start test"}</span>
                           <ArrowRight size={16} aria-hidden="true" />
                         </Link>
                         <CmsMediaAuthorityShell

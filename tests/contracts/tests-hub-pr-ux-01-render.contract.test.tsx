@@ -62,6 +62,27 @@ describe("tests hub PR-UX-01 render contract", () => {
     expect(container.querySelector('#more-tests a[href="/zh-TW/tests/explore/disc"]')).toBeNull();
   });
 
+  it.each([
+    ["zh", "费马职业测试", "查看费马职业测试", "94 题"],
+    ["zh-TW", "費馬職業測驗", "查看費馬職業測驗", "94 題"],
+    ["en", "FermatMind Career Assessment", "View Career Assessment", "94 questions"],
+  ] as const)("shows the distinct Career94 entry in the %s core grid", async (locale, title, label, questions) => {
+    const content = await getTestsHubContent(locale === "en" ? "en" : "zh");
+    const { container } = render(<TestsHubExperience locale={locale} content={content} />);
+    const grid = container.querySelector("#core-tests .catalog-core-grid") as HTMLElement;
+    const card = within(grid).getByRole("heading", { name: title }).closest("article")!;
+    expect(card).toHaveTextContent(questions);
+    const link = within(card).getByRole("link", { name: label });
+    expect(link).toHaveAttribute("href", `/${locale}/career/assessment`);
+    if (locale === "zh-TW") expect(link).toHaveAttribute("hreflang", "zh-TW");
+    expect(grid.querySelector('.catalog-core-riasec a[href*="/tests/career-riasec"]')).not.toBeNull();
+
+    const directory = within(container.querySelector(".catalog-workspace") as HTMLElement);
+    fireEvent.change(directory.getByRole("searchbox"), { target: { value: title } });
+    expect(within(grid).getByRole("link", { name: label })).toBeInTheDocument();
+    expect(grid.querySelector(".catalog-core-riasec")).toBeNull();
+  });
+
   it("prioritizes MBTI, Big Five, and RIASEC while keeping clinical entries hidden", async () => {
     const content = await getTestsHubContent("zh");
 
