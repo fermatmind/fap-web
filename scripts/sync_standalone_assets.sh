@@ -32,6 +32,11 @@ echo "sync standalone static assets"
 sync_dir "public" ".next/standalone/public"
 sync_dir ".next/static" ".next/standalone/.next/static"
 
+# These files travel in the checksummed server release outside the public web root.
+install -d .next/standalone/.next/history-ingress
+install -m 0644 deploy/openresty/nginx.conf .next/standalone/.next/history-ingress/nginx.conf
+install -m 0644 scripts/ops/install-history-avatars.sh .next/standalone/.next/history-ingress/install-history-avatars.sh
+
 if ! find .next/standalone/.next/static -type f \( -name '*.js' -o -name '*.css' -o -name '*.woff2' \) -print -quit | grep -q .; then
   echo "standalone static asset verification failed: no js/css/font assets found" >&2
   exit 1

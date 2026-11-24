@@ -81,15 +81,29 @@ restore_history_ingress() {
   fi
 }
 
+active_history_release() {
+  local expected_sha="$1" pid cwd
+  while read -r pid; do
+    cwd="$(readlink -f "/proc/$pid/cwd" 2>/dev/null)" || continue
+    [[ -f "$cwd/REVISION" && "$(<"$cwd/REVISION")" == "$expected_sha" ]] || continue
+    [[ -f "$cwd/RELEASE_MANIFEST.json" && -f "$cwd/SHA256SUMS" ]] || continue
+    printf '%s\n' "$cwd"
+  done < <(pgrep -f '^next-server' || true) | LC_ALL=C sort -u
+}
+
 prepare_history_ingress() {
-  require_value HISTORY_INGRESS_BUNDLE
-  require_value HISTORY_BUNDLE_SHA256
-  require_value HISTORY_AVATAR_SOURCE
-  [[ "$HISTORY_INGRESS_BUNDLE" == /tmp/fap-web-history-ingress-* && "$HISTORY_BUNDLE_SHA256" =~ ^[a-f0-9]{64}$ ]] || fail "invalid history ingress bundle"
-  [[ "$(sha256sum "$HISTORY_INGRESS_BUNDLE" | awk '{print $1}')" == "$HISTORY_BUNDLE_SHA256" ]] || fail "history ingress digest mismatch"
-  local bundle_dir main assets previous connections files limit
-  bundle_dir="$(mktemp -d)"
-  tar -xf "$HISTORY_INGRESS_BUNDLE" -C "$bundle_dir" -- nginx.conf install-history-avatars.sh
+  local release main assets previous connections files limit
+  release="$(active_history_release "${RELEASE_ID#*-}")"
+  [[ "$release" == /* && "$release" != *$'\n'* ]] || fail "expected one active Next.js release for the ingress SHA"
+  local bundle_dir="$release/.next/history-ingress"
+  local avatar_source="$release/public/images/global-history"
+  # The release installer verifies the complete artifact. Recheck the two
+  # files used by the privileged ingress change before reading them.
+  (
+    cd "$release"
+    awk '$2 == ".next/history-ingress/nginx.conf" || $2 == ".next/history-ingress/install-history-avatars.sh" {print}' SHA256SUMS \
+      | { mapfile -t sums; [[ "${#sums[@]}" == 2 ]] && printf '%s\n' "${sums[@]}" | sha256sum --quiet -c -; }
+  ) || fail "history ingress files did not match the installed release"
   main="$(mounted_host_path /usr/local/openresty/nginx/conf/nginx.conf)"
   assets="$(mounted_host_path /www)/history-assets"
   connections="$(awk '$1 == "worker_connections" {gsub(/;/, "", $2); print $2}' "$bundle_dir/nginx.conf")"
@@ -106,9 +120,7 @@ prepare_history_ingress() {
   fi
   previous="$(sudo -n readlink "$assets/current" || printf absent)"
   printf '%s\n' "$previous" | "${DOCKER[@]}" exec -i "$container_id" sh -c 'cat > "$1"' sh "$backup_release_dir/history-assets-link"
-  sudo -n bash "$bundle_dir/install-history-avatars.sh" "$HISTORY_AVATAR_SOURCE" "$assets"
-  rm -rf -- "$bundle_dir"
-  rm -f -- "$HISTORY_INGRESS_BUNDLE"
+  sudo -n bash "$bundle_dir/install-history-avatars.sh" "$avatar_source" "$assets"
 }
 
 verify_history_ingress() {

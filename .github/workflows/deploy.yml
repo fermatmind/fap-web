@@ -396,15 +396,9 @@ jobs:
           current_sha="$(awk -F= '$1=="current_config_set_sha256"{print $2}' <<< "$preflight")"
           [[ "$current_sha" =~ ^[0-9a-f]{64}$ ]]
           remote_candidate="/tmp/fap-web-public-ingress-${GITHUB_RUN_ID}-${DEPLOY_SHA}.conf"
-          history_bundle="$(mktemp)"
-          trap 'rm -f "$history_bundle"' EXIT
-          tar -cf "$history_bundle" -C deploy/openresty nginx.conf -C ../../scripts/ops install-history-avatars.sh
-          history_bundle_sha="$(sha256sum "$history_bundle" | awk '{print $1}')"
-          remote_history_bundle="/tmp/fap-web-history-ingress-${GITHUB_RUN_ID}-${DEPLOY_SHA}.tar"
-          scp -o BatchMode=yes -o StrictHostKeyChecking=yes -P "$DEPLOY_PORT" "$history_bundle" "$DEPLOY_USER@$DEPLOY_HOST:$remote_history_bundle"
           scp -o BatchMode=yes -o StrictHostKeyChecking=yes -P "$DEPLOY_PORT" deploy/openresty/fap-web-public.conf "$DEPLOY_USER@$DEPLOY_HOST:$remote_candidate"
           ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
-            "OPENRESTY_CONTAINER='$OPENRESTY_CONTAINER' OPENRESTY_CONFIG_ROOT='$OPENRESTY_CONFIG_ROOT' OPENRESTY_MANAGED_FILES='$OPENRESTY_MANAGED_FILES' OPENRESTY_PRIMARY_FILE='$OPENRESTY_PRIMARY_FILE' OPENRESTY_BACKUP_DIR='$OPENRESTY_BACKUP_DIR' EXPECTED_CONFIG_SET_SHA256='$current_sha' CANDIDATE_CONFIG='$remote_candidate' EXPECTED_CANDIDATE_SHA256='$candidate_sha' RELEASE_ID='${GITHUB_RUN_ID}-${DEPLOY_SHA}' HISTORY_INGRESS_BUNDLE='$remote_history_bundle' HISTORY_BUNDLE_SHA256='$history_bundle_sha' HISTORY_AVATAR_SOURCE='$APP_DIR/.next/standalone/public/images/global-history' bash -s -- apply" \
+            "OPENRESTY_CONTAINER='$OPENRESTY_CONTAINER' OPENRESTY_CONFIG_ROOT='$OPENRESTY_CONFIG_ROOT' OPENRESTY_MANAGED_FILES='$OPENRESTY_MANAGED_FILES' OPENRESTY_PRIMARY_FILE='$OPENRESTY_PRIMARY_FILE' OPENRESTY_BACKUP_DIR='$OPENRESTY_BACKUP_DIR' EXPECTED_CONFIG_SET_SHA256='$current_sha' CANDIDATE_CONFIG='$remote_candidate' EXPECTED_CANDIDATE_SHA256='$candidate_sha' RELEASE_ID='${GITHUB_RUN_ID}-${DEPLOY_SHA}' bash -s -- apply" \
             < scripts/ops/web-public-ingress.sh
           node scripts/ops/probe-web-public-ingress.mjs --base-url "$PUBLIC_BASE_URL" --enforce
 
