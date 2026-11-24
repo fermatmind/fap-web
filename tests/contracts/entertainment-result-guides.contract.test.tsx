@@ -114,8 +114,8 @@ describe("complete public entertainment result assets", () => {
     const source = readFileSync("app/og/fun/[slug]/route.tsx", "utf8");
     expect(source).toContain("findPublicPortrait"); expect(source).toContain("fun-700.ttf");
     // Download mode changes only the response disposition. The artwork uses
-    // locale and a public portrait identity. The history format selects a fixed layout.
-    expect([...source.matchAll(/query\.get\(["']([^"']+)["']\)/g)].map(match => match[1])).toEqual(["locale", "portrait", "download", "format"]);
+    // locale and a public portrait identity. Historical previews ignore legacy format flags.
+    expect([...source.matchAll(/query\.get\(["']([^"']+)["']\)/g)].map(match => match[1])).toEqual(["locale", "portrait", "download"]);
     expect(source).not.toMatch(/fetch\(|request\.(?:json|formData|text)\s*\(|\bscoreQuestionnaire\s*\(/);
     // Twenty new title glyphs retain the original font features and metrics.
     expect(readFileSync("public/fonts/noto-sans-sc/fun-700.ttf").byteLength).toBeLessThan(310000);

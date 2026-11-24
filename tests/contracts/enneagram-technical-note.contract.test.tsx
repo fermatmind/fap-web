@@ -227,7 +227,7 @@ describe("enneagram technical note page contract", () => {
     );
 
     expect(await screen.findByTestId("enneagram-technical-note-page")).toBeInTheDocument();
-    expect(screen.getByTestId("enneagram-technical-note-meta")).toHaveTextContent("enneagram_technical_note.v0.1");
+    expect(await screen.findByTestId("enneagram-technical-note-meta")).toHaveTextContent("enneagram_technical_note.v0.1");
     expect(screen.getByTestId("enneagram-technical-note-section-test_goal")).toHaveTextContent("测试目标");
     expect(screen.getByTestId("enneagram-technical-note-section-score_space_boundary")).toHaveTextContent("分数空间边界");
     expect(screen.getByTestId("enneagram-technical-note-method-boundaries")).toHaveTextContent("同模型，不同分数空间");
