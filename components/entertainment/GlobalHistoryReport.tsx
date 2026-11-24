@@ -3,13 +3,13 @@
 import { ArchiveQuestionnaireNextStep } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import { useQuestionnaireDisplayCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
 import { useSyncExternalStore } from "react";
-import { recordEntertainmentActivity } from "@/lib/entertainment/activity";
-import { GLOBAL_HISTORY_SLUG, GLOBAL_HISTORY_VERSION, globalHistoryFilename, globalHistoryImagePath } from "@/lib/entertainment/global-history/config";
+import { GLOBAL_HISTORY_SLUG, globalHistoryResultPath } from "@/lib/entertainment/global-history/config";
 import { globalHistoryResultKey } from "@/lib/entertainment/global-history/local-result";
 import { isHistoryVector } from "@/lib/entertainment/global-history/matching";
 import { historyAxes } from "@/lib/entertainment/global-history/questions";
 import { historyReflections } from "@/lib/entertainment/global-history/reflection";
 import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
+import { GlobalHistoryPosterExport } from "./GlobalHistoryPosterExport";
 import styles from "./GlobalHistory.module.css";
 
 const subscribe = () => () => {};
@@ -34,16 +34,18 @@ export function useGlobalHistoryVector(id: string) {
   return readVector(useSyncExternalStore(subscribe, readSaved, () => null), id);
 }
 
-export function GlobalHistoryShare({ id, locale, displayLocale = locale }: { id: string; locale: Locale; displayLocale?: DisplayLocale }) {
+export function GlobalHistoryShare({ id, locale, displayLocale = locale, name, description }: {
+  id: string; locale: Locale; displayLocale?: DisplayLocale; name: string; description: string;
+}) {
   const traditional = displayLocale === "zh-TW";
   const zh = locale === "zh";
-  const image = globalHistoryImagePath(displayLocale, id);
   return <div className={styles.actions}>
-    <a className={styles.primary} href={`${image}&download=1`} download={globalHistoryFilename(displayLocale, id)}
-      onClick={() => recordEntertainmentActivity(GLOBAL_HISTORY_SLUG, GLOBAL_HISTORY_VERSION, locale, "share", "single", "image")}>
-      {traditional ? "下載人物卡 PNG" : zh ? "下载人物卡 PNG" : "Download portrait PNG"}
-    </a>
-    <a className={styles.secondary} href={image} target="_blank" rel="noopener noreferrer">{traditional ? "開啟圖片" : zh ? "打开图片" : "Open image"}</a>
+    <GlobalHistoryPosterExport id={id} locale={displayLocale}
+      url={`https://fermatmind.com${globalHistoryResultPath(displayLocale, id)}`}
+      content={{ name, title: traditional ? "全球卷人物卡" : zh ? "全球卷人物卡" : "Historical portrait", description }}
+      saveClassName={styles.primary}
+      saveLabel={traditional ? "下載人物卡 PNG" : zh ? "下载人物卡 PNG" : "Download portrait PNG"}
+      openLabel={traditional ? "開啟圖片／長按儲存" : zh ? "打开图片 / 长按保存" : "Open image / press and hold"} />
   </div>;
 }
 

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import http from "node:http";
 import https from "node:https";
+import { connect } from "node:http2";
 
 const avatarPrefix = "/images/global-history/";
 const poster = "/og/fun/global-history-quiz";
@@ -103,13 +104,30 @@ async function runProbe(port, certificate, upstream, version, phase) {
   const perIP = Promise.all(Array.from({ length: 40 }, () => get(dynamicProbe, { address: "127.0.0.200" })));
   const distributed = Promise.all(Array.from({ length: 40 }, (_, i) => get(dynamicProbe, { address: `127.0.0.${i + 10}` })));
   const isolatedHtml = verifyHtml();
-  const assets = Array.from({ length: phase === "final" ? 4415 : 3903 }, (_, i) => i < 3903
-    ? `${avatarPrefix}${portraits[i % 364]}`
-    : `${poster}?locale=en&portrait=${portraits[i % 186].slice(0, -4)}&format=poster&download=1`);
+  const avatars = Array.from({ length: 3903 }, (_, i) => `${avatarPrefix}${portraits[i % 364]}`);
+  const posters = Array.from({ length: phase === "final" ? 512 : 0 }, (_, i) =>
+    `${poster}?locale=en&portrait=${portraits[i % 186].slice(0, -4)}&format=poster&download=1`);
+  const assets = avatars.flatMap((path, i) => i % 7 === 0 && posters.length ? [path, posters.shift()] : [path]);
+  assert.equal(assets.length, phase === "final" ? 4415 : 3903);
+  function getAsset(session, path) {
+    return new Promise((resolve, reject) => {
+      const stream = session.request({ ":path": path, ":authority": "fermatmind.com" });
+      stream.on("response", (headers) => assert.equal(headers[":status"], 200, path));
+      stream.on("end", resolve);
+      stream.on("error", reject);
+      stream.setTimeout(12000, () => stream.destroy(new Error(`timed out: ${path}`)));
+      stream.resume();
+      stream.end();
+    });
+  }
   for (let i = 0; i < assets.length; i += 96) {
-    const burst = await Promise.all(assets.slice(i, i + 96).map((path) => get(path)));
-    for (const [index, result] of burst.entries()) assert.equal(result.status, 200, assets[i + index]);
-    if (i % 960 === 0) await verifyHtml();
+    const sessions = Array.from({ length: 4 }, () => connect(`https://127.0.0.1:${port}`, { servername: "fermatmind.com", ca }));
+    try {
+      const burst = Promise.all(assets.slice(i, i + 96).map((path, index) => getAsset(sessions[index % sessions.length], path)));
+      await Promise.all(i % 960 === 0 ? [burst, verifyHtml()] : [burst]);
+    } finally {
+      sessions.forEach((session) => session.close());
+    }
   }
   await isolatedHtml;
   const rejectedLocal = (await perIP).filter(({ status }) => status === 429).length;
@@ -121,7 +139,7 @@ async function runProbe(port, certificate, upstream, version, phase) {
   assert.equal(counts.historicalPosters, phase === "final" ? 0 : 1);
   agent.destroy();
   console.log(JSON.stringify({
-    phase, avatarRequests: 3903, avatarsToNext: counts.avatars, posterRequests: phase === "final" ? 512 : 1,
+    phase, assetProtocol: "h2", avatarRequests: 3903, avatarsToNext: counts.avatars, posterRequests: phase === "final" ? 512 : 1,
     postersToNext: counts.historicalPosters, html200: htmlOk, html504: 0,
     rejectedLocal, rejectedDistributed, peakDynamicUpstream: counts.dynamicPeak,
   }));

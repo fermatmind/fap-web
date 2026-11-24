@@ -104,17 +104,14 @@ import path from "node:path";
 import { loadFunQuiz } from "@/lib/entertainment/loaders";
 import { CHANGAN_SLUG } from "@/lib/entertainment/changan";
 import { changanCardResponse } from "./changanCard";
-import { GLOBAL_HISTORY_SLUG } from "@/lib/entertainment/global-history/config";
+import { GLOBAL_HISTORY_SLUG, globalHistoryPortraitPath } from "@/lib/entertainment/global-history/config";
 import { findHistoryPerson } from "@/lib/entertainment/global-history/people";
-import { globalHistoryCard } from "./globalHistoryCard";
 import { findPublicPortrait } from "@/lib/entertainment/guides";
 import { isTenKeyConfigurationValid } from "@/lib/questionnaires/tenKey";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 
 let font: Promise<ArrayBuffer> | undefined;
 const localFont = () => font ??= readFile(path.join(process.cwd(), "public/fonts/noto-sans-sc/fun-700.ttf")).then(bytes => Uint8Array.from(bytes).buffer);
-let historyTaiwanFont: Promise<ArrayBuffer> | undefined;
-const globalHistoryTaiwanFont = () => historyTaiwanFont ??= readFile(path.join(process.cwd(), "public/fonts/noto-sans-tc/global-history-quiz-700.ttf")).then(bytes => Uint8Array.from(bytes).buffer);
 let changanTaiwanFont: Promise<ArrayBuffer> | undefined;
 const readChanganTaiwanFont = () => changanTaiwanFont ??= readFile(path.join(process.cwd(), "public/fonts/noto-sans-tc/changan-history-quiz-700.ttf")).then(bytes => Uint8Array.from(bytes).buffer);
 const quizFonts = new Map<string, Promise<ArrayBuffer>>();
@@ -138,10 +135,15 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const query = new URL(request.url).searchParams, locale = query.get("locale") ?? "en";
   const portrait = query.get("portrait");
   const download = query.get("download") === "1";
-  if (slug === GLOBAL_HISTORY_SLUG && (locale === "en" || locale === "zh" || locale === "zh-TW")) {
+  if (slug === GLOBAL_HISTORY_SLUG) {
     const person = portrait && findHistoryPerson(portrait);
     if (!person) return new Response("Image unavailable", { status: 404 });
-    return globalHistoryCard(person, locale, await (locale === "zh-TW" ? globalHistoryTaiwanFont() : quizFont(slug)), download, query.get("format") === "poster");
+    const jpg = await readFile(path.join(process.cwd(), "public", globalHistoryPortraitPath(person.id)));
+    return new Response(new Uint8Array(jpg), { headers: {
+      "Content-Type": "image/jpeg",
+      "Cache-Control": "public, max-age=86400",
+      "X-Robots-Tag": "noindex",
+    } });
   }
   if (locale === "zh-TW") {
     if (slug === CHANGAN_SLUG) {

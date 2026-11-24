@@ -101,7 +101,8 @@ export function GlobalHistoryResultV2({ person, locale, result, traditionalCopy 
     }} />
     <Container className={styles.inner}>
       <section className={styles.hero} aria-label={name}>
-        <GlobalHistoryReveal id={person.id} locale={locale} axisNames={axes} profile={person.vector} canonical={canonical} hook={hook} image={image}
+        <GlobalHistoryReveal id={person.id} locale={locale} axisNames={axes} profile={person.vector} canonical={canonical} hook={hook}
+          poster={{ name, title, description: hook, detail: [personality.inferred_mbti, personality.title[locale], benchmark.has_cox_data ? `Cox ${benchmark.estimate.youth_corrected}` : gift].filter(Boolean).join(" · ") }}
           labels={{
             start: t("测测我与哪位历史人物同频", "測測我與哪位歷史人物同頻", "Find my historical match"),
             questionCount: t(`（${GLOBAL_HISTORY_QUESTION_COUNT}题）`, `（${GLOBAL_HISTORY_QUESTION_COUNT}題）`, ` · ${GLOBAL_HISTORY_QUESTION_COUNT} questions`),

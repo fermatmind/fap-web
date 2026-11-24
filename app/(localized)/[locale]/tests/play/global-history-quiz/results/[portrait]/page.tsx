@@ -85,7 +85,7 @@ export default async function Page({ params, searchParams }: Props) {
   const zh = locale === "zh";
   const title = person.name[locale];
   const resultPath = globalHistoryResultPath(displayLocale, person.id);
-  const share = <GlobalHistoryShare id={person.id} locale={locale} displayLocale={displayLocale} />;
+  const share = <GlobalHistoryShare id={person.id} locale={locale} displayLocale={displayLocale} name={title} description={`${person.region[locale]} · ${person.field[locale]}`} />;
   const report = <GlobalHistoryReport id={person.id} profile={person.vector} locale={locale} displayLocale={displayLocale} />;
   const Shell = traditional ? "div" : "main";
   return <Shell className={styles.page}>

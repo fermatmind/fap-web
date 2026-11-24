@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useState, useSyncExternalStore, type ReactNode } from "react";
 import { recordEntertainmentActivity } from "@/lib/entertainment/activity";
-import { GLOBAL_HISTORY_SLUG, GLOBAL_HISTORY_VERSION, globalHistoryFilename, globalHistoryPath } from "@/lib/entertainment/global-history/config";
+import { GLOBAL_HISTORY_SLUG, GLOBAL_HISTORY_VERSION, globalHistoryPath } from "@/lib/entertainment/global-history/config";
+import { GlobalHistoryPosterExport, type HistoryPosterContent } from "./GlobalHistoryPosterExport";
 import { useGlobalHistoryVector } from "./GlobalHistoryReport";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import styles from "./GlobalHistoryResultV2.module.css";
@@ -15,9 +16,9 @@ type HeroLabels = {
   save: string; open: string; share: string; copied: string; shareFallback: string; retake: string; own: string; figure: string;
 };
 
-export function GlobalHistoryReveal({ id, locale, axisNames, profile, canonical, hook, image, labels, children, languages }: {
+export function GlobalHistoryReveal({ id, locale, axisNames, profile, canonical, hook, poster, labels, children, languages }: {
   id: string; locale: DisplayLocale; axisNames: string[]; profile: readonly number[];
-  canonical: string; hook: string; image: string; labels: HeroLabels; children: ReactNode; languages: ReactNode;
+  canonical: string; hook: string; poster: HistoryPosterContent; labels: HeroLabels; children: ReactNode; languages: ReactNode;
 }) {
   const vector = useGlobalHistoryVector(id);
   const hydrated = useSyncExternalStore(subscribe, () => true, () => false);
@@ -51,10 +52,9 @@ export function GlobalHistoryReveal({ id, locale, axisNames, profile, canonical,
     </div> : <Link className={styles.publicCta} href={take} prefetch={false} data-history-state="public"><span>{labels.start}<wbr /><span className={styles.questionCount}>{labels.questionCount}</span></span><span aria-hidden="true">↗</span></Link>}
     {children}
     <div className={styles.actions}>
-      <a className={styles.save} href={`${image}&download=1`} download={globalHistoryFilename(locale, id)}
-        onClick={() => recordEntertainmentActivity(GLOBAL_HISTORY_SLUG, GLOBAL_HISTORY_VERSION, locale === "zh-TW" ? "zh" : locale, "share", "single", "image")}>{labels.save} <span aria-hidden="true">↓</span></a>
+      <GlobalHistoryPosterExport key={`${locale}:${id}`} id={id} locale={locale} url={canonical} content={poster}
+        saveClassName={styles.save} saveLabel={labels.save} openLabel={labels.open} />
       <button type="button" onClick={() => void copyShare()} disabled={!hydrated}>{labels.share}</button>
-      <a href={image} target="_blank" rel="noopener noreferrer">{labels.open}</a>
       <Link href={take} prefetch={false}>{labels.retake}</Link>
     </div>
     <p role="status" className={sharing === "copied" ? styles.shareStatus : "sr-only"}>{sharing === "copied" ? labels.copied : ""}</p>
