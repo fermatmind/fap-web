@@ -110,7 +110,7 @@ test('push security scans do not launch scheduled regressions or cancel other ev
   );
   assert.equal(evaluate('classify', 'push'), true);
   assert.equal(evaluate('classify', 'schedule'), false);
-  for (const name of ['full-regression', 'certificate-expiry']) {
+  for (const name of ['full-regression', 'browser-regression', 'certificate-expiry']) {
     assert.equal(evaluate(name, 'push'), false);
     assert.equal(evaluate(name, 'schedule'), true);
   }
@@ -121,7 +121,7 @@ test('push security scans do not launch scheduled regressions or cancel other ev
   assert.equal(evaluate('codeql', 'push', 'success', 'true', true), false);
   for (const result of ['failure', 'cancelled', 'skipped']) assert.equal(evaluate('codeql', 'push', result), false);
   const dependencies = job('alert').match(/needs: \[([^\]]+)\]/)[1].split(', ');
-  assert.deepEqual(dependencies, ['classify', 'full-regression', 'codeql', 'certificate-expiry']);
+  assert.deepEqual(dependencies, ['classify', 'full-regression', 'browser-regression', 'codeql', 'certificate-expiry']);
   assert.equal(condition('alert'), 'failure()');
   // GitHub failure() sees failed ancestors even when the other jobs were intentionally skipped.
   const alert = new Function('failure', `return ${condition('alert')}`);
