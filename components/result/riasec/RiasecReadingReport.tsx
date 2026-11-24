@@ -32,6 +32,7 @@ import {
 } from "./readingContent";
 import styles from "./RiasecReadingReport.module.css";
 import { RiasecExploration } from "./RiasecExploration";
+import { CuratedCareerRecommendations } from "@/components/career/CuratedCareerRecommendations";
 import { RiasecCareerNextSteps } from "./RiasecCareerNextSteps";
 import { RiasecTrialRecord } from "./RiasecTrialRecord";
 import { RiasecLegacyCareerNextSteps } from "./RiasecLegacyCareerNextSteps";
@@ -404,7 +405,16 @@ function RiasecReadingReportBody({
   const careerTitle = displayLocale === "zh-TW" ? "值得探索的職涯" : t("值得探索的职业", "Careers worth exploring");
   const careerScores = mapState !== "hidden" && vm.scoreKind === "dimension_scores_0_100"
     && qualityState === "normal" && vm.interpretationState?.readingStrength !== "retake_recommended" ? vm.dimensions : undefined;
-  const careerContent = usePortraitLayout ? (
+  const useCuratedCareers = displayLocale === "zh" && (careerAssessment || vm.formCode === "riasec_60" || vm.formCode === "riasec_140");
+  const curatedCareers = useCuratedCareers && careerScores ? (
+    <CuratedCareerRecommendations
+      scores={careerScores}
+      dark={usePortraitLayout}
+      mode={careerAssessment ? "career94" : usePortraitLayout ? "holland" : "preview"}
+      tieLabels={tieDisplay?.kind !== "none" ? tieDisplay?.dimensions.map(code => vm.dimensions.find(dimension => dimension.code === code)?.label ?? code) : undefined}
+    />
+  ) : null;
+  const careerContent = usePortraitLayout ? curatedCareers ?? (
     <RiasecCareerNextSteps
       locale={locale}
       displayLocale={displayLocale}
@@ -414,7 +424,7 @@ function RiasecReadingReportBody({
       tieDimensions={mapState !== "hidden" && qualityState === "normal" && tieDisplay?.kind !== "none" ? tieDisplay?.dimensions : undefined}
     />
   ) : (
-    <RiasecLegacyCareerNextSteps locale={locale} displayLocale={displayLocale} scores={careerScores}
+    <RiasecLegacyCareerNextSteps locale={locale} displayLocale={displayLocale} scores={careerScores} recommendations={curatedCareers}
       activityKeys={hasActivities ? vm.activityExplorer?.codeActivityPack.activities.map(activity => activity.activityKey) : undefined} />
   );
   const careerChapter = (

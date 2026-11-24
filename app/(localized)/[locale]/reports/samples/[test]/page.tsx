@@ -24,6 +24,10 @@ export default async function Sample({params,searchParams}:{params:Promise<{loca
   const { loadEqResultSample } = await import("@/lib/eq/loadResultSample");
   return <EQResultPage page={await loadEqResultSample()} locale={display} sample/>;
  }
+ if (test === "career94" && display === "zh") {
+  const { Career94FreeReport } = await import("../../../career/assessment/Career94FreeReport");
+  return <main><Career94FreeReport locale="zh" sample /></main>;
+ }
  const data=await loadFixedSample(test,locale==="en"?"en":"zh");if(!data)notFound();
  if (test === "disc") {
   const profile = findDiscPreviewProfile(query?.result ?? "single-d");
