@@ -8,6 +8,7 @@ import type { DisplayLocale } from "@/lib/i18n/locales";
 import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 import { InterestRadar } from "@/components/result/riasec/RiasecReadingReport";
+import { CuratedCareerRecommendations } from "@/components/career/CuratedCareerRecommendations";
 import { rankRiasecCareers } from "@/lib/career/riasecProfileMatch";
 import {
   getRenderableRiasecDeepContentSlots,
@@ -67,7 +68,11 @@ export function CareerAssessmentResult({ model, locale, displayLocale = locale, 
     slot.slotKey === "dimension_deep_copy" && slot.selection?.dimensionCode === active?.code &&
     getRiasecModuleVisibility(model, slot.moduleKey) !== "hidden");
   const explanation = explanations[0]?.content.summary;
-  const rankedJobs = canReadDimensions && model.scoreKind === "dimension_scores_0_100"
+  const canRecommend = canReadDimensions && model.scoreKind === "dimension_scores_0_100";
+  const useCuratedCareers = displayLocale === "zh" && canRecommend
+    && (!model.trustedResultCard || model.trustedResultCard.qualityState === "normal")
+    && model.interpretationState?.readingStrength !== "retake_recommended";
+  const rankedJobs = displayLocale !== "zh" && canRecommend
     ? rankRiasecCareers(dimensions, displayLocale).jobs.slice(0, 8)
     : [];
   const jobs = rankedJobs.slice(0, 3);
@@ -111,6 +116,10 @@ export function CareerAssessmentResult({ model, locale, displayLocale = locale, 
             : t("分数表示你在本次作答中对这类活动的兴趣程度。", "Scores describe how much interest you reported in each activity group.")}</p>
         </section> : null}
 
+        {useCuratedCareers && !premium ? <section className={styles.section} aria-label="职业候选">
+          <CuratedCareerRecommendations scores={dimensions} mode="preview" dark />
+        </section> : null}
+
         {jobs.length > 0 ? <section className={styles.section} aria-label={t("职业候选", "Careers to explore")}>
           <div className={styles.sectionHeading}><p>{t("值得探索的方向", "DIRECTIONS TO EXPLORE")}</p><h2>{t("从兴趣走向真实的工作", "Connect your interests to real work")}</h2></div>
           <p>{t("根据六维兴趣分布，从美国 O*NET 职业资料中选出。", "Selected by comparing your six interest scores with U.S. O*NET occupational profiles.")}</p>
@@ -124,6 +133,7 @@ export function CareerAssessmentResult({ model, locale, displayLocale = locale, 
 
         {premium ? <section className={styles.premium} aria-label={t("已解锁的职业深度报告", "Unlocked career report")}>
           <h2>{reportTitle}</h2>
+          {useCuratedCareers && <CuratedCareerRecommendations scores={dimensions} mode={holland ? "holland" : "career94"} dark />}
           {rankedJobs.length > 0 && <>
             <h3>{t("职业候选与岗位对比", "Compare your career shortlist")}</h3>
             <ol className={styles.jobs}>{rankedJobs.map(job => <li key={job.slug}>

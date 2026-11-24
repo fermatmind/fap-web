@@ -14,7 +14,7 @@ import { RIASEC_RESULT_EXAMPLES } from "@/components/tests/RiasecResultExamples"
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
 import type { ReportResponse } from "@/lib/api/v0_3";
-import { DESIGN_COMPARE_HREF } from "@/lib/career/designComparePilot";
+import { rankRiasecCareers } from "@/lib/career/riasecProfileMatch";
 import backendSamples from "@/app/(localized)/[locale]/(app)/dev/riasec-reading/backend-samples.json";
 import { metadata as resultMetadata } from "@/app/(localized)/[locale]/(app)/result/[id]/page";
 
@@ -133,15 +133,16 @@ describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
     for (const href of suggestedHrefs) {
       expect(href).toMatch(new RegExp(`^/${locale}/career/jobs/[a-z0-9-]+$`));
     }
-    const hrefs = [...steps.querySelectorAll("a")]
-      .filter(a => !suggestions.contains(a))
-      .map(a => a.getAttribute("href"));
-    if (locale === "zh" && form === 60) {
-      expect(hrefs).toEqual([
-        ...suggestedHrefs.map(href => `#career-${href!.split("/").at(-1)}`), "/zh/career",
-      ]);
-      for (const href of hrefs.slice(0, -1)) expect(document.getElementById(href!.slice(1))).not.toBeNull();
-    } else expect(hrefs).toEqual([`/${locale}/career/interest-worksheet#interpret-results`, `/${locale}/career`, `/${locale}/career/guides`, `/${locale}/career/tests`, `/${locale}/career/jobs/industrial-designers`, `/${locale}/career/jobs/graphic-designers`, `/${locale}/career/jobs/architects-except-landscape-and-naval`, ...(locale === "zh" ? [DESIGN_COMPARE_HREF] : []), `/${locale}/career/compare`, `/${locale}/career/interest-worksheet`]);
+    if (locale === "zh") {
+      expect(steps.getAttribute("data-curated-state")).toBe("ranked");
+      expect(steps.querySelector('a[href="/zh/career"]')).not.toBeNull();
+      const careers = [...suggestions.querySelectorAll("li[data-scene]")];
+      expect(new Set(careers.map(career => career.getAttribute("data-scene"))).size).toBe(5);
+      expect(careers.slice(0, 4).every(career => career.getAttribute("data-tier") === "broad_mainstream")).toBe(true);
+    } else if (form === 140) {
+      const hrefs = [...steps.querySelectorAll("a")].filter(a => !suggestions.contains(a)).map(a => a.getAttribute("href"));
+      expect(hrefs).toEqual(["/en/career/interest-worksheet#interpret-results", "/en/career", "/en/career/guides", "/en/career/tests", "/en/career/jobs/industrial-designers", "/en/career/jobs/graphic-designers", "/en/career/jobs/architects-except-landscape-and-naval", "/en/career/compare", "/en/career/interest-worksheet"]);
+    }
     if (locale === "zh") {
       const { container, unmount } = render(<RiasecResultShell locale={locale} displayLocale="zh-TW" viewModel={vm} attemptId="private-attempt" />);
       const steps = await screen.findByTestId("riasec-career-next-steps");
@@ -149,7 +150,8 @@ describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
       const careerLinks = [...careers.querySelectorAll("a")].map(link => link.getAttribute("href"));
       const links = [...steps.querySelectorAll("a")].map(link => link.getAttribute("href")!);
       expect(steps.textContent).toContain(form === 60 ? "職業興趣相似度一覽" : "探索興趣輪廓相近的職業");
-      expect(careerLinks).toEqual(suggestedHrefs.map(href => href!.replace("/zh/", "/zh-TW/")));
+      expect(steps).not.toHaveAttribute("data-curated-state");
+      expect(careerLinks).toEqual(rankRiasecCareers(vm.dimensions, "zh-TW").jobs.map(job => `/zh-TW/career/jobs/${job.slug}`));
       expect(links).toContain(form === 60 ? "/zh-TW/career" : "/zh-TW/career/tests");
       for (const href of links) {
         if (href.startsWith("#")) {

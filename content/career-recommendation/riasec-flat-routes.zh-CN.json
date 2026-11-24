@@ -1,0 +1,332 @@
+{
+  "schema_version": "1.0.0",
+  "locale_market": "zh-CN",
+  "selection_policy": {
+    "max_sd_exclusive": 10,
+    "priority": [
+      "top_two",
+      "leading",
+      "default_pair"
+    ],
+    "tie_break_order": [
+      "R",
+      "I",
+      "A",
+      "S",
+      "E",
+      "C"
+    ]
+  },
+  "by_top_two": {
+    "RI": [
+      {
+        "example_slugs": [
+          "robotics-technicians"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "computer-systems-analysts"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "RA": [
+      {
+        "example_slugs": [
+          "mechanical-engineers"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "industrial-designers"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "RS": [
+      {
+        "example_slugs": [
+          "automotive-service-technicians-and-mechanics"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "community-health-workers"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "RE": [
+      {
+        "example_slugs": [
+          "wind-turbine-service-technicians"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "sales-engineers"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "RC": [
+      {
+        "example_slugs": [
+          "electricians"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "database-administrators"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "IA": [
+      {
+        "example_slugs": [
+          "market-research-analysts"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "instructional-coordinators"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "IS": [
+      {
+        "example_slugs": [
+          "bioinformatics-scientists"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "training-and-development-specialists"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "IE": [
+      {
+        "example_slugs": [
+          "statisticians"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "market-research-analysts"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "IC": [
+      {
+        "example_slugs": [
+          "operations-research-analysts"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "information-security-analysts"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "AS": [
+      {
+        "example_slugs": [
+          "graphic-designers"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "high-school-teachers"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "AE": [
+      {
+        "example_slugs": [
+          "video-game-designers"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "meeting-convention-and-event-planners"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "AC": [
+      {
+        "example_slugs": [
+          "film-and-video-editors"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "bookkeeping-accounting-and-auditing-clerks"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "SE": [
+      {
+        "example_slugs": [
+          "educational-guidance-and-career-counselors-and-advisors"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "public-relations-specialists"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "SC": [
+      {
+        "example_slugs": [
+          "compliance-officers"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "training-and-development-specialists"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "EC": [
+      {
+        "example_slugs": [
+          "compliance-officers"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "training-and-development-specialists"
+        ],
+        "activity": "micro_trial"
+      }
+    ]
+  },
+  "by_leading": {
+    "R": [
+      {
+        "example_slugs": [
+          "robotics-technicians"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "electricians"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "I": [
+      {
+        "example_slugs": [
+          "statisticians"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "food-scientists-and-technologists"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "A": [
+      {
+        "example_slugs": [
+          "editors"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "video-game-designers"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "S": [
+      {
+        "example_slugs": [
+          "instructional-coordinators"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "community-health-workers"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "E": [
+      {
+        "example_slugs": [
+          "market-research-analysts"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "purchasing-managers"
+        ],
+        "activity": "micro_trial"
+      }
+    ],
+    "C": [
+      {
+        "example_slugs": [
+          "compliance-officers"
+        ],
+        "activity": "micro_trial"
+      },
+      {
+        "example_slugs": [
+          "logisticians"
+        ],
+        "activity": "micro_trial"
+      }
+    ]
+  },
+  "default_pair": [
+    {
+      "example_slugs": [
+        "market-research-analysts"
+      ],
+      "activity": "micro_trial"
+    },
+    {
+      "example_slugs": [
+        "instructional-coordinators"
+      ],
+      "activity": "micro_trial"
+    }
+  ]
+}

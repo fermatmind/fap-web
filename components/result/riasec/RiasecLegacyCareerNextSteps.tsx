@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL, DESIGN_COMPARE_TASKS } from "@/lib/career/designComparePilot";
 import { rankRiasecCareers } from "@/lib/career/riasecProfileMatch";
 import type { RiasecDimension } from "@/lib/riasec/resultAssembler";
@@ -6,25 +7,26 @@ import { buttonVariants } from "@/components/ui/button";
 import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import { assessmentDisplayPath } from "@/lib/tests/traditionalAssessmentDisplay";
 
-export function RiasecLegacyCareerNextSteps({ locale, displayLocale = locale, activityKeys, scores }: {
+export function RiasecLegacyCareerNextSteps({ locale, displayLocale = locale, activityKeys, scores, recommendations }: {
   locale: Locale;
   displayLocale?: DisplayLocale;
   activityKeys?: readonly string[];
   scores?: RiasecDimension[];
+  recommendations?: ReactNode;
 }) {
   const traditional = displayLocale === "zh-TW";
   const zh = locale === "zh";
   const text = (cn: string, en: string, tw: string) => traditional ? tw : zh ? cn : en;
   const path = (pathname: string) => assessmentDisplayPath(pathname, displayLocale, locale);
   const showDesignCompare = zh && activityKeys?.some(key => key === "r_proto_1" || key === "a_visual_1");
-  const matches = scores ? rankRiasecCareers(scores, displayLocale) : null;
-  return <div className="space-y-3" data-testid="riasec-career-next-steps">
+  const matches = !recommendations && scores ? rankRiasecCareers(scores, displayLocale) : null;
+  return <div className="space-y-3" data-testid={recommendations ? undefined : "riasec-career-next-steps"}>
     <p>{text(
       "先读本次报告的作答质量、六维分数与接近/并列提示，再把兴趣线索带到真实工作任务中核对。兴趣不等于能力、资格或录用条件。",
       "Read this report’s response quality, six dimension scores, and close-score or tie guidance, then check those interests against real work tasks. Interests do not establish ability, qualifications, or hiring eligibility.",
       "先閱讀這份報告的作答品質、六向度分數，以及分數相近或並列的提示，再用實際工作任務核對興趣線索。興趣與能力、資格或任用條件是不同的判斷。",
     )}</p>
-    {matches?.jobs.length ? (
+    {recommendations ?? (matches?.jobs.length ? (
       <details className="space-y-2 print:hidden" data-testid="riasec-profile-careers">
         <summary className="cursor-pointer font-semibold">{text("探索兴趣轮廓相近的职业", "Explore careers with similar interest profiles", "探索興趣輪廓相近的職業")}</summary>
         <p>{text(
@@ -41,7 +43,7 @@ export function RiasecLegacyCareerNextSteps({ locale, displayLocale = locale, ac
       </details>
     ) : matches?.state === "flat" ? (
       <p>{text("你的六维分数比较接近。可以先从感兴趣的具体任务出发，在职业中心比较几个方向。", "Your six scores are close together. Start with a task that interests you and compare a few directions in the career center.", "你的六向度分數較接近。可以先從有興趣的具體任務出發，在職涯中心比較幾個方向。")}</p>
-    ) : null}
+    ) : null)}
     <ol className="list-decimal space-y-3 pl-5">
       <li><Link className="underline underline-offset-4" href={`${path("/career/interest-worksheet")}#interpret-results`}>{text(
         "读懂结果：六维、Top 3 与接近/并列",
