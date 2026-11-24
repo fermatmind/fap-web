@@ -1,0 +1,455 @@
+{
+  "schema_version": "1.0.0",
+  "locale_market": "zh-CN",
+  "recommendation_policy": {
+    "top_n": 5,
+    "max_per_scene": 1,
+    "max_specialized_in_top_5": 2
+  },
+  "clusters": {
+    "accounting_audit": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "aerospace_design": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "animal_care": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "animal_health": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "architectural_design": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "archives_museums": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "automotive_research": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "automotive_service": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "aviation_flight": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "aviation_maintenance": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "aviation_operations": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "bank_credit": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "book_editorial": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "broadcast_media": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "business_insights": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "business_project_operations": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "business_systems": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "chemical_laboratory": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "clinical_medicine": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "clinical_research": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "cnc_machining": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "community_social_support": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "compliance_controls": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "construction_delivery": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "contact_customer_support": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "crop_technology": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "data_research": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "database_operations": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "design_craft": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "economic_financial_analysis": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "education_management_curriculum": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "educational_guidance": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "ehs_industrial_safety": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "electrical_installation": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "electronics_hardware": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "environmental_sustainability": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "exercise_health": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "facility_property_mgmt": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "factory_automation": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "film_video_production": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "food_quality": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "foodservice": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "forest_conservation": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "freight_logistics": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "funeral_memorial_services": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "games_animation": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "garment_design_construction": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "home_care_service": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "hotel_service": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "humanities_research": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "industrial_maintenance": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "industrial_sales": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "information_security": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "insurance_service": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "legal_practice": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "life_science_research": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "light_industry": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "manufacturing_engineering": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "manufacturing_quality": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "marine_operations": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "materials_research": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "media_pr_journalism": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "medical_assessment": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "medical_devices": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "medical_imaging": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "medical_lab": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "mining_oil_geology": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "network_operations": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "new_energy_design": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "new_energy_field_service": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "nursing_care": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "oral_care": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "people_operations": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "performance_marketing": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "performing_arts": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "personal_care": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "pharma_quality": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "pharmacy_supply": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "power_grid_engineering": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "power_plant_operations": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "print_production": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "product_form_design": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "property_transactions": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "psychological_services": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "public_health": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "public_safety_service": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "quantitative_methods": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "rail_dispatch_driving": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "rail_maintenance_signaling": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "rehabilitation": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "retail_commerce": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "road_driving": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "sales_bd_outreach": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "school_teaching": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "science_research": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "securities_service": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "semiconductor_optics": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "social_political_research": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "software_development": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "space_and_exhibit": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "supply_chain_procurement": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "survey_geospatial": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "telecom_network": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "translation": {
+      "max_per_top_5": 1,
+      "vertical_only": true
+    },
+    "transport_infrastructure": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "visitor_service": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "visual_creative": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "visual_interface_design": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "water_operations": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "welding_manufacturing": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    },
+    "workplace_learning": {
+      "max_per_top_5": 1,
+      "vertical_only": false
+    }
+  }
+}
