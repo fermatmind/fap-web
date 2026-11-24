@@ -116,6 +116,14 @@ test("PM2 keeps runtime checks and automatic deployment without applying OpenRes
   assert.equal(mixed.apply_public_ingress, true);
 });
 
+test("history portrait updates refresh the ingress-owned assets", () => {
+  for (const path of ["deploy/openresty/nginx.conf", "public/images/global-history/lovelace.jpg"]) {
+    const result = classifyPaths([path]);
+    assert.equal(result.flags.ingress_runtime_config, true);
+    assert.equal(result.apply_public_ingress, true);
+  }
+});
+
 test("large content releases retain complete evidence without oversized job outputs", () => {
   const source = readFileSync(new URL("../workflows/ci.yml", import.meta.url), "utf8");
   const expression = source.match(/compact="\$\(jq -c '([^']+)' trunk-path-classification\.json\)"/)[1];

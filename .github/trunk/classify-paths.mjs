@@ -59,6 +59,7 @@ export function classifyPaths(inputPaths) {
     ])) selected.push("content_adapter_contract");
     if (matches(path, [
       /^deploy\/openresty\//,
+      /^public\/images\/global-history\//,
       /^lib\/tracking\/serverRuntime\.ts$/,
       /(?:openresty|nginx|ingress|runtime-config|ecosystem\.config)/i,
     ])) selected.push("ingress_runtime_config");
@@ -85,7 +86,11 @@ export function classifyPaths(inputPaths) {
     mixed: categories.length > 1,
     deploy: categories.some((category) => category !== "docs_rules_tests_only"),
     tests_changed: testsChanged,
-    apply_public_ingress: paths.includes("deploy/openresty/fap-web-public.conf"),
+    apply_public_ingress: paths.some((path) => matches(path, [
+      /^deploy\/openresty\/(?:fap-web-public|nginx)\.conf$/,
+      /^public\/images\/global-history\//,
+      /^scripts\/ops\/install-history-avatars\.sh$/,
+    ])),
     // CodeQL extracts JS/TS (including tools/tests and embedded frontend code).
     // Dependency and workflow/config changes can alter extraction or analysis.
     codeql_required: paths.some((path) => /\.(?:[cm]?[jt]sx?|html?|vue|svelte|json)$/.test(path)

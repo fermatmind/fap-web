@@ -50,6 +50,88 @@ container_exec() {
   "${DOCKER[@]}" exec "$container_id" "$@"
 }
 
+mounted_host_path() {
+  local destination="$1"
+  local source
+  source="$("${DOCKER[@]}" inspect --format '{{range .Mounts}}{{printf "%s %s\n" .Destination .Source}}{{end}}' "$container_id" \
+    | awk -v destination="$destination" '$1 == destination { print $2 }')"
+  [[ "$source" == /* && "$source" != *$'\n'* ]] || fail "expected one host bind mount for $destination"
+  printf '%s\n' "$source"
+}
+
+restore_history_ingress() {
+  local backup="$1"
+  if container_exec test -f "$backup/history-main.conf"; then
+    local main
+    main="$(mounted_host_path /usr/local/openresty/nginx/conf/nginx.conf)"
+    container_exec cat "$backup/history-main.conf" | sudo -n tee "$main" >/dev/null || return 1
+  fi
+  if container_exec test -f "$backup/history-assets-link"; then
+    local assets previous
+    assets="$(mounted_host_path /www)/history-assets"
+    previous="$(container_exec cat "$backup/history-assets-link")"
+    if [[ "$previous" == absent ]]; then
+      sudo -n rm -f -- "$assets/current" || return 1
+    else
+      [[ "$previous" =~ ^releases/\.candidate\.[a-zA-Z0-9]+$ ]] || return 1
+      sudo -n test -d "$assets/$previous" || return 1
+      sudo -n ln -s -- "$previous" "$assets/.rollback-$RELEASE_BACKUP_ID" || return 1
+      sudo -n mv -Tf -- "$assets/.rollback-$RELEASE_BACKUP_ID" "$assets/current" || return 1
+    fi
+  fi
+}
+
+prepare_history_ingress() {
+  require_value HISTORY_INGRESS_BUNDLE
+  require_value HISTORY_BUNDLE_SHA256
+  require_value HISTORY_AVATAR_SOURCE
+  [[ "$HISTORY_INGRESS_BUNDLE" == /tmp/fap-web-history-ingress-* && "$HISTORY_BUNDLE_SHA256" =~ ^[a-f0-9]{64}$ ]] || fail "invalid history ingress bundle"
+  [[ "$(sha256sum "$HISTORY_INGRESS_BUNDLE" | awk '{print $1}')" == "$HISTORY_BUNDLE_SHA256" ]] || fail "history ingress digest mismatch"
+  local bundle_dir main assets previous connections files limit
+  bundle_dir="$(mktemp -d)"
+  tar -xf "$HISTORY_INGRESS_BUNDLE" -C "$bundle_dir" -- nginx.conf install-history-avatars.sh
+  main="$(mounted_host_path /usr/local/openresty/nginx/conf/nginx.conf)"
+  assets="$(mounted_host_path /www)/history-assets"
+  connections="$(awk '$1 == "worker_connections" {gsub(/;/, "", $2); print $2}' "$bundle_dir/nginx.conf")"
+  files="$(awk '$1 == "worker_rlimit_nofile" {gsub(/;/, "", $2); print $2}' "$bundle_dir/nginx.conf")"
+  [[ "$connections" =~ ^[1-9][0-9]*$ && "$files" =~ ^[1-9][0-9]*$ ]] || fail "invalid worker limits"
+  (( files >= 2 * connections )) || fail "worker file descriptor limit is too small"
+  limit="$(systemctl show docker.service -p LimitNOFILE --value)"
+  [[ "$limit" == infinity || "$limit" =~ ^[1-9][0-9]*$ && "$limit" -ge "$files" ]] || fail "Docker service hard file descriptor limit is too small"
+  # The live main config is a read-only file bind. Keep its inode so the
+  # running container sees the validated candidate at the next reload.
+  if ! cmp -s "$main" "$bundle_dir/nginx.conf"; then
+    container_exec cp -p /usr/local/openresty/nginx/conf/nginx.conf "$backup_release_dir/history-main.conf"
+    sudo -n tee "$main" < "$bundle_dir/nginx.conf" >/dev/null
+  fi
+  previous="$(sudo -n readlink "$assets/current" || printf absent)"
+  printf '%s\n' "$previous" | "${DOCKER[@]}" exec -i "$container_id" sh -c 'cat > "$1"' sh "$backup_release_dir/history-assets-link"
+  sudo -n bash "$bundle_dir/install-history-avatars.sh" "$HISTORY_AVATAR_SOURCE" "$assets"
+  rm -rf -- "$bundle_dir"
+  rm -f -- "$HISTORY_INGRESS_BUNDLE"
+}
+
+verify_history_ingress() {
+  local avatar_headers poster_headers
+  for _ in {1..10}; do
+    sleep 0.2
+    avatar_headers="$(curl --noproxy '*' --connect-timeout 2 --max-time 4 -fsSI \
+      --resolve fermatmind.com:443:127.0.0.1 https://fermatmind.com/images/global-history/wu-zetian.jpg | tr -d '\r')" || continue
+    grep -Fixq 'Cache-Control: public, max-age=86400' <<< "$avatar_headers" || continue
+    grep -Fixq 'Access-Control-Allow-Origin: *' <<< "$avatar_headers" || continue
+    if grep -Fq 'location = /og/fun/global-history-quiz {' "$CANDIDATE_CONFIG"; then
+      poster_headers="$(curl --noproxy '*' --connect-timeout 2 --max-time 4 -fsSI \
+        --resolve fermatmind.com:443:127.0.0.1 \
+        'https://fermatmind.com/og/fun/global-history-quiz?locale=en&portrait=wu-zetian&format=poster&download=1' | tr -d '\r')" || continue
+      grep -Fixq 'Content-Type: image/jpeg' <<< "$poster_headers" || continue
+      grep -Fixq 'X-Robots-Tag: noindex, nofollow, noarchive, nocache' <<< "$poster_headers" || continue
+      if grep -iq '^Content-Disposition:' <<< "$poster_headers"; then continue; fi
+    fi
+    return 0
+  done
+  return 1
+}
+
 config_set_lines() {
   local file digest
   for file in "${managed_files[@]}"; do
@@ -126,8 +208,7 @@ if [[ "$MODE" == "apply" ]]; then
 
   remote_candidate="/tmp/fap-web-public-ingress-${RELEASE_ID}.conf"
   "${DOCKER[@]}" cp "$CANDIDATE_CONFIG" "$container_id:$remote_candidate"
-  rm -f "$CANDIDATE_CONFIG"
-  trap 'container_exec rm -f "$remote_candidate" >/dev/null 2>&1 || true' EXIT
+  trap 'container_exec rm -f "$remote_candidate" >/dev/null 2>&1 || true; rm -f -- "$CANDIDATE_CONFIG"' EXIT
   container_exec chmod 0444 "$remote_candidate"
 
   # Syntax-check the candidate as a server include before touching the live set.
@@ -147,6 +228,7 @@ EOF
   ' sh "$remote_candidate"
 
   backup_release_dir="$OPENRESTY_BACKUP_DIR/$RELEASE_ID"
+  RELEASE_BACKUP_ID="$RELEASE_ID"
   container_exec mkdir -p "$backup_release_dir"
   restore_originals() {
     local restore_status=0
@@ -156,15 +238,23 @@ EOF
         container_exec cp -p "$backup_release_dir/$managed_file" "$OPENRESTY_CONFIG_ROOT/$managed_file" || restore_status=1
       fi
     done
+    restore_history_ingress "$backup_release_dir" || restore_status=1
     return "$restore_status"
   }
   restore_required=false
+  reload_sent=false
   # shellcheck disable=SC2329 # invoked indirectly by the ERR trap
   restore_on_apply_error() {
     local exit_status="$?"
     trap - ERR
     if [[ "$restore_required" == "true" ]]; then
-      restore_originals || printf 'web-public-ingress: failed to fully restore original files after apply error\n' >&2
+      if ! restore_originals; then
+        printf 'web-public-ingress: failed to fully restore original files after apply error\n' >&2
+      elif [[ "$reload_sent" == "true" ]]; then
+        if ! container_exec openresty -t || ! container_exec openresty -s reload; then
+          printf 'web-public-ingress: failed to reload restored configuration after apply error\n' >&2
+        fi
+      fi
     fi
     exit "$exit_status"
   }
@@ -177,6 +267,9 @@ EOF
     fi
   done
   restore_required=true
+  if grep -Fq '/www/history-assets/current' "$CANDIDATE_CONFIG"; then
+    prepare_history_ingress
+  fi
   for file in "${managed_files[@]}"; do
     container_exec rm -f "$OPENRESTY_CONFIG_ROOT/$file"
   done
@@ -197,6 +290,10 @@ EOF
     fail "candidate did not converge to one HTTPS web vhost; original files restored"
   fi
   container_exec openresty -s reload
+  reload_sent=true
+  if grep -Fq '/www/history-assets/current' "$CANDIDATE_CONFIG"; then
+    verify_history_ingress
+  fi
   restore_required=false
   trap - ERR
   printf 'mode=apply\n'
@@ -211,6 +308,7 @@ require_value EXPECTED_BACKUP_SET_SHA256
 [[ "$ROLLBACK_RELEASE_ID" =~ ^[0-9]+-[0-9a-f]{40}$ ]] || fail "invalid rollback release id"
 [[ "$EXPECTED_BACKUP_SET_SHA256" =~ ^[0-9a-f]{64}$ ]] || fail "invalid backup set SHA"
 backup_release_dir="$OPENRESTY_BACKUP_DIR/$ROLLBACK_RELEASE_ID"
+RELEASE_BACKUP_ID="$ROLLBACK_RELEASE_ID"
 container_exec test -d "$backup_release_dir" || fail "rollback backup missing"
 
 backup_lines="$({
@@ -232,6 +330,7 @@ for file in "${managed_files[@]}"; do
     container_exec cp -p "$backup_release_dir/$file" "$OPENRESTY_CONFIG_ROOT/$file"
   fi
 done
+restore_history_ingress "$backup_release_dir"
 container_exec openresty -t
 container_exec openresty -s reload
 printf 'mode=rollback\n'
