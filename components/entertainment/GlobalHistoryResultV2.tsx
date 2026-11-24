@@ -5,9 +5,11 @@ import { ArchiveQuestionnaireNextStep } from "@/components/questionnaires/Archiv
 import { Container } from "@/components/layout/Container";
 import { SITE_URL } from "@/lib/site";
 import type { DisplayLocale } from "@/lib/i18n/locales";
-import { GLOBAL_HISTORY_QUESTION_COUNT, GLOBAL_HISTORY_SLUG, globalHistoryMethod, globalHistoryPath, globalHistoryPortraitPath, globalHistoryPosterPath, globalHistoryResultPath } from "@/lib/entertainment/global-history/config";
+import { GLOBAL_HISTORY_QUESTION_COUNT, GLOBAL_HISTORY_SLUG, globalHistoryMethod, globalHistoryPath, globalHistoryPortraitPath, globalHistoryResultPath } from "@/lib/entertainment/global-history/config";
 import { coxStudy, coxTranscription, getCoxEstimate, getHistoryResult, historyResultPeers, resultCopy } from "@/lib/entertainment/global-history/result-v2";
 import { historyPeople, type HistoryPerson } from "@/lib/entertainment/global-history/people";
+import wikidataSitelinks from "@/lib/entertainment/global-history/wikidata-sitelinks.json";
+import { globalHistoryGeoEditorial } from "@/lib/entertainment/global-history/geo-editorial";
 import { historyAxes } from "@/lib/entertainment/global-history/questions";
 import { displayHistoryPerson } from "@/lib/entertainment/global-history/traditional-roster";
 import { GlobalHistoryDirectory, GlobalHistoryResultFollowup, GlobalHistoryReveal } from "./GlobalHistoryResultInteractive";
@@ -36,7 +38,15 @@ export function GlobalHistoryResultV2({ person, locale, result, traditionalCopy 
   const name = person.name[lang];
   const path = globalHistoryResultPath(locale, person.id);
   const canonical = `${SITE_URL}${path}`;
-  const image = globalHistoryPosterPath(locale, person.id);
+  const image = globalHistoryPortraitPath(person.id);
+  const geo = globalHistoryGeoEditorial[person.id];
+  const sitelinks = (wikidataSitelinks as Readonly<Record<string, { en: string; zh?: string }>>)[person.qid];
+  const sameAs = [
+    `https://www.wikidata.org/wiki/${person.qid}`,
+    ...Object.entries(sitelinks ?? {}).map(([language, article]) =>
+      `https://${language}.wikipedia.org/wiki/${encodeURIComponent(article.replaceAll(" ", "_"))}`
+    ),
+  ];
   const benchmark = result.iq_benchmark;
   const personality = result.personality_benchmark;
   const coxDates = benchmark.has_cox_data ? benchmark.estimate.dates.split("-") : undefined;
@@ -70,6 +80,7 @@ export function GlobalHistoryResultV2({ person, locale, result, traditionalCopy 
   const faq = [
     { q: t(`${name}的 Cox 智力估值是多少？`, `${name}的 Cox 智力估值是多少？`, `What was Cox’s IQ estimate for ${name}?`), a: benchmark.has_cox_data ? `${iqAnswer} ${coxNote}` : iqAnswer },
     { q: t(`${name}接近哪种 MBTI 原型？`, `${name}接近哪種 MBTI 原型？`, `Which MBTI archetype fits ${name}?`), a: `${personality.inferred_mbti} · ${personality.title[locale]}. ${personalityNote}` },
+    ...(geo ? [{ q: geo.question[locale], a: geo.answer[locale] }] : []),
   ];
   const directory = historyPeople.map(source => {
     const item = displayHistoryPerson(source, locale);
@@ -91,13 +102,15 @@ export function GlobalHistoryResultV2({ person, locale, result, traditionalCopy 
   return <Shell className={styles.page} style={{ "--history-accent": result.accent } as React.CSSProperties} data-global-history-result={person.id}>
     <JsonLd id="world-edition-profile" data={{
       "@context": "https://schema.org",
-      "@graph": [
-        { "@type": "ProfilePage", "@id": `${canonical}#profile`, url: canonical, name: `${name} · ${title}`, mainEntity: { "@id": `${canonical}#person` } },
-        { "@type": "Person", "@id": `${canonical}#person`, name, image: `${SITE_URL}${globalHistoryPortraitPath(person.id)}`, description: person.bio[lang],
-          birthDate: schemaYear(0), deathDate: schemaYear(1),
-          knowsAbout: person.field[lang], sameAs: `https://www.wikidata.org/wiki/${person.qid}` },
-        { "@type": "FAQPage", "@id": `${canonical}#faq`, mainEntity: faq.map(({ q, a }) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
-      ],
+      "@type": "Person",
+      "@id": `${canonical}#person`,
+      name,
+      image: `${SITE_URL}${image}`,
+      description: person.bio[lang],
+      birthDate: schemaYear(0),
+      deathDate: schemaYear(1),
+      knowsAbout: person.field[lang],
+      sameAs,
     }} />
     <Container className={styles.inner}>
       <section className={styles.hero} aria-label={name}>
@@ -126,12 +139,33 @@ export function GlobalHistoryResultV2({ person, locale, result, traditionalCopy 
         >
           <h1 className="sr-only">{name} · {title}</h1>
           <Image className={styles.poster} src={image} unoptimized preload width={900} height={1200}
-            alt={`${name} · ${title} · ${hook} · ${benchmark.has_cox_data ? iqAnswer : gift} · ${personality.inferred_mbti} ${personality.title[locale]} · ${result.tags[locale].join(" / ")}`} />
+            alt={t(`FermatMind 全球卷人物肖像：${name}`, `FermatMind 全球卷人物肖像：${name}`, `FermatMind World Edition portrait of ${name}`)} />
         </GlobalHistoryReveal>
         {result.portrait && <a className={styles.textLink} href={result.portrait.source}>
           {t("肖像来源", "肖像來源", "Portrait source")} · {result.portrait.license}
         </a>}
       </section>
+
+      {geo && <section className={styles.section} aria-labelledby="history-facts">
+        <h2 id="history-facts">{t("人物速览", "人物速覽", "Figure at a glance")}</h2>
+        <p>{geo.summary[locale]}</p>
+        <table className={styles.facts} aria-labelledby="history-facts">
+            <tbody>
+              <tr><th scope="row">{t("时代与领域", "時代與領域", "Era and field")}</th><td>{result.era[locale]} · {person.field[lang]}</td></tr>
+              <tr><th scope="row">{t("传记人格", "傳記人格", "Biographical type")}</th><td>{personality.inferred_mbti} · {t("费马编辑解读", "費馬編輯解讀", "FermatMind editorial interpretation")}</td></tr>
+              {result.six_dimensions.map(({ axis, score, labels }) =>
+                <tr key={axis.en}><th scope="row">{traditionalCopy(axis[lang])}</th><td>{score} / 6 · {labels[locale]}</td></tr>
+              )}
+              <tr><th scope="row">Cox (1926)</th><td>{iqAnswer}</td></tr>
+            </tbody>
+        </table>
+        <h3>{geo.decision.year} · {geo.decision.title[locale]}</h3>
+        <p>{geo.decision.fact[locale]}</p>
+        <p>{geo.decision.interpretation[locale]}</p>
+        <p><a className={styles.textLink} href={geo.decision.source.url}>
+          {geo.decision.source.label} · {geo.decision.source.locator}
+        </a></p>
+      </section>}
 
       <section className={styles.section} aria-labelledby="history-why">
         <h2 id="history-why">{t("为什么是你", "為什麼是你", "Why this is your match")}</h2>

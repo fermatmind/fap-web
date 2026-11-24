@@ -30,12 +30,12 @@ export const batchEditorial = {
     one_line_hook: resultCopy("你不怕机器算得快，只怕大家把输出当成答案。", "你不怕機器算得快，只怕大家把輸出當成答案。", "A printout can tell you what the computer thinks. You still want to see the math."),
     superpower: resultCopy(
       "你擅长给复杂系统做那道最后的复核。格伦升空前，请约翰逊用桌上机械计算机重算轨道参数。碰上同样的局面，你会走一条独立的复核路径，让第一次计算有实在的交叉检验。",
-      "你擅長替複雜系統做最後一道複核。葛倫升空前，請強生用桌上型機械計算機重算軌道參數。碰上同樣的局面，你會走一條獨立的複核路徑，讓第一次計算有實在的交叉檢驗。",
+      "你擅長替複雜系統做最後一道複核。葛倫升空前，請強森用桌上型機械計算機重算軌道參數。碰上同樣的局面，你會走一條獨立的複核路徑，讓第一次計算有實在的交叉檢驗。",
       "When the room has to trust a complicated system, you look for an independent check. Before John Glenn’s flight, Johnson reran the orbital figures on a mechanical calculator. Two calculation paths gave the team a result it could cross-check.",
     ),
     quirk_or_blindspot: resultCopy(
       "你很容易给任何细节配一把尺。约翰逊回忆，她小时候连上教堂的台阶和洗过的餐具也数。换成今天，能量化当然是长处。难的是在表格画满以前，听见那些还没有数字的疑问。",
-      "你很容易替任何細節配一把尺。強生回憶，她小時候連教堂的階梯和洗過的餐具都會數。換成今天，能量化當然是長處。難的是在表格填滿以前，聽見那些還沒有數字的疑問。",
+      "你很容易替任何細節配一把尺。強森回憶，她小時候連教堂的階梯和洗過的餐具都會數。換成今天，能量化當然是長處。難的是在表格填滿以前，聽見那些還沒有數字的疑問。",
       "Your brain keeps a running tally. Johnson remembered counting church steps and the dishes she washed as a child. In a modern team, that appetite for measurement can crowd out questions nobody has figured out how to put in a spreadsheet.",
     ),
     cognitive_gift_tag: resultCopy("轨道推演与独立复核", "軌道推演與獨立複核", "Orbital math and cross-checking"),

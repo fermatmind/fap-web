@@ -115,7 +115,8 @@
     "id": "marie-curie",
     "name": {
       "zh": "玛丽·居里",
-      "en": "Marie Curie"
+      "en": "Marie Curie",
+      "zh-TW": "瑪麗·居禮"
     },
     "region": {
       "zh": "欧洲",
@@ -395,7 +396,8 @@
     "id": "katherine-johnson",
     "name": {
       "zh": "凯瑟琳·约翰逊",
-      "en": "Katherine Johnson"
+      "en": "Katherine Johnson",
+      "zh-TW": "凱薩琳·強森"
     },
     "region": {
       "zh": "北美",
@@ -563,7 +565,8 @@
     "id": "leonardo-da-vinci",
     "name": {
       "zh": "列奥纳多·达·芬奇",
-      "en": "Leonardo da Vinci"
+      "en": "Leonardo da Vinci",
+      "zh-TW": "李奧納多·達文西"
     },
     "region": {
       "zh": "欧洲",
@@ -2131,7 +2134,8 @@
     "id": "aristotle",
     "name": {
       "zh": "亚里士多德",
-      "en": "Aristotle"
+      "en": "Aristotle",
+      "zh-TW": "亞里斯多德"
     },
     "region": {
       "zh": "欧洲",

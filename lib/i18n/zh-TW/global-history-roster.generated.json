@@ -3,7 +3,7 @@
   "converter": "opencc-js@1.4.2:cn:twp",
   "glossary": "fermatmind-tw-1",
   "sourceHashes": {
-    "lib/entertainment/global-history/people.json": "a76d630478fc2ed83021a01ca5017a4526698347ea56309d6e62a20429685b1f"
+    "lib/entertainment/global-history/people.json": "3b6813be30d9664b899cb53703725b00ac3979d0d9e0d7865b0a2bf2ec7a736f"
   },
   "units": {
     "lib/entertainment/global-history/people.json/0/name": {
