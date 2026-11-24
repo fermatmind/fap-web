@@ -1,5 +1,5 @@
 import { renderToStaticMarkup } from "react-dom/server";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { JungReport } from "@/components/result/jung/JungReportPreview";
 import { JungResult } from "@/components/result/jung/JungResult";
@@ -23,11 +23,6 @@ vi.mock(
     Career94Checkout: () => <p>Existing checkout</p>,
   }),
 );
-vi.mock("@/components/commerce/CareerRefundPanel", () => ({
-  CareerRefundPanel: ({ onRefunded }: { onRefunded: () => void }) => (
-    <button onClick={onRefunded}>Refund</button>
-  ),
-}));
 const rootFor = (html: string) => {
   const root = document.createElement("div");
   root.innerHTML = html;
@@ -182,7 +177,7 @@ describe("shared Chinese Jung report and fixed public sample", () => {
     );
     expect(html).toContain("当前无法读取报告");
   });
-  it("links only the fixed sample while retaining existing payment and refund behavior", () => {
+  it("links the fixed sample and follows the server purchase state", () => {
     const data = { ok: true, meta: { scale_code: "JUNG_ARCHETYPES" } };
     const { rerender } = render(
       <MainstreamPaidResult data={data} purchase={purchase} locale="zh">
@@ -212,7 +207,20 @@ describe("shared Chinese Jung report and fixed public sample", () => {
     expect(
       screen.queryByRole("link", { name: /查看完整示例报告/ }),
     ).not.toBeInTheDocument();
-    fireEvent.click(screen.getByText("Refund"));
+    rerender(
+      <MainstreamPaidResult
+        data={data}
+        purchase={{
+          ...purchase,
+          unlocked: false,
+          order_no: "synthetic-order",
+          payment_state: "refunded",
+        }}
+        locale="zh"
+      >
+        <p>Private real result</p>
+      </MainstreamPaidResult>,
+    );
     expect(screen.queryByText("Private real result")).not.toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /查看完整示例报告/ }),

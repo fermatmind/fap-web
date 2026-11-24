@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowDown, BarChart3, BookOpen, LockKeyhole, Brain, Compass, Flower2, Network, Palette, Target, Zap, Handshake, Waves, ArrowUpRight } from "lucide-react";
 import styles from "@/components/career/unlock-report-experience.module.css";
-import { useRef, useState, type ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 import type { ReportResponse, ResultResponse, RiasecPurchase } from "@/lib/api/v0_3";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import { Career94Checkout } from "@/app/(localized)/[locale]/career/assessment/Career94Purchase";
@@ -18,7 +18,6 @@ import { ResultPreviewShare } from "./ResultPreviewShare";
 import { ResultPreviewChapters } from "./ResultPreviewChapters";
 import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
 import { eqUnlockSchema } from "@/lib/eq/resultPage";
-import { CareerRefundPanel } from "./CareerRefundPanel";
 import { MobileReportPurchaseEntry, selectReportPurchaseOffer } from "./MobileReportPurchaseEntry";
 import { useReportPurchaseObservation } from "@/hooks/useReportPurchaseObservation";
 
@@ -157,7 +156,6 @@ function ReasoningUnlockExplore({ locale, result, samplePath, live }: {
 export function MainstreamPaidResult({ data, purchase, locale, children, preview = false, previewArtwork, reasoningPreview, discPreview, traitProfile, previewSampleHref, sampleResultId }: {
   data: ResultResponse | ReportResponse; purchase: RiasecPurchase; locale: DisplayLocale; children?: ReactNode; preview?: boolean; previewArtwork?: string; reasoningPreview?: ReasoningPreview; discPreview?: DiscDesignPreview; traitProfile?: TraitProfilePreview; previewSampleHref?: string; sampleResultId?: string;
 }) {
-  const [refunded, setRefunded] = useState(false);
   const t = (zh: string, tw: string, en: string) => locale === "en" ? en : locale === "zh-TW" ? tw : zh;
   const record = data as unknown as Record<string, unknown>;
   const scale = String(data.meta?.scale_code ?? record.scale_code ?? "");
@@ -168,7 +166,7 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
     traitProfile = buildEqProfile(rows.map(row => ({code: row.code, standard_score: row.score})), locale);
   }
   const name = names[scale] ?? [scale, scale, scale];
-  const paid = purchase.unlocked && !refunded;
+  const paid = purchase.unlocked;
   const existing = purchase.order_no && purchase.payment_state !== "canceled";
   const root = useRef<HTMLDivElement>(null);
   const offer = !preview && !paid && !existing && scale !== "MBTI" ? selectReportPurchaseOffer(purchase.offers, locale) : undefined;
@@ -232,7 +230,6 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
     : `/${locale}/reports/samples/${sampleKey}${scale === "DISC_BEHAVIOR" && sampleResultId ? `?result=${encodeURIComponent(sampleResultId)}` : ""}`;
   const durationMs = readNonNegativeInteger(summary.duration_ms) ?? undefined;
   return <><div className={paid ? (scale === "JUNG_ARCHETYPES" && locale === "zh" ? "w-full space-y-6" : "mx-auto max-w-6xl px-4 py-8") : lockedLayout} data-result-visible-root data-testid="mainstream-paid-result" ref={root}>
-    {purchase.order_no && <CareerRefundPanel orderNo={purchase.order_no} locale={locale} onRefunded={() => setRefunded(true)} />}
     {paid ? children : <>
       <div className={styles.shell}>
       {offer && <div className={styles.mobilePurchaseBar}>
@@ -318,7 +315,7 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
         <p className={styles.offerIntro}>{t("不止看见分数，更理解它与你的生活有什么联系。", "不只看見分數，更理解它與你的生活有什麼聯繫。", "Go beyond the scores and explore what they mean in everyday life.")}</p>
         <ul className={styles.benefits}>{(sections[scale === "IQ_INTELLIGENCE_QUOTIENT" ? "IQ_RAVEN" : scale] ?? []).map((copy,i)=><li key={i}>{i ? <BookOpen size={24}/> : <BarChart3 size={24}/>}<div><strong>{t(...copy)}</strong><p>{t(...benefitDetails[scale === "IQ_INTELLIGENCE_QUOTIENT" ? "IQ_RAVEN" : scale][i])}</p></div></li>)}</ul>
         <div id={offer ? "unlock-payment-options" : undefined} tabIndex={offer ? -1 : undefined} className={styles.purchaseSlot}>
-        {preview ? <><p className={styles.scoreNote}>{t("本地样式预览 · 模拟分数 · 不创建订单", "本機樣式預覽 · 模擬分數 · 不建立訂單", "Local design preview · synthetic scores · no orders")}</p>{[t("微信支付 · ¥2.99", "微信支付 · ¥2.99", "WeChat Pay · ¥2.99"),t("支付宝 · ¥2.99", "支付寶 · ¥2.99", "Alipay · ¥2.99"),t("海外银行卡 · US$2.99", "海外銀行卡 · US$2.99", "International card · US$2.99")].map(label=><button key={label} disabled className="my-2">{label}</button>)}</> : existing ? <p role="status">{refunded || purchase.payment_state === "refunded" ? t("此订单已退款，付费报告访问已停止。", "此訂單已退款，付費報告存取已停止。", "This order was refunded. Access to the paid report has ended.") : t("此报告已有订单，可查看支付和退款进度。", "此報告已有訂單，可查看付款與退款進度。", "This report has an existing order. Check its payment or refund status.")}{" "}<Link className="underline" href={`/${locale}/pay/wait?order_no=${encodeURIComponent(purchase.order_no!)}`}>{t("查看订单", "查看訂單", "View order")}</Link></p>
+        {preview ? <><p className={styles.scoreNote}>{t("本地样式预览 · 模拟分数 · 不创建订单", "本機樣式預覽 · 模擬分數 · 不建立訂單", "Local design preview · synthetic scores · no orders")}</p>{[t("微信支付 · ¥2.99", "微信支付 · ¥2.99", "WeChat Pay · ¥2.99"),t("支付宝 · ¥2.99", "支付寶 · ¥2.99", "Alipay · ¥2.99"),t("海外银行卡 · US$2.99", "海外銀行卡 · US$2.99", "International card · US$2.99")].map(label=><button key={label} disabled className="my-2">{label}</button>)}</> : existing ? <p role="status">{purchase.payment_state === "refunded" ? t("此订单已退款，付费报告访问已停止。", "此訂單已退款，付費報告存取已停止。", "This order was refunded. Access to the paid report has ended.") : t("此报告已有订单，可查看支付和退款进度。", "此報告已有訂單，可查看付款與退款進度。", "This report has an existing order. Check its payment or refund status.")}{" "}<Link className="underline" href={`/${locale}/pay/wait?order_no=${encodeURIComponent(purchase.order_no!)}`}>{t("查看订单", "查看訂單", "View order")}</Link></p>
           : purchase.offers.length ? <Career94Checkout locale={locale === "en" ? "en" : "zh"} displayLocale={locale} attemptId={purchase.attempt_id} offers={purchase.offers} onPaymentClick={offer ? () => observe("payment_clicked") : undefined} />
             : <p role="status">{t("本次结果暂不提供购买，请稍后重试。", "本次結果暫不提供購買，請稍後重試。", "Purchasing is unavailable for this result. Please try again later.")}</p>}
         </div>

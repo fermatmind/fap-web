@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { CareerRefundPanel } from "@/components/commerce/CareerRefundPanel";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
 import { CareerAssessmentResult } from "./CareerAssessmentResult";
 import { Career94ReportView } from "./Career94FreeReport";
@@ -15,10 +14,6 @@ export function Career94SavedResult({ locale, attemptId, reading = false }: { lo
   const [result, setResult] = useState<Career94Result>();
   const [error, setError] = useState<"login" | "unavailable">();
   const [retry, setRetry] = useState(0);
-
-  const refreshAfterRefund = useCallback(() => {
-    setResult(current => current && current.payment_state !== "refunded" ? { ...current, unlocked: false, premium: undefined, payment_state: "refunded", offers: [] } : current);
-  }, []);
 
   useEffect(() => {
     const abort = new AbortController();
@@ -43,9 +38,7 @@ export function Career94SavedResult({ locale, attemptId, reading = false }: { lo
 
   if (reading) return <Career94ReportView model={assembleRiasecResultViewModel(result.result, locale)} locale={locale} backHref={`/${locale}/career/assessment/result/${attemptId}`} />;
 
-  return <>
-    {result.order_no && <CareerRefundPanel orderNo={result.order_no} locale={locale} onRefunded={refreshAfterRefund} />}
-    <CareerAssessmentResult
+  return <CareerAssessmentResult
     model={assembleRiasecResultViewModel(result.result, locale)}
     locale={locale}
     premium={result.unlocked ? result.premium : undefined}
@@ -55,6 +48,5 @@ export function Career94SavedResult({ locale, attemptId, reading = false }: { lo
         <Link className="underline" href={`/${locale}/pay/wait?order_no=${encodeURIComponent(result.order_no)}`}>{zh ? "查看订单" : "View order"}</Link>
       </p>
     ) : result.offers.length > 0 && <Career94Checkout locale={locale} attemptId={attemptId} offers={result.offers} />}
-  />
-  </>;
+  />;
 }

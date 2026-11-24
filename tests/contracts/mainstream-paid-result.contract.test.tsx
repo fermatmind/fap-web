@@ -1,9 +1,9 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MainstreamPaidResult } from "@/components/commerce/MainstreamPaidResult";
 import type { RiasecPurchase } from "@/lib/api/v0_3";
 vi.mock("@/app/(localized)/[locale]/career/assessment/Career94Purchase", () => ({ Career94Checkout: ({ displayLocale }: {displayLocale: string}) => <p>Checkout {displayLocale}</p> }));
-vi.mock("@/components/commerce/CareerRefundPanel", () => ({ CareerRefundPanel: ({ onRefunded }: {onRefunded: () => void}) => <button onClick={onRefunded}>Refund synchronized</button> }));
+vi.mock("@/components/commerce/CareerRefundPanel", () => ({ CareerRefundPanel: () => <h2>Refund request</h2> }));
 beforeEach(() => { vi.spyOn(HTMLCanvasElement.prototype, "getContext").mockReturnValue(null); });
 const purchase: RiasecPurchase = { attempt_id: "owned-attempt", unlocked: false, order_no: null, payment_state: null, offers: [{ provider: "alipay", sku: "MBTI_WEB_REPORT_CNY_299", currency: "CNY", amount_cents: 299 }] };
 describe("mainstream per-attempt full report purchase", () => {
@@ -26,10 +26,12 @@ describe("mainstream per-attempt full report purchase", () => {
       expect(screen.queryByRole("link", { name: "¥3.69 解锁完整报告" })).toBeNull();
     },
   );
-  it("retains the native report and stops displaying it when a refund completes", () => {
-    render(<MainstreamPaidResult data={{ok:true, meta:{scale_code:"MBTI"}}} purchase={{...purchase, unlocked:true, order_no:"owned-order",payment_state:"paid"}} locale="en"><p>Private full report</p></MainstreamPaidResult>);
+  it("keeps refunds out of the report and follows the server access decision", () => {
+    const paid = { ...purchase, unlocked: true, order_no: "owned-order", payment_state: "paid" } satisfies RiasecPurchase;
+    const { rerender } = render(<MainstreamPaidResult data={{ok:true, meta:{scale_code:"MBTI"}}} purchase={paid} locale="en"><p>Private full report</p></MainstreamPaidResult>);
     expect(screen.getByText("Private full report")).toBeVisible();
-    fireEvent.click(screen.getByText("Refund synchronized"));
+    expect(screen.queryByRole("heading", {name:"Refund request"})).not.toBeInTheDocument();
+    rerender(<MainstreamPaidResult data={{ok:true, meta:{scale_code:"MBTI"}}} purchase={{...paid, unlocked:false, payment_state:"refunded"}} locale="en"><p>Private full report</p></MainstreamPaidResult>);
     expect(screen.queryByText("Private full report")).not.toBeInTheDocument();
     expect(screen.getByText(/This order was refunded/)).toBeVisible();
     expect(screen.queryByText("Checkout en")).not.toBeInTheDocument();
