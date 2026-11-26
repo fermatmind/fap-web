@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { YEAR_END_BONUS_ARTICLE_SLUG } from "@/lib/content/articleEditorial";
 import type { ArticleDirective } from "@/lib/content/articleDirectives";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import { articleEditorialCopy } from "../articleEditorialCopy";
@@ -37,8 +38,19 @@ export function ArticleReadingBlock({ block, inline, text, locale, slug, index }
         plain={block.lines.map(text)} items={block.lines.map((line, i) => inline(line, String(i)))} />;
     case "takeaways":
       return <ArticleTakeaways title={block.title ?? copy.takeaways} items={block.lines.map((line, i) => inline(line, String(i)))} />;
-    case "callout":
-      return <ArticleCallout title={block.title ?? copy.callout} paragraphs={block.lines.map((line, i) => inline(line, String(i)))} />;
+    case "callout": {
+      const match = slug === YEAR_END_BONUS_ARTICLE_SLUG
+        ? block.lines[0]?.match(/\[[^\]]+\]\(((?:https:\/\/fermatmind\.com)?\/(?:zh|en|zh-TW)\/tests\/career-planning-and-work-style-test)\)/u)
+        : null;
+      if (!match) {
+        return <ArticleCallout title={block.title ?? copy.callout} paragraphs={block.lines.map((line, i) => inline(line, String(i)))} />;
+      }
+      const label = locale === "zh" ? "开始 94 题费马职业测试" : locale === "zh-TW" ? "開始費馬 94 題職涯測驗" : "Start the 94-question career test";
+      const firstLine = block.lines[0].replace(match[0], "").replace(/^[。.,，]$|([。.!?])\s*[。.,，]+$/u, "$1").replace(/。\s*，/gu, "。").trim();
+      return <ArticleCallout title={block.title ?? copy.callout}
+        paragraphs={[firstLine, ...block.lines.slice(1)].filter(Boolean).map((line, i) => inline(line, String(i)))}
+        action={inline(`[${label} →](${match[1]})`, "action")} />;
+    }
     case "references":
     case "methodology": {
       const groups: Array<{ heading?: string; entries: string[] }> = [{ entries: [] }];

@@ -2,6 +2,8 @@ import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { CmsArticle } from "@/lib/cms/articles";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 
+export const YEAR_END_BONUS_ARTICLE_SLUG = "year-end-bonus-vs-job-hopping";
+
 function plainText(value: string) {
   return value
     .replace(/<[^>]+>/g, " ")
@@ -37,7 +39,7 @@ export function editorialScope(markdown: string) {
 }
 
 export function editorialRelated(
-  article: Pick<CmsArticle, "slug" | "category">,
+  article: Pick<CmsArticle, "slug" | "category" | "tags">,
   items: CmsArticle[],
   locale: DisplayLocale,
   now = Date.now(),
@@ -53,9 +55,10 @@ export function editorialRelated(
       || (item.scheduledAt && Date.parse(item.scheduledAt) > now)) continue;
     seen.add(item.slug);
     result.push(item);
-    if (result.length === 5) break;
   }
-  return result;
+  const tags = new Set(article.tags.map(({ slug }) => slug).filter(Boolean));
+  const relevance = (item: CmsArticle) => item.tags.filter(({ slug }) => tags.has(slug)).length;
+  return result.sort((left, right) => relevance(right) - relevance(left)).slice(0, 3);
 }
 
 

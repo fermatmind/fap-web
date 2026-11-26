@@ -251,10 +251,13 @@
 .fm-article-related-image { border-radius: 8px; }
 .fm-article-prose :is(ul,ol):not(.fm-article-block-grid,.fm-article-checklist) { padding-inline-start: 1.3em; }
 .fm-article-prose ul:not(.fm-article-block-grid,.fm-article-checklist) { list-style: disc; }
-.fm-article-prose ol { list-style: decimal; }
+.fm-article-prose ol:not(.fm-article-block-grid) { list-style: decimal; }
+.fm-article-prose table :is(th, td) { color: #1f2937; }
+.fm-article-prose table strong { color: #111827; }
 .fm-article-prose [data-article-block="takeaways"] { background: #f7f6f2; border-color: #e6e4dc; padding: 24px; }
 .fm-article-prose [data-article-block="callout"] { background: var(--fm-editorial-warm); }
-.fm-article-prose [data-article-block="callout"] a {
+.fm-article-callout-action { margin-top: 10px; }
+.fm-article-prose .fm-article-callout-action a {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
@@ -267,7 +270,7 @@
   font-weight: 650;
   text-decoration: none;
 }
-.fm-article-prose [data-article-block="callout"] a:hover { background: #283346; }
+.fm-article-prose .fm-article-callout-action a:hover { background: #283346; }
 .fm-article-wide-table .fm-editorial-table { isolation: isolate; }
 .fm-article-wide-table :is(th,td):first-child { position: sticky; left: 0; z-index: 1; background: white; box-shadow: 1px 0 var(--fm-border); }
 .fm-article-wide-table th:first-child { background: var(--fm-surface-muted); }
@@ -377,11 +380,6 @@
     overflow-y: auto;
   }
   .fm-article-meta { display: block; }
-  .fm-article-layout .fm-article-sidebar:has(.fm-article-related) {
-    position: static;
-    max-height: none;
-    overflow: visible;
-  }
   .fm-article-related > h2 {
     font-size: 1.125rem;
     letter-spacing: normal;
@@ -445,4 +443,16 @@
   .fm-article-page[data-editorial-blocks="true"] .fm-article-body-flow > * + * { margin-block-start: 10px; }
   .fm-article-page[data-editorial-blocks="true"] .fm-article-prose h2 { margin-block-start: 24px; }
   .fm-article-prose [data-article-block="callout"] { padding: 13px 16px; }
+}
+
+
+@media screen and (min-width: 1280px) {
+  .fm-article-page[data-compact-intro="true"] .fm-article-page-header {
+    max-width: 1056px;
+    padding-block: 12px;
+  }
+  .fm-article-page[data-compact-intro="true"] .fm-article-hero { height: 210px; }
+  .fm-article-page[data-compact-intro="true"] .fm-article-main > * + * { margin-top: 14px; }
+  .fm-article-page[data-compact-intro="true"] [data-article-block="takeaways"] { padding: 16px 24px; }
+  .fm-article-page:has(.fm-article-meta [data-article-scope]) [data-article-scope-copy] { display: none; }
 }

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import type { CmsArticle } from "@/lib/cms/articles";
-import { editorialDeck, editorialReadingMinutes, editorialRelated, editorialScope } from "@/lib/content/articleEditorial";
+import { editorialDeck, editorialReadingMinutes, editorialRelated, editorialScope, YEAR_END_BONUS_ARTICLE_SLUG } from "@/lib/content/articleEditorial";
 import type { BlogArchiveState } from "@/lib/content/blogArchive";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 import type { DisplayLocale } from "@/lib/i18n/locales";
@@ -39,6 +39,8 @@ function ArticleImage({ article, mode }: { article: CmsArticle; mode: "card" | "
 
 export function ArticleEditorialLayout({ locale, article, categoryLabel = article.category?.name, relatedState, headings, sourceChecked, editorial, schema, navigation, children }: Props) {
   const t = copy[locale];
+  const compactIntro = article.slug === YEAR_END_BONUS_ARTICLE_SLUG;
+  const titleParts = compactIntro && locale === "zh" ? article.title.split(/(奖金)/u) : [article.title];
   const related = relatedState && !relatedState.stale && !relatedState.failed
     ? editorialRelated(article, relatedState.data?.items ?? [], locale) : [];
   const date = article.updatedAt ?? article.publishedAt;
@@ -50,10 +52,12 @@ export function ArticleEditorialLayout({ locale, article, categoryLabel = articl
   const hasContents = headings.some(({ level }) => level === 2);
   const author = <ArticleByline authorName={article.authorName} locale={locale} />;
   return (
-    <main className="fm-article-page" data-language={locale} data-editorial-blocks={editorial || undefined}>
+    <main className="fm-article-page" data-language={locale} data-compact-intro={compactIntro || undefined} data-editorial-blocks={editorial || undefined}>
       {schema}
       <header id="what-it-is" className="fm-article-page-header">
-        <h1>{renderCjkPunctuationText(article.title, "article-title")}</h1>
+        <h1>{titleParts.map((part, index) => part === "奖金"
+          ? <span key={index} className="whitespace-nowrap">{part}</span>
+          : renderCjkPunctuationText(part, `article-title-${index}`))}</h1>
         {deck && <p className="fm-article-deck">{deck}</p>}
         <div className="fm-article-inline-meta">{author}{updated && <time dateTime={updated}>{updated}</time>}<span>{minutes}</span></div>
         {navigation && <div className="fm-article-extra-nav">{navigation}</div>}
@@ -70,7 +74,7 @@ export function ArticleEditorialLayout({ locale, article, categoryLabel = articl
             <div><dt>{t.read}</dt><dd>{minutes}</dd></div>
             <div><dt>{t.author}</dt><dd>{author}</dd></div>
             {sourceChecked && <div><dt>{t.check}</dt><dd>{t.checked}</dd></div>}
-            {scope && <div><dt>{t.scope}</dt><dd>{scope}</dd></div>}
+            {scope && <div data-article-scope><dt>{t.scope}</dt><dd>{scope}</dd></div>}
             {tags.length > 0 && <div><dt>{t.tags}</dt><dd>{tags.join(locale === "en" ? " · " : "、")}</dd></div>}
           </dl>
           {related.length > 0 && <section className="fm-article-related" aria-label={t.related}>

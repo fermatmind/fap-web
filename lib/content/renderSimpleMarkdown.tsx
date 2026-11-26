@@ -4,6 +4,7 @@ import { labelInternalHref, splitInternalLinkText, type InternalLinkLabelMap } f
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 import { ArticleReadingBlock } from "@/components/articles/blocks/ArticleReadingBlocks";
 import { articleEditorialCopy } from "@/components/articles/articleEditorialCopy";
+import { YEAR_END_BONUS_ARTICLE_SLUG } from "@/lib/content/articleEditorial";
 import { parseArticleDirective, type ArticleDirective } from "@/lib/content/articleDirectives";
 import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 
@@ -532,8 +533,10 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
           ? /^\*\*([^*]+)\*\*$/u.exec(block.text) : null;
         const length = strong ? Array.from(renderedText(renderInlineMarkdown(strong[1], key, options)).replace(/\s/gu, "")).length : 0;
         const highlight = length >= 35 && length <= 80;
+        const repeatedScope = options.editorial?.slug === YEAR_END_BONUS_ARTICLE_SLUG
+          && options.editorial.locale === "zh" && block.text === "以下适用中国大陆劳动和税务规则。";
         return (
-          <p key={key} className={highlight ? "fm-h2-takeaway" : "m-0 leading-7 text-[var(--fm-text-muted)]"}>
+          <p key={key} data-article-scope-copy={repeatedScope || undefined} className={highlight ? "fm-h2-takeaway" : "m-0 leading-7 text-[var(--fm-text-muted)]"}>
             {renderInlineMarkdown(block.text, `${key}-inline`, options)}
           </p>
         );
