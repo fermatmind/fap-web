@@ -18,7 +18,7 @@ const csvCell = value => {
   return /[,"\r\n]/u.test(text) ? '"' + text.replaceAll('"', '""') + '"' : text;
 };
 function csv(columns, rows) {
-  return [columns.join(","), ...rows.map(row => columns.map(key => csvCell(row[key])).join(","))].join("\r\n") + "\r\n";
+  return [columns.join(","), ...rows.map(row => columns.map(key => csvCell(row[key])).join(","))].join("\n") + "\n";
 }
 function emit(atlas, extension, contents) {
   const file = fileURLToPath(new URL("public" + historyAtlasDownloads[atlas] + "." + extension, root));
