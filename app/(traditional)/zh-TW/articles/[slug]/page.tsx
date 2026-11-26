@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
+import { ArticleAcademicFooter } from "@/components/articles/ArticleAcademicFooter";
+import { ArticleReadingNavigation } from "@/components/articles/ArticleReadingNavigation";
+import { ArticleTrustHeader } from "@/components/articles/ArticleTrustHeader";
 import { ArticleClosing } from "@/components/articles/ArticleClosing";
 import { ArticleLanguageNavigation } from "@/components/articles/ArticleLanguageNavigation";
 import { ArticleFragmentNavigation } from "@/components/articles/ArticleFragmentNavigation";
@@ -10,7 +13,7 @@ import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { sanitizeCmsHtml } from "@/lib/cms/sanitizeCmsRichText";
 import { buildArticleFrontendUrl, getCmsArticle, getCmsArticleSeo, normalizeArticleSlug } from "@/lib/cms/articles";
-import { excludeFaqCopiesInMarkdown, getSimpleMarkdownHeadings, renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
+import { excludeFaqCopiesInMarkdown, getArticleEditorialFeatures, getSimpleMarkdownHeadings, renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { blogArchivePath, loadBlogArchive } from "@/lib/content/blogArchive";
 import { canonicalUrl, isConfiguredStagingSiteUrl } from "@/lib/site";
 import { resolveArticleHreflangGate, resolveArticleSchemaGate } from "@/lib/seo/articlePersonalityAuthority";
@@ -92,7 +95,9 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
   const blog = archive.data?.blog;
   const publishedArchive = !archive.failed && !archive.stale && blog?.configurationState === "published";
   const category = publishedArchive ? blog.categories.find((item) => item.slug === article.category?.slug) : undefined;
-  const headings = article.contentHtml.trim() ? [] : getSimpleMarkdownHeadings(article.contentMd, markdownOptions);
+  const editorial = !article.contentHtml.trim() ? getArticleEditorialFeatures(article.contentMd) : { enabled: false, sources: false };
+  const options = { ...markdownOptions, editorial: editorial.enabled ? { locale, slug, part: "body" } as const : undefined, highlightEditorialConclusions: true };
+  const headings = article.contentHtml.trim() ? [] : getSimpleMarkdownHeadings(article.contentMd, options);
   const faq = excludeFaqCopiesInMarkdown(article.answerSurface?.faqBlocks ?? [], article.contentMd, { locale: "zh" });
   // Reviewed article links retain the public assessment's source-language route.
   const assessmentLinks = (article.landingSurface?.ctaBundle ?? []).filter(
@@ -100,7 +105,7 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
   );
 
   return (
-    <Container as="main" className="min-w-0 space-y-8 py-10">
+    <Container as="main" className={editorial.enabled ? "fm-article-page" : "fm-article-print-root min-w-0 space-y-8 py-10"}>
       {schemaGate.canRenderArticleJsonLd && fragments?.article
         ? <JsonLd id={`article-jsonld-${slug}`} data={fragments.article} /> : null}
       {schemaGate.canRenderBreadcrumbJsonLd && fragments?.breadcrumbList
@@ -113,7 +118,7 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
         <Link href={blogArchivePath(locale)} className="min-h-11 py-2 underline">返回文章列表</Link>
         {category ? <Link href={blogArchivePath(locale, category.slug)} className="min-h-11 py-2 underline">{category.name}</Link> : null}
       </nav> : null}
-      <header className="space-y-5 border-b border-[var(--fm-border)] pb-7">
+      <header className={editorial.enabled ? "fm-article-page-header" : "space-y-5 border-b border-[var(--fm-border)] pb-7"}>
         <ArticleResponsiveImage
           src={article.coverImageUrl}
           alt={article.coverImageAlt ?? article.title}
@@ -122,15 +127,17 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
           variants={article.coverImageVariants}
           mode="hero"
           priority
-          className="aspect-[16/9] rounded-lg border border-[var(--fm-border)]"
+          className={editorial.enabled ? "fm-article-hero" : "aspect-[16/9] rounded-lg border border-[var(--fm-border)]"}
         />
-        <div className="max-w-4xl space-y-4">
+        <div className={editorial.enabled ? "fm-article-heading" : "max-w-4xl space-y-4"}>
           <h1 className="m-0 font-serif text-4xl font-semibold leading-tight text-[var(--fm-text)] [overflow-wrap:anywhere]">{article.title}</h1>
-          {article.excerpt ? <p className="m-0 max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)]">{article.excerpt}</p> : null}
-          {article.authorName ? <p className="text-sm text-[var(--fm-text-muted)]">作者 {article.authorName}</p> : null}
+          {article.excerpt && !editorial.enabled ? <p className="m-0 max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)]">{article.excerpt}</p> : null}
+          {editorial.enabled ? <ArticleTrustHeader locale={locale} authorName={article.authorName} revisedAt={article.updatedAt ?? article.publishedAt}
+            readingMinutes={article.readingMinutes} sourceChecked={editorial.sources && article.publicReview?.reviewState === "approved"} /> :
+            article.authorName ? <p className="text-sm text-[var(--fm-text-muted)]">作者 {article.authorName}</p> : null}
         </div>
       </header>
-      {headings.length > 1 ? (
+      {!editorial.enabled && headings.length > 1 ? (
         <nav aria-label="本文目錄" data-testid="article-toc" className="w-full rounded-lg border border-[var(--fm-border)] p-5">
           <h2 className="m-0 mb-3 text-lg font-semibold">本文目錄</h2>
           <ol className="m-0 grid list-none gap-2 p-0 sm:grid-cols-2">
@@ -138,11 +145,13 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
           </ol>
         </nav>
       ) : null}
+      <div className={editorial.enabled ? "fm-article-layout" : undefined}>
+      {editorial.enabled ? <ArticleReadingNavigation locale={locale} headings={headings} /> : null}
       <ArticleFragmentNavigation className="w-full min-w-0 [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24 [&_h4]:scroll-mt-24">
-        <article data-testid="article-detail-content" className="fm-content-page-prose min-w-0 break-words">
+        <article data-testid="article-detail-content" className={editorial.enabled ? "fm-article-prose" : "fm-content-page-prose min-w-0 break-words"}>
           {article.contentHtml.trim()
             ? <div dangerouslySetInnerHTML={{ __html: sanitizeCmsHtml(article.contentHtml, { minimumHeadingLevel: 2 }) }} />
-            : renderSimpleMarkdown(article.contentMd, markdownOptions)}
+            : renderSimpleMarkdown(article.contentMd, options)}
           {article.bodyVisual?.imageUrl ? (
             <ArticleResponsiveImage
               src={article.bodyVisual.imageUrl}
@@ -155,6 +164,7 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
           ) : null}
         </article>
       </ArticleFragmentNavigation>
+      </div>
       {assessmentLinks.length > 0 ? (
         <nav aria-label="相關測驗" className="flex flex-wrap gap-4">
           {assessmentLinks.map((item) => (
@@ -173,6 +183,8 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
           ))}
         </section>
       ) : null}
+      <ArticleAcademicFooter title={article.title} authorName={article.authorName} publishedAt={article.publishedAt} canonicalUrl={canonical}
+        locale={locale} slug={slug} sources={editorial.enabled ? renderSimpleMarkdown(article.contentMd, { ...options, editorial: { locale, part: "academic" } }) : null} />
       <ArticleClosing key={canonical} locale={locale} url={canonical} />
     </Container>
   );

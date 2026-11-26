@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleLanguageNavigation } from "@/components/articles/ArticleLanguageNavigation";
+import { ArticleAcademicFooter } from "@/components/articles/ArticleAcademicFooter";
+import { ArticleReadingNavigation } from "@/components/articles/ArticleReadingNavigation";
+import { ArticleTrustHeader } from "@/components/articles/ArticleTrustHeader";
 import { ArticleClosing } from "@/components/articles/ArticleClosing";
 import { ArticleByline } from "@/components/articles/ArticleByline";
 import { ArticleFragmentNavigation } from "@/components/articles/ArticleFragmentNavigation";
@@ -31,7 +34,7 @@ import { RIC_INTEREST_ARTICLE, RIC_INTEREST_PATH } from "@/lib/career/interestDi
 import type { RelatedContentItem } from "@/lib/content";
 import { articleCategoryCompareBlocks, articleCategoryLabel } from "@/lib/content/articleCategoryLabel";
 import { loadBlogArchive } from "@/lib/content/blogArchive";
-import { excludeFaqCopiesInMarkdown, getSimpleMarkdownHeadings, getSimpleMarkdownIntroJumps, renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
+import { excludeFaqCopiesInMarkdown, getArticleEditorialFeatures, getSimpleMarkdownHeadings, getSimpleMarkdownIntroJumps, renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, toApiLocale, type Locale } from "@/lib/i18n/locales";
@@ -148,7 +151,7 @@ function shouldNoindex(robotsValue: string | null | undefined): boolean {
     .includes("noindex");
 }
 
-function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: string) {
+function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: string, editorial: boolean) {
   if (article.contentHtml.trim()) {
     return (
       <AttributedSanitizedCmsHtml
@@ -166,6 +169,7 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
   if (article.contentMd.trim()) {
     return (
       <AttributedCmsLinkHydrator
+        className={editorial ? "fm-article-body-flow" : undefined}
         locale={locale}
         sourceRouteFamily="article_detail"
         sourceSlug={article.slug}
@@ -178,6 +182,8 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
           headingIdPrefix: "article-body",
           scrollableTables: true,
           wrapPlainTextFences: true,
+          editorial: editorial ? { locale, slug: article.slug, part: "body" } : undefined,
+          highlightEditorialConclusions: true,
           compactMatrixHeaders: locale === "en" && article.slug === "iq-test-tool-guide"
             ? ["Row", "First cell", "Second cell", "Third cell"]
             : undefined,
@@ -416,8 +422,9 @@ export default async function ArticleDetailPage({
   const isRiasecOverview = article.slug === (locale === "zh"
     ? "riasec-holland-career-interest-test-explained"
     : "what-is-riasec-holland-code-career-interest-test");
+  const editorial = !article.contentHtml.trim() ? getArticleEditorialFeatures(article.contentMd) : { enabled: false, sources: false };
   const headings = !article.contentHtml.trim()
-    ? getSimpleMarkdownHeadings(article.contentMd, { locale, minimumHeadingLevel: 2, headingIdPrefix: "article-body" })
+    ? getSimpleMarkdownHeadings(article.contentMd, { locale, minimumHeadingLevel: 2, headingIdPrefix: "article-body", editorial: editorial.enabled ? { locale } : undefined })
     : [];
 
   const introJumps = article.id === 232 && locale === "en" && slug === "big-five-30-facets-explained-with-model-caveats"
@@ -429,7 +436,7 @@ export default async function ArticleDetailPage({
   const relatedTypes: RelatedContentItem[] = [];
 
   return (
-    <Container as="main" className="space-y-8 py-10">
+    <Container as="main" className={editorial.enabled ? "fm-article-page" : "fm-article-print-root space-y-8 py-10"}>
       {articleJsonLd ? <JsonLd id={`article-jsonld-${slug}`} data={articleJsonLd} /> : null}
       {breadcrumbJsonLd ? <JsonLd id={`article-breadcrumb-${slug}`} data={breadcrumbJsonLd} /> : null}
       {shouldRenderStandaloneFaqJsonLd ? <JsonLd id={`article-faq-${slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}
@@ -444,7 +451,7 @@ export default async function ArticleDetailPage({
 
       <ArticleLanguageNavigation article={article} />
 
-      <header id="what-it-is" className="space-y-5 border-b border-[var(--fm-border)] pb-7">
+      <header id="what-it-is" className={editorial.enabled ? "fm-article-page-header" : "space-y-5 border-b border-[var(--fm-border)] pb-7"}>
         {introJumps.length > 0 ? (
           <nav aria-label="Quick jumps" className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
             {introJumps.map(({ href, label }) => (
@@ -460,10 +467,10 @@ export default async function ArticleDetailPage({
           variants={article.coverImageVariants}
           mode="hero"
           priority
-          className="aspect-[16/9] rounded-lg border border-[var(--fm-border)]"
+          className={editorial.enabled ? "fm-article-hero" : "aspect-[16/9] rounded-lg border border-[var(--fm-border)]"}
         />
-        <div className="max-w-4xl space-y-4">
-          <div className="flex flex-wrap items-center gap-2">
+        <div className={editorial.enabled ? "fm-article-heading" : "max-w-4xl space-y-4"}>
+          <div className={editorial.enabled ? "fm-article-tags flex flex-wrap items-center gap-2" : "flex flex-wrap items-center gap-2"}>
             {badgeLabels.length > 0 ? (
               badgeLabels.map((label) => <Badge key={`${slug}-hero-${label}`}>{label}</Badge>)
             ) : (
@@ -473,7 +480,9 @@ export default async function ArticleDetailPage({
           <h1 className="m-0 font-serif text-4xl font-semibold leading-tight text-[var(--fm-text)] [overflow-wrap:anywhere]">
             {renderCjkPunctuationText(article.title, "article-title")}
           </h1>
-          {heroSummary ? <p className="m-0 max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)]">{heroSummary}</p> : null}
+          {heroSummary && !editorial.enabled ? <p className="m-0 max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)]">{heroSummary}</p> : null}
+          {editorial.enabled ? <ArticleTrustHeader locale={locale} authorName={article.authorName} revisedAt={article.updatedAt ?? article.publishedAt}
+            readingMinutes={article.readingMinutes} sourceChecked={editorial.sources && article.publicReview?.reviewState === "approved"} /> :
           <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-[var(--fm-text-muted)]">
             <p className="m-0">
               {locale === "zh" ? "作者" : "By"}: <ArticleByline authorName={article.authorName} locale={locale} />
@@ -494,12 +503,12 @@ export default async function ArticleDetailPage({
               </p>
             ) : null}
             {article.publicReview?.lastReviewedAt ? <PublicReviewStatus review={article.publicReview} locale={locale} testId="article-public-review" /> : null}
-          </div>
-          <BlogFeedLink locale={locale} />
+          </div>}
+          {editorial.enabled ? null : <BlogFeedLink locale={locale} />}
         </div>
       </header>
 
-      {headings.length > 1 ? <nav aria-label={dict.articles.onThisPage} data-testid="article-toc" className="w-full rounded-lg border border-[var(--fm-border)] p-5">
+      {!editorial.enabled && headings.length > 1 ? <nav aria-label={dict.articles.onThisPage} data-testid="article-toc" className="w-full rounded-lg border border-[var(--fm-border)] p-5">
         <h2 className="m-0 mb-3 text-lg font-semibold">{dict.articles.onThisPage}</h2>
         <ol className="m-0 grid list-none gap-2 p-0 sm:grid-cols-2">
           {headings.map((heading) => <li key={heading.id} className={heading.level > 2 ? "pl-4" : undefined}><a href={`#${heading.id}`} className={`${IQ_PUBLIC_ARTICLE_SLUGS.has(slug) ? "block " : ""}text-sm leading-6 text-[var(--fm-accent)] underline-offset-4 hover:underline`}>{heading.text}</a></li>)}
@@ -507,15 +516,17 @@ export default async function ArticleDetailPage({
       </nav> : null}
 
 
+      <div className={editorial.enabled ? "fm-article-layout" : undefined}>
+      {editorial.enabled ? <ArticleReadingNavigation locale={locale} headings={headings} /> : null}
       <ArticleFragmentNavigation key={canonicalPath} className="w-full min-w-0 [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24 [&_h4]:scroll-mt-24">
         <article
           id="how-it-works"
           data-testid="article-detail-content"
           data-article-runtime-contract={articleRuntimeContract.version}
           data-article-runtime-page-family={articleRuntimeContract.pageFamily}
-          className="min-w-0 space-y-5 [overflow-wrap:anywhere] text-base text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_blockquote]:border-l-4 [&_blockquote]:border-[var(--fm-accent)] [&_blockquote]:bg-[var(--fm-surface-muted)] [&_blockquote]:px-5 [&_blockquote]:py-3 [&_blockquote]:text-[var(--fm-text)] [&_h2]:mt-10 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:leading-tight [&_h3]:mt-7 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-semibold [&_img]:rounded-lg [&_img]:border [&_img]:border-[var(--fm-border)] [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5 [&_p]:leading-8 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
+          className={editorial.enabled ? "fm-article-prose" : "min-w-0 space-y-5 [overflow-wrap:anywhere] text-base text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_blockquote]:border-l-4 [&_blockquote]:border-[var(--fm-accent)] [&_blockquote]:bg-[var(--fm-surface-muted)] [&_blockquote]:px-5 [&_blockquote]:py-3 [&_blockquote]:text-[var(--fm-text)] [&_h2]:mt-10 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:leading-tight [&_h3]:mt-7 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-semibold [&_img]:rounded-lg [&_img]:border [&_img]:border-[var(--fm-border)] [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5 [&_p]:leading-8 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"}
         >
-          {renderArticleBody(article, locale, canonicalPath)}
+          {renderArticleBody(article, locale, canonicalPath, editorial.enabled)}
           {article.slug === RIC_INTEREST_ARTICLE ? (
             <Link href={localizedPath(RIC_INTEREST_PATH, locale)} className="inline-flex min-h-11 items-center font-semibold underline">
               {locale === "zh" ? "打开 RIC 职业目录，按准备度筛选" : "Browse RIC careers and filter by preparation"}
@@ -541,6 +552,7 @@ export default async function ArticleDetailPage({
           ) : null}
         </article>
       </ArticleFragmentNavigation>
+      </div>
 
       <AnswerSurfaceSection
         surface={visibleAnswerSurface}
@@ -561,6 +573,9 @@ export default async function ArticleDetailPage({
         }}
       />
 
+      <ArticleAcademicFooter title={article.title} authorName={article.authorName} publishedAt={article.publishedAt}
+        canonicalUrl={canonicalUrl(canonicalPath)} locale={locale} slug={slug}
+        sources={editorial.enabled ? renderSimpleMarkdown(article.contentMd, { locale, editorial: { locale, part: "academic" } }) : null} />
       <ArticleClosing key={canonicalPath} locale={locale} url={canonicalUrl(canonicalPath)} />
 
       <Suspense fallback={null}>

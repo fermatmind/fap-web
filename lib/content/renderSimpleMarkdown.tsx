@@ -2,11 +2,17 @@ import { isValidElement, type ReactNode } from "react";
 import { normalizeCmsPublicAnchor, sanitizeCmsUrl, stripInternalCmsSlotMarkers } from "@/lib/cms/sanitizeCmsRichText";
 import { labelInternalHref, splitInternalLinkText, type InternalLinkLabelMap } from "@/lib/content/internalLinkText";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
-import type { Locale } from "@/lib/i18n/locales";
+import { ArticleReadingBlock } from "@/components/articles/blocks/ArticleReadingBlocks";
+import { articleEditorialCopy } from "@/components/articles/articleEditorialCopy";
+import { parseArticleDirective, type ArticleDirective } from "@/lib/content/articleDirectives";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 type MarkdownRenderOptions = {
   allowImages?: boolean;
+  editorial?: { locale: DisplayLocale; slug?: string; part?: "body" | "academic" };
+  externalReferences?: boolean;
+  highlightEditorialConclusions?: boolean;
   scrollableTables?: boolean;
   scrollableTableLabel?: string;
   wrapPlainTextFences?: boolean;
@@ -24,6 +30,7 @@ function markdownLinkDestination(href: string, options: MarkdownRenderOptions): 
 }
 
 type MarkdownBlock =
+  | { type: "directive"; value: ArticleDirective }
   | { type: "heading"; level: HeadingLevel; text: string }
   | { type: "image"; alt: string; src: string; title?: string }
   | { type: "paragraph"; text: string }
@@ -156,7 +163,7 @@ function isTableStart(line: string, nextLine: string | undefined): boolean {
   return line.includes("|") && Boolean(nextLine) && isTableSeparator(nextLine ?? "");
 }
 
-function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
+function tokenizeMarkdown(markdown: string, editorial = false): MarkdownBlock[] {
   const lines = normalizeLineBreaks(stripInternalCmsSlotMarkers(markdown)).split("\n");
   const blocks: MarkdownBlock[] = [];
   let index = 0;
@@ -166,6 +173,13 @@ function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
 
     if (isBlankLine(line)) {
       index += 1;
+      continue;
+    }
+
+    const directive = editorial && line.startsWith(":::") ? parseArticleDirective(lines, index) : null;
+    if (directive) {
+      blocks.push({ type: "directive", value: directive.value });
+      index = directive.next;
       continue;
     }
 
@@ -304,6 +318,7 @@ function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
       const current = lines[index] ?? "";
       if (
         isBlankLine(current) ||
+        (editorial && current.startsWith(":::") && paragraphLines.length > 0 && parseArticleDirective(lines, index) !== null) ||
         isHeading(current) ||
         isUnorderedListItem(current) ||
         isOrderedListItem(current) ||
@@ -312,7 +327,7 @@ function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
         isHr(current) ||
         isFootnoteDefinition(current) ||
         isTableStart(current, lines[index + 1]) ||
-        /^\s*```/.test(current)
+        /^\s*```[\w-]*\s*$/.test(current)
       ) {
         break;
       }
@@ -373,13 +388,16 @@ function renderInlineMarkdown(text: string, keyPrefix: string, options: Markdown
         return <span key={key}>{renderCjkPunctuationText(link[1] ?? "", `${key}-text`)}</span>;
       }
       const rawLabel = link[1] ?? "";
+      const destination = markdownLinkDestination(href, options);
+      const external = options.externalReferences && /^https?:\/\//iu.test(destination)
+        && !/^https?:\/\/(?:www\.)?fermatmind\.com(?:[/?#]|$)/iu.test(destination);
       const label = rawLabel.trim() === href.trim()
         ? labelInternalHref(href, options.internalLinkLabels, options.locale ?? "zh") ?? rawLabel
         : rawLabel;
 
       return (
-        <a key={key} href={markdownLinkDestination(href, options)} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">
-          {renderCjkPunctuationText(label, `${key}-text`)}
+        <a key={key} href={destination} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">
+          {options.editorial ? renderInlineMarkdown(label, `${key}-text`, { ...options, editorial: undefined }) : renderCjkPunctuationText(label, `${key}-text`)}
         </a>
       );
     }
@@ -395,7 +413,8 @@ function renderInlineMarkdown(text: string, keyPrefix: string, options: Markdown
 
     const strong = part.match(/^(?:\*\*([^*]+)\*\*|__([^_]+)__)$/);
     if (strong) {
-      return <strong key={key}>{renderCjkPunctuationText(strong[1] ?? strong[2] ?? "", `${key}-text`)}</strong>;
+      const value = strong[1] ?? strong[2] ?? "";
+      return <strong key={key}>{options.editorial ? renderInlineMarkdown(value, `${key}-text`, options) : renderCjkPunctuationText(value, `${key}-text`)}</strong>;
     }
 
     const emphasis = part.match(/^(?:\*([^*\n]+)\*|_([^_\n]+)_)$/);
@@ -436,8 +455,15 @@ function renderHeading(level: HeadingLevel, text: string, key: string, options: 
   }
 }
 
+export function getArticleEditorialFeatures(markdown: string) {
+  if (!markdown.includes(":::")) return { enabled: false, sources: false };
+  const blocks = tokenizeMarkdown(markdown, true);
+  const directives = blocks.flatMap((block) => block.type === "directive" ? [block.value.name] : []);
+  return { enabled: directives.length > 0, sources: directives.includes("references") };
+}
+
 export function getSimpleMarkdownHeadings(markdown: string, options: MarkdownRenderOptions = {}) {
-  return tokenizeMarkdown(normalizeLineBreaks(markdown).trim()).flatMap((block, index) => {
+  return tokenizeMarkdown(normalizeLineBreaks(markdown).trim(), Boolean(options.editorial)).flatMap((block, index) => {
     if (block.type !== "heading" || !options.headingIdPrefix) return [];
     // Read the same React text children as the body; this is not an HTML sanitizer.
     const text = renderedText(renderInlineMarkdown(block.text, `toc-${index}`, options)).trim();
@@ -476,7 +502,7 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
     return null;
   }
 
-  const blocks = tokenizeMarkdown(normalized);
+  const blocks = tokenizeMarkdown(normalized, Boolean(options.editorial));
   if (blocks.length === 0) {
     return null;
   }
@@ -484,15 +510,33 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
   return blocks.map((block, index) => {
     const key = `markdown-block-${index}`;
 
+    const academic = block.type === "directive" && (block.value.name === "references" || block.value.name === "methodology");
+    if (options.editorial?.part === "academic" ? !academic : options.editorial?.part === "body" && academic) return null;
+
     switch (block.type) {
+      case "directive": {
+        const locale = options.editorial?.locale ?? options.locale ?? "zh";
+        const inline = (value: string, child: string) => renderInlineMarkdown(value, `${key}-${child}`, {
+          ...options,
+          externalReferences: block.value.name === "references",
+        });
+        return <ArticleReadingBlock key={key} block={block.value} index={index} locale={locale} slug={options.editorial?.slug}
+          inline={inline} text={(value) => renderedText(inline(value, "plain"))} />;
+      }
       case "heading":
         return renderHeading(block.level, block.text, key, options);
-      case "paragraph":
+      case "paragraph": {
+        const previous = blocks[index - 1];
+        const strong = (options.editorial || options.highlightEditorialConclusions) && previous?.type === "heading" && previous.level === 2
+          ? /^\*\*([^*]+)\*\*$/u.exec(block.text) : null;
+        const length = strong ? Array.from(renderedText(renderInlineMarkdown(strong[1], key, options)).replace(/\s/gu, "")).length : 0;
+        const highlight = length >= 35 && length <= 80;
         return (
-          <p key={key} className="m-0 leading-7 text-[var(--fm-text-muted)]">
+          <p key={key} className={highlight ? "fm-h2-takeaway" : "m-0 leading-7 text-[var(--fm-text-muted)]"}>
             {renderInlineMarkdown(block.text, `${key}-inline`, options)}
           </p>
         );
+      }
       case "image": {
         if (options.allowImages === false) {
           return null;
@@ -567,13 +611,17 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
       case "table": {
         const compactMatrix = options.compactMatrixHeaders?.length === block.headers.length
           && block.headers.every((header, index) => header === options.compactMatrixHeaders?.[index]);
-        return (
-          <div key={key} className="overflow-x-auto rounded-xl border border-[var(--fm-border)]"
-            role={options.scrollableTables ? "region" : undefined}
-            aria-label={options.scrollableTables ? (options.scrollableTableLabel ?? (options.locale === "zh" ? "可横向滚动的表格" : "Horizontally scrollable table")) : undefined}
-            tabIndex={options.scrollableTables ? 0 : undefined}>
+        const editorial = options.editorial;
+        const wide = Boolean(editorial && block.headers.length >= 4);
+        const scrollable = editorial ? wide : options.scrollableTables;
+        const hint = editorial ? articleEditorialCopy[editorial.locale].scroll : undefined;
+        const table = (
+          <div key={key} className={`overflow-x-auto rounded-xl border border-[var(--fm-border)]${editorial ? " fm-editorial-table" : ""}`}
+            role={scrollable ? "region" : undefined}
+            aria-label={scrollable ? (hint ?? options.scrollableTableLabel ?? (options.locale === "zh" ? "可横向滚动的表格" : "Horizontally scrollable table")) : undefined}
+            tabIndex={scrollable ? 0 : undefined}>
             <table className="w-full border-collapse text-left text-sm"
-              style={compactMatrix ? { tableLayout: "fixed" } : options.scrollableTables ? { minWidth: Math.max(480, block.headers.length * 160), tableLayout: "fixed" } : undefined}>
+              style={editorial ? { tableLayout: "fixed", minWidth: wide ? Math.max(560, block.headers.length * 135) : undefined } : compactMatrix ? { tableLayout: "fixed" } : options.scrollableTables ? { minWidth: Math.max(480, block.headers.length * 160), tableLayout: "fixed" } : undefined}>
               {compactMatrix ? <colgroup><col style={{ width: "16%" }} /><col /><col /><col /></colgroup> : null}
               <thead className="bg-[var(--fm-surface-muted)] text-[var(--fm-text)]">
                 <tr>
@@ -598,6 +646,9 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
             </table>
           </div>
         );
+        return wide ? <div key={key} className="fm-article-wide-table">
+          <p className="fm-article-scroll-hint">{hint}</p>{table}
+        </div> : table;
       }
       case "code":
         return (
