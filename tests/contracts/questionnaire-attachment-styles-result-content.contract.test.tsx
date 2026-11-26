@@ -82,9 +82,10 @@ describe("Adult attachment dimension and prototype result readings", () => {
         }
         await waitFor(() => expect(container.querySelectorAll("[data-attachment-profile]")).toHaveLength(4));
         expect(container.querySelectorAll("[data-attachment-profile]")).toHaveLength(4);
-        await act(async () => { fireEvent.click(screen.getByRole("button", { name: locale === "zh" ? "复制公开入口" : "Copy public entry" })); });
+        await waitFor(() => expect(container.querySelector("[data-archetype-honor-card]")).not.toBeNull());
+        await act(async () => { fireEvent.click(screen.getByRole("button", { name: locale === "zh" ? "一键分享给朋友" : "Share Result" })); });
         expect(writeText).toHaveBeenLastCalledWith(`${quiz.title[locale]}\nhttps://fermatmind.com/${locale}/tests/explore/${quiz.slug}`);
-        expect(container.textContent).toContain(locale === "zh" ? "已复制公开标题与入口链接，不含个人答案或次数。" : "Copied the public title and entry link, without personal answers or counts.");
+        expect(container.textContent).toContain(locale === "zh" ? "分享文案已复制，配图就能发。" : "Caption copied. It’s ready to post with your card.");
         unmount();
       }
     } finally {

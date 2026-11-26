@@ -12,6 +12,7 @@ import {
 } from "@/lib/questionnaires/archetypeResultCard";
 import { getArchetypeHonorCopy, type ArchetypeHonorCopy } from "@/lib/questionnaires/archetypeHonorCardCopy";
 import { archetypeResultCopy, archetypeSharePayload } from "@/lib/questionnaires/archetypeResultShare";
+import { honorMetricCopy, metricSharePayload, scalePosition, type HonorResultMetrics } from "@/lib/questionnaires/honorResultMetrics";
 import { questionnairePath } from "@/lib/questionnaires/paths";
 import { hasQuizResultArtwork, QuizResultArtwork } from "./QuizResultArtwork";
 import { existingResultPortrait } from "./PortraitResultLead";
@@ -51,7 +52,7 @@ export function ArchetypeHonorCard({ quiz, result, profiles, locale, copy: trans
     onRetake={onRetake} />;
 }
 
-export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runnerUp, reading, portraitPath, emblem, artworkMark, age, credit, onRetake, onShare, spaceAfterActions }: {
+export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runnerUp, reading, portraitPath, emblem, artworkMark, age, credit, onRetake, onShare, spaceAfterActions, metrics, shareEntryOnly, entryOnlyPoster, shareTitle }: {
   slug: string;
   locale: DisplayLocale;
   theme: keyof typeof archetypeCardThemes;
@@ -66,6 +67,10 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
   credit?: string;
   onShare?: (method: ShareMethod) => void;
   spaceAfterActions?: boolean;
+  metrics?: HonorResultMetrics;
+  shareEntryOnly?: boolean;
+  shareTitle?: string;
+  entryOnlyPoster?: boolean;
   onRetake?: () => void;
 }) {
   const [preview, setPreview] = useState("");
@@ -93,11 +98,16 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
   const copy = archetypeResultCopy[locale];
   const color = archetypeCardThemes[theme];
   const names = matches.map(match => match.name);
-  const tied = names.length > 1;
+  const tied = metrics?.tied ?? names.length > 1;
+  const metricCopy = honorMetricCopy[locale];
+  const tieLabel = metrics?.kind === "dimensions" ? metrics.tieLabel : undefined;
+  const scale = metrics && metrics.kind !== "dimensions" ? metrics.scale : undefined;
   const portrait = !tied && !unavailableArtwork ? portraitPath : undefined;
   const monogram = tied ? (locale === "en" ? "∥" : copy.tied.slice(-1)) : (names[0].match(/[\p{L}\p{N}]/u)?.[0] ?? "◇").toUpperCase();
   const url = archetypeCardUrl(locale, slug);
-  const payload = archetypeSharePayload(locale, shortTitle, names, runnerUp, reading?.soulVerdict, url, age?.share);
+  const metricResult = scale && metrics?.kind === "scalar" ? [scale.display, ...names].join(" · ") : names.join(" · ");
+  const payload = metrics ? metricSharePayload(locale, shareTitle ?? shortTitle, url, shareEntryOnly ? undefined : metricResult,
+    metrics.kind === "practice" ? names[0] : undefined, reading?.soulVerdict) : archetypeSharePayload(locale, shortTitle, names, runnerUp, reading?.soulVerdict, url, age?.share);
   const caption = `${payload.text}\n${url}`;
   const filename = `fermatmind-${slug}-${locale}.png`;
 
@@ -109,9 +119,11 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
       if (!blob.current) {
         const { renderArchetypePoster } = await import("@/lib/questionnaires/archetypePoster");
         const image = await renderArchetypePoster({
-          locale, theme, shortTitle, names, runnerUp, reading, credit,
+          locale, theme, shortTitle, names: entryOnlyPoster ? [shortTitle] : names, runnerUp,
+          reading: entryOnlyPoster ? undefined : reading, credit,
+          metrics: entryOnlyPoster ? { kind: "dimensions", label: metricCopy.invite, rows: [], tied: false } : metrics,
           age: age && { value: age.value, unit: age.unit, label: age.label },
-          artwork: portrait ?? existingGraphic(art.current, color.light), monogram, url,
+          artwork: portrait ?? existingGraphic(art.current, color.light), monogram: entryOnlyPoster ? "◇" : monogram, url,
         });
         if (!active.current) return;
         blob.current = URL.createObjectURL(image);
@@ -133,7 +145,7 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
   async function share() {
     setStatus("");
     setManual("");
-    if (window.matchMedia("(pointer: coarse)").matches && typeof navigator.share === "function") {
+    if (typeof navigator.share === "function" && window.matchMedia?.("(pointer: coarse)").matches) {
       try {
         await navigator.share(payload);
         onShare?.("system");
@@ -153,13 +165,32 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
   }
 
   return <div className={styles.group} data-archetype-honor-group={slug} data-honor-action-spacing={spaceAfterActions ? "" : undefined}>
-    <article className={styles.card} aria-label={names.join(" · ")} data-archetype-honor-card={theme} data-archetype-state={tied ? "tied" : runnerUp ? "runner-up" : "single"}
+    <article className={styles.card} aria-label={names.join(" · ")} data-honor-metrics={metrics?.kind} data-archetype-honor-card={theme} data-archetype-state={tied ? "tied" : runnerUp ? "runner-up" : "single"}
       style={{ "--card-bg": color.background, "--card-glow": color.glow, "--card-line": color.line, "--card-light": color.light, "--card-ink": color.ink } as CSSProperties}>
       <header className={styles.header}>
         <p className={styles.brand}>{copy.brand} · {shortTitle}</p>
-        <span className={styles.badge}>{tied ? copy.tied : age?.label ?? copy.closest}</span>
+        <span className={styles.badge}>{tied ? tieLabel ?? copy.tied : metrics?.label ?? age?.label ?? copy.closest}</span>
       </header>
-      {age ? <div className={styles.age} data-honor-age-scale>
+      {metrics ? <>
+      <div className={`${styles.age} ${styles.metricPanel}`} data-honor-metric-panel>
+        {scale && <>
+          <p className={styles.metricReading} data-honor-reading>{scale.display}</p>
+          <div className={styles.ruler} aria-hidden="true" style={{ "--age-marker": `${scalePosition(scale.value, scale.min, scale.max)}%` } as CSSProperties}><i /></div>
+          <div className={styles.rulerLabels} aria-hidden="true">{scale.ticks.map(tick => <span key={tick}>{tick}</span>)}</div>
+        </>}
+        {metrics.kind === "dimensions" && metrics.rows.length > 0 && <dl className={styles.metricRows}>
+          {metrics.rows.map(row => <div key={row.id} data-honor-metric={row.id}>
+            <dt>{row.label}</dt><dd>{row.value}</dd>
+            <div className={styles.metricTrack} aria-hidden="true"><i style={{ width: `${row.position}%` }} /></div>
+          </div>)}
+        </dl>}
+        {!scale && (metrics.kind !== "dimensions" || !metrics.rows.length) && <p className={styles.metricMissing}>◇</p>}
+      </div>
+      {metrics.kind !== "practice" && <h3 className={styles.title} data-tie={tied ? "" : undefined}>
+        {names.slice(0, 2).map((name, i) => <span key={matches[i].id}>{i ? "· " : ""}{name}</span>)}
+        {names.length > 2 && <span className={styles.extra}>+{names.length - 2}</span>}
+      </h3>}
+      </> : age ? <div className={styles.age} data-honor-age-scale>
         <h3 className={styles.ageValue} data-mental-age-value>{age.value}{age.unit === "years" ? " " : ""}<span>{age.unit}</span></h3>
         <div className={styles.ruler} aria-hidden="true" style={{ "--age-marker": `${(age.value - 10) / 60 * 100}%` } as CSSProperties}><i /></div>
         <div className={styles.rulerLabels} aria-hidden="true"><span>10</span><span>25</span><span>40</span><span>55</span><span>70</span></div>
@@ -180,7 +211,7 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
       </div>
       </>}
       {reading && <>
-        <ul className={styles.tags} aria-label={locale === "en" ? "Personality tags" : locale === "zh-TW" ? "性格標籤" : "性格标签"}>{reading.personalityTags.map(tag => <li key={tag}>{tag}</li>)}</ul>
+        <ul className={styles.tags} aria-label={metrics?.kind === "practice" ? metricCopy.badges : locale === "en" ? "Personality tags" : locale === "zh-TW" ? "性格標籤" : "性格标签"}>{reading.personalityTags.map(tag => <li key={tag}>{tag}</li>)}</ul>
         <p className={styles.quote} lang={locale} data-archetype-verdict>{reading.soulVerdict}</p>
       </>}
       <div className={styles.watermark}>{credit && <span>{credit}</span>} FermatMind.com</div>
@@ -191,6 +222,11 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
       <button type="button" onClick={() => void share()}>{copy.share}</button>
       {onRetake ? <button type="button" onClick={onRetake}>{copy.retake}</button> : <Link href={`${questionnairePath(locale, slug)}/take`}>{copy.retake}</Link>}
     </div>
+    {metrics?.tied && names.length > 2 && <details className={styles.status} data-honor-full-ties>
+      <summary>{metricCopy.ties} · {names.length}</summary>
+      <p>{names.join(" · ")}</p>
+    </details>}
+    {entryOnlyPoster && <p className={styles.status}>{metricCopy.privateExport}</p>}
     {status && <p className={styles.status} role="status">{status}</p>}
     {manual && <label className={styles.status}>{copy.manual}<textarea className="block w-full border" readOnly value={manual} onFocus={event => event.currentTarget.select()} /></label>}
     <dialog ref={dialog} className={dialogStyles.cardLightbox} aria-label={copy.open} data-archetype-lightbox

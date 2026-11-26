@@ -84,7 +84,7 @@ describe("Extraversion reading examples, participation and sharing", () => {
 
   it.each(["zh", "en"] as const)("copies only a public entry when %s responses cannot produce a score", async locale => {
     const previousClipboard = Object.getOwnPropertyDescriptor(navigator, "clipboard");
-    const writeText = vi.fn(async () => undefined);
+    const writeText = vi.fn<Clipboard["writeText"]>().mockResolvedValue(undefined);
     Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText } });
     try {
       for (const missing of [true, false]) {
@@ -98,14 +98,17 @@ describe("Extraversion reading examples, participation and sharing", () => {
         await waitFor(() => expect(container.querySelector(missing ? "[data-extraversion-insufficient]" : "[data-extraversion-total]")).not.toBeNull());
         if (missing) expect(container.querySelector("[data-extraversion-insufficient]")).not.toBeNull();
         else expect(container.querySelector("[data-extraversion-total]")?.textContent).toBe("30");
-        const label = missing ? (locale === "zh" ? "复制公开入口" : "Copy public entry") : (locale === "zh" ? "复制结果与链接" : "Copy result and link");
+        const label = locale === "zh" ? "一键分享给朋友" : "Share Result";
+        await waitFor(() => expect(container.querySelector("[data-archetype-honor-card]")).not.toBeNull());
         await act(async () => { fireEvent.click(screen.getByRole("button", { name: label })); });
         if (missing) {
           expect(writeText).toHaveBeenLastCalledWith(`${quiz.title[locale]}\nhttps://fermatmind.com/${locale}/tests/explore/introvert-extrovert`);
-          expect(container.textContent).toContain(locale === "zh" ? "已复制公开标题与入口链接，不含个人答案或次数。" : "Copied the public title and entry link, without personal answers or counts.");
+          expect(container.textContent).toContain(locale === "zh" ? "分享文案已复制，配图就能发。" : "Caption copied. It’s ready to post with your card.");
         } else {
-          const labels = quiz.profiles.filter(p => p.id === "ambivert-intro" || p.id === "ambivert-extro").map(p => p.title[locale]).join(locale === "zh" ? "、" : ", ");
-          expect(writeText).toHaveBeenLastCalledWith(`${quiz.title[locale]}\n${labels}\nhttps://fermatmind.com/${locale}/tests/explore/introvert-extrovert`);
+          const labels = quiz.profiles.filter(p => p.id === "ambivert-intro" || p.id === "ambivert-extro").map(p => p.title[locale]).join(" · ");
+          const caption = writeText.mock.lastCall?.[0];
+          expect(caption).toContain(`30 / 50 · ${labels}`);
+          expect(caption).toMatch(new RegExp(`https://fermatmind.com/${locale}/tests/explore/introvert-extrovert$`));
         }
         unmount();
       }

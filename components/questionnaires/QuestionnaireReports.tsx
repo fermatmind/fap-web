@@ -1,5 +1,6 @@
 "use client";
 import { archetypeCardVariant } from "@/lib/questionnaires/archetypeResultCard";
+import { wave2bVariant } from "@/lib/questionnaires/wave2bScope";
 import { wave2aVariant } from "@/lib/questionnaires/wave2aResult";
 import { ResultCoreBridge } from "./ResultCoreBridge";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
@@ -279,6 +280,7 @@ export function QuestionnaireNextSteps({ quiz, result, answers, locale }: Questi
   </>;
   const variant = archetypes && archetypeCardVariant(quiz.slug, displayLocale);
   if (variant) return <ResultCoreBridge locale={displayLocale} target={variant.target} />;
+  if (result.status === "complete" && wave2bVariant(quiz.slug)?.bigFive) return <ResultCoreBridge locale={displayLocale} target="BIG5_OCEAN" />;
   if (getArchiveExperience(quiz.slug)) return null;
   const archive = archiveTopic(quiz.slug);
   if (isModeABatchThree(quiz.slug)) return <>

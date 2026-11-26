@@ -66,3 +66,13 @@
 .rulerLabels { display: flex; justify-content: space-between; font-size: .68rem; color: var(--card-light); margin-top: .45rem; }
 .ageContrast { display: inline-block; margin: .75rem 0 0; padding: .2rem .65rem; color: var(--card-light); border: 1px solid var(--card-line); border-radius: 2rem; font-size: .72rem; }
 .watermark span { margin-inline-end: .8rem; }
+
+.metricPanel { padding: 1.25rem .95rem .7rem; }
+.metricReading { margin: .45rem 0 .8rem; font: 700 clamp(1.9rem, 9vw, 3.25rem)/1.05 Georgia, "Songti SC", serif; font-variant-numeric: tabular-nums; }
+.metricRows { display: grid; gap: .68rem; margin: .35rem 0 0; font-size: .73rem; line-height: 1.3; }
+.metricRows > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .23rem .55rem; text-align: start; }
+.metricRows dd { color: var(--card-light); font-variant-numeric: tabular-nums; margin: 0; white-space: nowrap; }
+.metricTrack { grid-column: 1 / -1; height: .23rem; border-radius: 1rem; background: color-mix(in srgb, var(--card-line) 42%, transparent); overflow: hidden; }
+.metricTrack i { display: block; height: 100%; border-radius: inherit; background: var(--card-light); }
+.metricMissing { color: var(--card-light); font-size: 2.1rem; line-height: 1; margin: .65rem 0; }
+.card[data-honor-metrics] .title { font-size: clamp(1.3rem, 6.4vw, 2rem); }
