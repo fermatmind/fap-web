@@ -10,7 +10,7 @@ import generated from "@/lib/i18n/zh-TW/seven-sins.generated.json";
 import ui from "@/lib/i18n/zh-TW/seven-sins-ui.generated.json";
 import { scoreMiniVirtuesQuestionnaire } from "@/lib/questionnaires/miniVirtues";
 import { sevenSinsCardRows } from "@/lib/questionnaires/sevenSinsCard";
-import { QuestionnaireSevenSinsOverview, QuestionnaireSevenSinsSample } from "@/components/questionnaires/QuestionnaireSevenSinsOverview";
+import { QuestionnaireSevenSinsOverview, QuestionnaireSevenSinsSample, SevenSinsScoreDetails } from "@/components/questionnaires/QuestionnaireSevenSinsOverview";
 import { SevenSinsTraditionalPage, sevenSinsTraditionalMetadata } from "@/components/i18n/zh-TW/SevenSinsPage";
 import { traditionalEquivalent } from "@/lib/i18n/traditionalRoutes";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -49,7 +49,7 @@ describe("complete Taiwan seven-sins display release", () => {
   it("renders the sample, fourteen axes and all tied leaders in Traditional Chinese", () => {
     const score = scoreMiniVirtuesQuestionnaire(quiz, Object.fromEntries(source.questions.map(question => [question.id, "4"])));
     if (score.status !== "complete" || score.model !== "dual") throw new Error("Unexpected scoring result");
-    const html = renderToStaticMarkup(<><QuestionnaireSevenSinsOverview result={score} locale="zh-TW" headingRef={null} /><QuestionnaireSevenSinsSample result={score} locale="zh-TW" /></>);
+    const html = renderToStaticMarkup(<><QuestionnaireSevenSinsOverview result={score} locale="zh-TW" headingRef={null} /><SevenSinsScoreDetails result={score} locale="zh-TW" /><QuestionnaireSevenSinsSample result={score} locale="zh-TW" /></>);
     expect((html.match(/data-seven-sins-axis=/g) ?? [])).toHaveLength(28);
     expect(html).toContain("結果示例");
     expect(html).toContain("各得 75 分");

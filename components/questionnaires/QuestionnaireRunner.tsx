@@ -4,7 +4,7 @@ import { hasTraditionalOfficeTool, hasTraditionalRelationshipSix, hasTraditional
 import { hasTraditionalDirectional } from "@/lib/i18n/traditionalDirectionalPaths";
 import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
-import { QuestionnaireSevenSinsOverview } from "./QuestionnaireSevenSinsOverview";
+import { QuestionnaireSevenSinsOverview, SevenSinsNextAssessments, SevenSinsScoreDetails } from "./QuestionnaireSevenSinsOverview";
 import { useQuestionnaireTake, QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import { QuestionnaireTakeOptions } from "./QuestionnaireTakeOptions";
 import { QuestionnaireChoiceInteraction } from "./QuestionnaireChoiceInteraction";
@@ -242,7 +242,7 @@ export function QuestionnaireRunner({ onComplete, scoreQuestionnaire, quiz, loca
       : `Each context appeared 12 times. Your counts add up to 18. ${directional.leaders.length === 3 ? "All three were chosen 6 times, so there is no single leader." : directional.leaders.length === 2 ? "Two contexts share the highest count, so both are shown." : "The highest count is the context you chose most often in these questions."} These counts do not tell you an ideal age gap.`)
       : zh ? displayText("分母为该方向参加比较的次数。原始次数只比较本题组内的选择，不是人群排名或能力分数。") : "The denominator is the number of comparisons for that direction. Raw counts compare choices within this question set, not population ranks or ability scores."}</p>
   </ResultSection>;
-  return <section id="take-test" data-questionnaire-slug={quiz.slug} data-stage={stage} data-result-variant={stage === "result" && !miniVirtues ? questionnaireResultVariant(quiz.kind) : undefined} data-result-kind={stage === "result" && miniVirtues ? "mini-virtues" : undefined} className={`my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8 ${stage === "result" && !miniVirtues ? resultStyles.page : ""}`} aria-label={zh ? displayText("作答与完整结果") : "Questionnaire and full results"}>
+  return <section id="take-test" data-questionnaire-slug={quiz.slug} data-stage={stage} data-result-variant={stage === "result" && !miniVirtues ? questionnaireResultVariant(quiz.kind) : undefined} data-result-kind={stage === "result" && miniVirtues ? "mini-virtues" : undefined} className={`my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8 ${stage === "result" && miniVirtues?.model === "dual" ? "!my-2 !p-2 sm:!p-5" : stage === "result" && !miniVirtues ? resultStyles.page : ""}`} aria-label={zh ? displayText("作答与完整结果") : "Questionnaire and full results"}>
     {quiz.slug === "relationship-values" && <span id="play" className="block scroll-mt-24" aria-hidden="true" />}
     {stage === "welcome" && <QuestionnaireWelcome quiz={quiz} locale={locale} ready={ready} hasDraft={Boolean(draft)} onStart={start} />}
     {stage === "answer" && question && <>
@@ -265,7 +265,11 @@ export function QuestionnaireRunner({ onComplete, scoreQuestionnaire, quiz, loca
       <QuestionnaireLegacyControl><button className="mt-3 min-h-11 text-sm underline" onClick={() => { clear(); setAnswers({}); setSaving(false); setStage("welcome"); setMessage(""); }}>{zh ? displayText("退出并清除本次进度") : "Exit and clear this attempt"}</button></QuestionnaireLegacyControl>
     </>}
     {stage === "result" && result.status === "complete" && <>
-      {miniVirtues?.model === "dual" ? <QuestionnaireSevenSinsOverview result={miniVirtues} locale={locale} headingRef={heading} /> :
+      {miniVirtues?.model === "dual" ? <>
+        <QuestionnaireSevenSinsOverview result={miniVirtues} locale={locale} headingRef={heading} />
+        <SevenSinsPersonalCard result={miniVirtues} locale={locale} formCode={quiz.source.formCode} onRetake={() => start()} />
+        <SevenSinsScoreDetails result={miniVirtues} locale={locale} />
+      </> :
       <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere] scroll-mt-24">{miniVirtues ? (zh ? "七宗罪与七美德测试结果" : "Seven Sins and Virtues: Your Results") : profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? displayText(`${quiz.title.zh}：完整结果`) : `${quiz.title.en}: your complete result`)}</h2>}
       {directional && profile && <>
       <div className={resultStyles.readingFlow} data-result-reading-flow={quiz.slug}>
@@ -292,8 +296,8 @@ export function QuestionnaireRunner({ onComplete, scoreQuestionnaire, quiz, loca
           ? (zh ? displayText("分享会复制角色名和公开指南链接，不包含答卷或次数。") : "Sharing copies the character name and public guide link, without your answers or counts.")
           : (zh ? displayText("分享会复制全部并列角色的名称和测试入口，不包含答卷或次数。") : "Sharing copies all tied character names and the quiz link, without your answers or counts.")}
       </p>}
-      {miniVirtues?.model === "dual" && <SevenSinsPersonalCard result={miniVirtues} locale={locale} formCode={quiz.source.formCode} />}
-      <div data-mini-virtues-actions={miniVirtues ? "true" : undefined} className={miniVirtues ? "flex flex-wrap gap-3" : resultStyles.runnerActions}><button className={button} onClick={copy}>{traditionalEntryShare || quiz.slug === "hsp-sensitivity-quiz" || adexi14 || ptq15 || miniFriction || interactionPairs || extraversionUnscored || affection || attachment || distributedWork || workRole || skillsEvidence || quiz.slug === "work-traits-reflection" || quiz.slug === "work-activity-interests" || quiz.slug === "interpersonal-preferences" || quiz.slug === "everyday-control-style" || loveType16 || mentalAge || quiz.kind === "fds32" || quiz.slug === "energy-flow" || quiz.slug === "cognitive-functions-test" || quiz.slug === "cultural-dimensions" || quiz.slug === "food-choice" || quiz.slug === "values-assessment" || quiz.slug === "eq-dashboard" || miniVirtues || quiz.slug === "euphoria-character-quiz" ? (zh ? displayText("复制公开入口") : "Copy public entry") : preparationActions20 ? (zh ? "复制五份公开指南链接" : "Copy five public guide links") : (zh ? displayText("复制结果与链接") : "Copy result and link")}</button><button className={button} onClick={() => start()}>{zh ? displayText("重新测试") : "Retake test"}</button></div>
+      {miniVirtues?.model === "dual" && <SevenSinsNextAssessments locale={locale} />}
+      {miniVirtues?.model !== "dual" && <div data-mini-virtues-actions={miniVirtues ? "true" : undefined} className={miniVirtues ? "flex flex-wrap gap-3" : resultStyles.runnerActions}><button className={button} onClick={copy}>{traditionalEntryShare || quiz.slug === "hsp-sensitivity-quiz" || adexi14 || ptq15 || miniFriction || interactionPairs || extraversionUnscored || affection || attachment || distributedWork || workRole || skillsEvidence || quiz.slug === "work-traits-reflection" || quiz.slug === "work-activity-interests" || quiz.slug === "interpersonal-preferences" || quiz.slug === "everyday-control-style" || loveType16 || mentalAge || quiz.kind === "fds32" || quiz.slug === "energy-flow" || quiz.slug === "cognitive-functions-test" || quiz.slug === "cultural-dimensions" || quiz.slug === "food-choice" || quiz.slug === "values-assessment" || quiz.slug === "eq-dashboard" || miniVirtues || quiz.slug === "euphoria-character-quiz" ? (zh ? displayText("复制公开入口") : "Copy public entry") : preparationActions20 ? (zh ? "复制五份公开指南链接" : "Copy five public guide links") : (zh ? displayText("复制结果与链接") : "Copy result and link")}</button><button className={button} onClick={() => start()}>{zh ? displayText("重新测试") : "Retake test"}</button></div>}
       {adultAgePreferences && <Link prefetch={false} className="mt-3 inline-flex min-h-11 items-center underline underline-offset-4" href={questionnairePath(displayLocale, quiz.slug)}>{zh ? displayText("返回测试介绍") : "Back to quiz introduction"}</Link>}
       {manualCopy && <textarea readOnly aria-label={zh ? displayText("手动复制结果") : "Result text for manual copying"} value={manualCopy} onFocus={e => e.target.select()} className="mt-4 min-h-40 w-full rounded border p-3" />}
     </>}

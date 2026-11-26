@@ -66,7 +66,7 @@ export function TestExploreTemplate({
     <section className={styles.hero} data-ent-module={contractMarker("hero")}>
       <div className={styles.heroInner}>
         <div>
-          <p className={styles.eyebrow}>{copy.headline}</p>
+          {copy.headline && <p className={styles.eyebrow}>{copy.headline}</p>}
           <h1>{heading ?? copy.title}</h1>
           <p className={styles.lead}>{copy.description}</p>
           <div id="take-test" className={styles.actions} data-questionnaire-take-entry>

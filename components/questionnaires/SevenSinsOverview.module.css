@@ -213,3 +213,76 @@
 }
 .stickyButton { padding: .5rem .7rem; min-block-size: 44px; border-radius: .45rem; background: #145840; color: #fff; white-space: nowrap; cursor: pointer; }
 @media print { .stickyStart { display: none; } }
+
+.previewMetrics { grid-template-columns: repeat(2,minmax(0,1fr)); margin-block-start: .4rem; }
+.previewMetrics dd { font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+.sampleNote { margin-block-start: .4rem; font-size: .85rem; }
+.pairSection { max-inline-size: 72rem; margin: 2rem auto; padding: 0 1rem; }
+.pairSection h2 { font-size: 1.5rem; font-weight: 720; margin-block-end: .9rem; }
+.pairTable { inline-size: 100%; border-collapse: collapse; text-align: start; }
+.pairTable :is(th,td) { padding: .8rem; border-block-end: 1px solid #bbd0c4; text-align: start; }
+.pairTable :is(th,td):not(:nth-child(3)) { min-inline-size: 7rem; }
+.pairTable a { color: #184e3d; text-decoration: underline; }
+.stickyStart { block-size: 56px; }
+.stickyStart > span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+@media (max-width: 540px) {
+  .pairTable, .pairTable tbody { display: block; }
+  .pairTable thead { position: absolute; inline-size: 1px; block-size: 1px; clip-path: inset(50%); overflow: hidden; }
+  .pairTable tbody tr { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #bbd0c4; border-radius: .65rem; margin-block-end: .65rem; padding: .35rem .6rem; }
+  .pairTable :is(th,td) { min-inline-size: 0 !important; border: 0; padding: .35rem .15rem; }
+  .pairTable tr :is(:nth-child(3),:nth-child(4)) { grid-column: 1 / -1; }
+}
+
+.honor {
+  max-inline-size: 32rem; margin-inline: auto; overflow: hidden;
+  display: grid; gap: .65rem; padding: .95rem;
+  background: radial-gradient(ellipse at 85% 10%, #343022 0%, transparent 62%), linear-gradient(141deg,#2c2028,#141721 57%,#1b1b24);
+  color: #f9eddb; border: 1px solid #937044; border-radius: 1.15rem;
+  box-shadow: inset 0 0 0 3px #291f2755, 0 9px 20px #1d151420;
+}
+.honorHeader { display: flex; align-items: baseline; justify-content: space-between; gap: .4rem; padding-block-end: .55rem; border-block-end: 1px solid #d5ae7050; }
+.honorHeader h2 { font-size: .94rem; font-weight: 760; line-height: 1.22; }
+.honorHeader > span { color: #e6c891; font-size: .69rem; white-space: nowrap; }
+.peakGrid { display: grid; grid-template-columns: 1fr 1fr; gap: .52rem; }
+.peakGrid > div { min-width: 0; display: grid; align-items: start; gap: .19rem; padding: .45rem .50rem; border: 1px solid currentColor; border-radius: .85rem; }
+.peakGrid > div > span { font-size: .68rem; display: flex; align-items: center; justify-content: space-between; gap: .2rem; }
+.peakGrid > div > div { font-size: .76rem; line-height: 1.21; overflow-wrap: anywhere; font-weight: 700; }
+.peakGrid small { font-size: .57rem; border: 1px solid currentColor; border-radius: 1rem; padding: .02rem .26rem; }
+.peakGrid strong { font-size: 1.48rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.peakShadow { color: #ffacb4; background: #72313c45; }
+.peakLight { color: #f8d89c; background: #76542145; }
+.honorRadar { inline-size: min(100%, 21rem); margin-inline: auto; }
+.honorRadar svg { display: block; width: 100%; height: auto; }
+.honorRadar svg text { fill: #f1ddbb; font-size: 10.5px; font-weight: 640; }
+.honorRadar figcaption { display: flex; justify-content: center; flex-wrap: wrap; gap: .3rem 1rem; font-size: .68rem; line-height: 1.15; }
+.honorRadar figcaption span:first-child { color: #ffacb4; }
+.honorRadar figcaption span:last-child { color: #f8d89c; }
+.honorLine { text-align: center; font-size: .84rem; line-height: 1.4; margin: 0; }
+.honorWatermark { text-align: end; opacity: .45; font-size: .65rem; line-height: 1; margin: 0; }
+.scoreDetails, .assessmentBridge { margin: 1.5rem auto; max-inline-size: 34rem; }
+.scoreDetails h3, .assessmentBridge h3 { font-size: 1.25rem; font-weight: 750; }
+.scoreDetails table { width: 100%; text-align: start; border-collapse: collapse; margin-block-start: .5rem; }
+.scoreDetails :is(th,td) { text-align: start; border-block-end: 1px solid #d1cec8; padding: .49rem; }
+.scoreDetails td strong { float: inline-end; font-variant-numeric: tabular-nums; margin-inline-start: .3rem; }
+.assessmentBridge p { margin-block: .6rem; }
+.assessmentBridge ul { list-style: none; padding: 0; display: grid; gap: .4rem; }
+.assessmentBridge a { display: flex; align-items: center; min-height: 44px; border: 1px solid #c1d2c8; border-radius: .5rem; padding: .4rem .7rem; color: #184d3b; font-weight: 680; }
+@media print { .honor { break-inside: avoid; print-color-adjust: exact; } }
+
+.shareTools { max-inline-size: 32rem; margin: .7rem auto 1.4rem; text-align: center; }
+.shareTools > p, .shareTools > label { display: block; margin-block-start: .6rem; font-size: .85rem; }
+.shareTools textarea { display: block; width: 100%; border: 1px solid #a6a9a4; border-radius: .4rem; padding: .5rem; }
+.shareGrid { display: grid; grid-template-columns: 1fr 1fr; gap: .48rem; }
+.shareGrid button { min-height: 44px; border: 1px solid #aa8b62; border-radius: .65rem; padding: .4rem; font-size: .88rem; font-weight: 700; cursor: pointer; }
+.shareGrid button:first-child { color: #241b1a; background: #f1cd92; }
+.shareGrid button:disabled { opacity: .55; cursor: wait; }
+.cardLightbox { position: fixed; inset: 0; width: fit-content; max-width: calc(100% - 1.5rem); max-height: calc(100dvh - 1.5rem); margin: auto; padding: 0; border: 1px solid #9b7a50; border-radius: .9rem; background: #1c1b21; color: #fbebd4; overflow: auto; }
+.cardLightbox::backdrop { background: #100e15e8; }
+.cardLightboxBody { display: grid; justify-items: center; gap: .35rem; padding: .65rem 1rem .85rem; }
+.cardLightboxBody img { width: auto; max-width: 100%; height: auto; max-height: min(68dvh, 720px); object-fit: contain; border-radius: .3rem; }
+.cardLightboxBody button { justify-self: end; width: 44px; height: 44px; background: #17141d; color: #fff4de; border-radius: 100%; font-size: 1.5rem; border: 1px solid #b99970; cursor: pointer; }
+.cardLightboxBody a { min-height: 44px; padding: .55rem .8rem; color: #f2cd93; text-decoration: underline; }
+@media print { .shareTools { display: none; } }
+
+@media (max-width: 600px) { .previewChart .radar { max-inline-size: 260px; } }
+@media (max-width: 600px) { .previewChart .radar { max-inline-size: 225px; } }

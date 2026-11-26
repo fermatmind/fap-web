@@ -134,7 +134,8 @@ export default async function TraditionalPage(props: Props) {
   }
   if (path.startsWith(`/zh-TW${TRADITIONAL_SEVEN_SINS_PATH}`)) {
     const { SevenSinsTraditionalPage } = await import("@/components/i18n/zh-TW/SevenSinsPage");
-    return landing(<SevenSinsTraditionalPage path={path} />);
+    const content = <SevenSinsTraditionalPage path={path} />;
+    return path === `/zh-TW${TRADITIONAL_SEVEN_SINS_PATH}` ? content : landing(content);
   }
   const { traditionalQuiz: quiz, traditionalUi: ui } = await import("@/lib/i18n/zh-TW/chiikawa");
   if (path.endsWith("/take")) return <ChiikawaTake />;

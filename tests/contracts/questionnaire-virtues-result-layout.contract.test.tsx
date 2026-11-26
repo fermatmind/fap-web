@@ -5,7 +5,7 @@ import source from "@/lib/questionnaires/data/seven-sins-virtues-test.json";
 import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { scoreMiniVirtuesQuestionnaire } from "@/lib/questionnaires/miniVirtues";
 import { QuestionnaireMiniVirtuesReport } from "@/components/questionnaires/QuestionnaireMiniVirtuesReport";
-import { QuestionnaireSevenSinsOverview } from "@/components/questionnaires/QuestionnaireSevenSinsOverview";
+import { QuestionnaireSevenSinsOverview, SevenSinsScoreDetails } from "@/components/questionnaires/QuestionnaireSevenSinsOverview";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 
 const quiz = prepareQuestionnaireResultReadings(source as Questionnaire);
@@ -50,16 +50,15 @@ describe("seven sins and virtues dual-track result", () => {
     expect(source.questions[12].prompt.zh).toBe("处境相近的人得到我想要的机会时，我很难不因对方得到它而心生怨意。");
   });
 
-  it.each(["zh", "en"] as const)("reports only numeric %s averages at equal and extreme track scores", locale => {
+  it.each(["zh", "en"] as const)("shows numeric %s peaks at equal and extreme track scores", locale => {
     for (const [sin, virtue] of [[1, 5], [3, 3], [5, 1]]) {
       const result = scoreMiniVirtuesQuestionnaire(quiz, Object.fromEntries(quiz.questions.map((question, index) => [question.id, String(index % 2 ? virtue : sin)])));
       if (result.status !== "complete" || result.model !== "dual") throw Error("Dual-track result required");
       const dom = document.createElement("div");
       dom.innerHTML = renderToStaticMarkup(<QuestionnaireSevenSinsOverview result={result} locale={locale} headingRef={null} />);
-      expect(dom.querySelector("[data-seven-sins-balance]")?.textContent).toBe(locale === "zh"
-        ? `美德题组均值 ${(virtue - 1) * 25}七宗罪题组均值 ${(sin - 1) * 25}`
-        : `Virtue item average ${(virtue - 1) * 25}Sin item average ${(sin - 1) * 25}`);
-      expect(dom.querySelector("[data-seven-sins-balance]")?.textContent).not.toMatch(/占上风|edge|level/);
+      expect(dom.querySelector('[data-seven-sins-leader="sin"] strong')?.textContent).toBe(String((sin - 1) * 25));
+      expect(dom.querySelector('[data-seven-sins-leader="virtue"] strong')?.textContent).toBe(String((virtue - 1) * 25));
+      expect(dom.querySelector("[data-seven-sins-board] button")).toBeNull();
     }
   });
 
@@ -68,11 +67,12 @@ describe("seven sins and virtues dual-track result", () => {
     if (result.status !== "complete" || result.model !== "dual") throw Error("Dual-track result required");
     const dom = document.createElement("div");
     dom.innerHTML = renderToStaticMarkup(<QuestionnaireSevenSinsOverview result={result} locale="zh" headingRef={null} />);
-    expect(dom.querySelector('[data-seven-sins-leader="sin"]')?.textContent).toContain("并列色欲、嫉妒、暴怒、懒惰、贪婪、暴食、傲慢");
-    expect(dom.querySelector('[data-seven-sins-leader="virtue"]')?.textContent).toContain("并列贞洁、节制、慷慨、勤勉、耐心、仁爱、谦卑");
-    expect(dom.querySelector("[data-seven-sins-balance]")?.textContent).toBe("美德题组均值 50七宗罪题组均值 50");
+    expect(dom.querySelector('[data-seven-sins-leader="sin"] div')?.getAttribute("aria-label")?.split(" · ")).toHaveLength(7);
+    expect(dom.querySelector('[data-seven-sins-leader="virtue"] div')?.getAttribute("aria-label")?.split(" · ")).toHaveLength(7);
+    expect(dom.querySelector('[data-seven-sins-leader="sin"] div')?.textContent).toBe("傲慢 · 贪婪 +5");
+    expect(dom.querySelector('[data-seven-sins-pattern]')?.getAttribute("data-seven-sins-pattern")).toBe("tied");
   });
-  it.each(["zh", "en"] as const)("shows the %s leaders, averages, fourteen real axis values and seven full readings", locale => {
+  it.each(["zh", "en"] as const)("shows the %s leaders, fourteen real axis values and seven full readings", locale => {
     const result = scoreMiniVirtuesQuestionnaire(quiz, answers);
     if (result.status !== "complete" || result.model !== "dual") throw Error("Valid complete response required");
     expect(result.miniVirtues.map(part => part.sin)).toEqual(sins);
@@ -80,6 +80,7 @@ describe("seven sins and virtues dual-track result", () => {
     const dom = document.createElement("div");
     dom.innerHTML = renderToStaticMarkup(<>
       <QuestionnaireSevenSinsOverview result={result} locale={locale} headingRef={null} />
+      <SevenSinsScoreDetails result={result} locale={locale} />
       <QuestionnaireMiniVirtuesReport quiz={quiz} result={result} locale={locale} />
     </>);
     expect([...dom.querySelectorAll("[data-mini-virtues-part]")].map(node => node.getAttribute("data-mini-virtues-part"))).toEqual(quiz.directions.map(direction => direction.id));
@@ -105,10 +106,10 @@ describe("seven sins and virtues dual-track result", () => {
     }
     expect(dom.querySelector('[data-seven-sins-leader="sin"]')?.textContent).toContain(locale === "zh" ? "贪婪" : "Greed");
     expect(dom.querySelector('[data-seven-sins-leader="virtue"]')?.textContent).toContain(locale === "zh" ? "谦卑" : "Humility");
-    expect(dom.querySelector("[data-seven-sins-balance]")?.textContent).toContain(locale === "zh" ? "美德题组均值 70七宗罪题组均值 57" : "Virtue item average 70Sin item average 57");
     const chart = dom.querySelector("[data-seven-sins-radar]")!;
     expect(chart.closest("details")).toBeNull();
-    expect([...chart.querySelectorAll("[data-seven-sins-axis]")].map(node => node.textContent)).toEqual(["63", "63", "63", "50", "75", "50", "38", "75", "75", "75", "63", "63", "50", "88"]);
+    expect(chart.querySelectorAll("svg text")).toHaveLength(7);
+    expect([...dom.querySelectorAll("[data-seven-sins-axis] strong")].map(node => node.textContent)).toEqual(sins.flatMap((score, index) => [score, virtues[index]]).map(value => String(Math.round(value))));
     expect(dom.querySelector("[data-mini-virtues-common]")?.hasAttribute("open")).toBe(false);
     const edition = quiz.profiles[0].sections.find(section => section.id === "edition")!;
     for (const paragraph of edition.paragraphs) expect([...dom.querySelectorAll("p")].filter(node => node.textContent === paragraph[locale])).toHaveLength(1);

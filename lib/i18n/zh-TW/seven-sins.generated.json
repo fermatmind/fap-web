@@ -3,9 +3,9 @@
   "converter": "opencc-js@1.4.2:cn:twp",
   "glossary": "fermatmind-tw-1",
   "sourceHashes": {
-    "lib/questionnaires/data/seven-sins-virtues-test.json": "fdd0139199e515e0fe2607c85e2926813cea12c3206181cda2e73d3d13da23b3",
+    "lib/questionnaires/data/seven-sins-virtues-test.json": "6a94abdd9b97270f0640ab610ae43b65ff5ee9bd0088706b545a6669dc287279",
     "lib/questionnaires/result-content/seven-sins-virtues-test.json": "76cc453e2b99ad2d0d05ef80ae790aef10390f89c5fd7dee93df677b16932105",
-    "lib/questionnaires/virtuesLandingEditorial.json": "701a1972f429aee5cace12c76478b541f04d069f193d3d9e7d57efdcaa2e31e6"
+    "lib/questionnaires/virtuesLandingEditorial.json": "4adc9cc1165cbdbba8d9cb06c86389ec4e172eb217e0292f0360fc7150b3f6cd"
   },
   "units": {
     "lib/questionnaires/data/seven-sins-virtues-test.json/title": {
@@ -17,8 +17,8 @@
       "text": "七宗罪測試與七美德測試｜28題免費線上測驗"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/description": {
-      "sourceHash": "ccae6068fb9effe85b3a00772a657423d0178b8c4f90f024b74e85116bb83316",
-      "text": "免費線上完成28道原創題，約8分鐘，同時檢視七宗罪與七美德14項獨立得分、雷達圖及七組結果解讀。無需註冊，僅供娛樂與自我探索。"
+      "sourceHash": "56f9382c050c0928689e3f28f0a49f86603c9c7723e598e57ab17ad11213e0f5",
+      "text": "免費線上完成28道原創題，快答約 4–5 分鐘，同時檢視七宗罪與七美德14項獨立得分、雷達圖及七組結果解讀。無需註冊，僅供娛樂與自我探索。"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/introduction": {
       "sourceHash": "092a4b0e744d41bdd8823ccc42198a7e106091963a239b72f5fe039975265979",
@@ -2153,8 +2153,8 @@
       "text": "七宗罪與七美德測試需要多久？"
     },
     "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/5/answer": {
-      "sourceHash": "894cc141006ee4466ae539ee1c87f199a9bd7beb476c5ce9bd36b8a6da882e53",
-      "text": "共28條陳述，閱讀與作答預計約8分鐘，沒有計時或速度要求。完整結果及七篇公開指南免費，無需註冊，也可以不完成作答直接閱讀指南。"
+      "sourceHash": "e1d45bdf37dc961f32ed1191fc1478c788d1cd9de49cbd6393f17f9d0af6d76a",
+      "text": "共28條陳述，快答約 4–5 分鐘，沒有計時或速度要求。完整結果及七篇公開指南免費，無需註冊，也可以不完成作答直接閱讀指南。"
     },
     "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/6/question": {
       "sourceHash": "8d055c201f79f1bc28b68129d018e841d86ff7ea62a9fca5860c88e27b25f944",

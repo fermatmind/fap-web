@@ -19,8 +19,8 @@ function finish(quiz:Questionnaire,answers:QuestionnaireAnswers,locale:"en"|"zh"
  }
 }
 for(const locale of ["en","zh"] as const)for(const quiz of [virtues,euphoria]){
- it(`${quiz.slug} ${locale}: actual choices retain full personal output, clear optional drafts and copy only public entry`,async()=>{
-  const clipboard=vi.fn(async()=>{});Object.defineProperty(navigator,"clipboard",{configurable:true,value:{writeText:clipboard}});
+ it(`${quiz.slug} ${locale}: actual choices retain full personal output, clear optional drafts and share a caption or copy public entry`,async()=>{
+  const clipboard=vi.fn<(text: string) => Promise<void>>().mockResolvedValue(undefined);Object.defineProperty(navigator,"clipboard",{configurable:true,value:{writeText:clipboard}});
   const stored=vi.spyOn(Storage.prototype,"setItem"),key=`fm_questionnaire_draft:${quiz.slug}`;
   render(<QuestionnaireClient quiz={quiz} locale={locale}/>);
   await waitFor(()=>expect(screen.getByRole("button",{name:locale==="zh"?"开始测试":"Start test"})).toBeEnabled());
@@ -38,10 +38,18 @@ for(const locale of ["en","zh"] as const)for(const quiz of [virtues,euphoria]){
    expect(document.querySelectorAll("[data-mini-virtues-everyday]")).toHaveLength(7);
    expect(document.querySelectorAll("[data-mini-virtues-action]")).toHaveLength(7);
   }else expect(document.querySelectorAll("#take-test h4")).toHaveLength(36);
-  expect(screen.getByRole("heading",{level:2,name:quiz===virtues?(locale==="zh"?"你的 七宗罪 VS 七美德 结果":"Your Seven Sins vs Seven Virtues Results"):undefined})).toHaveFocus();
-  await act(async()=>{fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"复制公开入口":"Copy public entry"}));});
-  expect(clipboard).toHaveBeenCalledWith(`${quiz.title[locale]}\nhttps://fermatmind.com/${locale}/tests/explore/${quiz.slug}`);
-  expect(screen.getByRole("status").textContent).toContain(locale==="zh"?"不含个人答案或次数":"without personal answers or counts");
+  expect(screen.getByRole("heading",{level:2,name:quiz===virtues?(locale==="zh"?"费马测试 · 光暗双轨档案":"FermatMind · Light & Shadow"):undefined})).toHaveFocus();
+  const share = quiz === virtues;
+  await act(async()=>{fireEvent.click(screen.getByRole("button",{name:share?(locale==="zh"?"一键分享给朋友":"Share with friends"):(locale==="zh"?"复制公开入口":"Copy public entry")}));});
+  const publicUrl = `https://fermatmind.com/${locale}/tests/explore/${quiz.slug}`;
+  if (share) {
+   expect(clipboard).toHaveBeenCalledWith(expect.stringMatching(new RegExp(publicUrl+"$")));
+   expect(clipboard.mock.calls[0][0]).not.toMatch(/VIRTUES_DUAL_|answers|rawSum/);
+   expect(screen.getByRole("status").textContent).toContain(locale==="zh"?"分享文案已复制":"Share caption copied");
+  } else {
+   expect(clipboard).toHaveBeenCalledWith(`${quiz.title[locale]}\n${publicUrl}`);
+   expect(screen.getByRole("status").textContent).toContain(locale==="zh"?"不含个人答案或次数":"without personal answers or counts");
+  }
   expect(JSON.stringify(events.mock.calls)).not.toMatch(/VIRTUES_(?:LK|DUAL)_|EUPHORIA_ORIGINAL_|rawSum|winnerIds|answers|miniVirtues|counts/);
   const lifecycle = events.mock.calls.filter(([event]) => ["start_test", "complete_test", "view_result"].includes(event));
   expect(lifecycle.map(([event]) => event)).toEqual(["start_test", "complete_test", "view_result"]);
@@ -55,7 +63,7 @@ for(const locale of ["en","zh"] as const)for(const quiz of [virtues,euphoria]){
    expect(next).toHaveAttribute("href",`/${locale}/tests/big-five-personality-test-ocean-model`);
    expect(next).toHaveAttribute("referrerPolicy","no-referrer");
   }
-  fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"重新测试":"Retake test"}));
+  fireEvent.click(screen.getByRole("button",{name:locale==="zh"?(share?"再测一次":"重新测试"):"Retake test"}));
   expect(screen.getAllByRole("radio").some(r=>(r as HTMLInputElement).checked)).toBe(false);expect(sessionStorage.getItem(key)).toBeNull();
   expect(document.querySelectorAll("[data-mini-virtues-result],[data-archetype-match]")).toHaveLength(0);stored.mockRestore();
  });

@@ -23,7 +23,7 @@ export function sevenSinsTraditionalMetadata(path: string): Metadata {
   return { title: landing ? { absolute: title } : title, description, alternates: { canonical: `${SITE_URL}${canonical}`, languages: take ? undefined : {
     "zh-TW": `${SITE_URL}${path}`, "zh-CN": `${SITE_URL}${path.replace("/zh-TW", "/zh")}`, en: `${SITE_URL}${path.replace("/zh-TW", "/en")}`, "x-default": `${SITE_URL}${path.replace("/zh-TW", "/en")}`,
   } }, robots: take ? { index: false, follow: false, noarchive: true } : undefined,
-  openGraph: { title, description, locale: "zh_TW", type: "website", url: `${SITE_URL}${canonical}`, images: [`${SITE_URL}/images/test-covers/seven-sins-virtues-test.webp`] } };
+  openGraph: { title, description: landing?.ogDescription ?? description, locale: "zh_TW", type: "website", url: `${SITE_URL}${canonical}`, images: [`${SITE_URL}/images/test-covers/seven-sins-virtues-test.webp`] } };
 }
 function Languages({ path }: { path: string }) {
   const suffix = path.replace("/zh-TW", "");

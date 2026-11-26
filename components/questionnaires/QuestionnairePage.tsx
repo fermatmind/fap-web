@@ -500,7 +500,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const mentalAgeLanding = quiz.kind === "mental-age" ? mentalAgeLandingCopy[locale] : null;
   const sevenSins = slug === "seven-sins-virtues-test" ? sevenSinsLandingSeo[locale] : null;
   const metadata = buildPageMetadata({ locale, pathname: questionnairePath(locale, slug), title: sevenSins?.title ?? mentalAgeLanding?.metaTitle ?? modeABatchFourLandingTitle(slug, locale) ?? quiz.seoTitle[locale], description: sevenSins?.description ?? mentalAgeLanding?.description ?? (slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale]), imagePath: `/og/fun/${slug}?locale=${locale}&v=${quiz.version}${slug === "space-marine-chapter" ? "-studio" : slug === "moon-phase" ? "-phases" : slug === "bleach" ? "-portraits" : slug === "adult-age-preferences" ? "-art" : slug === "philosopher-personality-test" ? "-portraits2" : ""}`, alternatesByLocale: { en: questionnairePath("en", slug), zh: questionnairePath("zh", slug), xDefault: questionnairePath("en", slug) } });
-  if (sevenSins) return { ...metadata, title: { absolute: sevenSins.title } };
+  if (sevenSins) return { ...metadata, title: { absolute: sevenSins.title }, openGraph: { ...metadata.openGraph, description: sevenSins.ogDescription } };
   return mentalAgeLanding ? { ...metadata, title: { absolute: mentalAgeLanding.metaTitle } } : metadata;
 }
 

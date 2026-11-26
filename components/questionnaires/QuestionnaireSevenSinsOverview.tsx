@@ -1,4 +1,7 @@
 import type { Ref } from "react";
+import Link from "next/link";
+import { sevenSinsCardPeaks, sevenSinsCardRows, sevenSinsRadarPoint, type SevenSinsTrack } from "@/lib/questionnaires/sevenSinsCard";
+import { sevenSinsShareCopy, sevenSinsTrackLabel } from "@/lib/questionnaires/sevenSinsShareCopy";
 import { sevenSinsDisplay } from "@/lib/i18n/zh-TW/sevenSinsUi";
 import type { DisplayLocale as Locale } from "@/lib/i18n/locales";
 import { miniVirtuesDefinitions, scoreMiniVirtuesQuestionnaire, type MiniVirtuesDualResult } from "@/lib/questionnaires/miniVirtues";
@@ -16,22 +19,6 @@ const phoneLabels = [[180, 25], [240, 55], [287, 93], [313, 139], [313, 211], [2
 function point(index: number, distance: number) {
   const angle = index * Math.PI / 7 - Math.PI / 2;
   return [center[0] + Math.cos(angle) * distance, center[1] + Math.sin(angle) * distance] as const;
-}
-
-function LeadingCard({ axes, locale }: { axes: Axis[]; locale: Locale }) {
-  const zh = locale !== "en";
-  const sin = axes[0].track === "sin";
-  const highest = Math.max(...axes.map(axis => axis.score));
-  const leaders = axes.filter(axis => axis.score === highest);
-  return <div className={styles.card} data-seven-sins-leader={axes[0].track}>
-    <p className={styles.cardLabel}>{sin ? (zh ? sevenSinsDisplay("七宗罪之首", locale) : "Leading sin") : (zh ? sevenSinsDisplay("七美德之首", locale) : "Leading virtue")}</p>
-    {zh && leaders.length === 1 && <p className={styles.cardEnglish}>{leaders[0].label.en}</p>}
-    <p className={leaders.length === 1 ? styles.cardName : styles.cardTies}>
-      {leaders.length > 1 && <span className={styles.tieLabel}>{zh ? sevenSinsDisplay("并列", locale) : "Joint leaders"}</span>}
-      {leaders.map(axis => sevenSinsDisplay(axis.label[locale === "en" ? "en" : "zh"], locale)).join(zh ? "、" : ", ")}
-    </p>
-    <p className={styles.cardScore}><strong>{Math.round(highest)}</strong><span> / 100</span></p>
-  </div>;
 }
 
 function Radar({ axes, locale, sample = false, landing = false }: { axes: Axis[]; locale: Locale; sample?: boolean; landing?: boolean }) {
@@ -110,37 +97,88 @@ export function QuestionnaireSevenSinsSample({ result, locale }: { result: MiniV
   </div>;
 }
 
+const assessmentPaths = [
+  "/tests/big-five-personality-test-ocean-model",
+  "/tests/eq-test-emotional-intelligence-assessment",
+  "/tests/mbti-personality-test-16-personality-types",
+];
+
 export function QuestionnaireSevenSinsOverview({ result, locale, headingRef }: {
   result: MiniVirtuesDualResult;
   locale: Locale;
   headingRef: Ref<HTMLHeadingElement>;
 }) {
-  const zh = locale !== "en";
-  const sins = resultAxes(result, "sin");
-  const virtues = resultAxes(result, "virtue");
-  const average = (items: Axis[]) => Math.round(items.reduce((sum, axis) => sum + axis.score, 0) / items.length);
-  const sinAverage = average(sins);
-  const virtueAverage = average(virtues);
-  return <div className={styles.frame} data-seven-sins-board>
-    <div className={styles.board}>
-      <div className={styles.summary}>
-        <header className={styles.hero}>
-          <p className={styles.eyebrow}>Seven Sins vs Seven Virtues</p>
-          <h2 ref={headingRef} tabIndex={-1} className={styles.title}>
-            {zh ? sevenSinsDisplay("你的", locale) : "Your"} <span>{zh ? sevenSinsDisplay("七宗罪 VS 七美德", locale) : "Seven Sins vs Seven Virtues"}</span> {zh ? sevenSinsDisplay("结果", locale) : "Results"}
-          </h2>
-          <p className={`${styles.lined} ${styles.tagline}`}>{locale === "zh-TW" ? "左側七美德 · 右側七宗罪" : zh ? "左侧暗影牵引 · 右侧光辉托举" : "Shadow pulls · Light lifts"}</p>
-        </header>
-        <div className={styles.cards}>
-          <LeadingCard axes={sins} locale={locale} />
-          <LeadingCard axes={virtues} locale={locale} />
-        </div>
-        <p className={styles.balance} data-seven-sins-balance>
-          <span>{zh ? sevenSinsDisplay("美德题组均值", locale) : "Virtue item average"} {virtueAverage}</span><span>{zh ? sevenSinsDisplay("七宗罪题组均值", locale) : "Sin item average"} {sinAverage}</span>
-        </p>
-        <a className={styles.readingsLink} href="#seven-sins-readings">{zh ? sevenSinsDisplay("查看七组解读", locale) : "Explore the seven readings"} <span aria-hidden="true">↓</span></a>
-      </div>
-      <Radar axes={[...sins, ...virtues]} locale={locale} />
+  const rows = sevenSinsCardRows(result);
+  if (!rows) return null;
+  const peaks = sevenSinsCardPeaks(rows);
+  const copy = sevenSinsShareCopy[locale];
+  const coordinates = (index: number, score: number) => sevenSinsRadarPoint(index, 79 * score / 100, 160, 119);
+  const polygon = (values: number[]) => values.map((score, index) => {
+    const { x, y } = coordinates(index, score);
+    return `${x},${y}`;
+  }).join(" ");
+  return <section className={styles.honor} data-seven-sins-board aria-label={copy.name}>
+    <header className={styles.honorHeader}><h2 ref={headingRef} tabIndex={-1}>{copy.name}</h2><span>{copy.time}</span></header>
+    <div className={styles.peakGrid}>
+      {tracks.map(track => {
+        const leaders = peaks[track];
+        const names = leaders.map(row => sevenSinsTrackLabel(row, track, locale));
+        const abbreviated = names.length > 2 ? `${names.slice(0, 2).join(" · ")} +${names.length - 2}` : names.join(" · ");
+        return <div className={track === "sin" ? styles.peakShadow : styles.peakLight} key={track} data-seven-sins-leader={track}>
+          <span>{track === "sin" ? copy.shadow : copy.light}{names.length > 1 && <small>{copy.tied}</small>}</span>
+          <div aria-label={names.join(" · ")}>{abbreviated}</div>
+          <strong>{Math.round(leaders[0].scores[track])}</strong>
+        </div>;
+      })}
     </div>
-  </div>;
+    <figure className={styles.honorRadar} data-seven-sins-radar>
+      <svg viewBox="0 0 320 236" role="img" aria-label={copy.legend.join(". ")}>
+        {[25, 50, 75, 100].map(score => <polygon key={score} points={polygon(rows.map(() => score))} fill="none" stroke="#d5ae7038" />)}
+        {rows.map((row, index) => {
+          const outer = coordinates(index, 100);
+          const label = coordinates(index, 125);
+          return <g key={row.id}><line x1="160" y1="119" x2={outer.x} y2={outer.y} stroke="#d5ae7038" />
+            <text x={label.x} y={label.y} textAnchor="middle" dominantBaseline="central">{copy.pairs[index]}</text></g>;
+        })}
+        {tracks.map(track => {
+          const color = track === "sin" ? "#f77181" : "#f6cb79";
+          return <g key={track}>
+            <polygon points={polygon(rows.map(row => row.scores[track]))} fill={color} fillOpacity=".18" stroke={color} strokeWidth="2" strokeLinejoin="round" />
+            {rows.map((row, index) => {
+              const point = coordinates(index, row.scores[track]);
+              return <circle key={row.id} cx={point.x} cy={point.y} r="2.6" fill={color} />;
+            })}
+          </g>;
+        })}
+      </svg>
+      <figcaption><span>{copy.legend[0]}</span><span>{copy.legend[1]}</span></figcaption>
+    </figure>
+    <p className={styles.honorLine} data-seven-sins-pattern={peaks.pattern}>{copy.patterns[peaks.pattern]}</p>
+    <p className={styles.honorWatermark}>FermatMind.com</p>
+  </section>;
+}
+
+export function SevenSinsScoreDetails({ result, locale }: { result: MiniVirtuesDualResult; locale: Locale }) {
+  const rows = sevenSinsCardRows(result);
+  if (!rows) return null;
+  const copy = sevenSinsShareCopy[locale];
+  return <section className={styles.scoreDetails}>
+    <h3>{copy.details}</h3>
+    <table><thead><tr><th scope="col">{copy.sin}</th><th scope="col">{copy.virtue}</th></tr></thead>
+      <tbody>{rows.map(row => <tr key={row.id}>
+        {tracks.map((track: SevenSinsTrack) => <td key={track} data-seven-sins-axis={row[track].en}>
+          <span>{sevenSinsTrackLabel(row, track, locale)}</span><strong>{Math.round(row.scores[track])}</strong>
+          {(track === "sin" ? row.leadingSin : row.leadingVirtue) && <span className="sr-only">{copy[track === "sin" ? "shadow" : "light"]}</span>}
+        </td>)}
+      </tr>)}</tbody>
+    </table>
+  </section>;
+}
+
+export function SevenSinsNextAssessments({ locale }: { locale: Locale }) {
+  const copy = sevenSinsShareCopy[locale];
+  return <section className={styles.assessmentBridge} aria-labelledby="seven-sins-next">
+    <h3 id="seven-sins-next">{copy.next}</h3><p>{copy.nextLead}</p>
+    <ul>{assessmentPaths.map((path, index) => <li key={path}><Link prefetch={false} referrerPolicy="no-referrer" href={`/${locale}${path}`}>{copy.options[index]} →</Link></li>)}</ul>
+  </section>;
 }

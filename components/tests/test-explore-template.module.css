@@ -260,3 +260,12 @@
   border-radius: .25rem;
   background: linear-gradient(to right, var(--rule), var(--accent));
 }
+
+@media (max-width: 600px) {
+  .page[data-seven-sins-landing] .heroInner { padding-block: 1.3rem; gap: 1rem; }
+  .page[data-seven-sins-landing] .hero h1 { font-size: 2rem; }
+  .page[data-seven-sins-landing] .hero .lead { margin-block-start: .65rem; font-size: .94rem; line-height: 1.45; }
+  .page[data-seven-sins-landing] .hero .actions { margin-block-start: .85rem; }
+  .page[data-seven-sins-landing] .hero .trust { margin-block-start: .65rem; }
+  .page[data-seven-sins-landing] .hero .actions > a { display: none; }
+}

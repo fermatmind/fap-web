@@ -1,12 +1,28 @@
 import { describe, expect, it } from "vitest";
 import quiz from "@/lib/questionnaires/data/seven-sins-virtues-test.json";
 import { scoreMiniVirtuesQuestionnaire, type MiniVirtuesDualResult } from "@/lib/questionnaires/miniVirtues";
-import { sevenSinsCardRows } from "@/lib/questionnaires/sevenSinsCard";
+import { sevenSinsCardPeaks, sevenSinsCardRows } from "@/lib/questionnaires/sevenSinsCard";
 
 function completed(option: string) {
   return scoreMiniVirtuesQuestionnaire(quiz, Object.fromEntries(quiz.questions.map(question => [question.id, option]))) as MiniVirtuesDualResult;
 }
 describe("personal sins and virtues image data", () => {
+  it.each([
+    ["same", [87.5, 0], [75, 75]],
+    ["cross", [87.5, 0], [0, 75]],
+    ["tied", [87.5, 87.5], [0, 62.5]],
+    ["light", [25, 0], [0, 50]],
+    ["shadow", [62.5, 0], [0, 37.5]],
+    ["even", [62.5, 0], [0, 50]],
+  ] as const)("selects %s from unrounded peaks with deterministic precedence", (pattern, sins, virtues) => {
+    const result = completed("1");
+    for (const [index, row] of result.miniVirtues.entries()) {
+      row.sin = sins.at(index) ?? 0;
+      row.virtue = virtues.at(index) ?? 0;
+    }
+    expect(sevenSinsCardPeaks(sevenSinsCardRows(result)!).pattern).toBe(pattern);
+  });
+
   it("keeps all 14 independent scores and all seven leaders on each side when tied", () => {
     const rows = sevenSinsCardRows(completed("3"))!;
     expect(rows).toHaveLength(7);

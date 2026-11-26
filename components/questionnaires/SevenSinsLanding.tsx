@@ -64,8 +64,22 @@ const nextNames = {
   en: ["Big Five test","94-question career assessment","EQ test","MBTI test"],
 };
 const followUpIndex = [0, 1, 2, 3, 0, 2, 1];
-const sampleTracks = [0, 6, 5];
-const otherScores = ["2","3","3","4","3","3","3","4","2","4","3","3","3","4","3","3","3","4","4","3","2","4","2","3","3","4","2","3"];
+const sampleAnswers = [
+  { group: 0, options: ["5", "4", "4", "4"] },
+  { group: 5, options: ["2", "5", "2", "5"] },
+  { group: 6, options: ["5", "2", "4", "3"] },
+] as const;
+const everydaySignals = {
+  zh: [["守住判断", "承认疏漏"], ["想多留一些", "分享有余的资源"], ["被吸引", "尊重彼此边界"], ["和他人比较", "真心认可对方"], ["再享受一会儿", "按计划停下"], ["想立刻反驳", "等情绪缓下来"], ["拖着不开始", "先完成一小步"]],
+  "zh-TW": [["守住立場", "承認疏漏"], ["想多留一些", "分享多餘資源"], ["感到心動", "尊重彼此界線"], ["忍不住比較", "真心肯定對方"], ["想再享受一下", "照原定時間停下"], ["想立刻反駁", "等情緒緩下來"], ["一直拖著沒開始", "先做完一小步"]],
+  en: [["Hold your ground", "Own a mistake"], ["Keep more for yourself", "Share what you can spare"], ["Feel drawn to someone", "Respect boundaries"], ["Compare yourself with others", "Recognize someone’s work"], ["Reach for more", "Stop as planned"], ["Want to snap back", "Pause before replying"], ["Put off starting", "Take the first small step"]],
+} as const;
+const pairTable = {
+  zh: ["七组光暗对偶对照表", "七宗罪", "七美德", "日常信号", "生活指南"],
+  "zh-TW": ["七組光暗對偶對照表", "七宗罪", "七美德", "日常訊號", "生活指南"],
+  en: ["Seven pairs of sins and virtues", "Sin", "Virtue", "Everyday signals", "Reflection guide"],
+} as const;
+const sourceLabel = { zh: "七宗罪与七美德的文化背景", "zh-TW": "七宗罪與七美德的文化背景", en: "The cultural background of the seven sins and virtues" };
 type SevenSinsLandingSource = Pick<Questionnaire, "slug" | "guide" | "references">
   & { questions: ReadonlyArray<Pick<Questionnaire["questions"][number], "id" | "prompt">> };
 
@@ -78,10 +92,10 @@ export function SevenSinsLanding({ quiz, locale }: { quiz: SevenSinsLandingSourc
   const value = (item: Text & { "zh-TW"?: string }) => traditional ? item["zh-TW"] ?? sevenSinsDisplay(item.zh, locale) : item[locale];
   const path = questionnairePath(locale, quiz.slug);
   const start = traditional ? `${path}/take` : `${path}/take?start=1`;
-  const startLabel = { zh: "免费开始测试", "zh-TW": "開始免費測驗", en: "Start the free test" }[locale];
-  const samples = sampleTracks.map(track => {
+  const startLabel = { zh: "免费开始测试", "zh-TW": "開始免費測驗", en: "Start Free Test" }[locale];
+  const samples = sampleAnswers.map(({ group, options }) => {
     const answers = Object.fromEntries(source.questions.map((question, index) => [question.id,
-      Math.floor(index / 4) === track ? ["5", "4", "4", "5"][index % 4] : otherScores[(index + track) % otherScores.length],
+      Math.floor(index / 4) === group ? options[index % 4] : ["2", "2", "3", "3", "2", "3", "2", "2"][index % 8],
     ]));
     return scoreMiniVirtuesQuestionnaire(source, answers);
   });
@@ -110,27 +124,35 @@ export function SevenSinsLanding({ quiz, locale }: { quiz: SevenSinsLandingSourc
       })) },
       { "@type": "BreadcrumbList", "@id": `${canonical}#breadcrumbs`, itemListElement },
     ] }} />
-    <TestExploreTemplate copy={{ ...copy, ...edit, start: startLabel, scene: edit.trigger, friction: edit.bright }}
-      start={start} guideHref={profiles[0].link.href}
+    <TestExploreTemplate copy={{ ...copy, ...edit, start: startLabel, benefitsTitle: edit.summaryTitle, scene: edit.trigger, friction: edit.bright }}
+      start={start} guideHref={profiles[0].link.href} rootAttributes={{ "data-seven-sins-landing": "" }}
       profilesId="questionnaire-results" profiles={profiles} exploreLinks={destinations} compareLinks={[null, destinations[0], displayNavigationPath(mbti, locale), displayNavigationPath(career, locale)]}
+      methodSupplement={<section className={styles.pairSection} aria-labelledby="seven-sins-pairs-heading">
+        <h2 id="seven-sins-pairs-heading">{pairTable[locale][0]}</h2>
+        <table className={styles.pairTable} role="table"><thead role="rowgroup"><tr role="row">{pairTable[locale].slice(1).map(label => <th key={label} scope="col" role="columnheader">{label}</th>)}</tr></thead>
+          <tbody role="rowgroup">{miniVirtuesDefinitions.map((pair, index) => <tr role="row" key={pair.id}>
+            <th scope="row" role="rowheader">{value(pair.sin)}</th>
+            <td role="cell">{value(pair.virtue)}</td>
+            <td role="cell">{everydaySignals[locale][index].join(" / ")}</td>
+            <td role="cell"><a href={profiles[index].link.href}>{copy.guideLink}<span className="sr-only"> · {profiles[index].range}</span></a></td>
+          </tr>)}</tbody>
+        </table>
+      </section>}
       sample={<ExploreLandingSamples label={edit.sample} names={edit.names}>
         {samples.map((result, index) => <div key={edit.names[index]}>
-          <p className="font-semibold">{edit.pairs[index]} · {edit.names[index]}</p>
-          <p className="my-2">{edit.hooks[index]}</p>
           {result.status === "complete" && result.model === "dual" && <>
-            <SevenSinsPreviewRadar result={result} locale={locale} />
             <dl className={styles.previewMetrics}>
-              {(["sin", "virtue"] as const).map((side, i) => {
-                const highest = Math.max(...result.miniVirtues.map(row => row[side]));
-                const names = miniVirtuesDefinitions.filter((_, axis) => result.miniVirtues[axis][side] === highest).map(pair => value(pair[side]));
-                return <div key={side}><dt>{reading.labels[i]}</dt><dd>{names.join(locale === "en" ? ", " : "、")} {Math.round(highest)}</dd></div>;
+              {(index === 1 ? ["virtue", "sin"] as const : ["sin", "virtue"] as const).map(side => {
+                const group = sampleAnswers[index].group;
+                return <div key={side}><dt>{value(miniVirtuesDefinitions[group][side])}</dt><dd>{Math.round(result.miniVirtues[group][side])}</dd></div>;
               })}
-              <div><dt>{reading.labels[2]}</dt><dd>{reading.states[index]}</dd></div>
             </dl>
+            <SevenSinsPreviewRadar result={result} locale={locale} />
+            <p className={styles.sampleNote}>{edit.hooks[index]}</p>
           </>}
         </div>)}
       </ExploreLandingSamples>}
-      insight={<><div><h2>{edit.explain}</h2><p>{edit.insight}</p><p className="font-semibold">{edit.formula}</p><h3 className="mt-4">{comparison[0]}</h3><p>{comparison[1]}</p></div>
+      insight={<><div><p className={layout.facts}>{edit.scene}</p><h2>{edit.explain}</h2><p>{edit.insight}</p><p className="font-semibold">{edit.formula}</p><h3 className="mt-4">{comparison[0]}</h3><p>{comparison[1]}</p></div>
         <div className="grid gap-3">{edit.example.map(([label, calculation], index) => <article key={label} className="rounded-lg border border-emerald-900/20 bg-white p-4">
           <h3>{label}</h3><p>{value(source.questions[index].prompt)}</p><p>{calculation}</p>
         </article>)}</div></>}
@@ -138,13 +160,15 @@ export function SevenSinsLanding({ quiz, locale }: { quiz: SevenSinsLandingSourc
         <h2 id="seven-sins-result-patterns">{reading.title}</h2><p className={layout.facts}>{reading.intro}</p>
         <div className={layout.threeColumns}>{reading.cards.map(([title, body]) => <article key={title}><h3>{title}</h3><p>{body}</p></article>)}</div>
       </section>}
-      rules={<><p>{edit.boundary}</p><details id="questionnaire-reading-scope" className="mt-5 scroll-mt-24">
+      rules={<><p>{edit.example[0][1]} {edit.example[1][1]}</p>
+        <p>{edit.faq[4][1]}</p><h3>{edit.faq[2][0]}</h3><p>{edit.boundary}</p>
+        <p><a className="underline" href={`/${locale}/articles/seven-deadly-sins-and-seven-virtues`}>{sourceLabel[locale]}</a></p><details id="questionnaire-reading-scope" className="mt-5 scroll-mt-24">
         <summary className="cursor-pointer font-semibold">{edit.details}</summary>
         {source.guide.map(section => <div key={section.id}><h3>{value(section.title)}</h3>
           {section.paragraphs.map(paragraph => <p key={paragraph.en}>{value(paragraph)}</p>)}
         </div>)}
         <h3>{copy.references}</h3><ol className="list-decimal ps-6">{refs.map((ref,index) => <li key={`${ref.url}-${index}`}><a href={ref.url}>{value(ref.title)}</a></li>)}</ol>
       </details></>} />
-    <SevenSinsStickyStart title={edit.title} href={start} label={startLabel} />
+    <SevenSinsStickyStart title={edit.title} href={start} label={edit.sticky} />
   </>;
 }

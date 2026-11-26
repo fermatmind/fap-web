@@ -7,7 +7,7 @@ import { Container } from "@/components/layout/Container";
 import { scoreMiniVirtuesQuestionnaire } from "@/lib/questionnaires/miniVirtues";
 import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { traditionalSevenSins as quiz } from "@/lib/i18n/zh-TW/sevenSins";
-import { QuestionnaireSevenSinsOverview } from "@/components/questionnaires/QuestionnaireSevenSinsOverview";
+import { QuestionnaireSevenSinsOverview, SevenSinsNextAssessments, SevenSinsScoreDetails } from "@/components/questionnaires/QuestionnaireSevenSinsOverview";
 import { SevenSinsPersonalCard } from "@/components/questionnaires/SevenSinsPersonalCard";
 import { SevenSinsReading } from "./SevenSinsReading";
 
@@ -16,7 +16,7 @@ const button = "min-h-11 rounded-full bg-slate-900 px-6 py-3 font-semibold text-
 export function SevenSinsTake() {
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({});
   const [position, setPosition] = useState(0), [submitted, setSubmitted] = useState(false);
-  const [message, setMessage] = useState(""), [manual, setManual] = useState("");
+  const [message, setMessage] = useState("");
   const heading = useRef<HTMLHeadingElement>(null), resultHeading = useRef<HTMLHeadingElement>(null);
   const score = scoreMiniVirtuesQuestionnaire(quiz, answers), question = quiz.questions[position];
   useEffect(() => { if (submitted) resultHeading.current?.focus(); else heading.current?.focus(); }, [position, submitted]);
@@ -28,21 +28,15 @@ export function SevenSinsTake() {
     } else setPosition(position + 1);
     setMessage("");
   }
-  function retake() { setAnswers({}); setPosition(0); setSubmitted(false); setManual(""); setMessage(""); }
-  async function copy() {
-    const text = `${quiz.title["zh-TW"]}\nhttps://fermatmind.com${entry}`;
-    try { await navigator.clipboard.writeText(text); setMessage("已複製公開測試入口，不含本次分數或答案。"); }
-    catch { setManual(text); setMessage("請手動複製下方公開入口。"); }
-  }
+  function retake() { setAnswers({}); setPosition(0); setSubmitted(false); setMessage(""); }
   if (score.status === "unavailable" || score.status === "invalid") return <p role="alert">本次結果暫不可用，請重新開始。</p>;
-  return <Container as="main" className="max-w-3xl space-y-6 py-10" data-stage={submitted ? "result" : "answer"}>
-    <Link href={entry} className="inline-block min-h-11 py-2 underline">返回測試介紹</Link>
+  return <Container as="main" className={submitted ? "max-w-3xl space-y-3 py-3" : "max-w-3xl space-y-6 py-10"} data-stage={submitted ? "result" : "answer"}>
     {submitted && score.status === "complete" && score.model === "dual" ? <>
       <QuestionnaireSevenSinsOverview result={score} locale="zh-TW" headingRef={resultHeading} />
+      <SevenSinsPersonalCard result={score} locale="zh-TW" formCode={quiz.source.formCode} onRetake={retake} />
+      <SevenSinsScoreDetails result={score} locale="zh-TW" />
       <section id="seven-sins-readings" className="space-y-8"><h2 className="text-2xl font-bold">七組完整解讀</h2>{quiz.profiles.map(profile => <section key={profile.id} className="space-y-4"><SevenSinsReading profile={profile} /><Link href={`${entry}/results/${profile.id}`} target="_blank" rel="noopener" className="inline-block min-h-11 py-2 underline">開啟完整公開指南（新分頁）</Link></section>)}</section>
-      <SevenSinsPersonalCard result={score} locale="zh-TW" formCode={quiz.source.formCode} />
-      <div className="flex flex-wrap gap-4 print:hidden"><button className={button} onClick={copy}>複製公開入口</button><button className={button} onClick={retake}>重新測試</button><button className={button} onClick={() => window.print()}>列印結果</button></div>
-      {manual && <label className="block">手動複製公開入口<textarea readOnly rows={4} value={manual} className="mt-3 w-full rounded-xl border border-slate-300 p-4" onFocus={event => event.currentTarget.select()} /></label>}
+      <SevenSinsNextAssessments locale="zh-TW" />
     </> : <>
       <h1 ref={heading} tabIndex={-1} className="text-3xl font-bold">{quiz.title["zh-TW"]}</h1>
       <p className="whitespace-pre-line leading-8">{quiz.instructions!["zh-TW"]}</p><p aria-live="polite">第 {position + 1} / 28 題</p>
