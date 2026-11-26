@@ -1018,26 +1018,9 @@ function HomepageArticlesBanner({ locale, articles, archiveTitle }: { locale: Di
   );
 }
 
-function HomepageCookieBannerGuard() {
+function HomepageResponsiveGridStyles() {
   return (
     <style>{`
-      main.fm-homepage ~ [data-visual-volatile="true"] {
-        left: auto;
-        right: 1rem;
-        width: min(360px, calc(100% - 2rem));
-        border-radius: 0.75rem;
-        padding: 0.75rem;
-      }
-
-      main.fm-homepage ~ [data-visual-volatile="true"] p {
-        font-size: 0.8125rem;
-        line-height: 1.45;
-      }
-
-      main.fm-homepage ~ [data-visual-volatile="true"] div {
-        margin-top: 0.625rem;
-      }
-
       .homepage-core-grid {
         grid-template-columns: 1fr;
       }
@@ -1072,7 +1055,7 @@ export function HomePageExperience({
 }) {
   return (
     <div className="fm-page-background text-[var(--fm-text-main)]">
-      <HomepageCookieBannerGuard />
+      <HomepageResponsiveGridStyles />
       <HomepageHeroV1 locale={locale} copy={copy} />
       <HomepageHighlightedTestsBanner locale={locale} copy={copy} supplementalTests={supplementalTests} />
       <HomepageFunTests locale={locale} />

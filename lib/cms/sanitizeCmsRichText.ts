@@ -563,3 +563,24 @@ export function sanitizeCmsHtml(html: string, options: CmsHtmlSanitizeOptions = 
 }
 
 export const sanitizeCmsRichText = sanitizeCmsHtml;
+
+/** Preserve authored fragments and create stable targets for older HTML articles. */
+export function prepareArticleHtml(html: string, locale?: Locale) {
+  const sanitized = sanitizeCmsHtml(html, { minimumHeadingLevel: 2, locale });
+  const usedIds = new Set(Array.from(sanitized.matchAll(/\sid="([^"]+)"/g), (match) => match[1]));
+  const headings: { id: string; level: number; text: string }[] = [];
+  let section = 0;
+  const content = sanitized.replace(/<h2(\s[^>]*)?>([\s\S]*?)<\/h2>/gi, (element, attrs: string | undefined, label: string) => {
+    const text = decodeHtmlEntities(label.replace(/<[^>]*>/g, "")).trim();
+    if (!text) return element;
+    const existingId = attrs?.match(/\sid="([^"]+)"/)?.[1];
+    let id = existingId;
+    if (!id) {
+      do id = `article-html-section-${++section}`; while (usedIds.has(id));
+      usedIds.add(id);
+    }
+    headings.push({ id: decodeHtmlEntities(id), level: 2, text });
+    return existingId ? element : `<h2${attrs ?? ""} id="${id}">${label}</h2>`;
+  });
+  return { html: content, headings };
+}

@@ -44,10 +44,12 @@ export function ArticleReadingNavigation({ headings, locale }: { headings: Artic
     };
   }, [headings]);
 
-  const items = sections.map((section) => <li key={section.id}><a href={`#${section.id}`}>{section.text}</a></li>);
+  const items = sections.map((section, index) => <li key={section.id}>
+    <a href={`#${section.id}`}><span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><span>{section.text}</span></a>
+  </li>);
   return <>
     <div className="fm-article-reading-progress" aria-hidden="true" ref={progress} />
-    {sections.length > 1 ? <nav className="fm-article-reading-toc" data-testid="article-toc" aria-label={label} ref={nav}>
+    {sections.length > 0 ? <nav className="fm-article-reading-toc" data-testid="article-toc" aria-label={label} ref={nav}>
       <details><summary>{label}</summary><ol>{items}</ol></details>
       <div className="fm-article-desktop-toc"><strong>{label}</strong><ol>{items}</ol></div>
     </nav> : null}

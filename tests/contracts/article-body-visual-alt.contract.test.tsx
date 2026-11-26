@@ -41,7 +41,7 @@ describe("article body image alternative text", () => {
       const html = renderToStaticMarkup(await Page({ params: Promise.resolve({ locale, slug: article.slug }) }));
       const document = new DOMParser().parseFromString(html, "text/html");
       return {
-        cover: document.querySelector("header img"),
+        cover: document.querySelector(".fm-article-hero img"),
         body: document.querySelector("article img"),
       };
     }

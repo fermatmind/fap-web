@@ -3,7 +3,6 @@
 import { useSyncExternalStore } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { COOKIE_BANNER_ENABLED } from "@/components/layout/siteChromeRules";
-import { Button } from "@/components/ui/button";
 import { getConsent, setAnalyticsConsent, type AnalyticsConsent } from "@/lib/consent/store";
 import { getDictSync } from "@/lib/i18n/getDict";
 
@@ -55,27 +54,26 @@ export function CookieBanner({ traditional = false }: { traditional?: boolean } 
     <div
       data-visual-volatile="true"
       data-cookie-banner="true"
-      className="fixed bottom-4 left-0 right-0 z-50 mx-auto w-[min(920px,calc(100%-2rem))] rounded-2xl border border-slate-300 bg-white p-4 shadow-lg"
+      className="mx-auto mb-20 mt-4 w-[calc(100%-2rem)] max-w-[340px] rounded-xl border border-[var(--fm-border)] bg-white/95 p-4 shadow-md print:hidden min-[1280px]:fixed min-[1280px]:bottom-5 min-[1280px]:right-5 min-[1280px]:z-50 min-[1280px]:m-0 min-[1280px]:w-[min(340px,calc((100vw_-_680px)/2_-_20px))] min-[1280px]:backdrop-blur"
     >
       <p className="m-0 text-sm text-slate-700">{copy.message}</p>
       <div className="mt-3 flex flex-wrap gap-2">
-        <Button
+        <button
           type="button"
-          size="sm"
+          className="min-h-11 rounded-full bg-[#111827] px-4 text-sm font-semibold text-white hover:bg-[#283346] focus-visible:outline-2 focus-visible:outline-offset-2"
           data-testid="cookie-banner-accept"
           onClick={() => updateConsent("granted")}
         >
           {copy.accept}
-        </Button>
-        <Button
+        </button>
+        <button
           type="button"
-          size="sm"
-          variant="outline"
+          className="min-h-11 rounded-full border border-[var(--fm-border)] px-4 text-sm font-semibold text-[var(--fm-text)] hover:bg-[var(--fm-surface-muted)] focus-visible:outline-2 focus-visible:outline-offset-2"
           data-testid="cookie-banner-decline"
           onClick={() => updateConsent("denied")}
         >
           {copy.decline}
-        </Button>
+        </button>
       </div>
     </div>
   );

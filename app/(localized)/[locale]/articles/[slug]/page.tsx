@@ -1,28 +1,22 @@
+import { ArticleEditorialLayout } from "@/components/articles/ArticleEditorialLayout";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleLanguageNavigation } from "@/components/articles/ArticleLanguageNavigation";
 import { ArticleAcademicFooter } from "@/components/articles/ArticleAcademicFooter";
-import { ArticleReadingNavigation } from "@/components/articles/ArticleReadingNavigation";
-import { ArticleTrustHeader } from "@/components/articles/ArticleTrustHeader";
 import { ArticleClosing } from "@/components/articles/ArticleClosing";
-import { ArticleByline } from "@/components/articles/ArticleByline";
 import { ArticleFragmentNavigation } from "@/components/articles/ArticleFragmentNavigation";
 import { articleByline } from "@/lib/content/articleByline";
 import { BlogFeedLink } from "@/components/articles/BlogFeedLink";
 import { articleFeedAlternate } from "@/lib/cms/articleFeed";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { AttributedCmsLinkHydrator } from "@/components/content/AttributedCmsLinkHydrator";
 import { AttributedSanitizedCmsHtml } from "@/components/content/AttributedSanitizedCmsHtml";
-import { RelatedContent } from "@/components/content/RelatedContent";
-import { Container } from "@/components/layout/Container";
 import { PublicTopicEdgeModule } from "@/components/public-topic-graph/PublicTopicEdgeRenderer";
 import { PublicReviewStatus } from "@/components/public-content/PublicReviewStatus";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Badge } from "@/components/ui/badge";
 import {
   getCmsArticleSeoWithLastKnownGood,
   getCmsArticleWithLastKnownGood,
@@ -30,12 +24,11 @@ import {
   type CmsArticle,
   type CmsArticleSeoPayload,
 } from "@/lib/cms/articles";
+import { prepareArticleHtml } from "@/lib/cms/sanitizeCmsRichText";
 import { RIC_INTEREST_ARTICLE, RIC_INTEREST_PATH } from "@/lib/career/interestDirectoryRoutes";
-import type { RelatedContentItem } from "@/lib/content";
 import { articleCategoryCompareBlocks, articleCategoryLabel } from "@/lib/content/articleCategoryLabel";
 import { loadBlogArchive } from "@/lib/content/blogArchive";
 import { excludeFaqCopiesInMarkdown, getArticleEditorialFeatures, getSimpleMarkdownHeadings, getSimpleMarkdownIntroJumps, renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
-import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import {
@@ -62,14 +55,6 @@ const BIG_FIVE_FACET_JUMP_TARGETS = {
   },
 };
 
-const IQ_PUBLIC_ARTICLE_SLUGS = new Set([
-  "iq-test-score-and-limits-explained",
-  "iq-test-tool-guide",
-  "iq-test-narrative-portrait",
-  "iq-test-growth-guide",
-  "what-is-iq-and-how-it-is-measured",
-]);
-
 type ArticleMetadataImage = {
   url: string;
   alt?: string;
@@ -83,24 +68,6 @@ function buildArticleMetadataImage(url: string | null | undefined, alt: string |
 
   const normalizedAlt = String(alt ?? "").trim();
   return normalizedAlt ? { url: normalizedUrl, alt: normalizedAlt } : normalizedUrl;
-}
-
-function formatArticleDate(value: string | null, locale: Locale): string | null {
-  if (!value) {
-    return null;
-  }
-
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) {
-    return null;
-  }
-
-  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    timeZone: "UTC",
-  }).format(date);
 }
 
 function buildCanonicalPath(slug: string, locale: Locale): string {
@@ -161,6 +128,8 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
         sourceSlug={article.slug}
         sourcePath={canonicalPath}
         contentId={article.id}
+        className="fm-article-body-flow"
+        editorialHeadingAnchors
         minimumHeadingLevel={2}
       />
     );
@@ -170,7 +139,7 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
     const editorialOptions = editorial ? { locale, slug: article.slug, part: "body" } as const : undefined;
     return (
       <AttributedCmsLinkHydrator
-        className={editorial ? "fm-article-body-flow" : undefined}
+        className="fm-article-body-flow"
         locale={locale}
         sourceRouteFamily="article_detail"
         sourceSlug={article.slug}
@@ -182,6 +151,7 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
           minimumHeadingLevel: 2,
           headingIdPrefix: "article-body",
           scrollableTables: true,
+          articleTableLocale: locale,
           wrapPlainTextFences: true,
           editorial: editorialOptions,
           highlightEditorialConclusions: true,
@@ -339,9 +309,10 @@ export default async function ArticleDetailPage({
     return notFound();
   }
 
-  const [seoResult, blogState] = await Promise.all([
+  const [seoResult, blogState, relatedState] = await Promise.all([
     getCmsArticleSeoWithLastKnownGood(slug, locale),
-    article.category ? loadBlogArchive(locale, 1) : Promise.resolve(null),
+    loadBlogArchive(locale, 1),
+    article.category?.slug ? loadBlogArchive(locale, 1, article.category.slug) : undefined,
   ]);
   const seo = seoResult.value;
 
@@ -398,8 +369,6 @@ export default async function ArticleDetailPage({
     faqItems.length > 0 &&
     !jsonLdContainsType(articleJsonLd, "FAQPage");
 
-  const publishedAt = formatArticleDate(article.publishedAt, locale);
-  const updatedAt = formatArticleDate(article.updatedAt, locale);
   const answerSurfaceWithVisibleFaq = article.answerSurface && !article.contentHtml.trim()
     ? {
         ...article.answerSurface,
@@ -413,12 +382,6 @@ export default async function ArticleDetailPage({
         compareBlocks: articleCategoryCompareBlocks(answerSurfaceWithVisibleFaq.compareBlocks, categoryLabel, locale),
       }
     : answerSurfaceWithVisibleFaq;
-  const heroSummary = article.landingSurface?.summaryBlocks[0]?.body || article.excerpt;
-  const badgeLabels = [
-    categoryLabel,
-    ...article.tags.map((tag) => tag.name).filter(Boolean),
-  ].filter((label): label is string => Boolean(label)).slice(0, 5);
-
   const articleRuntimeContract = resolveArticleRuntimeContract(article);
   const isRiasecOverview = article.slug === (locale === "zh"
     ? "riasec-holland-career-interest-test-explained"
@@ -426,33 +389,22 @@ export default async function ArticleDetailPage({
   const editorial = !article.contentHtml.trim() ? getArticleEditorialFeatures(article.contentMd) : { enabled: false, sources: false };
   const headings = !article.contentHtml.trim()
     ? getSimpleMarkdownHeadings(article.contentMd, { locale, minimumHeadingLevel: 2, headingIdPrefix: "article-body", editorial: editorial.enabled ? { locale } : undefined })
-    : [];
+    : prepareArticleHtml(article.contentHtml, locale).headings;
 
   const introJumps = article.id === 232 && locale === "en" && slug === "big-five-30-facets-explained-with-model-caveats"
     ? getSimpleMarkdownIntroJumps(article.contentMd, headings, BIG_FIVE_FACET_JUMP_TARGETS)
     : [];
 
-  const relatedArticles: RelatedContentItem[] = [];
-  const relatedCareerGuides: RelatedContentItem[] = [];
-  const relatedTypes: RelatedContentItem[] = [];
-
   return (
-    <Container as="main" className={editorial.enabled ? "fm-article-page" : "fm-article-print-root space-y-8 py-10"}>
+    <ArticleEditorialLayout locale={locale} article={article} archive={blogState} relatedState={relatedState} headings={headings}
+      editorial={editorial.enabled} sourceChecked={editorial.sources && article.publicReview?.reviewState === "approved"}
+      schema={<>
       {articleJsonLd ? <JsonLd id={`article-jsonld-${slug}`} data={articleJsonLd} /> : null}
       {breadcrumbJsonLd ? <JsonLd id={`article-breadcrumb-${slug}`} data={breadcrumbJsonLd} /> : null}
       {shouldRenderStandaloneFaqJsonLd ? <JsonLd id={`article-faq-${slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}
-
-      <Breadcrumb
-        items={[
-          { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
-          { label: dict.articles.title, href: localizedPath("/articles", locale) },
-          { label: article.title },
-        ]}
-      />
-
-      <ArticleLanguageNavigation article={article} />
-
-      <header id="what-it-is" className={editorial.enabled ? "fm-article-page-header" : "space-y-5 border-b border-[var(--fm-border)] pb-7"}>
+      </>}
+      navigation={<>
+        <ArticleLanguageNavigation article={article} />
         {introJumps.length > 0 ? (
           <nav aria-label="Quick jumps" className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
             {introJumps.map(({ href, label }) => (
@@ -460,72 +412,15 @@ export default async function ArticleDetailPage({
             ))}
           </nav>
         ) : null}
-        <ArticleResponsiveImage
-          src={article.coverImageUrl}
-          alt={article.coverImageAlt ?? article.title}
-          width={article.coverImageWidth}
-          height={article.coverImageHeight}
-          variants={article.coverImageVariants}
-          mode="hero"
-          priority
-          className={editorial.enabled ? "fm-article-hero" : "aspect-[16/9] rounded-lg border border-[var(--fm-border)]"}
-        />
-        <div className={editorial.enabled ? "fm-article-heading" : "max-w-4xl space-y-4"}>
-          <div className={editorial.enabled ? "fm-article-tags flex flex-wrap items-center gap-2" : "flex flex-wrap items-center gap-2"}>
-            {badgeLabels.length > 0 ? (
-              badgeLabels.map((label) => <Badge key={`${slug}-hero-${label}`}>{label}</Badge>)
-            ) : (
-              <Badge>{dict.articles.kicker}</Badge>
-            )}
-          </div>
-          <h1 className="m-0 font-serif text-4xl font-semibold leading-tight text-[var(--fm-text)] [overflow-wrap:anywhere]">
-            {renderCjkPunctuationText(article.title, "article-title")}
-          </h1>
-          {heroSummary && !editorial.enabled ? <p className="m-0 max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)]">{heroSummary}</p> : null}
-          {editorial.enabled ? <ArticleTrustHeader locale={locale} authorName={article.authorName} revisedAt={article.updatedAt ?? article.publishedAt}
-            readingMinutes={article.readingMinutes} sourceChecked={editorial.sources && article.publicReview?.reviewState === "approved"} /> :
-          <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-[var(--fm-text-muted)]">
-            <p className="m-0">
-              {locale === "zh" ? "作者" : "By"}: <ArticleByline authorName={article.authorName} locale={locale} />
-            </p>
-            {publishedAt ? (
-              <p className="m-0">
-                {locale === "zh" ? "发布于" : "Published"}: {publishedAt}
-              </p>
-            ) : null}
-            {updatedAt ? (
-              <p className="m-0">
-                {dict.articles.updatedLabel}: {updatedAt}
-              </p>
-            ) : null}
-            {article.readingMinutes ? (
-              <p className="m-0">
-                {locale === "zh" ? `阅读时间：${article.readingMinutes} 分钟` : `${article.readingMinutes} min read`}
-              </p>
-            ) : null}
-            {article.publicReview?.lastReviewedAt ? <PublicReviewStatus review={article.publicReview} locale={locale} testId="article-public-review" /> : null}
-          </div>}
-          {editorial.enabled ? null : <BlogFeedLink locale={locale} />}
-        </div>
-      </header>
 
-      {!editorial.enabled && headings.length > 1 ? <nav aria-label={dict.articles.onThisPage} data-testid="article-toc" className="w-full rounded-lg border border-[var(--fm-border)] p-5">
-        <h2 className="m-0 mb-3 text-lg font-semibold">{dict.articles.onThisPage}</h2>
-        <ol className="m-0 grid list-none gap-2 p-0 sm:grid-cols-2">
-          {headings.map((heading) => <li key={heading.id} className={heading.level > 2 ? "pl-4" : undefined}><a href={`#${heading.id}`} className={`${IQ_PUBLIC_ARTICLE_SLUGS.has(slug) ? "block " : ""}text-sm leading-6 text-[var(--fm-accent)] underline-offset-4 hover:underline`}>{heading.text}</a></li>)}
-        </ol>
-      </nav> : null}
-
-
-      <div className={editorial.enabled ? "fm-article-layout" : undefined}>
-      {editorial.enabled ? <ArticleReadingNavigation locale={locale} headings={headings} /> : null}
+      </>}>
       <ArticleFragmentNavigation key={canonicalPath} className="w-full min-w-0 [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24 [&_h4]:scroll-mt-24">
         <article
           id="how-it-works"
           data-testid="article-detail-content"
           data-article-runtime-contract={articleRuntimeContract.version}
           data-article-runtime-page-family={articleRuntimeContract.pageFamily}
-          className={editorial.enabled ? "fm-article-prose" : "min-w-0 space-y-5 [overflow-wrap:anywhere] text-base text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_blockquote]:border-l-4 [&_blockquote]:border-[var(--fm-accent)] [&_blockquote]:bg-[var(--fm-surface-muted)] [&_blockquote]:px-5 [&_blockquote]:py-3 [&_blockquote]:text-[var(--fm-text)] [&_h2]:mt-10 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:leading-tight [&_h3]:mt-7 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-semibold [&_img]:rounded-lg [&_img]:border [&_img]:border-[var(--fm-border)] [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5 [&_p]:leading-8 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"}
+          className="fm-article-prose"
         >
           {renderArticleBody(article, locale, canonicalPath, editorial.enabled)}
           {article.slug === RIC_INTEREST_ARTICLE ? (
@@ -553,7 +448,6 @@ export default async function ArticleDetailPage({
           ) : null}
         </article>
       </ArticleFragmentNavigation>
-      </div>
 
       <AnswerSurfaceSection
         surface={visibleAnswerSurface}
@@ -589,20 +483,9 @@ export default async function ArticleDetailPage({
         </AttributedCmsLinkHydrator>
       </Suspense>
 
-      <div className="space-y-6">
-        <RelatedContent
-          title={locale === "zh" ? "相关文章" : "Related articles"}
-          items={relatedArticles}
-        />
-        <RelatedContent
-          title={locale === "zh" ? "相关职业发展内容" : "Related career guides"}
-          items={relatedCareerGuides}
-        />
-        <RelatedContent
-          title={locale === "zh" ? "相关人格画像" : "Related personality profiles"}
-          items={relatedTypes}
-        />
-      </div>
-    </Container>
+      {article.publicReview?.lastReviewedAt && !editorial.enabled
+        ? <PublicReviewStatus review={article.publicReview} locale={locale} testId="article-public-review" /> : null}
+      {!editorial.enabled && <BlogFeedLink locale={locale} />}
+    </ArticleEditorialLayout>
   );
 }

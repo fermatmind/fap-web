@@ -13,6 +13,7 @@ type MarkdownRenderOptions = {
   editorial?: { locale: DisplayLocale; slug?: string; part?: "body" | "academic" };
   externalReferences?: boolean;
   highlightEditorialConclusions?: boolean;
+  articleTableLocale?: DisplayLocale;
   scrollableTables?: boolean;
   scrollableTableLabel?: string;
   wrapPlainTextFences?: boolean;
@@ -611,17 +612,20 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
       case "table": {
         const compactMatrix = options.compactMatrixHeaders?.length === block.headers.length
           && block.headers.every((header, index) => header === options.compactMatrixHeaders?.[index]);
-        const editorial = options.editorial;
-        const wide = Boolean(editorial && block.headers.length >= 4);
-        const scrollable = editorial ? wide : options.scrollableTables;
-        const hint = editorial ? articleEditorialCopy[editorial.locale].scroll : undefined;
+        const editorial = options.editorial?.locale ?? options.articleTableLocale;
+        const wide = Boolean(editorial && !compactMatrix && block.headers.length >= 4);
+        const scrollable = options.editorial ? wide : options.scrollableTables && !compactMatrix;
+        const hint = editorial ? articleEditorialCopy[editorial].scroll : undefined;
         const table = (
           <div key={key} className={`overflow-x-auto rounded-xl border border-[var(--fm-border)]${editorial ? " fm-editorial-table" : ""}`}
             role={scrollable ? "region" : undefined}
-            aria-label={scrollable ? (hint ?? options.scrollableTableLabel ?? (options.locale === "zh" ? "可横向滚动的表格" : "Horizontally scrollable table")) : undefined}
+            aria-label={scrollable ? ((options.editorial ? hint : undefined) ?? options.scrollableTableLabel ?? (options.locale === "zh" ? "可横向滚动的表格" : "Horizontally scrollable table")) : undefined}
             tabIndex={scrollable ? 0 : undefined}>
             <table className="w-full border-collapse text-left text-sm"
-              style={editorial ? { tableLayout: "fixed", minWidth: wide ? Math.max(560, block.headers.length * 135) : undefined } : compactMatrix ? { tableLayout: "fixed" } : options.scrollableTables ? { minWidth: Math.max(480, block.headers.length * 160), tableLayout: "fixed" } : undefined}>
+              style={compactMatrix ? { tableLayout: "fixed" } : options.editorial
+                ? { tableLayout: "fixed", minWidth: wide ? Math.max(560, block.headers.length * 135) : undefined }
+                : options.scrollableTables ? { minWidth: Math.max(480, block.headers.length * 160), tableLayout: "fixed" }
+                : editorial ? { tableLayout: "fixed" } : undefined}>
               {compactMatrix ? <colgroup><col style={{ width: "16%" }} /><col /><col /><col /></colgroup> : null}
               <thead className="bg-[var(--fm-surface-muted)] text-[var(--fm-text)]">
                 <tr>

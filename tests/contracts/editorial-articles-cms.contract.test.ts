@@ -121,8 +121,8 @@ describe("editorial article CMS contract", () => {
     expect(html).toContain('aria-label="本文目錄"');
     expect(html).toContain(`href="${testPath}"`);
     expect(html.match(/<main\b/g)).toHaveLength(1);
-    expect(html).toMatch(/^<main[^>]*class="[^"]*mx-auto[^"]*max-w-6xl[^"]*--fm-container-gutter/);
-    expect(html).toMatch(/<header[\s\S]*<img[^>]*cover\.jpg[\s\S]*<h1[\s\S]*<\/header>/);
+    expect(html).toMatch(/^<main[^>]*class="fm-article-page"[^>]*data-language="zh-TW"/);
+    expect(html).toMatch(/<header[\s\S]*<h1[\s\S]*<\/header>[\s\S]*fm-article-hero[\s\S]*<img[^>]*cover\.jpg/);
     expect(html).toContain('data-testid="article-detail-content"');
     expect(html).toMatch(/<\/main>$/);
   });
