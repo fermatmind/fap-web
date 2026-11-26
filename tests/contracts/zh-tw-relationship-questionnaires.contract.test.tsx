@@ -49,8 +49,9 @@ describe("Taiwan relationship questionnaire flows", () => {
     await waitFor(() => expect(container.querySelectorAll(`[${reportMarker}]`)).toHaveLength(4));
     const guideLinks = Array.from(container.querySelectorAll<HTMLAnchorElement>(`[${reportMarker}] > a[href*="/results/"]`));
     expect(guideLinks.map((link) => link.getAttribute("href"))).toEqual(quiz.profiles.map((item) => `${path}/results/${item.id}`));
-    const copyButton = screen.getByRole("button", { name: "複製公開入口" });
+    expect(await screen.findByText("圖卡和分享文字只包含公開測驗資訊。")).toBeVisible();
+    const copyButton = await screen.findByRole("button", { name: "一鍵分享給朋友" });
     fireEvent.click(copyButton);
-    expect(await screen.findByRole("textbox", { name: "手動複製結果" })).toHaveValue(`${quiz.title.zh}\nhttps://fermatmind.com${path}`);
+    expect(await screen.findByRole("textbox", { name: "手動複製分享文案" })).toHaveValue(`${quiz.title.zh}\nhttps://fermatmind.com${path}`);
   });
 });

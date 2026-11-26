@@ -27,7 +27,7 @@ export function wave2bVariant(slug: string) {
   const kind = dimensions.has(slug) ? "dimensions" : scalars.has(slug) ? "scalar" : practices.has(slug) ? "practice" : undefined;
   if (!kind) return;
   const theme = gold.has(slug) ? "gold" : dusk.has(slug) ? "dusk" : neon.has(slug) ? "neon" : "slate";
-  const entryOnlyPoster = slug === "intimacy-values" || slug === "attachment-styles";
+  const entryOnlyPoster = slug === "intimacy-values" || slug === "attachment-styles" || slug === "communication-style";
   return { kind, theme, bigFive: bigFive.has(slug), entryOnlyPoster,
     entryOnly: entryOnlyPoster || slug === "love-languages" || slug === "music-taste-test" } as const;
 }
