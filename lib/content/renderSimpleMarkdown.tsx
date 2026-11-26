@@ -617,7 +617,7 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
           && block.headers.every((header, index) => header === options.compactMatrixHeaders?.[index]);
         const editorial = options.editorial?.locale ?? options.articleTableLocale;
         const wide = Boolean(editorial && !compactMatrix && block.headers.length >= 4);
-        const scrollable = options.editorial ? wide : options.scrollableTables && !compactMatrix;
+        const scrollable = options.editorial ? wide : options.scrollableTables;
         const hint = editorial ? articleEditorialCopy[editorial].scroll : undefined;
         const table = (
           <div key={key} className={`overflow-x-auto rounded-xl border border-[var(--fm-border)]${editorial ? " fm-editorial-table" : ""}`}
