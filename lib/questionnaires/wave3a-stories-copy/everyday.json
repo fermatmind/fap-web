@@ -1,0 +1,257 @@
+{
+  "browser-tabs": {
+    "question": [
+      ["好奇心","爱探索","爱新意","轮到你选择时，你想留住让你打开分页的问题。"],
+      ["好奇心","愛探索","愛新意","輪到你選擇時，你想留住讓你開啟分頁的問題。"],
+      ["Curious","Exploratory","Open Mind","You felt drawn to keeping the question that opened the tab alive."]
+    ],
+    "action": [
+      ["动手派","有巧思","原型感","故事轮到你时，你更在意把一个标签变成一次试做。"],
+      ["動手派","有巧思","有創意","故事輪到你作主時，你更在意把一個標籤變成一次試做。"],
+      ["Hands On","Inventive","Maker Mind","This time, you leaned toward letting one tab turn into a tiny first draft."]
+    ],
+    "shelf": [
+      ["有余地","有弹性","不设限","你在故事中更乐于给暂时用不上的兴趣留架。"],
+      ["有餘裕","有彈性","不設限","你在故事中比較樂意給暫時用不上的興趣留架。"],
+      ["Open Ended","Flexible","Room to Wander","You gravitated toward making room for a curiosity you may revisit."]
+    ]
+  },
+  "camera-roll": {
+    "find": [
+      ["秩序感","重线索","做事稳","这段故事里，你偏向让某个瞬间后来还找得到。"],
+      ["秩序感","重線索","做事穩","在這段故事裡，你比較偏向讓某個瞬間後來還找得到。"],
+      ["Orderly","Pattern Mind","Methodical","You leaned toward making a good photo easy to find again."]
+    ],
+    "favorites": [
+      ["眼尖派","轮廓感","审美心","你这轮更愿意从长串相片挑出少数心头好。"],
+      ["眼尖派","輪廓感","審美心","你這次更願意從長串相片挑出少數心頭好。"],
+      ["Keen Eye","Visual Sense","Shape Lover","In this story, you preferred keeping only a few photographs that stay with you."]
+    ],
+    "sequence": [
+      ["叙事感","爱想象","会铺陈","轮到你选择时，你想用几张相片接出事情前后。"],
+      ["敘事感","愛想像","會鋪陳","輪到你選擇時，你想用幾張相片接出事情前後。"],
+      ["Story Minded","Imaginative","Scene Sense","You felt drawn to putting a few pictures in the order of a story."]
+    ]
+  },
+  "city-wanderer": {
+    "map": [
+      ["秩序感","重线索","做事稳","轮到你选择时，你想用寻常地标画自己的街区图。"],
+      ["秩序感","重線索","做事穩","輪到你選擇時，你想用尋常地標畫自己的街區圖。"],
+      ["Orderly","Pattern Mind","Methodical","You felt drawn to mapping the city by landmarks that feel familiar."]
+    ],
+    "rhythm": [
+      ["好倾听","有回应","细腻感","故事轮到你时，你更在意停一下听街区各自的节奏。"],
+      ["好傾聽","有回應","細膩感","故事輪到你作主時，你更在意停一下聽街區各自的節奏。"],
+      ["Good Listener","Attuned","Receptive","This time, you leaned toward taking a moment to hear the neighborhood’s rhythm."]
+    ],
+    "layers": [
+      ["念旧派","记忆感","重回响","你在故事中更乐于从老街一角找出地方故事。"],
+      ["念舊派","記憶感","重回響","你在故事中比較樂意從老街一角找出地方故事。"],
+      ["Sentimental","Memory Keeper","Warm Relics","You gravitated toward noticing the stories that gather around a street corner."]
+    ]
+  },
+  "coffee-break": {
+    "scene": [
+      ["有余地","有弹性","不设限","故事轮到你时，你更在意换一个去处让这一刻更新鲜。"],
+      ["有餘裕","有彈性","不設限","故事輪到你作主時，你更在意換一個去處讓這一刻更新鮮。"],
+      ["Open Ended","Flexible","Room to Wander","This time, you leaned toward changing the setting to give the break a new feel."]
+    ],
+    "ritual": [
+      ["细节控","感受细","重小事","你在故事中更乐于用杯子的温度记住一个停顿。"],
+      ["細節控","感受細","重小事","你在故事中比較樂意用杯子的溫度記住一個停頓。"],
+      ["Detail Minded","Sensory Eye","Close Observer","You gravitated toward marking the pause with the warmth of a cup."]
+    ],
+    "company": [
+      ["暖意派","有亲和","舒服感","这段故事里，你偏向和人轻松坐一下再回日常。"],
+      ["暖意派","有親和","自在感","在這段故事裡，你比較偏向和人輕鬆坐一下再回日常。"],
+      ["Warm Heart","Easy Company","Comfort Minded","You leaned toward sharing a break with someone without a big agenda."]
+    ]
+  },
+  "desk-reset": {
+    "stations": [
+      ["秩序感","重线索","做事稳","轮到你选择时，你想把桌面整理成分工清楚的小站。"],
+      ["秩序感","重線索","做事穩","輪到你選擇時，你想把桌面整理成分工清楚的小站。"],
+      ["Orderly","Pattern Mind","Methodical","You felt drawn to making small work stations on a single desk."]
+    ],
+    "kit": [
+      ["务实派","有着落","可靠感","故事轮到你时，你更在意让最常用的小工具可以一起带走。"],
+      ["務實派","有著落","可靠感","故事輪到你作主時，你更在意讓最常用的小工具可以一起帶走。"],
+      ["Practical","Dependable","Grounded","This time, you leaned toward keeping useful pieces together in a portable kit."]
+    ],
+    "stage": [
+      ["从容派","安定感","慢节奏","你在故事中更乐于给还没开始的事情留个台面。"],
+      ["從容派","安定感","慢步調","你在故事中比較樂意給還沒開始的事情留個檯面。"],
+      ["Unhurried","Grounded","Steady Rhythm","You gravitated toward leaving a clear spot for whatever comes next."]
+    ]
+  },
+  "kitchen-improviser": {
+    "bridge": [
+      ["务实派","有着落","可靠感","轮到你选择时，你想拿熟悉的食材接起一道新菜。"],
+      ["務實派","有著落","可靠感","輪到你選擇時，你想拿熟悉的食材接起一道新菜。"],
+      ["Practical","Dependable","Grounded","You felt drawn to bridging toward something new with familiar ingredients."]
+    ],
+    "test": [
+      ["动手派","有巧思","原型感","故事轮到你时，你更在意先用小份食材试一道新做法。"],
+      ["動手派","有巧思","有創意","故事輪到你作主時，你更在意先用小份食材試一道新做法。"],
+      ["Hands On","Inventive","Maker Mind","This time, you leaned toward trying a small batch before changing the whole dish."]
+    ],
+    "table": [
+      ["亲和感","好相处","有暖意","你在故事中更乐于让同桌的人保有自己选法。"],
+      ["親和感","好相處","有暖意","你在故事中比較樂意讓同桌的人保有自己選法。"],
+      ["Welcoming","Warm Presence","Approachable","You gravitated toward giving people choices once the food is on the table."]
+    ]
+  },
+  "lost-key-search": {
+    "sequence": [
+      ["痕迹感","有条理","重来历","故事轮到你时，你更在意把钥匙消失前走过的路倒一遍。"],
+      ["痕跡感","有條理","重來歷","故事輪到你作主時，你更在意把鑰匙消失前走過的路倒一遍。"],
+      ["Trace Keeper","Orderly","History Aware","This time, you leaned toward replaying the route from before the key went missing."]
+    ],
+    "space": [
+      ["秩序感","重线索","做事稳","你在故事中更乐于把宽大的地方拆成几处找找。"],
+      ["秩序感","重線索","做事穩","你在故事中比較樂意把寬大的地方拆成幾處找找。"],
+      ["Orderly","Pattern Mind","Methodical","You gravitated toward splitting a big search into places you can check."]
+    ],
+    "perspective": [
+      ["好奇心","爱探索","爱新意","这段故事里，你偏向给找不到的东西换一个观看角度。"],
+      ["好奇心","愛探索","愛新意","在這段故事裡，你比較偏向給找不到的東西換一個觀看角度。"],
+      ["Curious","Exploratory","Open Mind","You leaned toward taking another angle when the first search comes up empty."]
+    ]
+  },
+  "museum-visitor": {
+    "close": [
+      ["眼尖派","轮廓感","审美心","你在故事中更乐于让一件展品值得靠近多看一下。"],
+      ["眼尖派","輪廓感","審美心","你在故事中比較樂意讓一件展品值得靠近多看一下。"],
+      ["Keen Eye","Visual Sense","Shape Lover","You gravitated toward getting closer to a single object before moving on."]
+    ],
+    "thread": [
+      ["搭桥感","重来往","有眼力","这段故事里，你偏向顺着展品之间若隐若现的线走。"],
+      ["搭橋感","重來往","有眼力","在這段故事裡，你比較偏向順著展品之間若隱若現的線走。"],
+      ["Bridge Maker","Socially Attuned","Connection Mind","You leaned toward following a thread between exhibited objects."]
+    ],
+    "together": [
+      ["重情谊","有默契","有温度","你这轮更愿意让参观也成为两个人的对话。"],
+      ["重連結","有默契","有溫度","你這次更願意讓參觀也成為兩個人的對話。"],
+      ["Connected","Warm Bonds","Shared Rhythm","In this story, you preferred turning a visit into a conversation about what you saw."]
+    ]
+  },
+  "note-taking-doodles": {
+    "line": [
+      ["清楚派","有条理","对焦感","故事轮到你时，你更在意留一句回来就知道在想什么的话。"],
+      ["清楚派","有條理","對焦感","故事輪到你作主時，你更在意留一句回來就知道在想什麼的話。"],
+      ["Clear Mind","Direct","Signal First","This time, you leaned toward leaving one line that brings the thought back."]
+    ],
+    "sketch": [
+      ["动手派","有巧思","原型感","你在故事中更乐于让粗粗画下的形状替想法留门。"],
+      ["動手派","有巧思","有創意","你在故事中比較樂意讓粗粗畫下的形狀替想法留門。"],
+      ["Hands On","Inventive","Maker Mind","You gravitated toward saving a rough sketch so the idea has somewhere to return."]
+    ],
+    "links": [
+      ["搭桥感","重来往","有眼力","这段故事里，你偏向把几段零散想法牵到一起。"],
+      ["搭橋感","重來往","有眼力","在這段故事裡，你比較偏向把幾段零散想法牽到一起。"],
+      ["Bridge Maker","Socially Attuned","Connection Mind","You leaned toward linking fragments that didn’t look related at first."]
+    ]
+  },
+  "playlist-maker": {
+    "arc": [
+      ["叙事感","爱想象","会铺陈","你这轮更愿意让歌和歌之间也有起承转合。"],
+      ["敘事感","愛想像","會鋪陳","你這次更願意讓歌和歌之間也有起承轉合。"],
+      ["Story Minded","Imaginative","Scene Sense","In this story, you preferred giving the songs an arc that holds the list together."]
+    ],
+    "room": [
+      ["好倾听","有回应","细腻感","轮到你选择时，你想先听听这个空间需要怎样的声音。"],
+      ["好傾聽","有回應","細膩感","輪到你選擇時，你想先聽聽這個空間需要怎樣的聲音。"],
+      ["Good Listener","Attuned","Receptive","You felt drawn to listening to the room before deciding what belongs next."]
+    ],
+    "discovery": [
+      ["好奇心","爱探索","爱新意","故事轮到你时，你更在意替意外发现的歌留一个入口。"],
+      ["好奇心","愛探索","愛新意","故事輪到你作主時，你更在意替意外發現的歌留一個入口。"],
+      ["Curious","Exploratory","Open Mind","This time, you leaned toward making a place for the song you didn’t expect to find."]
+    ]
+  },
+  "reading-ritual": {
+    "immerse": [
+      ["从容派","安定感","慢节奏","轮到你选择时，你想暂时只让一本书占着你的时间。"],
+      ["從容派","安定感","慢步調","輪到你選擇時，你想暫時只讓一本書佔著你的時間。"],
+      ["Unhurried","Grounded","Steady Rhythm","You felt drawn to letting one book have your attention for a while."]
+    ],
+    "trail": [
+      ["搭桥感","重来往","有眼力","故事轮到你时，你更在意从一本书走上通往另一本的小径。"],
+      ["搭橋感","重來往","有眼力","故事輪到你作主時，你更在意從一本書走上通往另一本的小徑。"],
+      ["Bridge Maker","Socially Attuned","Connection Mind","This time, you leaned toward finding a trail from one book to another."]
+    ],
+    "appointment": [
+      ["有章法","节奏稳","踏实感","你在故事中更乐于给阅读约一个不会被挤掉的时刻。"],
+      ["有章法","步調穩","踏實感","你在故事中比較樂意給閱讀約一個不會被擠掉的時刻。"],
+      ["Plan Minded","Steady Hand","Dependable","You gravitated toward keeping a small appointment for yourself and the book."]
+    ]
+  },
+  "room-atmosphere": {
+    "glow": [
+      ["暖意派","有亲和","舒服感","你在故事中更乐于用灯光给房间画一个能待的圈。"],
+      ["暖意派","有親和","自在感","你在故事中比較樂意用燈光給房間畫一個能待的圈。"],
+      ["Warm Heart","Easy Company","Comfort Minded","You gravitated toward making one pool of light feel like somewhere to stay."]
+    ],
+    "space": [
+      ["从容派","安定感","慢节奏","这段故事里，你偏向让房间还能留下几处不用填满。"],
+      ["從容派","安定感","慢步調","在這段故事裡，你比較偏向讓房間還能留下幾處不用填滿。"],
+      ["Unhurried","Grounded","Steady Rhythm","You leaned toward letting a room keep a little space unfilled."]
+    ],
+    "layers": [
+      ["念旧派","记忆感","重回响","你这轮更愿意让小收藏替房间攒几段记忆。"],
+      ["念舊派","記憶感","重回響","你這次更願意讓小收藏替房間攢幾段記憶。"],
+      ["Sentimental","Memory Keeper","Warm Relics","In this story, you preferred keeping little collections that carry memories into a room."]
+    ]
+  },
+  "souvenir-story": {
+    "use": [
+      ["务实派","有着落","可靠感","你在故事中更乐于让带回来的小物继续陪着日常。"],
+      ["務實派","有著落","可靠感","你在故事中比較樂意讓帶回來的小物繼續陪著日常。"],
+      ["Practical","Dependable","Grounded","You gravitated toward choosing a souvenir that can still join your everyday life."]
+    ],
+    "moment": [
+      ["念旧派","记忆感","重回响","这段故事里，你偏向给旅途中某个瞬间留一个记号。"],
+      ["念舊派","記憶感","重回響","在這段故事裡，你比較偏向給旅途中某個瞬間留一個記號。"],
+      ["Sentimental","Memory Keeper","Warm Relics","You leaned toward finding a small object to mark one moment of the trip."]
+    ],
+    "shared": [
+      ["重情谊","有默契","有温度","你这轮更愿意用共同留下的物件记一段故事。"],
+      ["重連結","有默契","有溫度","你這次更願意用共同留下的物件記一段故事。"],
+      ["Connected","Warm Bonds","Shared Rhythm","In this story, you preferred holding on to a souvenir that carries a story you share."]
+    ]
+  },
+  "thrift-shop-find": {
+    "use": [
+      ["务实派","有着落","可靠感","故事轮到你时，你更在意让旧物回到一个马上能用的地方。"],
+      ["務實派","有著落","可靠感","故事輪到你作主時，你更在意讓舊物回到一個馬上能用的地方。"],
+      ["Practical","Dependable","Grounded","This time, you leaned toward finding a place where the old object is useful right away."]
+    ],
+    "remake": [
+      ["动手派","有巧思","原型感","你在故事中更乐于试着只改一处就让旧物换活法。"],
+      ["動手派","有巧思","有創意","你在故事中比較樂意試著只改一處就讓舊物換活法。"],
+      ["Hands On","Inventive","Maker Mind","You gravitated toward imagining a new use with just one change to the object."]
+    ],
+    "trace": [
+      ["痕迹感","有条理","重来历","这段故事里，你偏向保留旧物身上看得见的来历。"],
+      ["痕跡感","有條理","重來歷","在這段故事裡，你比較偏向保留舊物身上看得見的來歷。"],
+      ["Trace Keeper","Orderly","History Aware","You leaned toward keeping the signs of a history that the object still carries."]
+    ]
+  },
+  "tiny-treat": {
+    "moment": [
+      ["暖意派","有亲和","舒服感","故事轮到你时，你更在意把轻轻松松的一分钟当成奖赏。"],
+      ["暖意派","有親和","自在感","故事輪到你作主時，你更在意把輕輕鬆鬆的一分鐘當成獎賞。"],
+      ["Warm Heart","Easy Company","Comfort Minded","This time, you leaned toward letting a pleasant minute count as a reward on its own."]
+    ],
+    "token": [
+      ["念旧派","记忆感","重回响","你在故事中更乐于给完成的事情留下一个小记号。"],
+      ["念舊派","記憶感","重回響","你在故事中比較樂意給完成的事情留下一個小記號。"],
+      ["Sentimental","Memory Keeper","Warm Relics","You gravitated toward marking that you finished with a little token."]
+    ],
+    "time": [
+      ["有余地","有弹性","不设限","这段故事里，你偏向让接下来一分钟先不用安排。"],
+      ["有餘裕","有彈性","不設限","在這段故事裡，你比較偏向讓接下來一分鐘先不用安排。"],
+      ["Open Ended","Flexible","Room to Wander","You leaned toward keeping the next minute free of plans."]
+    ]
+  }
+}

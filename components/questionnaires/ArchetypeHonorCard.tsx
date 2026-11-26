@@ -13,6 +13,7 @@ import {
 import { getArchetypeHonorCopy, type ArchetypeHonorCopy } from "@/lib/questionnaires/archetypeHonorCardCopy";
 import { archetypeResultCopy, archetypeSharePayload } from "@/lib/questionnaires/archetypeResultShare";
 import { honorMetricCopy, metricSharePayload, scalePosition, type HonorResultMetrics } from "@/lib/questionnaires/honorResultMetrics";
+import { storyHonorLabels, storySharePayload, type StoryHonorMode } from "@/lib/entertainment/wave3aStory";
 import { questionnairePath } from "@/lib/questionnaires/paths";
 import { hasQuizResultArtwork, QuizResultArtwork } from "./QuizResultArtwork";
 import { existingResultPortrait } from "./PortraitResultLead";
@@ -52,7 +53,7 @@ export function ArchetypeHonorCard({ quiz, result, profiles, locale, copy: trans
     onRetake={onRetake} />;
 }
 
-export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runnerUp, reading, portraitPath, emblem, artworkMark, age, credit, onRetake, onShare, spaceAfterActions, metrics, shareEntryOnly, entryOnlyPoster, shareTitle }: {
+export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runnerUp, reading, portraitPath, emblem, artworkMark, age, credit, onRetake, onShare, spaceAfterActions, metrics, shareEntryOnly, entryOnlyPoster, shareTitle, storyMode }: {
   slug: string;
   locale: DisplayLocale;
   theme: keyof typeof archetypeCardThemes;
@@ -70,6 +71,7 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
   metrics?: HonorResultMetrics;
   shareEntryOnly?: boolean;
   shareTitle?: string;
+  storyMode?: StoryHonorMode;
   entryOnlyPoster?: boolean;
   onRetake?: () => void;
 }) {
@@ -103,10 +105,11 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
   const tieLabel = metrics?.kind === "dimensions" ? metrics.tieLabel : undefined;
   const scale = metrics && metrics.kind !== "dimensions" ? metrics.scale : undefined;
   const portrait = !tied && !unavailableArtwork ? portraitPath : undefined;
-  const monogram = tied ? (locale === "en" ? "∥" : copy.tied.slice(-1)) : (names[0].match(/[\p{L}\p{N}]/u)?.[0] ?? "◇").toUpperCase();
+  const tieMonogram = storyMode ? "||" : (locale === "en" ? "∥" : copy.tied.slice(-1));
+  const monogram = tied ? tieMonogram : (names[0].match(/[\p{L}\p{N}]/u)?.[0] ?? "◇").toUpperCase();
   const url = archetypeCardUrl(locale, slug);
   const metricResult = scale && metrics?.kind === "scalar" ? [scale.display, ...names].join(" · ") : names.join(" · ");
-  const payload = metrics ? metricSharePayload(locale, shareTitle ?? shortTitle, url, shareEntryOnly ? undefined : metricResult,
+  const payload = storyMode ? storySharePayload(locale, shortTitle, names, storyMode, url) : metrics ? metricSharePayload(locale, shareTitle ?? shortTitle, url, shareEntryOnly ? undefined : metricResult,
     metrics.kind === "practice" ? names[0] : undefined, reading?.soulVerdict) : archetypeSharePayload(locale, shortTitle, names, runnerUp, reading?.soulVerdict, url, age?.share);
   const caption = `${payload.text}\n${url}`;
   const filename = `fermatmind-${slug}-${locale}.png`;
@@ -119,7 +122,7 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
       if (!blob.current) {
         const { renderArchetypePoster } = await import("@/lib/questionnaires/archetypePoster");
         const image = await renderArchetypePoster({
-          locale, theme, shortTitle, names: entryOnlyPoster ? [shortTitle] : names, runnerUp,
+          locale, theme, shortTitle, storyMode, names: entryOnlyPoster ? [shortTitle] : names, runnerUp,
           reading: entryOnlyPoster ? undefined : reading, credit,
           metrics: entryOnlyPoster ? { kind: "dimensions", label: metricCopy.invite, rows: [], tied: false } : metrics,
           age: age && { value: age.value, unit: age.unit, label: age.label },
@@ -165,11 +168,11 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
   }
 
   return <div className={styles.group} data-archetype-honor-group={slug} data-honor-action-spacing={spaceAfterActions ? "" : undefined}>
-    <article className={styles.card} aria-label={names.join(" · ")} data-honor-metrics={metrics?.kind} data-archetype-honor-card={theme} data-archetype-state={tied ? "tied" : runnerUp ? "runner-up" : "single"}
+    <article className={styles.card} aria-label={names.join(" · ")} data-honor-story={storyMode} data-honor-metrics={metrics?.kind} data-archetype-honor-card={theme} data-archetype-state={tied ? "tied" : runnerUp ? "runner-up" : "single"}
       style={{ "--card-bg": color.background, "--card-glow": color.glow, "--card-line": color.line, "--card-light": color.light, "--card-ink": color.ink } as CSSProperties}>
       <header className={styles.header}>
         <p className={styles.brand}>{copy.brand} · {shortTitle}</p>
-        <span className={styles.badge}>{tied ? tieLabel ?? copy.tied : metrics?.label ?? age?.label ?? copy.closest}</span>
+        <span className={styles.badge}>{tied ? tieLabel ?? copy.tied : metrics?.label ?? age?.label ?? (storyMode === "branch" ? storyHonorLabels[locale].branch : copy.closest)}</span>
       </header>
       {metrics ? <>
       <div className={`${styles.age} ${styles.metricPanel}`} data-honor-metric-panel>
@@ -207,11 +210,11 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
           {names.length > 2 && <span className={styles.extra}>+{names.length - 2}</span>}
         </h3>
         {runnerUp && <p className={styles.runner}>{copy.runner} · {runnerUp}</p>}
-        {tied && <p className={styles.runner}>{copy.tieLine}</p>}
+        {tied && <p className={styles.runner}>{storyMode ? storyHonorLabels[locale].tied : copy.tieLine}</p>}
       </div>
       </>}
       {reading && <>
-        <ul className={styles.tags} aria-label={metrics?.kind === "practice" ? metricCopy.badges : locale === "en" ? "Personality tags" : locale === "zh-TW" ? "性格標籤" : "性格标签"}>{reading.personalityTags.map(tag => <li key={tag}>{tag}</li>)}</ul>
+        <ul className={styles.tags} aria-label={storyMode ? storyHonorLabels[locale].tags : metrics?.kind === "practice" ? metricCopy.badges : locale === "en" ? "Personality tags" : locale === "zh-TW" ? "性格標籤" : "性格标签"}>{reading.personalityTags.map(tag => <li key={tag}>{tag}</li>)}</ul>
         <p className={styles.quote} lang={locale} data-archetype-verdict>{reading.soulVerdict}</p>
       </>}
       <div className={styles.watermark}>{credit && <span>{credit}</span>} FermatMind.com</div>

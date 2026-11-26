@@ -1,0 +1,325 @@
+{
+  "board-game-table": {
+    "explainer": [
+      ["清楚派","有条理","对焦感","你这轮更愿意先用一个回合让规则现形。"],
+      ["清楚派","有條理","對焦感","你這次更願意先用一個回合讓規則現形。"],
+      ["Clear Mind","Direct","Signal First","In this story, you preferred letting an example round make the rules clear."]
+    ],
+    "challenger": [
+      ["主见强","有劲头","定向感","轮到你选择时，你想让友好的较量带动一桌。"],
+      ["主見強","有勁頭","有方向","輪到你選擇時，你想讓友好的較量帶動一桌。"],
+      ["Decisive","Forward Motion","Strong Direction","You felt drawn to bringing friendly competition to the table."]
+    ],
+    "welcomer": [
+      ["亲和感","好相处","有暖意","故事轮到你时，你更在意给新玩家留进场的位置。"],
+      ["親和感","好相處","有暖意","故事輪到你作主時，你更在意給新玩家留進場的位置。"],
+      ["Welcoming","Warm Presence","Approachable","This time, you leaned toward making space at the table for a new player."]
+    ]
+  },
+  "campfire-storyteller": {
+    "suspense": [
+      ["叙事感","爱想象","会铺陈","故事轮到你时，你更在意在火光里让停顿吊起好奇。"],
+      ["敘事感","愛想像","會鋪陳","故事輪到你作主時，你更在意在火光裡讓停頓吊起好奇。"],
+      ["Story Minded","Imaginative","Scene Sense","This time, you leaned toward using a pause to leave the campfire curious."]
+    ],
+    "humor": [
+      ["有玩心","俏皮感","爱变奏","你在故事中更乐于用轻巧转弯让大家笑出来。"],
+      ["有玩心","俏皮感","愛變化","你在故事中比較樂意用輕巧轉彎讓大家笑出來。"],
+      ["Playful","Quick Spark","Offbeat","You gravitated toward making the fire circle laugh with a gentle turn."]
+    ],
+    "circle": [
+      ["重情谊","有默契","有温度","这段故事里，你偏向把下一句交给围坐的人。"],
+      ["重連結","有默契","有溫度","在這段故事裡，你比較偏向把下一句交給圍坐的人。"],
+      ["Connected","Warm Bonds","Shared Rhythm","You leaned toward handing the next line to someone by the fire."]
+    ]
+  },
+  "celebration-planner": {
+    "asker": [
+      ["好倾听","有回应","细腻感","你在故事中更乐于先问这场庆祝该由谁作主。"],
+      ["好傾聽","有回應","細膩感","你在故事中比較樂意先問這場慶祝該由誰作主。"],
+      ["Good Listener","Attuned","Receptive","You gravitated toward asking whose preferences should shape the party."]
+    ],
+    "moment": [
+      ["眼尖派","轮廓感","审美心","这段故事里，你偏向替热闹留一个值得回想的瞬间。"],
+      ["眼尖派","輪廓感","審美心","在這段故事裡，你比較偏向替熱鬧留一個值得回想的瞬間。"],
+      ["Keen Eye","Visual Sense","Shape Lover","You leaned toward keeping one memorable moment in the celebration."]
+    ],
+    "contribution": [
+      ["共创感","重参与","有合拍","你这轮更愿意让每个人都能随意添一点。"],
+      ["共創感","重參與","合拍感","你這次更願意讓每個人都能隨意添一點。"],
+      ["Collaborative","Shared Credit","Room for Both","In this story, you preferred making contributions welcome and optional."]
+    ]
+  },
+  "community-fair": {
+    "shift": [
+      ["有分寸","重自主","有界线","你在故事中更乐于让帮忙的时段和余力对得上。"],
+      ["有分寸","重自主","有界線","你在故事中比較樂意讓幫忙的時段和餘力對得上。"],
+      ["Boundaried","Considerate","Choice Friendly","You gravitated toward matching your shift to time you can really offer."]
+    ],
+    "task": [
+      ["务实派","有着落","可靠感","这段故事里，你偏向把一件普通小事从头做完。"],
+      ["務實派","有著落","可靠感","在這段故事裡，你比較偏向把一件普通小事從頭做完。"],
+      ["Practical","Dependable","Grounded","You leaned toward seeing one modest task all the way through."]
+    ],
+    "handover": [
+      ["清楚派","有条理","对焦感","你这轮更愿意让接手的人一眼知道从哪开始。"],
+      ["清楚派","有條理","對焦感","你這次更願意讓接手的人一眼知道從哪開始。"],
+      ["Clear Mind","Direct","Signal First","In this story, you preferred leaving the next person a handover they can use."]
+    ]
+  },
+  "dinner-host": {
+    "flow": [
+      ["有章法","节奏稳","踏实感","这段故事里，你偏向替一顿饭留自然的先后节奏。"],
+      ["有章法","步調穩","踏實感","在這段故事裡，你比較偏向替一頓飯留自然的先後節奏。"],
+      ["Plan Minded","Steady Hand","Dependable","You leaned toward giving dinner a rhythm everyone can settle into."]
+    ],
+    "choice": [
+      ["有余地","有弹性","不设限","你这轮更愿意让同桌的人有余地自己搭配。"],
+      ["有餘裕","有彈性","不設限","你這次更願意讓同桌的人有餘地自己搭配。"],
+      ["Open Ended","Flexible","Room to Wander","In this story, you preferred letting people choose how their plate comes together."]
+    ],
+    "simple": [
+      ["暖意派","有亲和","舒服感","轮到你选择时，你想把晚餐简化到主人也能坐下。"],
+      ["暖意派","有親和","自在感","輪到你選擇時，你想把晚餐簡化到主人也能坐下。"],
+      ["Warm Heart","Easy Company","Comfort Minded","You felt drawn to keeping dinner simple enough to sit down yourself."]
+    ]
+  },
+  "escape-room-role": {
+    "connector": [
+      ["搭桥感","重来往","有眼力","轮到你选择时，你想从分开的线索中找同一个来处。"],
+      ["搭橋感","重來往","有眼力","輪到你選擇時，你想從分開的線索中找同一個來處。"],
+      ["Bridge Maker","Socially Attuned","Connection Mind","You felt drawn to seeing how scattered clues might fit together."]
+    ],
+    "tester": [
+      ["动手派","有巧思","原型感","故事轮到你时，你更在意让一个猜想先过一次小检验。"],
+      ["動手派","有巧思","有創意","故事輪到你作主時，你更在意讓一個猜想先過一次小檢驗。"],
+      ["Hands On","Inventive","Maker Mind","This time, you leaned toward putting a single hunch to a small test."]
+    ],
+    "keeper": [
+      ["有章法","节奏稳","踏实感","你在故事中更乐于顾到队友一起用的游戏时间。"],
+      ["有章法","步調穩","踏實感","你在故事中比較樂意顧到隊友一起用的遊戲時間。"],
+      ["Plan Minded","Steady Hand","Dependable","You gravitated toward keeping track of the time the whole team shares."]
+    ]
+  },
+  "festival-companion": {
+    "anchor": [
+      ["有章法","节奏稳","踏实感","故事轮到你时，你更在意先替同伴留住最想看的节目。"],
+      ["有章法","步調穩","踏實感","故事輪到你作主時，你更在意先替同伴留住最想看的節目。"],
+      ["Plan Minded","Steady Hand","Dependable","This time, you leaned toward keeping one event that both want to be there for."]
+    ],
+    "free": [
+      ["有余地","有弹性","不设限","你在故事中更乐于分开去看也愿意晚点再碰面。"],
+      ["有餘裕","有彈性","不設限","你在故事中比較樂意分開去看也願意晚點再碰面。"],
+      ["Open Ended","Flexible","Room to Wander","You gravitated toward making space to wander apart and meet up later."]
+    ],
+    "try": [
+      ["有玩心","俏皮感","爱变奏","这段故事里，你偏向和伙伴试个没碰过的小摊位。"],
+      ["有玩心","俏皮感","愛變化","在這段故事裡，你比較偏向和夥伴試個沒碰過的小攤位。"],
+      ["Playful","Quick Spark","Offbeat","You leaned toward trying a small new thing with your companion."]
+    ]
+  },
+  "game-night-reset": {
+    "check": [
+      ["好倾听","有回应","细腻感","你在故事中更乐于先听同桌怎么想再重排一局。"],
+      ["好傾聽","有回應","細膩感","你在故事中比較樂意先聽同桌怎麼想再重排一局。"],
+      ["Good Listener","Attuned","Receptive","You gravitated toward hearing the table out before resetting the game."]
+    ],
+    "change": [
+      ["动手派","有巧思","原型感","这段故事里，你偏向只换一个环节看看能否变好。"],
+      ["動手派","有巧思","有創意","在這段故事裡，你比較偏向只換一個環節看看能否變好。"],
+      ["Hands On","Inventive","Maker Mind","You leaned toward trying a one-rule change before starting over."]
+    ],
+    "finish": [
+      ["从容派","安定感","慢节奏","你这轮更愿意给已经尽兴的晚上一个收尾。"],
+      ["從容派","安定感","慢步調","你這次更願意給已經盡興的晚上一個收尾。"],
+      ["Unhurried","Grounded","Steady Rhythm","In this story, you preferred letting a good game night end while it still feels good."]
+    ]
+  },
+  "group-chat-role": {
+    "signal": [
+      ["清楚派","有条理","对焦感","故事轮到你时，你更在意把没完没了的群消息理出重点。"],
+      ["清楚派","有條理","對焦感","故事輪到你作主時，你更在意把沒完沒了的群訊息理出重點。"],
+      ["Clear Mind","Direct","Signal First","This time, you leaned toward finding the message that matters in a noisy chat."]
+    ],
+    "spark": [
+      ["有玩心","俏皮感","爱变奏","你在故事中更乐于让冷掉的群聊重新冒出火花。"],
+      ["有玩心","俏皮感","愛變化","你在故事中比較樂意讓冷掉的群組聊天重新冒出火花。"],
+      ["Playful","Quick Spark","Offbeat","You gravitated toward giving a quiet group chat one playful spark."]
+    ],
+    "connector": [
+      ["搭桥感","重来往","有眼力","这段故事里，你偏向替没开口的人留一条接话线索。"],
+      ["搭橋感","重來往","有眼力","在這段故事裡，你比較偏向替沒開口的人留一條接話線索。"],
+      ["Bridge Maker","Socially Attuned","Connection Mind","You leaned toward helping a quieter person find a way into the chat."]
+    ]
+  },
+  "group-project-finale": {
+    "credit": [
+      ["体恤心","细腻派","有照应","你这轮更愿意把一路上具体帮过你的人记下。"],
+      ["體恤心","細膩派","有照應","你這次更願意把一路上具體幫過你的人記下。"],
+      ["Considerate","Tender Heart","Attentive","In this story, you preferred giving credit to the people who helped in specific ways."]
+    ],
+    "handover": [
+      ["秩序感","重线索","做事稳","轮到你选择时，你想给最后一份档案一个共同版本。"],
+      ["秩序感","重線索","做事穩","輪到你選擇時，你想給最後一份檔案一個共同版本。"],
+      ["Orderly","Pattern Mind","Methodical","You felt drawn to keeping one final version the whole group can find."]
+    ],
+    "moment": [
+      ["念旧派","记忆感","重回响","故事轮到你时，你更在意给忙过一阵的小组留一个结束点。"],
+      ["念舊派","記憶感","重回響","故事輪到你作主時，你更在意給忙過一陣的小組留一個結束點。"],
+      ["Sentimental","Memory Keeper","Warm Relics","This time, you leaned toward marking the moment a busy project really ends."]
+    ]
+  },
+  "group-trip-seatmate": {
+    "talk": [
+      ["暖意派","有亲和","舒服感","你在故事中更乐于让路上的闲聊跟着车窗流过去。"],
+      ["暖意派","有親和","自在感","你在故事中比較樂意讓路上的閒聊跟著車窗流過去。"],
+      ["Warm Heart","Easy Company","Comfort Minded","You gravitated toward letting easy conversation move with the trip."]
+    ],
+    "parallel": [
+      ["静谧感","留白派","慢节奏","这段故事里，你偏向让邻座各看各的书也自在。"],
+      ["靜謐感","留白派","慢步調","在這段故事裡，你比較偏向讓鄰座各看各的書也自在。"],
+      ["Quiet Presence","Room to Breathe","Gentle Pace","You leaned toward sharing the seat without filling every quiet minute."]
+    ],
+    "practical": [
+      ["有分寸","重自主","有界线","你这轮更愿意把两个人同用的空间先说清。"],
+      ["有分寸","重自主","有界線","你這次更願意把兩個人同用的空間先說清。"],
+      ["Boundaried","Considerate","Choice Friendly","In this story, you preferred making the shared space in your row clear early."]
+    ]
+  },
+  "inside-joke": {
+    "context": [
+      ["搭桥感","重来往","有眼力","你这轮更愿意给没听前情的人也留接梗处。"],
+      ["搭橋感","重來往","有眼力","你這次更願意給沒聽前情的人也留接梗處。"],
+      ["Bridge Maker","Socially Attuned","Connection Mind","In this story, you preferred giving someone who missed the context a way in."]
+    ],
+    "twist": [
+      ["有玩心","俏皮感","爱变奏","轮到你选择时，你想让熟悉的场景意外拐个弯。"],
+      ["有玩心","俏皮感","愛變化","輪到你選擇時，你想讓熟悉的場景意外拐個彎。"],
+      ["Playful","Quick Spark","Offbeat","You felt drawn to giving a familiar scene an unexpected turn."]
+    ],
+    "light": [
+      ["有分寸","暖场感","幽默心","故事轮到你时，你更在意轻轻点一下让懂的人自己笑。"],
+      ["有分寸","暖場感","幽默感","故事輪到你作主時，你更在意輕輕點一下讓懂的人自己笑。"],
+      ["Light Touch","Warm Wit","Subtle","This time, you leaned toward leaving a small callback for whoever catches it."]
+    ]
+  },
+  "new-club-member": {
+    "glossary": [
+      ["清楚派","有条理","对焦感","轮到你选择时，你想把社团行话换成一看就懂的话。"],
+      ["清楚派","有條理","對焦感","輪到你選擇時，你想把社團行話換成一看就懂的話。"],
+      ["Clear Mind","Direct","Signal First","You felt drawn to putting the club’s shorthand into everyday words."]
+    ],
+    "process": [
+      ["有章法","节奏稳","踏实感","故事轮到你时，你更在意带新来的人先走一次平常流程。"],
+      ["有章法","步調穩","踏實感","故事輪到你作主時，你更在意帶新來的人先走一次平常流程。"],
+      ["Plan Minded","Steady Hand","Dependable","This time, you leaned toward walking a new member through one ordinary sequence."]
+    ],
+    "exchange": [
+      ["共创感","重参与","有合拍","你在故事中更乐于让新成员有机会交换一点本领。"],
+      ["共創感","重參與","合拍感","你在故事中比較樂意讓新成員有機會交換一點本領。"],
+      ["Collaborative","Shared Credit","Room for Both","You gravitated toward giving a newcomer a chance to trade small skills."]
+    ]
+  },
+  "party-arrival": {
+    "conversation": [
+      ["暖意派","有亲和","舒服感","轮到你选择时，你想先从一句舒服闲聊走进派对。"],
+      ["暖意派","有親和","自在感","輪到你選擇時，你想先從一句舒服閒聊走進派對。"],
+      ["Warm Heart","Easy Company","Comfort Minded","You felt drawn to joining the party through one easy conversation."]
+    ],
+    "activity": [
+      ["共创感","重参与","有合拍","故事轮到你时，你更在意靠眼前的共同小事加入热闹。"],
+      ["共創感","重參與","合拍感","故事輪到你作主時，你更在意靠眼前的共同小事加入熱鬧。"],
+      ["Collaborative","Shared Credit","Room for Both","This time, you leaned toward joining in through something you can do together."]
+    ],
+    "landing": [
+      ["从容派","安定感","慢节奏","你在故事中更乐于在热闹开始前替自己找落脚处。"],
+      ["從容派","安定感","慢步調","你在故事中比較樂意在熱鬧開始前替自己找落腳處。"],
+      ["Unhurried","Grounded","Steady Rhythm","You gravitated toward finding a place to settle before joining the noise."]
+    ]
+  },
+  "photo-group-role": {
+    "frame": [
+      ["有章法","节奏稳","踏实感","故事轮到你时，你更在意让一下就能拍好的合影不费力。"],
+      ["有章法","步調穩","踏實感","故事輪到你作主時，你更在意讓一下就能拍好的合影不費力。"],
+      ["Plan Minded","Steady Hand","Dependable","This time, you leaned toward making the group photo easy for everyone to get into."]
+    ],
+    "choice": [
+      ["有分寸","重自主","有界线","你在故事中更乐于让不想入镜的人也能自在待着。"],
+      ["有分寸","重自主","有界線","你在故事中比較樂意讓不想入鏡的人也能自在待著。"],
+      ["Boundaried","Considerate","Choice Friendly","You gravitated toward making it easy to stay out of the picture if you want."]
+    ],
+    "moment": [
+      ["念旧派","记忆感","重回响","这段故事里，你偏向给相聚留下一个值得记住的瞬间。"],
+      ["念舊派","記憶感","重回響","在這段故事裡，你比較偏向給相聚留下一個值得記住的瞬間。"],
+      ["Sentimental","Memory Keeper","Warm Relics","You leaned toward keeping one real moment from the time together."]
+    ]
+  },
+  "potluck-contribution": {
+    "menu": [
+      ["搭桥感","重来往","有眼力","这段故事里，你偏向让你带来的菜接上菜单空处。"],
+      ["搭橋感","重來往","有眼力","在這段故事裡，你比較偏向讓你帶來的菜接上選單空處。"],
+      ["Bridge Maker","Socially Attuned","Connection Mind","You leaned toward filling the gap you noticed in the shared menu."]
+    ],
+    "handover": [
+      ["务实派","有着落","可靠感","你这轮更愿意让带来的东西不难接手上桌。"],
+      ["務實派","有著落","可靠感","你這次更願意讓帶來的東西不難接手上桌。"],
+      ["Practical","Dependable","Grounded","In this story, you preferred making what you bring easy to handle and serve."]
+    ],
+    "note": [
+      ["清楚派","有条理","对焦感","轮到你选择时，你想给同桌的人留一张清楚便条。"],
+      ["清楚派","有條理","對焦感","輪到你選擇時，你想給同桌的人留一張清楚便條。"],
+      ["Clear Mind","Direct","Signal First","You felt drawn to leaving a clear note for whoever takes the dish next."]
+    ]
+  },
+  "road-trip-dj": {
+    "turns": [
+      ["共创感","重参与","有合拍","你这轮更愿意让车上的人看见何时轮到自己。"],
+      ["共創感","重參與","合拍感","你這次更願意讓車上的人看見何時輪到自己。"],
+      ["Collaborative","Shared Credit","Room for Both","In this story, you preferred making the song queue easy for everyone to follow."]
+    ],
+    "bridge": [
+      ["搭桥感","重来往","有眼力","轮到你选择时，你想在不同歌单之间找到一首搭桥歌。"],
+      ["搭橋感","重來往","有眼力","輪到你選擇時，你想在不同歌單之間找到一首搭橋歌。"],
+      ["Bridge Maker","Socially Attuned","Connection Mind","You felt drawn to finding a song that gives different tastes common ground."]
+    ],
+    "quiet": [
+      ["静谧感","留白派","慢节奏","故事轮到你时，你更在意在汽车歌单中也留一段没歌。"],
+      ["靜謐感","留白派","慢步調","故事輪到你作主時，你更在意在汽車歌單中也留一段沒歌。"],
+      ["Quiet Presence","Room to Breathe","Gentle Pace","This time, you leaned toward leaving a stretch of road with no music playing."]
+    ]
+  },
+  "shared-workspace": {
+    "label": [
+      ["痕迹感","有条理","重来历","这段故事里，你偏向给还没做完的作品留个识别记号。"],
+      ["痕跡感","有條理","重來歷","在這段故事裡，你比較偏向給還沒做完的作品留個識別記號。"],
+      ["Trace Keeper","Orderly","History Aware","You leaned toward marking the part of the shared space that’s still in use."]
+    ],
+    "tool": [
+      ["务实派","有着落","可靠感","你这轮更愿意让共用工具有清楚的借还去处。"],
+      ["務實派","有著落","可靠感","你這次更願意讓共用工具有清楚的借還去處。"],
+      ["Practical","Dependable","Grounded","In this story, you preferred making shared tools easy to find and put back."]
+    ],
+    "feedback": [
+      ["好倾听","有回应","细腻感","轮到你选择时，你想给意见之前先问作者想听哪种。"],
+      ["好傾聽","有回應","細膩感","輪到你選擇時，你想給意見之前先問作者想聽哪種。"],
+      ["Good Listener","Attuned","Receptive","You felt drawn to asking what kind of feedback its maker wants."]
+    ]
+  },
+  "team-name-maker": {
+    "wordplay": [
+      ["有玩心","俏皮感","爱变奏","这段故事里，你偏向让两个普通词撞出别样的队名。"],
+      ["有玩心","俏皮感","愛變化","在這段故事裡，你比較偏向讓兩個普通詞撞出別樣的隊名。"],
+      ["Playful","Quick Spark","Offbeat","You leaned toward bringing two ordinary words together for the team name."]
+    ],
+    "reference": [
+      ["重情谊","有默契","有温度","你这轮更愿意把你们才懂的那件小事放进名字。"],
+      ["重連結","有默契","有溫度","你這次更願意把你們才懂的那件小事放進名字。"],
+      ["Connected","Warm Bonds","Shared Rhythm","In this story, you preferred naming the team for a little thing it shares."]
+    ],
+    "process": [
+      ["有章法","节奏稳","踏实感","轮到你选择时，你想给大家几项清楚可选的队名。"],
+      ["有章法","步調穩","踏實感","輪到你選擇時，你想給大家幾項清楚可選的隊名。"],
+      ["Plan Minded","Steady Hand","Dependable","You felt drawn to leaving the group a short list it can choose from."]
+    ]
+  }
+}

@@ -1,14 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { recordEntertainmentActivity, type ActivityAction } from "@/lib/entertainment/activity";
-import { CHANGAN_INTERLUDE_AFTER, changanPortraitPath, firstChoiceRule, traditionalFirstChoiceRule } from "@/lib/entertainment/changan";
-import { contentImagePath, resultPath } from "@/lib/entertainment/guides";
+import { CHANGAN_INTERLUDE_AFTER, firstChoiceRule, traditionalFirstChoiceRule } from "@/lib/entertainment/changan";
+import { resultPath } from "@/lib/entertainment/guides";
 import { resolveFunQuiz } from "@/lib/entertainment/scoring";
 import type { Answers, FunQuiz } from "@/lib/entertainment/types";
 import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
+import { Wave3aStoryHonorCard } from "./Wave3aStoryHonorCard";
+import { ResultCoreBridge } from "@/components/questionnaires/ResultCoreBridge";
+import { wave3aStoryVariant } from "@/lib/entertainment/wave3aStory";
 import styles from "./ChanganQuiz.module.css";
 
 const subscribeHydration = () => () => {};
@@ -23,14 +25,17 @@ export function ChanganQuiz({ quiz, locale, displayLocale = locale }: { quiz: Fu
   const heading = useRef<HTMLHeadingElement>(null);
   const position = Object.keys(answers).length;
   const question = quiz.questions[position];
-  const resultId = stage === "result" ? resolveFunQuiz(quiz, answers).resultIds[0] : undefined;
+  const resolved = stage === "result" ? resolveFunQuiz(quiz, answers) : undefined;
+  const resultId = resolved?.resultIds[0];
+  const honor = wave3aStoryVariant(quiz.slug);
   const result = quiz.results.find(portrait => portrait.id === resultId);
   const track = (action: ActivityAction) => recordEntertainmentActivity(
-    quiz.slug, quiz.version, locale, action, "single", action === "share" ? "image" : undefined,
+    quiz.slug, quiz.version, locale, action,
   );
 
   useEffect(() => {
-    heading.current?.focus();
+    heading.current?.focus({ preventScroll: stage === "result" });
+    if (stage === "result") window.scrollTo({ top: 0, behavior: "instant" });
   }, [stage, position]);
 
   function choose(questionId: string, optionId: string) {
@@ -70,30 +75,26 @@ export function ChanganQuiz({ quiz, locale, displayLocale = locale }: { quiz: Fu
       <p>{copy("隔着两条街，已经听见店家卷起竹帘的声音。剩下的时间，随你安排。", "Two streets away, shopkeepers are already rolling up their bamboo blinds. The rest of the day is yours.", "隔著兩條街，已經聽見店家捲起竹簾的聲音。剩下的時間，由你安排。")}</p>
       <button className={styles.primary} type="button" onClick={() => setStage("answer")}>{copy("去西市", "Visit the market", "去西市")} <span aria-hidden="true">→</span></button>
     </div>}
-    {stage === "result" && result && <div className={styles.result} data-changan-result={result.id}>
-      <div className={styles.portrait}>
-        <Image src={changanPortraitPath(result.id)} width={720} height={720} unoptimized loading="eager" alt={copy(`${result.title.zh}的原创动漫画像`, `Original illustrated portrait of ${result.title.en}`, `${result.title.zh}的原創插畫`)} />
-      </div>
-      <div className={styles.reading}>
-        <p className={styles.eyebrow}>{copy("你的长安人物卡", "Your Chang’an portrait", "你的長安人物卡")}</p>
-        <h2 ref={heading} tabIndex={-1}>{result.title[locale]}</h2>
-        <p className={styles.epithet}>{result.epithet?.[locale]}</p>
-        <p>{result.summary[locale]}</p>
-        <div className={styles.actions}>
-          <a className={styles.primary} href={`${contentImagePath(quiz, displayLocale, result.id)}&download=1`} download={`fermatmind-changan-${result.id}-${displayLocale}.png`} onClick={() => track("share")}>{copy("下载人物卡 PNG", "Download portrait PNG", "下載人物卡 PNG")}</a>
-          <a className={styles.secondary} href={contentImagePath(quiz, displayLocale, result.id)} target="_blank" rel="noopener noreferrer">{copy("打开图片", "Open image", "開啟圖片")}</a>
+    {stage === "result" && resolved && result && honor && <>
+      <Wave3aStoryHonorCard quiz={quiz} locale={displayLocale} textLocale={locale} result={resolved} translate={value => value}
+        onRetake={() => { setAnswers({}); setStage("intro"); }} onShare={method => recordEntertainmentActivity(quiz.slug, quiz.version, locale, "share", "single", method)} />
+      <div className={styles.result} data-changan-result={result.id}>
+        <div className={styles.reading}>
+          <p className={styles.eyebrow}>{copy("你的长安人物卡", "Your Chang’an portrait", "你的長安人物卡")}</p>
+          <h2 ref={heading} tabIndex={-1}>{result.title[locale]}</h2>
+          <p className={styles.epithet}>{result.epithet?.[locale]}</p>
+          <p>{result.summary[locale]}</p>
         </div>
-        <p className={styles.hint}>{copy("手机上也可打开图片，长按保存后分享。", "On mobile, you can open the image and press and hold to save it.", "也可以用手機開啟圖片，長按儲存後分享。")}</p>
-      </div>
-      <div className={styles.details}>
-        {result.history && <div><h3>{copy("史料与作品", "Historical source", "史料與作品")}</h3><p>{result.history.note[locale]} <a href={result.history.url} target="_blank" rel="noopener noreferrer">{result.history.label[locale]} ↗</a></p></div>}
-        <details><summary>{copy("为什么是这位？", "How did I get this match?", "為什麼是這一位？")}</summary><p>{traditional ? traditionalFirstChoiceRule : firstChoiceRule[locale]}</p></details>
-        <p className={styles.hint}>{quiz.focus[locale]}</p>
-        <div className={styles.actions}>
-          <Link className={styles.secondary} prefetch={false} href={resultPath(displayLocale, quiz.slug, result.id)}>{copy("读完整人物指南", "Read the portrait guide", "閱讀完整人物指南")}</Link>
-          <button className={styles.secondary} type="button" onClick={() => { setAnswers({}); setStage("intro"); }}>{copy("再玩一次", "Play again", "再玩一次")}</button>
+        <div className={styles.details}>
+          {result.history && <div><h3>{copy("史料与作品", "Historical source", "史料與作品")}</h3><p>{result.history.note[locale]} <a href={result.history.url} target="_blank" rel="noopener noreferrer">{result.history.label[locale]} ↗</a></p></div>}
+          <details><summary>{copy("为什么是这位？", "How did I get this match?", "為什麼是這一位？")}</summary><p>{traditional ? traditionalFirstChoiceRule : firstChoiceRule[locale]}</p></details>
+          <p className={styles.hint}>{quiz.focus[locale]}</p>
+          <div className={styles.actions}>
+            <Link className={styles.secondary} prefetch={false} href={resultPath(displayLocale, quiz.slug, result.id)}>{copy("读完整人物指南", "Read the portrait guide", "閱讀完整人物指南")}</Link>
+          </div>
         </div>
       </div>
-    </div>}
+      <ResultCoreBridge locale={displayLocale} target={honor.target} />
+    </>}
   </div>;
 }

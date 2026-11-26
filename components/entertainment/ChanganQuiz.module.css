@@ -33,8 +33,7 @@
 .primary:hover:not(:disabled) { background: #69291d; }
 .secondary:hover, .option:hover { background: #eee0c4; }
 .stage :is(a, button, summary):focus-visible { outline: 2px solid var(--seal); outline-offset: 3px; }
-.result { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(16px, 4vw, 32px); }
-.portrait img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.result { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(16px, 4vw, 32px); }
 .epithet { font-weight: 700; color: var(--seal); }
 .actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .details { grid-column: 1 / -1; border-top: 1px solid var(--rule); padding-top: 18px; }

@@ -1,0 +1,257 @@
+{
+  "cozy-object": {
+    "cup": [
+      ["从容派","安定感","慢节奏","这段故事里，你偏向用熟悉杯子为日常留个停顿。"],
+      ["從容派","安定感","慢步調","在這段故事裡，你比較偏向用熟悉杯子為日常留個停頓。"],
+      ["Unhurried","Grounded","Steady Rhythm","You leaned toward making a quiet pause with a familiar cup."]
+    ],
+    "blanket": [
+      ["静谧感","留白派","慢节奏","你这轮更愿意替自己找个没人催的小角落。"],
+      ["靜謐感","留白派","慢步調","你這次更願意替自己找個沒人催的小角落。"],
+      ["Quiet Presence","Room to Breathe","Gentle Pace","In this story, you preferred finding a softer little corner with no hurry."]
+    ],
+    "notebook": [
+      ["有余地","有弹性","不设限","轮到你选择时，你想让空白笔记页不必立刻写完。"],
+      ["有餘裕","有彈性","不設限","輪到你選擇時，你想讓空白筆記頁不必立刻寫完。"],
+      ["Open Ended","Flexible","Room to Wander","You felt drawn to letting an unfinished notebook page stay open."]
+    ]
+  },
+  "creative-spark": {
+    "prompt": [
+      ["好奇心","爱探索","爱新意","故事轮到你时，你更在意把老问题换成奇怪的新问法。"],
+      ["好奇心","愛探索","愛新意","故事輪到你作主時，你更在意把老問題換成奇怪的新問法。"],
+      ["Curious","Exploratory","Open Mind","This time, you leaned toward giving an old problem a more curious question."]
+    ],
+    "prototype": [
+      ["动手派","有巧思","原型感","你在故事中更乐于先给脑中的点子做个粗版。"],
+      ["動手派","有巧思","有創意","你在故事中比較樂意先給腦中的點子做個粗版。"],
+      ["Hands On","Inventive","Maker Mind","You gravitated toward giving your idea a rough shape it can grow from."]
+    ],
+    "listener": [
+      ["好倾听","有回应","细腻感","这段故事里，你偏向让初成形的点子有个听众。"],
+      ["好傾聽","有回應","細膩感","在這段故事裡，你比較偏向讓初成形的點子有個聽眾。"],
+      ["Good Listener","Attuned","Receptive","You leaned toward letting a half-formed idea find a willing listener."]
+    ]
+  },
+  "festival-mask": {
+    "bells": [
+      ["好倾听","有回应","细腻感","你这轮更愿意用一声小铃留住节庆节奏。"],
+      ["好傾聽","有回應","細膩感","你這次更願意用一聲小鈴留住節慶節奏。"],
+      ["Good Listener","Attuned","Receptive","In this story, you preferred marking the festival with the sound of one bell."]
+    ],
+    "window": [
+      ["眼尖派","轮廓感","审美心","轮到你选择时，你想替面具后的人开一扇看景小窗。"],
+      ["眼尖派","輪廓感","審美心","輪到你選擇時，你想替面具後的人開一扇看景小窗。"],
+      ["Keen Eye","Visual Sense","Shape Lover","You felt drawn to framing a small view through a festival mask."]
+    ],
+    "ribbons": [
+      ["有玩心","俏皮感","爱变奏","故事轮到你时，你更在意让丝带在空中画自己的路线。"],
+      ["有玩心","俏皮感","愛變化","故事輪到你作主時，你更在意讓絲帶在空中畫自己的路線。"],
+      ["Playful","Quick Spark","Offbeat","This time, you leaned toward letting ribbons trace a route through the air."]
+    ]
+  },
+  "fictional-cafe": {
+    "stage": [
+      ["叙事感","爱想象","会铺陈","你在故事中更乐于把小碟子想成演一幕的舞台。"],
+      ["敘事感","愛想像","會鋪陳","你在故事中比較樂意把小碟子想成演一幕的舞台。"],
+      ["Story Minded","Imaginative","Scene Sense","You gravitated toward imagining a saucer as the stage for a tiny scene."]
+    ],
+    "words": [
+      ["好倾听","有回应","细腻感","这段故事里，你偏向把别人随口一句听成故事入口。"],
+      ["好傾聽","有回應","細膩感","在這段故事裡，你比較偏向把別人隨口一句聽成故事入口。"],
+      ["Good Listener","Attuned","Receptive","You leaned toward hearing the start of a story in an offhand line."]
+    ],
+    "colors": [
+      ["眼尖派","轮廓感","审美心","你这轮更愿意为未取名的颜色留一个眼神。"],
+      ["眼尖派","輪廓感","審美心","你這次更願意為未取名的顏色留一個眼神。"],
+      ["Keen Eye","Visual Sense","Shape Lover","In this story, you preferred noticing a shade before it needs a name."]
+    ]
+  },
+  "harbor-light": {
+    "pulse": [
+      ["从容派","安定感","慢节奏","轮到你选择时，你想让港灯在明灭之间留点停顿。"],
+      ["從容派","安定感","慢步調","輪到你選擇時，你想讓港燈在明滅之間留點停頓。"],
+      ["Unhurried","Grounded","Steady Rhythm","You felt drawn to giving the harbor lights a rhythm with space in it."]
+    ],
+    "key": [
+      ["清楚派","有条理","对焦感","故事轮到你时，你更在意让返航的人读得懂每一盏灯。"],
+      ["清楚派","有條理","對焦感","故事輪到你作主時，你更在意讓返航的人讀得懂每一盞燈。"],
+      ["Clear Mind","Direct","Signal First","This time, you leaned toward making each light clear to the people returning."]
+    ],
+    "legend": [
+      ["叙事感","爱想象","会铺陈","你在故事中更乐于把一盏灯的名字交给旧故事。"],
+      ["敘事感","愛想像","會鋪陳","你在故事中比較樂意把一盞燈的名字交給舊故事。"],
+      ["Story Minded","Imaginative","Scene Sense","You gravitated toward giving a harbor light a name lifted from a story."]
+    ]
+  },
+  "house-of-doors": {
+    "workshop": [
+      ["动手派","有巧思","原型感","故事轮到你时，你更在意把眼前零件拼成没见过的模样。"],
+      ["動手派","有巧思","有創意","故事輪到你作主時，你更在意把眼前零件拼成沒見過的模樣。"],
+      ["Hands On","Inventive","Maker Mind","This time, you leaned toward making something unexpected from the pieces you found."]
+    ],
+    "listening": [
+      ["好倾听","有回应","细腻感","你在故事中更乐于让悄悄的声音也被你听见。"],
+      ["好傾聽","有回應","細膩感","你在故事中比較樂意讓悄悄的聲音也被你聽見。"],
+      ["Good Listener","Attuned","Receptive","You gravitated toward noticing the small sounds the room had been saving."]
+    ],
+    "garden": [
+      ["体恤心","细腻派","有照应","这段故事里，你偏向给窗边的小园留一点生长时间。"],
+      ["體恤心","細膩派","有照應","在這段故事裡，你比較偏向給窗邊的小園留一點生長時間。"],
+      ["Considerate","Tender Heart","Attentive","You leaned toward leaving the little window garden time to grow."]
+    ]
+  },
+  "paper-world": {
+    "fold": [
+      ["动手派","有巧思","原型感","你在故事中更乐于用一条折痕替纸世界开条路。"],
+      ["動手派","有巧思","有創意","你在故事中比較樂意用一條摺痕替紙世界開條路。"],
+      ["Hands On","Inventive","Maker Mind","You gravitated toward turning one fold into a route through the paper world."]
+    ],
+    "cast": [
+      ["有玩心","俏皮感","爱变奏","这段故事里，你偏向给纸做的人物想一个小动作。"],
+      ["有玩心","俏皮感","愛變化","在這段故事裡，你比較偏向給紙做的人物想一個小動作。"],
+      ["Playful","Quick Spark","Offbeat","You leaned toward giving a paper character one small motion of its own."]
+    ],
+    "layers": [
+      ["眼尖派","轮廓感","审美心","你这轮更愿意让几层纸换个角度就换一幅景。"],
+      ["眼尖派","輪廓感","審美心","你這次更願意讓幾層紙換個角度就換一幅景。"],
+      ["Keen Eye","Visual Sense","Shape Lover","In this story, you preferred using layers of paper to change the view when you turn."]
+    ]
+  },
+  "personal-museum": {
+    "sequence": [
+      ["叙事感","爱想象","会铺陈","这段故事里，你偏向把一天的小事排成看得懂的故事。"],
+      ["敘事感","愛想像","會鋪陳","在這段故事裡，你比較偏向把一天的小事排成看得懂的故事。"],
+      ["Story Minded","Imaginative","Scene Sense","You leaned toward giving the little moments of a day a story arc."]
+    ],
+    "detail": [
+      ["眼尖派","轮廓感","审美心","你这轮更愿意为一件普通东西停下来多看一眼。"],
+      ["眼尖派","輪廓感","審美心","你這次更願意為一件普通東西停下來多看一眼。"],
+      ["Keen Eye","Visual Sense","Shape Lover","In this story, you preferred giving one ordinary object the time for a closer look."]
+    ],
+    "connection": [
+      ["重情谊","有默契","有温度","轮到你选择时，你想把一段共同回忆认真留给彼此。"],
+      ["重連結","有默契","有溫度","輪到你選擇時，你想把一段共同回憶認真留給彼此。"],
+      ["Connected","Warm Bonds","Shared Rhythm","You felt drawn to making space for the memory two people carry together."]
+    ]
+  },
+  "pocket-map": {
+    "landmarks": [
+      ["清楚派","有条理","对焦感","你在故事中更乐于用认得出的地标让口袋地图好懂。"],
+      ["清楚派","有條理","對焦感","你在故事中比較樂意用認得出的地標讓口袋地圖好懂。"],
+      ["Clear Mind","Direct","Signal First","You gravitated toward making a pocket map legible through familiar landmarks."]
+    ],
+    "stops": [
+      ["眼尖派","轮廓感","审美心","这段故事里，你偏向替值得多看一眼的地方留记号。"],
+      ["眼尖派","輪廓感","審美心","在這段故事裡，你比較偏向替值得多看一眼的地方留記號。"],
+      ["Keen Eye","Visual Sense","Shape Lover","You leaned toward marking places where a traveler might want to linger."]
+    ],
+    "gaps": [
+      ["有余地","有弹性","不设限","你这轮更愿意让没画满的地图还能添自己的路。"],
+      ["有餘裕","有彈性","不設限","你這次更願意讓沒畫滿的地圖還能添自己的路。"],
+      ["Open Ended","Flexible","Room to Wander","In this story, you preferred leaving a blank on the map for someone’s own route."]
+    ]
+  },
+  "seasonal-table": {
+    "trace": [
+      ["细节控","感受细","重小事","这段故事里，你偏向让桌上一点当季痕迹安静留下。"],
+      ["細節控","感受細","重小事","在這段故事裡，你比較偏向讓桌上一點當季痕跡安靜留下。"],
+      ["Detail Minded","Sensory Eye","Close Observer","You leaned toward letting one trace of the season sit on the table."]
+    ],
+    "space": [
+      ["亲和感","好相处","有暖意","你这轮更愿意让整理好的桌面仍能多坐一人。"],
+      ["親和感","好相處","有暖意","你這次更願意讓整理好的桌面仍能多坐一人。"],
+      ["Welcoming","Warm Presence","Approachable","In this story, you preferred keeping a place for another person at a finished table."]
+    ],
+    "shared": [
+      ["共创感","重参与","有合拍","轮到你选择时，你想让来的人也能添些自己的东西。"],
+      ["共創感","重參與","合拍感","輪到你選擇時，你想讓來的人也能添些自己的東西。"],
+      ["Collaborative","Shared Credit","Room for Both","You felt drawn to letting someone bring their own small addition."]
+    ]
+  },
+  "secret-garden-gate": {
+    "glimpse": [
+      ["有分寸","重自主","有界线","你这轮更愿意先让别人看花园完成的那一小角。"],
+      ["有分寸","重自主","有界線","你這次更願意先讓別人看花園完成的那一小角。"],
+      ["Boundaried","Considerate","Choice Friendly","In this story, you preferred showing just the finished corner of your garden first."]
+    ],
+    "process": [
+      ["痕迹感","有条理","重来历","轮到你选择时，你想把怎么做出来的一页留下给人看。"],
+      ["痕跡感","有條理","重來歷","輪到你選擇時，你想把怎麼做出來的一頁留下給人看。"],
+      ["Trace Keeper","Orderly","History Aware","You felt drawn to keeping a page that lets others see how it was made."]
+    ],
+    "contribute": [
+      ["共创感","重参与","有合拍","故事轮到你时，你更在意让旁人知道如何小小添上一笔。"],
+      ["共創感","重參與","合拍感","故事輪到你作主時，你更在意讓旁人知道如何小小添上一筆。"],
+      ["Collaborative","Shared Credit","Room for Both","This time, you leaned toward making it easy for others to contribute a small piece."]
+    ]
+  },
+  "story-ending": {
+    "return": [
+      ["体恤心","细腻派","有照应","你在故事中更乐于用归还一件小物给故事收尾。"],
+      ["體恤心","細膩派","有照應","你在故事中比較樂意用歸還一件小物給故事收尾。"],
+      ["Considerate","Tender Heart","Attentive","You gravitated toward ending the story by returning one small thing."]
+    ],
+    "together": [
+      ["共创感","重参与","有合拍","这段故事里，你偏向让不止一个人写进最后一页。"],
+      ["共創感","重參與","合拍感","在這段故事裡，你比較偏向讓不止一個人寫進最後一頁。"],
+      ["Collaborative","Shared Credit","Room for Both","You leaned toward letting several people add something to the ending."]
+    ],
+    "open": [
+      ["有余地","有弹性","不设限","你这轮更愿意让故事到纸页外还剩一条路。"],
+      ["有餘裕","有彈性","不設限","你這次更願意讓故事到紙頁外還剩一條路。"],
+      ["Open Ended","Flexible","Room to Wander","In this story, you preferred leaving a path that continues past the final page."]
+    ]
+  },
+  "time-capsule": {
+    "scene": [
+      ["念旧派","记忆感","重回响","你在故事中更乐于把一个不特别的普通场景收起来。"],
+      ["念舊派","記憶感","重回響","你在故事中比較樂意把一個不特別的普通場景收起來。"],
+      ["Sentimental","Memory Keeper","Warm Relics","You gravitated toward saving a scene that might otherwise go unremarked."]
+    ],
+    "question": [
+      ["好奇心","爱探索","爱新意","这段故事里，你偏向给未来的人留一个仍开放的问题。"],
+      ["好奇心","愛探索","愛新意","在這段故事裡，你比較偏向給未來的人留一個仍開放的問題。"],
+      ["Curious","Exploratory","Open Mind","You leaned toward leaving a question that the future can answer differently."]
+    ],
+    "instruction": [
+      ["务实派","有着落","可靠感","你这轮更愿意把以后还能用的小办法装进胶囊。"],
+      ["務實派","有著落","可靠感","你這次更願意把以後還能用的小辦法裝進膠囊。"],
+      ["Practical","Dependable","Grounded","In this story, you preferred saving a small method someone can try in the future."]
+    ]
+  },
+  "tiny-superpower": {
+    "word": [
+      ["清楚派","有条理","对焦感","这段故事里，你偏向用一个朴素的词把原话说清。"],
+      ["清楚派","有條理","對焦感","在這段故事裡，你比較偏向用一個樸素的詞把原話說清。"],
+      ["Clear Mind","Direct","Signal First","You leaned toward finding one plain word that makes the sentence clearer."]
+    ],
+    "pause": [
+      ["从容派","安定感","慢节奏","你这轮更愿意留一刻给想停就能停的人。"],
+      ["從容派","安定感","慢步調","你這次更願意留一刻給想停就能停的人。"],
+      ["Unhurried","Grounded","Steady Rhythm","In this story, you preferred leaving a moment where it’s fine to stop."]
+    ],
+    "edge": [
+      ["眼尖派","轮廓感","审美心","轮到你选择时，你想替本来就有的轮廓调出一点光。"],
+      ["眼尖派","輪廓感","審美心","輪到你選擇時，你想替本來就有的輪廓調出一點光。"],
+      ["Keen Eye","Visual Sense","Shape Lover","You felt drawn to bringing out the outline of something already there."]
+    ]
+  },
+  "weather-in-a-bottle": {
+    "mist": [
+      ["静谧感","留白派","慢节奏","你这轮更愿意等雾里头的轮廓自己显出来。"],
+      ["靜謐感","留白派","慢步調","你這次更願意等霧裡頭的輪廓自己顯出來。"],
+      ["Quiet Presence","Room to Breathe","Gentle Pace","In this story, you preferred letting shapes come into view as the mist clears."]
+    ],
+    "breeze": [
+      ["有余地","有弹性","不设限","轮到你选择时，你想让一点小风替故事翻一页。"],
+      ["有餘裕","有彈性","不設限","輪到你選擇時，你想讓一點小風替故事翻一頁。"],
+      ["Open Ended","Flexible","Room to Wander","You felt drawn to letting a small breeze turn the page for you."]
+    ],
+    "sun": [
+      ["眼尖派","轮廓感","审美心","故事轮到你时，你更在意让一束光照亮平常没留意的小物。"],
+      ["眼尖派","輪廓感","審美心","故事輪到你作主時，你更在意讓一束光照亮平常沒留意的小物。"],
+      ["Keen Eye","Visual Sense","Shape Lover","This time, you leaned toward seeing what one sunbeam does to a very ordinary thing."]
+    ]
+  }
+}

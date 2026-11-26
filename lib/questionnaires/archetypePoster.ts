@@ -2,6 +2,7 @@ import type { DisplayLocale } from "@/lib/i18n/locales";
 import type { ArchetypeHonorCopy } from "./archetypeHonorCardCopy";
 import { archetypeCardThemes, archetypePosterSize } from "./archetypeResultCard";
 import { honorMetricCopy, scalePosition, type HonorResultMetrics } from "./honorResultMetrics";
+import { storyHonorLabels, type StoryHonorMode } from "@/lib/entertainment/wave3aStory";
 import { archetypeResultCopy } from "./archetypeResultShare";
 
 type Poster = {
@@ -15,6 +16,7 @@ type Poster = {
   age?: { value: number; unit: string; label: string };
   credit?: string;
   metrics?: HonorResultMetrics;
+  storyMode?: StoryHonorMode;
   monogram: string;
   url: string;
 };
@@ -86,7 +88,7 @@ export async function renderArchetypePoster(data: Poster) {
   };
 
   text(`${copy.brand} · ${data.shortTitle}`, 68, 98, 34, { max: 630 });
-  text(tied ? tieLabel ?? copy.tied : data.metrics?.label ?? data.age?.label ?? copy.closest, 1012, 98, 27, { align: "right", color: color.light, max: 292 });
+  text(tied ? tieLabel ?? copy.tied : data.metrics?.label ?? data.age?.label ?? (data.storyMode === "branch" ? storyHonorLabels[data.locale].branch : copy.closest), 1012, 98, 27, { align: "right", color: color.light, max: 292 });
   rule(68, 132, 944, .65);
 
   const many = data.names.length > 6;
@@ -190,7 +192,7 @@ export async function renderArchetypePoster(data: Poster) {
   const artBottom = panel.y + panel.height;
   let tagTop = artBottom + (data.age ? 104 : data.runnerUp ? 213 : 177);
   if (tied || (data.metrics && data.names.length > 1)) {
-    center(data.metrics ? (tied ? tieLabel ?? metricCopy.ties : metricCopy.axes) : copy.tieLine, artBottom + 62, 32, color.light);
+    center(data.metrics ? (tied ? tieLabel ?? metricCopy.ties : metricCopy.axes) : data.storyMode ? storyHonorLabels[data.locale].tied : copy.tieLine, artBottom + 62, 32, color.light);
     const columns = data.metrics && data.names.length > 12 ? 3 : data.names.length > 5 ? 2 : 1;
     const size = data.names.length <= 3 ? 64 : 38;
     const step = columns === 3 ? 37 : many ? 47 : data.reading ? 53 : 70;
@@ -244,7 +246,8 @@ export async function renderArchetypePoster(data: Poster) {
   ctx.fillRect(0, footer, width, height - footer);
   ctx.imageSmoothingEnabled = false;
   ctx.drawImage(qr, 43, 1267);
-  text((data.metrics ? metricCopy : copy).scan(data.shortTitle), 239, 1338, 38, { color: "#241a18", max: 790 });
-  text((data.metrics ? metricCopy : copy).scanDetail, 239, 1387, 26, { color: "#33231e", max: 790 });
+  const scan = data.storyMode ? storyHonorLabels[data.locale] : data.metrics ? metricCopy : copy;
+  text(scan.scan(data.shortTitle), 239, 1338, 38, { color: "#241a18", max: 790 });
+  text(scan.scanDetail, 239, 1387, 26, { color: "#33231e", max: 790 });
   return new Promise<Blob>((resolve, reject) => canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error("PNG unavailable")), "image/png"));
 }

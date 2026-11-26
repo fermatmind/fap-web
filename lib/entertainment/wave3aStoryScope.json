@@ -1,0 +1,497 @@
+{
+  "beachcomber": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "birdwatching-companion": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "board-game-table": {
+    "theme": "neon",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "borrowed-book": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "browser-tabs": {
+    "theme": "slate",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "camera-roll": {
+    "theme": "slate",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "campfire-storyteller": {
+    "theme": "neon",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "celebrating-a-friend": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "celebration-planner": {
+    "theme": "neon",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "changan-history-quiz": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "choosing-together": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "city-wanderer": {
+    "theme": "slate",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "cloud-drift": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "coffee-break": {
+    "theme": "slate",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "comfort-offer": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "community-fair": {
+    "theme": "neon",
+    "target": "RIASEC",
+    "mechanism": "tally"
+  },
+  "compliment-style": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "cozy-object": {
+    "theme": "gold",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "creative-spark": {
+    "theme": "gold",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "date-plan-detour": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "desert-oasis": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "desk-reset": {
+    "theme": "slate",
+    "target": "RIASEC",
+    "mechanism": "tally"
+  },
+  "dinner-host": {
+    "theme": "neon",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "dragon-housemate": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "dream-train": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "branch"
+  },
+  "enchanted-library": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "branch"
+  },
+  "escape-room-role": {
+    "theme": "neon",
+    "target": "RIASEC",
+    "mechanism": "tally"
+  },
+  "fantasy-party-role": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "festival-companion": {
+    "theme": "neon",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "festival-mask": {
+    "theme": "gold",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "fictional-cafe": {
+    "theme": "gold",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "firefly-evening": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "branch"
+  },
+  "floating-house": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "forest-soundtrack": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "branch"
+  },
+  "friendship-invitation": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "game-night-reset": {
+    "theme": "neon",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "garden-season": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "gift-note": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "group-chat-role": {
+    "theme": "neon",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "group-project-finale": {
+    "theme": "neon",
+    "target": "RIASEC",
+    "mechanism": "tally"
+  },
+  "group-trip-seatmate": {
+    "theme": "neon",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "harbor-light": {
+    "theme": "gold",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "hosting-a-guest": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "house-of-doors": {
+    "theme": "gold",
+    "target": "BIG5_OCEAN",
+    "mechanism": "branch"
+  },
+  "inside-joke": {
+    "theme": "neon",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "island-day": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "branch"
+  },
+  "kitchen-improviser": {
+    "theme": "slate",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "long-distance-postcard": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "lost-key-search": {
+    "theme": "slate",
+    "target": "RIASEC",
+    "mechanism": "tally"
+  },
+  "lost-letter-adventure": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "branch"
+  },
+  "magic-shopkeeper": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "message-tone": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "moon-market": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "branch"
+  },
+  "mountain-cabin": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "museum-of-tomorrow": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "museum-visitor": {
+    "theme": "slate",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "new-club-member": {
+    "theme": "neon",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "night-garden": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "note-taking-doodles": {
+    "theme": "slate",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "paper-creature-language": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "paper-world": {
+    "theme": "gold",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "party-arrival": {
+    "theme": "neon",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "personal-museum": {
+    "theme": "gold",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "photo-group-role": {
+    "theme": "neon",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "playlist-maker": {
+    "theme": "slate",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "pocket-map": {
+    "theme": "gold",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "portal-choice": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "branch"
+  },
+  "potluck-contribution": {
+    "theme": "neon",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "quest-reward": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "quiet-company": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "rainy-window": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "reading-ritual": {
+    "theme": "slate",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "reunion-style": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "river-crossing": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "road-trip-dj": {
+    "theme": "neon",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "room-atmosphere": {
+    "theme": "slate",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "saying-goodbye": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "seasonal-table": {
+    "theme": "gold",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "secret-door": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "branch"
+  },
+  "secret-garden-gate": {
+    "theme": "gold",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "shared-hobby": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "shared-ritual": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "shared-workspace": {
+    "theme": "neon",
+    "target": "RIASEC",
+    "mechanism": "tally"
+  },
+  "small-apology": {
+    "theme": "dusk",
+    "target": "EQ_60",
+    "mechanism": "tally"
+  },
+  "snow-day": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "souvenir-story": {
+    "theme": "slate",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "spell-school-elective": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "stargazing-role": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "story-ending": {
+    "theme": "gold",
+    "target": "BIG5_OCEAN",
+    "mechanism": "branch"
+  },
+  "storybook-narrator": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "team-name-maker": {
+    "theme": "neon",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "thrift-shop-find": {
+    "theme": "slate",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "tide-pool-creature": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "time-capsule": {
+    "theme": "gold",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "tiny-kingdom": {
+    "theme": "gold",
+    "target": "MBTI",
+    "mechanism": "tally"
+  },
+  "tiny-superpower": {
+    "theme": "gold",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "tiny-treat": {
+    "theme": "slate",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "weather-in-a-bottle": {
+    "theme": "gold",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  },
+  "woodland-animal": {
+    "theme": "dusk",
+    "target": "BIG5_OCEAN",
+    "mechanism": "tally"
+  }
+}

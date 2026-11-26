@@ -86,16 +86,17 @@ describe("second archive experience cohort", () => {
       fireEvent.click(container.querySelector("[data-questionnaire-next]")!);
     }
     const report = container.querySelector("[data-story-result-readings]")!;
-    const next = container.querySelector("[data-archive-next-step]")!;
+    const next = container.querySelector("[data-archetype-core-assessment]")!;
     expect(report.querySelectorAll("article")).toHaveLength(result.resultIds.length);
     expect(report.compareDocumentPosition(next) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(next.querySelectorAll("a")).toHaveLength(1);
-    expect(next.querySelector("a")).toHaveAttribute("href", `/en/tests/${archiveTopic(quiz.slug)?.slug}`);
-    expect(getByRole("button", { name: "Copy result and link" })).toBeVisible();
-    fireEvent.click(getByRole("button", { name: "Copy result and link" }));
+    expect(next.querySelector("a")).toHaveAttribute("href", `/en/tests/${slug === "story-ending" ? "big-five-personality-test-ocean-model" : "mbti-personality-test-16-personality-types"}`);
+    await waitFor(() => expect(getByRole("button", { name: "Share Result" })).toBeVisible());
+    fireEvent.click(getByRole("button", { name: "Share Result" }));
     await waitFor(() => expect(copy).toHaveBeenCalledTimes(1));
-    for (const id of result.resultIds) expect(copy.mock.calls).toEqual([[expect.stringContaining(`https://fermatmind.com${resultPath("en", slug, id)}`)]]);
-    fireEvent.click(getByRole("button", { name: "Retake quiz" }));
-    expect(container.querySelector("[data-archive-next-step]")).toBeNull();
+    expect(copy.mock.calls).toEqual([[expect.stringContaining(`https://fermatmind.com${quizPath("en", slug)}`)]]);
+    for (const id of result.resultIds) expect(report.querySelector(`a[href="${resultPath("en", slug, id)}"]`)).not.toBeNull();
+    fireEvent.click(getByRole("button", { name: "Retake" }));
+    expect(container.querySelector("[data-archetype-core-assessment]")).toBeNull();
   });
 });

@@ -1,0 +1,296 @@
+{
+  "borrowed-book": {
+    "return": [
+      ["有章法","节奏稳","踏实感","你在故事中更乐于在书页旁留个清楚归期。"],
+      ["有章法","步調穩","踏實感","你在故事中比較樂意在書頁旁留個清楚歸期。"],
+      ["Plan Minded","Steady Hand","Dependable","You gravitated toward giving a borrowed book a clear date to go home."]
+    ],
+    "thread": [
+      ["重情谊","有默契","有温度","这段故事里，你偏向把两人的阅读连成细线。"],
+      ["重連結","有默契","有溫度","在這段故事裡，你比較偏向把兩人的閱讀連成細線。"],
+      ["Connected","Warm Bonds","Shared Rhythm","You leaned toward finding a thread between two different readings."]
+    ],
+    "care": [
+      ["体恤心","细腻派","有照应","你这轮更愿意替书的主人留个合意记号。"],
+      ["體恤心","細膩派","有照應","你這次更願意替書的主人留個合意記號。"],
+      ["Considerate","Tender Heart","Attentive","In this story, you preferred leaving a bookmark that suits the book’s owner."]
+    ]
+  },
+  "celebrating-a-friend": {
+    "listen": [
+      ["好倾听","有回应","细腻感","你这轮更愿意先听这件事在对方心里的版本。"],
+      ["好傾聽","有回應","細膩感","你這次更願意先聽這件事在對方心裡的版本。"],
+      ["Good Listener","Attuned","Receptive","In this story, you preferred hearing what this moment meant to your friend."]
+    ],
+    "note": [
+      ["念旧派","记忆感","重回响","轮到你选择时，你想说出一句只有对方懂的祝贺。"],
+      ["念舊派","記憶感","重回響","輪到你選擇時，你想說出一句只有對方懂的祝賀。"],
+      ["Sentimental","Memory Keeper","Warm Relics","You felt drawn to making the congratulations specific to your friend."]
+    ],
+    "join": [
+      ["暖意派","有亲和","舒服感","故事轮到你时，你更在意照对方喜欢的方式加入庆祝。"],
+      ["暖意派","有親和","自在感","故事輪到你作主時，你更在意照對方喜歡的方式加入慶祝。"],
+      ["Warm Heart","Easy Company","Comfort Minded","This time, you leaned toward joining the celebration in the way they welcome."]
+    ]
+  },
+  "choosing-together": {
+    "criteria": [
+      ["清楚派","有条理","对焦感","故事轮到你时，你更在意把两个人要的条件摊开来说。"],
+      ["清楚派","有條理","對焦感","故事輪到你作主時，你更在意把兩個人要的條件攤開來說。"],
+      ["Clear Mind","Direct","Signal First","This time, you leaned toward setting the conditions out where both can see them."]
+    ],
+    "turns": [
+      ["共创感","重参与","有合拍","你在故事中更乐于让轮到的人仍有改主意空间。"],
+      ["共創感","重參與","合拍感","你在故事中比較樂意讓輪到的人仍有改主意空間。"],
+      ["Collaborative","Shared Credit","Room for Both","You gravitated toward leaving room to change your mind even after taking turns."]
+    ],
+    "trial": [
+      ["动手派","有巧思","原型感","这段故事里，你偏向先做小样看看谁还想继续。"],
+      ["動手派","有巧思","有創意","在這段故事裡，你比較偏向先做小樣看看誰還想繼續。"],
+      ["Hands On","Inventive","Maker Mind","You leaned toward testing a small version before deciding together."]
+    ],
+    "parts": [
+      ["有分寸","重自主","有界线","你这轮更愿意让不一样的选择并排成立。"],
+      ["有分寸","重自主","有界線","你這次更願意讓不一樣的選擇並排成立。"],
+      ["Boundaried","Considerate","Choice Friendly","In this story, you preferred letting different preferences work side by side."]
+    ]
+  },
+  "comfort-offer": {
+    "practical": [
+      ["务实派","有着落","可靠感","你这轮更愿意把关照放进一件办得到的小事。"],
+      ["務實派","有著落","可靠感","你這次更願意把關照放進一件辦得到的小事。"],
+      ["Practical","Dependable","Grounded","In this story, you preferred offering a small thing you can actually do."]
+    ],
+    "listen": [
+      ["好倾听","有回应","细腻感","轮到你选择时，你想让朋友可以说自己想聊的事。"],
+      ["好傾聽","有回應","細膩感","輪到你選擇時，你想讓朋友可以說自己想聊的事。"],
+      ["Good Listener","Attuned","Receptive","You felt drawn to leaving room for a friend to talk if they want."]
+    ],
+    "quiet": [
+      ["静谧感","留白派","慢节奏","故事轮到你时，你更在意让陪伴安静到不用费力回应。"],
+      ["靜謐感","留白派","慢步調","故事輪到你作主時，你更在意讓陪伴安靜到不用費力回應。"],
+      ["Quiet Presence","Room to Breathe","Gentle Pace","This time, you leaned toward keeping someone company without asking them to respond."]
+    ]
+  },
+  "compliment-style": {
+    "detail": [
+      ["细节控","感受细","重小事","轮到你选择时，你想让一个容易忽略的细节被看见。"],
+      ["細節控","感受細","重小事","輪到你選擇時，你想讓一個容易忽略的細節被看見。"],
+      ["Detail Minded","Sensory Eye","Close Observer","You felt drawn to noticing a small detail others might have missed."]
+    ],
+    "process": [
+      ["体恤心","细腻派","有照应","故事轮到你时，你更在意把肯定给一路花过的心力。"],
+      ["體恤心","細膩派","有照應","故事輪到你作主時，你更在意把肯定給一路花過的心力。"],
+      ["Considerate","Tender Heart","Attentive","This time, you leaned toward honoring the care someone put into making something."]
+    ],
+    "effect": [
+      ["清楚派","有条理","对焦感","你在故事中更乐于把得到的帮助说得具体一点。"],
+      ["清楚派","有條理","對焦感","你在故事中比較樂意把得到的幫助說得具體一點。"],
+      ["Clear Mind","Direct","Signal First","You gravitated toward saying exactly what someone did that helped."]
+    ]
+  },
+  "date-plan-detour": {
+    "core": [
+      ["念旧派","记忆感","重回响","你这轮更愿意把原行程最喜欢的部分留下。"],
+      ["念舊派","記憶感","重回響","你這次更願意把原行程最喜歡的一段留下。"],
+      ["Sentimental","Memory Keeper","Warm Relics","In this story, you preferred keeping the part of the outing that drew you in."]
+    ],
+    "check": [
+      ["好倾听","有回应","细腻感","轮到你选择时，你想遇到改道时再问一次对方想法。"],
+      ["好傾聽","有回應","細膩感","輪到你選擇時，你想遇到改道時再問一次對方想法。"],
+      ["Good Listener","Attuned","Receptive","You felt drawn to checking what both want after the plan takes a turn."]
+    ],
+    "try": [
+      ["有玩心","俏皮感","爱变奏","故事轮到你时，你更在意留一点力气试一个小替代。"],
+      ["有玩心","俏皮感","愛變化","故事輪到你作主時，你更在意留一點力氣試一個小替代。"],
+      ["Playful","Quick Spark","Offbeat","This time, you leaned toward leaving room for a small alternative on the way."]
+    ]
+  },
+  "friendship-invitation": {
+    "plan": [
+      ["有章法","节奏稳","踏实感","你这轮更愿意把邀约的时间去处说清楚。"],
+      ["有章法","步調穩","踏實感","你這次更願意把邀約的時間去處說清楚。"],
+      ["Plan Minded","Steady Hand","Dependable","In this story, you preferred making time and place clear in the invitation."]
+    ],
+    "interest": [
+      ["搭桥感","重来往","有眼力","轮到你选择时，你想用共同的兴趣把邀请接起来。"],
+      ["搭橋感","重來往","有眼力","輪到你選擇時，你想用共同的興趣把邀請接起來。"],
+      ["Bridge Maker","Socially Attuned","Connection Mind","You felt drawn to building the invitation around an interest you share."]
+    ],
+    "choice": [
+      ["有分寸","重自主","有界线","故事轮到你时，你更在意让对方可以轻松答应或改天。"],
+      ["有分寸","重自主","有界線","故事輪到你作主時，你更在意讓對方可以輕鬆答應或改天。"],
+      ["Boundaried","Considerate","Choice Friendly","This time, you leaned toward making the invitation just as easy to decline."]
+    ]
+  },
+  "gift-note": {
+    "memory": [
+      ["念旧派","记忆感","重回响","这段故事里，你偏向把礼物和一段共同回忆绑在一起。"],
+      ["念舊派","記憶感","重回響","在這段故事裡，你比較偏向把禮物和一段共同回憶綁在一起。"],
+      ["Sentimental","Memory Keeper","Warm Relics","You leaned toward linking a gift to a scene you both remember."]
+    ],
+    "thanks": [
+      ["细节控","感受细","重小事","你这轮更愿意让收礼的人看见具体的谢意。"],
+      ["細節控","感受細","重小事","你這次更願意讓收禮的人看見具體的謝意。"],
+      ["Detail Minded","Sensory Eye","Close Observer","In this story, you preferred making the thank-you in the note particular."]
+    ],
+    "wish": [
+      ["有余地","有弹性","不设限","轮到你选择时，你想给未来的祝愿留点不确定。"],
+      ["有餘裕","有彈性","不設限","輪到你選擇時，你想給未來的祝願留點不確定。"],
+      ["Open Ended","Flexible","Room to Wander","You felt drawn to leaving room for the future in what you wish them."]
+    ]
+  },
+  "hosting-a-guest": {
+    "note": [
+      ["细节控","感受细","重小事","这段故事里，你偏向在客人等你开口前留张便条。"],
+      ["細節控","感受細","重小事","在這段故事裡，你比較偏向在客人等你開口前留張便條。"],
+      ["Detail Minded","Sensory Eye","Close Observer","You leaned toward leaving a small note so a guest can settle in."]
+    ],
+    "tour": [
+      ["亲和感","好相处","有暖意","你这轮更愿意带来客走一圈认认这个地方。"],
+      ["親和感","好相處","有暖意","你這次更願意帶來客走一圈認認這個地方。"],
+      ["Welcoming","Warm Presence","Approachable","In this story, you preferred giving a guest a small tour to find their bearings."]
+    ],
+    "ask": [
+      ["好倾听","有回应","细腻感","轮到你选择时，你想把提问的主动权留给来客。"],
+      ["好傾聽","有回應","細膩感","輪到你選擇時，你想把提問的主動權留給來客。"],
+      ["Good Listener","Attuned","Receptive","You felt drawn to letting the guest say what they need as it comes up."]
+    ]
+  },
+  "long-distance-postcard": {
+    "scene": [
+      ["叙事感","爱想象","会铺陈","这段故事里，你偏向在纸上替远方的人写一个小画面。"],
+      ["敘事感","愛想像","會鋪陳","在這段故事裡，你比較偏向在紙上替遠方的人寫一個小畫面。"],
+      ["Story Minded","Imaginative","Scene Sense","You leaned toward giving someone far away a small scene in words."]
+    ],
+    "question": [
+      ["好奇心","爱探索","爱新意","你这轮更愿意给对方留一句愿意接下去的话。"],
+      ["好奇心","愛探索","愛新意","你這次更願意給對方留一句願意接下去的話。"],
+      ["Curious","Exploratory","Open Mind","In this story, you preferred leaving a question open enough for a reply."]
+    ],
+    "marker": [
+      ["重情谊","有默契","有温度","轮到你选择时，你想给你们共同熟悉的地方留记号。"],
+      ["重連結","有默契","有溫度","輪到你選擇時，你想給你們共同熟悉的地方留記號。"],
+      ["Connected","Warm Bonds","Shared Rhythm","You felt drawn to marking something that means the same thing to both."]
+    ]
+  },
+  "message-tone": {
+    "ask": [
+      ["清楚派","有条理","对焦感","轮到你选择时，你想把拿不准的语气化成一句问话。"],
+      ["清楚派","有條理","對焦感","輪到你選擇時，你想把拿不準的語氣化成一句問話。"],
+      ["Clear Mind","Direct","Signal First","You felt drawn to asking a plain question before guessing the tone."]
+    ],
+    "context": [
+      ["痕迹感","有条理","重来历","故事轮到你时，你更在意回看对话前后再理解一句话。"],
+      ["痕跡感","有條理","重來歷","故事輪到你作主時，你更在意回看對話前後再理解一句話。"],
+      ["Trace Keeper","Orderly","History Aware","This time, you leaned toward looking back at the exchange to place a line."]
+    ],
+    "pause": [
+      ["静谧感","留白派","慢节奏","你在故事中更乐于让没想明白的话先停一停。"],
+      ["靜謐感","留白派","慢步調","你在故事中比較樂意讓沒想明白的話先停一停。"],
+      ["Quiet Presence","Room to Breathe","Gentle Pace","You gravitated toward letting an uncertain message sit before adding a story."]
+    ]
+  },
+  "quiet-company": {
+    "pages": [
+      ["静谧感","留白派","慢节奏","你这轮更愿意让两个人各翻书也彼此相伴。"],
+      ["靜謐感","留白派","慢步調","你這次更願意讓兩個人各翻書也彼此相伴。"],
+      ["Quiet Presence","Room to Breathe","Gentle Pace","In this story, you preferred letting two open books count as good company."]
+    ],
+    "view": [
+      ["眼尖派","轮廓感","审美心","轮到你选择时，你想和相伴的人静静望同一扇窗。"],
+      ["眼尖派","輪廓感","審美心","輪到你選擇時，你想和相伴的人靜靜望同一扇窗。"],
+      ["Keen Eye","Visual Sense","Shape Lover","You felt drawn to sharing a view without needing to fill the silence."]
+    ],
+    "task": [
+      ["共创感","重参与","有合拍","故事轮到你时，你更在意把自在相伴放进同做的小事。"],
+      ["共創感","重參與","合拍感","故事輪到你作主時，你更在意把自在相伴放進同做的小事。"],
+      ["Collaborative","Shared Credit","Room for Both","This time, you leaned toward sharing a simple task instead of having to make talk."]
+    ]
+  },
+  "reunion-style": {
+    "thread": [
+      ["念旧派","记忆感","重回响","这段故事里，你偏向从一段你们都认得的往事开口。"],
+      ["念舊派","記憶感","重回響","在這段故事裡，你比較偏向從一段你們都認得的往事開口。"],
+      ["Sentimental","Memory Keeper","Warm Relics","You leaned toward starting a reunion with a memory you both recognize."]
+    ],
+    "present": [
+      ["好倾听","有回应","细腻感","你这轮更愿意先问此刻的生活过得是什么样。"],
+      ["好傾聽","有回應","細膩感","你這次更願意先問此刻的生活過得是什麼樣。"],
+      ["Good Listener","Attuned","Receptive","In this story, you preferred starting with where the other person is in life now."]
+    ],
+    "fresh": [
+      ["有余地","有弹性","不设限","轮到你选择时，你想让一件新鲜小事替重逢开头。"],
+      ["有餘裕","有彈性","不設限","輪到你選擇時，你想讓一件新鮮小事替重逢開頭。"],
+      ["Open Ended","Flexible","Room to Wander","You felt drawn to giving the reunion something new to start from."]
+    ]
+  },
+  "saying-goodbye": {
+    "clear": [
+      ["清楚派","有条理","对焦感","轮到你选择时，你想给这次见面留个清楚又自然的结尾。"],
+      ["清楚派","有條理","對焦感","輪到你選擇時，你想給這次見面留個清楚又自然的結尾。"],
+      ["Clear Mind","Direct","Signal First","You felt drawn to letting a good visit end on a clear, easy note."]
+    ],
+    "detail": [
+      ["念旧派","记忆感","重回响","故事轮到你时，你更在意带走一个好细节作这次见面的记号。"],
+      ["念舊派","記憶感","重回響","故事輪到你作主時，你更在意帶走一個好細節作這次見面的記號。"],
+      ["Sentimental","Memory Keeper","Warm Relics","This time, you leaned toward keeping one good detail to remember the visit by."]
+    ],
+    "future": [
+      ["有余地","有弹性","不设限","你在故事中更乐于给下次相见留扇不催人的门。"],
+      ["有餘裕","有彈性","不設限","你在故事中比較樂意給下次相見留扇不催人的門。"],
+      ["Open Ended","Flexible","Room to Wander","You gravitated toward leaving a door open without setting a deadline."]
+    ]
+  },
+  "shared-hobby": {
+    "guest": [
+      ["有玩心","俏皮感","爱变奏","你在故事中更乐于先借一小回合试试对方的兴趣。"],
+      ["有玩心","俏皮感","愛變化","你在故事中比較樂意先借一小回合試試對方的興趣。"],
+      ["Playful","Quick Spark","Offbeat","You gravitated toward trying the other person’s hobby for one small round."]
+    ],
+    "parallel": [
+      ["静谧感","留白派","慢节奏","这段故事里，你偏向愿意并排各做喜欢的东西。"],
+      ["靜謐感","留白派","慢步調","在這段故事裡，你比較偏向願意並排各做喜歡的東西。"],
+      ["Quiet Presence","Room to Breathe","Gentle Pace","You leaned toward being side by side while each does their own thing."]
+    ],
+    "swap": [
+      ["共创感","重参与","有合拍","你这轮更愿意换着玩小回合让彼此都能加入。"],
+      ["共創感","重參與","合拍感","你這次更願意換著玩小回合讓彼此都能加入。"],
+      ["Collaborative","Shared Credit","Room for Both","In this story, you preferred taking short turns so both interests get some time."]
+    ]
+  },
+  "shared-ritual": {
+    "cue": [
+      ["细节控","感受细","重小事","轮到你选择时，你想从每天都会碰见的小提示开始。"],
+      ["細節控","感受細","重小事","輪到你選擇時，你想從每天都會碰見的小提示開始。"],
+      ["Detail Minded","Sensory Eye","Close Observer","You felt drawn to starting with a cue already present in the day."]
+    ],
+    "window": [
+      ["有余地","有弹性","不设限","故事轮到你时，你更在意给小仪式留个还可以变动的时间。"],
+      ["有餘裕","有彈性","不設限","故事輪到你作主時，你更在意給小儀式留個還可以變動的時間。"],
+      ["Open Ended","Flexible","Room to Wander","This time, you leaned toward leaving the time for the ritual a little flexible."]
+    ],
+    "meaning": [
+      ["念旧派","记忆感","重回响","你在故事中更乐于让仪式变了仍留着珍惜的意思。"],
+      ["念舊派","記憶感","重回響","你在故事中比較樂意讓儀式變了仍留著珍惜的意思。"],
+      ["Sentimental","Memory Keeper","Warm Relics","You gravitated toward keeping what matters when the ritual changes shape."]
+    ]
+  },
+  "small-apology": {
+    "name": [
+      ["清楚派","有条理","对焦感","故事轮到你时，你更在意先说清是哪件小事出了差错。"],
+      ["清楚派","有條理","對焦感","故事輪到你作主時，你更在意先說清是哪件小事出了差錯。"],
+      ["Clear Mind","Direct","Signal First","This time, you leaned toward naming the particular thing that went wrong first."]
+    ],
+    "repair": [
+      ["务实派","有着落","可靠感","你在故事中更乐于让道歉后面接着一个真能做的补救。"],
+      ["務實派","有著落","可靠感","你在故事中比較樂意讓道歉後面接著一個真能做的補救。"],
+      ["Practical","Dependable","Grounded","You gravitated toward offering a repair small enough to follow through on."]
+    ],
+    "space": [
+      ["有分寸","重自主","有界线","这段故事里，你偏向让对方听完后还能按自己的节奏来。"],
+      ["有分寸","重自主","有界線","在這段故事裡，你比較偏向讓對方聽完後還有自己的步調。"],
+      ["Boundaried","Considerate","Choice Friendly","You leaned toward giving the other person time to respond at their pace."]
+    ]
+  }
+}

@@ -1,0 +1,311 @@
+{
+  "changan-history-quiz": {
+    "wu-zetian": [
+      ["主见强","有劲头","定向感","轮到你选择时，你想在长安局势纷乱时先定方向。"],
+      ["主見強","有勁頭","有方向","輪到你選擇時，你想在長安局勢紛亂時先定方向。"],
+      ["Decisive","Forward Motion","Strong Direction","You felt drawn to setting a direction while Chang’an seems in turmoil."]
+    ],
+    "di-renjie": [
+      ["清楚派","有条理","对焦感","故事轮到你时，你更在意在长安急信中先厘清事实。"],
+      ["清楚派","有條理","對焦感","故事輪到你作主時，你更在意在長安急信中先釐清事實。"],
+      ["Clear Mind","Direct","Signal First","This time, you leaned toward checking the facts before acting on an urgent letter."]
+    ],
+    "du-fu": [
+      ["体恤心","细腻派","有照应","你在故事中更乐于在乱局里先想寻常人的日子。"],
+      ["體恤心","細膩派","有照應","你在故事中比較樂意在亂局裡先想尋常人的日子。"],
+      ["Considerate","Tender Heart","Attentive","You gravitated toward noticing how upheaval might touch ordinary people."]
+    ],
+    "shangguan-waner": [
+      ["叙事感","爱想象","会铺陈","这段故事里，你偏向替混乱的消息找到准确说法。"],
+      ["敘事感","愛想像","會鋪陳","在這段故事裡，你比較偏向替混亂的訊息找到準確說法。"],
+      ["Story Minded","Imaginative","Scene Sense","You leaned toward giving a tangled message words that carry it clearly."]
+    ],
+    "xuanzang": [
+      ["好奇心","爱探索","爱新意","你这轮更愿意把一路的不解变成追问方向。"],
+      ["好奇心","愛探索","愛新意","你這次更願意把一路的不解變成追問方向。"],
+      ["Curious","Exploratory","Open Mind","In this story, you preferred treating a question as a reason to travel farther."]
+    ],
+    "li-bai": [
+      ["有余地","有弹性","不设限","轮到你选择时，你想替城里一天找个意外出口。"],
+      ["有餘裕","有彈性","不設限","輪到你選擇時，你想替城裡一天找個意外出口。"],
+      ["Open Ended","Flexible","Room to Wander","You felt drawn to leaving space for an unexpected turn in Chang’an."]
+    ]
+  },
+  "dragon-housemate": {
+    "zones": [
+      ["有分寸","重自主","有界线","故事轮到你时，你更在意帮人与龙约好各自的空间。"],
+      ["有分寸","重自主","有界線","故事輪到你作主時，你更在意幫人與龍約好各自的空間。"],
+      ["Boundaried","Considerate","Choice Friendly","This time, you leaned toward giving a dragon housemate space of their own."]
+    ],
+    "ritual": [
+      ["念旧派","记忆感","重回响","你在故事中更乐于让龙也有一个熟悉的居家仪式。"],
+      ["念舊派","記憶感","重回響","你在故事中比較樂意讓龍也有一個熟悉的居家儀式。"],
+      ["Sentimental","Memory Keeper","Warm Relics","You gravitated toward giving life with a dragon a reassuring little ritual."]
+    ],
+    "make": [
+      ["动手派","有巧思","原型感","这段故事里，你偏向让龙的习惯也参与发明这个家。"],
+      ["動手派","有巧思","有創意","在這段故事裡，你比較偏向讓龍的習慣也參與發明這個家。"],
+      ["Hands On","Inventive","Maker Mind","You leaned toward letting a dragon help invent a way to share a home."]
+    ]
+  },
+  "dream-train": {
+    "keepsake": [
+      ["有余地","有弹性","不设限","你这轮更愿意把纪念车票留给多种解释。"],
+      ["有餘裕","有彈性","不設限","你這次更願意把紀念車票留給多種解釋。"],
+      ["Open Ended","Flexible","Room to Wander","In this story, you preferred keeping a ticket whose meaning can still change."]
+    ],
+    "envelope": [
+      ["叙事感","爱想象","会铺陈","轮到你选择时，你想把故事装进信封送往下一站。"],
+      ["敘事感","愛想像","會鋪陳","輪到你選擇時，你想把故事裝進信封送往下一站。"],
+      ["Story Minded","Imaginative","Scene Sense","You felt drawn to sending a story onward in a traveling envelope."]
+    ],
+    "station": [
+      ["动手派","有巧思","原型感","故事轮到你时，你更在意给不认识的故事车站取新名字。"],
+      ["動手派","有巧思","有創意","故事輪到你作主時，你更在意給不認識的故事車站取新名字。"],
+      ["Hands On","Inventive","Maker Mind","This time, you leaned toward giving an unfamiliar station a name of your own."]
+    ]
+  },
+  "enchanted-library": {
+    "record": [
+      ["痕迹感","有条理","重来历","你在故事中更乐于让后来人从注释读见记录来历。"],
+      ["痕跡感","有條理","重來歷","你在故事中比較樂意讓後來人從註釋讀見記錄來歷。"],
+      ["Trace Keeper","Orderly","History Aware","You gravitated toward leaving notes that help a reader trace a record."]
+    ],
+    "witness": [
+      ["好倾听","有回应","细腻感","这段故事里，你偏向先留心保管者亲眼见过什么。"],
+      ["好傾聽","有回應","細膩感","在這段故事裡，你比較偏向先留心保管者親眼見過什麼。"],
+      ["Good Listener","Attuned","Receptive","You leaned toward hearing what the keeper of the library saw firsthand."]
+    ],
+    "open": [
+      ["有余地","有弹性","不设限","你这轮更愿意让目录仍有一页等后来人添。"],
+      ["有餘裕","有彈性","不設限","你這次更願意讓目錄仍有一頁等後來人添。"],
+      ["Open Ended","Flexible","Room to Wander","In this story, you preferred keeping the catalogue open for a future reader."]
+    ]
+  },
+  "fantasy-party-role": {
+    "scout": [
+      ["好奇心","爱探索","爱新意","这段故事里，你偏向让队伍先看看前方哪条路能通。"],
+      ["好奇心","愛探索","愛新意","在這段故事裡，你比較偏向讓隊伍先看看前方哪條路能通。"],
+      ["Curious","Exploratory","Open Mind","You leaned toward giving the party a look at what lies ahead."]
+    ],
+    "keeper": [
+      ["体恤心","细腻派","有照应","你这轮更愿意替小队守住结界的薄弱位置。"],
+      ["體恤心","細膩派","有照應","你這次更願意替小隊守住結界的薄弱位置。"],
+      ["Considerate","Tender Heart","Attentive","In this story, you preferred looking after the weak spots in the party’s ward."]
+    ],
+    "tinkerer": [
+      ["动手派","有巧思","原型感","轮到你选择时，你想让破损咒语换个方式重新起效。"],
+      ["動手派","有巧思","有創意","輪到你選擇時，你想讓破損咒語換個方式重新起效。"],
+      ["Hands On","Inventive","Maker Mind","You felt drawn to finding another use for a half-broken spell."]
+    ]
+  },
+  "floating-house": {
+    "anchor": [
+      ["从容派","安定感","慢节奏","这段故事里，你偏向替漂浮小屋留个花园作锚点。"],
+      ["從容派","安定感","慢步調","在這段故事裡，你比較偏向替漂浮小屋留個花園作錨點。"],
+      ["Unhurried","Grounded","Steady Rhythm","You leaned toward giving a floating house a garden to come back to."]
+    ],
+    "roam": [
+      ["有余地","有弹性","不设限","你这轮更愿意让漂浮小屋沿没画完的路线走。"],
+      ["有餘裕","有彈性","不設限","你這次更願意讓漂浮小屋沿沒畫完的路線走。"],
+      ["Open Ended","Flexible","Room to Wander","In this story, you preferred leaving the floating house a route still to choose."]
+    ],
+    "visit": [
+      ["亲和感","好相处","有暖意","轮到你选择时，你想让屋外的阶梯为来客放下来。"],
+      ["親和感","好相處","有暖意","輪到你選擇時，你想讓屋外的階梯為來客放下來。"],
+      ["Welcoming","Warm Presence","Approachable","You felt drawn to lowering the steps of a floating house for a guest."]
+    ]
+  },
+  "lost-letter-adventure": {
+    "lantern": [
+      ["亲和感","好相处","有暖意","你这轮更愿意给迟到的旅人留着接待处的灯。"],
+      ["親和感","好相處","有暖意","你這次更願意給遲到的旅人留著接待處的燈。"],
+      ["Welcoming","Warm Presence","Approachable","In this story, you preferred keeping a welcome light on for the late traveler."]
+    ],
+    "invitation": [
+      ["重情谊","有默契","有温度","轮到你选择时，你想选一扇两边都有把手的门。"],
+      ["重連結","有默契","有溫度","輪到你選擇時，你想選一扇兩邊都有把手的門。"],
+      ["Connected","Warm Bonds","Shared Rhythm","You felt drawn to finding a door that either person can open."]
+    ],
+    "shelf": [
+      ["从容派","安定感","慢节奏","故事轮到你时，你更在意让遗失的信先在书架上等人。"],
+      ["從容派","安定感","慢步調","故事輪到你作主時，你更在意讓遺失的信先在書架上等人。"],
+      ["Unhurried","Grounded","Steady Rhythm","This time, you leaned toward giving a lost letter a patient place to wait."]
+    ]
+  },
+  "magic-shopkeeper": {
+    "label": [
+      ["清楚派","有条理","对焦感","你在故事中更乐于让魔法先有一张诚实的标签。"],
+      ["清楚派","有條理","對焦感","你在故事中比較樂意讓魔法先有一張誠實的標籤。"],
+      ["Clear Mind","Direct","Signal First","You gravitated toward giving the magic an honest label before it travels."]
+    ],
+    "loan": [
+      ["亲和感","好相处","有暖意","这段故事里，你偏向把奇迹借给愿意照顾它的人。"],
+      ["親和感","好相處","有暖意","在這段故事裡，你比較偏向把奇蹟借給願意照顧它的人。"],
+      ["Welcoming","Warm Presence","Approachable","You leaned toward lending a wonder to someone who will look after it."]
+    ],
+    "wonder": [
+      ["有玩心","俏皮感","爱变奏","你这轮更愿意让路过的人亲眼看一次小奇迹。"],
+      ["有玩心","俏皮感","愛變化","你這次更願意讓路過的人親眼看一次小奇蹟。"],
+      ["Playful","Quick Spark","Offbeat","In this story, you preferred giving a passerby one small wonder to see for themselves."]
+    ]
+  },
+  "moon-market": {
+    "stars": [
+      ["好奇心","爱探索","爱新意","这段故事里，你偏向借一张星图去找还没见的路。"],
+      ["好奇心","愛探索","愛新意","在這段故事裡，你比較偏向借一張星圖去找還沒見的路。"],
+      ["Curious","Exploratory","Open Mind","You leaned toward borrowing a star map to find a route you don’t know."]
+    ],
+    "garden": [
+      ["有余地","有弹性","不设限","你这轮更愿意让还没长成的可能有个花园。"],
+      ["有餘裕","有彈性","不設限","你這次更願意讓還沒長成的可能有個花園。"],
+      ["Open Ended","Flexible","Room to Wander","In this story, you preferred giving unfinished possibilities a garden to grow in."]
+    ],
+    "ticket": [
+      ["从容派","安定感","慢节奏","轮到你选择时，你想把月下旅行的车票留给此刻。"],
+      ["從容派","安定感","慢步調","輪到你選擇時，你想把月下旅行的車票留給此刻。"],
+      ["Unhurried","Grounded","Steady Rhythm","You felt drawn to using a moon-market ticket to come back to the present."]
+    ]
+  },
+  "museum-of-tomorrow": {
+    "function": [
+      ["清楚派","有条理","对焦感","你这轮更愿意让未来物件的用途写在展签上。"],
+      ["清楚派","有條理","對焦感","你這次更願意讓未來物件的用途寫在展簽上。"],
+      ["Clear Mind","Direct","Signal First","In this story, you preferred giving an object from tomorrow a clear purpose."]
+    ],
+    "user": [
+      ["叙事感","爱想象","会铺陈","轮到你选择时，你想替未来访客想一件会遇到的事。"],
+      ["敘事感","愛想像","會鋪陳","輪到你選擇時，你想替未來訪客想一件會遇到的事。"],
+      ["Story Minded","Imaginative","Scene Sense","You felt drawn to imagining a scene where someone uses the object."]
+    ],
+    "limit": [
+      ["有分寸","重自主","有界线","故事轮到你时，你更在意把未来发明做不到的事也写明。"],
+      ["有分寸","重自主","有界線","故事輪到你作主時，你更在意把未來發明做不到的事也寫明。"],
+      ["Boundaried","Considerate","Choice Friendly","This time, you leaned toward leaving an honest note about what the invention can’t do."]
+    ]
+  },
+  "paper-creature-language": {
+    "signal": [
+      ["共创感","重参与","有合拍","你这轮更愿意和纸生物一起约定方便的信号。"],
+      ["共創感","重參與","合拍感","你這次更願意和紙生物一起約定方便的訊號。"],
+      ["Collaborative","Shared Credit","Room for Both","In this story, you preferred making a sign you and the paper creature both understand."]
+    ],
+    "mirror": [
+      ["好奇心","爱探索","爱新意","轮到你选择时，你想跟着纸生物试试它刚做的动作。"],
+      ["好奇心","愛探索","愛新意","輪到你選擇時，你想跟著紙生物試試它剛做的動作。"],
+      ["Curious","Exploratory","Open Mind","You felt drawn to trying the movement the paper creature just showed you."]
+    ],
+    "turn": [
+      ["好倾听","有回应","细腻感","故事轮到你时，你更在意为纸生物自己的回话停一下。"],
+      ["好傾聽","有回應","細膩感","故事輪到你作主時，你更在意為紙生物自己的回話停一下。"],
+      ["Good Listener","Attuned","Receptive","This time, you leaned toward waiting for the paper creature to answer in its own way."]
+    ]
+  },
+  "portal-choice": {
+    "harbor": [
+      ["暖意派","有亲和","舒服感","轮到你选择时，你想让灯笼港的光为你留一个归处。"],
+      ["暖意派","有親和","自在感","輪到你選擇時，你想讓燈籠港的光為你留一個歸處。"],
+      ["Warm Heart","Easy Company","Comfort Minded","You felt drawn to letting the lights of the harbor give you somewhere to land."]
+    ],
+    "gallery": [
+      ["动手派","有巧思","原型感","故事轮到你时，你更在意愿意让画廊的作品继续变化。"],
+      ["動手派","有巧思","有創意","故事輪到你作主時，你更在意願意讓畫廊的作品繼續變化。"],
+      ["Hands On","Inventive","Maker Mind","This time, you leaned toward leaving the gallery unfinished so a new piece can appear."]
+    ],
+    "postcard": [
+      ["念旧派","记忆感","重回响","你在故事中更乐于从另一边给家寄回一张明信片。"],
+      ["念舊派","記憶感","重回響","你在故事中比較樂意從另一邊給家寄回一張明信片。"],
+      ["Sentimental","Memory Keeper","Warm Relics","You gravitated toward sending one piece of the far side back home."]
+    ]
+  },
+  "quest-reward": {
+    "map": [
+      ["好奇心","爱探索","爱新意","故事轮到你时，你更在意把奖赏变成明天还有路的小地图。"],
+      ["好奇心","愛探索","愛新意","故事輪到你作主時，你更在意把獎賞變成明天還有路的小地圖。"],
+      ["Curious","Exploratory","Open Mind","This time, you leaned toward choosing a map that gives tomorrow another route."]
+    ],
+    "feast": [
+      ["暖意派","有亲和","舒服感","你在故事中更乐于让日落时的一桌饭庆祝同行。"],
+      ["暖意派","有親和","自在感","你在故事中比較樂意讓日落時的一桌飯慶祝同行。"],
+      ["Warm Heart","Easy Company","Comfort Minded","You gravitated toward making a sunset meal the reward you can share."]
+    ],
+    "token": [
+      ["念旧派","记忆感","重回响","这段故事里，你偏向把走过的冒险留在一只小铃上。"],
+      ["念舊派","記憶感","重回響","在這段故事裡，你比較偏向把走過的冒險留在一隻小鈴上。"],
+      ["Sentimental","Memory Keeper","Warm Relics","You leaned toward keeping a small bell to remember the road you traveled."]
+    ]
+  },
+  "secret-door": {
+    "guest": [
+      ["亲和感","好相处","有暖意","故事轮到你时，你更在意等到受邀才走进门后那个地方。"],
+      ["親和感","好相處","有暖意","故事輪到你作主時，你更在意等到受邀才走進門後那個地方。"],
+      ["Welcoming","Warm Presence","Approachable","This time, you leaned toward waiting for the invitation before stepping through the door."]
+    ],
+    "return": [
+      ["体恤心","细腻派","有照应","你在故事中更乐于把借到的钥匙放回该在的位置。"],
+      ["體恤心","細膩派","有照應","你在故事中比較樂意把借到的鑰匙放回該在的位置。"],
+      ["Considerate","Tender Heart","Attentive","You gravitated toward putting the borrowed key back where it belongs."]
+    ],
+    "bridge": [
+      ["有余地","有弹性","不设限","这段故事里，你偏向让门后保留没有期限的邀请。"],
+      ["有餘裕","有彈性","不設限","在這段故事裡，你比較偏向讓門後保留沒有期限的邀請。"],
+      ["Open Ended","Flexible","Room to Wander","You leaned toward leaving an invitation there without a time limit."]
+    ]
+  },
+  "spell-school-elective": {
+    "weather": [
+      ["眼尖派","轮廓感","审美心","轮到你选择时，你想把难捉摸的天气留在一只小杯子里。"],
+      ["眼尖派","輪廓感","審美心","輪到你選擇時，你想把難捉摸的天氣留在一隻小杯子裡。"],
+      ["Keen Eye","Visual Sense","Shape Lover","You felt drawn to keeping changing weather in a little teacup."]
+    ],
+    "architecture": [
+      ["动手派","有巧思","原型感","故事轮到你时，你更在意在口袋大小的工坊试一种搭法。"],
+      ["動手派","有巧思","有創意","故事輪到你作主時，你更在意在口袋大小的工坊試一種搭法。"],
+      ["Hands On","Inventive","Maker Mind","This time, you leaned toward trying out a design in a pocket-sized workshop."]
+    ],
+    "echo": [
+      ["叙事感","爱想象","会铺陈","你在故事中更乐于让书信在回声里换一种说法。"],
+      ["敘事感","愛想像","會鋪陳","你在故事中比較樂意讓書信在回聲裡換一種說法。"],
+      ["Story Minded","Imaginative","Scene Sense","You gravitated toward letting an echo give your letter another voice."]
+    ],
+    "floating": [
+      ["好奇心","爱探索","爱新意","这段故事里，你偏向让形状浮起来再看看会怎样。"],
+      ["好奇心","愛探索","愛新意","在這段故事裡，你比較偏向讓形狀浮起來再看看會怎樣。"],
+      ["Curious","Exploratory","Open Mind","You leaned toward letting a shape float before deciding what it can do."]
+    ]
+  },
+  "storybook-narrator": {
+    "lens": [
+      ["眼尖派","轮廓感","审美心","轮到你选择时，你想把叙事镜头挪近一个小动作。"],
+      ["眼尖派","輪廓感","審美心","輪到你選擇時，你想把敘事鏡頭挪近一個小動作。"],
+      ["Keen Eye","Visual Sense","Shape Lover","You felt drawn to moving the storyteller’s lens closer to one small gesture."]
+    ],
+    "chorus": [
+      ["共创感","重参与","有合拍","故事轮到你时，你更在意让村庄的人有不同的叙事声音。"],
+      ["共創感","重參與","合拍感","故事輪到你作主時，你更在意讓村莊的人有不同的敘事聲音。"],
+      ["Collaborative","Shared Credit","Room for Both","This time, you leaned toward letting the whole village tell the story in different voices."]
+    ],
+    "wink": [
+      ["有玩心","俏皮感","爱变奏","你在故事中更乐于给读故事的人留一个侧眼玩笑。"],
+      ["有玩心","俏皮感","愛變化","你在故事中比較樂意給讀故事的人留一個側眼玩笑。"],
+      ["Playful","Quick Spark","Offbeat","You gravitated toward leaving a sideways little joke for the reader."]
+    ]
+  },
+  "tiny-kingdom": {
+    "exchange": [
+      ["共创感","重参与","有合拍","轮到你选择时，你想让纽扣王国从相互交换开始。"],
+      ["共創感","重參與","合拍感","輪到你選擇時，你想讓紐扣王國從相互交換開始。"],
+      ["Collaborative","Shared Credit","Room for Both","You felt drawn to making the button kingdom work through little exchanges."]
+    ],
+    "experiment": [
+      ["动手派","有巧思","原型感","故事轮到你时，你更在意让王国的工作间一直能试新东西。"],
+      ["動手派","有巧思","有創意","故事輪到你作主時，你更在意讓王國的工作間一直能試新東西。"],
+      ["Hands On","Inventive","Maker Mind","This time, you leaned toward leaving the kingdom’s workshop open to experiments."]
+    ],
+    "promise": [
+      ["痕迹感","有条理","重来历","你在故事中更乐于把答应过的事记进灯下的档案。"],
+      ["痕跡感","有條理","重來歷","你在故事中比較樂意把答應過的事記進燈下的檔案。"],
+      ["Trace Keeper","Orderly","History Aware","You gravitated toward keeping promises where people can find them later."]
+    ]
+  }
+}
