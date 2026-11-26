@@ -380,7 +380,9 @@ describe("article CMS metadata consumption gate", () => {
     expect(articlePage).toContain("const alternates = seo?.authority?.alternateEligibility.alternates");
     expect(articlePage).toContain('canonicalRouteFamily: "article_detail"');
     expect(articlePage).toContain("buildArticleMetadataImage(ogImage, article.coverImageAlt)");
-    expect(articlePage).toContain("alt={article.coverImageAlt ?? article.title}");
+    expect(articlePage).toContain("<ArticleEditorialLayout");
+    const editorialLayout = fs.readFileSync(path.join(ROOT, "components/articles/ArticleEditorialLayout.tsx"), "utf8");
+    expect(editorialLayout).toContain("alt={article.coverImageAlt ?? article.title}");
     expect(articlePage).not.toContain("languages: articleAlternateLanguages(seo)");
   });
 
