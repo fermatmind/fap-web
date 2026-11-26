@@ -12,6 +12,7 @@ import { getCoxEstimate, getHistoryResult, historyBatchEditorial } from "@/lib/e
 import { historyAxes, historyScenes } from "@/lib/entertainment/global-history/questions";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
 import { buildCompletePublicSitemapEntries, buildPublicSitemapFamilyMap } from "@/lib/seo/publicSitemap";
+import { historyAtlasMetadata } from "@/lib/entertainment/global-history/atlas";
 import { listNativeTestLlmsEntries } from "@/lib/seo/nativeTestLlmsSource";
 import { shouldNoindex } from "@/lib/seo/indexingPolicy";
 import { CANONICAL_SITE_URL, SITE_URL } from "@/lib/site";
@@ -213,6 +214,12 @@ describe("World Edition history quiz", () => {
     const locales = ["zh", "zh-TW", "en"] as const;
     const portraitPaths = historyPeople.flatMap(({ id }) => locales.map(locale => globalHistoryResultPath(locale, id)));
     const atlasPaths = locales.flatMap(locale => GLOBAL_HISTORY_ATLAS_SLUGS.map(atlas => globalHistoryAtlasPath(locale, atlas)));
+    for (const locale of locales) for (const atlas of GLOBAL_HISTORY_ATLAS_SLUGS) {
+      expect(historyAtlasMetadata(locale, atlas, {}).openGraph).toMatchObject({
+        url: SITE_URL + globalHistoryAtlasPath(locale, atlas),
+        images: [SITE_URL + globalHistoryPortraitPath(atlas === "personality-atlas" ? "wu-zetian" : "isaac-newton")],
+      });
+    }
     const expected = [...portraitPaths, ...atlasPaths, ...locales.map(globalHistoryPath)].map(path => CANONICAL_SITE_URL + path).sort();
     for (const path of atlasPaths) {
       expect(isMissingFunRoute(path), path).toBe(false);

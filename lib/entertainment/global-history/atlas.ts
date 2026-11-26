@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import { isConfiguredStagingSiteUrl, SITE_URL } from "@/lib/site";
-import { GLOBAL_HISTORY_ATLAS_SLUGS, globalHistoryAtlasPath } from "./config";
+import { GLOBAL_HISTORY_ATLAS_SLUGS, globalHistoryAtlasPath, globalHistoryPortraitPath } from "./config";
 
 const atlasCopy = (zh: string, traditional: string, en: string): Record<DisplayLocale, string> => ({ zh, "zh-TW": traditional, en });
 
@@ -47,6 +47,14 @@ export function historyAtlasMetadata(locale: DisplayLocale, atlas: HistoryAtlas,
   return {
     title: copy.title[locale],
     description: copy.description[locale],
+    openGraph: {
+      title: copy.title[locale],
+      description: copy.description[locale],
+      url: canonical(locale),
+      type: "website",
+      locale: { zh: "zh_CN", "zh-TW": "zh_TW", en: "en_US" }[locale],
+      images: [SITE_URL + globalHistoryPortraitPath(atlas === "personality-atlas" ? "wu-zetian" : "isaac-newton")],
+    },
     robots: { index: !isConfiguredStagingSiteUrl() && !Object.values(query).some(Boolean), follow: true },
     alternates: {
       canonical: canonical(locale),
