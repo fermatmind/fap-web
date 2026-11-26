@@ -50,14 +50,15 @@ describe("shared article editorial layout", () => {
     expect(html).toContain("短篇文章");
     expect(html).not.toMatch(/article-toc|fm-article-hero|<dt>適用|fm-article-related/);
   });
-  it("allows at most two unique and publicly published peers in the active locale and category", () => {
+  it("allows at most five unique and publicly published peers in the active locale and category", () => {
     const items = [
       fixture, { ...fixture, slug: "draft", status: "draft" }, { ...fixture, slug: "hidden", isPublic: false },
       { ...fixture, slug: "other-locale", locale: "en" },
       { ...fixture, slug: "other-category", category: { ...fixture.category!, slug: "other" } },
       { ...fixture, slug: "next", scheduledAt: "2028-01-01" },
       { ...fixture, slug: "first" }, { ...fixture, slug: "first" }, { ...fixture, slug: "second" }, { ...fixture, slug: "third" },
+      { ...fixture, slug: "fourth" }, { ...fixture, slug: "fifth" }, { ...fixture, slug: "sixth" },
     ];
-    expect(editorialRelated(fixture, items, "zh-TW", Date.parse("2026-11-26")).map(({ slug }) => slug)).toEqual(["first", "second"]);
+    expect(editorialRelated(fixture, items, "zh-TW", Date.parse("2026-11-26")).map(({ slug }) => slug)).toEqual(["first", "second", "third", "fourth", "fifth"]);
   });
 });

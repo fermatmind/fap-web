@@ -52,7 +52,7 @@ export function editorialRelated(
       || (item.scheduledAt && Date.parse(item.scheduledAt) > now)) continue;
     seen.add(item.slug);
     result.push(item);
-    if (result.length === 2) break;
+    if (result.length === 5) break;
   }
   return result;
 }
