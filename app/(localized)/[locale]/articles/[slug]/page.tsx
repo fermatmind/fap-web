@@ -167,6 +167,7 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
   }
 
   if (article.contentMd.trim()) {
+    const editorialOptions = editorial ? { locale, slug: article.slug, part: "body" } as const : undefined;
     return (
       <AttributedCmsLinkHydrator
         className={editorial ? "fm-article-body-flow" : undefined}
@@ -182,7 +183,7 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
           headingIdPrefix: "article-body",
           scrollableTables: true,
           wrapPlainTextFences: true,
-          editorial: editorial ? { locale, slug: article.slug, part: "body" } : undefined,
+          editorial: editorialOptions,
           highlightEditorialConclusions: true,
           compactMatrixHeaders: locale === "en" && article.slug === "iq-test-tool-guide"
             ? ["Row", "First cell", "Second cell", "Third cell"]
