@@ -1,4 +1,5 @@
 .group { width: 100%; max-width: 38rem; margin: 0 auto; min-width: 0; }
+.group[data-honor-action-spacing] { padding-block-end: 18px; }
 .card {
   box-sizing: border-box;
   display: grid;
@@ -56,3 +57,12 @@
 .bridge h3 { font-weight: 750; font-size: 1.2rem; }
 .bridge p { margin-block: .55rem; line-height: 1.65; }
 .bridge a { display: inline-flex; align-items: center; min-height: 44px; text-underline-offset: .2em; text-decoration: underline; font-weight: 650; }
+
+.age { width: min(100%, 22rem); padding: 1.15rem 1.1rem .85rem; border: 1px solid var(--card-line); border-radius: 46% 46% .75rem .75rem / 24% 24% .75rem .75rem; background: radial-gradient(ellipse, var(--card-glow), var(--card-bg)); }
+.ageValue { margin: .25rem 0 .6rem; font: 700 clamp(4rem, 17vw, 6rem)/1 Georgia, "Songti SC", serif; font-variant-numeric: tabular-nums; }
+.ageValue span { margin-inline-start: .32em; color: var(--card-light); font-size: .29em; }
+.ruler { height: 1.2rem; position: relative; border-bottom: 1px solid var(--card-line); background: repeating-linear-gradient(to right, var(--card-line) 0 1px, transparent 1px 8.333%); }
+.ruler i { position: absolute; inset-block-start: -.17rem; inset-inline-start: var(--age-marker); width: 3px; height: 1.5rem; background: var(--card-light); border-radius: 4px; box-shadow: 0 0 9px var(--card-light); transform: translateX(-50%); }
+.rulerLabels { display: flex; justify-content: space-between; font-size: .68rem; color: var(--card-light); margin-top: .45rem; }
+.ageContrast { display: inline-block; margin: .75rem 0 0; padding: .2rem .65rem; color: var(--card-light); border: 1px solid var(--card-line); border-radius: 2rem; font-size: .72rem; }
+.watermark span { margin-inline-end: .8rem; }

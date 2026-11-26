@@ -9,18 +9,24 @@ import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/t
 import type { Locale } from "@/lib/i18n/locales";
 import { isMentalAgeConfigurationValid, mentalAgeComparison, mentalAgeExtraScreens, mentalAgeStyle, parseActualAge, scoreMentalAgeQuestionnaire, type MentalAgeResult } from "@/lib/questionnaires/mentalAge";
 import { QuestionnaireTakeOptions } from "./QuestionnaireTakeOptions";
-import { MentalAgeShareCard } from "./MentalAgeShareCard";
+import { Wave2aHonorCard } from "./Wave2aHonorCard";
+import { ResultCoreBridge } from "./ResultCoreBridge";
+import { ageHonorCopy } from "@/lib/questionnaires/wave2aResult";
 
 const subscribeReady=()=>()=>{};
 const button="min-h-11 rounded-lg border border-slate-300 px-5 py-3 font-semibold focus-visible:outline-2 focus-visible:outline-offset-4";
-export function MentalAgeClassicResult({quiz,result,answers,locale,actualAge=null,year=new Date().getUTCFullYear()}:{quiz:Questionnaire;result:Extract<MentalAgeResult,{status:"complete"}>;answers:QuestionnaireAnswers;locale:Locale;actualAge?:number|null;year?:number}) {
+export function MentalAgeClassicResult({quiz,result,answers,locale,actualAge=null,year=new Date().getUTCFullYear(),onRetake}:{quiz:Questionnaire;result:Extract<MentalAgeResult,{status:"complete"}>;answers:QuestionnaireAnswers;locale:Locale;actualAge?:number|null;year?:number;onRetake?:()=>void}) {
   const { displayText, traditional } = useQuestionnaireDisplayCopy();
  const zh=locale==="zh",{sum,playfulAge,points}=result.mentalAge,style=mentalAgeStyle(playfulAge)!,comparison=mentalAgeComparison(playfulAge,actualAge,year)!;
+ const resolvedLocale = traditional && zh ? "zh-TW" : locale;
+ const card = ageHonorCopy(resolvedLocale, playfulAge, comparison.gap);
  return <div className="space-y-6" data-mental-age-report>
-  <section className="rounded-2xl bg-emerald-950 p-6 text-emerald-50 sm:p-8">
-   <p className="font-medium">{zh?displayText("你的娱乐心理年龄"):"Your playful mental age"}</p><p className="my-4 text-7xl font-semibold tabular-nums sm:text-8xl" data-mental-age-value>{playfulAge}{zh?displayText("岁"):" years"}</p>
-   <h3 className="text-2xl font-semibold" data-mental-age-style>{displayText(style.title[locale])}</h3><p className="mt-3 leading-7">{displayText(style.reading[locale])}</p>
-   <div className="relative mb-3 mt-8 h-2 rounded-full bg-emerald-800" aria-hidden="true"><div className="h-2 rounded-full bg-emerald-200" style={{width:`${sum/60*100}%`}}/><span className="absolute top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white" style={{left:`${sum/60*100}%`}}/></div><div className="flex justify-between text-sm"><span>10 · {zh?displayText("尝新"):"Novelty"}</span><span>40</span><span>{zh?displayText("熟悉"):"Familiarity"} · 70</span></div>
+  <Wave2aHonorCard slug="mental-age" locale={resolvedLocale} onRetake={onRetake} readingId={String(style.min)}
+    matches={[{ id: String(style.min), name: card.name }]}
+    onShare={method => recordEntertainmentActivity(quiz.slug, quiz.version, locale, "share", "single", method)}
+    age={{ value: playfulAge, unit: card.unit, label: card.reading, contrast: card.contrast, share: card.share }} />
+  <section className="rounded-xl border p-5">
+   <h3 className="text-xl font-semibold" data-mental-age-style>{displayText(style.title[locale])}</h3><p className="mt-3 leading-7">{displayText(style.reading[locale])}</p>
    <p className="mt-5 text-sm leading-7">{zh?displayText("年龄和风格仅是本游戏的偏好标签，不衡量智力、成熟度或发展水平。"):"The age and style are labels for this game’s preferences, not measures of IQ, maturity or development."}</p>
   </section>
   <section className="space-y-4 rounded-xl border p-5"><h3 className="text-xl font-semibold">{zh?displayText("与实际年龄对照"):"Compare with actual age"}</h3>
@@ -29,15 +35,15 @@ export function MentalAgeClassicResult({quiz,result,answers,locale,actualAge=nul
    <p className="text-sm leading-7 text-slate-600">{zh?displayText("差值是算术对照，不表示心理发展超前或落后。"):"The gap is arithmetic, not evidence of being ahead or behind in development."}</p>
    <p className="font-semibold" data-mental-age-equivalent>{zh?displayText(`娱乐年龄对应年份：${comparison.equivalentYear}（${year}－${playfulAge}）`):`Playful equivalent year: ${comparison.equivalentYear} (${year} − ${playfulAge})`}</p><p className="text-sm leading-7 text-slate-600">{zh?displayText("相当于从本年倒数这个娱乐年龄，不是你的出生年份，也没有使用生日。"):"This counts the quiz age back from this year. It is not your birth year and uses no birthday."}</p>
   </section>
-  <MentalAgeShareCard age={playfulAge} sum={sum} locale={locale} actualAge={actualAge} year={year} styleTitle={displayText(style.title[locale])}/>
   <details className="rounded-xl border p-5"><summary className="cursor-pointer text-lg font-semibold">{zh?displayText("查看完整计算和逐题点数"):"See the full calculation and every answer"}</summary><p className="my-4 font-semibold" data-mental-age-sum>{sum} / 60</p><p>{zh?displayText(`10＋${sum}＝${playfulAge}；仅30道偏好题计分，资料屏和实际年龄不加减分。`):`10 + ${sum} = ${playfulAge}. Only the thirty preference statements contribute points. Actual age and extra screens add none.`}</p><ol className="mt-5 space-y-4">{quiz.questions.map((q,i)=><li key={q.id} data-mental-age-answer={q.id}><p>{i+1}. {q.prompt[locale]}</p><p className="font-semibold">{q.options.find(o=>o.id===answers[q.id])?.label[locale]} · {points[q.id]}{zh?displayText("点"):" points"}</p></li>)}</ol></details>
   <Link href={`/${traditional ? "zh-TW" : locale}/tests/explore/mental-age/results/understanding-your-playful-age`} target="_blank" rel="noopener" className="inline-flex min-h-11 items-center underline">{zh?displayText("阅读完整公开指南（不含个人数据，新标签页）"):"Read the complete public guide (no personal data, new tab)"}</Link>
+  <ResultCoreBridge locale={resolvedLocale} target="BIG5_OCEAN" />
  </div>;
 }
 export function MentalAgeClassicClient({quiz,locale}:{quiz:Questionnaire;locale:Locale}) {
   const { displayText, traditional } = useQuestionnaireDisplayCopy();
  const ready=useSyncExternalStore(subscribeReady,()=>true,()=>false);
- const [displayLocale,setDisplayLocale]=useState(locale),[answers,setAnswers]=useState<QuestionnaireAnswers>({}),[extras,setExtras]=useState<Record<string,string>>({}),[step,setStep]=useState(-1),[rawAge,setRawAge]=useState(""),[actualAge,setActualAge]=useState<number|null>(null),[message,setMessage]=useState(""),[manual,setManual]=useState(""),[editingAge,setEditingAge]=useState(false);
+ const [displayLocale,setDisplayLocale]=useState(locale),[answers,setAnswers]=useState<QuestionnaireAnswers>({}),[extras,setExtras]=useState<Record<string,string>>({}),[step,setStep]=useState(-1),[rawAge,setRawAge]=useState(""),[actualAge,setActualAge]=useState<number|null>(null),[message,setMessage]=useState(""),[editingAge,setEditingAge]=useState(false);
  const [year]=useState(()=>new Date().getUTCFullYear());const heading=useRef<HTMLHeadingElement>(null),started=useRef(false),finished=useRef(false);
  const zh=displayLocale==="zh",total=locale==="zh"?33:30,result=scoreMentalAgeQuestionnaire(quiz,answers),complete=step===total&&result.status==="complete";
  useEffect(()=>{try{sessionStorage.removeItem("fm_questionnaire_draft:mental-age");}catch{}const url=new URL(window.location.href);url.searchParams.delete("start");window.history.replaceState(window.history.state,"",url.pathname+url.search+url.hash);},[]);
@@ -45,8 +51,7 @@ export function MentalAgeClassicClient({quiz,locale}:{quiz:Questionnaire;locale:
  useEffect(()=>{if(step>=0&&!started.current){started.current=true;recordEntertainmentActivity(quiz.slug,quiz.version,locale,"start");trackEvent("start_test",questionnaireTrackingPayload(quiz,locale));}if(complete&&!finished.current){finished.current=true;recordEntertainmentActivity(quiz.slug,quiz.version,locale,"complete");recordEntertainmentActivity(quiz.slug,quiz.version,locale,"result_view");trackEvent("complete_test",questionnaireTrackingPayload(quiz,locale));trackEvent("view_result",questionnaireTrackingPayload(quiz,locale));}},[step,complete,quiz,locale]);
  function ageValid(){const age=parseActualAge(rawAge);if(age===undefined){setMessage(zh?displayText("请输入1至125的整数，或选择保密。"):"Enter a whole number from 1 to 125, or keep it private.");return false;}setActualAge(age);setMessage("");return true;}
  function advance(){if(step<30&&!quiz.questions[step]?.options.some(o=>o.id===answers[quiz.questions[step].id])){setMessage(zh?displayText("请选择一项后继续。"):"Choose an option before continuing.");return;}setMessage("");setStep(step+1);}
- function retake(){started.current=false;finished.current=false;setAnswers({});setExtras({});setRawAge("");setActualAge(null);setStep(-1);setMessage("");setManual("");setEditingAge(false);setDisplayLocale(locale);}
- async function copy(){const value=`${quiz.title[displayLocale]}\nhttps://fermatmind.com/${traditional && zh ? "zh-TW" : displayLocale}/tests/explore/mental-age`;try{await navigator.clipboard.writeText(value);recordEntertainmentActivity(quiz.slug,quiz.version,displayLocale,"share","single","copy");setMessage(zh?displayText("已复制公开标题和入口，不含年龄或答案。"):"Copied the public title and entry, without ages or answers.");}catch{setManual(value);setMessage(zh?displayText("无法自动复制，请手动复制下方链接。"):"Automatic copying is unavailable. Copy the text below.");}}
+ function retake(){started.current=false;finished.current=false;setAnswers({});setExtras({});setRawAge("");setActualAge(null);setStep(-1);setMessage("");setEditingAge(false);setDisplayLocale(locale);}
  if(!isMentalAgeConfigurationValid(quiz))return <section data-stage="answer"><h2>{zh?displayText("测试暂时不可用"):"Test unavailable"}</h2><Link href={`/${traditional ? "zh-TW" : locale}/tests/explore/mental-age`}>{zh?displayText("返回介绍"):"Back to introduction"}</Link></section>;
  const question=step>=0&&step<30?quiz.questions[step]:undefined,extra=step>=30&&step<total?mentalAgeExtraScreens[step-30]:undefined;
  return <section data-stage={complete?"result":"answer"} data-mental-age-classic lang={zh ? (traditional ? "zh-TW" : "zh-CN") : "en"} className="mx-auto w-full max-w-3xl space-y-5 px-1 py-5">
@@ -56,10 +61,14 @@ export function MentalAgeClassicClient({quiz,locale}:{quiz:Questionnaire;locale:
    <QuestionnaireTakeOptions questionId={question?.id??extra!.id} prompt={question?.prompt[displayLocale]??displayText(extra!.title[displayLocale])} options={question?question.options.map(o=>({id:o.id,label:o.label[displayLocale]})):extra!.options.map((o,i)=>({id:String(i),label:displayText(o[displayLocale])}))} value={question?answers[question.id]:extras[extra!.id]} onChange={id=>{setMessage("");if(question)setAnswers(a=>({...a,[question.id]:id}));else setExtras(a=>({...a,[extra!.id]:id}));}}/>
    <div className="flex flex-wrap gap-3"><button className={button} onClick={()=>{setStep(step-1);setMessage("");}}>{zh?displayText("上一题"):"Back"}</button><button data-questionnaire-next className={`${button} bg-emerald-900 text-white`} onClick={advance}>{step===total-1?(zh?displayText("揭晓结果"):"Reveal result"):(zh?displayText("下一题"):"Next")}</button>{extra&&<button className={button} onClick={()=>{setExtras(a=>{const next={...a};delete next[extra.id];return next;});advance();}}>{zh?displayText("跳过此屏"):"Skip this screen"}</button>}</div>
   </>}
-  {complete&&<><div className="flex flex-wrap items-center justify-between gap-3"><h2 ref={heading} tabIndex={-1} className="text-2xl font-semibold outline-none">{quiz.resultHeading![displayLocale]}</h2><button className={button} onClick={()=>{setDisplayLocale(zh ? "en" : "zh");setMessage("");setManual("");}}>{zh?displayText("Read result in English"):"用中文阅读结果"}</button></div><MentalAgeClassicResult key={`${displayLocale}-${actualAge}`} quiz={quiz} result={result} answers={answers} locale={displayLocale} actualAge={actualAge} year={year}/>
-   <div className="flex flex-wrap gap-3"><button className={button} onClick={()=>setEditingAge(!editingAge)}>{zh?displayText("修改实际年龄"):"Change actual age"}</button><button className={button} onClick={copy}>{zh?displayText("复制公开入口"):"Copy public entry"}</button><button className={button} onClick={()=>{setStep(total-1);setMessage("");}}>{zh?displayText("返回最后一屏"):"Back to last screen"}</button><button className={button} onClick={retake}>{zh?displayText("重新测试"):"Retake test"}</button></div>
+  {complete&&<><h2 ref={heading} tabIndex={-1} className="sr-only">{quiz.resultHeading![displayLocale]}</h2>
+   <MentalAgeClassicResult key={`${displayLocale}-${actualAge}`} quiz={quiz} result={result} answers={answers} locale={displayLocale} actualAge={actualAge} year={year} onRetake={retake}/>
+   <div className="flex flex-wrap gap-3">
+    <button className={button} onClick={()=>{setDisplayLocale(zh ? "en" : "zh");setMessage("");}}>{zh?displayText("Read result in English"):"用中文阅读结果"}</button>
+    <button className={button} onClick={()=>setEditingAge(!editingAge)}>{zh?displayText("修改实际年龄"):"Change actual age"}</button>
+    <button className={button} onClick={()=>{setStep(total-1);setMessage("");}}>{zh?displayText("返回最后一屏"):"Back to last screen"}</button>
+   </div>
    {editingAge&&<div className="space-y-3 rounded-lg border p-4"><label className="block">{zh?displayText("新的实际年龄（留空即保密）"):"New actual age (empty means private)"}<input inputMode="numeric" autoComplete="off" value={rawAge} onChange={e=>setRawAge(e.target.value)} className="mt-2 block min-h-11 rounded border p-3"/></label><button className={button} onClick={()=>{if(ageValid())setEditingAge(false);}}>{zh?displayText("更新对照"):"Update comparison"}</button></div>}
-   {manual&&<textarea readOnly aria-label={zh?displayText("手动复制公开入口"):"Public entry for manual copying"} value={manual} onFocus={e=>e.target.select()} className="min-h-24 w-full rounded border p-3"/>}
   </>}
   {message&&<p role="status" className="rounded-lg bg-amber-50 p-3 leading-7">{message}</p>}
   <Link href={`/${traditional ? "zh-TW" : locale}/tests/explore/mental-age`} onClick={retake} className="inline-flex min-h-11 items-center underline">{zh?displayText("退出并返回介绍"):"Exit to introduction"}</Link>

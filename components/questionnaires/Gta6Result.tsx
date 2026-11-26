@@ -5,8 +5,10 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import {
-  gta6Cover, gta6LandingPath, gta6Name, gta6Portrait, gta6Profiles, gta6ResultPath, gta6TakePath, type Gta6Profile,
+  gta6LandingPath, gta6Name, gta6Portrait, gta6Profiles, gta6ResultPath, gta6TakePath, type Gta6Profile,
 } from "@/lib/questionnaires/gta6CharacterQuiz";
+import { Wave2aHonorCard } from "./Wave2aHonorCard";
+import { ResultCoreBridge } from "./ResultCoreBridge";
 import { Gta6ResultReading } from "./Gta6ResultReading";
 import styles from "./Gta6Quiz.module.css";
 
@@ -24,7 +26,6 @@ export function Gta6Result({ locale, profile, secondary, invite, reasons, onRest
   const heading = useRef<HTMLHeadingElement>(null);
   const [fallback, setFallback] = useState("");
   const [message, setMessage] = useState("");
-  const [downloading, setDownloading] = useState(false);
   const resultPath = gta6ResultPath(locale, profile.id);
 
   useEffect(() => {
@@ -44,66 +45,15 @@ export function Gta6Result({ locale, profile, secondary, invite, reasons, onRest
     }
   }
 
-  async function downloadCard() {
-    setDownloading(true);
-    try {
-      const cover = new window.Image();
-      cover.src = gta6Cover;
-      const portrait = new window.Image();
-      portrait.src = gta6Portrait(profile.id);
-      await Promise.all([cover.decode(), portrait.decode()]);
-      const canvas = document.createElement("canvas");
-      canvas.width = canvas.height = 1080;
-      const ctx = canvas.getContext("2d");
-      if (!ctx) throw new Error("Canvas unavailable");
-      const crop = Math.min(cover.width, cover.height);
-      ctx.drawImage(cover, cover.width - crop, 0, crop, crop, 0, 0, 1080, 1080);
-      const region = 820;
-      const scale = Math.max(1080 / portrait.width, region / portrait.height);
-      const fullWidth = portrait.width * scale;
-      const fullHeight = portrait.height * scale;
-      ctx.save();
-      ctx.beginPath();
-      ctx.rect(0, 0, 1080, region);
-      ctx.clip();
-      ctx.drawImage(portrait, (1080 - fullWidth) / 2, Math.min(0, (region - fullHeight) * .3), fullWidth, fullHeight);
-      ctx.restore();
-      const shade = ctx.createLinearGradient(0, 0, 0, 1080);
-      shade.addColorStop(0, "#101823a3");
-      shade.addColorStop(0.44, "#10182321");
-      shade.addColorStop(1, "#101823");
-      ctx.fillStyle = shade;
-      ctx.fillRect(0, 0, 1080, 1080);
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "700 28px system-ui, sans-serif";
-      ctx.fillText("FERMATMIND", 72, 98);
-      ctx.font = "800 88px system-ui, sans-serif";
-      ctx.fillText(profile.name, 72, 824, 936);
-      const accent = heading.current ? getComputedStyle(heading.current).getPropertyValue("--accent").trim() : "";
-      ctx.fillStyle = accent || "#ff8b88";
-      ctx.font = "700 36px system-ui, sans-serif";
-      ctx.fillText(profile.title[locale], 72, 895, 936);
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "400 25px system-ui, sans-serif";
-      ctx.fillText(zh ? (locale === "zh-TW" ? "GTA 6 角色測驗 · 非官方娛樂測驗" : "GTA 6 角色测试 · 非官方娱乐测验") : "GTA 6 Character Quiz · Unofficial fan quiz", 72, 1000);
-      ctx.font = "400 19px system-ui, sans-serif";
-      ctx.fillText(locale === "zh-TW" ? "人物圖：Rockstar Games" : zh ? "人物图：Rockstar Games" : "Character artwork: Rockstar Games", 72, 1037);
-      const link = document.createElement("a");
-      link.href = canvas.toDataURL("image/png");
-      link.download = `fermatmind-gta6-${profile.id}.png`;
-      link.click();
-      setMessage("");
-    } catch {
-      setMessage(zh ? (locale === "zh-TW" ? "這次沒能存下結果卡，還是可以複製連結。" : "结果卡暂时无法生成，你仍可以复制链接。") : "Couldn't create the card. You can still copy the result link.");
-    } finally {
-      setDownloading(false);
-    }
-  }
-
   return (
     <main className={styles.screen} data-stage="result" data-character={profile.id}>
       <article className={styles.resultLayout}>
-        <header className={styles.resultHero}>
+        {onRestart ? <div className={styles.personalHonor}>
+          <h1 ref={heading} tabIndex={-1} className="sr-only">{profile.name}</h1>
+          <Wave2aHonorCard slug="gta-6-character-quiz" locale={locale} matches={[{ id: profile.id, name: profile.name }]}
+            portraitPath={gta6Portrait(profile.id)} runnerUp={secondary?.name} onRetake={onRestart}
+            credit={locale === "zh-TW" ? "人物圖｜Rockstar Games" : zh ? "人物图｜Rockstar Games" : "Artwork · Rockstar Games"} />
+        </div> : <header className={styles.resultHero}>
           <Image unoptimized priority className={styles.resultPortrait} src={gta6Portrait(profile.id)} alt={profile.name} width={740} height={500} />
           <div className={styles.resultHeroCopy}>
             <nav className={styles.resultTopline} aria-label={zh ? (locale === "zh-TW" ? "結果頁導覽" : "结果导航") : "Result navigation"}>
@@ -116,13 +66,12 @@ export function Gta6Result({ locale, profile, secondary, invite, reasons, onRest
             <h1 ref={heading} tabIndex={-1}>{profile.name}</h1>
             <p className={styles.resultTitle}>{profile.title[locale]}</p>
           </div>
-        </header>
+        </header>}
         <div className={styles.resultActions}>
           {onRestart ? (
             <>
               <button type="button" className={styles.primaryButton} onClick={copy}>{zh ? (locale === "zh-TW" ? "複製結果，揪朋友" : "复制结果，邀请好友") : "Copy result and invite a friend"} <span aria-hidden="true">↗</span></button>
-              <button type="button" className={styles.secondaryButton} disabled={downloading} onClick={downloadCard}>{zh ? (locale === "zh-TW" ? "儲存結果卡" : "保存结果卡") : "Save result card"}</button>
-              <button type="button" className={styles.secondaryButton} onClick={onRestart}>{zh ? (locale === "zh-TW" ? "再玩一次" : "重新测试") : "Retake"}</button>
+              <Link prefetch={false} href={resultPath} className={styles.secondaryButton}>{locale === "en" ? "Read your public character guide" : locale === "zh-TW" ? "閱讀你的公開角色指南" : "阅读你的公开角色指南"}</Link>
             </>
           ) : (
             <>
@@ -175,6 +124,7 @@ export function Gta6Result({ locale, profile, secondary, invite, reasons, onRest
             ))}
           </ul>
         </details>
+        {onRestart && <div className={styles.personalBridge}><ResultCoreBridge locale={locale} target="MBTI" /></div>}
         <footer className={styles.footer}>
           {zh ? (locale === "zh-TW" ? "費馬測試製作的非官方娛樂測驗。與 Rockstar Games 無隸屬關係。人物圖來源：Rockstar Games。" : "费马测试独立创作的非官方娱乐测验，与 Rockstar Games 无隶属关系。人物图来源：Rockstar Games。") : "An unofficial quiz by FermatMind, unaffiliated with Rockstar Games. Character artwork by Rockstar Games."}
         </footer>

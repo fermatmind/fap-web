@@ -1,6 +1,7 @@
 "use client";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 
+import { Wave2aHonorCard } from "./Wave2aHonorCard";
 import { LoveTypeNeighborComparison } from "./LoveTypeNeighborComparison";
 import Link from "next/link";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -9,10 +10,12 @@ import type { Locale } from "@/lib/i18n/locales";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
-export function QuestionnaireLoveType16Report({ quiz, result, locale, readingProfiles }: { quiz: Questionnaire; readingProfiles?: Questionnaire["profiles"]; result: Extract<LoveType16Result, { status: "complete" }>; locale: Locale }) {
+export function QuestionnaireLoveType16Report({ quiz, result, locale, readingProfiles, onRetake }: { quiz: Questionnaire; readingProfiles?: Questionnaire["profiles"]; result: Extract<LoveType16Result, { status: "complete" }>; locale: Locale; onRetake?: () => void }) {
   const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const zh = locale === "zh";
   return <div className="my-6 space-y-8" data-love-type16-result>
+    <Wave2aHonorCard slug="love-type-16" locale={traditional ? "zh-TW" : locale} onRetake={onRetake}
+      matches={result.compatibleProfileIds.map(id => ({ id, name: id.toUpperCase() }))} />
     <section aria-labelledby="love-type16-compatible-title" className="overflow-hidden rounded-xl border border-rose-200 bg-rose-50">
       <div className="p-4 sm:p-6">
         <p className="text-sm font-semibold text-rose-900">{zh ? displayText("四组亲密互动选择") : "Four relationship preference comparisons"}</p>

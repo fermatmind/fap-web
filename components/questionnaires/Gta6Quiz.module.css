@@ -268,3 +268,8 @@
 .extendedReading summary { cursor: pointer; }
 .extendedReading summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 @media (max-width: 580px) { .readingGrid { grid-template-columns: minmax(0, 1fr); } }
+
+.personalHonor { padding: clamp(.8rem, 3vw, 2rem); }
+.personalBridge { padding: 0 clamp(1.25rem, 4vw, 2.5rem) 1.5rem; }
+
+.personalHonor [data-archetype-honor-actions] button:last-child { color: #ebddce; background: #19212a; }

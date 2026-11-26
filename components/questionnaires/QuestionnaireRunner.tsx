@@ -1,4 +1,6 @@
 "use client";
+import { Wave2aHonorCard } from "./Wave2aHonorCard";
+import { directionalResultLabels, wave2aVariant, type Wave2aSlug } from "@/lib/questionnaires/wave2aResult";
 import { archetypeCardVariant } from "@/lib/questionnaires/archetypeResultCard";
 import { getArchiveExperience } from "@/lib/entertainment/archiveExperience";
 import { hasTraditionalOfficeTool, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalStressCoping, hasTraditionalTraitsSocial, hasTraditionalValuesOrientations } from "@/lib/i18n/traditionalLikertPaths";
@@ -119,7 +121,10 @@ export function QuestionnaireRunner({ onComplete, scoreQuestionnaire, quiz, loca
   const mentalAge = result.status === "complete" && "mentalAge" in result ? result : undefined;
   const hasCompleteResult = result.status === "complete";
   const profile = directional ? quiz.profiles.find(p => p.id === directional.profileId) : undefined;
-  const honor = !!archetypes && !!archetypeCardVariant(quiz.slug, displayLocale);
+  const waveLocale = traditional ? "zh-TW" : locale;
+  const upgraded = wave2aVariant(quiz.slug, waveLocale) && (directional || archetypes || loveType16 || mentalAge);
+  const honor = Boolean(upgraded || (archetypes && archetypeCardVariant(quiz.slug, displayLocale)));
+  const directionalHonor = directional && profile && upgraded ? directionalResultLabels(quiz, directional, waveLocale, displayText) : undefined;
   const reportProps = { quiz, result, answers, locale, onRetake: () => start(), workRoleReadingProfiles, loveTypeReadingProfiles, mentalAgeReadingProfile, fds32ReadingProfiles, breakupReadingProfiles, parentingReadingProfiles, workReasoningReadingProfiles };
   const question = quiz.questions[position];
   const optionLabel = (option: NonNullable<typeof question>["options"][number]) =>
@@ -273,14 +278,13 @@ export function QuestionnaireRunner({ onComplete, scoreQuestionnaire, quiz, loca
         <SevenSinsScoreDetails result={miniVirtues} locale={locale} />
       </> :
       <h2 ref={heading} tabIndex={-1} className={honor ? "sr-only" : "text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere] scroll-mt-24"}>{miniVirtues ? (zh ? "七宗罪与七美德测试结果" : "Seven Sins and Virtues: Your Results") : profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? displayText(`${quiz.title.zh}：完整结果`) : `${quiz.title.en}: your complete result`)}</h2>}
+      {directional && directionalHonor && <Wave2aHonorCard slug={quiz.slug as Wave2aSlug} locale={waveLocale}
+        readingId={directional.profileId} {...directionalHonor} onRetake={() => start()}
+        onShare={method => recordEntertainmentActivity(quiz.slug, quiz.version, locale, "share", "single", method)} />}
       {directional && profile && <>
       <div className={resultStyles.readingFlow} data-result-reading-flow={quiz.slug}>
         {!adultAgePreferences && <ResultOverview eyebrow={directionEyebrow} title={profile.headline[locale]} description={profile.summary[locale]} />}
         {showDirectionCounts && directionCounts}
-        {adultAgePreferences && <div className="space-y-1 border-t border-slate-200 px-5 py-3 sm:px-6">
-          <a className="inline-flex min-h-11 items-center font-semibold underline underline-offset-4" href={`/og/fun/adult-age-preferences?locale=${displayLocale}&portrait=${profile.id}&v=${quiz.version}-art`} target="_blank" rel="noreferrer">{zh ? displayText("打开结果分享图") : "Open result share card"}</a>
-          <p className="text-sm leading-6 text-slate-600">{zh ? displayText("分享图和链接只展示公开结果类别，不含你的答案、次数或个人资料。") : "The card and link show only the public result category, with no answers, counts, or personal details."}</p>
-        </div>}
         <div className={resultStyles.profileBody}>
           <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} traditional={traditionalDirectional} showHeadline={false} showSummary={false} mode="result" previewSectionIds={directionReading?.previews} />
         </div>

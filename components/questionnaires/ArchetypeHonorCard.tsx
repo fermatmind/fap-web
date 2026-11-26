@@ -2,14 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import type { DisplayLocale } from "@/lib/i18n/locales";
+import type { ShareMethod } from "@/lib/entertainment/activity";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import {
   archetypeCardShortTitle, archetypeCardThemes, archetypeCardUrl, archetypeCardVariant,
   archetypePosterSize, archetypeResultName, archetypeRunnerUp, type CompleteArchetype,
 } from "@/lib/questionnaires/archetypeResultCard";
-import { getArchetypeHonorCopy } from "@/lib/questionnaires/archetypeHonorCardCopy";
+import { getArchetypeHonorCopy, type ArchetypeHonorCopy } from "@/lib/questionnaires/archetypeHonorCardCopy";
 import { archetypeResultCopy, archetypeSharePayload } from "@/lib/questionnaires/archetypeResultShare";
 import { questionnairePath } from "@/lib/questionnaires/paths";
 import { hasQuizResultArtwork, QuizResultArtwork } from "./QuizResultArtwork";
@@ -35,6 +36,38 @@ export function ArchetypeHonorCard({ quiz, result, profiles, locale, copy: trans
   copy: (value: string) => string;
   onRetake?: () => void;
 }) {
+  const config = archetypeCardVariant(quiz.slug, locale);
+  const first = profiles[0];
+  if (!config || !first) return null;
+  const single = profiles.length === 1;
+  const runner = archetypeRunnerUp(quiz, result);
+  return <ResultHonorCard slug={quiz.slug} locale={locale} theme={config.theme}
+    shortTitle={archetypeCardShortTitle(quiz, locale, translate)}
+    matches={profiles.map(profile => ({ id: profile.id, name: archetypeResultName(profile, locale, translate) }))}
+    runnerUp={runner ? archetypeResultName(runner, locale, translate) : undefined}
+    reading={single ? getArchetypeHonorCopy(quiz.slug, first.id, locale) : undefined}
+    portraitPath={single ? existingResultPortrait(quiz.slug, first.id) : undefined}
+    emblem={single && quiz.slug !== "aura-color" && hasQuizResultArtwork(quiz.slug) ? first.id : undefined}
+    onRetake={onRetake} />;
+}
+
+export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runnerUp, reading, portraitPath, emblem, artworkMark, age, credit, onRetake, onShare, spaceAfterActions }: {
+  slug: string;
+  locale: DisplayLocale;
+  theme: keyof typeof archetypeCardThemes;
+  shortTitle: string;
+  matches: { id: string; name: string }[];
+  runnerUp?: string;
+  reading?: ArchetypeHonorCopy;
+  portraitPath?: string;
+  emblem?: string;
+  artworkMark?: ReactNode;
+  age?: { value: number; unit: string; label: string; contrast?: string; share?: string };
+  credit?: string;
+  onShare?: (method: ShareMethod) => void;
+  spaceAfterActions?: boolean;
+  onRetake?: () => void;
+}) {
   const [preview, setPreview] = useState("");
   const [busy, setBusy] = useState(false);
   const [status, setStatus] = useState("");
@@ -57,36 +90,27 @@ export function ArchetypeHonorCard({ quiz, result, profiles, locale, copy: trans
     if (preview && dialog.current && !dialog.current.open) dialog.current.showModal();
   }, [preview]);
 
-  const config = archetypeCardVariant(quiz.slug, locale);
-  const first = profiles[0];
-  if (!config || !first) return null;
-
   const copy = archetypeResultCopy[locale];
-  const color = archetypeCardThemes[config.theme];
-  const shortTitle = archetypeCardShortTitle(quiz, locale, translate);
-  const names = profiles.map(profile => archetypeResultName(profile, locale, translate));
+  const color = archetypeCardThemes[theme];
+  const names = matches.map(match => match.name);
   const tied = names.length > 1;
-  const runner = archetypeRunnerUp(quiz, result);
-  const runnerUp = runner ? archetypeResultName(runner, locale, translate) : undefined;
-  const reading = tied ? undefined : getArchetypeHonorCopy(quiz.slug, first.id, locale);
-  // A tie has no singled-out lead; its edition mark is neutral.
-  const portrait = !tied && !unavailableArtwork ? existingResultPortrait(quiz.slug, first.id) : undefined;
-  const emblem = !tied && quiz.slug !== "aura-color" && hasQuizResultArtwork(quiz.slug);
-  const monogram = tied ? (locale === "en" ? "∥" : copy.tied.slice(-1)) : Array.from(names[0].match(/[\p{L}\p{N}]/gu)?.[0] ?? "◇")[0].toUpperCase();
-  const url = archetypeCardUrl(locale, quiz.slug);
-  const payload = archetypeSharePayload(locale, shortTitle, names, runnerUp, reading?.soulVerdict, url);
+  const portrait = !tied && !unavailableArtwork ? portraitPath : undefined;
+  const monogram = tied ? (locale === "en" ? "∥" : copy.tied.slice(-1)) : (names[0].match(/[\p{L}\p{N}]/u)?.[0] ?? "◇").toUpperCase();
+  const url = archetypeCardUrl(locale, slug);
+  const payload = archetypeSharePayload(locale, shortTitle, names, runnerUp, reading?.soulVerdict, url, age?.share);
   const caption = `${payload.text}\n${url}`;
-  const filename = `fermatmind-${quiz.slug}-${locale}.png`;
+  const filename = `fermatmind-${slug}-${locale}.png`;
 
   async function prepare(open: boolean) {
-    if (busy || !config) return;
+    if (busy) return;
     setBusy(true);
     setStatus("");
     try {
       if (!blob.current) {
         const { renderArchetypePoster } = await import("@/lib/questionnaires/archetypePoster");
         const image = await renderArchetypePoster({
-          locale, theme: config.theme, shortTitle, names, runnerUp, reading,
+          locale, theme, shortTitle, names, runnerUp, reading, credit,
+          age: age && { value: age.value, unit: age.unit, label: age.label },
           artwork: portrait ?? existingGraphic(art.current, color.light), monogram, url,
         });
         if (!active.current) return;
@@ -112,6 +136,7 @@ export function ArchetypeHonorCard({ quiz, result, profiles, locale, copy: trans
     if (window.matchMedia("(pointer: coarse)").matches && typeof navigator.share === "function") {
       try {
         await navigator.share(payload);
+        onShare?.("system");
         setStatus(copy.sent);
         return;
       } catch (error) {
@@ -120,43 +145,51 @@ export function ArchetypeHonorCard({ quiz, result, profiles, locale, copy: trans
     }
     try {
       await navigator.clipboard.writeText(caption);
+      onShare?.("copy");
       setStatus(copy.copied);
     } catch {
       setManual(caption);
     }
   }
 
-  return <div className={styles.group} data-archetype-honor-group={quiz.slug}>
-    <article className={styles.card} aria-label={names.join(" · ")} data-archetype-honor-card={config.theme} data-archetype-state={tied ? "tied" : runnerUp ? "runner-up" : "single"}
+  return <div className={styles.group} data-archetype-honor-group={slug} data-honor-action-spacing={spaceAfterActions ? "" : undefined}>
+    <article className={styles.card} aria-label={names.join(" · ")} data-archetype-honor-card={theme} data-archetype-state={tied ? "tied" : runnerUp ? "runner-up" : "single"}
       style={{ "--card-bg": color.background, "--card-glow": color.glow, "--card-line": color.line, "--card-light": color.light, "--card-ink": color.ink } as CSSProperties}>
       <header className={styles.header}>
         <p className={styles.brand}>{copy.brand} · {shortTitle}</p>
-        <span className={styles.badge}>{tied ? copy.tied : copy.closest}</span>
+        <span className={styles.badge}>{tied ? copy.tied : age?.label ?? copy.closest}</span>
       </header>
-      <div className={styles.art} ref={art} data-archetype-art={portrait ? "portrait" : emblem ? "emblem" : "typographic"}>
+      {age ? <div className={styles.age} data-honor-age-scale>
+        <h3 className={styles.ageValue} data-mental-age-value>{age.value}{age.unit === "years" ? " " : ""}<span>{age.unit}</span></h3>
+        <div className={styles.ruler} aria-hidden="true" style={{ "--age-marker": `${(age.value - 10) / 60 * 100}%` } as CSSProperties}><i /></div>
+        <div className={styles.rulerLabels} aria-hidden="true"><span>10</span><span>25</span><span>40</span><span>55</span><span>70</span></div>
+        {age.contrast && <p className={styles.ageContrast}>{age.contrast}</p>}
+      </div> : <>
+      <div className={styles.art} ref={art} data-archetype-art={portrait ? "portrait" : (emblem || artworkMark) ? "emblem" : "typographic"}>
         {portrait
           ? <Image unoptimized src={portrait} width={640} height={640} alt="" onError={() => setUnavailableArtwork(true)} />
-          : <div className={styles.mark} aria-hidden="true">{emblem ? <QuizResultArtwork slug={quiz.slug} id={first.id} /> : <span>{monogram}</span>}</div>}
+          : <div className={styles.mark} aria-hidden="true">{artworkMark ? <div data-quiz-artwork>{artworkMark}</div> : emblem ? <QuizResultArtwork slug={slug} id={emblem} /> : <span>{monogram}</span>}</div>}
       </div>
       <div className={styles.names}>
         <h3 className={styles.title} data-tie={tied ? "" : undefined}>
-          {names.slice(0, 2).map((name, i) => <span key={profiles[i].id}>{i ? "· " : ""}{name}</span>)}
+          {names.slice(0, 2).map((name, i) => <span key={matches[i].id}>{i ? "· " : ""}{name}</span>)}
           {names.length > 2 && <span className={styles.extra}>+{names.length - 2}</span>}
         </h3>
         {runnerUp && <p className={styles.runner}>{copy.runner} · {runnerUp}</p>}
         {tied && <p className={styles.runner}>{copy.tieLine}</p>}
       </div>
+      </>}
       {reading && <>
         <ul className={styles.tags} aria-label={locale === "en" ? "Personality tags" : locale === "zh-TW" ? "性格標籤" : "性格标签"}>{reading.personalityTags.map(tag => <li key={tag}>{tag}</li>)}</ul>
         <p className={styles.quote} lang={locale} data-archetype-verdict>{reading.soulVerdict}</p>
       </>}
-      <p className={styles.watermark}>FermatMind.com</p>
+      <div className={styles.watermark}>{credit && <span>{credit}</span>} FermatMind.com</div>
     </article>
     <div className={styles.actions} data-archetype-honor-actions>
       <button type="button" disabled={busy} onClick={() => void prepare(false)}>{copy.save}</button>
       <button type="button" ref={opener} disabled={busy} onClick={() => void prepare(true)}>{copy.open}</button>
       <button type="button" onClick={() => void share()}>{copy.share}</button>
-      {onRetake ? <button type="button" onClick={onRetake}>{copy.retake}</button> : <Link href={`${questionnairePath(locale, quiz.slug)}/take`}>{copy.retake}</Link>}
+      {onRetake ? <button type="button" onClick={onRetake}>{copy.retake}</button> : <Link href={`${questionnairePath(locale, slug)}/take`}>{copy.retake}</Link>}
     </div>
     {status && <p className={styles.status} role="status">{status}</p>}
     {manual && <label className={styles.status}>{copy.manual}<textarea className="block w-full border" readOnly value={manual} onFocus={event => event.currentTarget.select()} /></label>}

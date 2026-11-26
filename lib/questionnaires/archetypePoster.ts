@@ -11,6 +11,8 @@ type Poster = {
   runnerUp?: string;
   reading?: ArchetypeHonorCopy;
   artwork?: string;
+  age?: { value: number; unit: string; label: string };
+  credit?: string;
   monogram: string;
   url: string;
 };
@@ -80,11 +82,11 @@ export async function renderArchetypePoster(data: Poster) {
   };
 
   text(`${copy.brand} · ${data.shortTitle}`, 68, 98, 34, { max: 630 });
-  text(tied ? copy.tied : copy.closest, 1012, 98, 27, { align: "right", color: color.light, max: 292 });
+  text(tied ? copy.tied : data.age?.label ?? copy.closest, 1012, 98, 27, { align: "right", color: color.light, max: 292 });
   rule(68, 132, 944, .65);
 
   const many = data.names.length > 6;
-  const panel = { width: many ? 572 : 672, y: 169, height: many ? 355 : tied ? 515 : 585 };
+  const panel = { width: many ? 572 : 672, y: 169, height: many || (tied && data.reading) ? 355 : tied ? 515 : 585 };
   const left = (width - panel.width) / 2;
   const middleY = panel.y + panel.height / 2;
   const arch = { x: panel.width * .48, y: panel.height * .25 };
@@ -99,7 +101,7 @@ export async function renderArchetypePoster(data: Poster) {
   ctx.fillRect(left, panel.y, panel.width, panel.height);
 
   const emblem = data.artwork?.startsWith("data:image/svg+xml");
-  if (!image || emblem) {
+  if (!data.age && (!image || emblem)) {
     const radius = panel.height * .31;
     ctx.save();
     ctx.translate(middle, middleY);
@@ -110,7 +112,26 @@ export async function renderArchetypePoster(data: Poster) {
     ctx.strokeRect(-radius + 17, -radius + 17, radius * 2 - 34, radius * 2 - 34);
     ctx.restore();
   }
-  if (image) {
+  if (data.age) {
+    center(String(data.age.value), 486, 230, color.ink, true);
+    center(data.age.unit, 554, 48, color.light);
+    const start = 296, span = 488, y = 647;
+    rule(start, y, span, .8);
+    for (let tick = 0; tick <= 12; tick++) {
+      const x = start + tick / 12 * span;
+      const major = tick % 3 === 0;
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x, y - (major ? 25 : 13));
+      ctx.stroke();
+      if (major) text(String(10 + tick * 5), x, y + 38, 24, { color: color.light, align: "center" });
+    }
+    const marker = start + (data.age.value - 10) / 60 * span;
+    ctx.fillStyle = color.light;
+    ctx.beginPath();
+    ctx.roundRect(marker - 4, y - 49, 8, 55, 4);
+    ctx.fill();
+  } else if (image) {
     const scale = emblem
       ? Math.min(panel.width * .43 / image.naturalWidth, panel.height * .56 / image.naturalHeight)
       : Math.max(panel.width / image.naturalWidth, panel.height / image.naturalHeight);
@@ -128,53 +149,56 @@ export async function renderArchetypePoster(data: Poster) {
   ctx.lineWidth = 2;
 
   const artBottom = panel.y + panel.height;
+  let tagTop = artBottom + (data.age ? 104 : data.runnerUp ? 213 : 177);
   if (tied) {
     center(copy.tieLine, artBottom + 62, 32, color.light);
     const columns = data.names.length > 5 ? 2 : 1;
     const size = data.names.length <= 3 ? 64 : 38;
-    const step = many ? 47 : 70;
+    const step = many ? 47 : data.reading ? 53 : 70;
     data.names.forEach((name, i) => {
       const x = columns === 1 ? middle : (i % 2 === 0 ? 299 : 781);
       text(name, x, artBottom + 134 + Math.floor(i / columns) * step, size, { align: "center", display: true, max: columns === 1 ? 900 : 445 });
     });
+    tagTop = artBottom + 194 + (Math.ceil(data.names.length / columns) - 1) * step;
   } else {
-    center(data.names[0], artBottom + 96, 82, color.ink, true);
+    if (!data.age) center(data.names[0], artBottom + 96, 82, color.ink, true);
     if (data.runnerUp) center(`${copy.runner} · ${data.runnerUp}`, artBottom + 154, 31, color.light);
-    if (data.reading) {
-      const tagTop = artBottom + (data.runnerUp ? 213 : 177);
-      rule(268, tagTop - 26, 544, .39);
-      ctx.font = type(28);
-      const widths = data.reading.personalityTags.map(tag => ctx.measureText(tag).width + 52);
-      const gap = 16;
-      const scale = Math.min(1, (918 - gap * (widths.length - 1)) / widths.reduce((sum, w) => sum + w, 0));
-      let x = (width - widths.reduce((sum, w) => sum + w * scale, 0) - gap * (widths.length - 1)) / 2;
-      data.reading.personalityTags.forEach((tag, i) => {
-        const pill = widths[i] * scale;
-        ctx.beginPath();
-        ctx.roundRect(x, tagTop, pill, 53, 26);
-        ctx.stroke();
-        text(tag, x + pill / 2, tagTop + 36, 28, { color: color.light, align: "center", max: pill - 24 });
-        x += pill + gap;
-      });
-      const sentence = data.reading.soulVerdict;
-      ctx.font = type(36, true);
-      const units = data.locale === "en" ? sentence.split(" ") : Array.from(sentence);
-      const join = (part: string[]) => part.join(data.locale === "en" ? " " : "");
-      if (ctx.measureText(sentence).width <= 890) {
-        center(sentence, tagTop + 114, 36, color.ink, true, 890);
-      } else {
-        // Balance both lines at an actual word or character boundary, without dropping text.
-        const splits = units.slice(1).map((_, i) => i + 1)
-          .filter(i => !/^[，。！？、；：]/u.test(units[i]));
-        const split = splits.reduce((best, i) => {
-          const delta = (at: number) => Math.abs(ctx.measureText(join(units.slice(0, at))).width - ctx.measureText(join(units.slice(at))).width);
-          return delta(i) < delta(best) ? i : best;
-        }, splits[0]);
-        center(join(units.slice(0, split)), tagTop + 112, 36, color.ink, true, 890);
-        center(join(units.slice(split)), tagTop + 160, 36, color.ink, true, 890);
-      }
+  }
+  if (data.reading) {
+    rule(268, tagTop - 26, 544, .39);
+    ctx.font = type(28);
+    const widths = data.reading.personalityTags.map(tag => ctx.measureText(tag).width + 52);
+    const gap = 16;
+    const scale = Math.min(1, (918 - gap * (widths.length - 1)) / widths.reduce((sum, w) => sum + w, 0));
+    let x = (width - widths.reduce((sum, w) => sum + w * scale, 0) - gap * (widths.length - 1)) / 2;
+    data.reading.personalityTags.forEach((tag, i) => {
+      const pill = widths[i] * scale;
+      ctx.beginPath();
+      ctx.roundRect(x, tagTop, pill, 53, 26);
+      ctx.stroke();
+      text(tag, x + pill / 2, tagTop + 36, 28, { color: color.light, align: "center", max: pill - 24 });
+      x += pill + gap;
+    });
+    const sentence = data.reading.soulVerdict;
+    ctx.font = type(36, true);
+    const units = data.locale === "en" ? sentence.split(" ") : Array.from(sentence);
+    const join = (part: string[]) => part.join(data.locale === "en" ? " " : "");
+    if (ctx.measureText(sentence).width <= 890) {
+      center(sentence, tagTop + 114, 36, color.ink, true, 890);
+    } else {
+      // Balance both lines at an actual word or character boundary, without dropping text.
+      const splits = units.slice(1).map((_, i) => i + 1)
+        .filter(i => !/^[，。！？、；：]/u.test(units[i]));
+      const split = splits.reduce((best, i) => {
+        const delta = (at: number) => Math.abs(ctx.measureText(join(units.slice(0, at))).width - ctx.measureText(join(units.slice(at))).width);
+        return delta(i) < delta(best) ? i : best;
+      }, splits[0]);
+      center(join(units.slice(0, split)), tagTop + 112, 36, color.ink, true, 890);
+      center(join(units.slice(split)), tagTop + 160, 36, color.ink, true, 890);
     }
   }
+
+  if (data.credit) center(data.credit, 1190, 25, color.light);
 
   ctx.fillStyle = "#ebbd73";
   ctx.fillRect(0, footer, width, height - footer);

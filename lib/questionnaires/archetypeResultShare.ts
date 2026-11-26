@@ -48,7 +48,7 @@ export const archetypeResultCopy = {
   },
 } as const;
 
-export function archetypeSharePayload(locale: DisplayLocale, quiz: string, names: string[], runnerUp: string | undefined, soulVerdict: string | undefined, url: string) {
+export function archetypeSharePayload(locale: DisplayLocale, quiz: string, names: string[], runnerUp: string | undefined, soulVerdict: string | undefined, url: string, extra?: string) {
   const namesText = names.join(" · ");
   const tied = names.length > 1;
   const captions = {
@@ -59,5 +59,6 @@ export function archetypeSharePayload(locale: DisplayLocale, quiz: string, names
     en: tied ? `Tied between ${namesText} on ${quiz}. I can see a bit of myself in each. Who did you get?`
       : `Got ${namesText} on ${quiz}${runnerUp ? `, with a little ${runnerUp} in the mix` : ""}. Who did you get?`,
   };
-  return { title: `${quiz} · ${namesText}`, text: soulVerdict && !tied ? `${captions[locale]}\n${locale === "en" ? `“${soulVerdict}”` : `「${soulVerdict}」`}` : captions[locale], url };
+  const quote = soulVerdict && !tied ? (locale === "en" ? `“${soulVerdict}”` : `「${soulVerdict}」`) : undefined;
+  return { title: `${quiz} · ${namesText}`, text: [captions[locale], extra, quote].filter(Boolean).join("\n"), url };
 }

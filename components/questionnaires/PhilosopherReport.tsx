@@ -6,14 +6,20 @@ import { philosopherPresentations } from "@/lib/questionnaires/philosopherPresen
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { PhilosopherPortrait } from "./PhilosopherPortrait";
-import { PhilosopherShareCard } from "./PhilosopherShareCard";
+import { Wave2aHonorCard } from "./Wave2aHonorCard";
+import { archetypeRunnerUp } from "@/lib/questionnaires/archetypeResultCard";
 
 type Complete = Extract<ArchetypeResult, { status: "complete" }>;
-export function PhilosopherReport({ quiz, result, locale, displayLocale = locale, copy = value => value }: { quiz: Questionnaire; result: Complete; locale: Locale; displayLocale?: DisplayLocale; copy?: (text: string) => string }) {
+export function PhilosopherReport({ quiz, result, locale, displayLocale = locale, copy = value => value, onRetake }: { quiz: Questionnaire; result: Complete; locale: Locale; displayLocale?: DisplayLocale; copy?: (text: string) => string; onRetake?: () => void }) {
   const zh = locale === "zh";
   const matched = quiz.profiles.filter(profile => result.profileIds.includes(profile.id));
   const tied = matched.length > 1;
+  const runner = archetypeRunnerUp(quiz, result);
   return <div className="space-y-8" data-philosopher-report>
+    <Wave2aHonorCard slug="philosopher-personality-test" locale={displayLocale} onRetake={onRetake}
+      matches={matched.map(profile => ({ id: profile.id, name: copy(philosopherPresentations[profile.id].name[locale]) }))}
+      runnerUp={runner ? copy(philosopherPresentations[runner.id].name[locale]) : undefined}
+      portraitPath={!tied && matched[0] ? `/images/quiz-portraits/philosopher-personality-test/${matched[0].id}.svg` : undefined} />
     <section className="space-y-5" aria-label={zh ? copy("本次哲学家揭晓") : "Your philosopher reveal"}>
       <p className="text-sm font-semibold uppercase tracking-wide text-amber-900">{zh ? copy("18道日常选择 · 你的思考起点") : "18 everyday choices · Your starting points"}</p>
       <p className="text-lg leading-8">{tied ? (zh ? copy(`这次有${matched.length}位哲学家的阅读入口并列最高。全部保留，顺序不代表主次。`) : `${matched.length} philosopher reading paths share the highest count. All are kept; their order does not imply priority.`) : (zh ? copy("这次可以从这位哲学家的问题开始读。") : "Start with this philosopher’s questions this time.")}</p>
@@ -37,7 +43,6 @@ export function PhilosopherReport({ quiz, result, locale, displayLocale = locale
       </div>
       <p className="text-sm leading-7 text-slate-600">{zh ? copy("这是本次选择对应的阅读联想，不是历史人物性格鉴定。插画是原创人物意象，并非经核实的历史容貌。") : "A reading association from these choices, not a historical personality assessment. The original illustrations are imagined, not verified historical likenesses."}</p>
     </section>
-    <PhilosopherShareCard ids={matched.map(profile => profile.id)} locale={locale} />
     <section className="space-y-4 rounded-xl border border-slate-200 bg-white p-5" aria-labelledby="philosopher-counts">
       <h3 id="philosopher-counts" className="text-xl font-semibold">{zh ? copy("为什么出现这些人物？") : "Why these philosophers?"}</h3>
       <p className="leading-7">{zh ? copy("每次选择为对应阅读入口加1次；18题合计18。以下展示全部九项，保留每个最高计数。") : "Each choice adds one to its reading path, for 18 choices in total. Here are all nine counts; every highest count is kept."}</p>

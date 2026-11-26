@@ -48,7 +48,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, answers, on
   const copy = localized ? displayText : (value: string) => value;
   const portraitCopy = traditionalPortraitCopy(localized ? displayText : undefined);
   if (hasFantasyArtwork(quiz.slug)) return <FantasyArchetypeReport quiz={quiz} result={result} locale={locale} answers={answers} />;
-  if (quiz.slug === "philosopher-personality-test") return <PhilosopherReport quiz={quiz} result={result} locale={locale} displayLocale={displayLocale} copy={portraitCopy} />;
+  if (quiz.slug === "philosopher-personality-test") return <PhilosopherReport quiz={quiz} result={result} locale={locale} displayLocale={displayLocale} copy={portraitCopy} onRetake={onRetake} />;
   const zh = locale === "zh";
   const lead = portraitResultLeadKind(quiz.slug);
   const edgerunners = quiz.slug === "cyberpunk-edgerunners";

@@ -63,9 +63,9 @@ export function Gta6ResultReading({ locale, profile, publicGuide }: { locale: Di
         <ul className={styles.interestList}>{career.interests.map(letter => <li key={letter}><strong>{letter}</strong> · {gta6CareerDimensions[letter][index]}</li>)}</ul>
         <p>{["These are activities to explore. A separate assessment is needed for a personal MBTI or RIASEC result; job qualifications depend on skills, experience and local requirements.", "这些字母对应可尝试的工作活动。个人 MBTI 或霍兰德结果需要独立作答，岗位资格请核对技能、经验与当地要求。", "字母是可以試做的活動提示。你自己的 MBTI 或霍蘭德結果要另外作答；想入行，還要查技能、經驗和所在地的規定。"][index]}</p>
         <p><strong>{reading.reflection[index]}</strong></p>
-        <nav className={styles.assessmentLinks} aria-label={["Separate assessments", "独立测评入口", "獨立測驗入口"][index]}>
+        {publicGuide && <nav className={styles.assessmentLinks} aria-label={["Separate assessments", "独立测评入口", "獨立測驗入口"][index]}>
           {assessments.map(({ slug, path, label }) => <Link key={slug} prefetch={false} href={`/${locale}${path}`} onClick={() => recordAssessmentClick(locale, slug, publicGuide)}>{label[index]} →</Link>)}
-        </nav>
+        </nav>}
       </section>
       <section aria-labelledby="gta6-occupations">
         <h2 id="gta6-occupations">{["Two real occupations to compare", "两份真实职业档案", "兩份可以對照的職業指南"][index]}</h2>
