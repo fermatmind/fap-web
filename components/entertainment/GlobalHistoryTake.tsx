@@ -3,12 +3,14 @@
 import { useQuestionnaireDisplayCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { recordEntertainmentActivity } from "@/lib/entertainment/activity";
 import { matchGlobalHistory } from "@/lib/entertainment/global-history/actions";
 import { GLOBAL_HISTORY_SLUG, GLOBAL_HISTORY_VERSION, globalHistoryResultPath } from "@/lib/entertainment/global-history/config";
 import { rememberGlobalHistoryResult } from "@/lib/entertainment/global-history/local-result";
 import { historyScenes } from "@/lib/entertainment/global-history/questions";
 import type { Locale } from "@/lib/i18n/locales";
+import { readGlobalHistoryAiReferrer } from "@/lib/entertainment/global-history/ai-referrer";
 import styles from "./ChanganQuiz.module.css";
 
 const subscribe = () => () => {};
@@ -28,6 +30,20 @@ export function GlobalHistoryTake({ locale }: { locale: Locale }) {
   const scene = historyScenes[step];
   const track = (action: "start" | "complete" | "result_view") =>
     recordEntertainmentActivity(GLOBAL_HISTORY_SLUG, GLOBAL_HISTORY_VERSION, locale, action);
+
+  function startQuiz() {
+    track("start");
+    const referrer = readGlobalHistoryAiReferrer(document.referrer, window.location.origin);
+    trackEvent("start_test", {
+      slug: GLOBAL_HISTORY_SLUG,
+      form_code: GLOBAL_HISTORY_VERSION,
+      locale: traditional ? "zh-TW" : locale,
+      entry_surface: "entertainment",
+      test_type: "entertainment",
+      ...(referrer ? { referrer_host: referrer } : {}),
+    });
+    setStarted(true);
+  }
 
   useEffect(() => { heading.current?.focus(); }, [started, step]);
 
@@ -60,7 +76,7 @@ export function GlobalHistoryTake({ locale }: { locale: Locale }) {
       <p className={styles.eyebrow}>{zh ? displayText("全球卷 · 展馆值班手记") : "World Edition · A day at the museum"}</p>
       <h2 ref={heading} tabIndex={-1}>{zh ? displayText("钥匙交给你了。两小时后，展馆开门。") : "The keys are yours. The museum opens in two hours."}</h2>
       <p>{zh ? displayText("今天由你负责展馆。每次选择你最可能先做的事。") : "You’re in charge for the day. In each scene, choose what you’d most likely do first."}</p>
-      <button type="button" className={styles.primary} disabled={!hydrated} onClick={() => { track("start"); setStarted(true); }}>
+      <button type="button" className={styles.primary} disabled={!hydrated} onClick={startQuiz}>
         {zh ? displayText("走进展馆") : "Enter the museum"} <span aria-hidden="true">→</span>
       </button>
     </div> : <div className={styles.scene} aria-busy={pending}>

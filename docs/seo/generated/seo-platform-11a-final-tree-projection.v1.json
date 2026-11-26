@@ -18,7 +18,7 @@
   },
   "source_repository_snapshot": {
     "repository": "fap-web",
-    "sha": "a2436a3c296cf0a272958b905fd0e6221423096e",
+    "sha": "2835eaa6c31e512c03af5b56571f9eae353d8824",
     "evidence_state": "verified_worktree"
   },
   "fixed_boundaries": {
@@ -38,7 +38,7 @@
     "hash_drift": 0,
     "unclassified": 0,
     "duplicate_paths": 0,
-    "web_seo_scripts": 139
+    "web_seo_scripts": 145
   },
   "path_set_hash": "923816b2b625784d47a8f41e6152c0abf555282b70bbb7c99167a9892fa28fb6",
   "paths_manifest": [
@@ -1118,8 +1118,8 @@
     },
     {
       "path": ".github/trunk/verify-seo-platform-11a-final-tree-projection.mjs",
-      "sha256": "4093be4dee7db257aa3851931299187d12af85f69cf2b89702d792fcbe8fb685",
-      "byte_size": 10050,
+      "sha256": "c28617676d0ea3c2d2dff74870d70ad44555add27a24b709c5e6d39de5298c80",
+      "byte_size": 10065,
       "classification": "deterministic_tool"
     },
     {
@@ -1844,8 +1844,8 @@
     },
     {
       "path": "package.json",
-      "sha256": "6c0b58de97f54586fb7a77b76f1fcadd98ff4fdf11f3b6ba4a48ce36e95375f1",
-      "byte_size": 7375,
+      "sha256": "b7550328e1529b5f5b9dffac680ebe301041fcf206831e7bbeba59ce8c6c8ef7",
+      "byte_size": 7534,
       "classification": "deterministic_tool"
     },
     {
@@ -2372,8 +2372,8 @@
     },
     {
       "path": "scripts/seo/generate-llms-full.mjs",
-      "sha256": "a34239619078f93d2d380cfd9a81bf7d6a20c6ec600881c7632f736228ca2ed2",
-      "byte_size": 1643,
+      "sha256": "99fb89e981b024c2a7d21b11c9d33cd05f127441d8bc0461ce20fffe969d444e",
+      "byte_size": 1826,
       "classification": "deterministic_tool"
     },
     {
@@ -2930,7 +2930,7 @@
     },
     {
       "path": "tests/contracts/seo-platform-11a-authority-convergence.contract.test.ts",
-      "sha256": "bd7f42dac3fc4ad9089ebbc5d6d96b3b72e9a9a616cab0abb4955d7607ea7cd0",
+      "sha256": "f33655ce028009ba0c5748b4ec2eaa29d6a1916520def0a99b9ed05c9ad94a18",
       "byte_size": 9281,
       "classification": "contract_only"
     },
@@ -2953,5 +2953,5 @@
       "classification": "contract_only"
     }
   ],
-  "projection_self_hash": "8d3be85aeceba10225be983c3841064d9c4014b08586b76cf4cdc82a44a9a841"
+  "projection_self_hash": "2069236fe3c7a8687bbaf01228b5b5a1e73c2c51baa6254f8e86a26cd5357838"
 }

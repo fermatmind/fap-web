@@ -1,6 +1,6 @@
 import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
 import catalog from "./catalog.json";
-import { GLOBAL_HISTORY_PATH, GLOBAL_HISTORY_PORTRAITS_UPDATED } from "./global-history/config";
+import { GLOBAL_HISTORY_ATLAS_SLUGS, GLOBAL_HISTORY_PATH, GLOBAL_HISTORY_PORTRAITS_UPDATED, GLOBAL_HISTORY_UPDATED } from "./global-history/config";
 import { historyPeople } from "./global-history/people";
 import questionnaires from "../questionnaires/catalog.json";
 import { gta6IndexablePaths } from "../questionnaires/gta6CharacterQuiz";
@@ -26,6 +26,8 @@ export function entertainmentSearchEntries(): { path: string; lastmod: string }[
   for (const [index, path] of gta6IndexablePaths.entries()) {
     entries.set(path, index === 0 ? "2026-11-21T00:00:00.000Z" : "2026-11-20T00:00:00.000Z");
   }
+  entries.set(GLOBAL_HISTORY_PATH, GLOBAL_HISTORY_UPDATED);
+  for (const atlas of GLOBAL_HISTORY_ATLAS_SLUGS) entries.set(`${GLOBAL_HISTORY_PATH}/${atlas}`, GLOBAL_HISTORY_PORTRAITS_UPDATED);
   for (const { id } of historyPeople) {
     entries.set(`${GLOBAL_HISTORY_PATH}/results/${id}`, GLOBAL_HISTORY_PORTRAITS_UPDATED);
   }

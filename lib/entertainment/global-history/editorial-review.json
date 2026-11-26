@@ -1,0 +1,2996 @@
+{
+  "tier1": [
+    "alexander-pope",
+    "charles-dickens",
+    "leonardo-da-vinci",
+    "ada-lovelace",
+    "adam-smith",
+    "andre-dupin",
+    "anthony-ashley-cooper-1st-earl-of-shaftesbury",
+    "ben-jonson",
+    "benjamin-disraeli",
+    "christiaan-huygens",
+    "david-hume",
+    "don-bradman",
+    "edith-cowan",
+    "friedrich-wilhelm-joseph-schelling",
+    "hatshepsut",
+    "henry-brougham-1st-baron-brougham-and-vaux",
+    "james-cook",
+    "kartini",
+    "katherine-johnson",
+    "li-qingzhao",
+    "marie-curie",
+    "nicolas-malebranche",
+    "rabindranath-tagore",
+    "robert-peel",
+    "rosalind-franklin",
+    "sappho",
+    "srinivasa-ramanujan",
+    "toussaint-louverture",
+    "whina-cooper",
+    "wu-zetian",
+    "adolphe-thiers",
+    "ahmad-baba-al-timbukti",
+    "albrecht-von-haller",
+    "alexander-von-humboldt",
+    "shin-saimdang",
+    "isaac-newton",
+    "aristotle",
+    "confucius",
+    "du-fu",
+    "ernest-rutherford",
+    "omar-khayyam",
+    "su-shi",
+    "william-shakespeare",
+    "xu-xiake",
+    "xuanzang",
+    "zheng-he",
+    "ban-zhao",
+    "benjamin-franklin",
+    "cai-lun",
+    "francois-guizot",
+    "genghis-khan",
+    "heo-jun",
+    "nguyen-trai",
+    "rani-lakshmibai",
+    "william-makepeace-thackeray",
+    "zhuge-liang",
+    "johannes-kepler",
+    "george-sand",
+    "li-bai",
+    "charles-darwin"
+  ],
+  "schedule": [
+    {
+      "slug": "francois-guizot",
+      "order": 1,
+      "wave": 1
+    },
+    {
+      "slug": "george-sand",
+      "order": 2,
+      "wave": 1
+    },
+    {
+      "slug": "william-makepeace-thackeray",
+      "order": 3,
+      "wave": 1
+    },
+    {
+      "slug": "nguyen-trai",
+      "order": 4,
+      "wave": 1
+    },
+    {
+      "slug": "omar-khayyam",
+      "order": 5,
+      "wave": 1
+    },
+    {
+      "slug": "isaac-newton",
+      "order": 6,
+      "wave": 1
+    },
+    {
+      "slug": "leonardo-da-vinci",
+      "order": 7,
+      "wave": 1
+    },
+    {
+      "slug": "wu-zetian",
+      "order": 8,
+      "wave": 1
+    },
+    {
+      "slug": "li-bai",
+      "order": 9,
+      "wave": 1
+    },
+    {
+      "slug": "marie-curie",
+      "order": 10,
+      "wave": 1
+    },
+    {
+      "slug": "alan-turing",
+      "order": 11,
+      "wave": 1
+    },
+    {
+      "slug": "aristotle",
+      "order": 12,
+      "wave": 1
+    },
+    {
+      "slug": "ada-lovelace",
+      "order": 13,
+      "wave": 1
+    },
+    {
+      "slug": "zhuge-liang",
+      "order": 14,
+      "wave": 1
+    },
+    {
+      "slug": "confucius",
+      "order": 15,
+      "wave": 1
+    },
+    {
+      "slug": "william-shakespeare",
+      "order": 16,
+      "wave": 1
+    },
+    {
+      "slug": "charles-darwin",
+      "order": 17,
+      "wave": 1
+    },
+    {
+      "slug": "napoleon-bonaparte",
+      "order": 18,
+      "wave": 1
+    },
+    {
+      "slug": "wolfgang-amadeus-mozart",
+      "order": 19,
+      "wave": 1
+    },
+    {
+      "slug": "ludwig-van-beethoven",
+      "order": 20,
+      "wave": 1
+    },
+    {
+      "slug": "katherine-johnson",
+      "order": 21,
+      "wave": 1
+    },
+    {
+      "slug": "benjamin-franklin",
+      "order": 22,
+      "wave": 1
+    },
+    {
+      "slug": "rani-lakshmibai",
+      "order": 23,
+      "wave": 1
+    },
+    {
+      "slug": "johannes-kepler",
+      "order": 24,
+      "wave": 1
+    },
+    {
+      "slug": "anthony-ashley-cooper-1st-earl-of-shaftesbury",
+      "order": 25,
+      "wave": 1
+    },
+    {
+      "slug": "charles-guillaume-etienne",
+      "order": 26,
+      "wave": 1
+    },
+    {
+      "slug": "emanuel-swedenborg",
+      "order": 27,
+      "wave": 1
+    },
+    {
+      "slug": "george-washington",
+      "order": 28,
+      "wave": 1
+    },
+    {
+      "slug": "gottfried-wilhelm-leibniz",
+      "order": 29,
+      "wave": 1
+    },
+    {
+      "slug": "gotthold-ephraim-lessing",
+      "order": 30,
+      "wave": 1
+    },
+    {
+      "slug": "horatio-nelson-1st-viscount-nelson",
+      "order": 31,
+      "wave": 1
+    },
+    {
+      "slug": "john-churchill-1st-duke-of-marlborough",
+      "order": 32,
+      "wave": 1
+    },
+    {
+      "slug": "pietro-metastasio",
+      "order": 33,
+      "wave": 1
+    },
+    {
+      "slug": "william-hamilton-philosopher",
+      "order": 34,
+      "wave": 1
+    },
+    {
+      "slug": "william-pitt-1st-earl-of-chatham",
+      "order": 35,
+      "wave": 1
+    },
+    {
+      "slug": "al-khwarizmi",
+      "order": 36,
+      "wave": 1
+    },
+    {
+      "slug": "george-washington-carver",
+      "order": 37,
+      "wave": 1
+    },
+    {
+      "slug": "hatshepsut",
+      "order": 38,
+      "wave": 1
+    },
+    {
+      "slug": "mary-wollstonecraft",
+      "order": 39,
+      "wave": 1
+    },
+    {
+      "slug": "august-von-kotzebue",
+      "order": 40,
+      "wave": 1
+    },
+    {
+      "slug": "carl-maria-von-weber",
+      "order": 41,
+      "wave": 1
+    },
+    {
+      "slug": "christian-charles-josias-von-bunsen",
+      "order": 42,
+      "wave": 1
+    },
+    {
+      "slug": "georg-wilhelm-friedrich-hegel",
+      "order": 43,
+      "wave": 1
+    },
+    {
+      "slug": "giulio-alberoni",
+      "order": 44,
+      "wave": 1
+    },
+    {
+      "slug": "jean-sylvain-bailly",
+      "order": 45,
+      "wave": 1
+    },
+    {
+      "slug": "johann-gottlieb-fichte",
+      "order": 46,
+      "wave": 1
+    },
+    {
+      "slug": "john-hunter-surgeon",
+      "order": 47,
+      "wave": 1
+    },
+    {
+      "slug": "joseph-louis-gay-lussac",
+      "order": 48,
+      "wave": 1
+    },
+    {
+      "slug": "justus-von-liebig",
+      "order": 49,
+      "wave": 1
+    },
+    {
+      "slug": "robert-southey",
+      "order": 50,
+      "wave": 1
+    },
+    {
+      "slug": "wilhelm-von-humboldt",
+      "order": 51,
+      "wave": 1
+    },
+    {
+      "slug": "william-hickling-prescott",
+      "order": 52,
+      "wave": 1
+    },
+    {
+      "slug": "william-pitt-the-younger",
+      "order": 53,
+      "wave": 1
+    },
+    {
+      "slug": "hildegard-of-bingen",
+      "order": 54,
+      "wave": 1
+    },
+    {
+      "slug": "jagadish-chandra-bose",
+      "order": 55,
+      "wave": 1
+    },
+    {
+      "slug": "julius-caesar",
+      "order": 56,
+      "wave": 1
+    },
+    {
+      "slug": "kinich-janaab-pakal",
+      "order": 57,
+      "wave": 1
+    },
+    {
+      "slug": "honore-de-balzac",
+      "order": 58,
+      "wave": 1
+    },
+    {
+      "slug": "honore-gabriel-riqueti-comte-de-mirabeau",
+      "order": 59,
+      "wave": 1
+    },
+    {
+      "slug": "marie-de-rabutin-chantal-marquise-de-sevigne",
+      "order": 60,
+      "wave": 1
+    },
+    {
+      "slug": "pierre-jean-de-beranger",
+      "order": 61,
+      "wave": 2
+    },
+    {
+      "slug": "carolina-maria-de-jesus",
+      "order": 62,
+      "wave": 2
+    },
+    {
+      "slug": "antoine-lavoisier",
+      "order": 63,
+      "wave": 2
+    },
+    {
+      "slug": "bartolome-esteban-murillo",
+      "order": 64,
+      "wave": 2
+    },
+    {
+      "slug": "ben-jonson",
+      "order": 65,
+      "wave": 2
+    },
+    {
+      "slug": "benjamin-disraeli",
+      "order": 66,
+      "wave": 2
+    },
+    {
+      "slug": "christiaan-huygens",
+      "order": 67,
+      "wave": 2
+    },
+    {
+      "slug": "christoph-willibald-gluck",
+      "order": 68,
+      "wave": 2
+    },
+    {
+      "slug": "edmund-burke",
+      "order": 69,
+      "wave": 2
+    },
+    {
+      "slug": "friedrich-gottlieb-klopstock",
+      "order": 70,
+      "wave": 2
+    },
+    {
+      "slug": "friedrich-wilhelm-joseph-schelling",
+      "order": 71,
+      "wave": 2
+    },
+    {
+      "slug": "giuseppe-garibaldi",
+      "order": 72,
+      "wave": 2
+    },
+    {
+      "slug": "harriet-martineau",
+      "order": 73,
+      "wave": 2
+    },
+    {
+      "slug": "henry-brougham-1st-baron-brougham-and-vaux",
+      "order": 74,
+      "wave": 2
+    },
+    {
+      "slug": "hugh-miller",
+      "order": 75,
+      "wave": 2
+    },
+    {
+      "slug": "humphry-davy",
+      "order": 76,
+      "wave": 2
+    },
+    {
+      "slug": "james-watt",
+      "order": 77,
+      "wave": 2
+    },
+    {
+      "slug": "jean-racine",
+      "order": 78,
+      "wave": 2
+    },
+    {
+      "slug": "john-adams",
+      "order": 79,
+      "wave": 2
+    },
+    {
+      "slug": "john-bunyan",
+      "order": 80,
+      "wave": 2
+    },
+    {
+      "slug": "john-locke",
+      "order": 81,
+      "wave": 2
+    },
+    {
+      "slug": "john-wilkes",
+      "order": 82,
+      "wave": 2
+    },
+    {
+      "slug": "lord-byron",
+      "order": 83,
+      "wave": 2
+    },
+    {
+      "slug": "nicolaus-copernicus",
+      "order": 84,
+      "wave": 2
+    },
+    {
+      "slug": "philipp-melanchthon",
+      "order": 85,
+      "wave": 2
+    },
+    {
+      "slug": "robert-burns",
+      "order": 86,
+      "wave": 2
+    },
+    {
+      "slug": "voltaire",
+      "order": 87,
+      "wave": 2
+    },
+    {
+      "slug": "william-tecumseh-sherman",
+      "order": 88,
+      "wave": 2
+    },
+    {
+      "slug": "william-wilberforce",
+      "order": 89,
+      "wave": 2
+    },
+    {
+      "slug": "apolinario-mabini",
+      "order": 90,
+      "wave": 2
+    },
+    {
+      "slug": "archimedes",
+      "order": 91,
+      "wave": 2
+    },
+    {
+      "slug": "artemisia-gentileschi",
+      "order": 92,
+      "wave": 2
+    },
+    {
+      "slug": "c-v-raman",
+      "order": 93,
+      "wave": 2
+    },
+    {
+      "slug": "di-renjie",
+      "order": 94,
+      "wave": 2
+    },
+    {
+      "slug": "don-bradman",
+      "order": 95,
+      "wave": 2
+    },
+    {
+      "slug": "hypatia",
+      "order": 96,
+      "wave": 2
+    },
+    {
+      "slug": "ida-b-wells",
+      "order": 97,
+      "wave": 2
+    },
+    {
+      "slug": "jose-rizal",
+      "order": 98,
+      "wave": 2
+    },
+    {
+      "slug": "sacagawea",
+      "order": 99,
+      "wave": 2
+    },
+    {
+      "slug": "sechele-i",
+      "order": 100,
+      "wave": 2
+    },
+    {
+      "slug": "zheng-he",
+      "order": 101,
+      "wave": 2
+    },
+    {
+      "slug": "albrecht-von-haller",
+      "order": 102,
+      "wave": 2
+    },
+    {
+      "slug": "alexander-von-humboldt",
+      "order": 103,
+      "wave": 2
+    },
+    {
+      "slug": "andrew-jackson",
+      "order": 104,
+      "wave": 2
+    },
+    {
+      "slug": "anne-robert-jacques-turgot",
+      "order": 105,
+      "wave": 2
+    },
+    {
+      "slug": "barthold-georg-niebuhr",
+      "order": 106,
+      "wave": 2
+    },
+    {
+      "slug": "charles-augustin-sainte-beuve",
+      "order": 107,
+      "wave": 2
+    },
+    {
+      "slug": "christoph-martin-wieland",
+      "order": 108,
+      "wave": 2
+    },
+    {
+      "slug": "daniel-oconnell",
+      "order": 109,
+      "wave": 2
+    },
+    {
+      "slug": "daniel-webster",
+      "order": 110,
+      "wave": 2
+    },
+    {
+      "slug": "david-friedrich-strauss",
+      "order": 111,
+      "wave": 2
+    },
+    {
+      "slug": "denis-diderot",
+      "order": 112,
+      "wave": 2
+    },
+    {
+      "slug": "edward-bulwer-lytton",
+      "order": 113,
+      "wave": 2
+    },
+    {
+      "slug": "edward-gibbon",
+      "order": 114,
+      "wave": 2
+    },
+    {
+      "slug": "friedrich-schiller",
+      "order": 115,
+      "wave": 2
+    },
+    {
+      "slug": "friedrich-schleiermacher",
+      "order": 116,
+      "wave": 2
+    },
+    {
+      "slug": "galileo-galilei",
+      "order": 117,
+      "wave": 2
+    },
+    {
+      "slug": "george-berkeley",
+      "order": 118,
+      "wave": 2
+    },
+    {
+      "slug": "george-frideric-handel",
+      "order": 119,
+      "wave": 2
+    },
+    {
+      "slug": "giovanni-pierluigi-da-palestrina",
+      "order": 120,
+      "wave": 2
+    },
+    {
+      "slug": "giuseppe-mazzini",
+      "order": 121,
+      "wave": 3
+    },
+    {
+      "slug": "hans-christian-andersen",
+      "order": 122,
+      "wave": 3
+    },
+    {
+      "slug": "herman-boerhaave",
+      "order": 123,
+      "wave": 3
+    },
+    {
+      "slug": "huldrych-zwingli",
+      "order": 124,
+      "wave": 3
+    },
+    {
+      "slug": "immanuel-kant",
+      "order": 125,
+      "wave": 3
+    },
+    {
+      "slug": "james-madison",
+      "order": 126,
+      "wave": 3
+    },
+    {
+      "slug": "jean-jacques-rousseau",
+      "order": 127,
+      "wave": 3
+    },
+    {
+      "slug": "jean-paul-marat",
+      "order": 128,
+      "wave": 3
+    },
+    {
+      "slug": "johann-gottfried-herder",
+      "order": 129,
+      "wave": 3
+    },
+    {
+      "slug": "johann-sebastian-bach",
+      "order": 130,
+      "wave": 3
+    },
+    {
+      "slug": "john-franklin",
+      "order": 131,
+      "wave": 3
+    },
+    {
+      "slug": "john-henry-newman",
+      "order": 132,
+      "wave": 3
+    },
+    {
+      "slug": "joseph-justus-scaliger",
+      "order": 133,
+      "wave": 3
+    },
+    {
+      "slug": "joseph-louis-lagrange",
+      "order": 134,
+      "wave": 3
+    },
+    {
+      "slug": "ludvig-holberg",
+      "order": 135,
+      "wave": 3
+    },
+    {
+      "slug": "maximilien-robespierre",
+      "order": 136,
+      "wave": 3
+    },
+    {
+      "slug": "michel-de-montaigne",
+      "order": 137,
+      "wave": 3
+    },
+    {
+      "slug": "thomas-carlyle",
+      "order": 138,
+      "wave": 3
+    },
+    {
+      "slug": "thomas-chalmers",
+      "order": 139,
+      "wave": 3
+    },
+    {
+      "slug": "william-herschel",
+      "order": 140,
+      "wave": 3
+    },
+    {
+      "slug": "amrita-sher-gil",
+      "order": 141,
+      "wave": 3
+    },
+    {
+      "slug": "bessie-coleman",
+      "order": 142,
+      "wave": 3
+    },
+    {
+      "slug": "charlotte-maxeke",
+      "order": 143,
+      "wave": 3
+    },
+    {
+      "slug": "cheikh-anta-diop",
+      "order": 144,
+      "wave": 3
+    },
+    {
+      "slug": "gabriel-garcia-marquez",
+      "order": 145,
+      "wave": 3
+    },
+    {
+      "slug": "gabriela-mistral",
+      "order": 146,
+      "wave": 3
+    },
+    {
+      "slug": "heo-jun",
+      "order": 147,
+      "wave": 3
+    },
+    {
+      "slug": "ho-xuan-huong",
+      "order": 148,
+      "wave": 3
+    },
+    {
+      "slug": "miyamoto-musashi",
+      "order": 149,
+      "wave": 3
+    },
+    {
+      "slug": "murasaki-shikibu",
+      "order": 150,
+      "wave": 3
+    },
+    {
+      "slug": "qiu-jin",
+      "order": 151,
+      "wave": 3
+    },
+    {
+      "slug": "savitribai-phule",
+      "order": 152,
+      "wave": 3
+    },
+    {
+      "slug": "song-yingxing",
+      "order": 153,
+      "wave": 3
+    },
+    {
+      "slug": "georges-louis-leclerc-comte-de-buffon",
+      "order": 154,
+      "wave": 3
+    },
+    {
+      "slug": "henri-de-saint-simon",
+      "order": 155,
+      "wave": 3
+    },
+    {
+      "slug": "jean-de-dieu-soult",
+      "order": 156,
+      "wave": 3
+    },
+    {
+      "slug": "jean-le-rond-d-alembert",
+      "order": 157,
+      "wave": 3
+    },
+    {
+      "slug": "jean-victor-moreau",
+      "order": 158,
+      "wave": 3
+    },
+    {
+      "slug": "laurent-de-gouvion-saint-cyr",
+      "order": 159,
+      "wave": 3
+    },
+    {
+      "slug": "michel-de-lhopital",
+      "order": 160,
+      "wave": 3
+    },
+    {
+      "slug": "muhammad-ali-of-egypt",
+      "order": 161,
+      "wave": 3
+    },
+    {
+      "slug": "clorinda-matto-de-turner",
+      "order": 162,
+      "wave": 3
+    },
+    {
+      "slug": "giacomo-leopardi",
+      "order": 163,
+      "wave": 3
+    },
+    {
+      "slug": "jean-de-la-fontaine",
+      "order": 164,
+      "wave": 3
+    },
+    {
+      "slug": "sor-juana-ines-de-la-cruz",
+      "order": 165,
+      "wave": 3
+    },
+    {
+      "slug": "adam-smith",
+      "order": 166,
+      "wave": 3
+    },
+    {
+      "slug": "albrecht-von-wallenstein",
+      "order": 167,
+      "wave": 3
+    },
+    {
+      "slug": "alexander-hamilton",
+      "order": 168,
+      "wave": 3
+    },
+    {
+      "slug": "andre-dupin",
+      "order": 169,
+      "wave": 3
+    },
+    {
+      "slug": "benjamin-constant",
+      "order": 170,
+      "wave": 3
+    },
+    {
+      "slug": "cardinal-richelieu",
+      "order": 171,
+      "wave": 3
+    },
+    {
+      "slug": "daniel-defoe",
+      "order": 172,
+      "wave": 3
+    },
+    {
+      "slug": "david-hume",
+      "order": 173,
+      "wave": 3
+    },
+    {
+      "slug": "david-livingstone",
+      "order": 174,
+      "wave": 3
+    },
+    {
+      "slug": "elizabeth-gaskell",
+      "order": 175,
+      "wave": 3
+    },
+    {
+      "slug": "erasmus",
+      "order": 176,
+      "wave": 3
+    },
+    {
+      "slug": "ernest-renan",
+      "order": 177,
+      "wave": 3
+    },
+    {
+      "slug": "felix-mendelssohn",
+      "order": 178,
+      "wave": 3
+    },
+    {
+      "slug": "francis-atterbury",
+      "order": 179,
+      "wave": 3
+    },
+    {
+      "slug": "george-eliot",
+      "order": 180,
+      "wave": 3
+    },
+    {
+      "slug": "george-fox",
+      "order": 181,
+      "wave": 4
+    },
+    {
+      "slug": "george-monck",
+      "order": 182,
+      "wave": 4
+    },
+    {
+      "slug": "george-villiers-4th-earl-of-clarendon",
+      "order": 183,
+      "wave": 4
+    },
+    {
+      "slug": "girolamo-savonarola",
+      "order": 184,
+      "wave": 4
+    },
+    {
+      "slug": "henry-wadsworth-longfellow",
+      "order": 185,
+      "wave": 4
+    },
+    {
+      "slug": "hugo-grotius",
+      "order": 186,
+      "wave": 4
+    },
+    {
+      "slug": "jacob-grimm",
+      "order": 187,
+      "wave": 4
+    },
+    {
+      "slug": "james-cook",
+      "order": 188,
+      "wave": 4
+    },
+    {
+      "slug": "johann-joachim-winckelmann",
+      "order": 189,
+      "wave": 4
+    },
+    {
+      "slug": "john-bright",
+      "order": 190,
+      "wave": 4
+    },
+    {
+      "slug": "john-calvin",
+      "order": 191,
+      "wave": 4
+    },
+    {
+      "slug": "john-dryden",
+      "order": 192,
+      "wave": 4
+    },
+    {
+      "slug": "john-law",
+      "order": 193,
+      "wave": 4
+    },
+    {
+      "slug": "john-milton",
+      "order": 194,
+      "wave": 4
+    },
+    {
+      "slug": "john-napier",
+      "order": 195,
+      "wave": 4
+    },
+    {
+      "slug": "john-wesley",
+      "order": 196,
+      "wave": 4
+    },
+    {
+      "slug": "joseph-haydn",
+      "order": 197,
+      "wave": 4
+    },
+    {
+      "slug": "lancelot-andrewes",
+      "order": 198,
+      "wave": 4
+    },
+    {
+      "slug": "ludwig-tieck",
+      "order": 199,
+      "wave": 4
+    },
+    {
+      "slug": "michel-ney",
+      "order": 200,
+      "wave": 4
+    },
+    {
+      "slug": "michelangelo",
+      "order": 201,
+      "wave": 4
+    },
+    {
+      "slug": "moliere",
+      "order": 202,
+      "wave": 4
+    },
+    {
+      "slug": "montesquieu",
+      "order": 203,
+      "wave": 4
+    },
+    {
+      "slug": "nathaniel-hawthorne",
+      "order": 204,
+      "wave": 4
+    },
+    {
+      "slug": "nicolas-malebranche",
+      "order": 205,
+      "wave": 4
+    },
+    {
+      "slug": "pierre-bayle",
+      "order": 206,
+      "wave": 4
+    },
+    {
+      "slug": "pierre-beaumarchais",
+      "order": 207,
+      "wave": 4
+    },
+    {
+      "slug": "pietro-sarpi",
+      "order": 208,
+      "wave": 4
+    },
+    {
+      "slug": "raphael",
+      "order": 209,
+      "wave": 4
+    },
+    {
+      "slug": "rembrandt",
+      "order": 210,
+      "wave": 4
+    },
+    {
+      "slug": "richard-brinsley-sheridan",
+      "order": 211,
+      "wave": 4
+    },
+    {
+      "slug": "robert-blake",
+      "order": 212,
+      "wave": 4
+    },
+    {
+      "slug": "robert-boyle",
+      "order": 213,
+      "wave": 4
+    },
+    {
+      "slug": "robert-clive",
+      "order": 214,
+      "wave": 4
+    },
+    {
+      "slug": "robert-peel",
+      "order": 215,
+      "wave": 4
+    },
+    {
+      "slug": "thomas-babington-macaulay",
+      "order": 216,
+      "wave": 4
+    },
+    {
+      "slug": "thomas-chatterton",
+      "order": 217,
+      "wave": 4
+    },
+    {
+      "slug": "thomas-moore",
+      "order": 218,
+      "wave": 4
+    },
+    {
+      "slug": "thomas-more",
+      "order": 219,
+      "wave": 4
+    },
+    {
+      "slug": "tommaso-campanella",
+      "order": 220,
+      "wave": 4
+    },
+    {
+      "slug": "victor-hugo",
+      "order": 221,
+      "wave": 4
+    },
+    {
+      "slug": "walter-scott",
+      "order": 222,
+      "wave": 4
+    },
+    {
+      "slug": "washington-irving",
+      "order": 223,
+      "wave": 4
+    },
+    {
+      "slug": "william-penn",
+      "order": 224,
+      "wave": 4
+    },
+    {
+      "slug": "william-robertson",
+      "order": 225,
+      "wave": 4
+    },
+    {
+      "slug": "william-warburton",
+      "order": 226,
+      "wave": 4
+    },
+    {
+      "slug": "william-wordsworth",
+      "order": 227,
+      "wave": 4
+    },
+    {
+      "slug": "akbar",
+      "order": 228,
+      "wave": 4
+    },
+    {
+      "slug": "al-biruni",
+      "order": 229,
+      "wave": 4
+    },
+    {
+      "slug": "anacaona",
+      "order": 230,
+      "wave": 4
+    },
+    {
+      "slug": "anawrahta",
+      "order": 231,
+      "wave": 4
+    },
+    {
+      "slug": "aryabhata",
+      "order": 232,
+      "wave": 4
+    },
+    {
+      "slug": "ashoka",
+      "order": 233,
+      "wave": 4
+    },
+    {
+      "slug": "avicenna",
+      "order": 234,
+      "wave": 4
+    },
+    {
+      "slug": "ban-zhao",
+      "order": 235,
+      "wave": 4
+    },
+    {
+      "slug": "begum-rokeya",
+      "order": 236,
+      "wave": 4
+    },
+    {
+      "slug": "celia-cruz",
+      "order": 237,
+      "wave": 4
+    },
+    {
+      "slug": "charlemagne",
+      "order": 238,
+      "wave": 4
+    },
+    {
+      "slug": "du-fu",
+      "order": 239,
+      "wave": 4
+    },
+    {
+      "slug": "edith-cowan",
+      "order": 240,
+      "wave": 4
+    },
+    {
+      "slug": "elizabeth-i",
+      "order": 241,
+      "wave": 5
+    },
+    {
+      "slug": "emily-carr",
+      "order": 242,
+      "wave": 5
+    },
+    {
+      "slug": "epeli-hauofa",
+      "order": 243,
+      "wave": 5
+    },
+    {
+      "slug": "ernest-rutherford",
+      "order": 244,
+      "wave": 5
+    },
+    {
+      "slug": "ferdowsi",
+      "order": 245,
+      "wave": 5
+    },
+    {
+      "slug": "florence-nightingale",
+      "order": 246,
+      "wave": 5
+    },
+    {
+      "slug": "frederick-douglass",
+      "order": 247,
+      "wave": 5
+    },
+    {
+      "slug": "genghis-khan",
+      "order": 248,
+      "wave": 5
+    },
+    {
+      "slug": "grace-hopper",
+      "order": 249,
+      "wave": 5
+    },
+    {
+      "slug": "helen-keller",
+      "order": 250,
+      "wave": 5
+    },
+    {
+      "slug": "hokusai",
+      "order": 251,
+      "wave": 5
+    },
+    {
+      "slug": "ibn-battuta",
+      "order": 252,
+      "wave": 5
+    },
+    {
+      "slug": "ibn-khaldun",
+      "order": 253,
+      "wave": 5
+    },
+    {
+      "slug": "jane-austen",
+      "order": 254,
+      "wave": 5
+    },
+    {
+      "slug": "joan-of-arc",
+      "order": 255,
+      "wave": 5
+    },
+    {
+      "slug": "juan-rulfo",
+      "order": 256,
+      "wave": 5
+    },
+    {
+      "slug": "kabir",
+      "order": 257,
+      "wave": 5
+    },
+    {
+      "slug": "kartini",
+      "order": 258,
+      "wave": 5
+    },
+    {
+      "slug": "khama-iii",
+      "order": 259,
+      "wave": 5
+    },
+    {
+      "slug": "kimpa-vita",
+      "order": 260,
+      "wave": 5
+    },
+    {
+      "slug": "li-qingzhao",
+      "order": 261,
+      "wave": 5
+    },
+    {
+      "slug": "li-shizhen",
+      "order": 262,
+      "wave": 5
+    },
+    {
+      "slug": "liliuokalani",
+      "order": 263,
+      "wave": 5
+    },
+    {
+      "slug": "lin-huiyin",
+      "order": 264,
+      "wave": 5
+    },
+    {
+      "slug": "lise-meitner",
+      "order": 265,
+      "wave": 5
+    },
+    {
+      "slug": "lozen",
+      "order": 266,
+      "wave": 5
+    },
+    {
+      "slug": "mansa-musa",
+      "order": 267,
+      "wave": 5
+    },
+    {
+      "slug": "mariama-ba",
+      "order": 268,
+      "wave": 5
+    },
+    {
+      "slug": "mary-anning",
+      "order": 269,
+      "wave": 5
+    },
+    {
+      "slug": "mary-shelley",
+      "order": 270,
+      "wave": 5
+    },
+    {
+      "slug": "nana-asmau",
+      "order": 271,
+      "wave": 5
+    },
+    {
+      "slug": "nezahualcoyotl",
+      "order": 272,
+      "wave": 5
+    },
+    {
+      "slug": "pachacuti",
+      "order": 273,
+      "wave": 5
+    },
+    {
+      "slug": "qin-liangyu",
+      "order": 274,
+      "wave": 5
+    },
+    {
+      "slug": "queen-nzinga",
+      "order": 275,
+      "wave": 5
+    },
+    {
+      "slug": "rabindranath-tagore",
+      "order": 276,
+      "wave": 5
+    },
+    {
+      "slug": "razia-sultan",
+      "order": 277,
+      "wave": 5
+    },
+    {
+      "slug": "rosa-parks",
+      "order": 278,
+      "wave": 5
+    },
+    {
+      "slug": "rosalind-franklin",
+      "order": 279,
+      "wave": 5
+    },
+    {
+      "slug": "rumi",
+      "order": 280,
+      "wave": 5
+    },
+    {
+      "slug": "saladin",
+      "order": 281,
+      "wave": 5
+    },
+    {
+      "slug": "sappho",
+      "order": 282,
+      "wave": 5
+    },
+    {
+      "slug": "sei-shonagon",
+      "order": 283,
+      "wave": 5
+    },
+    {
+      "slug": "shaka",
+      "order": 284,
+      "wave": 5
+    },
+    {
+      "slug": "shen-kuo",
+      "order": 285,
+      "wave": 5
+    },
+    {
+      "slug": "sima-qian",
+      "order": 286,
+      "wave": 5
+    },
+    {
+      "slug": "socrates",
+      "order": 287,
+      "wave": 5
+    },
+    {
+      "slug": "sofya-kovalevskaya",
+      "order": 288,
+      "wave": 5
+    },
+    {
+      "slug": "sol-plaatje",
+      "order": 289,
+      "wave": 5
+    },
+    {
+      "slug": "sophia-brahe",
+      "order": 290,
+      "wave": 5
+    },
+    {
+      "slug": "srinivasa-ramanujan",
+      "order": 291,
+      "wave": 5
+    },
+    {
+      "slug": "su-shi",
+      "order": 292,
+      "wave": 5
+    },
+    {
+      "slug": "sunthorn-phu",
+      "order": 293,
+      "wave": 5
+    },
+    {
+      "slug": "suriyothai",
+      "order": 294,
+      "wave": 5
+    },
+    {
+      "slug": "taytu-betul",
+      "order": 295,
+      "wave": 5
+    },
+    {
+      "slug": "toussaint-louverture",
+      "order": 296,
+      "wave": 5
+    },
+    {
+      "slug": "tupua-tamasese-lealofi-iii",
+      "order": 297,
+      "wave": 5
+    },
+    {
+      "slug": "ulugh-beg",
+      "order": 298,
+      "wave": 5
+    },
+    {
+      "slug": "umm-kulthum",
+      "order": 299,
+      "wave": 5
+    },
+    {
+      "slug": "whina-cooper",
+      "order": 300,
+      "wave": 5
+    },
+    {
+      "slug": "xu-xiake",
+      "order": 301,
+      "wave": 6
+    },
+    {
+      "slug": "xuanzang",
+      "order": 302,
+      "wave": 6
+    },
+    {
+      "slug": "yi-sun-sin",
+      "order": 303,
+      "wave": 6
+    },
+    {
+      "slug": "ynes-mexia",
+      "order": 304,
+      "wave": 6
+    },
+    {
+      "slug": "yohannes-iv",
+      "order": 305,
+      "wave": 6
+    },
+    {
+      "slug": "yosano-akiko",
+      "order": 306,
+      "wave": 6
+    },
+    {
+      "slug": "zaha-hadid",
+      "order": 307,
+      "wave": 6
+    },
+    {
+      "slug": "abraham-lincoln",
+      "order": 308,
+      "wave": 6
+    },
+    {
+      "slug": "adolphe-thiers",
+      "order": 309,
+      "wave": 6
+    },
+    {
+      "slug": "albrecht-durer",
+      "order": 310,
+      "wave": 6
+    },
+    {
+      "slug": "alexander-pope",
+      "order": 311,
+      "wave": 6
+    },
+    {
+      "slug": "alexandre-dumas",
+      "order": 312,
+      "wave": 6
+    },
+    {
+      "slug": "alfred-lord-tennyson",
+      "order": 313,
+      "wave": 6
+    },
+    {
+      "slug": "ali-pasha-of-ioannina",
+      "order": 314,
+      "wave": 6
+    },
+    {
+      "slug": "alphonse-de-lamartine",
+      "order": 315,
+      "wave": 6
+    },
+    {
+      "slug": "andre-massena",
+      "order": 316,
+      "wave": 6
+    },
+    {
+      "slug": "anthony-van-dyck",
+      "order": 317,
+      "wave": 6
+    },
+    {
+      "slug": "antoine-arnauld",
+      "order": 318,
+      "wave": 6
+    },
+    {
+      "slug": "antonio-canova",
+      "order": 319,
+      "wave": 6
+    },
+    {
+      "slug": "auguste-comte",
+      "order": 320,
+      "wave": 6
+    },
+    {
+      "slug": "augustin-pyramus-de-candolle",
+      "order": 321,
+      "wave": 6
+    },
+    {
+      "slug": "baruch-spinoza",
+      "order": 322,
+      "wave": 6
+    },
+    {
+      "slug": "blaise-pascal",
+      "order": 323,
+      "wave": 6
+    },
+    {
+      "slug": "camillo-benso-count-of-cavour",
+      "order": 324,
+      "wave": 6
+    },
+    {
+      "slug": "cardinal-mazarin",
+      "order": 325,
+      "wave": 6
+    },
+    {
+      "slug": "carl-linnaeus",
+      "order": 326,
+      "wave": 6
+    },
+    {
+      "slug": "charles-dickens",
+      "order": 327,
+      "wave": 6
+    },
+    {
+      "slug": "charles-james-fox",
+      "order": 328,
+      "wave": 6
+    },
+    {
+      "slug": "charles-sumner",
+      "order": 329,
+      "wave": 6
+    },
+    {
+      "slug": "charles-xiv-john",
+      "order": 330,
+      "wave": 6
+    },
+    {
+      "slug": "charlotte-bronte",
+      "order": 331,
+      "wave": 6
+    },
+    {
+      "slug": "claude-adrien-helvetius",
+      "order": 332,
+      "wave": 6
+    },
+    {
+      "slug": "cornelius-jansen",
+      "order": 333,
+      "wave": 6
+    },
+    {
+      "slug": "david-farragut",
+      "order": 334,
+      "wave": 6
+    },
+    {
+      "slug": "diego-velazquez",
+      "order": 335,
+      "wave": 6
+    },
+    {
+      "slug": "edmund-spenser",
+      "order": 336,
+      "wave": 6
+    },
+    {
+      "slug": "edward-jenner",
+      "order": 337,
+      "wave": 6
+    },
+    {
+      "slug": "felicite-de-lamennais",
+      "order": 338,
+      "wave": 6
+    },
+    {
+      "slug": "francesco-guicciardini",
+      "order": 339,
+      "wave": 6
+    },
+    {
+      "slug": "francis-bacon",
+      "order": 340,
+      "wave": 6
+    },
+    {
+      "slug": "francois-arago",
+      "order": 341,
+      "wave": 6
+    },
+    {
+      "slug": "francois-fenelon",
+      "order": 342,
+      "wave": 6
+    },
+    {
+      "slug": "friedrich-august-wolf",
+      "order": 343,
+      "wave": 6
+    },
+    {
+      "slug": "gebhard-leberecht-von-blucher",
+      "order": 344,
+      "wave": 6
+    },
+    {
+      "slug": "george-canning",
+      "order": 345,
+      "wave": 6
+    },
+    {
+      "slug": "george-grote",
+      "order": 346,
+      "wave": 6
+    },
+    {
+      "slug": "georges-cuvier",
+      "order": 347,
+      "wave": 6
+    },
+    {
+      "slug": "gerolamo-cardano",
+      "order": 348,
+      "wave": 6
+    },
+    {
+      "slug": "gilbert-burnet",
+      "order": 349,
+      "wave": 6
+    },
+    {
+      "slug": "gioachino-rossini",
+      "order": 350,
+      "wave": 6
+    },
+    {
+      "slug": "hans-christian-orsted",
+      "order": 351,
+      "wave": 6
+    },
+    {
+      "slug": "heinrich-heine",
+      "order": 352,
+      "wave": 6
+    },
+    {
+      "slug": "henry-fielding",
+      "order": 353,
+      "wave": 6
+    },
+    {
+      "slug": "hernan-cortes",
+      "order": 354,
+      "wave": 6
+    },
+    {
+      "slug": "jacques-benigne-bossuet",
+      "order": 355,
+      "wave": 6
+    },
+    {
+      "slug": "jacques-necker",
+      "order": 356,
+      "wave": 6
+    },
+    {
+      "slug": "jeremy-bentham",
+      "order": 357,
+      "wave": 6
+    },
+    {
+      "slug": "joachim-murat",
+      "order": 358,
+      "wave": 6
+    },
+    {
+      "slug": "johann-reuchlin",
+      "order": 359,
+      "wave": 6
+    },
+    {
+      "slug": "johann-wolfgang-von-goethe",
+      "order": 360,
+      "wave": 6
+    },
+    {
+      "slug": "john-quincy-adams",
+      "order": 361,
+      "wave": 7
+    },
+    {
+      "slug": "john-stuart-mill",
+      "order": 362,
+      "wave": 7
+    },
+    {
+      "slug": "jonathan-swift",
+      "order": 363,
+      "wave": 7
+    },
+    {
+      "slug": "joseph-addison",
+      "order": 364,
+      "wave": 7
+    },
+    {
+      "slug": "joseph-priestley",
+      "order": 365,
+      "wave": 7
+    },
+    {
+      "slug": "joshua-reynolds",
+      "order": 366,
+      "wave": 7
+    },
+    {
+      "slug": "lazare-carnot",
+      "order": 367,
+      "wave": 7
+    },
+    {
+      "slug": "leon-gambetta",
+      "order": 368,
+      "wave": 7
+    },
+    {
+      "slug": "lope-de-vega",
+      "order": 369,
+      "wave": 7
+    },
+    {
+      "slug": "louis-agassiz",
+      "order": 370,
+      "wave": 7
+    },
+    {
+      "slug": "ludovico-ariosto",
+      "order": 371,
+      "wave": 7
+    },
+    {
+      "slug": "madame-de-maintenon",
+      "order": 372,
+      "wave": 7
+    },
+    {
+      "slug": "marquis-de-condorcet",
+      "order": 373,
+      "wave": 7
+    },
+    {
+      "slug": "martin-luther",
+      "order": 374,
+      "wave": 7
+    },
+    {
+      "slug": "michael-faraday",
+      "order": 375,
+      "wave": 7
+    },
+    {
+      "slug": "miguel-de-cervantes",
+      "order": 376,
+      "wave": 7
+    },
+    {
+      "slug": "nicolas-poussin",
+      "order": 377,
+      "wave": 7
+    },
+    {
+      "slug": "oliver-cromwell",
+      "order": 378,
+      "wave": 7
+    },
+    {
+      "slug": "oliver-goldsmith",
+      "order": 379,
+      "wave": 7
+    },
+    {
+      "slug": "peter-paul-rubens",
+      "order": 380,
+      "wave": 7
+    },
+    {
+      "slug": "philip-dormer-stanhope",
+      "order": 381,
+      "wave": 7
+    },
+    {
+      "slug": "philip-sheridan",
+      "order": 382,
+      "wave": 7
+    },
+    {
+      "slug": "pierre-corneille",
+      "order": 383,
+      "wave": 7
+    },
+    {
+      "slug": "pierre-gassendi",
+      "order": 384,
+      "wave": 7
+    },
+    {
+      "slug": "pierre-simon-laplace",
+      "order": 385,
+      "wave": 7
+    },
+    {
+      "slug": "pierre-vergniaud",
+      "order": 386,
+      "wave": 7
+    },
+    {
+      "slug": "ralph-waldo-emerson",
+      "order": 387,
+      "wave": 7
+    },
+    {
+      "slug": "rene-descartes",
+      "order": 388,
+      "wave": 7
+    },
+    {
+      "slug": "richard-baxter",
+      "order": 389,
+      "wave": 7
+    },
+    {
+      "slug": "richard-bentley",
+      "order": 390,
+      "wave": 7
+    },
+    {
+      "slug": "richard-cobden",
+      "order": 391,
+      "wave": 7
+    },
+    {
+      "slug": "richard-wagner",
+      "order": 392,
+      "wave": 7
+    },
+    {
+      "slug": "robert-e-lee",
+      "order": 393,
+      "wave": 7
+    },
+    {
+      "slug": "robert-fulton",
+      "order": 394,
+      "wave": 7
+    },
+    {
+      "slug": "robert-walpole",
+      "order": 395,
+      "wave": 7
+    },
+    {
+      "slug": "samuel-clarke",
+      "order": 396,
+      "wave": 7
+    },
+    {
+      "slug": "samuel-johnson",
+      "order": 397,
+      "wave": 7
+    },
+    {
+      "slug": "samuel-taylor-coleridge",
+      "order": 398,
+      "wave": 7
+    },
+    {
+      "slug": "simon-bolivar",
+      "order": 399,
+      "wave": 7
+    },
+    {
+      "slug": "theodore-beza",
+      "order": 400,
+      "wave": 7
+    },
+    {
+      "slug": "thomas-cranmer",
+      "order": 401,
+      "wave": 7
+    },
+    {
+      "slug": "thomas-hobbes",
+      "order": 402,
+      "wave": 7
+    },
+    {
+      "slug": "thomas-wolsey",
+      "order": 403,
+      "wave": 7
+    },
+    {
+      "slug": "torquato-tasso",
+      "order": 404,
+      "wave": 7
+    },
+    {
+      "slug": "ulysses-s-grant",
+      "order": 405,
+      "wave": 7
+    },
+    {
+      "slug": "victor-cousin",
+      "order": 406,
+      "wave": 7
+    },
+    {
+      "slug": "vittorio-alfieri",
+      "order": 407,
+      "wave": 7
+    },
+    {
+      "slug": "walter-raleigh",
+      "order": 408,
+      "wave": 7
+    },
+    {
+      "slug": "warren-hastings",
+      "order": 409,
+      "wave": 7
+    },
+    {
+      "slug": "william-cobbett",
+      "order": 410,
+      "wave": 7
+    },
+    {
+      "slug": "william-cowper",
+      "order": 411,
+      "wave": 7
+    },
+    {
+      "slug": "william-ellery-channing",
+      "order": 412,
+      "wave": 7
+    },
+    {
+      "slug": "william-harvey",
+      "order": 413,
+      "wave": 7
+    },
+    {
+      "slug": "william-henry-seward",
+      "order": 414,
+      "wave": 7
+    },
+    {
+      "slug": "william-hogarth",
+      "order": 415,
+      "wave": 7
+    },
+    {
+      "slug": "william-lloyd-garrison",
+      "order": 416,
+      "wave": 7
+    },
+    {
+      "slug": "william-temple",
+      "order": 417,
+      "wave": 7
+    },
+    {
+      "slug": "xavier-bichat",
+      "order": 418,
+      "wave": 7
+    },
+    {
+      "slug": "abdul-sattar-edhi",
+      "order": 419,
+      "wave": 7
+    },
+    {
+      "slug": "ahilyabai-holkar",
+      "order": 420,
+      "wave": 7
+    },
+    {
+      "slug": "ahmad-baba-al-timbukti",
+      "order": 421,
+      "wave": 8
+    },
+    {
+      "slug": "albert-namatjira",
+      "order": 422,
+      "wave": 8
+    },
+    {
+      "slug": "alberto-santos-dumont",
+      "order": 423,
+      "wave": 8
+    },
+    {
+      "slug": "alexander-graham-bell",
+      "order": 424,
+      "wave": 8
+    },
+    {
+      "slug": "amelia-earhart",
+      "order": 425,
+      "wave": 8
+    },
+    {
+      "slug": "bartolina-sisa",
+      "order": 426,
+      "wave": 8
+    },
+    {
+      "slug": "bertha-lutz",
+      "order": 427,
+      "wave": 8
+    },
+    {
+      "slug": "cai-lun",
+      "order": 428,
+      "wave": 8
+    },
+    {
+      "slug": "chinua-achebe",
+      "order": 429,
+      "wave": 8
+    },
+    {
+      "slug": "chris-seydou",
+      "order": 430,
+      "wave": 8
+    },
+    {
+      "slug": "cleopatra-vii",
+      "order": 431,
+      "wave": 8
+    },
+    {
+      "slug": "cyrus-the-great",
+      "order": 432,
+      "wave": 8
+    },
+    {
+      "slug": "dante-alighieri",
+      "order": 433,
+      "wave": 8
+    },
+    {
+      "slug": "david-gulpilil",
+      "order": 434,
+      "wave": 8
+    },
+    {
+      "slug": "duke-kahanamoku",
+      "order": 435,
+      "wave": 8
+    },
+    {
+      "slug": "eleanor-of-aquitaine",
+      "order": 436,
+      "wave": 8
+    },
+    {
+      "slug": "emmy-noether",
+      "order": 437,
+      "wave": 8
+    },
+    {
+      "slug": "evliya-celebi",
+      "order": 438,
+      "wave": 8
+    },
+    {
+      "slug": "fridtjof-nansen",
+      "order": 439,
+      "wave": 8
+    },
+    {
+      "slug": "harriet-tubman",
+      "order": 440,
+      "wave": 8
+    },
+    {
+      "slug": "huda-shaarawi",
+      "order": 441,
+      "wave": 8
+    },
+    {
+      "slug": "ibn-al-haytham",
+      "order": 442,
+      "wave": 8
+    },
+    {
+      "slug": "jackie-robinson",
+      "order": 443,
+      "wave": 8
+    },
+    {
+      "slug": "kate-sheppard",
+      "order": 444,
+      "wave": 8
+    },
+    {
+      "slug": "kenojuak-ashevak",
+      "order": 445,
+      "wave": 8
+    },
+    {
+      "slug": "lucy-maud-montgomery",
+      "order": 446,
+      "wave": 8
+    },
+    {
+      "slug": "mahmud-al-kashgari",
+      "order": 447,
+      "wave": 8
+    },
+    {
+      "slug": "manuela-saenz",
+      "order": 448,
+      "wave": 8
+    },
+    {
+      "slug": "maria-montessori",
+      "order": 449,
+      "wave": 8
+    },
+    {
+      "slug": "maria-sibylla-merian",
+      "order": 450,
+      "wave": 8
+    },
+    {
+      "slug": "martin-luther-king-jr",
+      "order": 451,
+      "wave": 8
+    },
+    {
+      "slug": "micaela-bastidas",
+      "order": 452,
+      "wave": 8
+    },
+    {
+      "slug": "mimar-sinan",
+      "order": 453,
+      "wave": 8
+    },
+    {
+      "slug": "miriam-makeba",
+      "order": 454,
+      "wave": 8
+    },
+    {
+      "slug": "nelson-mandela",
+      "order": 455,
+      "wave": 8
+    },
+    {
+      "slug": "olaudah-equiano",
+      "order": 456,
+      "wave": 8
+    },
+    {
+      "slug": "rachel-carson",
+      "order": 457,
+      "wave": 8
+    },
+    {
+      "slug": "samuel-ajayi-crowther",
+      "order": 458,
+      "wave": 8
+    },
+    {
+      "slug": "sarah-winnemucca",
+      "order": 459,
+      "wave": 8
+    },
+    {
+      "slug": "sarojini-naidu",
+      "order": 460,
+      "wave": 8
+    },
+    {
+      "slug": "sejong-the-great",
+      "order": 461,
+      "wave": 8
+    },
+    {
+      "slug": "seneca-the-younger",
+      "order": 462,
+      "wave": 8
+    },
+    {
+      "slug": "shajar-al-durr",
+      "order": 463,
+      "wave": 8
+    },
+    {
+      "slug": "shangguan-waner",
+      "order": 464,
+      "wave": 8
+    },
+    {
+      "slug": "shin-saimdang",
+      "order": 465,
+      "wave": 8
+    },
+    {
+      "slug": "sojourner-truth",
+      "order": 466,
+      "wave": 8
+    },
+    {
+      "slug": "susan-b-anthony",
+      "order": 467,
+      "wave": 8
+    },
+    {
+      "slug": "tarsila-do-amaral",
+      "order": 468,
+      "wave": 8
+    },
+    {
+      "slug": "te-rangi-hiroa",
+      "order": 469,
+      "wave": 8
+    },
+    {
+      "slug": "viola-desmond",
+      "order": 470,
+      "wave": 8
+    },
+    {
+      "slug": "violeta-parra",
+      "order": 471,
+      "wave": 8
+    },
+    {
+      "slug": "wang-yangming",
+      "order": 472,
+      "wave": 8
+    },
+    {
+      "slug": "wangari-maathai",
+      "order": 473,
+      "wave": 8
+    },
+    {
+      "slug": "yaa-asantewaa",
+      "order": 474,
+      "wave": 8
+    },
+    {
+      "slug": "alfred-de-musset",
+      "order": 475,
+      "wave": 8
+    },
+    {
+      "slug": "auguste-de-marmont",
+      "order": 476,
+      "wave": 8
+    },
+    {
+      "slug": "francois-rene-de-chateaubriand",
+      "order": 477,
+      "wave": 8
+    },
+    {
+      "slug": "georges-danton",
+      "order": 478,
+      "wave": 8
+    },
+    {
+      "slug": "germaine-de-stael",
+      "order": 479,
+      "wave": 8
+    },
+    {
+      "slug": "jacques-auguste-de-thou",
+      "order": 480,
+      "wave": 8
+    },
+    {
+      "slug": "joseph-fouche",
+      "order": 481,
+      "wave": 9
+    },
+    {
+      "slug": "sebastien-le-prestre-de-vauban",
+      "order": 482,
+      "wave": 9
+    },
+    {
+      "slug": "thomas-jefferson",
+      "order": 483,
+      "wave": 9
+    },
+    {
+      "slug": "jose-de-san-martin",
+      "order": 484,
+      "wave": 9
+    },
+    {
+      "slug": "machado-de-assis",
+      "order": 485,
+      "wave": 9
+    },
+    {
+      "slug": "francis-drake",
+      "order": 486,
+      "wave": 9
+    },
+    {
+      "slug": "jons-jacob-berzelius",
+      "order": 487,
+      "wave": 9
+    },
+    {
+      "slug": "pedro-calderon-de-la-barca",
+      "order": 488,
+      "wave": 9
+    }
+  ],
+  "reviewedDecisionUrls": {
+    "francois-guizot": "https://www.education.gouv.fr/sites/default/files/document/T%C3%A9l%C3%A9charger%20la%20loi%20sur%20l%26%23039%3Binstruction%20primaire%20-%20Loi%20Guizot-234819.pdf",
+    "george-sand": "https://www.assemblee-nationale.fr/evenements/G-Sand/g-sand.asp",
+    "william-makepeace-thackeray": "https://www.metmuseum.org/art/collection/search/357842",
+    "nguyen-trai": "https://www.npm.edu.tw/NewChineseArtDownload.ashx?bid=4621",
+    "omar-khayyam": "https://mathshistory.st-andrews.ac.uk/Biographies/Khayyam/",
+    "isaac-newton": "https://pictures.royalsociety.org/image-rs-15003",
+    "leonardo-da-vinci": "https://searcharchives.bl.uk/catalog/040-002039546",
+    "wu-zetian": "https://zh.wikisource.org/zh-hant/%E8%88%8A%E5%94%90%E6%9B%B8_%28%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC%29/%E5%8D%B7006",
+    "li-bai": "https://afe.easia.columbia.edu/ps/china/libo_selected.pdf",
+    "marie-curie": "https://www.nobelprize.org/prizes/themes/marie-and-pierre-curie-and-the-discovery-of-polonium-and-radium/",
+    "alan-turing": "https://academic.oup.com/mind/article/LIX/236/433/986238",
+    "aristotle": "https://classics.mit.edu/Aristotle/history_anim.4.iv.html",
+    "ada-lovelace": "https://hsm.ox.ac.uk/node/2750441",
+    "zhuge-liang": "https://zh.wikisource.org/wiki/出師表",
+    "confucius": "https://www-1.gsb.columbia.edu/main_pop/ps/ps_china-confucius-teacher.htm",
+    "william-shakespeare": "https://shakespearedocumented.folger.edu/node/114/",
+    "charles-darwin": "https://darwin-online.org.uk/converted/published/1859_Origin_F373/1859_Origin_F373.html",
+    "napoleon-bonaparte": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/consulat-et-premier-empire/la-codification-juridique",
+    "wolfgang-amadeus-mozart": "https://searcharchives.bl.uk/catalog/040-001945812",
+    "ludwig-van-beethoven": "https://www.beethoven.de/de/g/schicksal",
+    "katherine-johnson": "https://science.nasa.gov/people/katherine-johnson/",
+    "benjamin-franklin": "https://www.archives.gov/founding-docs/more-perfect-union",
+    "rani-lakshmibai": "https://culture.gov.in/files/publications_documents/Martyrs_Vol_2_Part_II_06_03_2019_4.pdf#page=23",
+    "johannes-kepler": "https://mathshistory.st-andrews.ac.uk/Biographies/Kepler/quotations/",
+    "anthony-ashley-cooper-1st-earl-of-shaftesbury": "https://dev.historyofparliamentonline.org/lord-biography/cooper-anthony-ashley-1621-83",
+    "charles-guillaume-etienne": "https://comedie-francaise.bibli.fr/index.php?id=72371&lvl=notice_display",
+    "emanuel-swedenborg": "https://swedenborg.com/wp-content/uploads/2015/03/SF_Compendium_Warren.pdf",
+    "george-washington": "https://founders.archives.gov/documents/Washington/05-20-02-0108-0002",
+    "gottfried-wilhelm-leibniz": "https://www.cambridge.org/core/journals/think/article/leibniz-and-the-mechanization-of-thought/FE77EDD8FCACDB496EAD87A683690083",
+    "gotthold-ephraim-lessing": "https://mcpress.media-commons.org/hamburg/notice/",
+    "horatio-nelson-1st-viscount-nelson": "https://www.rmg.co.uk/collections/objects/rmgc-object-561942",
+    "john-churchill-1st-duke-of-marlborough": "https://www.loc.gov/exhibits/churchill/interactive/_html/wc0005.html",
+    "pietro-metastasio": "https://epistolariometastasio.unige.it/node/138",
+    "william-hamilton-philosopher": "https://plato.stanford.edu/archives/fall2007/entries/scottish-19th/",
+    "william-pitt-1st-earl-of-chatham": "https://franklinpapers.org/yale?page=039a&vol=13",
+    "al-khwarizmi": "https://mathshistory.st-andrews.ac.uk/Biographies/Al-Khwarizmi/",
+    "george-washington-carver": "https://www.nal.usda.gov/exhibits/ipd/carver/exhibits/show/bulletins/carver",
+    "hatshepsut": "https://templeofhatshepsut.uw.edu.pl/en/middle_portico_south_portico_of_punt.html",
+    "mary-wollstonecraft": "https://www.gutenberg.org/cache/epub/3420/pg3420.html",
+    "august-von-kotzebue": "https://www.e-rara.ch/zbs/content/titleinfo/31431916",
+    "carl-maria-von-weber": "https://weber-gesamtausgabe.de/de/A002068/Korrespondenz/A041350.html",
+    "christian-charles-josias-von-bunsen": "https://wellcomecollection.org/works/zw6yzcy3",
+    "georg-wilhelm-friedrich-hegel": "https://www.zvdd.de/dms/load/met/?PPN=PPN816955166",
+    "giulio-alberoni": "https://cultura.gov.it/luogo/galleria-alberoni",
+    "jean-sylvain-bailly": "https://www.chateauversailles.fr/decouvrir/histoire/grands-personnages/jean-sylvain-bailly",
+    "johann-gottlieb-fichte": "https://assets.cambridge.org/97805214/48734/excerpt/9780521448734_excerpt.pdf",
+    "john-hunter-surgeon": "https://www.bmj.com/content/bmj/1/1886/445.full.pdf",
+    "joseph-louis-gay-lussac": "https://www.columbia.edu/cu/lweb/digital/collections/cul/texts/ldpd_7245144_000/pages/ldpd_7245144_000_00000148.html",
+    "justus-von-liebig": "https://www.uni-giessen.de/en/about/portrait/historyjlu/eponym/justusliebig",
+    "robert-southey": "https://cha.artsci.tamu.edu/SoutheyLetters/HTML/Part_Four/southey.4.2138.html",
+    "wilhelm-von-humboldt": "https://plato.stanford.edu/entries/wilhelm-humboldt/",
+    "william-hickling-prescott": "https://www.gutenberg.org/cache/epub/6918/pg6918-images.html",
+    "william-pitt-the-younger": "https://www.parliament.uk/about/living-heritage/transformingsociety/private-lives/taxation/overview/incometax/",
+    "hildegard-of-bingen": "https://medieval.ucdavis.edu/OLLI/HILDEGARD/Scivias.1.3.html",
+    "jagadish-chandra-bose": "https://www.gutenberg.org/cache/epub/18986/pg18986-images.html",
+    "julius-caesar": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Caesar/Gallic_War/4%2A.html",
+    "kinich-janaab-pakal": "https://www.mesoweb.com/palenque/resources/rulers/PalenqueRulers-02.pdf",
+    "honore-de-balzac": "https://www.maisondebalzac.paris.fr/vocabulaire/furne/notices/avant_propos.htm",
+    "honore-gabriel-riqueti-comte-de-mirabeau": "https://www2.assemblee-nationale.fr/decouvrir-l-assemblee/histoire/grands-discours-parlementaires/le-roi-et-le-comte-de-mirabeau-23-juin-1789",
+    "marie-de-rabutin-chantal-marquise-de-sevigne": "https://www.gutenberg.org/cache/epub/43901/pg43901-images.html",
+    "pierre-jean-de-beranger": "https://fr.wikisource.org/wiki/%C5%92uvres_compl%C3%A8tes_de_B%C3%A9ranger/Le_Roi_d%E2%80%99Yvetot",
+    "carolina-maria-de-jesus": "https://carolinamariadejesus.ims.com.br/wp-content/uploads/2024/02/Elzira.pdf",
+    "antoine-lavoisier": "https://www.isnature.org/Files/Lavoisier1789-Traite_elementaire_de_chimie.htm",
+    "bartolome-esteban-murillo": "https://idus.us.es/server/api/core/bitstreams/5d0eb54e-0355-4de5-8ea8-eb111ebbd488/content",
+    "ben-jonson": "https://shakespearedocumented.folger.edu/resource/document/works-benjamin-jonson-shakespeare-included-two-cast-lists",
+    "benjamin-disraeli": "https://hansard.parliament.uk/commons/1871-06-29/debates/cde0555c-7dd3-4360-ba87-259afdfda530/CommonsChamber",
+    "christiaan-huygens": "https://www.dbnl.org/tekst/huyg003oeuv02_01/huyg003oeuv02_01_0150.php",
+    "christoph-willibald-gluck": "https://www.gluck-gesamtausgabe.de/gwv/werkregister/eintrag/work-62.html",
+    "edmund-burke": "https://www.gutenberg.org/files/15679/15679-h/15679-h.htm",
+    "friedrich-gottlieb-klopstock": "https://universitaetsarchivleipzig.de/friedrich-gottlieb-klopstock-intensive-leipziger-zeit-der-messias/",
+    "friedrich-wilhelm-joseph-schelling": "https://plato.stanford.edu/entries/idealism/",
+    "giuseppe-garibaldi": "https://museocivico.comune.siena.it/opere/incontro-di-teano",
+    "harriet-martineau": "https://archives.ucl.ac.uk/CalmView/Record.aspx?id=MS+OGDEN%2F101&src=CalmView.Catalog",
+    "henry-brougham-1st-baron-brougham-and-vaux": "https://archives.ucl.ac.uk/CalmView/Record.aspx?id=SDUK&src=CalmView.Catalog",
+    "hugh-miller": "https://www.gutenberg.org/cache/epub/63923/pg63923-images.html",
+    "humphry-davy": "https://www.rigb.org/explore-science/explore/collection/humphry-davys-miners-safety-lamp",
+    "james-watt": "https://blog.sciencemuseum.org.uk/james-watt-and-the-separate-condenser/",
+    "jean-racine": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_%28Racine%29%2C_Didot%2C_1854/Pr%C3%A9face",
+    "john-adams": "https://www.mass.gov/guides/john-adams-the-massachusetts-constitution",
+    "john-bunyan": "https://www.gutenberg.org/files/131/old/131-h/131-h.htm",
+    "john-locke": "https://www.gutenberg.org/cache/epub/7370/pg7370-images.html",
+    "john-wilkes": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/houseofcommons/reformacts/overview/wilkeslib1/",
+    "lord-byron": "https://manuscripts.nls.uk/repositories/2/archival_objects/67556",
+    "nicolaus-copernicus": "https://www.loc.gov/item/46031925/",
+    "philipp-melanchthon": "https://www.projectwittenberg.org/pub/resources/text/wittenberg/concord/web/augs-000.html",
+    "robert-burns": "https://www.nls.uk/collections/stories/literature-and-poetry/robert-burns-and-his-history-of-myself/",
+    "voltaire": "https://athena.unige.ch/athena/voltaire/voltaire-traite-sur-la-tolerance.html",
+    "william-tecumseh-sherman": "https://findingaids.loc.gov/repositories/19/resources/2195",
+    "william-wilberforce": "https://en.wikisource.org/wiki/The_Speech_of_William_Wilberforce%2C_Esq.%2C_Representative_for_the_County_of_York%2C_on_Wednesday_the_13th_of_May%2C_1789%2C_on_the_Question_of_the_Abolition_of_the_Slave_Trade",
+    "apolinario-mabini": "https://www.gutenberg.org/files/14660/14660-h/14660-h.htm",
+    "archimedes": "https://abel.math.harvard.edu/archive/archimedes09/pdf/Heath_Method.pdf",
+    "artemisia-gentileschi": "https://www.uffizi.it/en/artworks/judith-beheading-holofernes",
+    "c-v-raman": "https://www.nobelprize.org/uploads/2018/06/raman-lecture.pdf",
+    "di-renjie": "https://zh.wikisource.org/zh-hans/%E8%B3%87%E6%B2%BB%E9%80%9A%E9%91%92_%28%E8%83%A1%E4%B8%89%E7%9C%81%E9%9F%B3%E6%B3%A8%29/%E5%8D%B7206",
+    "don-bradman": "https://www.nma.gov.au/defining-moments/resources/bradmans-first-century",
+    "hypatia": "https://www.newadvent.org/fathers/26017.htm",
+    "ida-b-wells": "https://www.digitalhistory.uh.edu/disp_textbook.cfm?psid=3614&smtID=3",
+    "jose-rizal": "https://www.philippinefolklifemuseum.org/exhibitions/jose-rizal/",
+    "sacagawea": "https://lewisandclarkjournals.unl.edu/item/lc.jrn.1805-05-16",
+    "sechele-i": "https://onemorevoice.org/html/transcriptions/liv_020019_TEI.html",
+    "zheng-he": "https://maritimemuseum.sjtu.edu.cn/info/1161/5931.htm",
+    "albrecht-von-haller": "https://www.e-rara.ch/download/pdf/7023169.pdf",
+    "alexander-von-humboldt": "https://haab.klassik-stiftung.de/highlights/details/eine-pionierleistung-der-wissenschaftlichen-illustration",
+    "andrew-jackson": "https://www.archives.gov/legislative/resources/education/veto",
+    "anne-robert-jacques-turgot": "https://cdn.mises.org/The%20Turgot%20Collection%20Writings%2C%20Speeches%2C%20and%20Letters%20of%20Anne%20Robert%20Jacques%20Turgot%2C%20Baron%20de%20Laune_2.pdf",
+    "barthold-georg-niebuhr": "https://www.gutenberg.org/cache/epub/71375/pg71375-images.html",
+    "charles-augustin-sainte-beuve": "https://fr.wikisource.org/wiki/Causeries_du_lundi/Tome_I/Note_pr%C3%A9liminaire",
+    "christoph-martin-wieland": "https://wielandforschung.de/band-5-1/",
+    "daniel-oconnell": "https://catalogue.nli.ie/Record/vtls000534249",
+    "daniel-webster": "https://www.senate.gov/artandhistory/history/common/generic/Speeches_Webster_7March.htm",
+    "david-friedrich-strauss": "https://www.gutenberg.org/files/64037/64037-h/64037-h.htm",
+    "denis-diderot": "https://encyclopedie.uchicago.edu/general-chronology-and-publication-dates/general-chronology",
+    "edward-bulwer-lytton": "https://www.victorianweb.org/authors/bulwer/pompeii/1834.html",
+    "edward-gibbon": "https://www.gutenberg.org/files/6031/6031-h/6031-h.htm",
+    "friedrich-schiller": "https://www.friedrich-schiller-archiv.de/briefwechsel-von-schiller-und-goethe/1794/1-an-goethe-13-juni-1794/",
+    "friedrich-schleiermacher": "https://plato.stanford.edu/entries/schleiermacher/",
+    "galileo-galilei": "https://sidereusnuncius.org/",
+    "george-berkeley": "https://celt.ucc.ie/published/E710001-002/text002.html",
+    "george-frideric-handel": "https://foundlingmuseum.org.uk/our-art-and-objects/gerald-coke-handel-collection/",
+    "giovanni-pierluigi-da-palestrina": "https://www.loc.gov/static/programs/national-recording-preservation-board/documents/Palestrina_Di-Grazia-and-Owens.pdf",
+    "giuseppe-mazzini": "https://www.archiginnasio.it/lang/it/objects/media-la-giovine-italia-1831",
+    "hans-christian-andersen": "https://www.kb.dk/en/inspiration/hans-christian-andersens-manuscripts-and-letters/life-hans-christian-andersen",
+    "herman-boerhaave": "https://collection.sciencemuseumgroup.org.uk/people/cp82586/herman-boerhaave",
+    "huldrych-zwingli": "https://digital.pitts.emory.edu/s/digital-collections/item/14023",
+    "immanuel-kant": "https://www.cambridge.org/core/books/abs/critique-of-pure-reason/preface-to-the-second-edition/2F2AD8B4F32997CFE9C617BE7C763363",
+    "james-madison": "https://www.loc.gov/exhibits/madison/objects.html",
+    "jean-jacques-rousseau": "https://www.gutenberg.org/cache/epub/3901/pg3901-images.html",
+    "jean-paul-marat": "https://artfl-project.uchicago.edu/lami-du-peuple",
+    "johann-gottfried-herder": "https://www.marxists.org/archive/herder/1772/origins-language.htm",
+    "johann-sebastian-bach": "https://blogs.loc.gov/music/2014/02/pondering-bachs-brandenburg-concertos/",
+    "john-franklin": "https://www.biographi.ca/en/bio/3394?revision_id=29144",
+    "john-henry-newman": "https://www.gutenberg.org/files/22088/old/22088-h/22088-h.htm",
+    "joseph-justus-scaliger": "https://warburg.sas.ac.uk/research-fellowships/research-projects/archived-research-projects/joseph-justus-scaliger/scaligers-works",
+    "joseph-louis-lagrange": "https://digitalcollections.hkust.edu.hk/Detail/objects/b523122",
+    "ludvig-holberg": "https://soa.ub.gu.se/en/special-collections/holberg-collection",
+    "maximilien-robespierre": "https://www.persee.fr/doc/arcpa_0000-0000_1982_num_93_1_24429_t1_0530_0000_17",
+    "michel-de-montaigne": "https://montaigne.univ-tours.fr/essais-1588-exemplaire-bordeaux/",
+    "thomas-carlyle": "https://www.neh.gov/humanities/2009/marchapril/feature/the-voracious-pen-thomas-carlyle",
+    "thomas-chalmers": "https://www.cambridge.org/core/books/christian-and-civic-economy-of-large-towns/8A550A150F625BD818DD74DFBA5C0E4F",
+    "william-herschel": "https://mathshistory.st-andrews.ac.uk/Extras/Herschel_William_papers/",
+    "amrita-sher-gil": "https://artsandculture.google.com/asset/group-of-three-girls/wwH6P_d83npQIg",
+    "bessie-coleman": "https://airandspace.si.edu/stories/editorial/celebrating-centennial-bessie-coleman",
+    "charlotte-maxeke": "https://www.gov.za/speeches/speech-minister-international-relations-and-cooperation-ms-maite-nkoana-mashabane-occasion",
+    "cheikh-anta-diop": "https://ifan.ucad.sn/carbone-14/",
+    "gabriel-garcia-marquez": "https://www.nobelprize.org/prizes/literature/1982/marquez/lecture/",
+    "gabriela-mistral": "https://www.memoriachilena.gob.cl/archivos2/pdfs/MC0003267.pdf",
+    "heo-jun": "https://www.skom.or.kr/eng/04/04_02.php",
+    "ho-xuan-huong": "https://www.nomfoundation.org/nom-project/Ho-Xuan-Huong/Ho-Xuan-Huong-of-poems/8-The%20Floating%20Cake?uiLang=en",
+    "miyamoto-musashi": "https://miyamoto-musashi.org/en/genten/gorin/chi/",
+    "murasaki-shikibu": "https://libmma.contentdm.oclc.org/digital/api/collection/p16028coll12/id/18575/download",
+    "qiu-jin": "https://study.bjwomen.gov.cn/thought/knowledge/2022-08-31/4864.shtml",
+    "savitribai-phule": "https://www.ncert.nic.in/dgs/pdf/KGBV-HistoryENGLISH.pdf",
+    "song-yingxing": "https://www.chnmuseum.cn/zp/zpml/gjwxbt/202203/t20220301_254061.shtml",
+    "georges-louis-leclerc-comte-de-buffon": "https://www.musee-parc-buffon.fr/histoire-naturelle/",
+    "henri-de-saint-simon": "https://fr.wikisource.org/wiki/L%E2%80%99Organisateur",
+    "jean-de-dieu-soult": "https://www.napoleon.org/en/history-of-the-two-empires/biographies/soult-nicolas-jean-de-dieu",
+    "jean-le-rond-d-alembert": "https://encyclopedie.uchicago.edu/front-matter/Discours%20Pr%C3%A9liminaire",
+    "jean-victor-moreau": "https://www.napoleon.org/en/history-of-the-two-empires/biographies/moreau-jean-victor",
+    "laurent-de-gouvion-saint-cyr": "https://www.senat.fr/pair-de-france/gouvion_saint_cyr_laurentpf0055.html",
+    "michel-de-lhopital": "https://musees.ville-poissy.fr/files/ddp-colloquedepoissy-basde-f_b38a77057d1e6a25f19ab6cdbfdd0e38.pdf",
+    "muhammad-ali-of-egypt": "https://www.tandfonline.com/doi/full/10.1080/23311983.2023.2188778",
+    "clorinda-matto-de-turner": "https://es.wikisource.org/wiki/Aves_sin_nido%3A_Proemio",
+    "giacomo-leopardi": "https://www.treccani.it/enciclopedia/giacomo-leopardi_%28Dizionario-Biografico%29/",
+    "jean-de-la-fontaine": "https://catalogue.bnf.fr/ark%3A/12148/cb120083695",
+    "sor-juana-ines-de-la-cruz": "https://ccat.sas.upenn.edu/romance/spanish/219/07colonial/sorjuanarespuesta.html",
+    "adam-smith": "https://www.gutenberg.org/cache/epub/38194/pg38194-images.html",
+    "albrecht-von-wallenstein": "https://www.jicin.org/en/jesuit-college",
+    "alexander-hamilton": "https://guides.loc.gov/federalist-papers/full-text",
+    "andre-dupin": "https://www.senat.fr/senateur-2nd-empire/dupin_andre_marie_jean_jacques0216e2.html",
+    "benjamin-constant": "https://fr.wikisource.org/wiki/%C5%92uvres_politiques_%28Constant%29/De_la_libert%C3%A9_des_Anciens_compar%C3%A9e_%C3%A0_celle_des_Modernes",
+    "cardinal-richelieu": "https://www.academie-francaise.fr/linstitution-lhistoire/les-grandes-dates",
+    "daniel-defoe": "https://en.wikisource.org/wiki/Dictionary_of_National_Biography%2C_1885-1900/Defoe%2C_Daniel",
+    "david-hume": "https://davidhume.org/texts/etss/ad1777",
+    "david-livingstone": "https://www.gutenberg.org/cache/epub/1039/pg1039-images.html",
+    "elizabeth-gaskell": "https://www.digitalcollections.manchester.ac.uk/view/MS-ENGLISH-00729-00022",
+    "erasmus": "https://clarklibrary.ucla.edu/collections/tudor/chrzanowski/title-list/1516b/",
+    "ernest-renan": "https://mjp.univ-perp.fr/textes/renan1882.htm",
+    "felix-mendelssohn": "https://www.loc.gov/collections/felix-mendelssohn/articles-and-essays/felix-mendelssohn-reviving-the-works-of-bach/",
+    "francis-atterbury": "https://collections.westminster.org.uk/index.php/gb-2014-ws-01-bus-nn-1-50",
+    "george-eliot": "https://www.ucpress.edu/flyer/books/quarry-for-middlemarch/paper",
+    "george-fox": "https://www.gutenberg.org/cache/epub/75590/pg75590-images.html",
+    "george-monck": "https://www.nam.ac.uk/explore/restoration-and-birth-british-army",
+    "george-villiers-4th-earl-of-clarendon": "https://www.thegazette.co.uk/all-notices/content/103526",
+    "girolamo-savonarola": "https://libsysdigi.library.illinois.edu/oca/Books2008-02/incunabulainuniv00univ/incunabulainuniv00univ.pdf",
+    "henry-wadsworth-longfellow": "https://www.nps.gov/long/learn/news/upload/LHB-6-2-2002.pdf",
+    "hugo-grotius": "https://digitallibrary.un.org/record/697830/files/A_CN.4_17-EN.pdf",
+    "jacob-grimm": "https://www.grimmwelt.de/de/journal/wer-die-maerchen-erzaehlte",
+    "james-cook": "https://www.nma.gov.au/exhibitions/endeavour-voyage/cooks-journal/august-1770",
+    "johann-joachim-winckelmann": "https://winckelmann.gbv.de/datieren-winckelmanns-stilepochen/",
+    "john-bright": "https://api.parliament.uk/historic-hansard/commons/1845/jun/10/repeal-of-the-corn-laws",
+    "john-calvin": "https://calvin.edu/sites/default/files/migrated/centers-institutes-meeter-center-files-john-calvins-works-in-english-Institutes-20Vol.-1.pdf",
+    "john-dryden": "https://collections.soane.org/b7271",
+    "john-law": "https://heritage.bnf.fr/france-ameriques/john-law-0",
+    "john-milton": "https://bridwell.omeka.net/exhibits/show/heresyerror/earlycensorshipengland/miltonareopagitica",
+    "john-napier": "https://www.cambridge.org/core/journals/mathematical-gazette/article/abs/methods-of-construction-of-the-earliest-tables-of-logarithms/301B5778A1289F8D49699303186A4E64",
+    "john-wesley": "https://www.newroombristol.org.uk/room-3-building-a-new-room-2/",
+    "joseph-haydn": "https://www.haydngeburtshaus.at/biographien/joseph-haydn",
+    "lancelot-andrewes": "https://wwwe.lib.cam.ac.uk/CUL/exhibitions/KJV/captions.html",
+    "ludwig-tieck": "https://www.deutsche-biographie.de/pnd12989432X.html",
+    "michel-ney": "https://www.napoleon.org/en/history-of-the-two-empires/biographies/ney-michel",
+    "michelangelo": "https://www.metmuseum.org/art/collection/search/337497",
+    "moliere": "https://data.bnf.fr/ark%3A/12148/cb11939541m",
+    "montesquieu": "https://plato.stanford.edu/entries/montesquieu/",
+    "nathaniel-hawthorne": "https://www.gutenberg.org/files/25344/25344-h/25344-h.htm",
+    "nicolas-malebranche": "https://plato.stanford.edu/archives/spr2020/entries/malebranche/",
+    "pierre-bayle": "https://plato.stanford.edu/archives/sum2026/entries/bayle/",
+    "pierre-beaumarchais": "https://www.bnf.fr/fr/les-mille-visages-de-beaumarchais",
+    "pietro-sarpi": "https://bibliotecanazionalemarciana.cultura.gov.it/wp-content/uploads/2026/04/English-summary.pdf",
+    "raphael": "https://www.ambrosiana.it/en/discover/masterpieces/school-of-athens/",
+    "rembrandt": "https://www.rijksmuseum.nl/en/collection/object/The-Night-Watch-Militia-Company-of-District-II-under-the-Command-of-Captain-Frans-Banninck-Cocq--3137deb45cd7765f9a76084a16c99544?tab=data",
+    "richard-brinsley-sheridan": "https://mirrors.xmission.com/gutenberg/1/9/2/1929/1929-h/1929-h.htm",
+    "robert-blake": "https://www.rmg.co.uk/collections/objects/rmgc-object-42139",
+    "robert-boyle": "https://content.www.wellcomecollection.org/works/axzp9jds",
+    "robert-clive": "https://searcharchives.bl.uk/catalog/040-000800857",
+    "robert-peel": "https://hansard.parliament.uk/Commons/1846-01-27/debates/099659f7-6ae2-43d3-aa81-6bd17ad2076b/CommonsChamber",
+    "thomas-babington-macaulay": "https://www.gutenberg.org/cache/epub/1468/pg1468-images.html",
+    "thomas-chatterton": "https://exhibits.library.jhu.edu/exhibits/show/fakes-lies-and-forgeries/fakes-best-sellers/chatterton",
+    "thomas-moore": "https://www.tcd.ie/library/exhibitions/in-tune/irish_folk_music.php",
+    "thomas-more": "https://mirrors.xmission.com/gutenberg/2/1/3/2130/2130-h/2130-h.htm",
+    "tommaso-campanella": "https://www.files.ethz.ch/isn/125498/5032_Campanella.pdf",
+    "victor-hugo": "https://catalogue.bnf.fr/ark:/12148/cb13516296h",
+    "walter-scott": "https://www.nls.uk/collections/stories/literature-and-poetry/sir-walter-scott-and-his-historical-influences/",
+    "washington-irving": "https://www.gardnermuseum.org/experience/collection/28622",
+    "william-penn": "https://avalon.law.yale.edu/18th_century/pa07.asp",
+    "william-robertson": "https://upload.wikimedia.org/wikipedia/commons/e/eb/The_history_of_America_%28IA_historyofamerica01robe%29.pdf",
+    "william-warburton": "https://wellcomecollection.org/works/h3sbns8j",
+    "william-wordsworth": "https://anthology.lib.virginia.edu/work/Wordsworth/wordsworth-preface",
+    "akbar": "https://searcharchives.bl.uk/catalog/032-003271913",
+    "al-biruni": "https://press.uchicago.edu/books/hoc/HOC_V2_B1/HOC_VOLUME2_Book1_chapter8.pdf",
+    "anacaona": "https://mirrors.xmission.com/gutenberg/5/3/1/7/53171/53171-0.txt",
+    "anawrahta": "https://ignca.gov.in/Asi_data/9481.pdf",
+    "aryabhata": "https://archive.org/details/The_Aryabhatiya_of_Aryabhata_Clark_1930",
+    "ashoka": "https://en.wikisource.org/wiki/Page%3AAsoka_-_the_Buddhist_Emperor_of_India.djvu/187",
+    "avicenna": "https://www.nlm.nih.gov/hmd/arabic/E8.html",
+    "ban-zhao": "https://pinguji.cn/bookContent/04bc0fbccfbe49aebc90198b44182895_99c34027988842dc893713ff9cf8223d.html",
+    "begum-rokeya": "https://scalar.lehigh.edu/literature-of-colonial-south-asia/rokeya-sakahawat-hossain-sultanas-dream-1905-full-text",
+    "celia-cruz": "https://music.si.edu/video/who-was-celia-cruz",
+    "charlemagne": "https://www.rm.unina.it/didattica/fonti/frova/sez1/par2_stampa.htm",
+    "du-fu": "https://zh.wikisource.org/zh/%E8%8C%85%E5%B1%8B%E7%82%BA%E7%A7%8B%E9%A2%A8%E6%89%80%E7%A0%B4%E6%AD%8C",
+    "edith-cowan": "https://banknotes.rba.gov.au/australias-banknotes/people-on-the-banknotes/edith-cowan/",
+    "elizabeth-i": "https://www.nationalarchives.gov.uk/education/teaching-resources/elizabeth-i-monarchy-part-two/",
+    "emily-carr": "https://artbooks.artcanada.com/emily-carr/key-works/church-in-yuquot-village",
+    "epeli-hauofa": "https://mcstrmi.org/wp-content/uploads/2024/09/Hauofa-E-1993-our-sea-of-islands.pdf",
+    "ernest-rutherford": "https://history.aip.org/exhibits/rutherford/sections/alpha-particles-atom.html",
+    "ferdowsi": "https://www.loc.gov/exhibits/thousand-years-of-the-persian-book/epic-of-shahnameh.html",
+    "florence-nightingale": "https://www.ncbi.nlm.nih.gov/nlmcatalog/101598842",
+    "frederick-douglass": "https://www.gutenberg.org/ebooks/23",
+    "genghis-khan": "https://peachv.org/images/Steppe/MongoSecretHistoryRachewitz.pdf",
+    "grace-hopper": "https://president.yale.edu/biography-grace-murray-hopper",
+    "helen-keller": "https://en.wikisource.org/wiki/Page%3AHelen_Keller_-_The_Story_of_My_Life.pdf/389",
+    "hokusai": "https://collections.lacma.org/object/88781",
+    "ibn-battuta": "https://www.loc.gov/item/2021666192/",
+    "ibn-khaldun": "https://centerforneweconomics.org/publications/excerpt-from-the-muqaddimah/",
+    "jane-austen": "https://gutenberg.net.au/ebooks/m00008.html",
+    "joan-of-arc": "https://www.history.ucsb.edu/wp-content/uploads/Trial-of-Joan-of-Arc.pdf",
+    "juan-rulfo": "https://e1.portalacademico.cch.unam.mx/alumno/tlriid4/unidad1/circuloLectores/cuentoLatinoamericano",
+    "kabir": "https://www.srigranth.org/servlet/gurbani.gurbani?Action=Page&Param=484&id=21889&punjabi=t",
+    "kartini": "https://media.unesco.org/sites/default/files/webform/mow001/kartini-nomination-form-def.pdf",
+    "khama-iii": "https://new.calderdale.gov.uk/leisure/local-history/glimpse-past/people/bechuanaland-chiefs",
+    "kimpa-vita": "https://academic.oup.com/edited-volume/61663/chapter-abstract/553362902",
+    "li-qingzhao": "https://ocw.aca.ntu.edu.tw/uploads/course_item_file/file/606/104S208_AA06L01.pdf",
+    "li-shizhen": "https://www.chnmuseum.cn/zp/zpml/gjwxbt/202203/t20220301_254064.shtml",
+    "liliuokalani": "https://digitalarchives.hawaii.gov/item/ark%3A70111/1FPx",
+    "lin-huiyin": "https://xsg.tsinghua.edu.cn/info/1003/2895.htm",
+    "lise-meitner": "https://www.nature.com/articles/143239a0",
+    "lozen": "https://archives.sharlothallmuseum.org/articles/days-past-articles/1/nevertheless-she-persisted-lozen-the-woman-warrior",
+    "mansa-musa": "https://www.digitalhistory.uh.edu/active_learning/explorations/1492/mansa_musa_visit.cfm",
+    "mariama-ba": "https://library.au.int/so-long-letter-4",
+    "mary-anning": "https://www.geolsoc.org.uk/the-library/online-exhibitions/mary-anning-and-the-geological-society/reconstruction-of-life/reconstructing-a-new-animal/",
+    "mary-shelley": "https://www.gutenberg.org/files/42324/42324-h/42324-h.htm",
+    "nana-asmau": "https://open.bu.edu/server/api/core/bitstreams/088ab0bc-d825-4990-8ce6-1f5142dfb871/content",
+    "nezahualcoyotl": "https://www.famsi.org/research/curl/bibliography1.html",
+    "pachacuti": "https://read.upcolorado.com/read/d0ed6e41-13e1-48ab-8647-13eb36ce32d7/section/f1b00e58-d5ff-4223-9b1b-1444bfd9c887",
+    "qin-liangyu": "https://zh.wikisource.org/wiki/明史/卷270#秦良玉",
+    "queen-nzinga": "https://zenodo.org/records/4302323/files/Constructing_Angolas_History_Through_Pic.pdf",
+    "rabindranath-tagore": "https://whc.unesco.org/en/list/1375",
+    "razia-sultan": "https://artsandculture.google.com/asset/razia-sultan-silver-tanka-razia-sultan/bQEWXgHZsJcJFA?hl=en",
+    "rosa-parks": "https://www.archives.gov/education/lessons/rosa-parks",
+    "rosalind-franklin": "https://digital.sciencehistory.org/works/mjir8wn/viewer/z61b0g6",
+    "rumi": "https://www.masnavi.net/3/50/eng/3/1259/",
+    "saladin": "https://www.routledge.com/The-Chronicle-of-Ibn-al-Athir-for-the-Crusading-Period/Richards/p/book/9780754640783",
+    "sappho": "https://chs.harvard.edu/curated-article/gregory-nagy-the-new-sappho-reconsidered-in-the-light-of-the-athenian-reception-of-sappho/",
+    "sei-shonagon": "https://www.gutenberg.org/cache/epub/76016/pg76016-images.html",
+    "shaka": "https://emandulo.apc.uct.ac.za/collection/kwaBulawayo/Additional_materials/whitelaw_gavin_1993_an_assessment_of_the_royal_shakan_period_sites.pdf",
+    "shen-kuo": "https://zh.wikisource.org/wiki/夢溪筆談_(四部叢刊本)/卷二十四",
+    "sima-qian": "https://afe.easia.columbia.edu/main_pop/ps/ps_china-sima-qian-letter.htm",
+    "socrates": "https://www.gutenberg.org/files/13726/13726-h/13726-h.htm",
+    "sofya-kovalevskaya": "https://henripoincarepapers.univ-nantes.fr/chp/text/mittag-leffler106.html",
+    "sol-plaatje": "https://www.gutenberg.org/cache/epub/1452/pg1452.html",
+    "sophia-brahe": "https://www.kb.dk/e-mat/dod/130021924882-bw.pdf",
+    "srinivasa-ramanujan": "https://mathshistory.st-andrews.ac.uk/Biographies/Ramanujan/",
+    "su-shi": "https://tcmb.culture.tw/zh-tw/detail?id=20120326000059&indexCode=BOCH_CountryCulture_61",
+    "sunthorn-phu": "https://www.orst.go.th/FILEROOM/CABROYINWEB/DRAWER004/GENERAL/DATA0000/00000578.PDF",
+    "suriyothai": "https://seaarts.sac.or.th/artwork/32?lang=en",
+    "taytu-betul": "https://blogs.loc.gov/international-collections/2022/03/taytu-betul-the-cunning-empress-of-ethiopia/",
+    "toussaint-louverture": "https://mjp.univ-perp.fr/constit/ht1801.htm",
+    "tupua-tamasese-lealofi-iii": "https://collections.tepapa.govt.nz/topic/3138",
+    "ulugh-beg": "https://doi.org/10.1051/0004-6361/201219596",
+    "umm-kulthum": "https://www.semschc.org/conferences/pdf/SEMSCHC09%20abstracts.pdf",
+    "whina-cooper": "https://www.tepapa.govt.nz/digital-museum/maori-land-march-1975",
+    "xu-xiake": "https://zh.wikisource.org/wiki/徐霞客遊記/遊天台山日記",
+    "xuanzang": "https://iep.utm.edu/xuanzang/",
+    "yi-sun-sin": "https://www.unesco.org/en/memory-world/nanjung-ilgi-war-diary-admiral-yi-sun-sin",
+    "ynes-mexia": "https://researcharchive.calacademy.org/research/library/special/findaids/Mexia.html",
+    "yohannes-iv": "https://portal.research.lu.se/en/publications/colonial-powers-and-ethiopian-frontiers-1880-1884/",
+    "yosano-akiko": "https://www.aozora.gr.jp/cards/000885/files/2557_15784.html",
+    "zaha-hadid": "https://zhfoundation.com/collections/vitra-fire-station/",
+    "abraham-lincoln": "https://www.loc.gov/exhibits/civil-war-in-america/december-1862-october-1863.html?loclr=ealn",
+    "adolphe-thiers": "https://agorha.inha.fr/ark%3A/54721/dc0102a0-f939-4921-9b5c-d8eeb35358fa",
+    "albrecht-durer": "https://www.metmuseum.org/art/collection/search/349058",
+    "alexander-pope": "https://catalog.etoncollege.com/B49659",
+    "alexandre-dumas": "https://catalogue.bnf.fr/ark%3A/12148/cb41889447k",
+    "alfred-lord-tennyson": "https://victorianfboos.studio.uiowa.edu/alfred-tennyson-memoriam",
+    "ali-pasha-of-ioannina": "https://castleroute.culture.gov.gr/en/ioannina/",
+    "alphonse-de-lamartine": "https://classes.bnf.fr/pdf/Revol5_DrapeauR.pdf",
+    "andre-massena": "https://www.napoleon.org/en/history-of-the-two-empires/biographies/massena-andre",
+    "anthony-van-dyck": "https://www.metmuseum.org/art/collection/search/337062",
+    "antoine-arnauld": "https://research.kent.ac.uk/reasoning/wp-content/uploads/sites/1804/2019/06/TheReasoner-41.pdf",
+    "antonio-canova": "https://www.museocanova.it/en/collection/sculptures/perseo/",
+    "auguste-comte": "https://agso.uni-graz.at/archive/lexikon/klassiker/comte/08bib.htm",
+    "augustin-pyramus-de-candolle": "https://www.biodiversitylibrary.org/bibliography/39705",
+    "baruch-spinoza": "https://www.artscouncil.org.uk/sites/default/files/download-file/Cultural_Gifts_Scheme_and_Acceptance_in_Lieu_report_200910.pdf",
+    "blaise-pascal": "https://www.bnf.fr/sites/default/files/2019-02/dp_pascal.pdf",
+    "camillo-benso-count-of-cavour": "https://documenti.camera.it/leg18/dossier/Testi/DDS18006_1.htm",
+    "cardinal-mazarin": "https://www.institutdefrance.fr/lepatrimoine/bibliotheque-mazarine/",
+    "carl-linnaeus": "https://www.ipni.org/p/1071-2",
+    "charles-dickens": "https://dickens.ucsc.edu/education/a-little-book-about-a-christmas-carol/the-illustrations/",
+    "charles-james-fox": "https://wellcomecollection.org/works/n2343vmj",
+    "charles-sumner": "https://www.loc.gov/item/11012742/",
+    "charles-xiv-john": "https://www.kungahuset.se/english/royal-house/the-bernadotte-dynasty/karl-xiv-johan",
+    "charlotte-bronte": "https://www.themorgan.org/printed-books/72468",
+    "claude-adrien-helvetius": "https://classiques.uqam.ca/classiques/helvetius_claude_adrien/de_l_esprit/de_l_esprit_sommaire_etendu.html",
+    "cornelius-jansen": "https://expo.bib.kuleuven.be/exhibits/show/old-university-of-leuven/faculties/faculty-of-theology",
+    "david-farragut": "https://www.history.navy.mil/content/history/nhhc/browse-by-topic/people/historical-figures/david-glasgow-farragut.html",
+    "diego-velazquez": "https://museupicassobcn.cat/en/whats-on/discover-online/inhabitants-museum-las-meninas",
+    "edmund-spenser": "https://en.wikisource.org/wiki/The_Faerie_Queene_%281590/1596%29/Books_1_to_3_%281590%29",
+    "edward-jenner": "https://wellcomecollection.org/works/krgb7nyy",
+    "felicite-de-lamennais": "https://assets.cambridge.org/97805210/83515/excerpt/9780521083515_excerpt.pdf",
+    "francesco-guicciardini": "https://www.jstor.org/stable/j.ctv10h9dbs",
+    "francis-bacon": "https://iiif.library.cmu.edu/file/Posner_Files_501_B12I_1620/Posner_Files_501_B12I_1620.pdf",
+    "francois-arago": "https://www.culture.gouv.fr/actualites/pour-ses-200-ans-la-photographie-voit-en-grand",
+    "francois-fenelon": "https://academic.oup.com/book/32107/chapter-abstract/268035244",
+    "friedrich-august-wolf": "https://www.cambridge.org/core/books/prolegomena-ad-homerum/49A3FD7FF72501574D7DB09942941FC4",
+    "gebhard-leberecht-von-blucher": "https://www.bl.uk/stories/blogs/posts/waterloos-prussian-hero-bluecher-and-the-british",
+    "george-canning": "https://api.parliament.uk/historic-hansard/commons/1826/dec/12/address-on-the-kings-message-respecting",
+    "george-grote": "https://www.research.unipd.it/bitstream/11577/3512779/1/Frizzera%2C%20George%20Grote_s%20First%20Writings%20on%20Greek%20History.pdf",
+    "georges-cuvier": "https://blog.biodiversitylibrary.org/2015/10/proving-extinction-cuvier-and-the-elephantimorpha",
+    "gerolamo-cardano": "https://mathshistory.st-andrews.ac.uk/Biographies/Cardan/",
+    "gilbert-burnet": "https://archive.org/details/historyofreforma04burniala",
+    "gioachino-rossini": "https://www.rossinioperafestival.it/en/stories/guillaume-tell/",
+    "hans-christian-orsted": "https://www.aps.org/apsnews/2008/07/1820-oersted-electromagnetism",
+    "heinrich-heine": "https://clarin.bbaw.de/de/objects/dta%3A431/",
+    "henry-fielding": "https://www.gutenberg.org/cache/epub/6593/pg6593-images.html",
+    "hernan-cortes": "https://en.wikisource.org/wiki/Letters_of_Cortes_to_Emperor_Charles_V_-_Vol_1/Second_Letter%2C_October_30%2C_1520",
+    "jacques-benigne-bossuet": "https://catalogue.bnf.fr/ark%3A/12148/cb30135211k",
+    "jacques-necker": "https://www.e-rara.ch/zut/content/structure/2925863",
+    "jeremy-bentham": "https://www.ucl.ac.uk/news/2021/feb/benthams-wills-reveal-lifelong-plans-auto-icon",
+    "joachim-murat": "https://www.napoleon.org/wp-content/themes/napoleon/annexes/hors-serie/premiere-campagne-italie/fr/lesacteurs/leshommes/hommes18.html",
+    "johann-reuchlin": "https://ul.qucosa.de/api/qucosa%3A84546/attachment/ATT-0/",
+    "johann-wolfgang-von-goethe": "https://www.gutenberg.org/files/50572/50572-h/50572-h.htm",
+    "john-quincy-adams": "https://home.nps.gov/people/john-quincy-adams-and-the-amistad-event.htm",
+    "john-stuart-mill": "https://assets.cambridge.org/97810091/56837/excerpt/9781009156837_excerpt.pdf",
+    "jonathan-swift": "https://www.gutenberg.org/files/829/829-h/829-h.htm",
+    "joseph-addison": "https://anthology.lib.virginia.edu/work/Spectator/addison-spectator-10.pdf",
+    "joseph-priestley": "https://www.sciencehistory.org/education/scientific-biographies/joseph-priestley/",
+    "joshua-reynolds": "https://www.npg.org.uk/collections/search/person/mp03755/sir-joshua-reynolds",
+    "lazare-carnot": "https://www.polytechnique.edu/bibliotheque/evenements/exposition-le-grand-carnot",
+    "leon-gambetta": "https://musees-occitanie.fr/oeuvre/paris-pendant-le-siege-depart-de-m-gambetta/",
+    "lope-de-vega": "https://www.cervantesvirtual.com/obra-visor/arte-nuevo-de-hacer-comedias-en-este-tiempo--0/html/ffb1e6c0-82b1-11df-acc7-002185ce6064_4.html",
+    "louis-agassiz": "https://legacyofslaveryreport.harvard.edu/report/legacies-of-slavery-in-scholarship-race-science",
+    "ludovico-ariosto": "https://languagecollections-blog.lib.cam.ac.uk/2016/11/07/the-fortunes-of-the-orlando-furioso-1516-2016/",
+    "madame-de-maintenon": "https://bibliographienumeriquedhistoiredudroit-ifg.univ-lorraine.fr/s/bibliography-of-legal-history/item/18847",
+    "marquis-de-condorcet": "https://www2.assemblee-nationale.fr/decouvrir-l-assemblee/histoire/grands-discours-parlementaires/condorcet-20-et-21-avril-1792",
+    "martin-luther": "https://gruber.lstc.edu/luthers_bible/1522.php",
+    "michael-faraday": "https://www.rigb.org/explore-science/explore/blog/200-years-christmas-lectures",
+    "miguel-de-cervantes": "https://cvc.cervantes.es/literatura/clasicos/quijote/edicion/parte2/cap59/cap59_03.htm",
+    "nicolas-poussin": "https://www.metmuseum.org/art/collection/search/437329?od=on",
+    "oliver-cromwell": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/parliamentaryauthority/civilwar/overview/protectorate-parliaments/",
+    "oliver-goldsmith": "https://rpo.library.utoronto.ca/content/deserted-village-poem",
+    "peter-paul-rubens": "https://www.nationalgallery.org.uk/paintings/peter-paul-rubens-minerva-protects-pax-from-mars-peace-and-war",
+    "philip-dormer-stanhope": "https://archives.iu.edu/catalog/InU-Li-VAD6194",
+    "philip-sheridan": "https://www.gutenberg.org/cache/epub/2651/pg2651.html",
+    "pierre-corneille": "https://bibliotheque.ensfea.fr/index.php?id=35743&lvl=notice_display",
+    "pierre-gassendi": "https://plato.stanford.edu/entries/gassendi/",
+    "pierre-simon-laplace": "https://www.e-rara.ch/zut/content/pagetext/1090841",
+    "pierre-vergniaud": "https://gallica.bnf.fr/ark:/12148/bpt6k49562w",
+    "ralph-waldo-emerson": "https://guides.library.harvard.edu/hds/1st-100/hds/19th-century-emerson",
+    "rene-descartes": "https://plato.stanford.edu/entries/descartes-method/",
+    "richard-baxter": "https://ccel.org/ccel/baxter/pastor.all.html",
+    "richard-bentley": "https://www.christs.cam.ac.uk/exhibition-item-no-31",
+    "richard-cobden": "https://cdn.nationalarchives.gov.uk/documents/education/the-corn-laws.pdf",
+    "richard-wagner": "https://www.bayreuther-festspiele.de/en/festival/history/",
+    "robert-e-lee": "https://www.nps.gov/apco/learn/historyculture/surrender-documents.htm",
+    "robert-fulton": "https://www.si.edu/object/robert-fulton-artist-and-engineer-letter-robert-livingston-describing-first-voyage-their-steamboat%3Asiris_sil_782375",
+    "robert-walpole": "https://www.gov.uk/government/history/past-prime-ministers/robert-walpole",
+    "samuel-clarke": "https://plato.stanford.edu/entries/clarke/index.html",
+    "samuel-johnson": "https://library.harvard.edu/sites/default/files/static/onlineexhibits/johnson/dictionary.html",
+    "samuel-taylor-coleridge": "https://www.gutenberg.org/cache/epub/29091/pg29091-images.html",
+    "simon-bolivar": "https://www.unesco.org/en/memory-world/lac/reply-south-american-gentleman-island-jamaica-letter-simon-bolivar-1815",
+    "theodore-beza": "https://search.rsl.ru/ru/record/01002833826",
+    "thomas-cranmer": "https://www.parliament.uk/about/living-heritage/transformingsociety/private-lives/religion/collections/common-prayer/act-of-uniformity-1559/",
+    "thomas-hobbes": "https://en.wikisource.org/wiki/Leviathan_%281651%29/Chapter_17",
+    "thomas-wolsey": "https://www.hrp.org.uk/hampton-court-palace/history-and-stories/thomas-wolsey/",
+    "torquato-tasso": "https://www.treccani.it/enciclopedia/torquato-tasso_%28Dizionario-Biografico%29/",
+    "ulysses-s-grant": "https://home.nps.gov/articles/the-personal-memoirs-of-ulysses-s-grant.htm",
+    "victor-cousin": "https://fr.wikisource.org/wiki/%C5%92uvres_de_Platon,_traduites_par_Victor_Cousin",
+    "vittorio-alfieri": "https://fondazionedesanctis.it/archivio_eventi/mostra-capolavori-letteratura/Archivio_Alfieri.html",
+    "walter-raleigh": "https://clarklibrary.ucla.edu/collections/tudor/chrzanowski/title-list/1614r/",
+    "warren-hastings": "https://wellcomecollection.org/works/prhx23um",
+    "william-cobbett": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/parliamentwork/communicating/from-the-parliamentary-collections/collections/rural-rides/",
+    "william-cowper": "https://www.ccel.org/ccel/cowper/works/task.htm",
+    "william-ellery-channing": "https://www.hds.harvard.edu/news/2019/05/03/newly-digitized-papers-william-ellery-channing",
+    "william-harvey": "https://www.cai.cam.ac.uk/discover/library/online-exhibitions/out-cradle-print/de-motu-cordis-1628",
+    "william-henry-seward": "https://guides.loc.gov/alaska-treaty",
+    "william-hogarth": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/marriage-a-la-mode",
+    "william-lloyd-garrison": "https://www.nps.gov/articles/000/the-liberator.htm",
+    "william-temple": "https://www.lyriktheorie.uni-wuppertal.de/lyriktheorie/texte/1690_temple1.html",
+    "xavier-bichat": "https://upload.wikimedia.org/wikipedia/commons/6/65/Trait%C3%A9_d%27anatomie_descriptive_de_Xavier_Bichat_%28IA_b29340305_0001%29.pdf",
+    "abdul-sattar-edhi": "https://rmaward.asia/rmawardees/edhi-abdul-sattar/",
+    "ahilyabai-holkar": "https://www.zakirhusaindelhicollege.ac.in/wp-content/uploads/2025/11/4-SMJ-Vol-2-Special-Issue-October-2025.pdf",
+    "ahmad-baba-al-timbukti": "https://islam.museum/en/person/ahmad-baba-al-timbukti/",
+    "albert-namatjira": "https://www.museum.qld.gov.au/learn-and-discover/first-nations/hermannsburg-watercolour-artworks-collection",
+    "alberto-santos-dumont": "https://www.icao.int/sites/default/files/postalhistory/aviation_history_early_developments_in_europe.htm",
+    "alexander-graham-bell": "https://findingaids.loc.gov/repositories/19/resources/2319",
+    "amelia-earhart": "https://www.si.edu/object/amelia-earhart%3Anasm_A19500108000",
+    "bartolina-sisa": "https://mujer.sea.gob.bo/src/personajeResultado.php?variable=4",
+    "bertha-lutz": "https://sites.ungeneva.org/not-a-womans-job/2021/en/latin-american-and-caribbean-group/bertha-lutz.html",
+    "cai-lun": "https://ancient-china-books.github.io/houhanshu/OEBPS/Text/078.htm",
+    "chinua-achebe": "https://www.theparisreview.org/interviews/1720/the-art-of-fiction-no-139-chinua-achebe",
+    "chris-seydou": "https://fashionhistory.fitnyc.edu/bogolanfini/",
+    "cleopatra-vii": "https://slll.cass.anu.edu.au/classics-museum/catalogue/objects/80-drachma-piece-kleopatra-cleopatra-vii-egypt-197601",
+    "cyrus-the-great": "https://www.metmuseum.org/exhibitions/listings/2013/cyrus-cylinder",
+    "dante-alighieri": "https://dante.princeton.edu/cgi-bin/dante/campuscgi/mpb/GetCantoSection.pl?INP_LEN=200&INP_POEM=Inf&INP_SECT=1&INP_START=1&LANG=0",
+    "david-gulpilil": "https://www.nfsa.gov.au/collection/item/ten-canoes-ancestors-coming",
+    "duke-kahanamoku": "https://www.environment.nsw.gov.au/topics/heritage/blue-plaques/duke-kahanamoku",
+    "eleanor-of-aquitaine": "https://epistolae.ctl.columbia.edu/letter/139.html",
+    "emmy-noether": "https://de.wikisource.org/wiki/Seite:InvarianteVariationsprobleme.djvu/1",
+    "evliya-celebi": "https://www.unesco.org/en/memory-world/evliya-celebis-book-travels-topkapi-palace-museum-library-and-suleymaniye-manuscript-library",
+    "fridtjof-nansen": "https://frammuseum.no/en/polar-history/expeditions/the-first-fram-expedition-1893-1896/",
+    "harriet-tubman": "https://www.archives.gov/legislative/features/claim-of-harriet-tubman",
+    "huda-shaarawi": "https://www.cambridge.org/core/books/women-and-the-egyptian-revolution/women-and-egypts-national-struggles/A96A6F6DDCD8715AD4345F678FC7263A",
+    "ibn-al-haytham": "https://www.islam.museum/en/invention/camera-obscura/",
+    "jackie-robinson": "https://www.archives.gov/exhibits/featured-documents/jackie-robinson",
+    "kate-sheppard": "https://www.archives.govt.nz/discover-our-stories/womens-suffrage-petition",
+    "kenojuak-ashevak": "https://www.historymuseum.ca/blog/inuit-print",
+    "lucy-maud-montgomery": "https://www.historymuseum.ca/exhibitions/yours-sincerely-lucy-maud-montgomery",
+    "mahmud-al-kashgari": "https://ekitap.yek.gov.tr/Uploads/ProductsFiles/49edc3d1-4e82-4221-955f-64e12af7f006.pdf",
+    "manuela-saenz": "https://repositorio.uasb.edu.ec/items/222d0af5-c227-4266-8354-f0f900dd1f8f/full",
+    "maria-montessori": "https://www.gutenberg.org/cache/epub/29635/pg29635-images.html",
+    "maria-sibylla-merian": "https://www.rijksmuseum.nl/en/story/maria-sibylla-merian-en",
+    "martin-luther-king-jr": "https://kinginstitute.stanford.edu/letter-birmingham-jail",
+    "micaela-bastidas": "https://repositoriodigital.bnp.gob.pe/bnp/recursos/2/html/voces-y-cantos-de-las-mujeres/41/",
+    "mimar-sinan": "https://whc.unesco.org/en/decisions/4308/",
+    "miriam-makeba": "https://digitallibrary.un.org/record/846580/files/A_5497-EN.pdf",
+    "nelson-mandela": "https://www.nelsonmandela.org/introduction-from-the-book",
+    "olaudah-equiano": "https://equianosworld.org/Narrative.php?ID=7",
+    "rachel-carson": "https://www.fws.gov/staff-profile/rachel-carson-1907-1964-author-modern-environmental-movement",
+    "samuel-ajayi-crowther": "https://onlinebooks.library.upenn.edu/webbin/book/lookupid?key=olbp75426",
+    "sarah-winnemucca": "https://archive.org/details/lifeamongpiutes00manngoog",
+    "sarojini-naidu": "https://en.wikisource.org/wiki/The_Golden_Threshold",
+    "sejong-the-great": "https://www.hangeul.go.kr/en/exhi/dailyExhibition.do",
+    "seneca-the-younger": "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_1",
+    "shajar-al-durr": "https://arce.org/project/conservation-mosque-shajar-al-durr/",
+    "shangguan-waner": "https://www11.ihp.sinica.edu.tw/storage/w2_file/2108qEjKtUZ.pdf",
+    "shin-saimdang": "https://www.museum.go.kr/ENG/contents/E0402000000.do?relicId=2061&schM=view&searchId=search",
+    "sojourner-truth": "https://blogs.loc.gov/headlinesandheroes/2021/04/sojourner-truths-most-famous-speech/",
+    "susan-b-anthony": "https://tile.loc.gov/storage-services/service/rbc/rbnawsa/n2152/n2152.pdf",
+    "tarsila-do-amaral": "https://www.moma.org/audio/735",
+    "te-rangi-hiroa": "https://www.royalsociety.org.nz/150th-anniversary/tetakarangi/vikings-of-the-sunrisepeter-h-buck-1938",
+    "viola-desmond": "https://archives.novascotia.ca/desmond/background/",
+    "violeta-parra": "https://www.memoriachilena.gob.cl/602/w3-article-98198.html",
+    "wang-yangming": "https://www.shidianguji.com/book/HY0775/chapter/1mb8exhm5hhka",
+    "wangari-maathai": "https://www.greenbeltmovement.org/history/",
+    "yaa-asantewaa": "https://www.britishmuseum.org/sites/default/files/2024-04/African_Kingdoms_Timeline.pdf",
+    "alfred-de-musset": "https://editions.bnf.fr/lorenzaccio-mises-en-sc%C3%A8ne-dhier-et-daujourdhui",
+    "auguste-de-marmont": "https://library.onassis.org/en/collection-items/voyage-du-marechal-duc-de-raguse-en-hongrie-en-transylvania-constantinople-et-en-3",
+    "francois-rene-de-chateaubriand": "https://www.culture.gouv.fr/Media/Thematiques/Circulation-des-biens-culturels/Files/Ressources-doc-Bilans/Memoires-d-outre-tombe-de-Francois-Rene-de-Chateaubriand-Avis-n-2013-07-de-la-CCTN",
+    "georges-danton": "https://www.persee.fr/doc/arcpa_0000-0000_1907_num_72_1_46868_t1_0124_0000_5",
+    "germaine-de-stael": "https://lyriktheorie.uni-wuppertal.de/lyriktheorie/texte/1813_stael.html",
+    "jacques-auguste-de-thou": "https://bibale.irht.cnrs.fr/7959",
+    "joseph-fouche": "https://www.napoleon.org/histoire-des-2-empires/biographies/fouche-joseph-duc-dotrante-1759-1820/",
+    "sebastien-le-prestre-de-vauban": "https://www.bibliotheque.nat.tn/BNT/doc/SYRACUSE/1255825/projet-d-une-dixme-royale?_lg=fr-FR",
+    "thomas-jefferson": "https://jeffersonpapers.princeton.edu/declaration-of-independence/original-rough-draught/",
+    "jose-de-san-martin": "https://museomitre.cultura.gob.ar/noticia/manuscrito-de-las-maximas-de-san-martin-a-merceditas/",
+    "machado-de-assis": "https://www.cervantesvirtual.com/obra-visor/memorias-postumas-de-bras-cubas--0/html/ffc4d8c0-82b1-11df-acc7-002185ce6064_2.html",
+    "francis-drake": "https://folgerpedia.folger.edu/images/7/74/ECDbD_1581.pdf",
+    "jons-jacob-berzelius": "https://archive.org/details/annalsofphilosop03anna/page/51/mode/2up",
+    "pedro-calderon-de-la-barca": "https://www.cervantesvirtual.com/portales/calderon_de_la_barca/autor_calderon_epoca/"
+  }
+}

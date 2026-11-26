@@ -21,7 +21,7 @@ import { traditionalLikertRoute } from "./traditionalLikertPaths";
 import { traditionalPracticeRoute } from "./traditionalPracticePaths";
 import { traditionalArchetypeRoute } from "./traditionalArchetypePaths";
 import { relationshipQuestionnaireRoute } from "./relationshipQuestionnairePaths";
-import { GLOBAL_HISTORY_PATH } from "@/lib/entertainment/global-history/config";
+import { GLOBAL_HISTORY_ATLAS_SLUGS, GLOBAL_HISTORY_PATH } from "@/lib/entertainment/global-history/config";
 import { findHistoryPerson } from "@/lib/entertainment/global-history/people";
 import { isTraditionalTopicPath } from "./traditionalTopicPaths";
 import { isCoreAssessmentSlug } from "@/lib/tests/coreAssessmentSlugs";
@@ -77,7 +77,8 @@ export function traditionalPath(pathname: string): string | null {
   if (path === "/career/industries" || (path.startsWith("/career/industries/")
     && CAREER_DATASET_FAMILY_SLUGS.includes(path.slice("/career/industries/".length)))) return `/zh-TW${path}`;
   if (/^\/career\/(?:guides(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)?|jobs\/[a-z0-9]+(?:-[a-z0-9]+)*)$/u.test(path)) return `/zh-TW${path}`;
-  if (path === GLOBAL_HISTORY_PATH || path === `${GLOBAL_HISTORY_PATH}/take`) return `/zh-TW${path}`;
+  if (path === GLOBAL_HISTORY_PATH || path === `${GLOBAL_HISTORY_PATH}/take`
+    || GLOBAL_HISTORY_ATLAS_SLUGS.some(atlas => path === `${GLOBAL_HISTORY_PATH}/${atlas}`)) return `/zh-TW${path}`;
   const historyResultPrefix = `${GLOBAL_HISTORY_PATH}/results/`;
   if (path.startsWith(historyResultPrefix) && findHistoryPerson(path.slice(historyResultPrefix.length))) return `/zh-TW${path}`;
   if (prefix === "zh-TW" && isTraditionalTopicPath(path)) return `/zh-TW${path}`;

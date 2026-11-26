@@ -1,3 +1,4 @@
+import { globalHistoryAtlasPath } from "@/lib/entertainment/global-history/config";
 import { LocalizedAssessmentLanding } from "@/components/tests/LocalizedAssessmentLanding";
 import { assessmentLandingKind, getLocalizedLanding } from "@/lib/tests/localized-landings";
 import { loadMbtiLandingPublicSample } from "@/lib/mbti/landingReportSample";
@@ -1516,7 +1517,14 @@ export default async function TestLandingPage({
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
       <LocalizedAssessmentLanding kind={localizedKind} locale={displayLocale} entries={activeEntries} profile={visibleProfile}
         indexable={test.is_public !== false && test.is_active !== false && lookup?.is_indexable !== false
-          && !testDetailAuthority.shouldNoindexMissingMetadataAuthority}>{publishedDetails}</LocalizedAssessmentLanding>
+          && !testDetailAuthority.shouldNoindexMissingMetadataAuthority}>
+        {publishedDetails}
+        {displayLocale === "en" && localizedKind === "iq" && <section className="mx-auto my-6 w-full max-w-4xl px-4" aria-labelledby="iq-cox-history">
+          <h2 id="iq-cox-history">Historical IQ estimates and modern scores</h2>
+          <p>Cox used early biographies to estimate the ability of historical figures. See both estimates and how the method differs from taking a test.</p>
+          <Link className="underline underline-offset-4" href={globalHistoryAtlasPath("en", "cox-1926")}>Browse Cox’s 1926 archive of 301 figures</Link>
+        </section>}
+      </LocalizedAssessmentLanding>
     </main>;
   }
   if (displayLocale === "zh" && coreHub === "holland") {

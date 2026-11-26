@@ -1,3 +1,13 @@
+import { historyAtlasCopy } from "@/lib/entertainment/global-history/atlas";
+import {
+  GLOBAL_HISTORY_ATLAS_SLUGS,
+  GLOBAL_HISTORY_PORTRAITS_UPDATED,
+  GLOBAL_HISTORY_UPDATED,
+  globalHistoryAtlasPath,
+  globalHistoryPath,
+} from "@/lib/entertainment/global-history/config";
+import { historyPeople } from "@/lib/entertainment/global-history/people";
+import { historyLandingCopy } from "@/lib/entertainment/global-history/landing-copy";
 import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
 import { isModeABatchFour } from "@/lib/entertainment/modeABatchFour";
 import { isModeABatchThree } from "@/lib/entertainment/modeABatchThree";
@@ -77,5 +87,24 @@ export function listNativeTestLlmsEntries() {
     })
   );
 
-  return [...questionnaires, ...gta6, ...listTraditionalModeAEntries()];
+  const globalHistory = (["en", "zh", "zh-TW"] as const).flatMap((locale) => [
+    {
+      locale,
+      path: globalHistoryPath(locale),
+      title: historyLandingCopy[locale].title(historyPeople.length),
+      type: "native_test",
+      summary: historyLandingCopy[locale].description(historyPeople.length),
+      updatedAt: GLOBAL_HISTORY_UPDATED,
+    },
+    ...GLOBAL_HISTORY_ATLAS_SLUGS.map((atlas) => ({
+      locale,
+      path: globalHistoryAtlasPath(locale, atlas),
+      title: historyAtlasCopy[atlas].title[locale],
+      type: "dataset",
+      summary: historyAtlasCopy[atlas].description[locale],
+      updatedAt: GLOBAL_HISTORY_PORTRAITS_UPDATED,
+    })),
+  ]);
+
+  return [...questionnaires, ...gta6, ...globalHistory, ...listTraditionalModeAEntries()];
 }

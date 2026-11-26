@@ -41,7 +41,7 @@ describe("SEO-PLATFORM-11A fap-web authority convergence", () => {
       hash_drift: 0,
       unclassified: 0,
       duplicate_paths: 0,
-      web_seo_scripts: 139,
+      web_seo_scripts: 145,
     });
     expect(projection.path_set_hash).toBe(verification.path_set_hash);
     expect(projection.projection_self_hash).toBe(verification.projection_self_hash);

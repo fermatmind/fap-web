@@ -1,4 +1,4 @@
-import { GLOBAL_HISTORY_PORTRAITS_UPDATED, globalHistoryResultPath } from "@/lib/entertainment/global-history/config";
+import { GLOBAL_HISTORY_PORTRAITS_UPDATED, GLOBAL_HISTORY_UPDATED, globalHistoryAtlasPath, globalHistoryPath, globalHistoryResultPath } from "@/lib/entertainment/global-history/config";
 import { historyPeople } from "@/lib/entertainment/global-history/people";
 import { TRADITIONAL_PUBLIC_PATHS } from "@/lib/i18n/traditionalRoutes";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
@@ -10,7 +10,6 @@ import catalog from "@/lib/entertainment/catalog.json";
 import questionnaires from "@/lib/questionnaires/catalog.json";
 import { loadFunQuiz } from "@/lib/entertainment/loaders";
 import { readFunDraft, resolveFunQuiz } from "@/lib/entertainment/scoring";
-import { globalHistoryStory } from "@/lib/entertainment/directory";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { gta6LandingPath, gta6Profiles, gta6ResultPath } from "@/lib/questionnaires/gta6CharacterQuiz";
 import { buildPublicSitemapFamilyMap } from "@/lib/seo/publicSitemap";
@@ -217,7 +216,7 @@ describe("original entertainment catalog", () => {
     expect(entries).toContainEqual(base[0]);
     expect(appendFunSitemapEntries(entries)).toEqual(entries);
     const expectedEntries = [...base];
-    for (const card of [globalHistoryStory, ...catalog.filter(card => !questionnaires.some(native => native.slug === card.slug))]) for (const locale of ["en", "zh"]) {
+    for (const card of catalog.filter(card => !questionnaires.some(native => native.slug === card.slug))) for (const locale of ["en", "zh"]) {
       expectedEntries.push({ loc: `https://fermatmind.com/${locale}/tests/explore/${card.slug}`, lastmod: `${card.updated}T00:00:00.000Z` });
       for (const slug of card.resultSlugs) expectedEntries.push({ loc: `https://fermatmind.com/${locale}/tests/explore/${card.slug}/results/${slug}`, lastmod: `${card.updated}T00:00:00.000Z` });
     }
@@ -228,8 +227,14 @@ describe("original entertainment catalog", () => {
       for (const profile of card.resultSlugs) expectedEntries.push({ loc: `${path}/results/${profile}`, lastmod: `${card.updated}T00:00:00.000Z` });
     }
     expectedEntries.push(...gta6Entries);
-    for (const { id } of historyPeople) for (const locale of ["en", "zh"] as const) {
-      expectedEntries.push({ loc: `https://fermatmind.com${globalHistoryResultPath(locale, id)}`, lastmod: GLOBAL_HISTORY_PORTRAITS_UPDATED });
+    for (const locale of ["en", "zh"] as const) {
+      expectedEntries.push({ loc: `https://fermatmind.com${globalHistoryPath(locale)}`, lastmod: GLOBAL_HISTORY_UPDATED });
+      for (const atlas of ["cox-1926", "personality-atlas"] as const) {
+        expectedEntries.push({ loc: `https://fermatmind.com${globalHistoryAtlasPath(locale, atlas)}`, lastmod: GLOBAL_HISTORY_PORTRAITS_UPDATED });
+      }
+      for (const { id } of historyPeople) {
+        expectedEntries.push({ loc: `https://fermatmind.com${globalHistoryResultPath(locale, id)}`, lastmod: GLOBAL_HISTORY_PORTRAITS_UPDATED });
+      }
     }
     expectedEntries.push(...TRADITIONAL_PUBLIC_PATHS.map(path => ({ loc: `https://fermatmind.com/zh-TW${path}` } as typeof expectedEntries[number])));
     const eligibleEntries = expectedEntries.filter(({ loc }) => !isArchivedEntertainmentPath(new URL(loc).pathname));

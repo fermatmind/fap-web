@@ -5,13 +5,15 @@ import { PUBLIC_PATH, RESOURCE_PATHS } from "../friendship/core";
 import { hasQuestionnaireTake } from "../questionnaires/take";
 import { gta6Profile, gta6Slug } from "../questionnaires/gta6CharacterQuiz";
 import { parseQuestionnaireTakePath } from "../questionnaires/takePath";
-import { GLOBAL_HISTORY_SLUG } from "./global-history/config";
+import { GLOBAL_HISTORY_ATLAS_SLUGS, GLOBAL_HISTORY_SLUG } from "./global-history/config";
 import { findHistoryPerson } from "./global-history/people";
 
 const identities = new Map(catalog.map(quiz => [quiz.slug, quiz.resultSlugs]));
 const questionnaireIds = new Map(questionnaires.map(quiz => [`${quiz.collection}/${quiz.slug}`, quiz.resultSlugs]));
 export function isMissingFunRoute(publicPath: string): boolean {
   const pathname = entertainmentReaderPath(publicPath);
+  const historyAtlas = pathname.match(/^\/(?:en|zh|zh-TW)\/tests\/play\/global-history-quiz\/([^/]+)\/?$/u);
+  if (historyAtlas && GLOBAL_HISTORY_ATLAS_SLUGS.some(atlas => atlas === historyAtlas[1])) return false;
   const take = parseQuestionnaireTakePath(pathname);
   if (take) {
     if (take.collection === "explore" && take.slug === gta6Slug) return false;

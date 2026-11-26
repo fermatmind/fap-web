@@ -56,7 +56,7 @@ function walk(directory) {
   if (!existsSync(directory)) return [];
   const files = [];
   for (const name of readdirSync(directory).sort()) {
-    if ([".git", ".next", "node_modules", "vendor"].includes(name)) continue;
+    if ([".git", ".next", "node_modules", "vendor", "__pycache__"].includes(name)) continue;
     const file = resolve(directory, name);
     const stat = lstatSync(file);
     if (stat.isSymbolicLink()) continue;
@@ -196,7 +196,7 @@ function verifyProjection() {
   if (projection.historical_baseline?.inventory_hash !== V2_INVENTORY_HASH) metadataFailures.push("historical_v2_hash");
   if (projection.path_set_hash !== pathSetHash) metadataFailures.push("path_set_hash");
   if (projection.projection_self_hash !== selfHash) metadataFailures.push("projection_self_hash");
-  if (webSeoScripts !== 139) metadataFailures.push("web_seo_scripts");
+  if (webSeoScripts !== 145) metadataFailures.push("web_seo_scripts");
   if (requiredPathsMissing.length > 0) metadataFailures.push("required_paths");
 
   const result = {

@@ -5,6 +5,8 @@ import { generateMetadata as takeMetadata } from "@/app/(traditional)/zh-TW/test
 import { generateMetadata as portraitMetadata } from "@/app/(traditional)/zh-TW/tests/play/global-history-quiz/results/[portrait]/page";
 import { GlobalHistoryLanding } from "@/components/entertainment/GlobalHistoryLanding";
 import HistoryTake from "@/app/(localized)/[locale]/tests/play/global-history-quiz/take/page";
+import { trackEvent } from "@/lib/analytics";
+import { captureGlobalHistoryAiReferrer } from "@/lib/entertainment/global-history/ai-referrer";
 import { matchGlobalHistory } from "@/lib/entertainment/global-history/actions";
 import { globalHistoryPath, globalHistoryResultPath } from "@/lib/entertainment/global-history/config";
 import { globalHistoryResultKey } from "@/lib/entertainment/global-history/local-result";
@@ -18,19 +20,27 @@ vi.mock("next/navigation", async (original) => ({
   ...await original<typeof import("next/navigation")>(),
   useRouter: () => ({ push }),
 }));
+vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 vi.mock("@/lib/entertainment/activity", () => ({ recordEntertainmentActivity: vi.fn() }));
 
 it("keeps the Taiwan take flow out of indexing and uses the original 12-scene match", async () => {
   const copy = await loadTraditionalAssessmentText();
   const expected = await matchGlobalHistory(Array(historyScenes.length).fill(0));
   expect(expected).not.toBeNull();
-  expect(await landingMetadata()).toMatchObject({ robots: { index: false, follow: true }, alternates: { canonical: expect.stringContaining(globalHistoryPath("zh-TW")) } });
+  expect(await landingMetadata()).toMatchObject({ robots: { index: true, follow: true }, alternates: { canonical: expect.stringContaining(globalHistoryPath("zh-TW")) } });
   expect(await takeMetadata()).toMatchObject({ robots: { index: false, follow: false } });
   expect(await portraitMetadata({ params: Promise.resolve({ portrait: expected!.id }), searchParams: Promise.resolve({}) }))
     .toMatchObject({ robots: { index: true, follow: true }, alternates: { canonical: expect.stringContaining(globalHistoryResultPath("zh-TW", expected!.id)) } });
 
+  captureGlobalHistoryAiReferrer("https://chatgpt.com/search/test", window.location.origin);
   render(await HistoryTake({ params: Promise.resolve({ locale: "zh-TW" }) }));
   fireEvent.click(await screen.findByRole("button", { name: copy("走进展馆") }));
+  expect(trackEvent).toHaveBeenCalledWith("start_test", expect.objectContaining({
+    slug: "global-history-quiz",
+    locale: "zh-TW",
+    referrer_host: "chatgpt.com",
+  }));
+  captureGlobalHistoryAiReferrer("", window.location.origin);
   for (const scene of historyScenes) {
     expect(await screen.findByRole("heading", { name: copy(scene.prompt.zh) })).toBeVisible();
     fireEvent.click(screen.getByRole("button", { name: copy(scene.options[0][1]) }));

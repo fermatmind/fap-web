@@ -4,7 +4,7 @@ export const historyAxes = [
   { zh: "行动节奏", en: "Pace", low: { zh: "先准备周全", en: "Prepare thoroughly" }, high: { zh: "先行动再调整", en: "Act, then adjust" } },
   { zh: "协作方式", en: "Collaboration", low: { zh: "先独立完成", en: "Work independently first" }, high: { zh: "先把人聚在一起", en: "Bring people together first" } },
   { zh: "探索方法", en: "Inquiry", low: { zh: "从现有证据出发", en: "Start with the evidence at hand" }, high: { zh: "从新的设想出发", en: "Start with a new possibility" } },
-  { zh: "关注范围", en: "Scope", low: { zh: "钻深一个主题", en: "Go deep on one subject" }, high: { zh: "连接不同领域", en: "Connect different fields" } },
+  { zh: "关注范围", en: "Scope", low: { zh: "钻深一个主题", en: "Go deep on one subject" }, high: { zh: "连接不同领域", "zh-TW": "連結不同領域", en: "Connect different fields" } },
   { zh: "推动改变", en: "Change", low: { zh: "改善现有做法", en: "Improve what already works" }, high: { zh: "重新设计规则", en: "Redesign the rules" } },
   { zh: "影响方式", en: "Influence", low: { zh: "用幕后工作推动", en: "Make a difference behind the scenes" }, high: { zh: "走到台前表达", en: "Speak up in public" } },
 ] as const;

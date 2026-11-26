@@ -108,7 +108,8 @@
     ],
     "bio": {
       "zh": "十四世纪马里帝国君主。",
-      "en": "14th-century emperor (mansa) of the Mali Empire."
+      "en": "14th-century emperor (mansa) of the Mali Empire.",
+      "zh-TW": "十四世紀馬里帝國君主。"
     }
   },
   {
@@ -172,7 +173,8 @@
     "id": "harriet-tubman",
     "name": {
       "zh": "哈丽雅特·塔布曼",
-      "en": "Harriet Tubman"
+      "en": "Harriet Tubman",
+      "zh-TW": "哈莉特·塔布曼"
     },
     "region": {
       "zh": "北美",
@@ -509,7 +511,8 @@
     "id": "cleopatra-vii",
     "name": {
       "zh": "克娄巴特拉七世",
-      "en": "Cleopatra"
+      "en": "Cleopatra",
+      "zh-TW": "克麗奧佩脫拉七世"
     },
     "region": {
       "zh": "西亚、中亚与北非",
@@ -622,7 +625,8 @@
     "id": "grace-hopper",
     "name": {
       "zh": "格蕾丝·霍珀",
-      "en": "Grace Hopper"
+      "en": "Grace Hopper",
+      "zh-TW": "葛麗絲·霍普"
     },
     "region": {
       "zh": "北美",
@@ -762,7 +766,8 @@
     "id": "nelson-mandela",
     "name": {
       "zh": "纳尔逊·曼德拉",
-      "en": "Nelson Mandela"
+      "en": "Nelson Mandela",
+      "zh-TW": "尼爾森·曼德拉"
     },
     "region": {
       "zh": "撒哈拉以南非洲",
@@ -790,7 +795,8 @@
     "id": "jane-austen",
     "name": {
       "zh": "珍妮·奥斯汀",
-      "en": "Jane Austen"
+      "en": "Jane Austen",
+      "zh-TW": "珍·奧斯汀"
     },
     "region": {
       "zh": "欧洲",
@@ -818,7 +824,8 @@
     "id": "toussaint-louverture",
     "name": {
       "zh": "图森·卢维杜尔",
-      "en": "Toussaint Louverture"
+      "en": "Toussaint Louverture",
+      "zh-TW": "杜桑·盧維杜爾"
     },
     "region": {
       "zh": "拉丁美洲与加勒比",
@@ -839,14 +846,16 @@
     ],
     "bio": {
       "zh": "海地革命领袖。",
-      "en": "Leader of the Haitian Revolution."
+      "en": "Leader of the Haitian Revolution.",
+      "zh-TW": "海地革命領袖。"
     }
   },
   {
     "id": "jackie-robinson",
     "name": {
       "zh": "杰基·罗宾逊",
-      "en": "Jackie Robinson"
+      "en": "Jackie Robinson",
+      "zh-TW": "傑基·羅賓森"
     },
     "region": {
       "zh": "北美",
@@ -867,7 +876,8 @@
     ],
     "bio": {
       "zh": "美国棒球运动员。",
-      "en": "American baseball player."
+      "en": "American baseball player.",
+      "zh-TW": "美國棒球運動員。"
     }
   },
   {
@@ -1042,7 +1052,8 @@
     "id": "simon-bolivar",
     "name": {
       "zh": "西蒙·玻利瓦尔",
-      "en": "Simón Bolívar"
+      "en": "Simón Bolívar",
+      "zh-TW": "西蒙·玻利瓦"
     },
     "region": {
       "zh": "拉丁美洲与加勒比",
@@ -1070,7 +1081,8 @@
     "id": "rachel-carson",
     "name": {
       "zh": "雷切尔·卡森",
-      "en": "Rachel Carson"
+      "en": "Rachel Carson",
+      "zh-TW": "瑞秋·卡森"
     },
     "region": {
       "zh": "北美",
@@ -1406,7 +1418,8 @@
     "id": "zaha-hadid",
     "name": {
       "zh": "扎哈·哈迪德",
-      "en": "Zaha Hadid"
+      "en": "Zaha Hadid",
+      "zh-TW": "札哈·哈蒂"
     },
     "region": {
       "zh": "西亚、中亚与北非",
@@ -1518,7 +1531,8 @@
     "id": "frederick-douglass",
     "name": {
       "zh": "弗雷德里克·道格拉斯",
-      "en": "Frederick Douglass"
+      "en": "Frederick Douglass",
+      "zh-TW": "弗雷德里克·道格拉斯"
     },
     "region": {
       "zh": "北美",
@@ -1539,7 +1553,8 @@
     ],
     "bio": {
       "zh": "美国社会改革家，演说家，作家和政治家。",
-      "en": "African-American social reformer, writer, and abolitionist."
+      "en": "African-American social reformer, writer, and abolitionist.",
+      "zh-TW": "美國社會改革家，演說家，作家和政治家。"
     }
   },
   {
@@ -2443,7 +2458,8 @@
     "id": "ernest-rutherford",
     "name": {
       "zh": "欧内斯特·卢瑟福",
-      "en": "Ernest Rutherford"
+      "en": "Ernest Rutherford",
+      "zh-TW": "歐尼斯特·拉塞福"
     },
     "region": {
       "zh": "大洋洲",
@@ -2639,7 +2655,8 @@
     "id": "martin-luther-king-jr",
     "name": {
       "zh": "马丁·路德·金",
-      "en": "Martin Luther King Jr."
+      "en": "Martin Luther King Jr.",
+      "zh-TW": "馬丁·路德·金恩"
     },
     "region": {
       "zh": "北美",
@@ -3003,7 +3020,8 @@
     "id": "seneca-the-younger",
     "name": {
       "zh": "塞涅卡",
-      "en": "Seneca the Younger"
+      "en": "Seneca the Younger",
+      "zh-TW": "塞內卡"
     },
     "region": {
       "zh": "欧洲",
@@ -3619,7 +3637,8 @@
     "id": "amelia-earhart",
     "name": {
       "zh": "阿梅莉亚·埃尔哈特",
-      "en": "Amelia Earhart"
+      "en": "Amelia Earhart",
+      "zh-TW": "阿梅莉亞·愛爾哈特"
     },
     "region": {
       "zh": "北美",
@@ -3759,7 +3778,8 @@
     "id": "michelangelo",
     "name": {
       "zh": "米开朗琪罗",
-      "en": "Michelangelo"
+      "en": "Michelangelo",
+      "zh-TW": "米開朗基羅"
     },
     "region": {
       "zh": "欧洲",
@@ -3871,7 +3891,8 @@
     "id": "suriyothai",
     "name": {
       "zh": "素里育泰",
-      "en": "Suriyothai"
+      "en": "Suriyothai",
+      "zh-TW": "素里育泰"
     },
     "region": {
       "zh": "南亚与东南亚",
@@ -4123,7 +4144,8 @@
     "id": "miriam-makeba",
     "name": {
       "zh": "米丽娅姆·马凯巴",
-      "en": "Miriam Makeba"
+      "en": "Miriam Makeba",
+      "zh-TW": "米瑞安·馬卡貝"
     },
     "region": {
       "zh": "撒哈拉以南非洲",
@@ -4144,7 +4166,8 @@
     ],
     "bio": {
       "zh": "南非歌手与民权活动家。",
-      "en": "South African singer and civil rights activist."
+      "en": "South African singer and civil rights activist.",
+      "zh-TW": "南非歌手與民權活動家。"
     }
   },
   {
@@ -4340,7 +4363,8 @@
     ],
     "bio": {
       "zh": "马里时装设计师。",
-      "en": "Malian fashion designer."
+      "en": "Malian fashion designer.",
+      "zh-TW": "馬里時裝設計師。"
     }
   },
   {
@@ -4487,7 +4511,8 @@
     "id": "mahmud-al-kashgari",
     "name": {
       "zh": "马哈茂德·卡什噶里",
-      "en": "Mahmud al-Kashgari"
+      "en": "Mahmud al-Kashgari",
+      "zh-TW": "馬哈茂德·卡什噶里"
     },
     "region": {
       "zh": "西亚、中亚与北非",
@@ -4543,7 +4568,8 @@
     "id": "johannes-kepler",
     "name": {
       "zh": "约翰内斯·开普勒",
-      "en": "Johannes Kepler"
+      "en": "Johannes Kepler",
+      "zh-TW": "約翰內斯·克卜勒"
     },
     "region": {
       "zh": "欧洲",
@@ -4823,7 +4849,8 @@
     "id": "gottfried-wilhelm-leibniz",
     "name": {
       "zh": "戈特弗里德·威廉·莱布尼茨",
-      "en": "Gottfried Wilhelm Leibniz"
+      "en": "Gottfried Wilhelm Leibniz",
+      "zh-TW": "戈特弗里德·威廉·萊布尼茲"
     },
     "region": {
       "zh": "欧洲",
@@ -4935,7 +4962,8 @@
     "id": "elizabeth-i",
     "name": {
       "zh": "伊丽莎白一世",
-      "en": "Elizabeth I"
+      "en": "Elizabeth I",
+      "zh-TW": "伊莉莎白一世"
     },
     "region": {
       "zh": "欧洲",
@@ -5103,7 +5131,8 @@
     "id": "ludwig-van-beethoven",
     "name": {
       "zh": "路德维希·范·贝多芬",
-      "en": "Ludwig van Beethoven"
+      "en": "Ludwig van Beethoven",
+      "zh-TW": "路德維希·范·貝多芬"
     },
     "region": {
       "zh": "欧洲",
@@ -5383,7 +5412,8 @@
     "id": "emmy-noether",
     "name": {
       "zh": "艾米·诺特",
-      "en": "Emmy Noether"
+      "en": "Emmy Noether",
+      "zh-TW": "艾美·諾特"
     },
     "region": {
       "zh": "欧洲",
@@ -5495,7 +5525,8 @@
     "id": "fridtjof-nansen",
     "name": {
       "zh": "弗里乔夫·南森",
-      "en": "Fridtjof Nansen"
+      "en": "Fridtjof Nansen",
+      "zh-TW": "弗里喬夫·南森"
     },
     "region": {
       "zh": "欧洲",
@@ -5551,7 +5582,8 @@
     "id": "maria-montessori",
     "name": {
       "zh": "玛丽亚·蒙台梭利",
-      "en": "Maria Montessori"
+      "en": "Maria Montessori",
+      "zh-TW": "瑪麗亞·蒙特梭利"
     },
     "region": {
       "zh": "欧洲",
@@ -6388,7 +6420,7 @@
     "name": {
       "zh": "罗伯特·波义耳",
       "en": "Robert Boyle",
-      "zh-TW": "羅伯特・波以耳"
+      "zh-TW": "羅伯特·波以耳"
     },
     "region": {
       "zh": "欧洲",
@@ -6417,7 +6449,7 @@
     "name": {
       "zh": "约瑟夫·普里斯特利",
       "en": "Joseph Priestley",
-      "zh-TW": "約瑟夫・普利斯特里"
+      "zh-TW": "約瑟夫·普利斯特里"
     },
     "region": {
       "zh": "欧洲",
@@ -6446,7 +6478,7 @@
     "name": {
       "zh": "安托万·拉瓦锡",
       "en": "Antoine-Laurent Lavoisier",
-      "zh-TW": "安托萬・拉瓦節"
+      "zh-TW": "安托萬·拉瓦節"
     },
     "region": {
       "zh": "欧洲",
@@ -6475,7 +6507,7 @@
     "name": {
       "zh": "克里斯蒂安·惠更斯",
       "en": "Christiaan Huygens",
-      "zh-TW": "克里斯蒂安・惠更斯"
+      "zh-TW": "克里斯蒂安·惠更斯"
     },
     "region": {
       "zh": "欧洲",
@@ -6504,7 +6536,7 @@
     "name": {
       "zh": "汉斯·克里斯蒂安·奥斯特",
       "en": "Hans Christian Ørsted",
-      "zh-TW": "漢斯・克里斯蒂安・厄斯特"
+      "zh-TW": "漢斯·克里斯蒂安·厄斯特"
     },
     "region": {
       "zh": "欧洲",
@@ -6533,7 +6565,7 @@
     "name": {
       "zh": "亚当·斯密",
       "en": "Adam Smith",
-      "zh-TW": "亞當・斯密"
+      "zh-TW": "亞當·斯密"
     },
     "region": {
       "zh": "欧洲",
@@ -6562,7 +6594,7 @@
     "name": {
       "zh": "杰里米·边沁",
       "en": "Jeremy Bentham",
-      "zh-TW": "傑里米・邊沁"
+      "zh-TW": "傑里米·邊沁"
     },
     "region": {
       "zh": "欧洲",
@@ -6591,7 +6623,7 @@
     "name": {
       "zh": "夏洛蒂·勃朗特",
       "en": "Charlotte Brontë",
-      "zh-TW": "夏洛蒂・勃朗特"
+      "zh-TW": "夏綠蒂·勃朗特"
     },
     "region": {
       "zh": "欧洲",
@@ -6612,7 +6644,8 @@
     ],
     "bio": {
       "zh": "英国小说家，与姐妹合出诗集，以柯勒·贝尔发表《简·爱》。",
-      "en": "English novelist who published poetry with her sisters and issued Jane Eyre as Currer Bell."
+      "en": "English novelist who published poetry with her sisters and issued Jane Eyre as Currer Bell.",
+      "zh-TW": "英國小說家，與姐妹合出詩集，以柯勒·貝爾發表《簡·愛》。"
     }
   },
   {
@@ -6620,7 +6653,7 @@
     "name": {
       "zh": "伊丽莎白·盖斯凯尔",
       "en": "Elizabeth Gaskell",
-      "zh-TW": "伊莉莎白・蓋斯凱爾"
+      "zh-TW": "伊莉莎白·蓋斯凱爾"
     },
     "region": {
       "zh": "欧洲",
@@ -6649,7 +6682,7 @@
     "name": {
       "zh": "哈丽雅特·马蒂诺",
       "en": "Harriet Martineau",
-      "zh-TW": "哈麗雅特・馬蒂諾"
+      "zh-TW": "哈麗雅特·馬蒂諾"
     },
     "region": {
       "zh": "欧洲",
@@ -6678,7 +6711,7 @@
     "name": {
       "zh": "乔治·艾略特",
       "en": "George Eliot",
-      "zh-TW": "喬治・艾略特"
+      "zh-TW": "喬治·艾略特"
     },
     "region": {
       "zh": "欧洲",
@@ -6707,7 +6740,7 @@
     "name": {
       "zh": "亨利·沃兹沃思·朗费罗",
       "en": "Henry Wadsworth Longfellow",
-      "zh-TW": "亨利・華茲華斯・朗費羅"
+      "zh-TW": "亨利·華茲華斯·朗費羅"
     },
     "region": {
       "zh": "北美",
@@ -6766,7 +6799,7 @@
     "name": {
       "zh": "亚历山大·汉密尔顿",
       "en": "Alexander Hamilton",
-      "zh-TW": "亞歷山大·漢彌爾頓"
+      "zh-TW": "亞歷山大·漢米爾頓"
     },
     "region": {
       "zh": "北美",
@@ -6778,7 +6811,8 @@
     },
     "bio": {
       "zh": "美国政治家、联邦党人文集作者之一，曾任美国首任财政部长。",
-      "en": "American statesman, first treasury secretary and a co-author of the Federalist Papers."
+      "en": "American statesman, first treasury secretary and a co-author of the Federalist Papers.",
+      "zh-TW": "美國政治家、聯邦黨人文集作者之一，曾任美國首任財政部長。"
     },
     "vector": [
       5,
@@ -6795,7 +6829,7 @@
     "name": {
       "zh": "约翰·斯图亚特·密尔",
       "en": "John Stuart Mill",
-      "zh-TW": "約翰·史都華·彌爾"
+      "zh-TW": "約翰·斯圖爾特·彌爾"
     },
     "region": {
       "zh": "欧洲",
@@ -6969,7 +7003,7 @@
     "name": {
       "zh": "托马斯·莫尔",
       "en": "Thomas More",
-      "zh-TW": "托馬斯·摩爾"
+      "zh-TW": "湯瑪斯·摩爾"
     },
     "region": {
       "zh": "欧洲",
@@ -6998,7 +7032,7 @@
     "name": {
       "zh": "塞缪尔·约翰逊",
       "en": "Samuel Johnson",
-      "zh-TW": "塞繆爾·詹森"
+      "zh-TW": "山繆·強森"
     },
     "region": {
       "zh": "欧洲",
@@ -7085,7 +7119,7 @@
     "name": {
       "zh": "迭戈·委拉斯开兹",
       "en": "Diego Velázquez",
-      "zh-TW": "迪亞哥·委拉斯奎茲"
+      "zh-TW": "迪亞哥·委拉斯蓋茲"
     },
     "region": {
       "zh": "欧洲",
@@ -7097,7 +7131,8 @@
     },
     "bio": {
       "zh": "西班牙宫廷画家，1656年创作《宫娥》。",
-      "en": "Spanish court painter who made Las Meninas in 1656."
+      "en": "Spanish court painter who made Las Meninas in 1656.",
+      "zh-TW": "西班牙宮廷畫家，1656年創作《宮娥》。"
     },
     "vector": [
       4,
@@ -7897,7 +7932,7 @@
     "name": {
       "zh": "威廉·佩恩",
       "en": "William Penn",
-      "zh-TW": "威廉·潘恩"
+      "zh-TW": "威廉·佩恩"
     },
     "region": {
       "zh": "北美",
@@ -7909,7 +7944,8 @@
     },
     "bio": {
       "zh": "英国贵格会教徒，为英属北美殖民地宾夕法尼亚先后颁行政府框架与特权宪章。",
-      "en": "English Quaker who issued frames of government and a later Charter of Privileges for colonial Pennsylvania."
+      "en": "English Quaker who issued frames of government and a later Charter of Privileges for colonial Pennsylvania.",
+      "zh-TW": "英國貴格會教徒，為英屬北美殖民地賓夕法尼亞先後頒行政府框架與特權憲章。"
     },
     "vector": [
       2,
@@ -7984,7 +8020,7 @@
     "name": {
       "zh": "胡果·格劳秀斯",
       "en": "Hugo Grotius",
-      "zh-TW": "胡果·格老秀斯"
+      "zh-TW": "胡果·格勞秀斯"
     },
     "region": {
       "zh": "欧洲",
@@ -8157,7 +8193,7 @@
     "name": {
       "zh": "塞缪尔·泰勒·柯勒律治",
       "en": "Samuel Taylor Coleridge",
-      "zh-TW": "塞繆爾·泰勒·柯立芝"
+      "zh-TW": "塞繆爾·泰勒·柯勒律治"
     },
     "region": {
       "zh": "欧洲",
@@ -8331,7 +8367,7 @@
     "name": {
       "zh": "巴托洛梅·埃斯特万·穆里略",
       "en": "Bartolomé Esteban Murillo",
-      "zh-TW": "巴托洛梅·埃斯特班·穆里羅"
+      "zh-TW": "巴托洛梅·埃斯特萬·牟利羅"
     },
     "region": {
       "zh": "欧洲",
@@ -8352,7 +8388,8 @@
     ],
     "bio": {
       "zh": "塞维利亚画家，曾为慈善兄弟会作画，并与其他画家创立塞维利亚绘画学院。",
-      "en": "Seville painter who made work for the Brotherhood of Charity and helped found the city’s painting academy."
+      "en": "Seville painter who made work for the Brotherhood of Charity and helped found the city’s painting academy.",
+      "zh-TW": "塞維利亞畫家，曾為慈善兄弟會作畫，並與其他畫家創立塞維利亞繪畫學院。"
     }
   },
   {
@@ -8651,7 +8688,7 @@
     "name": {
       "zh": "约翰·加尔文",
       "en": "John Calvin",
-      "zh-TW": "約翰·加爾文"
+      "zh-TW": "約翰·喀爾文"
     },
     "region": {
       "zh": "欧洲",
@@ -10013,7 +10050,7 @@
     "name": {
       "zh": "皮埃尔-让·德·贝朗瑞",
       "en": "Pierre-Jean de Béranger",
-      "zh-TW": "皮耶・讓・德・貝朗瑞"
+      "zh-TW": "皮耶·讓·德·貝朗瑞"
     },
     "region": {
       "zh": "欧洲",
@@ -10042,7 +10079,7 @@
     "name": {
       "zh": "皮埃尔·博马舍",
       "en": "Pierre-Augustin Caron de Beaumarchais",
-      "zh-TW": "皮耶・博馬舍"
+      "zh-TW": "皮耶·博馬舍"
     },
     "region": {
       "zh": "欧洲",
@@ -10100,7 +10137,7 @@
     "name": {
       "zh": "让·维克托·莫罗",
       "en": "Jean Victor Moreau",
-      "zh-TW": "尚・維克多・莫羅"
+      "zh-TW": "尚·維克多·莫羅"
     },
     "region": {
       "zh": "欧洲",
@@ -10158,7 +10195,7 @@
     "name": {
       "zh": "塞缪尔·克拉克",
       "en": "Samuel Clarke",
-      "zh-TW": "塞繆爾・克拉克"
+      "zh-TW": "塞繆爾·克拉克"
     },
     "region": {
       "zh": "欧洲",
@@ -10187,7 +10224,7 @@
     "name": {
       "zh": "威廉·埃勒里·钱宁",
       "en": "William Ellery Channing",
-      "zh-TW": "威廉・埃勒里・錢寧"
+      "zh-TW": "威廉·埃勒里·錢寧"
     },
     "region": {
       "zh": "北美",
@@ -10216,7 +10253,7 @@
     "name": {
       "zh": "理查德·瓦格纳",
       "en": "Richard Wagner",
-      "zh-TW": "理查・華格納"
+      "zh-TW": "理查·華格納"
     },
     "region": {
       "zh": "欧洲",
@@ -10245,7 +10282,7 @@
     "name": {
       "zh": "威廉·梅克比斯·萨克雷",
       "en": "William Makepeace Thackeray",
-      "zh-TW": "威廉・梅克比斯・薩克萊"
+      "zh-TW": "威廉·梅克比斯·薩克萊"
     },
     "region": {
       "zh": "欧洲",
@@ -10274,7 +10311,7 @@
     "name": {
       "zh": "格布哈德·冯·布吕歇尔",
       "en": "Gebhard Leberecht von Blücher",
-      "zh-TW": "格布哈德・馮・布呂歇爾"
+      "zh-TW": "格布哈德·馮·布呂歇爾"
     },
     "region": {
       "zh": "欧洲",
@@ -10333,7 +10370,7 @@
     "name": {
       "zh": "弗朗西斯·阿特伯里",
       "en": "Francis Atterbury",
-      "zh-TW": "弗朗西斯·阿特伯裡"
+      "zh-TW": "弗朗西斯·阿特伯里"
     },
     "field": {
       "zh": "思想教育",
@@ -10490,7 +10527,8 @@
     },
     "bio": {
       "zh": "斯宾塞从田园诗写到《仙后》，用不同人物和旅程承载寓意。",
-      "en": "Spenser moved from pastoral verse to The Faerie Queene, where characters and journeys give allegory a body."
+      "en": "Spenser moved from pastoral verse to The Faerie Queene, where characters and journeys give allegory a body.",
+      "zh-TW": "史賓賽從田園詩寫到《仙后》，用不同人物和旅程承載寓意。"
     },
     "vector": [
       1,
@@ -10536,7 +10574,7 @@
     "name": {
       "zh": "约翰·戈特弗里德·赫尔德",
       "en": "Johann Gottfried Herder",
-      "zh-TW": "約翰·戈特弗裡德·赫爾德"
+      "zh-TW": "約翰·戈特弗里德·赫爾德"
     },
     "field": {
       "zh": "思想教育",
@@ -10606,7 +10644,8 @@
     },
     "bio": {
       "zh": "笛福写政治小册子、期刊和小说，在不同文体里安排信息逐步出现。",
-      "en": "Defoe wrote political pamphlets, a periodical, and novels, giving information a different rhythm in each form."
+      "en": "Defoe wrote political pamphlets, a periodical, and novels, giving information a different rhythm in each form.",
+      "zh-TW": "狄福寫政治小冊子、期刊和小說，在不同文體裡安排資訊逐步出現。"
     },
     "vector": [
       4,
@@ -10751,7 +10790,8 @@
     },
     "bio": {
       "zh": "贝克莱讨论视觉怎样提示距离，并把视觉与触觉分开来分析。",
-      "en": "Berkeley asked how sight suggests distance and distinguished between visible and tangible experiences."
+      "en": "Berkeley asked how sight suggests distance and distinguished between visible and tangible experiences.",
+      "zh-TW": "柏克萊討論視覺怎樣提示距離，並把視覺與觸覺分開來分析。"
     },
     "vector": [
       1,
@@ -11405,7 +11445,7 @@
     "name": {
       "zh": "让-德迪厄·苏尔特",
       "en": "Jean-de-Dieu Soult",
-      "zh-TW": "尚－德迪厄・蘇爾特"
+      "zh-TW": "尚－德迪厄·蘇爾特"
     },
     "region": {
       "zh": "欧洲",
@@ -11434,7 +11474,7 @@
     "name": {
       "zh": "拉扎尔·卡诺",
       "en": "Lazare Carnot",
-      "zh-TW": "拉札爾・卡諾"
+      "zh-TW": "拉札爾·卡諾"
     },
     "region": {
       "zh": "欧洲",
@@ -11463,7 +11503,7 @@
     "name": {
       "zh": "佩德罗·卡尔德龙·德·拉·巴尔卡",
       "en": "Pedro Calderón de la Barca",
-      "zh-TW": "佩德羅・卡爾德隆・德・拉・巴卡"
+      "zh-TW": "佩德羅·卡爾德隆·德·拉·巴卡"
     },
     "region": {
       "zh": "欧洲",
@@ -11521,7 +11561,7 @@
     "name": {
       "zh": "海因里希·海涅",
       "en": "Heinrich Heine",
-      "zh-TW": "海因里希・海涅"
+      "zh-TW": "海因里希·海涅"
     },
     "region": {
       "zh": "欧洲",
@@ -11550,7 +11590,7 @@
     "name": {
       "zh": "约翰·卫斯理",
       "en": "John Wesley",
-      "zh-TW": "約翰・衛斯理"
+      "zh-TW": "約翰·衛斯理"
     },
     "region": {
       "zh": "欧洲",
@@ -11579,7 +11619,7 @@
     "name": {
       "zh": "约翰·约阿希姆·温克尔曼",
       "en": "Johann Joachim Winckelmann",
-      "zh-TW": "約翰・約阿希姆・溫克爾曼"
+      "zh-TW": "約翰·約阿希姆·溫克爾曼"
     },
     "region": {
       "zh": "欧洲",
@@ -11608,7 +11648,7 @@
     "name": {
       "zh": "理查德·布林斯利·谢里丹",
       "en": "Richard Brinsley Sheridan",
-      "zh-TW": "理查・布林斯利・謝里丹"
+      "zh-TW": "理查·布林斯利·謝里丹"
     },
     "region": {
       "zh": "欧洲",
@@ -11637,7 +11677,7 @@
     "name": {
       "zh": "卡尔·马里亚·冯·韦伯",
       "en": "Carl Maria von Weber",
-      "zh-TW": "卡爾・瑪利亞・馮・韋伯"
+      "zh-TW": "卡爾·瑪利亞·馮·韋伯"
     },
     "region": {
       "zh": "欧洲",
@@ -11666,7 +11706,7 @@
     "name": {
       "zh": "威廉·汉密尔顿爵士",
       "en": "Sir William Hamilton",
-      "zh-TW": "威廉・漢彌爾頓爵士"
+      "zh-TW": "威廉·漢彌爾頓爵士"
     },
     "region": {
       "zh": "欧洲",
@@ -11695,7 +11735,7 @@
     "name": {
       "zh": "第一代沙夫茨伯里伯爵安东尼·阿什利·库珀",
       "en": "Anthony Ashley Cooper, 1st Earl of Shaftesbury",
-      "zh-TW": "第一代沙夫茨伯里伯爵安東尼・阿什利・庫珀"
+      "zh-TW": "第一代沙夫茨伯里伯爵安東尼·阿什利·庫珀"
     },
     "region": {
       "zh": "欧洲",
@@ -11724,7 +11764,7 @@
     "name": {
       "zh": "约翰·布赖特",
       "en": "John Bright",
-      "zh-TW": "約翰・布萊特"
+      "zh-TW": "約翰·布萊特"
     },
     "region": {
       "zh": "欧洲",
@@ -11753,7 +11793,7 @@
     "name": {
       "zh": "赫尔曼·布尔哈弗",
       "en": "Herman Boerhaave",
-      "zh-TW": "赫爾曼・布爾哈弗"
+      "zh-TW": "赫爾曼·布爾哈弗"
     },
     "region": {
       "zh": "欧洲",
@@ -11782,7 +11822,7 @@
     "name": {
       "zh": "华盛顿·欧文",
       "en": "Washington Irving",
-      "zh-TW": "華盛頓・歐文"
+      "zh-TW": "華盛頓·歐文"
     },
     "region": {
       "zh": "北美",
@@ -11811,7 +11851,7 @@
     "name": {
       "zh": "安德烈·马塞纳",
       "en": "André Masséna",
-      "zh-TW": "安德烈・馬塞納"
+      "zh-TW": "安德烈·馬塞納"
     },
     "region": {
       "zh": "欧洲",
@@ -11840,7 +11880,7 @@
     "name": {
       "zh": "邦雅曼·贡斯当",
       "en": "Benjamin Constant",
-      "zh-TW": "班傑明・貢斯當"
+      "zh-TW": "班傑明·貢斯當"
     },
     "region": {
       "zh": "欧洲",
@@ -11869,7 +11909,7 @@
     "name": {
       "zh": "约翰内斯·罗伊希林",
       "en": "Johann Reuchlin",
-      "zh-TW": "約翰內斯・羅伊希林"
+      "zh-TW": "約翰內斯·羅伊希林"
     },
     "region": {
       "zh": "欧洲",
@@ -11898,7 +11938,7 @@
     "name": {
       "zh": "夏尔·奥古斯坦·圣伯夫",
       "en": "Charles-Augustin Sainte-Beuve",
-      "zh-TW": "夏爾・奧古斯坦・聖伯夫"
+      "zh-TW": "夏爾·奧古斯坦·聖伯夫"
     },
     "region": {
       "zh": "欧洲",
@@ -11927,7 +11967,7 @@
     "name": {
       "zh": "理查德·巴克斯特",
       "en": "Richard Baxter",
-      "zh-TW": "理查・巴克斯特"
+      "zh-TW": "理查·巴克斯特"
     },
     "region": {
       "zh": "欧洲",
@@ -11956,7 +11996,7 @@
     "name": {
       "zh": "爱德华·詹纳",
       "en": "Edward Jenner",
-      "zh-TW": "愛德華・詹納"
+      "zh-TW": "愛德華·詹納"
     },
     "region": {
       "zh": "欧洲",
@@ -11985,7 +12025,7 @@
     "name": {
       "zh": "路易斯·阿加西",
       "en": "Louis Agassiz",
-      "zh-TW": "路易斯・阿加西"
+      "zh-TW": "路易斯·阿加西"
     },
     "region": {
       "zh": "欧洲",
@@ -12014,7 +12054,7 @@
     "name": {
       "zh": "穆罕默德·阿里帕夏",
       "en": "Muhammad Ali of Egypt",
-      "zh-TW": "穆罕默德・阿里帕夏"
+      "zh-TW": "穆罕默德·阿里帕夏"
     },
     "region": {
       "zh": "西亚、中亚与北非",
@@ -12043,7 +12083,7 @@
     "name": {
       "zh": "科内利乌斯·詹森",
       "en": "Cornelius Jansen",
-      "zh-TW": "科內利烏斯・詹森"
+      "zh-TW": "科內利烏斯·詹森"
     },
     "region": {
       "zh": "欧洲",
@@ -12072,7 +12112,7 @@
     "name": {
       "zh": "罗伯特·沃波尔",
       "en": "Robert Walpole",
-      "zh-TW": "羅伯特・沃波爾"
+      "zh-TW": "羅伯特·沃波爾"
     },
     "region": {
       "zh": "欧洲",
@@ -13117,7 +13157,7 @@
     "name": {
       "zh": "罗伯特·E·李",
       "en": "Robert E. Lee",
-      "zh-TW": "羅伯特·E·李"
+      "zh-TW": "羅伯特·李"
     },
     "region": {
       "zh": "北美",
@@ -13203,7 +13243,7 @@
     "name": {
       "zh": "米歇尔·内伊",
       "en": "Michel Ney",
-      "zh-TW": "米歇爾・內伊"
+      "zh-TW": "米歇爾·內伊"
     },
     "region": {
       "zh": "欧洲",
@@ -13232,7 +13272,7 @@
     "name": {
       "zh": "马里-弗朗索瓦-格扎维埃·比沙",
       "en": "Marie François Xavier Bichat",
-      "zh-TW": "馬里－弗朗索瓦－格扎維埃・比夏"
+      "zh-TW": "馬里－弗朗索瓦－格扎維埃·比夏"
     },
     "region": {
       "zh": "欧洲",
@@ -13261,7 +13301,7 @@
     "name": {
       "zh": "威廉·特库姆塞·谢尔曼",
       "en": "William Tecumseh Sherman",
-      "zh-TW": "威廉・特庫姆塞・謝爾曼"
+      "zh-TW": "威廉·特庫姆塞·謝爾曼"
     },
     "region": {
       "zh": "北美",
@@ -13290,7 +13330,7 @@
     "name": {
       "zh": "亨利·德·圣西门",
       "en": "Henri de Saint-Simon",
-      "zh-TW": "亨利・德・聖西門"
+      "zh-TW": "亨利·德·聖西門"
     },
     "region": {
       "zh": "欧洲",
@@ -13319,7 +13359,7 @@
     "name": {
       "zh": "约翰·威尔克斯",
       "en": "John Wilkes",
-      "zh-TW": "約翰・威爾克斯"
+      "zh-TW": "約翰·威爾克斯"
     },
     "region": {
       "zh": "欧洲",
@@ -13348,7 +13388,7 @@
     "name": {
       "zh": "威廉·科贝特",
       "en": "William Cobbett",
-      "zh-TW": "威廉・柯貝特"
+      "zh-TW": "威廉·柯貝特"
     },
     "region": {
       "zh": "欧洲",
@@ -13377,7 +13417,7 @@
     "name": {
       "zh": "让-西尔万·巴伊",
       "en": "Jean-Sylvain Bailly",
-      "zh-TW": "尚－西爾萬・巴伊"
+      "zh-TW": "尚－西爾萬·巴伊"
     },
     "region": {
       "zh": "欧洲",
@@ -13406,7 +13446,7 @@
     "name": {
       "zh": "塞巴斯蒂安·勒普雷斯特·德·沃邦",
       "en": "Sébastien Le Prestre de Vauban",
-      "zh-TW": "塞巴斯蒂安・勒普雷斯特・德・沃邦"
+      "zh-TW": "塞巴斯蒂安·勒普雷斯特·德·沃邦"
     },
     "region": {
       "zh": "欧洲",
@@ -13435,7 +13475,7 @@
     "name": {
       "zh": "皮埃尔·培尔",
       "en": "Pierre Bayle",
-      "zh-TW": "皮耶・貝爾"
+      "zh-TW": "皮耶·貝爾"
     },
     "region": {
       "zh": "欧洲",
@@ -13464,7 +13504,7 @@
     "name": {
       "zh": "彼得罗·梅塔斯塔西奥",
       "en": "Pietro Metastasio",
-      "zh-TW": "皮耶特羅・梅塔斯塔西奧"
+      "zh-TW": "皮耶特羅·梅塔斯塔西奧"
     },
     "region": {
       "zh": "欧洲",
@@ -13493,7 +13533,7 @@
     "name": {
       "zh": "雅克-奥古斯特·德·图",
       "en": "Jacques-Auguste de Thou",
-      "zh-TW": "雅克－奧古斯特・德・圖"
+      "zh-TW": "雅克－奧古斯特·德·圖"
     },
     "region": {
       "zh": "欧洲",
@@ -13638,7 +13678,7 @@
     "name": {
       "zh": "米歇尔·德·洛皮塔尔",
       "en": "Michel de L’Hôpital",
-      "zh-TW": "米歇爾・德・洛皮塔爾"
+      "zh-TW": "米歇爾·德·洛皮塔爾"
     },
     "region": {
       "zh": "欧洲",
@@ -13667,7 +13707,7 @@
     "name": {
       "zh": "让-保尔·马拉",
       "en": "Jean-Paul Marat",
-      "zh-TW": "尚－保羅・馬拉"
+      "zh-TW": "尚－保羅·馬拉"
     },
     "region": {
       "zh": "欧洲",
@@ -13696,7 +13736,7 @@
     "name": {
       "zh": "弗朗切斯科·圭恰迪尼",
       "en": "Francesco Guicciardini",
-      "zh-TW": "法蘭契斯科・圭恰迪尼"
+      "zh-TW": "法蘭契斯科·圭恰迪尼"
     },
     "region": {
       "zh": "欧洲",
@@ -13725,7 +13765,7 @@
     "name": {
       "zh": "永斯·雅各布·贝采利乌斯",
       "en": "Jöns Jacob Berzelius",
-      "zh-TW": "永斯・雅各布・貝采利烏斯"
+      "zh-TW": "永斯·雅各布·貝采利烏斯"
     },
     "region": {
       "zh": "欧洲",
@@ -13754,7 +13794,7 @@
     "name": {
       "zh": "皮埃尔-维克蒂尼安·韦尼奥",
       "en": "Pierre Victurnien Vergniaud",
-      "zh-TW": "皮耶－維克蒂尼安・韋尼奧"
+      "zh-TW": "皮耶－維克蒂尼安·韋尼奧"
     },
     "region": {
       "zh": "欧洲",
@@ -13783,7 +13823,7 @@
     "name": {
       "zh": "兰斯洛特·安德鲁斯",
       "en": "Lancelot Andrewes",
-      "zh-TW": "蘭斯洛特・安德魯斯"
+      "zh-TW": "蘭斯洛特·安德魯斯"
     },
     "region": {
       "zh": "欧洲",
@@ -13812,7 +13852,7 @@
     "name": {
       "zh": "彼得罗·萨尔皮",
       "en": "Paolo Sarpi",
-      "zh-TW": "彼得羅・薩爾皮"
+      "zh-TW": "彼得羅·薩爾皮"
     },
     "region": {
       "zh": "欧洲",
@@ -13841,7 +13881,7 @@
     "name": {
       "zh": "路德维希·蒂克",
       "en": "Ludwig Tieck",
-      "zh-TW": "路德維希・提克"
+      "zh-TW": "路德維希·提克"
     },
     "region": {
       "zh": "欧洲",
@@ -13862,7 +13902,8 @@
     ],
     "bio": {
       "zh": "德语浪漫主义作家和编辑，参与整理德语莎士比亚译本，多萝特娅·蒂克等人亦承担翻译。",
-      "en": "German Romantic writer and editor involved in a Shakespeare translation project to which Dorothea Tieck and others directly contributed."
+      "en": "German Romantic writer and editor involved in a Shakespeare translation project to which Dorothea Tieck and others directly contributed.",
+      "zh-TW": "德語浪漫主義作家和編輯，參與整理德語莎士比亞譯本，多蘿特婭·提克等人亦承擔翻譯。"
     }
   },
   {
@@ -13870,7 +13911,7 @@
     "name": {
       "zh": "丹尼尔·奥康奈尔",
       "en": "Daniel O’Connell",
-      "zh-TW": "丹尼爾・歐康諾"
+      "zh-TW": "丹尼爾·歐康諾"
     },
     "region": {
       "zh": "欧洲",
@@ -13899,7 +13940,7 @@
     "name": {
       "zh": "威廉·亨利·西沃德",
       "en": "William Henry Seward",
-      "zh-TW": "威廉・亨利・蘇厄德"
+      "zh-TW": "威廉·亨利·蘇厄德"
     },
     "region": {
       "zh": "北美",
@@ -13928,7 +13969,7 @@
     "name": {
       "zh": "约翰·富兰克林",
       "en": "John Franklin",
-      "zh-TW": "約翰・富蘭克林"
+      "zh-TW": "約翰·富蘭克林"
     },
     "region": {
       "zh": "欧洲",

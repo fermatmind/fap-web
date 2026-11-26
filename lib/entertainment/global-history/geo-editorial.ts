@@ -1,26 +1,45 @@
+import { historySourceReference, type SourceReference } from "./source-reference";
+import { firstWaveEditorial } from "./geo-editorial-wave-01";
+import { wave02Editorial } from "./geo-editorial-wave-02";
+import { wave03Editorial } from "./geo-editorial-wave-03";
+import { wave04Editorial } from "./geo-editorial-wave-04";
+import { wave05Editorial } from "./geo-editorial-wave-05";
+import { wave06Editorial } from "./geo-editorial-wave-06";
+import { wave07Editorial } from "./geo-editorial-wave-07";
+import { wave08Editorial } from "./geo-editorial-wave-08";
+import { wave09Editorial } from "./geo-editorial-wave-09";
 import { resultCopy, type Text } from "./result-editorial";
 
 type Decision = {
-  year: number;
+  year: number | Text;
   title: Text;
   fact: Text;
   interpretation: Text;
   source: { url: string; label: string; locator: string };
 };
 
-type GeoEditorial = {
+export type GeoEditorial = {
   summary: Text;
   decision: Decision;
   question: Text;
   answer: Text;
 };
 
-export const globalHistoryGeoEditorial: Readonly<Partial<Record<string, GeoEditorial>>> = {
+const editorialDrafts: Readonly<Partial<Record<string, GeoEditorial>>> = {
+  ...firstWaveEditorial,
+  ...wave02Editorial,
+  ...wave03Editorial,
+  ...wave04Editorial,
+  ...wave05Editorial,
+  ...wave06Editorial,
+  ...wave07Editorial,
+  ...wave08Editorial,
+  ...wave09Editorial,
   "francois-guizot": {
     summary: resultCopy(
       "法国教育大臣基佐推动由各市镇维持小学。费马据其跨地方建立制度的做法作 ENTJ 传记解读。Cox 童年、青年回推估值分别为 155、165。",
       "法國教育部長基佐推動由各市鎮維持小學。費馬依其跨地方建立制度的做法作 ENTJ 傳記解讀。Cox 童年、青年回推估值分別為 155、165。",
-      "French education minister François Guizot helped establish a system in which communes maintained primary schools. FermatMind reads that effort to organize education across local boundaries as part of an editorial ENTJ interpretation. Cox’s retrospective childhood and youth estimates were 155 and 165 respectively. Article 9 of the 1833 education law shows how that arrangement worked: neighboring communes could meet the requirement together and share the responsibility.",
+      "French education minister François Guizot helped establish a system in which communes maintained primary schools. FermatMind reads that effort to organize education across local boundaries as part of an editorial ENTJ interpretation. Cox’s retrospective childhood and youth estimates were 155 and 165 respectively.",
     ),
     decision: {
       year: 1833,
@@ -50,15 +69,15 @@ export const globalHistoryGeoEditorial: Readonly<Partial<Record<string, GeoEdito
   },
   "katherine-johnson": {
     summary: resultCopy(
-      "美国数学家凯瑟琳·约翰逊在葛伦绕地飞行前独立复核轨道数字。费马以这次核验作 ISTJ 传记解读。Cox 1926 原表未收录她。",
+      "美国数学家凯瑟琳·约翰逊在格伦绕地飞行前独立复核轨道数字。费马以这次核验作 ISTJ 传记解读。Cox 1926 原表未收录她。",
       "美國數學家凱薩琳·強森在葛倫繞地飛行前獨立複核軌道數字。費馬以這次查核作 ISTJ 傳記解讀。Cox 1926 原表並未收錄她。",
-      "The American mathematician Katherine Johnson independently checked orbital calculations before John Glenn’s flight. FermatMind uses that verification step in its editorial ISTJ reading of Johnson’s work. She does not appear in Cox’s 1926 tables. NASA records the episode under the 1962 Friendship 7 mission and includes Johnson’s own recollection of checking the trajectory that the electronic computer had originally calculated.",
+      "The American mathematician Katherine Johnson independently checked orbital calculations before John Glenn’s flight. FermatMind uses that verification step in its editorial ISTJ reading of Johnson’s work. She does not appear in Cox’s 1926 tables.",
     ),
     decision: {
       year: 1962,
       title: resultCopy("用独立计算复核电子计算机", "用獨立計算複核電腦結果", "Recheck the computer’s trajectory independently"),
       fact: resultCopy(
-        "友谊 7 号升空前，约翰·葛伦要求约翰逊亲自复核电子计算机算出的飞行轨迹。按约翰逊的回忆，她重新核算后确认原结果正确。",
+        "友谊 7 号升空前，约翰·格伦要求约翰逊亲自复核电子计算机算出的飞行轨迹。按约翰逊的回忆，她重新核算后确认原结果正确。",
         "友誼 7 號升空前，約翰·葛倫請強森親自複核電腦算出的飛行軌跡。依強森的回憶，她重新核算後確認原結果正確。",
         "Before Friendship 7 launched, Glenn asked Johnson to verify the trajectory computed electronically. In Johnson’s account, her independent check confirmed the original calculations.",
       ),
@@ -71,7 +90,7 @@ export const globalHistoryGeoEditorial: Readonly<Partial<Record<string, GeoEdito
     },
     question: resultCopy("她重算的是哪项数据？", "她重新核算的是哪一項資料？", "What did Johnson actually recheck?"),
     answer: resultCopy(
-      "她检查的是电子计算机算出的飞行轨迹数据。NASA 将这次复核记在葛伦 1962 年的友谊 7 号任务下。",
+      "她检查的是电子计算机算出的飞行轨迹数据。NASA 将这次复核记在格伦 1962 年的友谊 7 号任务下。",
       "她檢查的是電腦算出的飛行軌跡。NASA 把這次複核記在葛倫 1962 年的友誼 7 號任務中。",
       "She verified the trajectory from the electronic computer. NASA places this check before Glenn’s 1962 Friendship 7 flight.",
     ),
@@ -80,7 +99,7 @@ export const globalHistoryGeoEditorial: Readonly<Partial<Record<string, GeoEdito
     summary: resultCopy(
       "美国政治家富兰克林在制宪会议最后一天劝代表签字。费马以这次公开协调作 ENTJ 传记解读。Cox 对其童年和青年回推估值均为 160。",
       "美國政治家富蘭克林在制憲會議最後一天勸代表簽字。費馬以這次公開協調作 ENTJ 傳記解讀。Cox 對其童年和青年回推估值均為 160。",
-      "On the last day of the US Constitutional Convention, Benjamin Franklin urged delegates to sign. FermatMind interprets this effort to win public agreement as part of an editorial ENTJ reading. Cox put both retrospective estimates at 160. The United States National Archives records that James Wilson delivered Franklin’s speech for him, including his willingness to endorse a draft about which he still had reservations.",
+      "On the last day of the US Constitutional Convention, Benjamin Franklin urged delegates to sign. FermatMind interprets this effort to win public agreement as part of an editorial ENTJ reading. Cox put both retrospective estimates at 160.",
     ),
     decision: {
       year: 1787,
@@ -109,7 +128,7 @@ export const globalHistoryGeoEditorial: Readonly<Partial<Record<string, GeoEdito
     summary: resultCopy(
       "法国小说家乔治·桑在 1848 年为共和政府的公报写稿。费马从她把文学笔力带进公共议题的选择作 INFP 传记解读。Cox 两项回推估值均为 160。",
       "法國小說家喬治·桑在 1848 年為共和政府的公報撰稿。費馬從她把文學筆力帶進公共議題的選擇作 INFP 傳記解讀。Cox 兩項回推估值均為 160。",
-      "French novelist George Sand contributed to the republican government’s bulletin in 1848. FermatMind’s editorial INFP reading looks at her choice to bring a writer’s voice into public debate. Cox assigned her two retrospective estimates of 160. The French National Assembly catalogues several of the bulletins among her political writings, alongside letters and addresses that make it possible to trace her participation.",
+      "French novelist George Sand contributed to the republican government’s bulletin in 1848. FermatMind’s editorial INFP reading looks at her choice to bring a writer’s voice into public debate. Cox assigned her two retrospective estimates of 160.",
     ),
     decision: {
       year: 1848,
@@ -136,15 +155,15 @@ export const globalHistoryGeoEditorial: Readonly<Partial<Record<string, GeoEdito
   "william-makepeace-thackeray": {
     summary: resultCopy(
       "英国小说家萨克雷为《名利场》自绘插图，并以「没有英雄」标明写作选择。费马据此作 INTP 传记解读。Cox 两项回推估值为 145、150。",
-      "英國小說家薩克萊為《名利場》自繪插圖，並以「沒有英雄」標明寫作選擇。費馬據此作 INTP 傳記解讀。Cox 兩項回推估值為 145、150。",
-      "British novelist William Makepeace Thackeray illustrated Vanity Fair himself and deliberately subtitled it A Novel Without a Hero. FermatMind’s editorial INTP reading considers his willingness to question a narrative convention. Cox’s two retrospective estimates were 145 and 150. The Metropolitan Museum of Art’s record anchors that creative choice in the book itself. Its title and illustration credits let readers check what Thackeray chose to put into print.",
+      "英國小說家薩克萊為《浮華世界》自繪插圖，並以「沒有英雄」標明寫作選擇。費馬據此作 INTP 傳記解讀。Cox 兩項回推估值為 145、150。",
+      "British novelist William Makepeace Thackeray illustrated Vanity Fair himself and deliberately subtitled it A Novel Without a Hero. FermatMind’s editorial INTP reading considers his willingness to question a narrative convention. Cox’s two retrospective estimates were 145 and 150.",
     ),
     decision: {
       year: 1848,
       title: resultCopy("在书名页上取消英雄的位置", "在書名頁上取消英雄的位置", "Put ‘without a hero’ on the title page"),
       fact: resultCopy(
         "萨克雷给《名利场》加上「没有英雄的小说」这个副标题，也亲自绘制插图。大都会艺术博物馆的藏本记录把文字和插图都归于他。",
-        "薩克萊給《名利場》加上「沒有英雄的小說」這個副標題，也親自繪製插圖。大都會藝術博物館的藏本記錄將文字和插圖都歸於他。",
+        "薩克萊給《浮華世界》加上「沒有英雄的小說」這個副標題，也親自繪製插圖。大都會藝術博物館的藏本記錄將文字和插圖都歸於他。",
         "Thackeray subtitled Vanity Fair A Novel Without a Hero and illustrated it himself. The Metropolitan Museum of Art’s catalog credits him with both the text and the illustrations.",
       ),
       interpretation: resultCopy(
@@ -152,7 +171,7 @@ export const globalHistoryGeoEditorial: Readonly<Partial<Record<string, GeoEdito
         "費馬把改變主角預期的做法視為六維中的變化線索。這是一次可查證的敘事選擇，傳記類型仍是編輯判斷。",
         "Changing a reader’s expectations of the protagonist is the change cue in this reading. The title documents a narrative choice and does not measure personality.",
       ),
-      source: { url: "https://www.metmuseum.org/art/collection/search/357842", label: "The Metropolitan Museum of Art", locator: "Vanity Fair catalog record and illustration credits" },
+      source: { url: "https://www.metmuseum.org/art/collection/search/357842", label: "The Metropolitan Museum of Art", locator: "Vanity Fair, Met collection 1984.1211, title and illustration credits" },
     },
     question: resultCopy("插图是谁画的？", "插圖是誰畫的？", "Who illustrated the book?"),
     answer: resultCopy(
@@ -165,7 +184,7 @@ export const globalHistoryGeoEditorial: Readonly<Partial<Record<string, GeoEdito
     summary: resultCopy(
       "越南文臣阮廌为黎利拟写《平吴大诰》，以公共文告陈述大越立场。费马从这次跨层次论证作 INTJ 传记解读。Cox 原表未收录他。",
       "越南文臣阮廌為黎利擬寫《平吳大誥》，以公共文告陳述大越立場。費馬從這次跨層次論證作 INTJ 傳記解讀。Cox 原表未收錄他。",
-      "The Vietnamese statesman Nguyễn Trãi drafted a public proclamation for Lê Lợi that set out Đại Việt’s position. FermatMind’s editorial INTJ reading considers the scope of that political argument. He does not appear in Cox’s 1926 tables. A National Palace Museum study explains why the wording matters: the proclamation called the polity Đại Việt and asserted parity with its northern neighbor.",
+      "The Vietnamese statesman Nguyễn Trãi drafted a public proclamation for Lê Lợi that set out Đại Việt’s position. FermatMind’s editorial INTJ reading considers the scope of that political argument. He does not appear in Cox’s 1926 tables.",
     ),
     decision: {
       year: 1428,
@@ -194,7 +213,7 @@ export const globalHistoryGeoEditorial: Readonly<Partial<Record<string, GeoEdito
     summary: resultCopy(
       "波斯数学家海亚姆用圆锥曲线的交点处理三次方程。费马从他把代数问题改写成几何构造的做法作 INTP 传记解读。Cox 1926 原表未收录他。",
       "波斯數學家海亞姆用圓錐曲線的交點處理三次方程。費馬從他將代數問題轉為幾何構造的做法作 INTP 傳記解讀。Cox 1926 原表未收錄他。",
-      "The Persian mathematician Omar Khayyam used intersections of conic sections to solve cubic equations. FermatMind’s editorial INTP reading considers his decision to move between algebra and geometry. Cox’s 1926 tables do not include him. One worked example illustrates why the switch matters: a point shared by a circle and a rectangular hyperbola yields a positive solution to a particular cubic.",
+      "The Persian mathematician Omar Khayyam used intersections of conic sections to solve cubic equations. FermatMind’s editorial INTP reading considers his decision to move between algebra and geometry. Cox’s 1926 tables do not include him.",
     ),
     decision: {
       year: 1070,
@@ -219,3 +238,15 @@ export const globalHistoryGeoEditorial: Readonly<Partial<Record<string, GeoEdito
     ),
   },
 };
+
+
+type PublishedGeoEditorial = Omit<GeoEditorial, "decision"> & {
+  decision: Omit<Decision, "source"> & { source: SourceReference };
+};
+
+export const globalHistoryGeoEditorial: Readonly<Partial<Record<string, PublishedGeoEditorial>>> = Object.fromEntries(
+  Object.entries(editorialDrafts).flatMap(([id, record]) => record ? [[id, {
+    ...record,
+    decision: { ...record.decision, source: historySourceReference(id, record.decision.source) },
+  }]] : []),
+);

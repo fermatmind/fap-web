@@ -1,3 +1,4 @@
+import { GlobalHistoryTypeFigures } from "@/components/entertainment/GlobalHistoryAtlasLinks";
 import { getMbtiResultPortrait } from "@/lib/mbti/resultPortrait";
 import { migratePersonalityCareerHref, personalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import { withTraditionalPersonalityLanguageAlternates } from "@/lib/seo/personalityLanguageAlternates";
@@ -1985,6 +1986,7 @@ export default async function PersonalityDetailPage({
               hideSceneLabel={locale === "zh"}
               hideSummaryLabel={locale === "zh"}
             /> : null}
+            {isBaseTypeProjection && <GlobalHistoryTypeFigures locale={locale} type={detail.canonicalTypeCode} />}
           </MbtiReaderSections>
           <aside
             className="sticky top-24 hidden space-y-4 xl:block"
@@ -2048,6 +2050,7 @@ export default async function PersonalityDetailPage({
         />
       ) : null}
       <div className="space-y-5">
+        {isBaseTypeProjection && !hasReaderLayout && <GlobalHistoryTypeFigures locale={locale} type={detail.canonicalTypeCode} />}
         {hasRenderableContent ? (
           <>
             {!hasV85Sections ? renderedV85Sections : null}

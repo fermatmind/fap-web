@@ -1,3 +1,4 @@
+import { GlobalHistoryAtlasLinks } from "./GlobalHistoryAtlasLinks";
 import Link from "next/link";
 import { ExploreLandingSchema } from "@/components/tests/ExploreLandingSchema";
 import { CharacterLandingSamples } from "@/components/tests/CharacterLandingSamples";
@@ -147,6 +148,7 @@ export async function GlobalHistoryLanding({ locale }: { locale: DisplayLocale }
           </article>)}</div>
         </section>
         <section id="history-directory" className={layout.section}>
+          <GlobalHistoryAtlasLinks locale={locale} />
           <details className="rounded-lg border border-emerald-900/20 p-4"><summary className="cursor-pointer font-semibold">{edit.directory(count)}</summary>
             <ul id="history-directory-list" className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
               {historyPeople.map(person => <li key={person.id}>

@@ -1,5 +1,7 @@
 import cox from "./cox-estimates.json";
+import { historyAtlasDownloads } from "./config";
 import { historyPeople, type HistoryPerson } from "./people";
+import { historySecondaryReferences } from "./source-reference";
 import { historyAxes } from "./questions";
 import { batchEditorial, resultCopy, type Editorial, type Text } from "./result-editorial";
 import { coxEditorial } from "./result-editorial-cox";
@@ -20,13 +22,24 @@ type CoxEstimate = {
   dates: string;
   table: string;
   sheet_row: string;
+  group: string;
+  rank: number;
+  ai: number;
+  ai_pe: number;
+  ai_grade: number;
+  ai_reliability: number;
+  aii: number;
+  aii_pe: number;
+  aii_grade: number;
+  aii_reliability: number;
   childhood_corrected: number;
   youth_corrected: number;
   person_id: string | null;
 };
 
-export const coxStudy = "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=77";
-export const coxTranscription = cox.source;
+export const coxStudy = cox.source;
+export const coxTranscriptionCredit = cox.transcription;
+export const coxTranscription = historyAtlasDownloads["cox-1926"] + ".csv";
 const estimates = new Map<string, Readonly<CoxEstimate>>();
 for (const entry of Object.values(cox.entries)) {
   if (entry.person_id) estimates.set(entry.person_id, entry);
@@ -145,6 +158,7 @@ export function getHistoryResult(person: HistoryPerson) {
   if (!iq_benchmark) return undefined;
   return {
     ...sample, iq_benchmark,
+    source: historySecondaryReferences[person.id]?.url ?? sample.source,
     number: String(historyPeople.findIndex(({ id }) => id === person.id) + 1).padStart(3, "0"),
     six_dimensions: historyAxes.map((axis, index) => {
       const score = person.vector[index];
@@ -167,9 +181,9 @@ export function historyResultPeers(person: HistoryPerson) {
   const fieldPeers = editorial[person.id]?.fieldPeers ?? [];
   const distances = others.map(item => ({ item, distance: historyVectorDistance(person.vector, item.vector) }));
   distances.sort((a, b) => a.distance - b.distance || a.item.id.localeCompare(b.item.id, "en"));
-  const diverse = distances.filter(({ item }) => item.region.en !== person.region.en || item.field.en !== person.field.en).slice(0, 2);
-  const closest = [...diverse, ...distances.filter(row => !diverse.includes(row))].slice(0, 3)
-    .sort((a, b) => a.distance - b.distance).map(({ item }) => item);
+  const type = editorial[person.id]?.personality_benchmark.inferred_mbti;
+  const sameType = distances.filter(({ item }) => type && editorial[item.id]?.personality_benchmark.inferred_mbti === type)
+    .slice(0, 3).map(({ item }) => item);
   const benchmark = estimate
     ? others.flatMap(item => {
       const peer = getCoxEstimate(item.id);
@@ -179,7 +193,7 @@ export function historyResultPeers(person: HistoryPerson) {
       const rank = (id: string) => fieldPeers.includes(id) ? fieldPeers.indexOf(id) : fieldPeers.length;
       return rank(a.id) - rank(b.id);
     }).slice(0, 3);
-  return { benchmark, closest, opposite: distances.slice(-2).reverse().map(({ item }) => item) };
+  return { benchmark, sameType, opposite: distances.slice(-2).reverse().map(({ item }) => item) };
 }
 
 export const historyPosterCopy = {

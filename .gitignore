@@ -36,6 +36,11 @@ pnpm-debug.log*
 *.pem
 next-env.d.ts
 
+# local evidence and Python bytecode
+/.git-local-evidence/
+/outputs/global-history-geo/
+__pycache__/
+
 # local deploy artifacts
 fap-web-latest.tar.gz
 /REVISION

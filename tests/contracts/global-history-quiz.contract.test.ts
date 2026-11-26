@@ -1,6 +1,9 @@
+import { historyDecisionAxes, historyEraAndRegion, historyReferenceCitation } from "@/lib/entertainment/global-history/reference";
+import { globalHistoryAiReferrerHost } from "@/lib/entertainment/global-history/ai-referrer";
+import { filterTrackingPayload } from "@/lib/tracking/events";
 import { existsSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { GLOBAL_HISTORY_QUESTION_COUNT, globalHistoryPath, globalHistoryPortraitPath, globalHistoryResultPath } from "@/lib/entertainment/global-history/config";
+import { GLOBAL_HISTORY_ATLAS_SLUGS, GLOBAL_HISTORY_QUESTION_COUNT, globalHistoryAtlasPath, globalHistoryPath, globalHistoryPortraitPath, globalHistoryResultPath } from "@/lib/entertainment/global-history/config";
 import { closestHistoryPerson, historyAnswerVector, isHistoryVector } from "@/lib/entertainment/global-history/matching";
 import { getHistoryGalleryPage, historyPeople } from "@/lib/entertainment/global-history/people";
 import cox from "@/lib/entertainment/global-history/cox-estimates.json";
@@ -9,12 +12,31 @@ import { getCoxEstimate, getHistoryResult, historyBatchEditorial } from "@/lib/e
 import { historyAxes, historyScenes } from "@/lib/entertainment/global-history/questions";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
 import { buildCompletePublicSitemapEntries, buildPublicSitemapFamilyMap } from "@/lib/seo/publicSitemap";
+import { listNativeTestLlmsEntries } from "@/lib/seo/nativeTestLlmsSource";
 import { shouldNoindex } from "@/lib/seo/indexingPolicy";
 import { CANONICAL_SITE_URL, SITE_URL } from "@/lib/site";
 import { displayHistoryPerson } from "@/lib/entertainment/global-history/traditional-roster";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 
 describe("World Edition history quiz", () => {
+  it("uses the specific region and keeps nonoverlapping geography in the core facts row", () => {
+    expect(historyEraAndRegion("亞洲 · 盛唐", "東亞")).toBe("盛唐 · 東亞");
+    expect(historyEraAndRegion("Western Europe · Renaissance", "Europe")).toBe("Western Europe · Renaissance");
+    expect(historyEraAndRegion("美洲 · 近代", "北美")).toBe("近代 · 北美");
+    expect(historyEraAndRegion("Europe · Renaissance", "Europe")).toBe("Europe · Renaissance");
+    expect(historyEraAndRegion("歐洲 · 近代", "北美")).toBe("歐洲 · 近代 · 北美");
+  });
+  it("keeps only recognized AI referral hosts in start events", () => {
+    expect(globalHistoryAiReferrerHost("https://www.perplexity.ai/search/example")).toBe("perplexity.ai");
+    expect(globalHistoryAiReferrerHost("https://chatgpt.com/?q=example")).toBe("chatgpt.com");
+    expect(globalHistoryAiReferrerHost("https://www.doubao.com/")).toBe("doubao.com");
+    expect(globalHistoryAiReferrerHost("https://yuanbao.tencent.com/")).toBe("yuanbao.tencent.com");
+    expect(globalHistoryAiReferrerHost("https://chatgpt.com.example.org/")).toBeUndefined();
+    expect(globalHistoryAiReferrerHost("https://chatgpt.com@other.example/")).toBeUndefined();
+    expect(globalHistoryAiReferrerHost("file://chatgpt.com/private")).toBeUndefined();
+    expect(filterTrackingPayload("start_test", { referrer_host: "chatgpt.com" })).toMatchObject({ referrer_host: "chatgpt.com" });
+  });
+
   it("can match every released figure through real options and provides a portrait for each", () => {
     expect(historyScenes).toHaveLength(GLOBAL_HISTORY_QUESTION_COUNT);
     expect(historyPeople).toHaveLength(488);
@@ -57,6 +79,17 @@ describe("World Edition history quiz", () => {
         expect(baseline).toEqual(score < 3 ? axis.low : score > 3 ? axis.high : { zh: "视情况而定", "zh-TW": "視情況而定", en: "Depends on the situation" });
       }
     }
+    expect(Object.keys(historyDecisionAxes)).toHaveLength(488);
+    for (const { id } of historyPeople) {
+      expect(historyDecisionAxes[id], id).toBeDefined();
+      expect(historyDecisionAxes[id]!.length).toBeGreaterThan(0);
+      expect(historyDecisionAxes[id]!.every(name => historyAxes.some(axis => axis.en === name))).toBe(true);
+    }
+    expect(historyDecisionAxes["leonardo-da-vinci"]).toEqual(["Scope"]);
+    expect(historyDecisionAxes["ernest-rutherford"]).toEqual(["Inquiry"]);
+    expect(historyDecisionAxes["wu-zetian"]).toEqual(["Change"]);
+    expect(historyReferenceCitation("Profile", "https://fermatmind.com/profile", "Reference profile").APA).toContain("(2026)");
+
     const rows = Object.entries(cox.entries);
     expect(rows).toHaveLength(301);
     const bound = rows.flatMap(([, row]) => row.person_id ? [row.person_id] : []);
@@ -66,8 +99,27 @@ describe("World Edition history quiz", () => {
     for (const [reference, row] of rows) {
       expect(reference).toBe(`${row.table}:${row.sheet_row}`);
       expect(Number.isInteger(row.childhood_corrected) && Number.isInteger(row.youth_corrected)).toBe(true);
+      expect(row.group).toBe(row.table === "12A" ? "A" : "B");
+      expect(row.rank).toBeGreaterThan(0);
+      for (const [estimate, error, grade, reliability] of [
+        [row.ai, row.ai_pe, row.ai_grade, row.ai_reliability],
+        [row.aii, row.aii_pe, row.aii_grade, row.aii_reliability],
+      ]) {
+        expect(Number.isInteger(estimate)).toBe(true);
+        expect(error).toBeGreaterThan(0);
+        expect(grade).toBeGreaterThanOrEqual(1);
+        expect(grade).toBeLessThanOrEqual(7);
+        expect(reliability).toBeGreaterThanOrEqual(0);
+        expect(reliability).toBeLessThanOrEqual(1);
+      }
       if (row.person_id) expect(historyPeople.some(person => person.id === row.person_id)).toBe(true);
     }
+    expect(getCoxEstimate("leonardo-da-vinci")).toMatchObject({
+      table: "12A", sheet_row: "6-3-5", rank: 52,
+      ai: 135, ai_pe: 9, ai_grade: 6, ai_reliability: 0.2, childhood_corrected: 155,
+      aii: 150, aii_pe: 9, aii_grade: 6, aii_reliability: 0.2, youth_corrected: 180,
+    });
+    expect(Object.values(cox.entries).filter(row => row.group === "B")).toHaveLength(19);
     expect(getCoxEstimate("voltaire")?.youth_corrected).toBe(190);
     expect(getCoxEstimate("blaise-pascal")?.youth_corrected).toBe(195);
     expect(getCoxEstimate("gilbert-burnet")).toMatchObject({ name: "Thomas Burnet", dates: "1643-1715", sheet_row: "1-5-2", youth_corrected: 165 });
@@ -94,7 +146,11 @@ describe("World Edition history quiz", () => {
           expect(copy.quirk_or_blindspot[locale].length).toBeLessThanOrEqual(80);
         }
         const tags = copy.personality_benchmark.big_five_traits[locale];
-        expect(tags.length).toBeGreaterThan(0);
+        if (copy.personality_benchmark.inferred_mbti.endsWith("P")) {
+          expect(tags).not.toContain({ zh: "高尽责性", "zh-TW": "高盡責性", en: "High conscientiousness" }[locale]);
+        } else {
+          expect(tags.length).toBeGreaterThan(0);
+        }
         expect(tags.every(label => trait[locale].test(label)), `${id}/${locale}: ${tags}`).toBe(true);
         if (!getCoxEstimate(id)) {
           expect(copy.cognitive_gift_tag?.[locale], `${id}/${locale}`).toBeTruthy();
@@ -146,7 +202,7 @@ describe("World Edition history quiz", () => {
     expect(closestHistoryPerson(people[999].vector, people)?.id).toBe(people[999].id);
   });
 
-  it("paginates the full roster and indexes only its trilingual public portraits", () => {
+  it("paginates the full roster and indexes its trilingual public portraits, atlases and entrance", () => {
     const end = getHistoryGalleryPage("9999");
     expect(getHistoryGalleryPage(["2", "3"]).page).toBe(1);
     expect(Array.from({ length: end.total }, (_, index) => getHistoryGalleryPage(String(index + 1)).people).flat()).toEqual(historyPeople);
@@ -156,7 +212,16 @@ describe("World Edition history quiz", () => {
       .filter(loc => new URL(loc).pathname.includes("/global-history-quiz"));
     const locales = ["zh", "zh-TW", "en"] as const;
     const portraitPaths = historyPeople.flatMap(({ id }) => locales.map(locale => globalHistoryResultPath(locale, id)));
-    const expected = portraitPaths.map(path => CANONICAL_SITE_URL + path).sort();
+    const atlasPaths = locales.flatMap(locale => GLOBAL_HISTORY_ATLAS_SLUGS.map(atlas => globalHistoryAtlasPath(locale, atlas)));
+    const expected = [...portraitPaths, ...atlasPaths, ...locales.map(globalHistoryPath)].map(path => CANONICAL_SITE_URL + path).sort();
+    for (const path of atlasPaths) {
+      expect(isMissingFunRoute(path), path).toBe(false);
+      expect(shouldNoindex(path, null), path).toBe(false);
+    }
+    const historyLlmsPaths = listNativeTestLlmsEntries()
+      .filter(({ path }) => path.includes("/global-history-quiz"))
+      .map(({ path }) => path);
+    expect(historyLlmsPaths.sort()).toEqual([...atlasPaths, ...locales.map(globalHistoryPath)].sort());
     expect(globalHistoryEntries(entries).sort()).toEqual(expected);
     expect(globalHistoryEntries(buildPublicSitemapFamilyMap(entries).tests).sort()).toEqual(expected);
     for (const path of portraitPaths) expect(shouldNoindex(path, null), path).toBe(false);
@@ -164,7 +229,7 @@ describe("World Edition history quiz", () => {
       const landing = globalHistoryPath(locale);
       expect(isMissingFunRoute(landing)).toBe(false);
       expect(isMissingFunRoute(`${landing}/take`)).toBe(false);
-      expect(shouldNoindex(landing, null)).toBe(true);
+      expect(shouldNoindex(landing, null)).toBe(false);
       expect(shouldNoindex(`${landing}/take`, null)).toBe(true);
       expect(shouldNoindex(globalHistoryResultPath(locale, "missing-history-portrait"), null)).toBe(true);
     }

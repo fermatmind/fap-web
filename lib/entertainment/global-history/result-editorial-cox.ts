@@ -217,18 +217,9 @@ export const coxEditorial = {
         61
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -342,7 +333,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长把零散意见写成大家能逐段讨论的初稿。杰斐逊起草《独立宣言》，把政治原则和对统治的申诉接起来。你能先定框架，让接下来的人知道每条理由放在哪里。",
-      "zh-TW": "你擅長把零散意見寫成大家能逐段討論的初稿。傑斐遜起草《獨立宣言》，把政治原則和對統治的申訴接起來。你能先定框架，讓接下來的人知道每條理由放在哪裡。",
+      "zh-TW": "你擅長把零散意見寫成大家能逐段討論的初稿。傑佛遜起草《獨立宣言》，把政治原則和對統治的申訴接起來。你能先定框架，讓接下來的人知道每條理由放在哪裡。",
       "en": "You can turn a set of arguments into a draft people can discuss line by line. Jefferson brought principles of government and specific grievances together in his draft declaration. You create a structure so the next editor knows which reason belongs where."
     },
     "quirk_or_blindspot": {
@@ -424,12 +415,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你能把混在一起的难题拆成可以逐一检查的小问。笛卡尔在《谈谈方法》里说，从容易理解的部分入手，再走向复杂处。你很适合给一项庞大工程选出最早能动手的一步。",
-      "zh-TW": "你能把混在一起的難題拆成可以逐一檢查的小問。笛卡爾在《談談方法》裡說，從容易理解的部分入手，再走向複雜處。你很適合給一項龐大工程選出最早能動手的一步。",
+      "zh-TW": "你能把混在一起的難題拆成可以逐一檢查的小問。笛卡兒在《談談方法》裡說，從容易理解的部分入手，再走向複雜處。你很適合給一項龐大工程選出最早能動手的一步。",
       "en": "You take a knot of questions apart. In the Discourse, Descartes proposed starting with what is easiest to understand, then moving toward more complex matters. Give you an ambitious project and you can usually find the first part that is small enough to handle."
     },
     "quirk_or_blindspot": {
       "zh": "你相信有条理的次序，遇到缠在一起的现实时也可能拆得太早。笛卡尔仍把方法拿去配合光学、气象和几何写成不同尝试。分解问题之后，记得检验它们接回去还管不管用。",
-      "zh-TW": "你相信有條理的次序，遇到纏在一起的現即時也可能拆得太早。笛卡爾仍把方法拿去配合光學、氣象和幾何寫成不同嘗試。分解問題之後，記得檢驗它們接回去還管不管用。",
+      "zh-TW": "你相信有條理的次序，遇到纏在一起的現即時也可能拆得太早。笛卡兒仍把方法拿去配合光學、氣象和幾何寫成不同嘗試。分解問題之後，記得檢驗它們接回去還管不管用。",
       "en": "An orderly sequence can tempt you to break a problem up too early. Descartes published his method alongside work on optics, weather, and geometry. Once you have divided the problem, check whether the pieces still explain anything when brought back together."
     },
     "tags": {
@@ -506,7 +497,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长发现一道程序本身也需要辩论。弥尔顿写《论出版自由》反对出版前许可，把读和辨别的责任还给读者。你会先审查规则，再去争取某一个案子获得通行。",
-      "zh-TW": "你擅長髮現一道程式本身也需要辯論。彌爾頓寫《論出版自由》反對出版前許可，把讀和辨別的責任還給讀者。你會先審查規則，再去爭取某一個案子獲得通行。",
+      "zh-TW": "你擅長髮現一道程序本身也需要辯論。彌爾頓寫《論出版自由》反對出版前許可，把讀和辨別的責任還給讀者。你會先審查規則，再去爭取某一個案子獲得通行。",
       "en": "You can see when the procedure itself needs a debate. Milton used Areopagitica to challenge pre-publication licensing and make a case for judgment by readers. Before arguing for an exception, you ask whether the rule should be there at all."
     },
     "quirk_or_blindspot": {
@@ -709,18 +700,9 @@ export const coxEditorial = {
         69
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -752,7 +734,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你会给复杂收藏搭一张可扩展的索引。林奈不断修订《自然系统》，把自然类群组织成可查找的层级，并推广稳定的物种双名。你也会让新加入的人找到同一个名字。",
-      "zh-TW": "你會給複雜收藏搭一張可擴充套件的索引。林奈不斷修訂《自然系統》，把自然類群組織成可查詢的層級，並推廣穩定的物種雙名。你也會讓新加入的人找到同一個名字。",
+      "zh-TW": "你會給複雜收藏搭一張可擴充的索引。林奈不斷修訂《自然系統》，把自然類群組織成可查詢的層級，並推廣穩定的物種雙名。你也會讓新加入的人找到同一個名字。",
       "en": "You build an index that can survive a larger collection. Linnaeus repeatedly revised Systema Naturae, arranging groups in a searchable hierarchy and promoting consistent two-part names. A newcomer can find a thing without learning a private vocabulary."
     },
     "quirk_or_blindspot": {
@@ -873,18 +855,9 @@ export const coxEditorial = {
         65
       ],
       "big_five_traits": {
-        "zh": [
-          "高尽责性",
-          "高开放性"
-        ],
-        "zh-TW": [
-          "高盡責性",
-          "高開放性"
-        ],
-        "en": [
-          "High conscientiousness",
-          "High openness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -916,7 +889,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长给异常保留可查的记录。赫歇尔先把陌生亮点写进观测簿，其他观测与计算才确认它是新行星。你不会急着给异常取名，先让其他人复查同一个对象。",
-      "zh-TW": "你擅長給異常保留可查的記錄。赫歇爾先把陌生亮點寫進觀測簿，其他觀測與計算才確認它是新行星。你不會急著給異常取名，先讓其他人複查同一個物件。",
+      "zh-TW": "你擅長給異常保留可查的記錄。赫歇爾先把陌生亮點寫進觀測簿，其他觀測與計算才確認它是新行星。你不會急著給異常取名，先讓其他人複查同一個物品。",
       "en": "You make an odd observation recoverable. Herschel logged an unfamiliar object before later observations and calculations established that it was a planet. Give another observer a chance to check the same thing before you name it."
     },
     "quirk_or_blindspot": {
@@ -1283,18 +1256,9 @@ export const coxEditorial = {
         64
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -1447,18 +1411,9 @@ export const coxEditorial = {
         61
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -1634,7 +1589,7 @@ export const coxEditorial = {
       1667,
       1745
     ],
-    "source": "https://jonathanswiftarchive.org.uk/browse/title/intro_jsa_11_1_1_1.html",
+    "source": "https://assets.cambridge.org/97810095/53179/frontmatter/9781009553179_frontmatter.pdf",
     "portrait": {
       "source": "https://commons.wikimedia.org/wiki/File:Jonathan_Swift_by_Charles_Jervas_detail.jpg",
       "license": "Public domain"
@@ -1736,12 +1691,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你善于从不同工作里提取一套能学会的共用技能。丢勒用木刻图解释尺规、几何与透视，把一本测量书写给画家和多个工种。你遇到复杂手艺，先画它的骨架。",
-      "zh-TW": "你善於從不同工作裡提取一套能學會的共用技能。丟勒用木刻圖解釋尺規、幾何與透視，把一本測量書寫給畫家和多個工種。你遇到複雜手藝，先畫它的骨架。",
+      "zh-TW": "你善於從不同工作裡提取一套能學會的共用技能。杜勒用木刻圖解釋尺規、幾何與透視，把一本測量書寫給畫家和多個工種。你遇到複雜手藝，先畫它的骨架。",
       "en": "You extract a teachable skill from different kinds of work. Dürer used woodcuts to explain geometry and perspective and wrote his manual for painters and several other trades. Put the underlying operation where everyone can see it."
     },
     "quirk_or_blindspot": {
       "zh": "你太习惯让画法可以计量，容易让读者误会每张图都有唯一正确比例。丢勒用测量说明形体，也以比例变化研究人体。给练习题留一些有理由的变形空间。",
-      "zh-TW": "你太習慣讓畫法可以計量，容易讓讀者誤會每張圖都有唯一正確比例。丟勒用測量說明形體，也以比例變化研究人體。給練習題留一些有理由的變形空間。",
+      "zh-TW": "你太習慣讓畫法可以計量，容易讓讀者誤會每張圖都有唯一正確比例。杜勒用測量說明形體，也以比例變化研究人體。給練習題留一些有理由的變形空間。",
       "en": "You can make the method so measurable that readers think every figure has one correct shape. Dürer used measurement to study variation as well as proportion. Leave room for a variation the learner can explain."
     },
     "tags": {
@@ -1939,23 +1894,14 @@ export const coxEditorial = {
         70
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -2037,7 +1983,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -2119,7 +2065,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -2201,7 +2147,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -2267,23 +2213,14 @@ export const coxEditorial = {
         70
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -2339,7 +2276,7 @@ export const coxEditorial = {
       "inferred_mbti": "ENTP",
       "title": {
         "zh": "连线实验派",
-        "zh-TW": "連線實驗型",
+        "zh-TW": "電路實驗型",
         "en": "Connection Tester"
       },
       "tendencies": [
@@ -2365,7 +2302,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -2431,23 +2368,14 @@ export const coxEditorial = {
         70
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -2529,7 +2457,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -2556,7 +2484,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长替一群没机会发言的人找到出口。夏洛蒂说服姐妹一起出版作品，又在《简·爱》里把判断权还给女主人公。问问谁在你的故事里一直只能被描述。",
-      "zh-TW": "你擅長替一群沒機會發言的人找到出口。夏洛蒂說服姊妹一起出版作品，又在《簡・愛》裡讓女主角表達自己的判斷。問問誰在你的故事裡一直只能被描述。",
+      "zh-TW": "你擅長替一群沒機會發言的人找到出口。夏綠蒂說服姊妹一起出版作品，又在《簡·愛》裡讓女主角表達自己的判斷。問問誰在你的故事裡一直只能被描述。",
       "en": "Brontë persuaded her sisters to publish and gave Jane Eyre a voice for judging her own circumstances. If a person in your account only ever gets described, you can give them a turn to speak."
     },
     "quirk_or_blindspot": {
@@ -2571,7 +2499,7 @@ export const coxEditorial = {
         "笔名"
       ],
       "zh-TW": [
-        "簡・愛",
+        "簡·愛",
         "姊妹合刊",
         "筆名"
       ],
@@ -2611,7 +2539,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·欧洲",
-      "zh-TW": "19世紀・歐洲",
+      "zh-TW": "19世紀·歐洲",
       "en": "19th century · Europe"
     },
     "years": [
@@ -2693,7 +2621,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·欧洲",
-      "zh-TW": "19世紀・歐洲",
+      "zh-TW": "19世紀·歐洲",
       "en": "19th century · Europe"
     },
     "years": [
@@ -2775,7 +2703,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·欧洲",
-      "zh-TW": "19世紀・歐洲",
+      "zh-TW": "19世紀·歐洲",
       "en": "19th century · Europe"
     },
     "years": [
@@ -2857,7 +2785,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·欧洲",
-      "zh-TW": "19世紀・歐洲",
+      "zh-TW": "19世紀·歐洲",
       "en": "19th century · Europe"
     },
     "years": [
@@ -2939,7 +2867,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·北美",
-      "zh-TW": "19世紀・北美",
+      "zh-TW": "19世紀·北美",
       "en": "19th century · North America"
     },
     "years": [
@@ -3048,7 +2976,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长把来不及一次讲透的制度提案拆成连续论证。汉密尔顿与另外两位作者以共同笔名发表《联邦党人文集》。你会让一个长方案在多轮公共讨论里逐步成形。",
-      "zh-TW": "你擅長把來不及一次講透的制度提案拆成連續論證。漢密爾頓與另外兩位作者以共同筆名發表《聯邦黨人文集》。你會讓一個長方案在多輪公共討論裡逐步成形。",
+      "zh-TW": "你擅長把來不及一次講透的制度提案拆成連續論證。漢米爾頓與另外兩位作者以共同筆名發表《聯邦黨人文集》。你會讓一個長方案在多輪公共討論裡逐步成形。",
       "en": "You turn an ambitious plan into arguments people can engage with one at a time. Hamilton, Madison, and Jay wrote the Federalist essays under a common pen name. You make a broad proposal legible across several rounds of public discussion."
     },
     "quirk_or_blindspot": {
@@ -3130,12 +3058,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长在成稿前让不同意见真正进入同一段文字。密尔回忆，他和哈丽雅特为《论自由》反复讨论句子。你也会把反对意见当作一项工作，而非一关需要通过的礼节。",
-      "zh-TW": "你擅長在成稿前讓不同意見真正進入同一段文字。密爾回憶，他和哈麗雅特為《論自由》反覆討論句子。你也會把反對意見當作一項工作，而非一關需要通過的禮節。",
+      "zh-TW": "你擅長在成稿前讓不同意見真正進入同一段文字。彌爾回憶，他和哈麗雅特為《論自由》反覆討論句子。你也會把反對意見當作一項工作，而非一關需要通過的禮節。",
       "en": "You give disagreement a chance to shape the actual wording. Mill recalled that he and Harriet Taylor went over sentences in On Liberty repeatedly. Make time for an objection to alter the text, instead of merely giving it a turn to speak."
     },
     "quirk_or_blindspot": {
       "zh": "你容易把共同讨论看得比署名重要，读者却只能看见封面。《论自由》在哈丽雅特去世后以密尔名义出版，他在献词和自传里承认她的贡献。共同成稿也要共同留名。",
-      "zh-TW": "你容易把共同討論看得比署名重要，讀者卻只能看見封面。《論自由》在哈麗雅特去世後以密爾名義出版，他在獻詞和自傳裡承認她的貢獻。共同成稿也要共同留名。",
+      "zh-TW": "你容易把共同討論看得比署名重要，讀者卻只能看見封面。《論自由》在哈麗雅特去世後以彌爾名義出版，他在獻詞和自傳裡承認她的貢獻。共同成稿也要共同留名。",
       "en": "You can care more about the conversation than the credit, though the cover is what a reader sees. On Liberty appeared under Mill’s name after Harriet died; he acknowledged her contribution in the dedication and autobiography. Give collaboration a visible record."
     },
     "tags": {
@@ -3376,7 +3304,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长用一个不太懂局势的人，带别人穿过复杂历史。司各特写《威弗利》时参考苏格兰高地见闻，再让虚构主角走进这些地方。你也会替读者留一条能跟上的路。",
-      "zh-TW": "你擅長用一個不太懂局勢的人，帶別人穿過複雜歷史。司各特寫《威弗利》時參考蘇格蘭高地見聞，再讓虛構主角走進這些地方。你也會替讀者留一條能跟上的路。",
+      "zh-TW": "你擅長用一個不太懂局勢的人，帶別人穿過複雜歷史。史考特寫《威弗利》時參考蘇格蘭高地見聞，再讓虛構主角走進這些地方。你也會替讀者留一條能跟上的路。",
       "en": "You help readers cross unfamiliar history by giving them a character who has to find their way through it. Scott drew on accounts of Highland life and placed a fictional visitor within them. Give the reader someone whose first questions resemble their own."
     },
     "quirk_or_blindspot": {
@@ -3579,18 +3507,9 @@ export const coxEditorial = {
         69
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -3622,7 +3541,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长把现实争议移到虚构场景，使旧习惯变得可以讨论。莫尔写《乌托邦》时，让读者听旅行者讲述另一套制度。你也可以先让人看懂某条规则的后果，再请他们评价。",
-      "zh-TW": "你擅長把現實爭議移到虛構場景，使舊習慣變得可以討論。莫爾寫《烏托邦》時，讓讀者聽旅行者講述另一套制度。你也可以先讓人看懂某條規則的後果，再請他們評價。",
+      "zh-TW": "你擅長把現實爭議移到虛構場景，使舊習慣變得可以討論。摩爾寫《烏托邦》時，讓讀者聽旅行者講述另一套制度。你也可以先讓人看懂某條規則的後果，再請他們評價。",
       "en": "You make a familiar dispute discussable by moving it somewhere imaginary. In Utopia, More lets a traveler describe a different way to arrange public life. Let people follow a rule to its consequences before asking whether they would want it."
     },
     "quirk_or_blindspot": {
@@ -3661,18 +3580,9 @@ export const coxEditorial = {
         70
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -3704,12 +3614,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长先看一个词在句子里做过什么，再判断它到底是什么意思。约翰逊的《英语词典》用作家原句展示用法。轮到你制定标准，也会逐条告诉别人怎样从例子回到结论。",
-      "zh-TW": "你擅長先看一個詞在句子裡做過什麼，再判斷它到底是什麼意思。約翰遜的《英語詞典》用作家原句展示用法。輪到你制定標準，也會逐條告訴別人怎樣從例子回到結論。",
+      "zh-TW": "你擅長先看一個詞在句子裡做過什麼，再判斷它到底是什麼意思。詹森的《英語詞典》用作家原句展示用法。輪到你制定標準，也會逐條告訴別人怎樣從例子回到結論。",
       "en": "You see what a word does in a sentence before telling someone what it means. Johnson illustrated his dictionary with quotations from writers. When you set a standard, show people how to work back from a case to the rule."
     },
     "quirk_or_blindspot": {
       "zh": "你容易记住写出最后一句的人，忘了谁替材料排好队。约翰逊的词典有六位抄录员参与整理。上交成果前，把采集、整理与取舍的分工写出来，免得一张署名遮住整桌工作。",
-      "zh-TW": "你容易記住寫出最後一句的人，忘了誰替材料排好隊。約翰遜的詞典有六位抄錄員參與整理。上交成果前，把採集、整理與取捨的分工寫出來，免得一張署名遮住整桌工作。",
+      "zh-TW": "你容易記住寫出最後一句的人，忘了誰替材料排好隊。詹森的詞典有六位抄錄員參與整理。上交成果前，把採集、整理與取捨的分工寫出來，免得一張署名遮住整桌工作。",
       "en": "It is easy to remember the person who wrote the final line and forget who put the materials in order. Six amanuenses helped prepare Johnson’s dictionary. Record who gathered, organized, and decided before a single credit takes over the story."
     },
     "tags": {
@@ -3786,7 +3696,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长给一张挤满人物的画找到先看哪里。伦勃朗在《夜巡》里用亮处领出队长的手势，再让观众看队伍如何准备出发。讲复杂关系时，你也会先找这个启动动作。",
-      "zh-TW": "你擅長給一張擠滿人物的畫找到先看哪裡。倫勃朗在《夜巡》裡用亮處領出隊長的手勢，再讓觀眾看隊伍如何準備出發。講複雜關係時，你也會先找這個啟動動作。",
+      "zh-TW": "你擅長給一張擠滿人物的畫找到先看哪裡。林布蘭在《夜巡》裡用亮處領出隊長的手勢，再讓觀眾看隊伍如何準備出發。講複雜關係時，你也會先找這個啟動動作。",
       "en": "You give the eye a place to begin in a crowded picture. In The Night Watch, Rembrandt lights the captain’s gesture before letting the eye move through the company. When explaining complicated relationships, find the action that sets the rest in motion."
     },
     "quirk_or_blindspot": {
@@ -3825,18 +3735,9 @@ export const coxEditorial = {
         70
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -3950,7 +3851,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长从观看的位置改写一件事。委拉斯开兹在《宫娥》里同时放进画家、女官、镜子和门口的人，让视线有好几个起点。遇到争执，你也会请人换个位置看看。",
-      "zh-TW": "你擅長從觀看的位置改寫一件事。委拉斯開茲在《宮娥》裡同時放進畫家、女官、鏡子和門口的人，讓視線有好幾個起點。遇到爭執，你也會請人換個位置看看。",
+      "zh-TW": "你擅長從觀看的位置改寫一件事。委拉斯蓋茲在《宮娥》裡同時放進畫家、女官、鏡子和門口的人，讓視線有好幾個起點。遇到爭執，你也會請人換個位置看看。",
       "en": "You can change an account by changing where somebody sees it from. Velázquez gives Las Meninas several points of entry: a painter, attendants, a mirror, and someone at the doorway. In a disagreement, ask someone to try a different position."
     },
     "quirk_or_blindspot": {
@@ -3989,18 +3890,9 @@ export const coxEditorial = {
         69
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -4071,23 +3963,14 @@ export const coxEditorial = {
         67
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "19世纪·北美",
-      "zh-TW": "19世紀・北美",
+      "zh-TW": "19世紀·北美",
       "en": "19th century · North America"
     },
     "years": [
@@ -4153,23 +4036,14 @@ export const coxEditorial = {
         63
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "19世纪·欧洲",
-      "zh-TW": "19世紀・歐洲",
+      "zh-TW": "19世紀·歐洲",
       "en": "19th century · Europe"
     },
     "years": [
@@ -4251,7 +4125,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -4336,7 +4210,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·欧洲",
-      "zh-TW": "19世紀・歐洲",
+      "zh-TW": "19世紀·歐洲",
       "en": "19th century · Europe"
     },
     "years": [
@@ -4418,7 +4292,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -4500,7 +4374,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·北美",
-      "zh-TW": "19世紀・北美",
+      "zh-TW": "19世紀·北美",
       "en": "19th century · North America"
     },
     "years": [
@@ -4582,7 +4456,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·北美",
-      "zh-TW": "18世紀・北美",
+      "zh-TW": "18世紀·北美",
       "en": "18th century · North America"
     },
     "years": [
@@ -4664,7 +4538,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·北美",
-      "zh-TW": "18世紀・北美",
+      "zh-TW": "18世紀·北美",
       "en": "18th century · North America"
     },
     "years": [
@@ -4746,7 +4620,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·北美",
-      "zh-TW": "18世紀・北美",
+      "zh-TW": "18世紀·北美",
       "en": "18th century · North America"
     },
     "years": [
@@ -4828,7 +4702,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -4910,7 +4784,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·北美",
-      "zh-TW": "19世紀・北美",
+      "zh-TW": "19世紀·北美",
       "en": "19th century · North America"
     },
     "years": [
@@ -4992,7 +4866,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -5386,18 +5260,9 @@ export const coxEditorial = {
         73
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -5429,12 +5294,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长先承认复杂材料还没排成叙述。吉本写《罗马帝国衰亡史》时，先积累阅读，再反复寻找合适的章目和声调。你拼长故事时，会先给原材料和结构各留一张桌。",
-      "zh-TW": "你擅長先承認複雜材料還沒排成敘述。吉本寫《羅馬帝國衰亡史》時，先積累閱讀，再反覆尋找合適的章目和聲調。你拼長故事時，會先給原材料和結構各留一張桌。",
+      "zh-TW": "你擅長先承認複雜材料還沒排成敘述。吉朋寫《羅馬帝國衰亡史》時，先積累閱讀，再反覆尋找合適的章目和聲調。你拼長故事時，會先給原材料和結構各留一張桌。",
       "en": "You can admit when a pile of evidence is not yet a story. Gibbon did years of preparatory reading and tried different ways to arrange his chapters and set their tone. Give evidence and structure separate places to develop before joining them."
     },
     "quirk_or_blindspot": {
       "zh": "你对第一章的要求越高，旁人认识整个项目的时间越晚。吉本自述第一章写了三次，第二和第三章各写了两次。如果队友等着往下做，先共享一份能讨论的框架。",
-      "zh-TW": "你對第一章的要求越高，旁人認識整個專案的時間越晚。吉本自述第一章寫了三次，第二和第三章各寫了兩次。如果隊友等著往下做，先共享一份能討論的框架。",
+      "zh-TW": "你對第一章的要求越高，旁人認識整個專案的時間越晚。吉朋自述第一章寫了三次，第二和第三章各寫了兩次。如果隊友等著往下做，先共享一份能討論的框架。",
       "en": "The harder you work on the first chapter, the longer other people can wait to see the whole project. Gibbon recalled writing his first chapter three times and the next two twice each. Share a structure people can discuss while the prose is taking shape."
     },
     "tags": {
@@ -5550,18 +5415,9 @@ export const coxEditorial = {
         72
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -5714,18 +5570,9 @@ export const coxEditorial = {
         69
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -5762,7 +5609,7 @@ export const coxEditorial = {
     },
     "quirk_or_blindspot": {
       "zh": "你把流程做得容易重复，可能忘了让客户知道这次哪处会变。卡诺瓦的第二尊珀耳修斯虽依照旧作委托，仍改动了衣褶和局部比例。确认复刻需求时，先标出允许变化的部分。",
-      "zh-TW": "你把流程做得容易重複，可能忘了讓客戶知道這次哪處會變。卡諾瓦的第二尊珀耳修斯雖依照舊作委託，仍改動了衣褶和區域性比例。確認復刻需求時，先標出允許變化的部分。",
+      "zh-TW": "你把流程做得容易重複，可能忘了讓客戶知道這次哪處會變。卡諾瓦的第二尊珀耳修斯雖依照舊作委託，仍改動了衣褶和局部比例。確認復刻需求時，先標出允許變化的部分。",
       "en": "A repeatable process can hide the differences a client cares about. Canova’s second Perseus followed the earlier commission but altered the drapery and some proportions. When taking a repeat order, agree on which parts can change."
     },
     "tags": {
@@ -5998,12 +5845,12 @@ export const coxEditorial = {
     },
     "one_line_hook": {
       "zh": "你做交接时，会把同一个对象翻过来给人看，省得对方隔着一层猜。",
-      "zh-TW": "你做交接時，會把同一個物件翻過來給人看，省得對方隔著一層猜。",
+      "zh-TW": "你做交接時，會把同一個物品翻過來給人看，省得對方隔著一層猜。",
       "en": "When you hand something over, you turn it around so the next person can see what the front hides."
     },
     "superpower": {
       "zh": "你擅长给远方同伴准备立刻能用的参照。凡·戴克把查理一世的三个角度画在一张布上，供贝尼尼雕刻胸像。你做交接，也会先问下一站最缺什么角度的信息。",
-      "zh-TW": "你擅長給遠方同伴準備立刻能用的參照。凡·戴克把查理一世的三個角度畫在一張布上，供貝尼尼雕刻胸像。你做交接，也會先問下一站最缺什麼角度的資訊。",
+      "zh-TW": "你擅長給遠方同伴準備立刻能用的參照。凡·范戴克把查理一世的三個角度畫在一張布上，供貝尼尼雕刻胸像。你做交接，也會先問下一站最缺什麼角度的資訊。",
       "en": "You prepare the reference a colleague can use from far away. Van Dyck put three views of Charles I on a canvas for Bernini’s bust. At a handoff, ask which angle the person doing the next stage would otherwise have to guess."
     },
     "quirk_or_blindspot": {
@@ -6167,7 +6014,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长把原则和程序放在同一份文件里。亚当斯起草州宪法时，把权利和影响权力的安排写成可审议的条文。你会让下一位读者知道，整套意见究竟要经过谁的判断。",
-      "zh-TW": "你擅長把原則和程式放在同一份檔案裡。亞當斯起草州憲法時，把權利和影響權力的安排寫成可審議的條文。你會讓下一位讀者知道，整套意見究竟要經過誰的判斷。",
+      "zh-TW": "你擅長把原則和程序放在同一份檔案裡。亞當斯起草州憲法時，把權利和影響權力的安排寫成可審議的條文。你會讓下一位讀者知道，整套意見究竟要經過誰的判斷。",
       "en": "You put the principle and the procedure in the same place. Adams wrote rights and arrangements of power into a draft that people could examine. A strong draft tells readers whose judgment the proposal still needs."
     },
     "quirk_or_blindspot": {
@@ -6249,7 +6096,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长根据使用后的反馈重做规则。佩恩在宾夕法尼亚旧框架被当地议会交回后颁布新宪章，修订议会安排。你也会给人留下能返回来重新谈条件的程序。",
-      "zh-TW": "你擅長根據使用後的反饋重做規則。佩恩在賓夕法尼亞舊框架被當地議會交回後頒佈新憲章，修訂議會安排。你也會給人留下能返回來重新談條件的程式。",
+      "zh-TW": "你擅長根據使用後的反饋重做規則。佩恩在賓夕法尼亞舊框架被當地議會交回後頒佈新憲章，修訂議會安排。你也會給人留下能返回來重新談條件的程序。",
       "en": "You can rewrite rules in response to the people who have had to use them. Penn issued a new charter after the previous framework was returned, changing arrangements for the assembly. Leave a way for people to reopen a rule in practice."
     },
     "quirk_or_blindspot": {
@@ -6265,7 +6112,7 @@ export const coxEditorial = {
       ],
       "zh-TW": [
         "殖民憲章",
-        "修訂程式",
+        "修訂程序",
         "資格邊界"
       ],
       "en": [
@@ -6370,18 +6217,9 @@ export const coxEditorial = {
         67
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -6452,18 +6290,9 @@ export const coxEditorial = {
         78
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -6557,7 +6386,7 @@ export const coxEditorial = {
       1583,
       1645
     ],
-    "source": "https://peacepalacelibrary.nl/blog/2018/capture-santa-catarina-1603",
+    "source": "https://www.cambridge.org/core/books/abs/cambridge-companion-to-hugo-grotius/grotius-and-the-east-indies/FD622C2BAD6BDFA9FF0B69E88AF4EE80",
     "portrait": {
       "source": "https://commons.wikimedia.org/wiki/File:Portret_van_Hugo_de_Groot_(1583-1645)_Rijksmuseum_SK-A-581.jpeg",
       "license": "Public domain"
@@ -6616,18 +6445,9 @@ export const coxEditorial = {
         67
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -6756,7 +6576,7 @@ export const coxEditorial = {
         "油画变版画"
       ],
       "zh-TW": [
-        "物件洩密",
+        "物品洩密",
         "六幕諷刺",
         "油畫變版畫"
       ],
@@ -6780,23 +6600,14 @@ export const coxEditorial = {
         66
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -6862,23 +6673,14 @@ export const coxEditorial = {
         64
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "15世纪·欧洲",
-      "zh-TW": "15世紀・歐洲",
+      "zh-TW": "15世紀·歐洲",
       "en": "15th century · Europe"
     },
     "years": [
@@ -6960,7 +6762,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -6987,7 +6789,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "在和华兹华斯合作的诗集里，柯勒律治写了一位拦住赴宴客人讲述异事的老水手。你擅长挑一个再普通不过的时刻打开岔路，再让离奇情节走得比听众以为的更真。",
-      "zh-TW": "在與華茲華斯合作的詩集裡，柯立芝寫了一名攔住赴宴客人、向他講述異事的老水手。你擅長在再普通不過的時刻打開岔路，再讓離奇情節顯得比聽眾以為的更真。",
+      "zh-TW": "在與華茲華斯合作的詩集裡，柯勒律治寫了一名攔住赴宴客人、向他講述異事的老水手。你擅長在再普通不過的時刻打開岔路，再讓離奇情節顯得比聽眾以為的更真。",
       "en": "In the collection he made with Wordsworth, Coleridge has a sailor stop a wedding guest and tell an uncanny story. You know how to open a side route in a perfectly ordinary moment and then make its strange consequences feel real."
     },
     "quirk_or_blindspot": {
@@ -7026,23 +6828,14 @@ export const coxEditorial = {
         76
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -7124,7 +6917,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -7206,7 +6999,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·欧洲",
-      "zh-TW": "19世紀・歐洲",
+      "zh-TW": "19世紀·歐洲",
       "en": "19th century · Europe"
     },
     "years": [
@@ -7288,7 +7081,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -7370,7 +7163,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -7452,7 +7245,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "16世纪·欧洲",
-      "zh-TW": "16世紀・歐洲",
+      "zh-TW": "16世紀·歐洲",
       "en": "16th century · Europe"
     },
     "years": [
@@ -7479,12 +7272,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "穆里略晚期常把少数人物留在开阔画面里，从人物之间的距离做出安静感。你的强项是让画面自己留出空间，观众才有时间注意到其中某个表情或原先漏看的动作。",
-      "zh-TW": "穆里羅晚期常把少數人物留在開闊畫面裡，從人物之間的距離做出安靜感。你的強項是讓畫面自己留出空間，觀眾才有時間注意某個表情，或原先漏看的動作。",
+      "zh-TW": "牟利羅晚期常把少數人物留在開闊畫面裡，從人物之間的距離做出安靜感。你的強項是讓畫面自己留出空間，觀眾才有時間注意某個表情，或原先漏看的動作。",
       "en": "Murillo often left a few figures in ample space in his later work. You can let the distance between people do enough that a viewer has time to notice a gesture they would have missed in a crowd."
     },
     "quirk_or_blindspot": {
       "zh": "穆里略为慈善兄弟会画过一整组作品，委托的地点和用途也在画外帮观众理解。你也容易低估画作搬进陌生房间之后，观众需要多少背景才能读懂你留下的安静。",
-      "zh-TW": "穆里羅為慈善兄弟會畫過一整組作品，委託的地點和用途也在畫外幫觀眾理解。你也容易低估畫作到了陌生房間之後，觀眾需要多少背景才能讀懂你留下的安靜。",
+      "zh-TW": "牟利羅為慈善兄弟會畫過一整組作品，委託的地點和用途也在畫外幫觀眾理解。你也容易低估畫作到了陌生房間之後，觀眾需要多少背景才能讀懂你留下的安靜。",
       "en": "Murillo’s work for the Brotherhood of Charity was made for a place with a purpose. If you carry a quiet piece into a different room, people may need some of that framing before they know how to read it."
     },
     "tags": {
@@ -7534,7 +7327,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -7616,7 +7409,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -7698,7 +7491,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·欧洲",
-      "zh-TW": "19世紀・歐洲",
+      "zh-TW": "19世紀·歐洲",
       "en": "19th century · Europe"
     },
     "years": [
@@ -7894,7 +7687,7 @@ export const coxEditorial = {
     },
     "quirk_or_blindspot": {
       "zh": "你精心设计角色的难题，旁人却可能只忙着争它该归什么类型。《熙德》早期题为悲喜剧，后来的版本题为悲剧。整理反馈时，把观众对故事的意见与对分类的意见分开。",
-      "zh-TW": "你精心設計角色的難題，旁人卻可能只忙著爭它該歸什麼型別。《熙德》早期題為悲喜劇，後來的版本題為悲劇。整理反饋時，把觀眾對故事的意見與對分類的意見分開。",
+      "zh-TW": "你精心設計角色的難題，旁人卻可能只忙著爭它該歸什麼類型。《熙德》早期題為悲喜劇，後來的版本題為悲劇。整理反饋時，把觀眾對故事的意見與對分類的意見分開。",
       "en": "You can make a difficult choice clear and still watch people argue about the category. Le Cid was presented as a tragicomedy in early editions and later as a tragedy. When gathering feedback, identify which comments concern the story and which concern its label."
     },
     "tags": {
@@ -8256,18 +8049,9 @@ export const coxEditorial = {
         79
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -8381,12 +8165,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长为同一组观念另找一套读者能使用的语言。加尔文先用拉丁文刊行《基督教要义》，再出版法文本。你也会把原文的次序和词语重新过一遍，适应新读者。",
-      "zh-TW": "你擅長為同一組觀念另找一套讀者能使用的語言。加爾文先用拉丁文刊行《基督教要義》，再出版法文本。你也會把原文的次序和詞語重新過一遍，適應新讀者。",
+      "zh-TW": "你擅長為同一組觀念另找一套讀者能使用的語言。喀爾文先用拉丁文刊行《基督教要義》，再出版法文本。你也會把原文的次序和詞語重新過一遍，適應新讀者。",
       "en": "You can find a second language in which readers can actually use a set of ideas. Calvin first published the Institutes in Latin and later in French. Revisit the order and vocabulary when the readership changes."
     },
     "quirk_or_blindspot": {
       "zh": "你花心思打磨一套教学内容，读到的人却未必知道它经过几轮整理。加尔文的拉丁文本和之后的法文版隔了数年。新读者入门时，把版本及改写原因顺手说明。",
-      "zh-TW": "你花心思打磨一套教學內容，讀到的人卻未必知道它經過幾輪整理。加爾文的拉丁文本和之後的法文版隔了數年。新讀者入門時，把版本及改寫原因順手說明。",
+      "zh-TW": "你花心思打磨一套教學內容，讀到的人卻未必知道它經過幾輪整理。喀爾文的拉丁文本和之後的法文版隔了數年。新讀者入門時，把版本及改寫原因順手說明。",
       "en": "A polished teaching text can conceal the stages it went through. Several years separated Calvin’s Latin edition and the first French one. Give new readers a clear note on what they are reading and why the version exists."
     },
     "tags": {
@@ -8627,7 +8411,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长区别局部哪里不好懂和入口本身弄错。《精神现象学》原来是黑格尔准备中的哲学体系第一部分。你也会重新检查怎样开篇，才让后来人知道各部分为何相接。",
-      "zh-TW": "你擅長區別區域性哪裡不好懂和入口本身弄錯。《精神現象學》原來是黑格爾準備中的哲學體系第一部分。你也會重新檢查怎樣開篇，才讓後來人知道各部分為何相接。",
+      "zh-TW": "你擅長區別局部哪裡不好懂和入口本身弄錯。《精神現象學》原來是黑格爾準備中的哲學體系第一部分。你也會重新檢查怎樣開篇，才讓後來人知道各部分為何相接。",
       "en": "You can tell a difficult passage from a mistaken starting point. Hegel published the Phenomenology as the intended first part of a system under construction. Revisit the opening when readers need to see why the parts belong together."
     },
     "quirk_or_blindspot": {
@@ -8791,12 +8575,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长让形状看起来类似的东西接受同一套观察。亨特在解剖教学中比较生物的结构和功能，用标本支持讲解。你也会先准备一组可看的差异，再给概念取名字。",
-      "zh-TW": "你擅長讓形狀看起來類似的東西接受同一套觀察。亨特在解剖教學中比較生物的結構和功能，用標本支援講解。你也會先準備一組可看的差異，再給概念取名字。",
+      "zh-TW": "你擅長讓形狀看起來類似的東西接受同一套觀察。杭特在解剖教學中比較生物的結構和功能，用標本支援講解。你也會先準備一組可看的差異，再給概念取名字。",
       "en": "You let similar-looking things answer the same questions. Hunter used specimens to teach how structure and function compare across creatures. Give students visible differences to work with before introducing the names."
     },
     "quirk_or_blindspot": {
       "zh": "你很容易觉得只要样本够多，学生就会看出重点。亨特留下超过万件标本用于研究和外科训练。给别人打开一整库资料前，先为眼下要学的内容选出几件参照物。",
-      "zh-TW": "你很容易覺得只要樣本夠多，學生就會看出重點。亨特留下超過萬件標本用於研究和外科訓練。給別人開啟一整庫資料前，先為眼下要學的內容選出幾件參照物。",
+      "zh-TW": "你很容易覺得只要樣本夠多，學生就會看出重點。杭特留下超過萬件標本用於研究和外科訓練。給別人開啟一整庫資料前，先為眼下要學的內容選出幾件參照物。",
       "en": "A collection can grow faster than a learner’s ability to navigate it. Hunter left more than ten thousand specimens for study and surgical training. Select a few that answer the immediate question before opening up the whole collection."
     },
     "tags": {
@@ -9010,7 +8794,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "15世纪·欧洲",
-      "zh-TW": "15世紀・歐洲",
+      "zh-TW": "15世紀·歐洲",
       "en": "15th century · Europe"
     },
     "years": [
@@ -9092,7 +8876,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "16世纪·欧洲",
-      "zh-TW": "16世紀・歐洲",
+      "zh-TW": "16世紀·歐洲",
       "en": "16th century · Europe"
     },
     "years": [
@@ -9174,7 +8958,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -9256,7 +9040,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·欧洲",
-      "zh-TW": "19世紀・歐洲",
+      "zh-TW": "19世紀·歐洲",
       "en": "19th century · Europe"
     },
     "years": [
@@ -9338,7 +9122,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -9404,23 +9188,14 @@ export const coxEditorial = {
         74
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -9502,7 +9277,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -9568,23 +9343,14 @@ export const coxEditorial = {
         63
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -9666,7 +9432,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -9748,7 +9514,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -9830,7 +9596,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -9896,23 +9662,14 @@ export const coxEditorial = {
         76
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -10075,18 +9832,9 @@ export const coxEditorial = {
         75
       ],
       "big_five_traits": {
-        "zh": [
-          "高尽责性",
-          "高外倾性"
-        ],
-        "zh-TW": [
-          "高盡責性",
-          "高外傾性"
-        ],
-        "en": [
-          "High conscientiousness",
-          "High extraversion"
-        ]
+        "zh": ["高外倾性"],
+        "zh-TW": ["高外傾性"],
+        "en": ["High extraversion"]
       }
     }
   },
@@ -10485,18 +10233,9 @@ export const coxEditorial = {
         62
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     }
   },
@@ -10734,18 +10473,9 @@ export const coxEditorial = {
         78
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     }
   },
@@ -10762,7 +10492,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长把教学要求写成学生可以跟着走的故事。费讷隆给路易十四的孙子准备的读物借用了忒勒马科斯的旅程。你也会让学生先观察人物选择，再回头讨论道理。",
-      "zh-TW": "你擅長把教學要求寫成學生可以跟著走的故事。費訥隆給路易十四的孫子準備的讀物借用了忒勒馬科斯的旅程。你也會讓學生先觀察人物選擇，再回頭討論道理。",
+      "zh-TW": "你擅長把教學要求寫成學生可以跟著走的故事。費內隆給路易十四的孫子準備的讀物借用了忒勒馬科斯的旅程。你也會讓學生先觀察人物選擇，再回頭討論道理。",
       "en": "You make a lesson into a story a student can follow. Fénelon wrote for Louis XIV’s grandson by giving him the travels of Telemachus. Let the student see what a character chooses before explaining the lesson."
     },
     "quirk_or_blindspot": {
@@ -11008,12 +10738,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长识别什么时候外界认可的道路已装不下眼下的问题。斯威登堡在矿务职位上谢绝升迁，然后转向神学写作。转换重心时，你会为新工作留一段完整的时间。",
-      "zh-TW": "你擅長識別什麼時候外界認可的道路已裝不下眼下的問題。斯威登堡在礦務職位上謝絕升遷，然後轉向神學寫作。轉換重心時，你會為新工作留一段完整的時間。",
+      "zh-TW": "你擅長識別什麼時候外界認可的道路已裝不下眼下的問題。史威登堡在礦務職位上謝絕升遷，然後轉向神學寫作。轉換重心時，你會為新工作留一段完整的時間。",
       "en": "You notice when a path endorsed by others no longer answers the questions you want to work on. Swedenborg declined a promotion at the Board of Mines and turned to theology. Give new work time of its own."
     },
     "quirk_or_blindspot": {
       "zh": "你会认真对待触发写作的私人体验，旁人却没有与你相同的检验方法。斯威登堡曾把自己的梦解释为职业转折的信号。共享启发之前，说明哪些来自个人经历。",
-      "zh-TW": "你會認真對待觸發寫作的私人體驗，旁人卻沒有與你相同的檢驗方法。斯威登堡曾把自己的夢解釋為職業轉折的訊號。共享啟發之前，說明哪些來自個人經歷。",
+      "zh-TW": "你會認真對待觸發寫作的私人體驗，旁人卻沒有與你相同的檢驗方法。史威登堡曾把自己的夢解釋為職業轉折的訊號。共享啟發之前，說明哪些來自個人經歷。",
       "en": "An experience can change your direction without giving others a way to check your interpretation. Swedenborg read some of his dreams as spiritual guidance. Say which parts come from your personal experience when you share what it prompted."
     },
     "tags": {
@@ -11047,18 +10777,9 @@ export const coxEditorial = {
         68
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -11172,7 +10893,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长发现流程中真正的决定权被含糊带过的地方。福克斯提出议案，澄清刑事诽谤案中陪审团可以裁决全案。你也会让听众看清谁能下判断以及用什么程序。",
-      "zh-TW": "你擅長髮現流程中真正的決定權被含糊帶過的地方。福克斯提出議案，澄清刑事誹謗案中陪審團可以裁決全案。你也會讓聽眾看清誰能下判斷以及用什麼程式。",
+      "zh-TW": "你擅長髮現流程中真正的決定權被含糊帶過的地方。福克斯提出議案，澄清刑事誹謗案中陪審團可以裁決全案。你也會讓聽眾看清誰能下判斷以及用什麼程序。",
       "en": "You notice when a process leaves its real decision-maker unclear. Fox introduced the bill clarifying that a jury could decide the whole criminal libel case. Explain who has the decision and the procedure they will use."
     },
     "quirk_or_blindspot": {
@@ -11188,7 +10909,7 @@ export const coxEditorial = {
       ],
       "zh-TW": [
         "議案提出",
-        "陪審許可權",
+        "陪審權限",
         "法院分工"
       ],
       "en": [
@@ -11201,7 +10922,7 @@ export const coxEditorial = {
       "inferred_mbti": "ENTJ",
       "title": {
         "zh": "程序辩论者",
-        "zh-TW": "程式辯論者",
+        "zh-TW": "程序辯論者",
         "en": "Procedural Advocate"
       },
       "tendencies": [
@@ -11457,18 +11178,9 @@ export const coxEditorial = {
         72
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -11500,12 +11212,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长让一处文化的思想走到使用另一种语言的读者身边。斯塔尔夫人以法语写《论德国》，巴黎印本受阻后改在伦敦发行。你也会替远来的观点补齐语境。",
-      "zh-TW": "你擅長讓一處文化的思想走到使用另一種語言的讀者身邊。斯塔爾夫人以法語寫《論德國》，巴黎印本受阻後改在倫敦發行。你也會替遠來的觀點補齊語境。",
+      "zh-TW": "你擅長讓一處文化的思想走到使用另一種語言的讀者身邊。史黛爾夫人以法語寫《論德國》，巴黎印本受阻後改在倫敦發行。你也會替遠來的觀點補齊語境。",
       "en": "You help ideas reach readers working in another language. Staël wrote on German culture in French, and the book appeared in London after suppression in Paris. Give an imported idea enough context to travel."
     },
     "quirk_or_blindspot": {
       "zh": "你习惯通过一圈熟悉的同行理解新地方，容易漏掉他们以外的人怎样看。斯塔尔夫人写《论德国》时受到施莱格尔兄弟影响。做跨文化介绍时，提醒读者你的窗口在哪里。",
-      "zh-TW": "你習慣通過一圈熟悉的同行理解新地方，容易漏掉他們以外的人怎樣看。斯塔爾夫人寫《論德國》時受到施萊格爾兄弟影響。做跨文化介紹時，提醒讀者你的視窗在哪裡。",
+      "zh-TW": "你習慣通過一圈熟悉的同行理解新地方，容易漏掉他們以外的人怎樣看。史黛爾夫人寫《論德國》時受到施萊格爾兄弟影響。做跨文化介紹時，提醒讀者你的視窗在哪裡。",
       "en": "A trusted circle can open a culture to you and still leave other viewpoints outside. The Schlegel brothers influenced Staël’s account. Tell readers how you gained access and which voices the route may have missed."
     },
     "tags": {
@@ -11751,7 +11463,7 @@ export const coxEditorial = {
     },
     "quirk_or_blindspot": {
       "zh": "你拿到正式名称时容易误以为事情就会立刻开始。学院的王室特许状一六三五年获签，至一六三七年才登记。推动新机制时，把授权之后仍待办的手续列明。",
-      "zh-TW": "你拿到正式名稱時容易誤以為事情就會立刻開始。學院的王室特許狀一六三五年獲籤，至一六三七年才登記。推動新機制時，把授權之後仍待辦的手續列明。",
+      "zh-TW": "你拿到正式名稱時容易誤以為事情就會立刻開始。學院的王室特許狀一六三五年獲簽發，至一六三七年才登記。推動新機制時，把授權之後仍待辦的手續列明。",
       "en": "A formal title can make a project look operational before it is. The Académie’s charter was signed in 1635 and registered in 1637. List the practical steps that remain after authorization."
     },
     "tags": {
@@ -11867,18 +11579,9 @@ export const coxEditorial = {
         73
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -11915,7 +11618,7 @@ export const coxEditorial = {
     },
     "quirk_or_blindspot": {
       "zh": "你从观剧细节一路写到一套解释，没在场的人可能已经跟不上。莱辛的文章原本伴随具体演出陆续发表。整理旧课时，给新读者补上最初的剧目和讨论对象。",
-      "zh-TW": "你從觀劇細節一路寫到一套解釋，沒在場的人可能已經跟不上。萊辛的文章原本伴隨具體演出陸續發表。整理舊課時，給新讀者補上最初的劇目和討論物件。",
+      "zh-TW": "你從觀劇細節一路寫到一套解釋，沒在場的人可能已經跟不上。萊辛的文章原本伴隨具體演出陸續發表。整理舊課時，給新讀者補上最初的劇目和討論對象。",
       "en": "An argument can grow beyond the performances that first made it clear. Lessing’s essays began as a series tied to particular plays. When reusing past commentary, give new readers enough of the original scene to follow it."
     },
     "tags": {
@@ -12129,7 +11832,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -12211,7 +11914,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·北美",
-      "zh-TW": "18世紀・北美",
+      "zh-TW": "18世紀·北美",
       "en": "18th century · North America"
     },
     "years": [
@@ -12293,7 +11996,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -12375,7 +12078,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -12457,7 +12160,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "16世纪·欧洲",
-      "zh-TW": "16世紀・歐洲",
+      "zh-TW": "16世紀·歐洲",
       "en": "16th century · Europe"
     },
     "years": [
@@ -12523,23 +12226,14 @@ export const coxEditorial = {
         66
       ],
       "big_five_traits": {
-        "zh": [
-          "高尽责性",
-          "高开放性"
-        ],
-        "zh-TW": [
-          "高盡責性",
-          "高開放性"
-        ],
-        "en": [
-          "High conscientiousness",
-          "High openness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -12566,7 +12260,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "穆尔为现成的爱尔兰曲调填词，约翰·史蒂文森负责伴奏与编配。你能从一段别人早已会哼的旋律里听出它还需要怎样的故事，让熟悉的节奏突然有话可说。",
-      "zh-TW": "穆爾為現成的愛爾蘭曲調填詞，約翰・史蒂文森負責伴奏與編配。你能從別人早就會哼的旋律裡聽出它還需要怎樣的故事，讓熟悉的節奏忽然有話可說。",
+      "zh-TW": "穆爾為現成的愛爾蘭曲調填詞，約翰·史蒂文森負責伴奏與編配。你能從別人早就會哼的旋律裡聽出它還需要怎樣的故事，讓熟悉的節奏忽然有話可說。",
       "en": "Moore wrote words for tunes that already had an Irish life, with accompaniments arranged by John Stevenson. You hear the kind of story a melody still has room for, so a familiar tune can say something new."
     },
     "quirk_or_blindspot": {
@@ -12621,7 +12315,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -12703,7 +12397,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -12785,7 +12479,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·北美",
-      "zh-TW": "18世紀・北美",
+      "zh-TW": "18世紀·北美",
       "en": "18th century · North America"
     },
     "years": [
@@ -12867,7 +12561,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·欧洲",
-      "zh-TW": "19世紀・歐洲",
+      "zh-TW": "19世紀·歐洲",
       "en": "19th century · Europe"
     },
     "years": [
@@ -12933,23 +12627,14 @@ export const coxEditorial = {
         63
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "19世纪·欧洲",
-      "zh-TW": "19世紀・歐洲",
+      "zh-TW": "19世紀·歐洲",
       "en": "19th century · Europe"
     },
     "years": [
@@ -13031,7 +12716,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -13155,12 +12840,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长让一项古老的制度说出今天仍能听懂的理由。阿特伯里受教于威斯敏斯特和牛津，后来从事讲论与教会事务。你知道一场辩论何时需要回到用词本身。",
-      "zh-TW": "你擅長讓一項古老的制度說出今天仍能聽懂的理由。阿特伯裡受教於威斯敏斯特和牛津，後來從事講論與教會事務。你知道一場辯論何時需要回到用詞本身。",
+      "zh-TW": "你擅長讓一項古老的制度說出今天仍能聽懂的理由。阿特伯里受教於威斯敏斯特和牛津，後來從事講論與教會事務。你知道一場辯論何時需要回到用詞本身。",
       "en": "You can give an old institution an argument people today can follow. Atterbury studied at Westminster and Oxford before becoming a preacher and churchman. You know when to return a debate to the words everyone is using."
     },
     "quirk_or_blindspot": {
       "zh": "你容易让立场接管原本还能讨论的局面。阿特伯里后来失去教会职务，被永久流放巴黎。投入一场论争之前，先想清楚自己愿为这个选择承担多长时间的后果。",
-      "zh-TW": "你容易讓立場接管原本還能討論的局面。阿特伯裡後來失去教會職務，被永久流放巴黎。投入一場論爭之前，先想清楚自己願為這個選擇承擔多長時間的後果。",
+      "zh-TW": "你容易讓立場接管原本還能討論的局面。阿特伯里後來失去教會職務，被永久流放巴黎。投入一場論爭之前，先想清楚自己願為這個選擇承擔多長時間的後果。",
       "en": "A position can take over a disagreement that still had room to breathe. Atterbury lost his offices and was sent to Paris in permanent exile. A conviction can be worth holding while the price of this particular fight still deserves thought."
     },
     "tags": {
@@ -13565,12 +13250,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长为抽象主题搭出一整个可游历的世界。斯宾塞从田园诗写到《仙后》，用不同人物和旅程承载寓意。你最拿手的是找出某个概念应当穿哪一身衣服。",
-      "zh-TW": "你擅長為抽象主題搭出一整個可遊歷的世界。斯賓塞從田園詩寫到《仙后》，用不同人物和旅程承載寓意。你最拿手的是找出某個概念應當穿哪一身衣服。",
+      "zh-TW": "你擅長為抽象主題搭出一整個可遊歷的世界。史賓賽從田園詩寫到《仙后》，用不同人物和旅程承載寓意。你最拿手的是找出某個概念應當穿哪一身衣服。",
       "en": "You can build a world around a difficult idea. Spenser moved from pastoral verse to The Faerie Queene, where characters and journeys give allegory a body. You have a good instinct for what an idea needs to wear before it steps onstage."
     },
     "quirk_or_blindspot": {
       "zh": "你容易在第一卷还没收尾时就替最后一卷排上场。斯宾塞原拟为《仙后》写十二卷，去世前未能全部完成。版图铺得越大，越要替眼下能交出的部分留出力气。",
-      "zh-TW": "你容易在第一卷還沒收尾時就替最後一卷排上場。斯賓塞原擬為《仙后》寫十二卷，去世前未能全部完成。版圖鋪得越大，越要替眼下能交出的部分留出力氣。",
+      "zh-TW": "你容易在第一卷還沒收尾時就替最後一卷排上場。史賓賽原擬為《仙后》寫十二卷，去世前未能全部完成。版圖鋪得越大，越要替眼下能交出的部分留出力氣。",
       "en": "You may start blocking the last volume before the first has found its ending. Spenser projected twelve books for The Faerie Queene and died before completing them all. A wide map still needs time for the ground you can reach today."
     },
     "tags": {
@@ -13604,18 +13289,9 @@ export const coxEditorial = {
         71
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     }
   },
@@ -13686,21 +13362,9 @@ export const coxEditorial = {
         73
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性",
-          "低外倾性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性",
-          "低外傾性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness",
-          "Low extraversion"
-        ]
+        "zh": ["高开放性", "低外倾性"],
+        "zh-TW": ["高開放性", "低外傾性"],
+        "en": ["High openness", "Low extraversion"]
       }
     }
   },
@@ -13896,12 +13560,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长让一段写作带着读者走到现场。笛福写政治小册子、期刊和小说，在不同文体里安排信息逐步出现。你知道先给人看什么，他们才会想读下一页。",
-      "zh-TW": "你擅長讓一段寫作帶著讀者走到現場。笛福寫政治小冊子、期刊和小說，在不同文體裡安排資訊逐步出現。你知道先給人看什麼，他們才會想讀下一頁。",
+      "zh-TW": "你擅長讓一段寫作帶著讀者走到現場。狄福寫政治小冊子、期刊和小說，在不同文體裡安排資訊逐步出現。你知道先給人看什麼，他們才會想讀下一頁。",
       "en": "You can make the reader feel present as events take shape. Defoe wrote political pamphlets, a periodical, and novels, giving information a different rhythm in each form. You have a feel for what makes someone want to see the next page."
     },
     "quirk_or_blindspot": {
       "zh": "你容易低估别人会把讽刺读得多认真。笛福因讽刺宗教排斥的小册子被定罪并示众三天。借一个声音说话很有效，也要想想读者能否辨认你借来的到底是谁的嗓门。",
-      "zh-TW": "你容易低估別人會把諷刺讀得多認真。笛福因諷刺宗教排斥的小冊子被定罪並示眾三天。借一個聲音說話很有效，也要想想讀者能否辨認你借來的到底是誰的嗓門。",
+      "zh-TW": "你容易低估別人會把諷刺讀得多認真。狄福因諷刺宗教排斥的小冊子被定罪並示眾三天。借一個聲音說話很有效，也要想想讀者能否辨認你借來的到底是誰的嗓門。",
       "en": "Satire can sound more literal to a reader than it does to you. Defoe’s satirical pamphlet on religious dissent led to conviction and three days in the pillory. A borrowed voice works best when the audience can tell whose voice it is."
     },
     "tags": {
@@ -13935,21 +13599,9 @@ export const coxEditorial = {
         69
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性",
-          "低宜人性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性",
-          "低宜人性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness",
-          "Low agreeableness"
-        ]
+        "zh": ["高开放性", "低宜人性"],
+        "zh-TW": ["高開放性", "低宜人性"],
+        "en": ["High openness", "Low agreeableness"]
       }
     }
   },
@@ -14266,18 +13918,9 @@ export const coxEditorial = {
         62
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     }
   },
@@ -14309,12 +13952,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长把一个顺手的判断拆开，找出经验偷偷补进去的部分。贝克莱讨论视觉怎样提示距离，并把视觉与触觉分开来分析。你能让最熟悉的知觉重新冒出问题。",
-      "zh-TW": "你擅長把一個順手的判斷拆開，找出經驗偷偷補進去的部分。貝克萊討論視覺怎樣提示距離，並把視覺與觸覺分開來分析。你能讓最熟悉的知覺重新冒出問題。",
+      "zh-TW": "你擅長把一個順手的判斷拆開，找出經驗偷偷補進去的部分。柏克萊討論視覺怎樣提示距離，並把視覺與觸覺分開來分析。你能讓最熟悉的知覺重新冒出問題。",
       "en": "You can take an effortless judgment apart and find where experience filled in the gaps. Berkeley asked how sight suggests distance and distinguished between visible and tangible experiences. Your questions make even familiar perceptions feel worth examining."
     },
     "quirk_or_blindspot": {
       "zh": "你容易给每个生活判断都加上一层审问。贝克莱讨论视觉大小时，连普通人用同一个名字称呼所见和所触也要专门说明。问题问得细，也需要让人知道它有什么用。",
-      "zh-TW": "你容易給每個生活判斷都加上一層審問。貝克萊討論視覺大小時，連普通人用同一個名字稱呼所見和所觸也要專門說明。問題問得細，也需要讓人知道它有什麼用。",
+      "zh-TW": "你容易給每個生活判斷都加上一層審問。柏克萊討論視覺大小時，連普通人用同一個名字稱呼所見和所觸也要專門說明。問題問得細，也需要讓人知道它有什麼用。",
       "en": "You can subject an ordinary judgment to one question too many. In writing about visual magnitude, Berkeley paused over the common habit of giving what we see and what we touch the same name. An exact question works best when people can see what it will help them answer."
     },
     "tags": {
@@ -14396,7 +14039,7 @@ export const coxEditorial = {
     },
     "quirk_or_blindspot": {
       "zh": "你容易把彼此接通当成了彼此稳住。约翰·劳方案中的股价投机与金融危机在1720年集中爆发。连接得紧的几块既能一起动，也可能一起放大同一次冲击。",
-      "zh-TW": "你容易把彼此接通當成了彼此穩住。約翰·勞方案中的股價投機與金融危機在1720年集中爆發。連線得緊的幾塊既能一起動，也可能一起放大同一次衝擊。",
+      "zh-TW": "你容易把彼此接通當成了彼此穩住。約翰·勞方案中的股價投機與金融危機在1720年集中爆發。連接得緊的幾塊既能一起動，也可能一起放大同一次衝擊。",
       "en": "A tight connection can feel like a guarantee of stability. Speculation surrounding Law’s plan ended in a financial crisis in 1720. Parts connected closely enough to move together can also amplify the same shock."
     },
     "tags": {
@@ -14622,12 +14265,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长把一段可疑文字拉回它怎样被抄写和印出的过程。本特利编《失乐园》时用边注列出自己推测的读法。你也能把值得重新检查的地方指出来，让读者回到原句。",
-      "zh-TW": "你擅長把一段可疑文字拉回它怎樣被抄寫和印出的過程。本特利編《失樂園》時用邊注列出自己推測的讀法。你也能把值得重新檢查的地方指出來，讓讀者回到原句。",
+      "zh-TW": "你擅長把一段可疑文字拉回它怎樣被抄寫和印出的過程。班特利編《失樂園》時用邊注列出自己推測的讀法。你也能把值得重新檢查的地方指出來，讓讀者回到原句。",
       "en": "You trace an awkward line through the process that put it on the page. Bentley recorded conjectures about Paradise Lost in his edition’s margins. Flag the passage in a way that lets the reader return to the wording itself."
     },
     "quirk_or_blindspot": {
       "zh": "你能猜到一个解释说得通的内部故事，却可能把找不到的改写者当成存在。本特利怀疑早期有人改过《失乐园》。提出新读法时，把可查记录和自己的推测一起标明。",
-      "zh-TW": "你能猜到一個解釋說得通的內部故事，卻可能把找不到的改寫者當成存在。本特利懷疑早期有人改過《失樂園》。提出新讀法時，把可查記錄和自己的推測一起標明。",
+      "zh-TW": "你能猜到一個解釋說得通的內部故事，卻可能把找不到的改寫者當成存在。班特利懷疑早期有人改過《失樂園》。提出新讀法時，把可查記錄和自己的推測一起標明。",
       "en": "An explanation can fit neatly without proving that the person you imagine ever intervened. Bentley suspected that somebody had altered Paradise Lost before publication. Put the records that can be checked next to the conjecture."
     },
     "tags": {
@@ -14704,12 +14347,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长把误解安排得观众一眼能看见，角色却还要等下一句才能发现。戈德史密斯在《委曲求全》中让一处住宅被当成客店。解释失误时，你也会先把各自所见摆出来。",
-      "zh-TW": "你擅長把誤解安排得觀眾一眼能看見，角色卻還要等下一句才能發現。戈德史密斯在《委曲求全》中讓一處住宅被當成客店。解釋失誤時，你也會先把各自所見擺出來。",
+      "zh-TW": "你擅長把誤解安排得觀眾一眼能看見，角色卻還要等下一句才能發現。高德史密斯在《委曲求全》中讓一處住宅被當成客店。解釋失誤時，你也會先把各自所見擺出來。",
       "en": "You let the audience see a misunderstanding before the characters catch up. Goldsmith has a private house mistaken for an inn in She Stoops to Conquer. Show what each person saw before telling them who misunderstood."
     },
     "quirk_or_blindspot": {
       "zh": "你太早给故事配好收尾，排到台上才可能发现节奏还不合适。英国图书馆藏有戈德史密斯这出戏弃用的两个尾声。分享终稿前，先听一次别人念出最后一段。",
-      "zh-TW": "你太早給故事配好收尾，排到臺上才可能發現節奏還不合適。英國圖書館藏有戈德史密斯這出戲棄用的兩個尾聲。分享終稿前，先聽一次別人念出最後一段。",
+      "zh-TW": "你太早給故事配好收尾，排到臺上才可能發現節奏還不合適。英國圖書館藏有高德史密斯這出戲棄用的兩個尾聲。分享終稿前，先聽一次別人念出最後一段。",
       "en": "A closing speech can look finished on paper and still land wrong onstage. The British Library holds two discarded epilogues to Goldsmith’s comedy. Before declaring a draft finished, listen to somebody else deliver the last part."
     },
     "tags": {
@@ -14868,12 +14511,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长顺着一封具体来信，把隐在新方案下面的旧制度认出来。伯克把对法国革命的回复写成专著。你也会先问原有安排承担过什么，再决定哪些要留。",
-      "zh-TW": "你擅長順著一封具體來信，把隱在新方案下面的舊制度認出來。伯克把對法國革命的回覆寫成專著。你也會先問原有安排承擔過什麼，再決定哪些要留。",
+      "zh-TW": "你擅長順著一封具體來信，把隱在新方案下面的舊制度認出來。柏克把對法國革命的回覆寫成專著。你也會先問原有安排承擔過什麼，再決定哪些要留。",
       "en": "You can follow a specific question back to the institutions a proposed change would affect. Burke turned a reply about the French Revolution into a book. First ask what the existing arrangement has actually been doing."
     },
     "quirk_or_blindspot": {
       "zh": "你把传统为什么存在讲得很顺，容易让新加入的人听不到自己遇到的难处。伯克借写给法国友人的信回应公共变革。讨论旧规则时，为受限制的人留出发言位置。",
-      "zh-TW": "你把傳統為什麼存在講得很順，容易讓新加入的人聽不到自己遇到的難處。伯克借寫給法國友人的信回應公共變革。討論舊規則時，為受限制的人留出發言位置。",
+      "zh-TW": "你把傳統為什麼存在講得很順，容易讓新加入的人聽不到自己遇到的難處。柏克借寫給法國友人的信回應公共變革。討論舊規則時，為受限制的人留出發言位置。",
       "en": "A persuasive account of why a practice exists can drown out the people who struggle with it. Burke used a letter to a French acquaintance to address public change. Invite the people restricted by an old rule to describe what it does."
     },
     "tags": {
@@ -14950,12 +14593,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长在机构争执中找到原定程序怎样分配决定权。克伦威尔在护国政体下依据会期规定行动。遇到职责碰撞时，你也会先查规则把每项决定交到了谁手里。",
-      "zh-TW": "你擅長在機構爭執中找到原定程式怎樣分配決定權。克倫威爾在護國政體下依據會期規定行動。遇到職責碰撞時，你也會先查規則把每項決定交到了誰手裡。",
+      "zh-TW": "你擅長在機構爭執中找到原定程序怎樣分配決定權。克倫威爾在護國政體下依據會期規定行動。遇到職責碰撞時，你也會先查規則把每項決定交到了誰手裡。",
       "en": "You look up who has authority before deciding how to break an institutional deadlock. Cromwell acted under the rules of the Protectorate. When responsibilities collide, start by checking who can actually take each decision."
     },
     "quirk_or_blindspot": {
       "zh": "你找到一条程序允许自己结束争论，就可能漏掉那些还没得到答案的人。克伦威尔解散首届护国议会，未能消解双方矛盾。调整议程时，把原本仍待审议的问题留下。",
-      "zh-TW": "你找到一條程式允許自己結束爭論，就可能漏掉那些還沒得到答案的人。克倫威爾解散首屆護國議會，未能消解雙方矛盾。調整議程時，把原本仍待審議的問題留下。",
+      "zh-TW": "你找到一條程序允許自己結束爭論，就可能漏掉那些還沒得到答案的人。克倫威爾解散首屆護國議會，未能消解雙方矛盾。調整議程時，把原本仍待審議的問題留下。",
       "en": "The power to end a discussion does not resolve the issues people still needed it to address. Cromwell dissolved the first Protectorate Parliament amid ongoing tensions. Keep a record of unresolved questions when a session ends."
     },
     "tags": {
@@ -15032,12 +14675,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长指出一件政策争议里没有说清的价值主张。罗伯斯庇尔把道德原则带入革命时期的议场表达。你也会在讨论中追问，眼前的办法究竟要保护谁的利益。",
-      "zh-TW": "你擅長指出一件政策爭議裡沒有說清的價值主張。羅伯斯庇爾把道德原則帶入革命時期的議場表達。你也會在討論中追問，眼前的辦法究竟要保護誰的利益。",
+      "zh-TW": "你擅長指出一件政策爭議裡沒有說清的價值主張。羅伯斯比爾把道德原則帶入革命時期的議場表達。你也會在討論中追問，眼前的辦法究竟要保護誰的利益。",
       "en": "You name the underlying value judgment in a policy argument. Robespierre put moral principles at the center of his revolutionary speeches. Ask which people and interests a proposal would actually protect."
     },
     "quirk_or_blindspot": {
       "zh": "你说得越笃定，越容易让别人弄不清你的指责指向谁。罗伯斯庇尔在热月八日发言时没有指名所指对手。发出严重指责前，将具体行为和证据交代清楚。",
-      "zh-TW": "你說得越篤定，越容易讓別人弄不清你的指責指向誰。羅伯斯庇爾在熱月八日發言時沒有指名所指對手。發出嚴重指責前，將具體行為和證據交代清楚。",
+      "zh-TW": "你說得越篤定，越容易讓別人弄不清你的指責指向誰。羅伯斯比爾在熱月八日發言時沒有指名所指對手。發出嚴重指責前，將具體行為和證據交代清楚。",
       "en": "The more absolute an accusation sounds, the easier it is for people to feel targeted without knowing why. Robespierre did not name the adversaries he accused on 8 Thermidor. Tie serious allegations to specific actions and evidence."
     },
     "tags": {
@@ -15196,12 +14839,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长在默认续期时重新审查一份安排。杰克逊否决美国第二银行的续约法案，并发布理由。你也会先找决定对哪些人影响最重，把争议条文逐一摆出来。",
-      "zh-TW": "你擅長在預設續期時重新審查一份安排。傑克遜否決美國第二銀行的續約法案，併發布理由。你也會先找決定對哪些人影響最重，把爭議條文逐一擺出來。",
+      "zh-TW": "你擅長在預設續期時重新審查一份安排。傑克森否決美國第二銀行的續約法案，併發布理由。你也會先找決定對哪些人影響最重，把爭議條文逐一擺出來。",
       "en": "You can reopen the terms when everyone expects a routine renewal. Jackson vetoed the Second Bank’s recharter bill and published his reasons. Show the contested provisions and identify who will feel the largest effects."
     },
     "quirk_or_blindspot": {
       "zh": "你能让一个正式文件以个人立场出场，旁人容易忘记是谁一起写的。杰克逊的银行否决咨文有肯德尔与坦尼等人协助。宣布决定时，把执笔、建议和决定分开记。",
-      "zh-TW": "你能讓一個正式檔案以個人立場出場，旁人容易忘記是誰一起寫的。傑克遜的銀行否決諮文有肯德爾與坦尼等人協助。宣佈決定時，把執筆、建議和決定分開記。",
+      "zh-TW": "你能讓一個正式檔案以個人立場出場，旁人容易忘記是誰一起寫的。傑克森的銀行否決諮文有肯德爾與坦尼等人協助。宣佈決定時，把執筆、建議和決定分開記。",
       "en": "A decision delivered under one name can obscure whose work went into the argument. Kendall, Taney, and other allies helped craft Jackson’s bank veto message. Record who drafted, who advised, and who took the decision."
     },
     "tags": {
@@ -15399,18 +15042,9 @@ export const coxEditorial = {
         80
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -15563,18 +15197,9 @@ export const coxEditorial = {
         76
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -15606,12 +15231,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长给初次读长历史的人做出几个可记的路标。博叙埃为王储写书，按重要时代安排内容，又同时解释帝国与宗教的变化。你也会先给学生一张能找回去的图。",
-      "zh-TW": "你擅長給初次讀長曆史的人做出幾個可記的路標。博敘埃為王儲寫書，按重要時代安排內容，又同時解釋帝國與宗教的變化。你也會先給學生一張能找回去的圖。",
+      "zh-TW": "你擅長給初次讀長曆史的人做出幾個可記的路標。波舒哀為王儲寫書，按重要時代安排內容，又同時解釋帝國與宗教的變化。你也會先給學生一張能找回去的圖。",
       "en": "You give a first-time reader a few landmarks in a long history. Bossuet organized a book for the Dauphin around major periods and traced changes in religion and empire. Give learners a map they can return to."
     },
     "quirk_or_blindspot": {
       "zh": "你选中的节点一旦成为讲义，看起来就像天然该从那里断开。博叙埃在书中并置经文传统和帝国历史。使用时间轴时，也说清分期是怎样选出的，依据的材料有何不同。",
-      "zh-TW": "你選中的節點一旦成為講義，看起來就像天然該從那裡斷開。博敘埃在書中並置經文傳統和帝國曆史。使用時間軸時，也說清分期是怎樣選出的，依據的材料有何不同。",
+      "zh-TW": "你選中的節點一旦成為講義，看起來就像天然該從那裡斷開。波舒哀在書中並置經文傳統和帝國曆史。使用時間軸時，也說清分期是怎樣選出的，依據的材料有何不同。",
       "en": "Once your landmarks enter a lesson, they can look like natural divisions in the past. Bossuet arranged scriptural traditions alongside the history of empires. Explain who chose the periods and what kinds of sources support them."
     },
     "tags": {
@@ -16011,7 +15636,7 @@ export const coxEditorial = {
     },
     "one_line_hook": {
       "zh": "当大家把几种决定混成一个问题时，你会先用两行把权限拆清楚。",
-      "zh-TW": "當大家把幾種決定混成一個問題時，你會先用兩行把許可權拆清楚。",
+      "zh-TW": "當大家把幾種決定混成一個問題時，你會先用兩行把權限拆清楚。",
       "en": "When different powers are argued as one issue, you separate the decisions before joining the debate."
     },
     "superpower": {
@@ -16021,7 +15646,7 @@ export const coxEditorial = {
     },
     "quirk_or_blindspot": {
       "zh": "你把区别说得很精细，现场听众却可能需要等到最后才知道你支持哪一边。富兰克林记下皮特那场发言的层层推进。紧急会议先讲结论，再逐段解释权限。",
-      "zh-TW": "你把區別說得很精細，現場聽眾卻可能需要等到最後才知道你支援哪一邊。富蘭克林記下皮特那場發言的層層推進。緊急會議先講結論，再逐段解釋許可權。",
+      "zh-TW": "你把區別說得很精細，現場聽眾卻可能需要等到最後才知道你支援哪一邊。富蘭克林記下皮特那場發言的層層推進。緊急會議先講結論，再逐段解釋權限。",
       "en": "A careful distinction can leave people waiting for your position. Franklin described how Pitt built up his Stamp Act argument. In an urgent meeting, say what you want decided before explaining the boundary."
     },
     "tags": {
@@ -16033,7 +15658,7 @@ export const coxEditorial = {
       "zh-TW": [
         "議場表態",
         "印花稅",
-        "許可權區分"
+        "權限區分"
       ],
       "en": [
         "CommonsSpeech",
@@ -16045,7 +15670,7 @@ export const coxEditorial = {
       "inferred_mbti": "ENTJ",
       "title": {
         "zh": "权限辩论者",
-        "zh-TW": "許可權辯論者",
+        "zh-TW": "權限辯論者",
         "en": "Authority Debater"
       },
       "tendencies": [
@@ -16235,7 +15860,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -16317,7 +15942,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -16399,7 +16024,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -16481,7 +16106,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -16563,7 +16188,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -16645,7 +16270,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -16672,7 +16297,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "温克尔曼在罗马接触古代艺术，将外形相近的作品按历史与风格来比较。你擅长在一屋子看似同类的东西里分辨变化，不急着定好坏，先找到哪一种做法在何时出现。",
-      "zh-TW": "溫克爾曼在羅馬接觸古代藝術，將外形相近的作品按歷史和風格比較。你擅長在一屋看似同類的物件中辨認變化，先找出什麼做法在何時出現，再來衡量彼此差異。",
+      "zh-TW": "溫克爾曼在羅馬接觸古代藝術，將外形相近的作品按歷史和風格比較。你擅長在一屋看似同類的物品中辨認變化，先找出什麼做法在何時出現，再來衡量彼此差異。",
       "en": "Winckelmann compared classical works in Rome with an eye to changes in style over time. You can look around a room of apparently similar objects and ask when a particular way of making them came into view."
     },
     "quirk_or_blindspot": {
@@ -16727,7 +16352,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -16809,7 +16434,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -16891,7 +16516,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -16957,23 +16582,14 @@ export const coxEditorial = {
         65
       ],
       "big_five_traits": {
-        "zh": [
-          "高尽责性",
-          "高开放性"
-        ],
-        "zh-TW": [
-          "高盡責性",
-          "高開放性"
-        ],
-        "en": [
-          "High conscientiousness",
-          "High openness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -17055,7 +16671,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -17137,14 +16753,14 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·欧洲",
-      "zh-TW": "19世紀・歐洲",
+      "zh-TW": "19世紀·歐洲",
       "en": "19th century · Europe"
     },
     "years": [
       1811,
       1889
     ],
-    "source": "https://www.nationalarchives.gov.uk/education/resources/the-corn-laws/the-corn-laws-source-4/",
+    "source": "https://cdn.nationalarchives.gov.uk/documents/education/the-corn-laws.pdf",
     "accent": "#a79d88",
     "portrait": {
       "source": "https://commons.wikimedia.org/wiki/File:John_Bright.jpg",
@@ -17219,7 +16835,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -17285,23 +16901,14 @@ export const coxEditorial = {
         68
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "18世纪·北美",
-      "zh-TW": "18世紀・北美",
+      "zh-TW": "18世紀·北美",
       "en": "18th century · North America"
     },
     "years": [
@@ -17383,7 +16990,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -17465,14 +17072,14 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
       1767,
       1830
     ],
-    "source": "https://www.institutcoppet.org/wp-content/uploads/2015/01/7.-CONSTANT-Benjamin-De-la-liberte-des-Anciens-comparee-a-celle-des-Modernes.pdf",
+    "source": "https://fr.wikisource.org/wiki/%C5%92uvres_politiques_(Constant)/De_la_libert%C3%A9_des_Anciens_compar%C3%A9e_%C3%A0_celle_des_Modernes",
     "accent": "#a39aa3",
     "portrait": {
       "source": "https://commons.wikimedia.org/wiki/File:Henri-Benjamin_Constant_de_Rebecque.png",
@@ -17547,7 +17154,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "15世纪·欧洲",
-      "zh-TW": "15世紀・歐洲",
+      "zh-TW": "15世紀·歐洲",
       "en": "15th century · Europe"
     },
     "years": [
@@ -17629,7 +17236,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·欧洲",
-      "zh-TW": "19世紀・歐洲",
+      "zh-TW": "19世紀·歐洲",
       "en": "19th century · Europe"
     },
     "years": [
@@ -17711,7 +17318,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -17743,7 +17350,7 @@ export const coxEditorial = {
     },
     "quirk_or_blindspot": {
       "zh": "詹纳早期研究涉及年幼的詹姆斯·菲普斯，也反映当时的研究伦理与今日不同。你在急着让一个想法获得证据时，仍要先确认，身在其中的人有没有机会作自己的决定。",
-      "zh-TW": "詹納早期研究涉及年幼的詹姆斯・菲普斯，也反映當時與今日的研究倫理有所不同。你急著替一個想法找證據時，仍要先確認身在其中的人是否有機會自行作決定。",
+      "zh-TW": "詹納早期研究涉及年幼的詹姆斯·菲普斯，也反映當時與今日的研究倫理有所不同。你急著替一個想法找證據時，仍要先確認身在其中的人是否有機會自行作決定。",
       "en": "Jenner’s early research involved the young James Phipps and belongs to a different research ethics setting. In the rush to get evidence for an idea, it matters whether the people involved have a genuine say in taking part."
     },
     "tags": {
@@ -17793,7 +17400,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -17875,7 +17482,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·欧洲",
-      "zh-TW": "19世紀・歐洲",
+      "zh-TW": "19世紀·歐洲",
       "en": "19th century · Europe"
     },
     "years": [
@@ -17902,12 +17509,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "穆罕默德·阿里在埃及建立新学校，也借外派学习把知识和行政需求接上。你擅长看出单办一间学校还缺什么，把学习机会与成长后的实际分工排到同一个计划里。",
-      "zh-TW": "穆罕默德・阿里在埃及建立新學校，也透過外派學習把知識和行政需求接起來。你擅長看出只開一間學校還缺什麼，將學習機會與學成後的實際分工排進同一份計畫。",
+      "zh-TW": "穆罕默德·阿里在埃及建立新學校，也透過外派學習把知識和行政需求接起來。你擅長看出只開一間學校還缺什麼，將學習機會與學成後的實際分工排進同一份計畫。",
       "en": "Muhammad Ali established schools and connected study abroad to the needs of his administration. You can see what one new school has to connect to if the people who learn there are to have somewhere to use it."
     },
     "quirk_or_blindspot": {
       "zh": "埃及在穆罕默德·阿里治下建立新机构，也扩大强制征兵，史料记录过人们如何逃避和抵抗。你擅长让整个安排快速联动，尤其要看清自己定下的速度让谁失去退出的选择。",
-      "zh-TW": "埃及在穆罕默德・阿里治下建立新機構，也擴大強制徵兵，史料記下人們如何逃避和抵抗。你擅長讓整套安排迅速連動，尤其要看清自己訂下的速度讓誰失去退出的選擇。",
+      "zh-TW": "埃及在穆罕默德·阿里治下建立新機構，也擴大強制徵兵，史料記下人們如何逃避和抵抗。你擅長讓整套安排迅速連動，尤其要看清自己訂下的速度讓誰失去退出的選擇。",
       "en": "Muhammad Ali’s new institutions also expanded compulsory conscription; the record includes forms of evasion and resistance. When your plan gets several systems moving in lockstep, it matters who has lost the option to leave."
     },
     "tags": {
@@ -17957,7 +17564,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·非洲",
-      "zh-TW": "18世紀・非洲",
+      "zh-TW": "18世紀·非洲",
       "en": "18th century · Africa"
     },
     "years": [
@@ -18039,7 +17646,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "16世纪·欧洲",
-      "zh-TW": "16世紀・歐洲",
+      "zh-TW": "16世紀·歐洲",
       "en": "16th century · Europe"
     },
     "years": [
@@ -18121,7 +17728,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -18512,18 +18119,9 @@ export const coxEditorial = {
         85
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -19281,12 +18879,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长先把分散材料找回来，再决定由谁照料。马扎然的藏书经拍卖散失，之后与馆员重建部分收藏并连接学院。你也会为恢复工作找一个能持续的归宿。",
-      "zh-TW": "你擅長先把分散材料找回來，再決定由誰照料。馬紮然的藏書經拍賣散失，之後與館員重建部分收藏並連線學院。你也會為恢復工作找一個能持續的歸宿。",
+      "zh-TW": "你擅長先把分散材料找回來，再決定由誰照料。馬薩林的藏書經拍賣散失，之後與館員重建部分收藏並連接學院。你也會為恢復工作找一個能持續的歸宿。",
       "en": "You recover scattered materials and decide who can care for them. Mazarin rebuilt part of his library with a librarian after its dispersal and attached it to a college. Plan a durable home as part of the recovery."
     },
     "quirk_or_blindspot": {
       "zh": "你很擅长清点找回了哪些东西，容易让没有找回的部分被后来人忘掉。马扎然重建的收藏只恢复了部分旧藏。公布恢复进度时，也留一张已知缺失的目录。",
-      "zh-TW": "你很擅長清點找回了哪些東西，容易讓沒有找回的部分被後來人忘掉。馬紮然重建的收藏只恢復了部分舊藏。公佈恢復進度時，也留一張已知缺失的目錄。",
+      "zh-TW": "你很擅長清點找回了哪些東西，容易讓沒有找回的部分被後來人忘掉。馬薩林重建的收藏只恢復了部分舊藏。公佈恢復進度時，也留一張已知缺失的目錄。",
       "en": "A list of recovered objects can make the remaining gaps disappear. Only part of Mazarin’s earlier library was reassembled. Give anyone using a rebuilt collection a record of what is known to be missing."
     },
     "tags": {
@@ -19527,7 +19125,7 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长把复杂主张摊开成可以连续跟上的讲演。费希特在柏林冬季发表一系列演说，也把它和此前课程连接起来。你也会给每一讲留一个能带入下一回的问题。",
-      "zh-TW": "你擅長把複雜主張攤開成可以連續跟上的講演。費希特在柏林冬季發表一系列演說，也把它和此前課程連線起來。你也會給每一講留一個能帶入下一回的問題。",
+      "zh-TW": "你擅長把複雜主張攤開成可以連續跟上的講演。費希特在柏林冬季發表一系列演說，也把它和此前課程連接起來。你也會給每一講留一個能帶入下一回的問題。",
       "en": "You spread a complex argument over a series people can follow. Fichte gave winter lectures in Berlin and linked them to earlier talks. End each meeting with something the audience can bring to the next one."
     },
     "quirk_or_blindspot": {
@@ -19730,18 +19328,9 @@ export const coxEditorial = {
         74
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -19937,12 +19526,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你擅长给现场讲述留下可以重读的出口。萨沃纳罗拉的部分讲道由维奥利记录，印成佛罗伦萨的小册。你准备发言时，也会先想谁能替不在场的人记全。",
-      "zh-TW": "你擅長給現場講述留下可以重讀的出口。薩沃納羅拉的部分講道由維奧利記錄，印成佛羅倫薩的小冊。你準備發言時，也會先想誰能替不在場的人記全。",
+      "zh-TW": "你擅長給現場講述留下可以重讀的出口。薩佛納羅拉的部分講道由維奧利記錄，印成佛羅倫薩的小冊。你準備發言時，也會先想誰能替不在場的人記全。",
       "en": "You give a spoken argument a form somebody can return to. Violi recorded sermons by Savonarola that were then printed in Florence. Ask who can make a full record for people who were outside the room."
     },
     "quirk_or_blindspot": {
       "zh": "你说得有力度，听众就可能把转写稿也当成字字亲定。萨沃纳罗拉的讲道印本说明有听者按现场声音记录。转发一段演讲时，把说话者、转录者与版本写清。",
-      "zh-TW": "你說得有力度，聽眾就可能把轉寫稿也當成字字親定。薩沃納羅拉的講道印本說明有聽者按現場聲音記錄。轉發一段演講時，把說話者、轉錄者與版本寫清。",
+      "zh-TW": "你說得有力度，聽眾就可能把轉寫稿也當成字字親定。薩佛納羅拉的講道印本說明有聽者按現場聲音記錄。轉發一段演講時，把說話者、轉錄者與版本寫清。",
       "en": "Forceful delivery can make an edited transcript sound like a speaker’s exact wording. Savonarola’s printed sermon identifies a listener who took it down. Name the speaker, the transcriber, and the edition when passing one on."
     },
     "tags": {
@@ -20024,7 +19613,7 @@ export const coxEditorial = {
     },
     "quirk_or_blindspot": {
       "zh": "你把大型项目的名字和一个人绑得太紧，后来访客可能就看不见设计和建设者。布莱尼姆宫由范布勒和霍克斯穆尔设计。做纪念标识时，给负责落实的人也留名字。",
-      "zh-TW": "你把大型專案的名字和一個人綁得太緊，後來訪客可能就看不見設計和建設者。布萊尼姆宮由範布勒和霍克斯穆爾設計。做紀念標識時，給負責落實的人也留名字。",
+      "zh-TW": "你把大型專案的名字和一個人綁得太緊，後來訪客可能就看不見設計和建設者。布萊尼姆宮由范布勒和霍克斯穆爾設計。做紀念標識時，給負責落實的人也留名字。",
       "en": "A landmark associated with one person can hide the work of many others. Vanbrugh and Hawksmoor designed Blenheim Palace. Give the people who turn a commission into a building a visible place in its record."
     },
     "tags": {
@@ -20212,7 +19801,7 @@ export const coxEditorial = {
       "inferred_mbti": "ENTJ",
       "title": {
         "zh": "外交程序解说者",
-        "zh-TW": "外交程式解說者",
+        "zh-TW": "外交程序解說者",
         "en": "Diplomatic Procedure Explainer"
       },
       "tendencies": [
@@ -20468,18 +20057,9 @@ export const coxEditorial = {
         86
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
@@ -20760,12 +20340,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "你有把临时决定铺成明确程序的本领。古维翁-圣西尔在复辟时期推动一八一八年的军队组织与招募法，给长期的人事安排立规则。你在危机过去后反而最想做交接。",
-      "zh-TW": "你有把臨時決定鋪成明確程式的本領。古維翁-聖西爾在復辟時期推動一八一八年的軍隊組織與招募法，給長期的人事安排立規則。你在危機過去後反而最想做交接。",
+      "zh-TW": "你有把臨時決定鋪成明確程序的本領。古維翁-聖西爾在復辟時期推動一八一八年的軍隊組織與招募法，給長期的人事安排立規則。你在危機過去後反而最想做交接。",
       "en": "You turn temporary decisions into clear procedures. During the Restoration, Gouvion Saint-Cyr promoted the 1818 law on military organization and recruitment and gave long-term staffing a legal form. The moment after a crisis is when you most want to plan the handoff."
     },
     "quirk_or_blindspot": {
       "zh": "一八一八年军制把服役与招募写成正式制度，也让家庭具体承受条文带来的义务。你整理出可办事的程序时，有时最应该单独看一眼，哪一栏写的是别人要付的成本。",
-      "zh-TW": "一八一八年軍制把服役與招募寫成正式制度，也讓家庭具體承受條文帶來的義務。你整理出可辦事的程式時，有時最應該單獨看一眼，哪一欄寫的是別人要付的成本。",
+      "zh-TW": "一八一八年軍制把服役與招募寫成正式制度，也讓家庭具體承受條文帶來的義務。你整理出可辦事的程序時，有時最應該單獨看一眼，哪一欄寫的是別人要付的成本。",
       "en": "The 1818 law gave recruitment and service a formal structure, and families had to carry its obligations. As you make a procedure workable, identify the column where someone else pays the cost."
     },
     "tags": {
@@ -21282,23 +20862,14 @@ export const coxEditorial = {
         81
       ],
       "big_five_traits": {
-        "zh": [
-          "高尽责性",
-          "高开放性"
-        ],
-        "zh-TW": [
-          "高盡責性",
-          "高開放性"
-        ],
-        "en": [
-          "High conscientiousness",
-          "High openness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -21364,23 +20935,14 @@ export const coxEditorial = {
         72
       ],
       "big_five_traits": {
-        "zh": [
-          "高尽责性",
-          "高开放性"
-        ],
-        "zh-TW": [
-          "高盡責性",
-          "高開放性"
-        ],
-        "en": [
-          "High conscientiousness",
-          "High openness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -21462,7 +21024,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·北美",
-      "zh-TW": "19世紀・北美",
+      "zh-TW": "19世紀·北美",
       "en": "19th century · North America"
     },
     "years": [
@@ -21528,23 +21090,14 @@ export const coxEditorial = {
         75
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -21626,7 +21179,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -21692,23 +21245,14 @@ export const coxEditorial = {
         82
       ],
       "big_five_traits": {
-        "zh": [
-          "高尽责性",
-          "高开放性"
-        ],
-        "zh-TW": [
-          "高盡責性",
-          "高開放性"
-        ],
-        "en": [
-          "High conscientiousness",
-          "High openness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -21790,7 +21334,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -21872,7 +21416,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -21938,23 +21482,14 @@ export const coxEditorial = {
         62
       ],
       "big_five_traits": {
-        "zh": [
-          "高尽责性",
-          "高开放性"
-        ],
-        "zh-TW": [
-          "高盡責性",
-          "高開放性"
-        ],
-        "en": [
-          "High conscientiousness",
-          "High openness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -22036,7 +21571,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "17世纪·欧洲",
-      "zh-TW": "17世紀・歐洲",
+      "zh-TW": "17世紀·歐洲",
       "en": "17th century · Europe"
     },
     "years": [
@@ -22063,12 +21598,12 @@ export const coxEditorial = {
     },
     "superpower": {
       "zh": "德·图一边承担法政与王室藏书事务，一边把自己这一时代的纷争安排进多卷历史。你擅长把往往转眼就被新事件盖住的记录排好，让后来的读者还能看见当时各方的处境。",
-      "zh-TW": "德・圖一邊承擔法政和王室藏書事務，一邊把自己這一代的紛爭排進多卷歷史。你擅長整理很快就會被新事件蓋過的紀錄，讓後來的讀者還能看見各方當時的處境。",
+      "zh-TW": "德·圖一邊承擔法政和王室藏書事務，一邊把自己這一代的紛爭排進多卷歷史。你擅長整理很快就會被新事件蓋過的紀錄，讓後來的讀者還能看見各方當時的處境。",
       "en": "De Thou combined judicial and library work with a history of disputes his own generation had lived through. You can arrange records that would otherwise be buried by the next event and let a later reader see what the people involved were facing."
     },
     "quirk_or_blindspot": {
       "zh": "德·图用拉丁文写同时代历史，多卷整理给后人更多材料，也使当时一些读者难以直接进入。你很会替长时间保存作准备，有时要再写一条眼下的人也能走进去的小路。",
-      "zh-TW": "德・圖用拉丁文寫同時代歷史，多卷整理留給後人更多材料，也讓當時有些讀者難以直接進入。你很會為長期保存作準備，有時得再留一條眼前的人也能走進去的小路。",
+      "zh-TW": "德·圖用拉丁文寫同時代歷史，多卷整理留給後人更多材料，也讓當時有些讀者難以直接進入。你很會為長期保存作準備，有時得再留一條眼前的人也能走進去的小路。",
       "en": "A learned reader could follow de Thou’s Latin history through several volumes. For somebody closer to the events but outside that readership, the work was less easy to enter. A durable record can use a shorter way in."
     },
     "tags": {
@@ -22118,7 +21653,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "16世纪·欧洲",
-      "zh-TW": "16世紀・歐洲",
+      "zh-TW": "16世紀·歐洲",
       "en": "16th century · Europe"
     },
     "years": [
@@ -22314,7 +21849,7 @@ export const coxEditorial = {
     },
     "quirk_or_blindspot": {
       "zh": "你退出正式位置，并不一定放下了想推进的事。加里波第后来仍从卡普雷拉写信给维托里奥·埃马努埃莱二世。离开岗位以后，说明你的建议与实际权限的边界。",
-      "zh-TW": "你退出正式位置，並不一定放下了想推進的事。加里波第後來仍從卡普雷拉寫信給維托里奧·埃馬努埃萊二世。離開崗位以後，說明你的建議與實際許可權的邊界。",
+      "zh-TW": "你退出正式位置，並不一定放下了想推進的事。加里波第後來仍從卡普雷拉寫信給維托里奧·埃馬努埃萊二世。離開崗位以後，說明你的建議與實際權限的邊界。",
       "en": "Leaving a formal role does not end your interest in the work. Garibaldi continued writing to Victor Emmanuel II from Caprera. If you stay involved afterward, distinguish your advice from the office’s actual authority."
     },
     "tags": {
@@ -22528,7 +22063,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "16世纪·欧洲",
-      "zh-TW": "16世紀・歐洲",
+      "zh-TW": "16世紀·歐洲",
       "en": "16th century · Europe"
     },
     "years": [
@@ -22610,7 +22145,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -22692,7 +22227,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "15世纪·欧洲",
-      "zh-TW": "15世紀・歐洲",
+      "zh-TW": "15世紀·歐洲",
       "en": "15th century · Europe"
     },
     "years": [
@@ -22774,7 +22309,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -22856,7 +22391,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -22938,7 +22473,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "16世纪·欧洲",
-      "zh-TW": "16世紀・歐洲",
+      "zh-TW": "16世紀·歐洲",
       "en": "16th century · Europe"
     },
     "years": [
@@ -23020,7 +22555,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "16世纪·欧洲",
-      "zh-TW": "16世紀・歐洲",
+      "zh-TW": "16世紀·歐洲",
       "en": "16th century · Europe"
     },
     "years": [
@@ -23086,23 +22621,14 @@ export const coxEditorial = {
         71
       ],
       "big_five_traits": {
-        "zh": [
-          "高开放性",
-          "高尽责性"
-        ],
-        "zh-TW": [
-          "高開放性",
-          "高盡責性"
-        ],
-        "en": [
-          "High openness",
-          "High conscientiousness"
-        ]
+        "zh": ["高开放性"],
+        "zh-TW": ["高開放性"],
+        "en": ["High openness"]
       }
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -23184,7 +22710,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [
@@ -23266,7 +22792,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "19世纪·北美",
-      "zh-TW": "19世紀・北美",
+      "zh-TW": "19世紀·北美",
       "en": "19th century · North America"
     },
     "years": [
@@ -23348,7 +22874,7 @@ export const coxEditorial = {
     },
     "era": {
       "zh": "18世纪·欧洲",
-      "zh-TW": "18世紀・歐洲",
+      "zh-TW": "18世紀·歐洲",
       "en": "18th century · Europe"
     },
     "years": [

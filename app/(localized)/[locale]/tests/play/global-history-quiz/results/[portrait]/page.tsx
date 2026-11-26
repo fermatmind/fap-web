@@ -8,7 +8,7 @@ import { GlobalHistoryResultV2 } from "@/components/entertainment/GlobalHistoryR
 import { getHistoryResult } from "@/lib/entertainment/global-history/result-v2";
 import { GlobalHistoryLocaleLinks } from "@/components/entertainment/GlobalHistoryLocaleLinks";
 import {
-  GLOBAL_HISTORY_SLUG, globalHistoryImagePath, globalHistoryMethod, globalHistoryPath, globalHistoryPortraitPath, globalHistoryPosterPath, globalHistoryResultPath,
+  GLOBAL_HISTORY_SLUG, globalHistoryImagePath, globalHistoryMethod, globalHistoryPath, globalHistoryPortraitPath, globalHistoryResultPath,
 } from "@/lib/entertainment/global-history/config";
 import { historyProfileHighlights } from "@/lib/entertainment/global-history/matching";
 import { findHistoryPerson, getHistoryGalleryPage, historyPeople } from "@/lib/entertainment/global-history/people";
@@ -42,6 +42,8 @@ export async function generateMetadata({ params }: Props) {
     const pathname = globalHistoryResultPath(displayLocale, person.id);
     const title = `${person.name[locale]} · ${sample.archetype_title[displayLocale]}`;
     const description = sample.one_line_hook[displayLocale];
+    const image = { url: `${SITE_URL}${globalHistoryPortraitPath(person.id)}`, alt: person.name[locale] };
+    const ogLocale = { en: "en_US", zh: "zh_CN", "zh-TW": "zh_TW" }[displayLocale];
     const englishPath = globalHistoryResultPath("en", person.id);
     const index = !isConfiguredStagingSiteUrl();
     return {
@@ -55,7 +57,8 @@ export async function generateMetadata({ params }: Props) {
           "x-default": `${SITE_URL}${englishPath}`,
         },
       },
-      openGraph: { title, description, url: pathname, type: "profile", images: [globalHistoryPosterPath(displayLocale, person.id)] },
+      openGraph: { title, description, url: `${SITE_URL}${pathname}`, type: "profile", locale: ogLocale, images: [image] },
+      twitter: { card: "summary_large_image", title, description, images: [image] },
     };
   }
   if (displayLocale === "zh-TW") {

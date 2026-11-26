@@ -21,6 +21,7 @@ export function QuestionnaireTakeSession({ children, title, minutes, locale, lan
   const archiveLocale = landing.startsWith("/zh-TW/") ? "zh-TW" : locale;
   const [archiveStage, setArchiveStage] = useState<"answer" | "result">();
   const zh = locale === "zh";
+  const shellText = (simplified: string, traditional: string) => archiveLocale === "zh-TW" ? traditional : displayText(simplified);
   useEffect(() => {
     const root = region.current;
     if (!root) return;
@@ -70,15 +71,15 @@ export function QuestionnaireTakeSession({ children, title, minutes, locale, lan
       <div className={`${takeStyles.layout} ${styles.surface}`} data-questionnaire-take>
         <header className={takeStyles.headerRow}>
           <h1 className={takeStyles.testName}>{title}</h1>
-          {minutes > 0 && <p className={takeStyles.time}>{zh ? displayText(`预计用时 ${minutes} 分钟`) : `About ${minutes} minutes`}</p>}
+          {minutes > 0 && <p className={takeStyles.time}>{zh ? shellText(`预计用时 ${minutes} 分钟`, `預計用時 ${minutes} 分鐘`) : `About ${minutes} minutes`}</p>}
         </header>
         {preparing && <div role="status" className={styles.preparing}>{slow ? (zh ? displayText("准备时间较长，可以刷新重试或返回介绍页。") : "Preparation is taking longer. Reload to retry or return to the introduction.") : (zh ? displayText("正在准备题目…") : "Preparing your questions…")}
-          {slow && <div className="mt-4 flex flex-wrap gap-4"><button type="button" onClick={() => window.location.reload()}>{zh ? displayText("刷新重试") : "Reload and retry"}</button><Link prefetch={false} href={landing}>{zh ? displayText("返回测评介绍") : "Back to introduction"}</Link></div>}
+          {slow && <div className="mt-4 flex flex-wrap gap-4"><button type="button" onClick={() => window.location.reload()}>{zh ? displayText("刷新重试") : "Reload and retry"}</button><Link prefetch={false} href={landing}>{zh ? shellText("返回测评介绍", "返回測驗介紹") : "Back to introduction"}</Link></div>}
         </div>}
         {archiveStage === "answer" && archive && <p className="mb-4 leading-7" data-archive-90-hint>{archive.hint[archiveLocale]}</p>}
         <div ref={region} className={styles.engine} data-preparing={preparing ? "true" : undefined}>{children}</div>
         {archiveStage === "result" && archive && <ArchiveQuestionnaireNextStep slug={slug} locale={archiveLocale} />}
-        <noscript><p>{zh ? displayText("答题需要JavaScript，请启用后刷新。") : "Enable JavaScript and reload to answer."} <Link href={landing}>{zh ? displayText("返回测评介绍") : "Back to introduction"}</Link></p></noscript>
+        <noscript><p>{zh ? shellText("答题需要JavaScript，请启用后刷新。", "答題需要 JavaScript，請啟用後重新整理。") : "Enable JavaScript and reload to answer."} <Link href={landing}>{zh ? shellText("返回测评介绍", "返回測驗介紹") : "Back to introduction"}</Link></p></noscript>
       </div>
     </main>
   </QuestionnaireTakeContext.Provider>;

@@ -13,6 +13,8 @@ const expectedUrls = String(process.env.LLMS_FULL_EXPECTED_URLS || "")
   .filter(Boolean);
 
 const jiti = createJiti(import.meta.url, {
+  // Match the frontend resolver when a TS policy and a legacy CJS file share a name.
+  extensions: [".ts", ".tsx", ".js", ".mjs", ".cjs", ".mts", ".cts", ".mtsx", ".ctsx", ".json"],
   alias: {
     "@": root,
   },

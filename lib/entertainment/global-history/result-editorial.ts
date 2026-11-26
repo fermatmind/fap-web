@@ -54,7 +54,7 @@ export const batchEditorial = {
     one_line_hook: resultCopy("所有人都在测纯样，你先问剩下的渣子为什么更亮眼。", "大家都在測純樣，你先問剩下的渣子為什麼更引人注目。", "Everyone wants a cleaner sample. You want to know why the ore is more active."),
     superpower: resultCopy(
       "你擅长把离群读数变成下一轮实验。玛丽·居里测到沥青铀矿的放射性高于铀含量所能解释的水平。你也会先核对预期和实测，再顺着那个怎么都解释不通的差值追查下去。",
-      "你擅長把異常讀數變成下一輪實驗。瑪麗・居禮測到瀝青鈾礦的放射性高於鈾含量所能解釋的程度。你也會先核對預期和實測，再順著那個怎麼都解釋不通的差值追查下去。",
+      "你擅長把異常讀數變成下一輪實驗。瑪麗·居禮測到瀝青鈾礦的放射性高於鈾含量所能解釋的程度。你也會先核對預期和實測，再順著那個怎麼都解釋不通的差值追查下去。",
       "You know when an outlier deserves a second experiment. Curie measured activity in pitchblende beyond what its uranium content explained. You’d turn that gap between expected and observed into the next question.",
     ),
     quirk_or_blindspot: resultCopy(
@@ -70,7 +70,7 @@ export const batchEditorial = {
     },
     era: resultCopy("欧洲 · 近代", "歐洲 · 近代", "Europe · Modern era"),
     years: [1867, 1934],
-    source: "https://www.nobelprize.org/prizes/themes/marie-and-pierre-curie-and-the-discovery-of-polonium-and-radium/",
+    source: "https://www.nobelprize.org/uploads/2018/06/pierre-curie-lecture.pdf",
     accent: "#c4ecac",
   },
   "ada-lovelace": {
@@ -90,7 +90,7 @@ export const batchEditorial = {
     tags: resultCopy(["纸上程序", "变量上机", "伯努利数"], ["紙上程式", "變數上機", "伯努利數"], ["PaperProgram", "Variables", "Bernoulli"]),
     personality_benchmark: {
       inferred_mbti: "INTP", title: resultCopy("抽象解题者", "抽象解題者", "The Abstract Thinker"), tendencies: [66, 90, 76, 65],
-      big_five_traits: resultCopy(["高开放性", "高尽责性"], ["高開放性", "高盡責性"], ["High openness", "High conscientiousness"]),
+      big_five_traits: resultCopy(["高开放性"], ["高開放性"], ["High openness"]),
     },
     era: resultCopy("欧洲 · 19世纪", "歐洲 · 19世紀", "Europe · 19th century"),
     years: [1815, 1852],
@@ -114,7 +114,7 @@ export const batchEditorial = {
     tags: resultCopy(["回头领路", "队伍优先", "先看风险"], ["回頭帶路", "隊伍優先", "先看風險"], ["Guide", "TeamFirst", "RiskAware"]),
     personality_benchmark: {
       inferred_mbti: "ISTP", title: resultCopy("冷静行动派", "冷靜行動派", "The Practical Guide"), tendencies: [64, 78, 70, 71],
-      big_five_traits: resultCopy(["高尽责性"], ["高盡責性"], ["High conscientiousness"]),
+      big_five_traits: resultCopy([], [], []),
     },
     era: resultCopy("美洲 · 19世纪", "美洲 · 19世紀", "Americas · 19th century"),
     years: [1822, 1913],
@@ -184,7 +184,7 @@ export const batchEditorial = {
     tags: resultCopy(["木星卫星", "拿镜来看", "天文时钟"], ["木星衛星", "拿鏡來看", "天文時鐘"], ["JupitersMoons", "LookAgain", "SkyClock"]),
     personality_benchmark: {
       inferred_mbti: "ENTP", title: resultCopy("证据辩手", "證據辯手", "The Evidence Debater"), tendencies: [68, 84, 81, 69],
-      big_five_traits: resultCopy(["高开放性", "高尽责性"], ["高開放性", "高盡責性"], ["High openness", "High conscientiousness"]),
+      big_five_traits: resultCopy(["高开放性"], ["高開放性"], ["High openness"]),
     },
     era: resultCopy("欧洲 · 17世纪", "歐洲 · 17世紀", "Europe · 17th century"),
     years: [1564, 1642],
@@ -303,7 +303,7 @@ export const batchEditorial = {
     tags: resultCopy(["山顶对照", "检验假设", "实验通信"], ["山頂對照", "檢驗假設", "實驗通信"], ["TestUphill", "CompareReadings", "ExperimentalLetters"]),
     personality_benchmark: {
       inferred_mbti: "INTP", title: resultCopy("关键实验设计者", "關鍵實驗設計者", "The Decisive-Test Designer"), tendencies: [68, 82, 81, 65],
-      big_five_traits: resultCopy(["高开放性", "高尽责性"], ["高開放性", "高盡責性"], ["High openness", "High conscientiousness"]),
+      big_five_traits: resultCopy(["高开放性"], ["高開放性"], ["High openness"]),
     },
     era: resultCopy("欧洲 · 17世纪", "歐洲 · 17世紀", "Europe · 17th century"),
     years: [1623, 1662],

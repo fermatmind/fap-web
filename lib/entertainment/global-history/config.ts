@@ -23,6 +23,15 @@ export const globalHistoryMethod: Copy = {
 
 export const GLOBAL_HISTORY_PATH = `/tests/explore/${GLOBAL_HISTORY_SLUG}`;
 export const globalHistoryPath = (locale: DisplayLocale) => `/${locale}${GLOBAL_HISTORY_PATH}`;
+export const GLOBAL_HISTORY_ATLAS_SLUGS = ["personality-atlas", "cox-1926"] as const;
+export const historyAtlasDownloads = {
+  "cox-1926": "/datasets/cox-1926-tables-12a-12b",
+  "personality-atlas": "/datasets/fermatmind-history-personality-atlas",
+} as const;
+
+export const globalHistoryAtlasPath = (locale: DisplayLocale, atlas: (typeof GLOBAL_HISTORY_ATLAS_SLUGS)[number]) =>
+  `${globalHistoryPath(locale)}/${atlas}`;
+
 export const globalHistoryResultPath = (locale: DisplayLocale, id: string) => `${globalHistoryPath(locale)}/results/${id}`;
 export const globalHistoryPortraitPath = (id: string) => `/images/global-history/${id}.jpg`;
 export const globalHistoryImagePath = (locale: DisplayLocale, id: string) =>

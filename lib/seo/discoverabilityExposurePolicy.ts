@@ -242,7 +242,6 @@ const archivedEntertainmentEntries = new Set([
   "/tests/explore/game-night-reset",
   "/tests/explore/garden-season",
   "/tests/explore/gift-note",
-  GLOBAL_HISTORY_PATH,
   "/tests/explore/group-chat-role",
   "/tests/explore/group-project-finale",
   "/tests/explore/group-trip-seatmate",
@@ -333,7 +332,7 @@ export function isSharedDiscoverabilityDeniedPath(pathname: string): boolean {
 export function isArchivedEntertainmentPath(pathname: string): boolean {
   const path = stripDiscoverabilityLocalePrefix(pathname).replace(/\/+$/, "");
   const historyResultPrefix = `${GLOBAL_HISTORY_PATH}/results/`;
-  if (path.startsWith(historyResultPrefix) && findHistoryPerson(path.slice(historyResultPrefix.length))) return false;
+  if (path.startsWith(historyResultPrefix)) return !findHistoryPerson(path.slice(historyResultPrefix.length));
   const entry = path.replace(/\/results\/[^/]+$/, "").replace(/^\/tests\/play(?=\/)/u, "/tests/explore");
   return archivedEntertainmentEntries.has(entry);
 }

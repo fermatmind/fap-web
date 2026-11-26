@@ -445,7 +445,11 @@ describe("llms parity governance", () => {
     const paths = entries.map((entry) => entry.path);
     const gta6Paths = ["en", "zh", "zh-TW"].flatMap((locale) => gta6IndexablePaths.map((path) => `/${locale}${path}`));
     expect(gta6Paths).toHaveLength(27);
-    const taiwanModeAPaths = paths.filter((path) => path.startsWith("/zh-TW/") && !gta6Paths.includes(path));
+    const historyPaths = ["en", "zh", "zh-TW"].flatMap((locale) =>
+      ["", "/personality-atlas", "/cox-1926"].map((suffix) => `/${locale}/tests/explore/global-history-quiz${suffix}`));
+    expect(paths.filter((path) => path.includes("/global-history-quiz"))).toEqual(historyPaths);
+    const taiwanModeAPaths = paths.filter((path) =>
+      path.startsWith("/zh-TW/") && !gta6Paths.includes(path) && !historyPaths.includes(path));
     const batchTwo = catalog.filter(({ slug }) => isModeABatchTwo(slug));
     expect(batchTwo).toHaveLength(25);
     const batchTwoPaths = batchTwo.flatMap(({ slug, resultSlugs }) => {
@@ -475,9 +479,9 @@ describe("llms parity governance", () => {
     expect(taiwanModeAPaths).toContain("/zh-TW/tests/explore/friendship-quiz/scores");
     expect(taiwanModeAPaths).not.toContain("/zh-TW/tests/explore/weekend-pace");
     const publicCatalog = catalog.filter(({ slug }) => slug !== "career-match");
-    expect(new Set(paths).size).toBe(2 * publicCatalog.reduce((sum, test) => sum + 1 + test.resultSlugs.length, 0) + gta6Paths.length + taiwanModeAPaths.length);
+    expect(new Set(paths).size).toBe(2 * publicCatalog.reduce((sum, test) => sum + 1 + test.resultSlugs.length, 0) + gta6Paths.length + historyPaths.length + taiwanModeAPaths.length);
     expect(paths.filter((path) => path.includes("/gta-6-character-quiz"))).toEqual(gta6Paths);
-    expect(entries.filter((entry) => entry.type === "native_test")).toHaveLength(2 * publicCatalog.length + 3 + 19 + batchTwo.length + batchThree.length + batchFour.length);
+    expect(entries.filter((entry) => entry.type === "native_test")).toHaveLength(2 * publicCatalog.length + 3 + 3 + 19 + batchTwo.length + batchThree.length + batchFour.length);
     expect(entries.every((entry) => !/\?|#|\/(?:take|result|share|api|pay|payment)(?:\/|$)/.test(entry.path))).toBe(true);
     expect(entries.every((entry) => Object.keys(entry).sort().join(",") === "locale,path,summary,title,type,updatedAt")).toBe(true);
     const [short, full, degraded] = await Promise.all([

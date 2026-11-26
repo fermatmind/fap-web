@@ -9,7 +9,7 @@ import { archive90Topic, archiveTopic } from "@/lib/entertainment/archive90";
 import { getArchiveExperience } from "@/lib/entertainment/archiveExperience";
 import { archiveSecondBatch } from "@/lib/entertainment/archiveSecondBatch";
 import { archiveThirdBatch } from "@/lib/entertainment/archiveThirdBatch";
-import { GLOBAL_HISTORY_SLUG } from "@/lib/entertainment/global-history/config";
+import { GLOBAL_HISTORY_SLUG, globalHistoryPath, globalHistoryResultPath } from "@/lib/entertainment/global-history/config";
 import { globalHistoryResultKey } from "@/lib/entertainment/global-history/local-result";
 import { historyPeople } from "@/lib/entertainment/global-history/people";
 import { quizPath, resultPath } from "@/lib/entertainment/guides";
@@ -21,18 +21,24 @@ import { isArchivedEntertainmentPath } from "@/lib/seo/discoverabilityExposurePo
 const locales = ["en", "zh", "zh-TW"] as const;
 
 describe("third archive experience cohort", () => {
-  it("only includes the 66 archived test identities and uses their existing public routes", async () => {
-    const ids = Object.keys(archiveThirdBatch);
-    expect(ids).toHaveLength(66);
+  it("preserves the 65 archived test identities and keeps World Edition public", async () => {
+    // The legacy topic still supplies the matched result’s optional follow-up.
+    expect(archiveTopic(GLOBAL_HISTORY_SLUG)?.slug).toBe("big-five-personality-test-ocean-model");
+    const ids = Object.keys(archiveThirdBatch).filter(slug => slug !== GLOBAL_HISTORY_SLUG);
+    expect(ids).toHaveLength(65);
+    for (const locale of locales) {
+      expect(isArchivedEntertainmentPath(globalHistoryPath(locale))).toBe(false);
+      for (const { id } of historyPeople) {
+        expect(isArchivedEntertainmentPath(globalHistoryResultPath(locale, id))).toBe(false);
+      }
+    }
     for (const slug of ids) {
       expect(archive90Topic(slug)).toBeUndefined();
       expect(archiveSecondBatch[slug]).toBeUndefined();
       expect(getArchiveExperience(slug)).toBeUndefined();
       const native = questionnaires.find(row => row.slug === slug);
       const story = !native;
-      const worldEdition = slug === GLOBAL_HISTORY_SLUG;
-      const profiles = worldEdition ? historyPeople.map(p => p.id)
-        : native?.resultSlugs ?? (await loadFunQuiz(slug))?.results.map(p => p.id);
+      const profiles = native?.resultSlugs ?? (await loadFunQuiz(slug))?.results.map(p => p.id);
       expect(profiles).toBeDefined();
       for (const locale of locales) {
         const entry = story ? quizPath(locale, slug) : questionnairePath(locale, slug);
@@ -40,7 +46,7 @@ describe("third archive experience cohort", () => {
         expect(archiveTopic(slug)?.label[locale]).toBeTruthy();
         for (const id of profiles!) {
           const url = story ? resultPath(locale, slug, id) : questionnaireGuidePath(locale, slug, id);
-          expect(isArchivedEntertainmentPath(url), url).toBe(!worldEdition);
+          expect(isArchivedEntertainmentPath(url), url).toBe(true);
           expect(renderToStaticMarkup(<ArchiveGuideShare slug={slug} id={id} locale={locale} story={story} />))
             .toContain("data-public-guide-share");
         }
@@ -68,16 +74,22 @@ describe("third archive experience cohort", () => {
     }
   });
 
-  it("keeps the public portrait links and gives a matched World Edition result only one optional assessment", () => {
+  it("keeps the three method links in both World Edition states and one matched follow-up", () => {
     const person = historyPeople.find(item => item.id === "isaac-newton")!;
     const result = getHistoryResult(person)!;
     const page = <GlobalHistoryResultV2 person={person} locale="en" result={result} traditionalCopy={text => text} />;
-    const links = (container: HTMLElement) => [...container.querySelectorAll<HTMLAnchorElement>("a[href]")]
-      .map(link => link.getAttribute("href"))
-      .filter(href => /^\/en\/tests\/(iq-test-|mbti-personality-test-|big-five-personality-test-)/u.test(href ?? ""));
+    const assessmentLinks = [
+      "/en/tests/mbti-personality-test-16-personality-types",
+      "/en/tests/big-five-personality-test-ocean-model",
+      "/en/tests/iq-test-intelligence-quotient-assessment",
+    ];
+    const sectionLinks = (container: HTMLElement, selector: string) =>
+      [...container.querySelectorAll<HTMLAnchorElement>(selector)].map(link => link.getAttribute("href"));
+    const methodLinks = (container: HTMLElement) =>
+      sectionLinks(container, '#alternative-readings nav[aria-label="Modern assessments"] a');
     sessionStorage.removeItem(globalHistoryResultKey);
     const visitor = render(page);
-    expect(links(visitor.container)).toHaveLength(3);
+    expect(methodLinks(visitor.container)).toEqual(assessmentLinks);
     expect(visitor.container.querySelector("[data-archive-next-step]")).toBeNull();
     visitor.unmount();
 
@@ -85,8 +97,8 @@ describe("third archive experience cohort", () => {
     try {
       const player = render(page);
       expect(player.container.querySelector('[data-history-state="matched"]')).toBeInTheDocument();
-      expect(links(player.container)).toEqual(["/en/tests/big-five-personality-test-ocean-model"]);
-      expect(player.container.querySelectorAll("[data-archive-next-step] a")).toHaveLength(1);
+      expect(methodLinks(player.container)).toEqual(assessmentLinks);
+      expect(sectionLinks(player.container, "[data-archive-next-step] a")).toEqual(["/en/tests/big-five-personality-test-ocean-model"]);
     } finally {
       sessionStorage.removeItem(globalHistoryResultKey);
     }

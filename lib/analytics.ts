@@ -1,4 +1,6 @@
 import { entertainmentReaderPath } from "@/lib/entertainment/playRoutes.mjs";
+import { captureGlobalHistoryAiReferrer } from "@/lib/entertainment/global-history/ai-referrer";
+import { GLOBAL_HISTORY_SLUG } from "@/lib/entertainment/global-history/config";
 import { DISC_LANDING_PATH } from "@/lib/questionnaires/discRoutes";
 import { trackClientEvent, trackNetworkObservableFunnelEvent } from "@/lib/tracking/client";
 import { getLocaleFromPathname } from "@/lib/i18n/locales";
@@ -228,6 +230,10 @@ export function trackLandingPageView(properties: AnalyticsProperties = {}): void
     entry_surface: properties.entry_surface ?? (isEntertainmentGuide ? "entertainment_guide" : "entertainment"),
     page_type: "entertainment",
   } : properties;
+
+  if (family === "tests" && quizSlug === GLOBAL_HISTORY_SLUG) {
+    captureGlobalHistoryAiReferrer(document.referrer, window.location.origin);
+  }
 
   captureAttributionFromLocation({
     pathname: window.location.pathname,

@@ -1,6 +1,14 @@
 {
-  "source": "https://iqmetrics.org/wp-content/uploads/2026/10/iq-of-historical-geniuses-cox-1926-iqmetrics.csv",
-  "source_sha256": "d5c408196404fc5cedcca89709b91ba14912fd3d9eff69c3cb138e96a34a1945",
+  "source": "https://archive.org/download/geneticstudiesof0002cath_c2h2/geneticstudiesof0002cath_c2h2.pdf#page=95",
+  "transcription": {
+    "creator": "Leon Falkner, IQ Metrics Research",
+    "title": "The IQs of 301 geniuses: Cox’s 1926 estimates, in full",
+    "version": "2026.10",
+    "url": "https://iqmetrics.org/research/iq-of-historical-geniuses/",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "sha256": "d5c408196404fc5cedcca89709b91ba14912fd3d9eff69c3cb138e96a34a1945",
+    "changes": "Filtered to 301 rated entries, normalized numeric fields, preserved printed estimates, and joined FermatMind figure identifiers. Selected rows checked against the original fold-outs."
+  },
   "entries": {
     "12A:5-1-4": {
       "name": "Napoleon Bonaparte",
@@ -10,7 +18,17 @@
       "youth_corrected": 145,
       "dates": "1769-1821",
       "person_id": "napoleon-bonaparte",
-      "wikidata_id": "Q517"
+      "wikidata_id": "Q517",
+      "group": "A",
+      "rank": 1,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 140,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:6-3-6": {
       "name": "Voltaire",
@@ -20,7 +38,17 @@
       "youth_corrected": 190,
       "dates": "1694-1778",
       "person_id": "voltaire",
-      "wikidata_id": "Q9068"
+      "wikidata_id": "Q9068",
+      "group": "A",
+      "rank": 2,
+      "ai": 170,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 180,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:1-2-4": {
       "name": "Francis Bacon",
@@ -30,7 +58,17 @@
       "youth_corrected": 180,
       "dates": "1561-1626",
       "person_id": "francis-bacon",
-      "wikidata_id": "Q37388"
+      "wikidata_id": "Q37388",
+      "group": "A",
+      "rank": 3,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 155,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:3-2-4": {
       "name": "Johann Wolfgang von Goethe",
@@ -40,7 +78,17 @@
       "youth_corrected": 210,
       "dates": "1749-1832",
       "person_id": "johann-wolfgang-von-goethe",
-      "wikidata_id": "Q5879"
+      "wikidata_id": "Q5879",
+      "group": "A",
+      "rank": 4,
+      "ai": 185,
+      "ai_pe": 4,
+      "ai_grade": 3,
+      "ai_reliability": 0.82,
+      "aii": 200,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:4-3-2": {
       "name": "Martin Luther",
@@ -50,7 +98,17 @@
       "youth_corrected": 170,
       "dates": "1483-1546",
       "person_id": "martin-luther",
-      "wikidata_id": "Q9554"
+      "wikidata_id": "Q9554",
+      "group": "A",
+      "rank": 5,
+      "ai": 115,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 145,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-5-1": {
       "name": "Edmund Burke",
@@ -60,7 +118,17 @@
       "youth_corrected": 165,
       "dates": "1729?-1797",
       "person_id": "edmund-burke",
-      "wikidata_id": "Q165792"
+      "wikidata_id": "Q165792",
+      "group": "A",
+      "rank": 6,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:5-1-7": {
       "name": "Isaac Newton",
@@ -70,7 +138,17 @@
       "youth_corrected": 190,
       "dates": "1642-1727",
       "person_id": "isaac-newton",
-      "wikidata_id": "Q935"
+      "wikidata_id": "Q935",
+      "group": "A",
+      "rank": 7,
+      "ai": 130,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 170,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:4-4-10": {
       "name": "John Milton",
@@ -80,7 +158,17 @@
       "youth_corrected": 180,
       "dates": "1608-1674",
       "person_id": "john-milton",
-      "wikidata_id": "Q79759"
+      "wikidata_id": "Q79759",
+      "group": "A",
+      "rank": 8,
+      "ai": 145,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 170,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:5-2-6": {
       "name": "William Pitt the Younger",
@@ -90,7 +178,17 @@
       "youth_corrected": 190,
       "dates": "1759-1806",
       "person_id": "william-pitt-the-younger",
-      "wikidata_id": "Q128902"
+      "wikidata_id": "Q128902",
+      "group": "A",
+      "rank": 9,
+      "ai": 160,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 180,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:6-4-1": {
       "name": "George Washington",
@@ -100,7 +198,17 @@
       "youth_corrected": 140,
       "dates": "1732-1799",
       "person_id": "george-washington",
-      "wikidata_id": "Q23"
+      "wikidata_id": "Q23",
+      "group": "A",
+      "rank": 10,
+      "ai": 125,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 135,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:5-3-5": {
       "name": "Raphael",
@@ -110,7 +218,17 @@
       "youth_corrected": 170,
       "dates": "1483-1520",
       "person_id": "raphael",
-      "wikidata_id": "Q5597"
+      "wikidata_id": "Q5597",
+      "group": "A",
+      "rank": 11,
+      "ai": 110,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 150,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:2-4-5": {
       "name": "René Descartes",
@@ -120,7 +238,17 @@
       "youth_corrected": 180,
       "dates": "1596-1650",
       "person_id": "rene-descartes",
-      "wikidata_id": "Q9191"
+      "wikidata_id": "Q9191",
+      "group": "A",
+      "rank": 12,
+      "ai": 150,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 160,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:5-2-4": {
       "name": "William Penn",
@@ -130,7 +258,17 @@
       "youth_corrected": 170,
       "dates": "1644-1718",
       "person_id": "william-penn",
-      "wikidata_id": "Q209152"
+      "wikidata_id": "Q209152",
+      "group": "A",
+      "rank": 13,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:5-5-6": {
       "name": "Walter Scott",
@@ -140,7 +278,17 @@
       "youth_corrected": 165,
       "dates": "1771-1832",
       "person_id": "walter-scott",
-      "wikidata_id": "Q79025"
+      "wikidata_id": "Q79025",
+      "group": "A",
+      "rank": 14,
+      "ai": 150,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 155,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:4-4-8": {
       "name": "Michelangelo",
@@ -150,7 +298,17 @@
       "youth_corrected": 180,
       "dates": "1475?-1564",
       "person_id": "michelangelo",
-      "wikidata_id": "Q5592"
+      "wikidata_id": "Q5592",
+      "group": "A",
+      "rank": 15,
+      "ai": 145,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 160,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-5-4": {
       "name": "Lord Byron",
@@ -160,7 +318,17 @@
       "youth_corrected": 180,
       "dates": "1788-1824",
       "person_id": "lord-byron",
-      "wikidata_id": "Q5679"
+      "wikidata_id": "Q5679",
+      "group": "A",
+      "rank": 16,
+      "ai": 150,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 170,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:2-3-8": {
       "name": "Oliver Cromwell",
@@ -170,7 +338,17 @@
       "youth_corrected": 135,
       "dates": "1599-1659",
       "person_id": "oliver-cromwell",
-      "wikidata_id": "Q44279"
+      "wikidata_id": "Q44279",
+      "group": "A",
+      "rank": 17,
+      "ai": 110,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 115,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:3-5-9": {
       "name": "Immanuel Kant",
@@ -180,7 +358,17 @@
       "youth_corrected": 175,
       "dates": "1724-1804",
       "person_id": "immanuel-kant",
-      "wikidata_id": "Q9312"
+      "wikidata_id": "Q9312",
+      "group": "A",
+      "rank": 18,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 145,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:4-2-1": {
       "name": "Gottfried Wilhelm Leibniz",
@@ -190,7 +378,17 @@
       "youth_corrected": 205,
       "dates": "1646-1716",
       "person_id": "gottfried-wilhelm-leibniz",
-      "wikidata_id": "Q9047"
+      "wikidata_id": "Q9047",
+      "group": "A",
+      "rank": 19,
+      "ai": 185,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 190,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:4-2-9": {
       "name": "John Locke",
@@ -200,7 +398,17 @@
       "youth_corrected": 165,
       "dates": "1632-1704",
       "person_id": "john-locke",
-      "wikidata_id": "Q9353"
+      "wikidata_id": "Q9353",
+      "group": "A",
+      "rank": 20,
+      "ai": 125,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 135,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-5-6": {
       "name": "John Calvin",
@@ -210,7 +418,17 @@
       "youth_corrected": 175,
       "dates": "1509-1564",
       "person_id": "john-calvin",
-      "wikidata_id": "Q37577"
+      "wikidata_id": "Q37577",
+      "group": "A",
+      "rank": 21,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 150,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:4-5-2": {
       "name": "Molière",
@@ -220,7 +438,17 @@
       "youth_corrected": 160,
       "dates": "1622-1673",
       "person_id": "moliere",
-      "wikidata_id": "Q687"
+      "wikidata_id": "Q687",
+      "group": "A",
+      "rank": 22,
+      "ai": 130,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 130,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:4-2-7": {
       "name": "Abraham Lincoln",
@@ -230,7 +458,17 @@
       "youth_corrected": 150,
       "dates": "1809-1865",
       "person_id": "abraham-lincoln",
-      "wikidata_id": "Q91"
+      "wikidata_id": "Q91",
+      "group": "A",
+      "rank": 23,
+      "ai": 125,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 140,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:5-4-4": {
       "name": "J. J. Rousseau",
@@ -240,7 +478,17 @@
       "youth_corrected": 150,
       "dates": "1712-1778",
       "person_id": "jean-jacques-rousseau",
-      "wikidata_id": "Q6527"
+      "wikidata_id": "Q6527",
+      "group": "A",
+      "rank": 24,
+      "ai": 130,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 125,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:3-1-5": {
       "name": "Benjamin Franklin",
@@ -250,7 +498,17 @@
       "youth_corrected": 160,
       "dates": "1706-1790",
       "person_id": "benjamin-franklin",
-      "wikidata_id": "Q34969"
+      "wikidata_id": "Q34969",
+      "group": "A",
+      "rank": 25,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:3-1-7": {
       "name": "Galileo Galilei",
@@ -260,7 +518,17 @@
       "youth_corrected": 185,
       "dates": "1564-1642",
       "person_id": "galileo-galilei",
-      "wikidata_id": "Q307"
+      "wikidata_id": "Q307",
+      "group": "A",
+      "rank": 26,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 165,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:3-5-7": {
       "name": "Samuel Johnson",
@@ -270,7 +538,17 @@
       "youth_corrected": 165,
       "dates": "1709-1784",
       "person_id": "samuel-johnson",
-      "wikidata_id": "Q183266"
+      "wikidata_id": "Q183266",
+      "group": "A",
+      "rank": 27,
+      "ai": 155,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 155,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:5-4-2": {
       "name": "M. M. I. de Robespierre",
@@ -280,7 +558,17 @@
       "youth_corrected": 170,
       "dates": "1758-1794",
       "person_id": "maximilien-robespierre",
-      "wikidata_id": "Q44197"
+      "wikidata_id": "Q44197",
+      "group": "A",
+      "rank": 28,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 145,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:3-3-9": {
       "name": "G. W. F. Hegel",
@@ -290,7 +578,17 @@
       "youth_corrected": 165,
       "dates": "1770-1831",
       "person_id": "georg-wilhelm-friedrich-hegel",
-      "wikidata_id": "Q9235"
+      "wikidata_id": "Q9235",
+      "group": "A",
+      "rank": 29,
+      "ai": 150,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:4-5-1": {
       "name": "G. H. V. Requetti de Mirabeau",
@@ -300,7 +598,17 @@
       "youth_corrected": 185,
       "dates": "1749-1791",
       "person_id": "honore-gabriel-riqueti-comte-de-mirabeau",
-      "wikidata_id": "Q218747"
+      "wikidata_id": "Q218747",
+      "group": "A",
+      "rank": 30,
+      "ai": 165,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 175,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:2-5-5": {
       "name": "Desiderius Erasmus",
@@ -310,7 +618,17 @@
       "youth_corrected": 180,
       "dates": "1467?-1536",
       "person_id": "erasmus",
-      "wikidata_id": "Q43499"
+      "wikidata_id": "Q43499",
+      "group": "A",
+      "rank": 31,
+      "ai": 135,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 140,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:3-4-9": {
       "name": "David Hume",
@@ -320,7 +638,17 @@
       "youth_corrected": 180,
       "dates": "1711-1776",
       "person_id": "david-hume",
-      "wikidata_id": "Q37160"
+      "wikidata_id": "Q37160",
+      "group": "A",
+      "rank": 32,
+      "ai": 155,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 160,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:3-3-1": {
       "name": "François P. G. Guizot",
@@ -330,7 +658,17 @@
       "youth_corrected": 165,
       "dates": "1787-1874",
       "person_id": "francois-guizot",
-      "wikidata_id": "Q157324"
+      "wikidata_id": "Q157324",
+      "group": "A",
+      "rank": 33,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 155,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:3-2-2": {
       "name": "Edward Gibbon",
@@ -340,7 +678,17 @@
       "youth_corrected": 180,
       "dates": "1737-1794",
       "person_id": "edward-gibbon",
-      "wikidata_id": "Q161841"
+      "wikidata_id": "Q161841",
+      "group": "A",
+      "rank": 34,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 155,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:5-2-2": {
       "name": "Blaise Pascal",
@@ -350,7 +698,17 @@
       "youth_corrected": 195,
       "dates": "1623-1662",
       "person_id": "blaise-pascal",
-      "wikidata_id": "Q1290"
+      "wikidata_id": "Q1290",
+      "group": "A",
+      "rank": 35,
+      "ai": 180,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 180,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:1-4-3": {
       "name": "Jacques B. Bossuet",
@@ -360,7 +718,17 @@
       "youth_corrected": 180,
       "dates": "1627-1704",
       "person_id": "jacques-benigne-bossuet",
-      "wikidata_id": "Q294100"
+      "wikidata_id": "Q294100",
+      "group": "A",
+      "rank": 36,
+      "ai": 160,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 160,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:3-4-4": {
       "name": "Thomas Hobbes",
@@ -370,7 +738,17 @@
       "youth_corrected": 165,
       "dates": "1588-1679",
       "person_id": "thomas-hobbes",
-      "wikidata_id": "Q37621"
+      "wikidata_id": "Q37621",
+      "group": "A",
+      "rank": 37,
+      "ai": 140,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 135,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:6-1-10": {
       "name": "Jonathan Swift",
@@ -380,7 +758,17 @@
       "youth_corrected": 155,
       "dates": "1667-1745",
       "person_id": "jonathan-swift",
-      "wikidata_id": "Q41166"
+      "wikidata_id": "Q41166",
+      "group": "A",
+      "rank": 38,
+      "ai": 125,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 130,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:6-2-5": {
       "name": "Louis A. Thiers",
@@ -390,7 +778,17 @@
       "youth_corrected": 160,
       "dates": "1797-1877",
       "person_id": "adolphe-thiers",
-      "wikidata_id": "Q5738"
+      "wikidata_id": "Q5738",
+      "group": "A",
+      "rank": 39,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:6-5-2": {
       "name": "William Wordsworth",
@@ -400,7 +798,17 @@
       "youth_corrected": 165,
       "dates": "1770-1850",
       "person_id": "william-wordsworth",
-      "wikidata_id": "Q45546"
+      "wikidata_id": "Q45546",
+      "group": "A",
+      "rank": 40,
+      "ai": 150,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 155,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:5-1-6": {
       "name": "Horatio Nelson",
@@ -410,7 +818,17 @@
       "youth_corrected": 150,
       "dates": "1758-1805",
       "person_id": "horatio-nelson-1st-viscount-nelson",
-      "wikidata_id": "Q83235"
+      "wikidata_id": "Q83235",
+      "group": "A",
+      "rank": 41,
+      "ai": 125,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 145,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:1-1-3": {
       "name": "Joseph Addison",
@@ -420,7 +838,17 @@
       "youth_corrected": 165,
       "dates": "1672-1719",
       "person_id": "joseph-addison",
-      "wikidata_id": "Q206384"
+      "wikidata_id": "Q206384",
+      "group": "A",
+      "rank": 42,
+      "ai": 125,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:3-1-3": {
       "name": "Charles James Fox",
@@ -430,7 +858,17 @@
       "youth_corrected": 155,
       "dates": "1749-1806",
       "person_id": "charles-james-fox",
-      "wikidata_id": "Q438131"
+      "wikidata_id": "Q438131",
+      "group": "A",
+      "rank": 43.5,
+      "ai": 145,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 145,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:3-1-4": {
       "name": "George Fox",
@@ -440,7 +878,17 @@
       "youth_corrected": 155,
       "dates": "1624-1690",
       "person_id": "george-fox",
-      "wikidata_id": "Q310439"
+      "wikidata_id": "Q310439",
+      "group": "A",
+      "rank": 43.5,
+      "ai": 110,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 120,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:5-3-3": {
       "name": "Jean Racine",
@@ -450,7 +898,17 @@
       "youth_corrected": 170,
       "dates": "1639-1699",
       "person_id": "jean-racine",
-      "wikidata_id": "Q742"
+      "wikidata_id": "Q742",
+      "group": "A",
+      "rank": 45,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:5-5-4": {
       "name": "J. C. Friederich Schiller",
@@ -460,7 +918,17 @@
       "youth_corrected": 165,
       "dates": "1759-1805",
       "person_id": "friedrich-schiller",
-      "wikidata_id": "Q22670"
+      "wikidata_id": "Q22670",
+      "group": "A",
+      "rank": 46,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 155,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:3-4-3": {
       "name": "William Herschel",
@@ -470,7 +938,17 @@
       "youth_corrected": 165,
       "dates": "1738-1822",
       "person_id": "william-herschel",
-      "wikidata_id": "Q14277"
+      "wikidata_id": "Q14277",
+      "group": "A",
+      "rank": 47,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:6-2-1": {
       "name": "Torquato Tasso",
@@ -480,7 +958,17 @@
       "youth_corrected": 180,
       "dates": "1544-1595",
       "person_id": "torquato-tasso",
-      "wikidata_id": "Q168962"
+      "wikidata_id": "Q168962",
+      "group": "A",
+      "rank": 48,
+      "ai": 160,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 155,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:3-5-5": {
       "name": "Thomas Jefferson",
@@ -490,7 +978,17 @@
       "youth_corrected": 160,
       "dates": "1743-1826",
       "person_id": "thomas-jefferson",
-      "wikidata_id": "Q11812"
+      "wikidata_id": "Q11812",
+      "group": "A",
+      "rank": 49,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 150,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:5-2-8": {
       "name": "Alexander Pope",
@@ -500,7 +998,17 @@
       "youth_corrected": 180,
       "dates": "1688-1744",
       "person_id": "alexander-pope",
-      "wikidata_id": "Q164047"
+      "wikidata_id": "Q164047",
+      "group": "A",
+      "rank": 50,
+      "ai": 160,
+      "ai_pe": 4,
+      "ai_grade": 3,
+      "ai_reliability": 0.82,
+      "aii": 170,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:6-1-9": {
       "name": "Emanuel Swedenborg",
@@ -510,7 +1018,17 @@
       "youth_corrected": 165,
       "dates": "1688-1772",
       "person_id": "emanuel-swedenborg",
-      "wikidata_id": "Q185832"
+      "wikidata_id": "Q185832",
+      "group": "A",
+      "rank": 51,
+      "ai": 115,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:6-3-5": {
       "name": "Leonardo da Vinci",
@@ -520,7 +1038,17 @@
       "youth_corrected": 180,
       "dates": "1452-1519",
       "person_id": "leonardo-da-vinci",
-      "wikidata_id": "Q762"
+      "wikidata_id": "Q762",
+      "group": "A",
+      "rank": 52,
+      "ai": 135,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 150,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:4-3-3": {
       "name": "Thomas Macaulay",
@@ -530,7 +1058,17 @@
       "youth_corrected": 175,
       "dates": "1800-1859",
       "person_id": "thomas-babington-macaulay",
-      "wikidata_id": "Q315989"
+      "wikidata_id": "Q315989",
+      "group": "A",
+      "rank": 53,
+      "ai": 180,
+      "ai_pe": 4,
+      "ai_grade": 3,
+      "ai_reliability": 0.82,
+      "aii": 165,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:5-4-5": {
       "name": "Peter Paul Rubens",
@@ -540,7 +1078,17 @@
       "youth_corrected": 160,
       "dates": "1577-1640",
       "person_id": "peter-paul-rubens",
-      "wikidata_id": "Q5599"
+      "wikidata_id": "Q5599",
+      "group": "A",
+      "rank": 54,
+      "ai": 140,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 140,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-5-3": {
       "name": "Robert Burns",
@@ -550,7 +1098,17 @@
       "youth_corrected": 150,
       "dates": "1759-1796",
       "person_id": "robert-burns",
-      "wikidata_id": "Q81960"
+      "wikidata_id": "Q81960",
+      "group": "A",
+      "rank": 55,
+      "ai": 130,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 130,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:4-5-9": {
       "name": "Wolfgang Amadeus Mozart",
@@ -560,7 +1118,17 @@
       "youth_corrected": 165,
       "dates": "1756-1791",
       "person_id": "wolfgang-amadeus-mozart",
-      "wikidata_id": "Q254"
+      "wikidata_id": "Q254",
+      "group": "A",
+      "rank": 56,
+      "ai": 150,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 155,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:3-4-7": {
       "name": "Alexander von Humboldt",
@@ -570,7 +1138,17 @@
       "youth_corrected": 185,
       "dates": "1769-1859",
       "person_id": "alexander-von-humboldt",
-      "wikidata_id": "Q6694"
+      "wikidata_id": "Q6694",
+      "group": "A",
+      "rank": 57,
+      "ai": 140,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 170,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:2-2-8": {
       "name": "I. A. Comte",
@@ -580,7 +1158,17 @@
       "youth_corrected": 185,
       "dates": "1798-1857",
       "person_id": "auguste-comte",
-      "wikidata_id": "Q12718"
+      "wikidata_id": "Q12718",
+      "group": "A",
+      "rank": 58,
+      "ai": 150,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 170,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:2-3-5": {
       "name": "Victor Cousin",
@@ -590,7 +1178,17 @@
       "youth_corrected": 180,
       "dates": "1792-1867",
       "person_id": "victor-cousin",
-      "wikidata_id": "Q434346"
+      "wikidata_id": "Q434346",
+      "group": "A",
+      "rank": 59,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 165,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:2-3-9": {
       "name": "Georges L. Cuvier",
@@ -600,7 +1198,17 @@
       "youth_corrected": 175,
       "dates": "1769-1832",
       "person_id": "georges-cuvier",
-      "wikidata_id": "Q171969"
+      "wikidata_id": "Q171969",
+      "group": "A",
+      "rank": 60,
+      "ai": 155,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 160,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:2-5-9": {
       "name": "François Fénelon",
@@ -610,7 +1218,17 @@
       "youth_corrected": 180,
       "dates": "1651-1715",
       "person_id": "francois-fenelon",
-      "wikidata_id": "Q310002"
+      "wikidata_id": "Q310002",
+      "group": "A",
+      "rank": 61,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 145,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:2-1-3": {
       "name": "Thomas Carlyle",
@@ -620,7 +1238,17 @@
       "youth_corrected": 165,
       "dates": "1795-1881",
       "person_id": "thomas-carlyle",
-      "wikidata_id": "Q151403"
+      "wikidata_id": "Q151403",
+      "group": "A",
+      "rank": 62,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 155,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:5-2-5": {
       "name": "Pitt, William (Earl of Chatham)",
@@ -630,7 +1258,17 @@
       "youth_corrected": 155,
       "dates": "1708-1778",
       "person_id": "william-pitt-1st-earl-of-chatham",
-      "wikidata_id": "Q208663"
+      "wikidata_id": "Q208663",
+      "group": "A",
+      "rank": 63,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:4-5-7": {
       "name": "Thomas More",
@@ -640,7 +1278,17 @@
       "youth_corrected": 155,
       "dates": "1478-1535",
       "person_id": "thomas-more",
-      "wikidata_id": "Q42544"
+      "wikidata_id": "Q42544",
+      "group": "A",
+      "rank": 64,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 135,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:6-1-6": {
       "name": "B. Spinoza",
@@ -650,7 +1298,17 @@
       "youth_corrected": 175,
       "dates": "1632-1677",
       "person_id": "baruch-spinoza",
-      "wikidata_id": "Q35802"
+      "wikidata_id": "Q35802",
+      "group": "A",
+      "rank": 65,
+      "ai": 130,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 145,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:2-1-9": {
       "name": "F. R. A., Vicomte de Chateaubriand",
@@ -660,7 +1318,17 @@
       "youth_corrected": 160,
       "dates": "1768-1848",
       "person_id": "francois-rene-de-chateaubriand",
-      "wikidata_id": "Q49767"
+      "wikidata_id": "Q49767",
+      "group": "A",
+      "rank": 66,
+      "ai": 150,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 150,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:3-2-6": {
       "name": "U. S. Grant",
@@ -670,7 +1338,17 @@
       "youth_corrected": 130,
       "dates": "1822-1885",
       "person_id": "ulysses-s-grant",
-      "wikidata_id": "Q34836"
+      "wikidata_id": "Q34836",
+      "group": "A",
+      "rank": 67,
+      "ai": 110,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 125,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:2-4-2": {
       "name": "Charles Darwin",
@@ -680,7 +1358,17 @@
       "youth_corrected": 165,
       "dates": "1809-1882",
       "person_id": "charles-darwin",
-      "wikidata_id": "Q1035"
+      "wikidata_id": "Q1035",
+      "group": "A",
+      "rank": 68,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:4-4-2": {
       "name": "Jules Mazarin",
@@ -690,7 +1378,17 @@
       "youth_corrected": 160,
       "dates": "1602-1661",
       "person_id": "cardinal-mazarin",
-      "wikidata_id": "Q166056"
+      "wikidata_id": "Q166056",
+      "group": "A",
+      "rank": 69,
+      "ai": 130,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 135,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:2-3-3": {
       "name": "Pierre Corneille",
@@ -700,7 +1398,17 @@
       "youth_corrected": 160,
       "dates": "1606-1684",
       "person_id": "pierre-corneille",
-      "wikidata_id": "Q747"
+      "wikidata_id": "Q747",
+      "group": "A",
+      "rank": 70,
+      "ai": 130,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:2-3-10": {
       "name": "J. P. le R. D'Alembert",
@@ -710,7 +1418,17 @@
       "youth_corrected": 185,
       "dates": "1717-1783",
       "person_id": "jean-le-rond-d-alembert",
-      "wikidata_id": "Q153232"
+      "wikidata_id": "Q153232",
+      "group": "A",
+      "rank": 71,
+      "ai": 150,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 165,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:3-2-9": {
       "name": "Hugo Grotius",
@@ -720,7 +1438,17 @@
       "youth_corrected": 200,
       "dates": "1583-1645",
       "person_id": "hugo-grotius",
-      "wikidata_id": "Q154959"
+      "wikidata_id": "Q154959",
+      "group": "A",
+      "rank": 72,
+      "ai": 185,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 190,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:4-2-8": {
       "name": "Carolus Linnæus",
@@ -730,7 +1458,17 @@
       "youth_corrected": 165,
       "dates": "1707-1778",
       "person_id": "carl-linnaeus",
-      "wikidata_id": "Q1043"
+      "wikidata_id": "Q1043",
+      "group": "A",
+      "rank": 73,
+      "ai": 125,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:5-3-4": {
       "name": "Walter Raleigh",
@@ -740,7 +1478,17 @@
       "youth_corrected": 165,
       "dates": "1552-1618",
       "person_id": "walter-raleigh",
-      "wikidata_id": "Q189144"
+      "wikidata_id": "Q189144",
+      "group": "A",
+      "rank": 74,
+      "ai": 130,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 130,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:4-1-6": {
       "name": "Alphonse de Lamartine",
@@ -750,7 +1498,17 @@
       "youth_corrected": 160,
       "dates": "1790-1869",
       "person_id": "alphonse-de-lamartine",
-      "wikidata_id": "Q188697"
+      "wikidata_id": "Q188697",
+      "group": "A",
+      "rank": 75,
+      "ai": 135,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 150,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:6-2-3": {
       "name": "Alfred Tennyson",
@@ -760,7 +1518,17 @@
       "youth_corrected": 170,
       "dates": "1809-1892",
       "person_id": "alfred-lord-tennyson",
-      "wikidata_id": "Q173869"
+      "wikidata_id": "Q173869",
+      "group": "A",
+      "rank": 76,
+      "ai": 155,
+      "ai_pe": 4,
+      "ai_grade": 3,
+      "ai_reliability": 0.82,
+      "aii": 160,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:4-4-5": {
       "name": "Philipp Melanchthon",
@@ -770,7 +1538,17 @@
       "youth_corrected": 190,
       "dates": "1497-1560",
       "person_id": "philipp-melanchthon",
-      "wikidata_id": "Q76325"
+      "wikidata_id": "Q76325",
+      "group": "A",
+      "rank": 77,
+      "ai": 160,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 180,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:5-3-10": {
       "name": "Richelieu, Duc de (A. J. du Plessis)",
@@ -780,7 +1558,17 @@
       "youth_corrected": 160,
       "dates": "1585-1642",
       "person_id": "cardinal-richelieu",
-      "wikidata_id": "Q26702"
+      "wikidata_id": "Q26702",
+      "group": "A",
+      "rank": 78,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 135,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:3-4-10": {
       "name": "John Hunter",
@@ -790,7 +1578,17 @@
       "youth_corrected": 160,
       "dates": "1728-1793",
       "person_id": "john-hunter-surgeon",
-      "wikidata_id": "Q505981"
+      "wikidata_id": "Q505981",
+      "group": "A",
+      "rank": 79,
+      "ai": 110,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 130,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:3-4-6": {
       "name": "Victor Hugo",
@@ -800,7 +1598,17 @@
       "youth_corrected": 180,
       "dates": "1802-1885",
       "person_id": "victor-hugo",
-      "wikidata_id": "Q535"
+      "wikidata_id": "Q535",
+      "group": "A",
+      "rank": 80,
+      "ai": 150,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 170,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:2-4-8": {
       "name": "Benjamin Disraeli",
@@ -810,7 +1618,17 @@
       "youth_corrected": 165,
       "dates": "1804-1881",
       "person_id": "benjamin-disraeli",
-      "wikidata_id": "Q82006"
+      "wikidata_id": "Q82006",
+      "group": "A",
+      "rank": 81,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:2-4-10": {
       "name": "John Dryden",
@@ -820,7 +1638,17 @@
       "youth_corrected": 160,
       "dates": "1631-1700",
       "person_id": "john-dryden",
-      "wikidata_id": "Q213355"
+      "wikidata_id": "Q213355",
+      "group": "A",
+      "rank": 82,
+      "ai": 125,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 130,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-1-5": {
       "name": "Guilio Alberoni",
@@ -830,7 +1658,17 @@
       "youth_corrected": 145,
       "dates": "1664-1752",
       "person_id": "giulio-alberoni",
-      "wikidata_id": "Q539927"
+      "wikidata_id": "Q539927",
+      "group": "A",
+      "rank": 83,
+      "ai": 110,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 110,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:4-2-4": {
       "name": "G. E. Lessing",
@@ -840,7 +1678,17 @@
       "youth_corrected": 160,
       "dates": "1729-1781",
       "person_id": "gotthold-ephraim-lessing",
-      "wikidata_id": "Q34628"
+      "wikidata_id": "Q34628",
+      "group": "A",
+      "rank": 84,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 150,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:2-5-10": {
       "name": "Johann G. Fichte",
@@ -850,7 +1698,17 @@
       "youth_corrected": 170,
       "dates": "1762-1814",
       "person_id": "johann-gottlieb-fichte",
-      "wikidata_id": "Q102585"
+      "wikidata_id": "Q102585",
+      "group": "A",
+      "rank": 85,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 155,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:2-4-6": {
       "name": "Charles Dickens",
@@ -860,7 +1718,17 @@
       "youth_corrected": 180,
       "dates": "1812-1870",
       "person_id": "charles-dickens",
-      "wikidata_id": "Q5686"
+      "wikidata_id": "Q5686",
+      "group": "A",
+      "rank": 86,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 155,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:6-3-8": {
       "name": "Albrecht von Wallenstein",
@@ -870,7 +1738,17 @@
       "youth_corrected": 135,
       "dates": "1583-1634",
       "person_id": "albrecht-von-wallenstein",
-      "wikidata_id": "Q153545"
+      "wikidata_id": "Q153545",
+      "group": "A",
+      "rank": 87,
+      "ai": 110,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 115,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:5-5-3": {
       "name": "F. W. Schelling",
@@ -880,7 +1758,17 @@
       "youth_corrected": 190,
       "dates": "1775-1854",
       "person_id": "friedrich-wilhelm-joseph-schelling",
-      "wikidata_id": "Q60070"
+      "wikidata_id": "Q60070",
+      "group": "A",
+      "rank": 88,
+      "ai": 175,
+      "ai_pe": 4,
+      "ai_grade": 3,
+      "ai_reliability": 0.82,
+      "aii": 180,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:2-5-3": {
       "name": "Albrecht Dürer",
@@ -890,7 +1778,17 @@
       "youth_corrected": 155,
       "dates": "1471-1528",
       "person_id": "albrecht-durer",
-      "wikidata_id": "Q5580"
+      "wikidata_id": "Q5580",
+      "group": "A",
+      "rank": 89,
+      "ai": 125,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 135,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:3-5-10": {
       "name": "Johann Kepler",
@@ -900,7 +1798,17 @@
       "youth_corrected": 175,
       "dates": "1571-1630",
       "person_id": "johannes-kepler",
-      "wikidata_id": "Q8963"
+      "wikidata_id": "Q8963",
+      "group": "A",
+      "rank": 90,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 160,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:4-1-4": {
       "name": "Jean de La Fontaine",
@@ -910,7 +1818,17 @@
       "youth_corrected": 155,
       "dates": "1621-1695",
       "person_id": "jean-de-la-fontaine",
-      "wikidata_id": "Q49496"
+      "wikidata_id": "Q49496",
+      "group": "A",
+      "rank": 91,
+      "ai": 100,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 125,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:6-2-10": {
       "name": "Anthony Van Dyck",
@@ -920,7 +1838,17 @@
       "youth_corrected": 155,
       "dates": "1599-1641",
       "person_id": "anthony-van-dyck",
-      "wikidata_id": "Q150679"
+      "wikidata_id": "Q150679",
+      "group": "A",
+      "rank": 92,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 135,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:2-1-6": {
       "name": "Miguel de Cervantes",
@@ -930,7 +1858,17 @@
       "youth_corrected": 155,
       "dates": "1547-1616",
       "person_id": "miguel-de-cervantes",
-      "wikidata_id": "Q5682"
+      "wikidata_id": "Q5682",
+      "group": "A",
+      "rank": 93,
+      "ai": 105,
+      "ai_pe": 11,
+      "ai_grade": 7,
+      "ai_reliability": 0.0,
+      "aii": 110,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:6-1-7": {
       "name": "Staël-Holstein, Mme. de (Germaine Necker)",
@@ -940,7 +1878,17 @@
       "youth_corrected": 180,
       "dates": "1766-1817",
       "person_id": "germaine-de-stael",
-      "wikidata_id": "Q123041"
+      "wikidata_id": "Q123041",
+      "group": "A",
+      "rank": 94,
+      "ai": 155,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 160,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:2-2-3": {
       "name": "Robert Clive",
@@ -950,7 +1898,17 @@
       "youth_corrected": 140,
       "dates": "1725-1774",
       "person_id": "robert-clive",
-      "wikidata_id": "Q162296"
+      "wikidata_id": "Q162296",
+      "group": "A",
+      "rank": 95,
+      "ai": 110,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 120,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:5-3-6": {
       "name": "H. Rembrandt",
@@ -960,7 +1918,17 @@
       "youth_corrected": 155,
       "dates": "1606-1669",
       "person_id": "rembrandt",
-      "wikidata_id": "Q5598"
+      "wikidata_id": "Q5598",
+      "group": "A",
+      "rank": 96,
+      "ai": 110,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 135,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:2-4-7": {
       "name": "Denis Diderot",
@@ -970,7 +1938,17 @@
       "youth_corrected": 165,
       "dates": "1713-1784",
       "person_id": "denis-diderot",
-      "wikidata_id": "Q448"
+      "wikidata_id": "Q448",
+      "group": "A",
+      "rank": 97,
+      "ai": 150,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:4-5-4": {
       "name": "Michel E. de Montaigne",
@@ -980,7 +1958,17 @@
       "youth_corrected": 165,
       "dates": "1533-1592",
       "person_id": "michel-de-montaigne",
-      "wikidata_id": "Q41568"
+      "wikidata_id": "Q41568",
+      "group": "A",
+      "rank": 98,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 140,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:5-1-3": {
       "name": "John Napier",
@@ -990,7 +1978,17 @@
       "youth_corrected": 170,
       "dates": "1550-1617",
       "person_id": "john-napier",
-      "wikidata_id": "Q159592"
+      "wikidata_id": "Q159592",
+      "group": "A",
+      "rank": 99,
+      "ai": 125,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 125,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:5-4-9": {
       "name": "Sand, George (Aurore Dupin)",
@@ -1000,7 +1998,17 @@
       "youth_corrected": 160,
       "dates": "1804-1876",
       "person_id": "george-sand",
-      "wikidata_id": "Q3816"
+      "wikidata_id": "Q3816",
+      "group": "A",
+      "rank": 100,
+      "ai": 150,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 150,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:4-3-10": {
       "name": "A. F. L. Marmont",
@@ -1010,7 +2018,17 @@
       "youth_corrected": 150,
       "dates": "1774-1852",
       "person_id": "auguste-de-marmont",
-      "wikidata_id": "Q312676"
+      "wikidata_id": "Q312676",
+      "group": "A",
+      "rank": 101,
+      "ai": 125,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 135,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:5-2-3": {
       "name": "Robert Peel",
@@ -1020,7 +2038,17 @@
       "youth_corrected": 180,
       "dates": "1788-1850",
       "person_id": "robert-peel",
-      "wikidata_id": "Q181875"
+      "wikidata_id": "Q181875",
+      "group": "A",
+      "rank": 102,
+      "ai": 155,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 170,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:4-4-9": {
       "name": "John Stuart Mill",
@@ -1030,7 +2058,17 @@
       "youth_corrected": 180,
       "dates": "1806-1873",
       "person_id": "john-stuart-mill",
-      "wikidata_id": "Q50020"
+      "wikidata_id": "Q50020",
+      "group": "A",
+      "rank": 103,
+      "ai": 190,
+      "ai_pe": 4,
+      "ai_grade": 2.5,
+      "ai_reliability": 0.82,
+      "aii": 170,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:1-1-1": {
       "name": "John Adams",
@@ -1040,7 +2078,17 @@
       "youth_corrected": 155,
       "dates": "1735-1826",
       "person_id": "john-adams",
-      "wikidata_id": "Q11806"
+      "wikidata_id": "Q11806",
+      "group": "A",
+      "rank": 104,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 145,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:6-4-4": {
       "name": "Daniel Webster",
@@ -1050,7 +2098,17 @@
       "youth_corrected": 165,
       "dates": "1782-1852",
       "person_id": "daniel-webster",
-      "wikidata_id": "Q106231"
+      "wikidata_id": "Q106231",
+      "group": "A",
+      "rank": 105,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:1-3-2": {
       "name": "Richard Bentley",
@@ -1060,7 +2118,17 @@
       "youth_corrected": 170,
       "dates": "1662-1742",
       "person_id": "richard-bentley",
-      "wikidata_id": "Q712899"
+      "wikidata_id": "Q712899",
+      "group": "A",
+      "rank": 106,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:5-5-1": {
       "name": "Girolamo Savonarola",
@@ -1070,7 +2138,17 @@
       "youth_corrected": 155,
       "dates": "1452-1498",
       "person_id": "girolamo-savonarola",
-      "wikidata_id": "Q164823"
+      "wikidata_id": "Q164823",
+      "group": "A",
+      "rank": 107,
+      "ai": 130,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 135,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:4-3-9": {
       "name": "Marlborough, Duke of (J. Churchill)",
@@ -1080,7 +2158,17 @@
       "youth_corrected": 145,
       "dates": "1650-1722",
       "person_id": "john-churchill-1st-duke-of-marlborough",
-      "wikidata_id": "Q153803"
+      "wikidata_id": "Q153803",
+      "group": "A",
+      "rank": 108,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 125,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:2-3-1": {
       "name": "James Cook",
@@ -1090,7 +2178,17 @@
       "youth_corrected": 160,
       "dates": "1728-1779",
       "person_id": "james-cook",
-      "wikidata_id": "Q7324"
+      "wikidata_id": "Q7324",
+      "group": "A",
+      "rank": 109,
+      "ai": 105,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 115,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:6-5-3": {
       "name": "Ulrich Zwingli",
@@ -1100,7 +2198,17 @@
       "youth_corrected": 165,
       "dates": "1484-1531",
       "person_id": "huldrych-zwingli",
-      "wikidata_id": "Q123034"
+      "wikidata_id": "Q123034",
+      "group": "A",
+      "rank": 110,
+      "ai": 140,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 140,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:2-1-5": {
       "name": "Camillo B., Count di Cavour",
@@ -1110,7 +2218,17 @@
       "youth_corrected": 160,
       "dates": "1810-1861",
       "person_id": "camillo-benso-count-of-cavour",
-      "wikidata_id": "Q166092"
+      "wikidata_id": "Q166092",
+      "group": "A",
+      "rank": 111,
+      "ai": 150,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 150,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:1-4-7": {
       "name": "Comte de Buffon",
@@ -1120,7 +2238,17 @@
       "youth_corrected": 175,
       "dates": "1707-1788",
       "person_id": "georges-louis-leclerc-comte-de-buffon",
-      "wikidata_id": "Q229264"
+      "wikidata_id": "Q229264",
+      "group": "A",
+      "rank": 112,
+      "ai": 125,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 130,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:3-2-5": {
       "name": "Oliver Goldsmith",
@@ -1130,7 +2258,17 @@
       "youth_corrected": 135,
       "dates": "1728-1774",
       "person_id": "oliver-goldsmith",
-      "wikidata_id": "Q236236"
+      "wikidata_id": "Q236236",
+      "group": "A",
+      "rank": 113,
+      "ai": 115,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 115,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:1-4-6": {
       "name": "Henry P. Brougham",
@@ -1140,7 +2278,17 @@
       "youth_corrected": 180,
       "dates": "1778-1868",
       "person_id": "henry-brougham-1st-baron-brougham-and-vaux",
-      "wikidata_id": "Q333220"
+      "wikidata_id": "Q333220",
+      "group": "A",
+      "rank": 114,
+      "ai": 160,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 170,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:2-4-3": {
       "name": "Humphry Davy",
@@ -1150,7 +2298,17 @@
       "youth_corrected": 185,
       "dates": "1778-1829",
       "person_id": "humphry-davy",
-      "wikidata_id": "Q131761"
+      "wikidata_id": "Q131761",
+      "group": "A",
+      "rank": 115,
+      "ai": 150,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 175,
+      "aii_pe": 4,
+      "aii_grade": 2.5,
+      "aii_reliability": 0.82
     },
     "12A:3-5-8": {
       "name": "Ben Jonson",
@@ -1160,7 +2318,17 @@
       "youth_corrected": 175,
       "dates": "1573-1637",
       "person_id": "ben-jonson",
-      "wikidata_id": "Q193857"
+      "wikidata_id": "Q193857",
+      "group": "A",
+      "rank": 116,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 145,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-5-10": {
       "name": "George Canning",
@@ -1170,7 +2338,17 @@
       "youth_corrected": 165,
       "dates": "1770-1827",
       "person_id": "george-canning",
-      "wikidata_id": "Q219731"
+      "wikidata_id": "Q219731",
+      "group": "A",
+      "rank": 117,
+      "ai": 150,
+      "ai_pe": 4,
+      "ai_grade": 3,
+      "ai_reliability": 0.82,
+      "aii": 155,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:3-3-3": {
       "name": "Alexander Hamilton",
@@ -1180,7 +2358,17 @@
       "youth_corrected": 155,
       "dates": "1757-1804",
       "person_id": "alexander-hamilton",
-      "wikidata_id": "Q178903"
+      "wikidata_id": "Q178903",
+      "group": "A",
+      "rank": 118,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:3-1-9": {
       "name": "Pierre Gassendi",
@@ -1190,7 +2378,17 @@
       "youth_corrected": 185,
       "dates": "1592-1655",
       "person_id": "pierre-gassendi",
-      "wikidata_id": "Q192315"
+      "wikidata_id": "Q192315",
+      "group": "A",
+      "rank": 119,
+      "ai": 150,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 160,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:2-3-4": {
       "name": "Hernando Cortez",
@@ -1200,7 +2398,17 @@
       "youth_corrected": 140,
       "dates": "1485-1547",
       "person_id": "hernan-cortes",
-      "wikidata_id": "Q7326"
+      "wikidata_id": "Q7326",
+      "group": "A",
+      "rank": 120,
+      "ai": 115,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 120,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:1-2-10": {
       "name": "Ludwig van Beethoven",
@@ -1210,7 +2418,17 @@
       "youth_corrected": 165,
       "dates": "1770-1827",
       "person_id": "ludwig-van-beethoven",
-      "wikidata_id": "Q255"
+      "wikidata_id": "Q255",
+      "group": "A",
+      "rank": 121,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 140,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:5-5-7": {
       "name": "Sévigné, Mme. de (Marie de Rabutin-Chantal)",
@@ -1220,7 +2438,17 @@
       "youth_corrected": 160,
       "dates": "1626-1696",
       "person_id": "marie-de-rabutin-chantal-marquise-de-sevigne",
-      "wikidata_id": "Q237103"
+      "wikidata_id": "Q237103",
+      "group": "A",
+      "rank": 122,
+      "ai": 125,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 135,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-1-6": {
       "name": "Vittorio Alfieri",
@@ -1230,7 +2458,17 @@
       "youth_corrected": 160,
       "dates": "1749-1803",
       "person_id": "vittorio-alfieri",
-      "wikidata_id": "Q296244"
+      "wikidata_id": "Q296244",
+      "group": "A",
+      "rank": 123,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 135,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:3-3-6": {
       "name": "William Harvey",
@@ -1240,7 +2478,17 @@
       "youth_corrected": 180,
       "dates": "1578-1657",
       "person_id": "william-harvey",
-      "wikidata_id": "Q93128"
+      "wikidata_id": "Q93128",
+      "group": "A",
+      "rank": 124,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 150,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:6-3-2": {
       "name": "Lope de Vega",
@@ -1250,7 +2498,17 @@
       "youth_corrected": 175,
       "dates": "1562-1635",
       "person_id": "lope-de-vega",
-      "wikidata_id": "Q165257"
+      "wikidata_id": "Q165257",
+      "group": "A",
+      "rank": 125,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 145,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:4-1-8": {
       "name": "Pierre Simon Laplace",
@@ -1260,7 +2518,17 @@
       "youth_corrected": 190,
       "dates": "1749-1827",
       "person_id": "pierre-simon-laplace",
-      "wikidata_id": "Q44481"
+      "wikidata_id": "Q44481",
+      "group": "A",
+      "rank": 126,
+      "ai": 145,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 170,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:3-1-8": {
       "name": "Giuseppe Garibaldi",
@@ -1270,7 +2538,17 @@
       "youth_corrected": 140,
       "dates": "1807-1882",
       "person_id": "giuseppe-garibaldi",
-      "wikidata_id": "Q539"
+      "wikidata_id": "Q539",
+      "group": "A",
+      "rank": 127,
+      "ai": 120,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 125,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:5-1-5": {
       "name": "Jacques Necker",
@@ -1280,7 +2558,17 @@
       "youth_corrected": 155,
       "dates": "1732-1804",
       "person_id": "jacques-necker",
-      "wikidata_id": "Q123062"
+      "wikidata_id": "Q123062",
+      "group": "A",
+      "rank": 128,
+      "ai": 115,
+      "ai_pe": 15,
+      "ai_grade": 7,
+      "ai_reliability": 0.0,
+      "aii": 120,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:2-5-6": {
       "name": "Charles G. Étienne",
@@ -1290,7 +2578,17 @@
       "youth_corrected": 160,
       "dates": "1778-1845",
       "person_id": "charles-guillaume-etienne",
-      "wikidata_id": "Q2277482"
+      "wikidata_id": "Q2277482",
+      "group": "A",
+      "rank": 129,
+      "ai": 135,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:3-5-3": {
       "name": "Andrew Jackson",
@@ -1300,7 +2598,17 @@
       "youth_corrected": 145,
       "dates": "1767-1845",
       "person_id": "andrew-jackson",
-      "wikidata_id": "Q11817"
+      "wikidata_id": "Q11817",
+      "group": "A",
+      "rank": 130,
+      "ai": 110,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 130,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:2-1-1": {
       "name": "Antonio Canova",
@@ -1310,7 +2618,17 @@
       "youth_corrected": 160,
       "dates": "1757-1822",
       "person_id": "antonio-canova",
-      "wikidata_id": "Q5547"
+      "wikidata_id": "Q5547",
+      "group": "A",
+      "rank": 131,
+      "ai": 130,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 140,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-2-2": {
       "name": "Francis Atterbury",
@@ -1320,7 +2638,17 @@
       "youth_corrected": 170,
       "dates": "1662-1732",
       "person_id": "francis-atterbury",
-      "wikidata_id": "Q320864"
+      "wikidata_id": "Q320864",
+      "group": "A",
+      "rank": 132,
+      "ai": 120,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:1-4-8": {
       "name": "Edward G. Bulwer-Lytton",
@@ -1330,7 +2658,17 @@
       "youth_corrected": 155,
       "dates": "1803-1873",
       "person_id": "edward-bulwer-lytton",
-      "wikidata_id": "Q318462"
+      "wikidata_id": "Q318462",
+      "group": "A",
+      "rank": 133,
+      "ai": 140,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 145,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:3-2-1": {
       "name": "J. L. Gay-Lussac",
@@ -1340,7 +2678,17 @@
       "youth_corrected": 175,
       "dates": "1778-1850",
       "person_id": "joseph-louis-gay-lussac",
-      "wikidata_id": "Q153185"
+      "wikidata_id": "Q153185",
+      "group": "A",
+      "rank": 134,
+      "ai": 125,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 155,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:5-1-9": {
       "name": "B. G. Niebuhr",
@@ -1350,7 +2698,17 @@
       "youth_corrected": 185,
       "dates": "1776-1831",
       "person_id": "barthold-georg-niebuhr",
-      "wikidata_id": "Q60586"
+      "wikidata_id": "Q60586",
+      "group": "A",
+      "rank": 135,
+      "ai": 165,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 175,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:3-1-1": {
       "name": "Henry Fielding",
@@ -1360,7 +2718,17 @@
       "youth_corrected": 165,
       "dates": "1707-1754",
       "person_id": "henry-fielding",
-      "wikidata_id": "Q34190"
+      "wikidata_id": "Q34190",
+      "group": "A",
+      "rank": 136,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 135,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:3-3-2": {
       "name": "Albrecht Haller",
@@ -1370,7 +2738,17 @@
       "youth_corrected": 190,
       "dates": "1708-1777",
       "person_id": "albrecht-von-haller",
-      "wikidata_id": "Q123225"
+      "wikidata_id": "Q123225",
+      "group": "A",
+      "rank": 137,
+      "ai": 175,
+      "ai_pe": 4,
+      "ai_grade": 3,
+      "ai_reliability": 0.82,
+      "aii": 180,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:5-5-5": {
       "name": "F. Schleiermacher",
@@ -1380,7 +2758,17 @@
       "youth_corrected": 160,
       "dates": "1768-1834",
       "person_id": "friedrich-schleiermacher",
-      "wikidata_id": "Q76576"
+      "wikidata_id": "Q76576",
+      "group": "A",
+      "rank": 138,
+      "ai": 150,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 145,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:6-4-2": {
       "name": "James Watt",
@@ -1390,7 +2778,17 @@
       "youth_corrected": 165,
       "dates": "1736-1819",
       "person_id": "james-watt",
-      "wikidata_id": "Q9041"
+      "wikidata_id": "Q9041",
+      "group": "A",
+      "rank": 139,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:1-1-9": {
       "name": "D. F. Arago",
@@ -1400,7 +2798,17 @@
       "youth_corrected": 180,
       "dates": "1786-1853",
       "person_id": "francois-arago",
-      "wikidata_id": "Q154353"
+      "wikidata_id": "Q154353",
+      "group": "A",
+      "rank": 140,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 165,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:3-1-2": {
       "name": "Joseph Fouché",
@@ -1410,7 +2818,17 @@
       "youth_corrected": 165,
       "dates": "1759?-1820",
       "person_id": "joseph-fouche",
-      "wikidata_id": "Q216958"
+      "wikidata_id": "Q216958",
+      "group": "A",
+      "rank": 141,
+      "ai": 125,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 130,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:3-3-5": {
       "name": "George F. Handel",
@@ -1420,7 +2838,17 @@
       "youth_corrected": 170,
       "dates": "1685-1759",
       "person_id": "george-frideric-handel",
-      "wikidata_id": "Q7302"
+      "wikidata_id": "Q7302",
+      "group": "A",
+      "rank": 142,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 155,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:6-1-5": {
       "name": "Edmund Spenser",
@@ -1430,7 +2858,17 @@
       "youth_corrected": 175,
       "dates": "1552-1599",
       "person_id": "edmund-spenser",
-      "wikidata_id": "Q4352055"
+      "wikidata_id": "Q4352055",
+      "group": "A",
+      "rank": 143,
+      "ai": 135,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 145,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:4-1-5": {
       "name": "J. L., Comte Lagrange",
@@ -1440,7 +2878,17 @@
       "youth_corrected": 185,
       "dates": "1736-1813",
       "person_id": "joseph-louis-lagrange",
-      "wikidata_id": "Q80222"
+      "wikidata_id": "Q80222",
+      "group": "A",
+      "rank": 144,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 165,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:3-4-2": {
       "name": "J. G. Herder",
@@ -1450,7 +2898,17 @@
       "youth_corrected": 165,
       "dates": "1744-1803",
       "person_id": "johann-gottfried-herder",
-      "wikidata_id": "Q155547"
+      "wikidata_id": "Q155547",
+      "group": "A",
+      "rank": 145,
+      "ai": 130,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 155,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:6-3-3": {
       "name": "Diego Velasquez",
@@ -1460,7 +2918,17 @@
       "youth_corrected": 170,
       "dates": "1599-1660",
       "person_id": "diego-velazquez",
-      "wikidata_id": "Q297"
+      "wikidata_id": "Q297",
+      "group": "A",
+      "rank": 146,
+      "ai": 125,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 140,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:1-4-9": {
       "name": "Christian K. J. Bunsen",
@@ -1470,7 +2938,17 @@
       "youth_corrected": 175,
       "dates": "1791-1860",
       "person_id": "christian-charles-josias-von-bunsen",
-      "wikidata_id": "Q67409"
+      "wikidata_id": "Q67409",
+      "group": "A",
+      "rank": 147,
+      "ai": 150,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 165,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:2-4-4": {
       "name": "Daniel De Foe",
@@ -1480,7 +2958,17 @@
       "youth_corrected": 165,
       "dates": "1659 or 1660-1731",
       "person_id": "daniel-defoe",
-      "wikidata_id": "Q40946"
+      "wikidata_id": "Q40946",
+      "group": "A",
+      "rank": 148,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 125,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:3-3-7": {
       "name": "Warren Hastings",
@@ -1490,7 +2978,17 @@
       "youth_corrected": 165,
       "dates": "1732-1818",
       "person_id": "warren-hastings",
-      "wikidata_id": "Q333994"
+      "wikidata_id": "Q333994",
+      "group": "A",
+      "rank": 149,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 140,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:4-1-7": {
       "name": "F. R. de Lamennais",
@@ -1500,7 +2998,17 @@
       "youth_corrected": 175,
       "dates": "1782-1854",
       "person_id": "felicite-de-lamennais",
-      "wikidata_id": "Q334973"
+      "wikidata_id": "Q334973",
+      "group": "A",
+      "rank": 150,
+      "ai": 150,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 155,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:2-2-5": {
       "name": "Richard Cobden",
@@ -1510,7 +3018,17 @@
       "youth_corrected": 155,
       "dates": "1804-1865",
       "person_id": "richard-cobden",
-      "wikidata_id": "Q333072"
+      "wikidata_id": "Q333072",
+      "group": "A",
+      "rank": 151,
+      "ai": 120,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 120,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:6-4-6": {
       "name": "Christopher M. Wieland",
@@ -1520,7 +3038,17 @@
       "youth_corrected": 170,
       "dates": "1733-1813",
       "person_id": "christoph-martin-wieland",
-      "wikidata_id": "Q154010"
+      "wikidata_id": "Q154010",
+      "group": "A",
+      "rank": 152,
+      "ai": 160,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 160,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:1-3-4": {
       "name": "George Berkeley",
@@ -1530,7 +3058,17 @@
       "youth_corrected": 190,
       "dates": "1685-1753",
       "person_id": "george-berkeley",
-      "wikidata_id": "Q82049"
+      "wikidata_id": "Q82049",
+      "group": "A",
+      "rank": 153,
+      "ai": 150,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 175,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:4-1-10": {
       "name": "John Law",
@@ -1540,7 +3078,17 @@
       "youth_corrected": 165,
       "dates": "1671-1729",
       "person_id": "john-law",
-      "wikidata_id": "Q312694"
+      "wikidata_id": "Q312694",
+      "group": "A",
+      "rank": 154,
+      "ai": 140,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 140,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:4-3-6": {
       "name": "Maintenon, Mme. de (F. d'Aubigné)",
@@ -1550,7 +3098,17 @@
       "youth_corrected": 155,
       "dates": "1635-1719",
       "person_id": "madame-de-maintenon",
-      "wikidata_id": "Q230670"
+      "wikidata_id": "Q230670",
+      "group": "A",
+      "rank": 155,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 130,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:2-3-7": {
       "name": "Thomas Cranmer",
@@ -1560,7 +3118,17 @@
       "youth_corrected": 165,
       "dates": "1489-1556",
       "person_id": "thomas-cranmer",
-      "wikidata_id": "Q199894"
+      "wikidata_id": "Q199894",
+      "group": "A",
+      "rank": 156,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 130,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:2-2-7": {
       "name": "S. T. Coleridge",
@@ -1570,7 +3138,17 @@
       "youth_corrected": 175,
       "dates": "1772-1834",
       "person_id": "samuel-taylor-coleridge",
-      "wikidata_id": "Q82409"
+      "wikidata_id": "Q82409",
+      "group": "A",
+      "rank": 157,
+      "ai": 175,
+      "ai_pe": 4,
+      "ai_grade": 3,
+      "ai_reliability": 0.82,
+      "aii": 165,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:1-3-7": {
       "name": "Théodore de Beza",
@@ -1580,7 +3158,17 @@
       "youth_corrected": 165,
       "dates": "1519-1605",
       "person_id": "theodore-beza",
-      "wikidata_id": "Q314981"
+      "wikidata_id": "Q314981",
+      "group": "A",
+      "rank": 158,
+      "ai": 125,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 140,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:4-5-10": {
       "name": "Joachim Murat",
@@ -1590,7 +3178,17 @@
       "youth_corrected": 135,
       "dates": "1767-1815",
       "person_id": "joachim-murat",
-      "wikidata_id": "Q151173"
+      "wikidata_id": "Q151173",
+      "group": "A",
+      "rank": 159,
+      "ai": 115,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 120,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:4-4-3": {
       "name": "Giuseppe Mazzini",
@@ -1600,7 +3198,17 @@
       "youth_corrected": 165,
       "dates": "1805-1872",
       "person_id": "giuseppe-mazzini",
-      "wikidata_id": "Q187336"
+      "wikidata_id": "Q187336",
+      "group": "A",
+      "rank": 160,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:2-2-10": {
       "name": "Condorcet, Marq. de (M.J.A.N. Caritat)",
@@ -1610,7 +3218,17 @@
       "youth_corrected": 180,
       "dates": "1743-1794",
       "person_id": "marquis-de-condorcet",
-      "wikidata_id": "Q201477"
+      "wikidata_id": "Q201477",
+      "group": "A",
+      "rank": 161,
+      "ai": 155,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 165,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:1-1-10": {
       "name": "Ludovico Ariosto",
@@ -1620,7 +3238,17 @@
       "youth_corrected": 160,
       "dates": "1474-1533",
       "person_id": "ludovico-ariosto",
-      "wikidata_id": "Q48900"
+      "wikidata_id": "Q48900",
+      "group": "A",
+      "rank": 162,
+      "ai": 125,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 135,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:2-1-10": {
       "name": "Thomas Chatterton",
@@ -1630,7 +3258,17 @@
       "youth_corrected": 180,
       "dates": "1752-1770",
       "person_id": "thomas-chatterton",
-      "wikidata_id": "Q380509"
+      "wikidata_id": "Q380509",
+      "group": "A",
+      "rank": 163,
+      "ai": 170,
+      "ai_pe": 4,
+      "ai_grade": 3,
+      "ai_reliability": 0.82,
+      "aii": 170,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:6-2-9": {
       "name": "Robert Jacques Turgot",
@@ -1640,7 +3278,17 @@
       "youth_corrected": 170,
       "dates": "1727-1781",
       "person_id": "anne-robert-jacques-turgot",
-      "wikidata_id": "Q221303"
+      "wikidata_id": "Q221303",
+      "group": "A",
+      "rank": 164,
+      "ai": 140,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 160,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:4-3-7": {
       "name": "Nicolas Malebranche",
@@ -1650,7 +3298,17 @@
       "youth_corrected": 180,
       "dates": "1638-1715",
       "person_id": "nicolas-malebranche",
-      "wikidata_id": "Q309818"
+      "wikidata_id": "Q309818",
+      "group": "A",
+      "rank": 165,
+      "ai": 125,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 135,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:2-4-1": {
       "name": "Georges J. Danton",
@@ -1660,7 +3318,17 @@
       "youth_corrected": 155,
       "dates": "1759-1794",
       "person_id": "georges-danton",
-      "wikidata_id": "Q184623"
+      "wikidata_id": "Q184623",
+      "group": "A",
+      "rank": 166,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 145,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:2-1-7": {
       "name": "Thomas Chalmers",
@@ -1670,7 +3338,17 @@
       "youth_corrected": 170,
       "dates": "1780-1847",
       "person_id": "thomas-chalmers",
-      "wikidata_id": "Q563069"
+      "wikidata_id": "Q563069",
+      "group": "A",
+      "rank": 167,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 160,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:3-3-8": {
       "name": "Joseph Haydn",
@@ -1680,7 +3358,17 @@
       "youth_corrected": 160,
       "dates": "1732-1809",
       "person_id": "joseph-haydn",
-      "wikidata_id": "Q7349"
+      "wikidata_id": "Q7349",
+      "group": "A",
+      "rank": 168,
+      "ai": 120,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:4-2-10": {
       "name": "H. W. Longfellow",
@@ -1690,7 +3378,17 @@
       "youth_corrected": 170,
       "dates": "1807-1882",
       "person_id": "henry-wadsworth-longfellow",
-      "wikidata_id": "Q152513"
+      "wikidata_id": "Q152513",
+      "group": "A",
+      "rank": 169,
+      "ai": 150,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 160,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:3-5-1": {
       "name": "Christian Huygens",
@@ -1700,7 +3398,17 @@
       "youth_corrected": 175,
       "dates": "1629-1695",
       "person_id": "christiaan-huygens",
-      "wikidata_id": "Q39599"
+      "wikidata_id": "Q39599",
+      "group": "A",
+      "rank": 170,
+      "ai": 130,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:4-5-5": {
       "name": "Montesquieu, Baron de (C. de Secondat)",
@@ -1710,7 +3418,17 @@
       "youth_corrected": 165,
       "dates": "1689-1755",
       "person_id": "montesquieu",
-      "wikidata_id": "Q15975"
+      "wikidata_id": "Q15975",
+      "group": "A",
+      "rank": 171,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 140,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-3-5": {
       "name": "Bernadotte (Charles XIV)",
@@ -1720,7 +3438,17 @@
       "youth_corrected": 140,
       "dates": "1763-1844",
       "person_id": "charles-xiv-john",
-      "wikidata_id": "Q52927"
+      "wikidata_id": "Q52927",
+      "group": "A",
+      "rank": 172,
+      "ai": 115,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 120,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:4-1-1": {
       "name": "F. G. Klopstock",
@@ -1730,7 +3458,17 @@
       "youth_corrected": 165,
       "dates": "1724-1803",
       "person_id": "friedrich-gottlieb-klopstock",
-      "wikidata_id": "Q154367"
+      "wikidata_id": "Q154367",
+      "group": "A",
+      "rank": 173,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 155,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:4-5-3": {
       "name": "George Monk",
@@ -1740,7 +3478,17 @@
       "youth_corrected": 140,
       "dates": "1608-1670",
       "person_id": "george-monck",
-      "wikidata_id": "Q335106"
+      "wikidata_id": "Q335106",
+      "group": "A",
+      "rank": 174,
+      "ai": 110,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 120,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:6-1-3": {
       "name": "Adam Smith",
@@ -1750,7 +3498,17 @@
       "youth_corrected": 170,
       "dates": "1723-1790",
       "person_id": "adam-smith",
-      "wikidata_id": "Q9381"
+      "wikidata_id": "Q9381",
+      "group": "A",
+      "rank": 175,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:5-1-8": {
       "name": "Michel Ney",
@@ -1760,7 +3518,17 @@
       "youth_corrected": 135,
       "dates": "1769-1815",
       "person_id": "michel-ney",
-      "wikidata_id": "Q40756"
+      "wikidata_id": "Q40756",
+      "group": "A",
+      "rank": 176,
+      "ai": 110,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 120,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:5-2-10": {
       "name": "W. H. Prescott",
@@ -1770,7 +3538,17 @@
       "youth_corrected": 155,
       "dates": "1796-1859",
       "person_id": "william-hickling-prescott",
-      "wikidata_id": "Q505844"
+      "wikidata_id": "Q505844",
+      "group": "A",
+      "rank": 177,
+      "ai": 130,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 135,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:1-3-3": {
       "name": "Pierre Jean de Béranger",
@@ -1780,7 +3558,17 @@
       "youth_corrected": 155,
       "dates": "1780-1857",
       "person_id": "pierre-jean-de-beranger",
-      "wikidata_id": "Q324998"
+      "wikidata_id": "Q324998",
+      "group": "A",
+      "rank": 178,
+      "ai": 115,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 130,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:1-2-9": {
       "name": "Pierre A. C. de Beaumarchais",
@@ -1790,7 +3578,17 @@
       "youth_corrected": 165,
       "dates": "1732-1799",
       "person_id": "pierre-beaumarchais",
-      "wikidata_id": "Q70326"
+      "wikidata_id": "Q70326",
+      "group": "A",
+      "rank": 179,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:5-4-3": {
       "name": "G. A. Rossini",
@@ -1800,7 +3598,17 @@
       "youth_corrected": 145,
       "dates": "1792-1868",
       "person_id": "gioachino-rossini",
-      "wikidata_id": "Q9726"
+      "wikidata_id": "Q9726",
+      "group": "A",
+      "rank": 180,
+      "ai": 120,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 130,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:1-3-1": {
       "name": "Jeremy Bentham",
@@ -1810,7 +3618,17 @@
       "youth_corrected": 180,
       "dates": "1748-1832",
       "person_id": "jeremy-bentham",
-      "wikidata_id": "Q60887"
+      "wikidata_id": "Q60887",
+      "group": "A",
+      "rank": 181,
+      "ai": 180,
+      "ai_pe": 4,
+      "ai_grade": 2.5,
+      "ai_reliability": 0.82,
+      "aii": 170,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:2-4-9": {
       "name": "Francis Drake",
@@ -1820,7 +3638,17 @@
       "youth_corrected": 130,
       "dates": "1545?-1596",
       "person_id": "francis-drake",
-      "wikidata_id": "Q36517"
+      "wikidata_id": "Q36517",
+      "group": "A",
+      "rank": 182,
+      "ai": 105,
+      "ai_pe": 11,
+      "ai_grade": 7,
+      "ai_reliability": 0.0,
+      "aii": 110,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:4-5-8": {
       "name": "J. V. M. Moreau",
@@ -1830,7 +3658,17 @@
       "youth_corrected": 145,
       "dates": "1763-1813",
       "person_id": "jean-victor-moreau",
-      "wikidata_id": "Q333806"
+      "wikidata_id": "Q333806",
+      "group": "A",
+      "rank": 183,
+      "ai": 110,
+      "ai_pe": 13,
+      "ai_grade": 7,
+      "ai_reliability": 0.0,
+      "aii": 125,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:2-5-7": {
       "name": "Michael Faraday",
@@ -1840,7 +3678,17 @@
       "youth_corrected": 170,
       "dates": "1791-1867",
       "person_id": "michael-faraday",
-      "wikidata_id": "Q8750"
+      "wikidata_id": "Q8750",
+      "group": "A",
+      "rank": 184,
+      "ai": 105,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:4-5-6": {
       "name": "Tom Moore",
@@ -1850,7 +3698,17 @@
       "youth_corrected": 150,
       "dates": "1779-1852",
       "person_id": "thomas-moore",
-      "wikidata_id": "Q315346"
+      "wikidata_id": "Q315346",
+      "group": "A",
+      "rank": 185,
+      "ai": 140,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 140,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:2-2-2": {
       "name": "Samuel Clarke",
@@ -1860,7 +3718,17 @@
       "youth_corrected": 160,
       "dates": "1675-1729",
       "person_id": "samuel-clarke",
-      "wikidata_id": "Q381073"
+      "wikidata_id": "Q381073",
+      "group": "A",
+      "rank": 186,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:2-1-8": {
       "name": "William E. Channing",
@@ -1870,7 +3738,17 @@
       "youth_corrected": 160,
       "dates": "1780-1842",
       "person_id": "william-ellery-channing",
-      "wikidata_id": "Q1352783"
+      "wikidata_id": "Q1352783",
+      "group": "A",
+      "rank": 187,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 150,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:6-3-7": {
       "name": "Richard Wagner",
@@ -1880,7 +3758,17 @@
       "youth_corrected": 170,
       "dates": "1813-1883",
       "person_id": "richard-wagner",
-      "wikidata_id": "Q1511"
+      "wikidata_id": "Q1511",
+      "group": "A",
+      "rank": 188,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:5-3-1": {
       "name": "Joseph Priestley",
@@ -1890,7 +3778,17 @@
       "youth_corrected": 165,
       "dates": "1733-1804",
       "person_id": "joseph-priestley",
-      "wikidata_id": "Q159636"
+      "wikidata_id": "Q159636",
+      "group": "A",
+      "rank": 189,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 150,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:6-2-4": {
       "name": "W. M. Thackeray",
@@ -1900,7 +3798,17 @@
       "youth_corrected": 150,
       "dates": "1811-1863",
       "person_id": "william-makepeace-thackeray",
-      "wikidata_id": "Q167768"
+      "wikidata_id": "Q167768",
+      "group": "A",
+      "rank": 190,
+      "ai": 135,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 140,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:2-3-2": {
       "name": "Nicolaus Copernicus",
@@ -1910,7 +3818,17 @@
       "youth_corrected": 160,
       "dates": "1473-1543",
       "person_id": "nicolaus-copernicus",
-      "wikidata_id": "Q619"
+      "wikidata_id": "Q619",
+      "group": "A",
+      "rank": 191,
+      "ai": 105,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 130,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-3-10": {
       "name": "Gebhard L. von Blücher",
@@ -1920,7 +3838,17 @@
       "youth_corrected": 145,
       "dates": "1742-1819",
       "person_id": "gebhard-leberecht-von-blucher",
-      "wikidata_id": "Q153522"
+      "wikidata_id": "Q153522",
+      "group": "A",
+      "rank": 192,
+      "ai": 110,
+      "ai_pe": 13,
+      "ai_grade": 7,
+      "ai_reliability": 0.0,
+      "aii": 125,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:6-1-4": {
       "name": "Nicolas J. de D. Soult",
@@ -1930,7 +3858,17 @@
       "youth_corrected": 150,
       "dates": "1769-1851",
       "person_id": "jean-de-dieu-soult",
-      "wikidata_id": "Q296023"
+      "wikidata_id": "Q296023",
+      "group": "A",
+      "rank": 193,
+      "ai": 115,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 130,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:2-1-4": {
       "name": "Lazare Carnot",
@@ -1940,7 +3878,17 @@
       "youth_corrected": 170,
       "dates": "1753-1823",
       "person_id": "lazare-carnot",
-      "wikidata_id": "Q310767"
+      "wikidata_id": "Q310767",
+      "group": "A",
+      "rank": 194,
+      "ai": 150,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:1-5-5": {
       "name": "de la Barca, Pedro Calderón",
@@ -1950,7 +3898,17 @@
       "youth_corrected": 170,
       "dates": "1600-1681",
       "person_id": "pedro-calderon-de-la-barca",
-      "wikidata_id": "Q170800"
+      "wikidata_id": "Q170800",
+      "group": "A",
+      "rank": 195,
+      "ai": 140,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 140,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-4-2": {
       "name": "Simon Bolivar",
@@ -1960,7 +3918,17 @@
       "youth_corrected": 155,
       "dates": "1783-1830",
       "person_id": "simon-bolivar",
-      "wikidata_id": "Q8605"
+      "wikidata_id": "Q8605",
+      "group": "A",
+      "rank": 196,
+      "ai": 125,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 135,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:1-1-7": {
       "name": "Ali Weli Zade",
@@ -1970,7 +3938,17 @@
       "youth_corrected": 155,
       "dates": "1741-1822",
       "person_id": "ali-pasha-of-ioannina",
-      "wikidata_id": "Q297285"
+      "wikidata_id": "Q297285",
+      "group": "A",
+      "rank": 197,
+      "ai": 120,
+      "ai_pe": 17,
+      "ai_grade": 7,
+      "ai_reliability": 0.0,
+      "aii": 120,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:3-3-10": {
       "name": "Heinrich Heine",
@@ -1980,7 +3958,17 @@
       "youth_corrected": 165,
       "dates": "1797?-1856",
       "person_id": "heinrich-heine",
-      "wikidata_id": "Q44403"
+      "wikidata_id": "Q44403",
+      "group": "A",
+      "rank": 198,
+      "ai": 130,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:1-4-4": {
       "name": "Robert Boyle",
@@ -1990,7 +3978,17 @@
       "youth_corrected": 160,
       "dates": "1626-1691",
       "person_id": "robert-boyle",
-      "wikidata_id": "Q43393"
+      "wikidata_id": "Q43393",
+      "group": "A",
+      "rank": 199,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:6-4-5": {
       "name": "John Wesley",
@@ -2000,7 +3998,17 @@
       "youth_corrected": 160,
       "dates": "1703-1791",
       "person_id": "john-wesley",
-      "wikidata_id": "Q213393"
+      "wikidata_id": "Q213393",
+      "group": "A",
+      "rank": 200,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:5-2-9": {
       "name": "Nicolas Poussin",
@@ -2010,7 +4018,17 @@
       "youth_corrected": 145,
       "dates": "1594-1665",
       "person_id": "nicolas-poussin",
-      "wikidata_id": "Q41554"
+      "wikidata_id": "Q41554",
+      "group": "A",
+      "rank": 201,
+      "ai": 105,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 115,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:6-4-9": {
       "name": "J. J. Winckelmann",
@@ -2020,7 +4038,17 @@
       "youth_corrected": 165,
       "dates": "1717-1768",
       "person_id": "johann-joachim-winckelmann",
-      "wikidata_id": "Q57280"
+      "wikidata_id": "Q57280",
+      "group": "A",
+      "rank": 202,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:6-1-1": {
       "name": "R. B. Sheridan",
@@ -2030,7 +4058,17 @@
       "youth_corrected": 165,
       "dates": "1751-1816",
       "person_id": "richard-brinsley-sheridan",
-      "wikidata_id": "Q352725"
+      "wikidata_id": "Q352725",
+      "group": "A",
+      "rank": 203,
+      "ai": 130,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:6-4-3": {
       "name": "Karl Maria von Weber",
@@ -2040,7 +4078,17 @@
       "youth_corrected": 165,
       "dates": "1786-1826",
       "person_id": "carl-maria-von-weber",
-      "wikidata_id": "Q154812"
+      "wikidata_id": "Q154812",
+      "group": "A",
+      "rank": 204,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:3-3-4": {
       "name": "William Hamilton",
@@ -2050,7 +4098,17 @@
       "youth_corrected": 170,
       "dates": "1788-1856",
       "person_id": "william-hamilton-philosopher",
-      "wikidata_id": "Q15474"
+      "wikidata_id": "Q15474",
+      "group": "A",
+      "rank": 205,
+      "ai": 140,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 160,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:5-5-9": {
       "name": "A. A. Shaftesbury",
@@ -2060,7 +4118,17 @@
       "youth_corrected": 165,
       "dates": "1621-1683",
       "person_id": "anthony-ashley-cooper-1st-earl-of-shaftesbury",
-      "wikidata_id": "Q336002"
+      "wikidata_id": "Q336002",
+      "group": "A",
+      "rank": 206,
+      "ai": 125,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 130,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:1-4-5": {
       "name": "John Bright",
@@ -2070,7 +4138,17 @@
       "youth_corrected": 150,
       "dates": "1811-1889",
       "person_id": "john-bright",
-      "wikidata_id": "Q176524"
+      "wikidata_id": "Q176524",
+      "group": "A",
+      "rank": 207,
+      "ai": 125,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 130,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:1-4-1": {
       "name": "Hermann Boerhaave",
@@ -2080,7 +4158,17 @@
       "youth_corrected": 165,
       "dates": "1668-1738",
       "person_id": "herman-boerhaave",
-      "wikidata_id": "Q313093"
+      "wikidata_id": "Q313093",
+      "group": "A",
+      "rank": 208,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 150,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:3-5-2": {
       "name": "Washington Irving",
@@ -2090,7 +4178,17 @@
       "youth_corrected": 170,
       "dates": "1783-1859",
       "person_id": "washington-irving",
-      "wikidata_id": "Q181667"
+      "wikidata_id": "Q181667",
+      "group": "A",
+      "rank": 209,
+      "ai": 130,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 145,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:4-4-1": {
       "name": "André Masséna",
@@ -2100,7 +4198,17 @@
       "youth_corrected": 125,
       "dates": "1758-1817",
       "person_id": "andre-massena",
-      "wikidata_id": "Q242609"
+      "wikidata_id": "Q242609",
+      "group": "A",
+      "rank": 210,
+      "ai": 100,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 105,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:2-2-11": {
       "name": "de Rebecque, H. B. Constant",
@@ -2110,7 +4218,17 @@
       "youth_corrected": 170,
       "dates": "1767-1830",
       "person_id": "benjamin-constant",
-      "wikidata_id": "Q123089"
+      "wikidata_id": "Q123089",
+      "group": "A",
+      "rank": 211,
+      "ai": 165,
+      "ai_pe": 4,
+      "ai_grade": 3,
+      "ai_reliability": 0.82,
+      "aii": 160,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:5-3-8": {
       "name": "Johann Reuchlin",
@@ -2120,7 +4238,17 @@
       "youth_corrected": 170,
       "dates": "1455-1522",
       "person_id": "johann-reuchlin",
-      "wikidata_id": "Q61067"
+      "wikidata_id": "Q61067",
+      "group": "A",
+      "rank": 212,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:5-4-8": {
       "name": "C. A. Sainte-Beuve",
@@ -2130,7 +4258,17 @@
       "youth_corrected": 165,
       "dates": "1804-1869",
       "person_id": "charles-augustin-sainte-beuve",
-      "wikidata_id": "Q1063392"
+      "wikidata_id": "Q1063392",
+      "group": "A",
+      "rank": 213,
+      "ai": 145,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 155,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:1-2-7": {
       "name": "Richard Baxter",
@@ -2140,7 +4278,17 @@
       "youth_corrected": 155,
       "dates": "1615-1691",
       "person_id": "richard-baxter",
-      "wikidata_id": "Q680070"
+      "wikidata_id": "Q680070",
+      "group": "A",
+      "rank": 214,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 135,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:3-4-8": {
       "name": "Wilhelm von Humboldt",
@@ -2150,7 +4298,17 @@
       "youth_corrected": 175,
       "dates": "1767-1835",
       "person_id": "wilhelm-von-humboldt",
-      "wikidata_id": "Q77888"
+      "wikidata_id": "Q77888",
+      "group": "A",
+      "rank": 215,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 165,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:3-5-6": {
       "name": "Edward Jenner",
@@ -2160,7 +4318,17 @@
       "youth_corrected": 165,
       "dates": "1749-1823",
       "person_id": "edward-jenner",
-      "wikidata_id": "Q40852"
+      "wikidata_id": "Q40852",
+      "group": "A",
+      "rank": 216,
+      "ai": 125,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:4-2-6": {
       "name": "Justus Liebig",
@@ -2170,7 +4338,17 @@
       "youth_corrected": 180,
       "dates": "1803-1873",
       "person_id": "justus-von-liebig",
-      "wikidata_id": "Q16571"
+      "wikidata_id": "Q16571",
+      "group": "A",
+      "rank": 217,
+      "ai": 125,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 165,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:5-1-1": {
       "name": "Bartolomé Murillo",
@@ -2180,7 +4358,17 @@
       "youth_corrected": 150,
       "dates": "1617-1682",
       "person_id": "bartolome-esteban-murillo",
-      "wikidata_id": "Q192062"
+      "wikidata_id": "Q192062",
+      "group": "A",
+      "rank": 218,
+      "ai": 110,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 120,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:1-1-4": {
       "name": "J. Louis Agassiz",
@@ -2190,7 +4378,17 @@
       "youth_corrected": 175,
       "dates": "1807-1873",
       "person_id": "louis-agassiz",
-      "wikidata_id": "Q122972"
+      "wikidata_id": "Q122972",
+      "group": "A",
+      "rank": 219,
+      "ai": 140,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 160,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:4-4-4": {
       "name": "Mehemet Ali",
@@ -2200,7 +4398,17 @@
       "youth_corrected": 145,
       "dates": "1769-1849",
       "person_id": "muhammad-ali-of-egypt",
-      "wikidata_id": "Q182781"
+      "wikidata_id": "Q182781",
+      "group": "A",
+      "rank": 220,
+      "ai": 105,
+      "ai_pe": 11,
+      "ai_grade": 7,
+      "ai_reliability": 0.0,
+      "aii": 110,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:6-5-1": {
       "name": "Thomas Wolsey",
@@ -2212,7 +4420,17 @@
       "person_id": "thomas-wolsey",
       "candidate_identity_source": "https://www.hrp.org.uk/hampton-court-palace/history-and-stories/thomas-wolsey/",
       "identity_note": "Cox 标为 1475 年出生，Historic Royal Palaces 将其生年记为 1470 年代早期，具体年份不详。",
-      "wikidata_id": "Q206512"
+      "wikidata_id": "Q206512",
+      "group": "A",
+      "rank": 221,
+      "ai": 165,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 165,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:3-5-4": {
       "name": "Cornelis Jansen",
@@ -2222,7 +4440,17 @@
       "youth_corrected": 160,
       "dates": "1585-1638",
       "person_id": "cornelius-jansen",
-      "wikidata_id": "Q318943"
+      "wikidata_id": "Q318943",
+      "group": "A",
+      "rank": 222,
+      "ai": 110,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:4-1-9": {
       "name": "A. L. Lavoisier",
@@ -2232,7 +4460,17 @@
       "youth_corrected": 170,
       "dates": "1743-1794",
       "person_id": "antoine-lavoisier",
-      "wikidata_id": "Q39607"
+      "wikidata_id": "Q39607",
+      "group": "A",
+      "rank": 223,
+      "ai": 120,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:6-3-9": {
       "name": "Robert Walpole",
@@ -2242,7 +4480,17 @@
       "youth_corrected": 155,
       "dates": "1676-1745",
       "person_id": "robert-walpole",
-      "wikidata_id": "Q104190"
+      "wikidata_id": "Q104190",
+      "group": "A",
+      "rank": 224,
+      "ai": 125,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 130,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:3-4-5": {
       "name": "William Hogarth",
@@ -2252,7 +4500,17 @@
       "youth_corrected": 145,
       "dates": "1697-1764",
       "person_id": "william-hogarth",
-      "wikidata_id": "Q171344"
+      "wikidata_id": "Q171344",
+      "group": "A",
+      "rank": 225,
+      "ai": 110,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 115,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:1-3-8": {
       "name": "Marie François Bichat",
@@ -2262,7 +4520,17 @@
       "youth_corrected": 175,
       "dates": "1771-1802",
       "person_id": "xavier-bichat",
-      "wikidata_id": "Q333489"
+      "wikidata_id": "Q333489",
+      "group": "A",
+      "rank": 226,
+      "ai": 140,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:6-1-2": {
       "name": "William T. Sherman",
@@ -2272,7 +4540,17 @@
       "youth_corrected": 145,
       "dates": "1820-1891",
       "person_id": "william-tecumseh-sherman",
-      "wikidata_id": "Q188936"
+      "wikidata_id": "Q188936",
+      "group": "A",
+      "rank": 227,
+      "ai": 125,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 135,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:5-4-7": {
       "name": "C. H. St. Simon",
@@ -2282,7 +4560,17 @@
       "youth_corrected": 165,
       "dates": "1760-1825",
       "person_id": "henri-de-saint-simon",
-      "wikidata_id": "Q82934"
+      "wikidata_id": "Q82934",
+      "group": "A",
+      "rank": 228,
+      "ai": 130,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 135,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:6-4-8": {
       "name": "John Wilkes",
@@ -2294,7 +4582,17 @@
       "person_id": "john-wilkes",
       "candidate_identity_source": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/houseofcommons/reformacts/overview/wilkeslib1/",
       "identity_note": "Cox 标为 1727 年出生，英国议会记为 1725 年。",
-      "wikidata_id": "Q333127"
+      "wikidata_id": "Q333127",
+      "group": "A",
+      "rank": 229,
+      "ai": 120,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 125,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:4-4-6": {
       "name": "Felix Mendelssohn",
@@ -2304,7 +4602,17 @@
       "youth_corrected": 165,
       "dates": "1809-1847",
       "person_id": "felix-mendelssohn",
-      "wikidata_id": "Q46096"
+      "wikidata_id": "Q46096",
+      "group": "A",
+      "rank": 230,
+      "ai": 150,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 155,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:2-2-4": {
       "name": "William Cobbett",
@@ -2314,7 +4622,17 @@
       "youth_corrected": 150,
       "dates": "1763?-1835",
       "person_id": "william-cobbett",
-      "wikidata_id": "Q2141938"
+      "wikidata_id": "Q2141938",
+      "group": "A",
+      "rank": 231,
+      "ai": 105,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 125,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-2-5": {
       "name": "J. S. Bailly",
@@ -2324,7 +4642,17 @@
       "youth_corrected": 180,
       "dates": "1736-1793",
       "person_id": "jean-sylvain-bailly",
-      "wikidata_id": "Q1685301"
+      "wikidata_id": "Q1685301",
+      "group": "A",
+      "rank": 232,
+      "ai": 145,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 160,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:2-5-4": {
       "name": "Ralph Waldo Emerson",
@@ -2334,7 +4662,17 @@
       "youth_corrected": 155,
       "dates": "1803-1882",
       "person_id": "ralph-waldo-emerson",
-      "wikidata_id": "Q48226"
+      "wikidata_id": "Q48226",
+      "group": "A",
+      "rank": 233,
+      "ai": 145,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 145,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:6-3-1": {
       "name": "Sebastian de Vauban",
@@ -2344,7 +4682,17 @@
       "youth_corrected": 140,
       "dates": "1633-1707",
       "person_id": "sebastien-le-prestre-de-vauban",
-      "wikidata_id": "Q192839"
+      "wikidata_id": "Q192839",
+      "group": "A",
+      "rank": 234,
+      "ai": 100,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 125,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-2-8": {
       "name": "Pierre Bayle",
@@ -2354,7 +4702,17 @@
       "youth_corrected": 165,
       "dates": "1647-1706",
       "person_id": "pierre-bayle",
-      "wikidata_id": "Q214816"
+      "wikidata_id": "Q214816",
+      "group": "A",
+      "rank": 235,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:6-2-6": {
       "name": "J. A. de Thou",
@@ -2364,7 +4722,17 @@
       "youth_corrected": 175,
       "dates": "1553-1617",
       "person_id": "jacques-auguste-de-thou",
-      "wikidata_id": "Q1312086"
+      "wikidata_id": "Q1312086",
+      "group": "A",
+      "rank": 236,
+      "ai": 125,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 135,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:4-4-7": {
       "name": "Metastasio (P. A. D. B. Trapassi)",
@@ -2374,7 +4742,17 @@
       "youth_corrected": 170,
       "dates": "1698-1782",
       "person_id": "pietro-metastasio",
-      "wikidata_id": "Q29473"
+      "wikidata_id": "Q29473",
+      "group": "A",
+      "rank": 237,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:4-2-5": {
       "name": "Michel de L'Hôpital",
@@ -2386,7 +4764,17 @@
       "person_id": "michel-de-lhopital",
       "candidate_identity_source": "https://catalogue.bnf.fr/ark:/12148/cb119971716",
       "identity_note": "法国国家图书馆收录 L’Hôpital 别名，也保留 1505 年的替代生年。",
-      "wikidata_id": "Q551804"
+      "wikidata_id": "Q551804",
+      "group": "A",
+      "rank": 238,
+      "ai": 115,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 135,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:4-3-8": {
       "name": "Jean Paul Marat",
@@ -2396,7 +4784,17 @@
       "youth_corrected": 170,
       "dates": "1743-1793",
       "person_id": "jean-paul-marat",
-      "wikidata_id": "Q122290"
+      "wikidata_id": "Q122290",
+      "group": "A",
+      "rank": 239,
+      "ai": 130,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 130,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:3-2-10": {
       "name": "Francesco Guicciardini",
@@ -2406,7 +4804,17 @@
       "youth_corrected": 165,
       "dates": "1483-1540",
       "person_id": "francesco-guicciardini",
-      "wikidata_id": "Q44601"
+      "wikidata_id": "Q44601",
+      "group": "A",
+      "rank": 240,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 140,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-3-6": {
       "name": "John Jacob Berzelius",
@@ -2416,7 +4824,17 @@
       "youth_corrected": 160,
       "dates": "1779-1848",
       "person_id": "jons-jacob-berzelius",
-      "wikidata_id": "Q151911"
+      "wikidata_id": "Q151911",
+      "group": "A",
+      "rank": 241,
+      "ai": 120,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:5-4-10": {
       "name": "Pietro Sarpi",
@@ -2426,7 +4844,17 @@
       "youth_corrected": 195,
       "dates": "1552-1623",
       "person_id": "pietro-sarpi",
-      "wikidata_id": "Q1349158"
+      "wikidata_id": "Q1349158",
+      "group": "A",
+      "rank": 242,
+      "ai": 165,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 175,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:6-3-4": {
       "name": "Pierre Vergniaud",
@@ -2436,7 +4864,17 @@
       "youth_corrected": 170,
       "dates": "1753-1793",
       "person_id": "pierre-vergniaud",
-      "wikidata_id": "Q747460"
+      "wikidata_id": "Q747460",
+      "group": "A",
+      "rank": 243,
+      "ai": 130,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 135,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:6-4-7": {
       "name": "William Wilberforce",
@@ -2446,7 +4884,17 @@
       "youth_corrected": 155,
       "dates": "1759-1833",
       "person_id": "william-wilberforce",
-      "wikidata_id": "Q207672"
+      "wikidata_id": "Q207672",
+      "group": "A",
+      "rank": 244,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 130,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:6-2-7": {
       "name": "Ludwig Tieck",
@@ -2456,7 +4904,17 @@
       "youth_corrected": 165,
       "dates": "1773-1853",
       "person_id": "ludwig-tieck",
-      "wikidata_id": "Q57239"
+      "wikidata_id": "Q57239",
+      "group": "A",
+      "rank": 245,
+      "ai": 155,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 155,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:1-1-8": {
       "name": "Lancelot Andrewes",
@@ -2466,7 +4924,17 @@
       "youth_corrected": 160,
       "dates": "1555-1626",
       "person_id": "lancelot-andrewes",
-      "wikidata_id": "Q1801816"
+      "wikidata_id": "Q1801816",
+      "group": "A",
+      "rank": 246,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:5-1-10": {
       "name": "Daniel O'Connell",
@@ -2476,7 +4944,17 @@
       "youth_corrected": 155,
       "dates": "1775-1847",
       "person_id": "daniel-oconnell",
-      "wikidata_id": "Q314917"
+      "wikidata_id": "Q314917",
+      "group": "A",
+      "rank": 247,
+      "ai": 145,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 145,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:1-5-2": {
       "name": "Thomas Burnet",
@@ -2488,7 +4966,17 @@
       "person_id": "gilbert-burnet",
       "identity_note": "原书 PDF 第 506 页传记与第 814 页表 12A 索引均明确为 Gilbert Burnet；转录姓名 Thomas Burnet 按原样留存。",
       "wikidata_id": "Q2250014",
-      "identity_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=506"
+      "identity_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=506",
+      "group": "A",
+      "rank": 248,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:5-3-9": {
       "name": "Joshua Reynolds",
@@ -2498,7 +4986,17 @@
       "youth_corrected": 145,
       "dates": "1723-1792",
       "person_id": "joshua-reynolds",
-      "wikidata_id": "Q194402"
+      "wikidata_id": "Q194402",
+      "group": "A",
+      "rank": 249,
+      "ai": 125,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 125,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:5-5-8": {
       "name": "W. H. Seward",
@@ -2508,7 +5006,17 @@
       "youth_corrected": 155,
       "dates": "1801-1872",
       "person_id": "william-henry-seward",
-      "wikidata_id": "Q297308"
+      "wikidata_id": "Q297308",
+      "group": "A",
+      "rank": 250,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:3-1-6": {
       "name": "John Franklin",
@@ -2518,7 +5026,17 @@
       "youth_corrected": 150,
       "dates": "1786-1847",
       "person_id": "john-franklin",
-      "wikidata_id": "Q2655"
+      "wikidata_id": "Q2655",
+      "group": "A",
+      "rank": 251,
+      "ai": 135,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 135,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:2-5-1": {
       "name": "Dumas, Alexandre (Père)",
@@ -2528,7 +5046,17 @@
       "youth_corrected": 170,
       "dates": "1802-1870",
       "person_id": "alexandre-dumas",
-      "wikidata_id": "Q38337"
+      "wikidata_id": "Q38337",
+      "group": "A",
+      "rank": 252,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:1-5-8": {
       "name": "Tommaso Campanella",
@@ -2538,7 +5066,17 @@
       "youth_corrected": 185,
       "dates": "1568-1639",
       "person_id": "tommaso-campanella",
-      "wikidata_id": "Q191850"
+      "wikidata_id": "Q191850",
+      "group": "A",
+      "rank": 253,
+      "ai": 145,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 155,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-2-1": {
       "name": "Antoine Arnauld",
@@ -2548,7 +5086,17 @@
       "youth_corrected": 190,
       "dates": "1612-1694",
       "person_id": "antoine-arnauld",
-      "wikidata_id": "Q353887"
+      "wikidata_id": "Q353887",
+      "group": "A",
+      "rank": 254,
+      "ai": 135,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 160,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-2-6": {
       "name": "Honoré de Balzac",
@@ -2558,7 +5106,17 @@
       "youth_corrected": 155,
       "dates": "1799-1850",
       "person_id": "honore-de-balzac",
-      "wikidata_id": "Q9711"
+      "wikidata_id": "Q9711",
+      "group": "A",
+      "rank": 255,
+      "ai": 130,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 145,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:5-3-7": {
       "name": "Ernest Renan",
@@ -2568,7 +5126,17 @@
       "youth_corrected": 170,
       "dates": "1823-1892",
       "person_id": "ernest-renan",
-      "wikidata_id": "Q157155"
+      "wikidata_id": "Q157155",
+      "group": "A",
+      "rank": 256,
+      "ai": 150,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 160,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:1-3-9": {
       "name": "Robert Blake",
@@ -2578,7 +5146,17 @@
       "youth_corrected": 150,
       "dates": "1599-1657",
       "person_id": "robert-blake",
-      "wikidata_id": "Q320959"
+      "wikidata_id": "Q320959",
+      "group": "A",
+      "rank": 257,
+      "ai": 125,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 130,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:5-5-2": {
       "name": "J. J. Scaliger",
@@ -2588,7 +5166,17 @@
       "youth_corrected": 180,
       "dates": "1540-1609",
       "person_id": "joseph-justus-scaliger",
-      "wikidata_id": "Q315163"
+      "wikidata_id": "Q315163",
+      "group": "A",
+      "rank": 258,
+      "ai": 120,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 155,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:2-1-2": {
       "name": "Jerome Cardan",
@@ -2598,7 +5186,17 @@
       "youth_corrected": 175,
       "dates": "1501-1576",
       "person_id": "gerolamo-cardano",
-      "wikidata_id": "Q184530"
+      "wikidata_id": "Q184530",
+      "group": "A",
+      "rank": 259,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 155,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:2-3-6": {
       "name": "William Cowper",
@@ -2608,7 +5206,17 @@
       "youth_corrected": 160,
       "dates": "1731-1800",
       "person_id": "william-cowper",
-      "wikidata_id": "Q315537"
+      "wikidata_id": "Q315537",
+      "group": "A",
+      "rank": 260,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:5-1-2": {
       "name": "Alfred de Musset",
@@ -2618,7 +5226,17 @@
       "youth_corrected": 180,
       "dates": "1810-1857",
       "person_id": "alfred-de-musset",
-      "wikidata_id": "Q179680"
+      "wikidata_id": "Q179680",
+      "group": "A",
+      "rank": 261,
+      "ai": 160,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 170,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:3-4-1": {
       "name": "C. A. Helvetius",
@@ -2628,7 +5246,17 @@
       "youth_corrected": 160,
       "dates": "1715-1771",
       "person_id": "claude-adrien-helvetius",
-      "wikidata_id": "Q190302"
+      "wikidata_id": "Q190302",
+      "group": "A",
+      "rank": 262,
+      "ai": 125,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 135,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-5-9": {
       "name": "A. P. de Candolle",
@@ -2638,7 +5266,17 @@
       "youth_corrected": 170,
       "dates": "1778-1841",
       "person_id": "augustin-pyramus-de-candolle",
-      "wikidata_id": "Q123057"
+      "wikidata_id": "Q123057",
+      "group": "A",
+      "rank": 263,
+      "ai": 140,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:6-2-2": {
       "name": "William Temple",
@@ -2650,7 +5288,17 @@
       "person_id": "william-temple",
       "candidate_identity_source": "https://academic.oup.com/oxford-dictionary-of-national-biography/reference/63486/reference-article-abstract/582884911",
       "identity_note": "1628–1699 对应英格兰外交官 Sir William Temple。",
-      "wikidata_id": "Q2248538"
+      "wikidata_id": "Q2248538",
+      "group": "A",
+      "rank": 264,
+      "ai": 130,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 120,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:5-2-1": {
       "name": "G. P. da Palestrina",
@@ -2660,7 +5308,17 @@
       "youth_corrected": 155,
       "dates": "1525-1594",
       "person_id": "giovanni-pierluigi-da-palestrina",
-      "wikidata_id": "Q179277"
+      "wikidata_id": "Q179277",
+      "group": "A",
+      "rank": 265,
+      "ai": 110,
+      "ai_pe": 13,
+      "ai_grade": 7,
+      "ai_reliability": 0.0,
+      "aii": 120,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:5-4-1": {
       "name": "William Robertson",
@@ -2670,7 +5328,17 @@
       "youth_corrected": 165,
       "dates": "1721-1793",
       "person_id": "william-robertson",
-      "wikidata_id": "Q1113461"
+      "wikidata_id": "Q1113461",
+      "group": "A",
+      "rank": 266,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 140,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:6-1-8": {
       "name": "D. F. Strauss",
@@ -2680,7 +5348,17 @@
       "youth_corrected": 170,
       "dates": "1808-1874",
       "person_id": "david-friedrich-strauss",
-      "wikidata_id": "Q57219"
+      "wikidata_id": "Q57219",
+      "group": "A",
+      "rank": 267,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 160,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:4-1-3": {
       "name": "August von Kotzebue",
@@ -2690,7 +5368,17 @@
       "youth_corrected": 170,
       "dates": "1761-1819",
       "person_id": "august-von-kotzebue",
-      "wikidata_id": "Q57242"
+      "wikidata_id": "Q57242",
+      "group": "A",
+      "rank": 268,
+      "ai": 145,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 150,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:1-2-3": {
       "name": "J. Sebastian Bach",
@@ -2700,7 +5388,17 @@
       "youth_corrected": 165,
       "dates": "1685-1750",
       "person_id": "johann-sebastian-bach",
-      "wikidata_id": "Q1339"
+      "wikidata_id": "Q1339",
+      "group": "A",
+      "rank": 269,
+      "ai": 125,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 140,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:4-3-5": {
       "name": "James Madison",
@@ -2710,7 +5408,17 @@
       "youth_corrected": 160,
       "dates": "1751-1836",
       "person_id": "james-madison",
-      "wikidata_id": "Q11813"
+      "wikidata_id": "Q11813",
+      "group": "A",
+      "rank": 270,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 135,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:2-5-2": {
       "name": "A. M. J. J. Dupin",
@@ -2720,7 +5428,17 @@
       "youth_corrected": 160,
       "dates": "1783-1865",
       "person_id": "andre-dupin",
-      "wikidata_id": "Q652688"
+      "wikidata_id": "Q652688",
+      "group": "A",
+      "rank": 271,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:6-4-10": {
       "name": "Friedrich August Wolf",
@@ -2730,7 +5448,17 @@
       "youth_corrected": 175,
       "dates": "1759-1824",
       "person_id": "friedrich-august-wolf",
-      "wikidata_id": "Q65337"
+      "wikidata_id": "Q65337",
+      "group": "A",
+      "rank": 272,
+      "ai": 155,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 165,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12A:2-5-8": {
       "name": "David G. Farragut",
@@ -2740,7 +5468,17 @@
       "youth_corrected": 135,
       "dates": "1801-1870",
       "person_id": "david-farragut",
-      "wikidata_id": "Q315607"
+      "wikidata_id": "Q315607",
+      "group": "A",
+      "rank": 273,
+      "ai": 120,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 120,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12A:1-1-2": {
       "name": "John Quincy Adams",
@@ -2750,7 +5488,17 @@
       "youth_corrected": 175,
       "dates": "1767-1848",
       "person_id": "john-quincy-adams",
-      "wikidata_id": "Q11816"
+      "wikidata_id": "Q11816",
+      "group": "A",
+      "rank": 274,
+      "ai": 165,
+      "ai_pe": 4,
+      "ai_grade": 3,
+      "ai_reliability": 0.82,
+      "aii": 165,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12A:3-2-3": {
       "name": "Christopher Gluck",
@@ -2760,7 +5508,17 @@
       "youth_corrected": 145,
       "dates": "1714-1787",
       "person_id": "christoph-willibald-gluck",
-      "wikidata_id": "Q130759"
+      "wikidata_id": "Q130759",
+      "group": "A",
+      "rank": 275,
+      "ai": 110,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 115,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:3-2-8": {
       "name": "George Grote",
@@ -2770,7 +5528,17 @@
       "youth_corrected": 160,
       "dates": "1794-1871",
       "person_id": "george-grote",
-      "wikidata_id": "Q1364848"
+      "wikidata_id": "Q1364848",
+      "group": "A",
+      "rank": 276,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:1-4-10": {
       "name": "John Bunyan",
@@ -2780,7 +5548,17 @@
       "youth_corrected": 160,
       "dates": "1628-1688",
       "person_id": "john-bunyan",
-      "wikidata_id": "Q108206"
+      "wikidata_id": "Q108206",
+      "group": "A",
+      "rank": 277,
+      "ai": 105,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 120,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12A:3-2-7": {
       "name": "Jakob L. Grimm",
@@ -2790,7 +5568,17 @@
       "youth_corrected": 160,
       "dates": "1785-1863",
       "person_id": "jacob-grimm",
-      "wikidata_id": "Q6701"
+      "wikidata_id": "Q6701",
+      "group": "A",
+      "rank": 278,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12A:2-2-1": {
       "name": "Chesterfield, Earl of (P. D. Stanhope)",
@@ -2800,7 +5588,17 @@
       "youth_corrected": 160,
       "dates": "1694-1773",
       "person_id": "philip-dormer-stanhope",
-      "wikidata_id": "Q332487"
+      "wikidata_id": "Q332487",
+      "group": "A",
+      "rank": 279,
+      "ai": 125,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 135,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12A:4-2-2": {
       "name": "Giacomo Leopardi",
@@ -2810,7 +5608,17 @@
       "youth_corrected": 185,
       "dates": "1798-1837",
       "person_id": "giacomo-leopardi",
-      "wikidata_id": "Q172599"
+      "wikidata_id": "Q172599",
+      "group": "A",
+      "rank": 280,
+      "ai": 170,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 175,
+      "aii_pe": 5,
+      "aii_grade": 3.5,
+      "aii_reliability": 0.75
     },
     "12A:5-4-6": {
       "name": "Gouvion St. Cyr",
@@ -2820,7 +5628,17 @@
       "youth_corrected": 135,
       "dates": "1764-1830",
       "person_id": "laurent-de-gouvion-saint-cyr",
-      "wikidata_id": "Q347652"
+      "wikidata_id": "Q347652",
+      "group": "A",
+      "rank": 281,
+      "ai": 105,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 115,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12A:6-3-10": {
       "name": "William Warburton",
@@ -2830,7 +5648,17 @@
       "youth_corrected": 155,
       "dates": "1698-1779",
       "person_id": "william-warburton",
-      "wikidata_id": "Q1648333"
+      "wikidata_id": "Q1648333",
+      "group": "A",
+      "rank": 282,
+      "ai": 115,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 130,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12B:7-1-6": {
       "name": "Leon Michel Gambetta",
@@ -2840,7 +5668,17 @@
       "youth_corrected": 155,
       "dates": "1838-1882",
       "person_id": "leon-gambetta",
-      "wikidata_id": "Q295090"
+      "wikidata_id": "Q295090",
+      "group": "B",
+      "rank": 1,
+      "ai": 140,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12B:7-2-8": {
       "name": "Robert Southey",
@@ -2850,7 +5688,17 @@
       "youth_corrected": 175,
       "dates": "1774-1843",
       "person_id": "robert-southey",
-      "wikidata_id": "Q216838"
+      "wikidata_id": "Q216838",
+      "group": "B",
+      "rank": 2,
+      "ai": 155,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 155,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12B:7-2-6": {
       "name": "Hans Christian Oersted",
@@ -2860,7 +5708,17 @@
       "youth_corrected": 180,
       "dates": "1777-1851",
       "person_id": "hans-christian-orsted",
-      "wikidata_id": "Q44412"
+      "wikidata_id": "Q44412",
+      "group": "B",
+      "rank": 3,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 5,
+      "ai_reliability": 0.53,
+      "aii": 160,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12B:7-1-9": {
       "name": "Nathaniel Hawthorne",
@@ -2870,7 +5728,17 @@
       "youth_corrected": 155,
       "dates": "1804-1864",
       "person_id": "nathaniel-hawthorne",
-      "wikidata_id": "Q69339"
+      "wikidata_id": "Q69339",
+      "group": "B",
+      "rank": 4,
+      "ai": 140,
+      "ai_pe": 5,
+      "ai_grade": 3.5,
+      "ai_reliability": 0.75,
+      "aii": 135,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12B:7-1-1": {
       "name": "Hans Christian Andersen",
@@ -2880,7 +5748,17 @@
       "youth_corrected": 145,
       "dates": "1805-1875",
       "person_id": "hans-christian-andersen",
-      "wikidata_id": "Q5673"
+      "wikidata_id": "Q5673",
+      "group": "B",
+      "rank": 5,
+      "ai": 115,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 125,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12B:7-1-8": {
       "name": "E. C. S. Gaskell",
@@ -2890,7 +5768,17 @@
       "youth_corrected": 160,
       "dates": "1810-1865",
       "person_id": "elizabeth-gaskell",
-      "wikidata_id": "Q229226"
+      "wikidata_id": "Q229226",
+      "group": "B",
+      "rank": 6,
+      "ai": 110,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 115,
+      "aii_pe": 10,
+      "aii_grade": 6.5,
+      "aii_reliability": 0.11
     },
     "12B:7-2-1": {
       "name": "Robert E. Lee",
@@ -2900,7 +5788,17 @@
       "youth_corrected": 140,
       "dates": "1807-1870",
       "person_id": "robert-e-lee",
-      "wikidata_id": "Q165557"
+      "wikidata_id": "Q165557",
+      "group": "B",
+      "rank": 7,
+      "ai": 130,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 130,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12B:7-1-7": {
       "name": "William Lloyd Garrison",
@@ -2910,7 +5808,17 @@
       "youth_corrected": 145,
       "dates": "1805-1879",
       "person_id": "william-lloyd-garrison",
-      "wikidata_id": "Q360155"
+      "wikidata_id": "Q360155",
+      "group": "B",
+      "rank": 8,
+      "ai": 115,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 130,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12B:7-1-3": {
       "name": "Clarendon, Earl of (George Villiers)",
@@ -2920,7 +5828,17 @@
       "youth_corrected": 160,
       "dates": "1800-1870",
       "person_id": "george-villiers-4th-earl-of-clarendon",
-      "wikidata_id": "Q335305"
+      "wikidata_id": "Q335305",
+      "group": "B",
+      "rank": 9,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 125,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12B:7-1-10": {
       "name": "Ludwig von Holberg",
@@ -2930,7 +5848,17 @@
       "youth_corrected": 165,
       "dates": "1684-1754",
       "person_id": "ludvig-holberg",
-      "wikidata_id": "Q216692"
+      "wikidata_id": "Q216692",
+      "group": "B",
+      "rank": 10,
+      "ai": 120,
+      "ai_pe": 9,
+      "ai_grade": 6,
+      "ai_reliability": 0.2,
+      "aii": 135,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12B:7-2-4": {
       "name": "Hugh Miller",
@@ -2940,7 +5868,17 @@
       "youth_corrected": 155,
       "dates": "1802-1856",
       "person_id": "hugh-miller",
-      "wikidata_id": "Q376090"
+      "wikidata_id": "Q376090",
+      "group": "B",
+      "rank": 11,
+      "ai": 135,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 130,
+      "aii_pe": 7,
+      "aii_grade": 5,
+      "aii_reliability": 0.53
     },
     "12B:7-1-5": {
       "name": "Robert Fulton",
@@ -2950,7 +5888,17 @@
       "youth_corrected": 155,
       "dates": "1765-1815",
       "person_id": "robert-fulton",
-      "wikidata_id": "Q192496"
+      "wikidata_id": "Q192496",
+      "group": "B",
+      "rank": 12,
+      "ai": 105,
+      "ai_pe": 10,
+      "ai_grade": 6.5,
+      "ai_reliability": 0.11,
+      "aii": 115,
+      "aii_pe": 9,
+      "aii_grade": 6,
+      "aii_reliability": 0.2
     },
     "12B:7-1-4": {
       "name": "Eliot, George (Mary Ann Evans)",
@@ -2960,7 +5908,17 @@
       "youth_corrected": 160,
       "dates": "1819-1880",
       "person_id": "george-eliot",
-      "wikidata_id": "Q131333"
+      "wikidata_id": "Q131333",
+      "group": "B",
+      "rank": 13,
+      "ai": 150,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 150,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12B:7-2-5": {
       "name": "John Henry Newman",
@@ -2970,7 +5928,17 @@
       "youth_corrected": 165,
       "dates": "1801-1890",
       "person_id": "john-henry-newman",
-      "wikidata_id": "Q44490"
+      "wikidata_id": "Q44490",
+      "group": "B",
+      "rank": 14,
+      "ai": 155,
+      "ai_pe": 5,
+      "ai_grade": 4,
+      "ai_reliability": 0.75,
+      "aii": 155,
+      "aii_pe": 5,
+      "aii_grade": 4,
+      "aii_reliability": 0.75
     },
     "12B:7-1-2": {
       "name": "Charlotte Brontë",
@@ -2980,7 +5948,17 @@
       "youth_corrected": 165,
       "dates": "1816-1855",
       "person_id": "charlotte-bronte",
-      "wikidata_id": "Q127332"
+      "wikidata_id": "Q127332",
+      "group": "B",
+      "rank": 15,
+      "ai": 155,
+      "ai_pe": 4,
+      "ai_grade": 3,
+      "ai_reliability": 0.82,
+      "aii": 155,
+      "aii_pe": 4,
+      "aii_grade": 3,
+      "aii_reliability": 0.82
     },
     "12B:7-2-9": {
       "name": "Charles Sumner",
@@ -2990,7 +5968,17 @@
       "youth_corrected": 160,
       "dates": "1811-1874",
       "person_id": "charles-sumner",
-      "wikidata_id": "Q1066198"
+      "wikidata_id": "Q1066198",
+      "group": "B",
+      "rank": 16,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 145,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12B:7-2-7": {
       "name": "P. H. Sheridan",
@@ -3000,7 +5988,17 @@
       "youth_corrected": 135,
       "dates": "1831-1888",
       "person_id": "philip-sheridan",
-      "wikidata_id": "Q355452"
+      "wikidata_id": "Q355452",
+      "group": "B",
+      "rank": 17,
+      "ai": 110,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 125,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     },
     "12B:7-2-2": {
       "name": "David Livingstone",
@@ -3010,7 +6008,17 @@
       "youth_corrected": 170,
       "dates": "1813-1873",
       "person_id": "david-livingstone",
-      "wikidata_id": "Q48373"
+      "wikidata_id": "Q48373",
+      "group": "B",
+      "rank": 18,
+      "ai": 135,
+      "ai_pe": 8,
+      "ai_grade": 5.5,
+      "ai_reliability": 0.43,
+      "aii": 140,
+      "aii_pe": 8,
+      "aii_grade": 5.5,
+      "aii_reliability": 0.43
     },
     "12B:7-2-3": {
       "name": "Harriet Martineau",
@@ -3020,7 +6028,17 @@
       "youth_corrected": 160,
       "dates": "1802-1876",
       "person_id": "harriet-martineau",
-      "wikidata_id": "Q234570"
+      "wikidata_id": "Q234570",
+      "group": "B",
+      "rank": 19,
+      "ai": 140,
+      "ai_pe": 7,
+      "ai_grade": 4.5,
+      "ai_reliability": 0.6,
+      "aii": 140,
+      "aii_pe": 7,
+      "aii_grade": 4.5,
+      "aii_reliability": 0.6
     }
   }
 }

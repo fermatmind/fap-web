@@ -24,9 +24,9 @@ export default async function Page({ params }: Props) {
   const locale = traditional ? "zh" : resolveLocale(input);
   const copy = traditional ? await loadTraditionalAssessmentText() : (text: string) => text;
   const displayLocale = traditional ? "zh-TW" : locale;
-  const document = <QuestionnaireTakeDocument locale={locale} landing={globalHistoryPath(displayLocale)}
+  const engine = <GlobalHistoryTake locale={locale} />;
+  return <QuestionnaireTakeDocument locale={locale} landing={globalHistoryPath(displayLocale)}
     quiz={{ title: { ...globalHistoryTitle, [locale]: copy(globalHistoryTitle[locale]) }, minutes: GLOBAL_HISTORY_MINUTES }} autoStart={false}>
-    <GlobalHistoryTake locale={locale} />
+    {traditional ? <TraditionalQuestionnaireCopy>{engine}</TraditionalQuestionnaireCopy> : engine}
   </QuestionnaireTakeDocument>;
-  return traditional ? <TraditionalQuestionnaireCopy>{document}</TraditionalQuestionnaireCopy> : document;
 }

@@ -1,3 +1,4 @@
+import { GlobalHistoryTypeFigures } from "@/components/entertainment/GlobalHistoryAtlasLinks";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -203,6 +204,7 @@ export function TraditionalMbtiCurrentReader({ reader }: {
             {reader.canonical === "/zh-TW/personality/intj" && section.key === "work_style"
               ? <TraditionalIntjCareerExploration /> : null}
           </div>)}
+          {slug && <GlobalHistoryTypeFigures locale="zh-TW" type={slug} />}
         </MbtiReaderSections>
       </MbtiReaderColumns>
     </MbtiReaderPage>

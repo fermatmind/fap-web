@@ -6,7 +6,7 @@ export type HistoryPerson = {
   name: Copy & { "zh-TW"?: string };
   region: Copy;
   field: Copy;
-  bio: Copy;
+  bio: Copy & { "zh-TW"?: string };
   qid: string;
   vector: readonly number[];
 };

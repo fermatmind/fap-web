@@ -22,7 +22,7 @@ export const existingEditorial03 = {
   "taytu-betul": {
     archetype_title: resultCopy("盯着两份条约的皇后", "盯著兩份條約的皇后", "The Empress with Both Copies"),
     one_line_hook: resultCopy("别人急着在最后一页签字，你还在比对第一处动词。", "別人急著在最後一頁簽字，你還在比對第一處動詞。", "Everyone is ready to sign the last page. You're still comparing the first verb."),
-    superpower: resultCopy("你善于把大局拉回一句可以核对的话。意大利与埃塞俄比亚签订的《乌查利条约》两种文本对外交权限写法不同，泰图主张抵制意方解读。你会先确认双方答应的是同一件事。", "你善於把大局拉回一句可以核對的話。義大利與衣索比亞簽訂的《烏查利條約》兩種文本對外交許可權寫法不同，泰圖主張抵制意方解讀。你會先確認雙方答應的是同一件事。", "You bring the big picture back to a sentence anyone can check. The Italian and Amharic texts of the Treaty of Wuchale differed over diplomatic authority. Taytu opposed the Italian interpretation. You check whether both sides agreed to the same thing."),
+    superpower: resultCopy("你善于把大局拉回一句可以核对的话。意大利与埃塞俄比亚签订的《乌查利条约》两种文本对外交权限写法不同，泰图主张抵制意方解读。你会先确认双方答应的是同一件事。", "你善於把大局拉回一句可以核對的話。義大利與衣索比亞簽訂的《烏查利條約》兩種文本對外交權限寫法不同，泰圖主張抵制意方解讀。你會先確認雙方答應的是同一件事。", "You bring the big picture back to a sentence anyone can check. The Italian and Amharic texts of the Treaty of Wuchale differed over diplomatic authority. Taytu opposed the Italian interpretation. You check whether both sides agreed to the same thing."),
     quirk_or_blindspot: resultCopy("泰图在与意方代表交涉时态度强硬，留下了很少的模糊空间。分歧涉及外交自主权，你会愿意直接翻牌。若把这手用在所有分歧上，别人可能在说出实话之前就开始防守。", "泰圖在與意方代表交涉時態度強硬，留下了很少的模糊空間。分歧涉及外交自主權，你會願意直接翻牌。若把這手用在所有分歧上，別人可能在說出實話之前就開始防守。", "Taytu took a firm line with the Italian envoy, leaving little room for ambiguity. When the difference is about diplomatic independence, you speak plainly. Use that move for every disagreement and people may go on defense before they tell you the truth."),
     cognitive_gift_tag: resultCopy("条款矛盾识别", "條款矛盾識別", "Spotting contradictions in agreements"),
     tags: resultCopy(["查双语版","外交底线","逐句过条款"], ["查雙語版","外交底線","逐句過條款"], ["CheckBothCopies","DiplomaticLines","LineByLine"]),
@@ -58,7 +58,7 @@ export const existingEditorial03 = {
   "manuela-saenz": {
     archetype_title: resultCopy("在革命后场传信的人", "在革命後場傳信的人", "The Messenger in Independence's Back Room"),
     one_line_hook: resultCopy("你对庆功台没兴趣，下一封信送到谁手里才是正事。", "你對慶功臺沒興趣，下一封信送到誰手裡才是正事。", "The victory podium can wait. You're working out who needs the next letter."),
-    superpower: resultCopy("你能看见私人关系里的政治通道。曼努埃拉参与独立事业，与玻利瓦尔的往来书信也留下了那段日子中私人生活和公共角色如何交叠。你常比旁人更早找到消息该往哪里走。", "你能看見私人關係裡的政治通道。曼努埃拉參與獨立事業，與玻利瓦爾的往來書信也留下了那段日子中私人生活和公共角色如何交疊。你常比旁人更早找到訊息該往哪裡走。", "You see how private relationships can carry public business. Manuela took part in the independence cause, and her correspondence with Bolívar shows how personal life and public roles intersected. You often spot where news needs to go before others do."),
+    superpower: resultCopy("你能看见私人关系里的政治通道。曼努埃拉参与独立事业，与玻利瓦尔的往来书信也留下了那段日子中私人生活和公共角色如何交叠。你常比旁人更早找到消息该往哪里走。", "你能看見私人關係裡的政治通道。曼努埃拉參與獨立事業，與玻利瓦的往來書信也留下了那段日子中私人生活和公共角色如何交疊。你常比旁人更早找到訊息該往哪裡走。", "You see how private relationships can carry public business. Manuela took part in the independence cause, and her correspondence with Bolívar shows how personal life and public roles intersected. You often spot where news needs to go before others do."),
     quirk_or_blindspot: resultCopy("曼努埃拉离开利马的婚姻生活，最终在派塔长期流亡。她的政治关系给了她行动的空间，也让这样的空间随着盟友的命运突然收窄。你有时需要给自己留一条独立的退路。", "曼努埃拉離開利馬的婚姻生活，最終在派塔長期流亡。她的政治關係給了她行動的空間，也讓這樣的空間隨著盟友的命運突然收窄。你有時需要給自己留一條獨立的退路。", "Manuela left married life in Lima and eventually spent years in exile in Paita. Political relationships opened room for her to act, and that room narrowed as her allies' fortunes changed. Sometimes you need a way out that belongs to you alone."),
     cognitive_gift_tag: resultCopy("书信网络与政治联络", "書信網路與政治聯絡", "Political communication through correspondence"),
     tags: resultCopy(["一封密信","独立后场","私谊与国事"], ["一封密信","獨立後場","私誼與國事"], ["TheNextLetter","IndependenceNetwork","PrivatePublic"]),
@@ -76,8 +76,8 @@ export const existingEditorial03 = {
   "frederick-douglass": {
     archetype_title: resultCopy("借课本拿回话筒的人", "借課本拿回話筒的人", "The Reader Who Took Back the Floor"),
     one_line_hook: resultCopy("你遇见一句替自己说话的文字，就会把它练到能替更多人开口。", "你遇見一句替自己說話的文字，就會把它練到能替更多人開口。", "When you find a line that speaks for you, you learn to make it speak for others."),
-    superpower: resultCopy("你把语言当成可以练习和传递的工具。道格拉斯在自传里写自己反复读《哥伦比亚演说家》，书中的对话给他的反奴役立场找到了表达方式。你能把切身感受变成清楚的论证。", "你把語言當成可以練習和傳遞的工具。道葛拉斯在自傳裡寫自己反覆讀《哥倫比亞演說家》，書中的對話給他的反奴役立場找到了表達方式。你能把切身感受變成清楚的論證。", "You treat language as something to practice and pass along. Douglass recalled returning to The Columbian Orator, whose dialogues gave him words for his opposition to slavery. You know how to turn lived experience into a clear argument."),
-    quirk_or_blindspot: resultCopy("道格拉斯也写下识字后的痛苦，读得越多，就越清楚自己受到的剥夺，出口却还没出现。你有时很快就看懂了困境的全貌，真正走出去之前还得允许自己喘口气。", "道葛拉斯也寫下識字後的痛苦，讀得越多，就越清楚自己受到的剝奪，出口卻還沒出現。你有時很快就看懂了困境的全貌，真正走出去之前還得允許自己喘口氣。", "Douglass also wrote about the pain literacy brought. The more he read, the clearer the deprivation became, even when escape remained out of reach. You sometimes see the whole trap early. Give yourself room to breathe while you find the exit."),
+    superpower: resultCopy("你把语言当成可以练习和传递的工具。道格拉斯在自传里写自己反复读《哥伦比亚演说家》，书中的对话给他的反奴役立场找到了表达方式。你能把切身感受变成清楚的论证。", "你把語言當成可以練習和傳遞的工具。道格拉斯在自傳裡寫自己反覆讀《哥倫比亞演說家》，書中的對話給他的反奴役立場找到了表達方式。你能把切身感受變成清楚的論證。", "You treat language as something to practice and pass along. Douglass recalled returning to The Columbian Orator, whose dialogues gave him words for his opposition to slavery. You know how to turn lived experience into a clear argument."),
+    quirk_or_blindspot: resultCopy("道格拉斯也写下识字后的痛苦，读得越多，就越清楚自己受到的剥夺，出口却还没出现。你有时很快就看懂了困境的全貌，真正走出去之前还得允许自己喘口气。", "道格拉斯也寫下識字後的痛苦，讀得越多，就越清楚自己受到的剝奪，出口卻還沒出現。你有時很快就看懂了困境的全貌，真正走出去之前還得允許自己喘口氣。", "Douglass also wrote about the pain literacy brought. The more he read, the clearer the deprivation became, even when escape remained out of reach. You sometimes see the whole trap early. Give yourself room to breathe while you find the exit."),
     cognitive_gift_tag: resultCopy("阅读转化为公共辩论", "閱讀轉化為公共辯論", "Turning reading into public argument"),
     tags: resultCopy(["夺回话语","课本破局","自传反击"], ["奪回話語","課本破局","自傳反擊"], ["ReclaimTheFloor","ReadForFreedom","NarrativePower"]),
     personality_benchmark: {
@@ -88,7 +88,7 @@ export const existingEditorial03 = {
     },
     era: resultCopy("十九世纪美国", "十九世紀美國", "Nineteenth-century United States"),
     years: [1818, 1895],
-    source: "https://www.gutenberg.org/ebooks/23",
+    source: "https://www.loc.gov/collections/frederick-douglass-newspapers/articles-and-essays/timeline/",
     accent: "#e2c5a7",
   },
   "epeli-hauofa": {
@@ -192,7 +192,7 @@ export const existingEditorial03 = {
       inferred_mbti: "INTP",
       title: resultCopy("问题拆解者", "問題拆解者", "The Analyst"),
       tendencies: [76, 88, 78, 81],
-      big_five_traits: resultCopy(["高开放性","高尽责性"], ["高開放性","高盡責性"], ["High openness","High conscientiousness"]),
+      big_five_traits: resultCopy(["高开放性"], ["高開放性"], ["High openness"]),
     },
     era: resultCopy("早期现代欧洲", "早期現代歐洲", "Early modern Europe"),
     years: [1647, 1717],
