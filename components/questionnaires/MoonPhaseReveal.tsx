@@ -5,7 +5,6 @@ import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import type { ArchetypeResult } from "@/lib/questionnaires/scoring";
-import { MoonPhaseShareCard } from "./MoonPhaseShareCard";
 
 export function MoonPhaseReveal({ quiz, result, locale, answers, traditionalCopy }: { quiz: Questionnaire; result: Extract<ArchetypeResult, { status: "complete" }>; locale: Locale; traditionalCopy?: (text: string) => string; answers?: QuestionnaireAnswers }) {
   const copy = moonPhaseDisplayCopy(traditionalCopy);
@@ -40,6 +39,5 @@ export function MoonPhaseReveal({ quiz, result, locale, answers, traditionalCopy
       </details> : null;
     })}</div>}
     <p className="text-sm leading-7 text-slate-300">{zh ? copy("次数只描述这次选择，不是人格相似度或天文测量。") : "Counts describe this attempt, not personality similarity or an astronomical measurement."} {copy(moonPhaseDiagramNote[locale])}</p>
-    <div className="text-slate-950"><MoonPhaseShareCard ids={result.profileIds} locale={locale} /></div>
   </section>;
 }

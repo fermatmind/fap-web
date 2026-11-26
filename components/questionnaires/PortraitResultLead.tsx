@@ -1,3 +1,5 @@
+import { bleachPortraitPath } from "@/lib/questionnaires/bleachPresentation";
+import { moonPhaseImage } from "@/lib/questionnaires/moonPhasePresentation";
 import { chapterPortraitPath } from "@/lib/questionnaires/spaceMarineChapters";
 import Image from "next/image";
 import { QuizResultArtwork } from "./QuizResultArtwork";
@@ -117,6 +119,13 @@ function SymbolMark({ emblem }: { emblem: Emblem }) {
     {emblem === "spectrum" && <><circle cx="29" cy="40" r="14" /><circle cx="51" cy="40" r="14" /><circle cx="40" cy="30" r="14" /></>}
     {emblem === "ink" && <path fill="currentColor" fillOpacity=".15" d="M40 34C27 22 28 14 21 19c-5 4-3 13-8 17-9 9 9 21 19 15 3 11 13 11 16 0 10 6 28-6 19-15-5-4-3-13-8-17-7-5-6 3-19 15Z" />}
   </svg>;
+}
+
+export function existingResultPortrait(slug: string, id: string) {
+  if (slug === "bleach") return bleachPortraitPath(id);
+  if (slug === "moon-phase") return moonPhaseImage(id);
+  if (slug === "space-marine-chapter") return chapterPortraitPath(id);
+  if (illustratedTests.has(slug)) return `/images/quiz-portraits/${slug}/${id}.webp`;
 }
 
 export function PortraitResultLead({ kind, quiz, profile, result, locale, titleId, displayText }: {

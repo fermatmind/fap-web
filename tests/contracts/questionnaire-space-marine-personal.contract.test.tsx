@@ -24,7 +24,8 @@ describe("Space Marine personal reasons and public illustration boundary", () =>
         for (const {q, o} of expected) { expect(block.textContent).toContain(q.prompt[locale]); expect(block.textContent).toContain(o.label[locale]); }
       }
       expect(dom.querySelectorAll("[data-archetype-match] h4")).toHaveLength(result.profileIds.length * 9);
-      expect(dom.querySelector("[data-space-marine-personal-card]")).not.toBeNull();
+      expect(dom.querySelector("[data-space-marine-personal-card]")).toBeNull();
+      expect(dom.querySelectorAll("[data-archetype-honor-card]")).toHaveLength(1);
     }
   });
   it("does not invent reasons without answers or accept an unknown portrait identity", () => {

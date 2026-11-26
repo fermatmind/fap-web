@@ -37,7 +37,8 @@ describe("BLEACH source-safe fan reveal", () => {
       expect(readFileSync(`public${bleachPortraitPath(profile.id)}`, "utf8")).not.toMatch(/<script|<image|(?:href|src)=["\']https?:/);
     }
     expect(root.querySelector("[data-bleach-reveal]")!.compareDocumentPosition(root.querySelector("[data-archetype-count]")!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(root.querySelector("[data-bleach-sharing]")).not.toBeNull();
+    expect(root.querySelector("[data-bleach-sharing]")).toBeNull();
+    expect(root.querySelectorAll("[data-archetype-honor-actions]")).toHaveLength(1);
     const samples = document.createElement("div"); samples.innerHTML = renderToStaticMarkup(<BleachExamples quiz={quiz} locale={locale} />);
     expect(samples.querySelectorAll("[data-bleach-example]")).toHaveLength(3);
     expect(samples.textContent).toContain(locale === "zh" ? "4、1、3、4、3、3、3" : "4, 1, 3, 4, 3, 3, 3");

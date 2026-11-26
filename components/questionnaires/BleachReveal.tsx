@@ -7,7 +7,6 @@ import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import type { ArchetypeResult } from "@/lib/questionnaires/scoring";
-import { BleachShareCard } from "./BleachShareCard";
 
 export function BleachReveal({ quiz, result, locale, answers, displayLocale = locale, copy = value => value }: { quiz: Questionnaire; result: Extract<ArchetypeResult, { status: "complete" }>; locale: Locale; answers?: QuestionnaireAnswers; displayLocale?: DisplayLocale; copy?: (text: string) => string }) {
   const zh = locale === "zh";
@@ -31,6 +30,5 @@ export function BleachReveal({ quiz, result, locale, answers, displayLocale = lo
       </li>;
     })}</ul>
     <p className="text-sm leading-7 text-slate-600">{zh ? copy("这是把日常选择与七位角色联系起来的非官方趣味读法。次数不是相似度、战力或人格能力分；下方保留全部计数和完整说明。人物图为本站原创同人意象。") : "An unofficial fan reading connecting everyday choices with seven characters. Counts are not resemblance percentages, power levels or personality ability scores. All counts and full explanations follow. Portraits are original fan illustrations."}</p>
-    <BleachShareCard ids={result.profileIds} locale={locale} />
   </section><BleachCharacterDirectory quiz={quiz} locale={locale} displayLocale={displayLocale} copy={copy} result /></>;
 }

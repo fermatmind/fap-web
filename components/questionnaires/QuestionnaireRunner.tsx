@@ -1,4 +1,5 @@
 "use client";
+import { archetypeCardVariant } from "@/lib/questionnaires/archetypeResultCard";
 import { getArchiveExperience } from "@/lib/entertainment/archiveExperience";
 import { hasTraditionalOfficeTool, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalStressCoping, hasTraditionalTraitsSocial, hasTraditionalValuesOrientations } from "@/lib/i18n/traditionalLikertPaths";
 import { hasTraditionalDirectional } from "@/lib/i18n/traditionalDirectionalPaths";
@@ -118,7 +119,8 @@ export function QuestionnaireRunner({ onComplete, scoreQuestionnaire, quiz, loca
   const mentalAge = result.status === "complete" && "mentalAge" in result ? result : undefined;
   const hasCompleteResult = result.status === "complete";
   const profile = directional ? quiz.profiles.find(p => p.id === directional.profileId) : undefined;
-  const reportProps = { quiz, result, answers, locale, workRoleReadingProfiles, loveTypeReadingProfiles, mentalAgeReadingProfile, fds32ReadingProfiles, breakupReadingProfiles, parentingReadingProfiles, workReasoningReadingProfiles };
+  const honor = !!archetypes && !!archetypeCardVariant(quiz.slug, displayLocale);
+  const reportProps = { quiz, result, answers, locale, onRetake: () => start(), workRoleReadingProfiles, loveTypeReadingProfiles, mentalAgeReadingProfile, fds32ReadingProfiles, breakupReadingProfiles, parentingReadingProfiles, workReasoningReadingProfiles };
   const question = quiz.questions[position];
   const optionLabel = (option: NonNullable<typeof question>["options"][number]) =>
     traditional && ((quiz.kind === "distributed-work24" && option.id === "skip") || quiz.kind === "work-role12")
@@ -270,7 +272,7 @@ export function QuestionnaireRunner({ onComplete, scoreQuestionnaire, quiz, loca
         <SevenSinsPersonalCard result={miniVirtues} locale={locale} formCode={quiz.source.formCode} onRetake={() => start()} />
         <SevenSinsScoreDetails result={miniVirtues} locale={locale} />
       </> :
-      <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere] scroll-mt-24">{miniVirtues ? (zh ? "七宗罪与七美德测试结果" : "Seven Sins and Virtues: Your Results") : profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? displayText(`${quiz.title.zh}：完整结果`) : `${quiz.title.en}: your complete result`)}</h2>}
+      <h2 ref={heading} tabIndex={-1} className={honor ? "sr-only" : "text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere] scroll-mt-24"}>{miniVirtues ? (zh ? "七宗罪与七美德测试结果" : "Seven Sins and Virtues: Your Results") : profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? displayText(`${quiz.title.zh}：完整结果`) : `${quiz.title.en}: your complete result`)}</h2>}
       {directional && profile && <>
       <div className={resultStyles.readingFlow} data-result-reading-flow={quiz.slug}>
         {!adultAgePreferences && <ResultOverview eyebrow={directionEyebrow} title={profile.headline[locale]} description={profile.summary[locale]} />}
@@ -290,14 +292,14 @@ export function QuestionnaireRunner({ onComplete, scoreQuestionnaire, quiz, loca
       <Link prefetch={false} className="my-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(displayLocale, quiz.slug, profile.id)} target={preserveResultOnGuideOpen ? "_blank" : undefined} rel={preserveResultOnGuideOpen ? "noopener" : undefined}>{zh ? displayText("阅读这项结果的公开说明") : "Read the public explanation of this result"}{preserveResultOnGuideOpen && (zh ? displayText("（新标签页）") : " (new tab)")}</Link>
       </>}
       <QuestionnaireResultSections {...reportProps} />
-      {["hogwarts-house-quiz", "love-languages", "hazbin-hotel-character-quiz", "hello-kitty", "love-type-16", "spirit-animal", "moral-alignment"].includes(quiz.slug) && <EightQuizPersonalCard quiz={quiz} result={result} locale={locale} />}
+      {!honor && ["hogwarts-house-quiz", "love-languages", "hazbin-hotel-character-quiz", "hello-kitty", "love-type-16", "spirit-animal", "moral-alignment"].includes(quiz.slug) && <EightQuizPersonalCard quiz={quiz} result={result} locale={locale} />}
       {(quiz.slug === "cyberpunk-edgerunners" || quiz.slug === "chiikawa") && archetypes && <p className="mt-4 text-sm leading-6">
         {archetypes.profileIds.length === 1
           ? (zh ? displayText("分享会复制角色名和公开指南链接，不包含答卷或次数。") : "Sharing copies the character name and public guide link, without your answers or counts.")
           : (zh ? displayText("分享会复制全部并列角色的名称和测试入口，不包含答卷或次数。") : "Sharing copies all tied character names and the quiz link, without your answers or counts.")}
       </p>}
       {miniVirtues?.model === "dual" && <SevenSinsNextAssessments locale={locale} />}
-      {miniVirtues?.model !== "dual" && <div data-mini-virtues-actions={miniVirtues ? "true" : undefined} className={miniVirtues ? "flex flex-wrap gap-3" : resultStyles.runnerActions}><button className={button} onClick={copy}>{traditionalEntryShare || quiz.slug === "hsp-sensitivity-quiz" || adexi14 || ptq15 || miniFriction || interactionPairs || extraversionUnscored || affection || attachment || distributedWork || workRole || skillsEvidence || quiz.slug === "work-traits-reflection" || quiz.slug === "work-activity-interests" || quiz.slug === "interpersonal-preferences" || quiz.slug === "everyday-control-style" || loveType16 || mentalAge || quiz.kind === "fds32" || quiz.slug === "energy-flow" || quiz.slug === "cognitive-functions-test" || quiz.slug === "cultural-dimensions" || quiz.slug === "food-choice" || quiz.slug === "values-assessment" || quiz.slug === "eq-dashboard" || miniVirtues || quiz.slug === "euphoria-character-quiz" ? (zh ? displayText("复制公开入口") : "Copy public entry") : preparationActions20 ? (zh ? "复制五份公开指南链接" : "Copy five public guide links") : (zh ? displayText("复制结果与链接") : "Copy result and link")}</button><button className={button} onClick={() => start()}>{zh ? displayText("重新测试") : "Retake test"}</button></div>}
+      {!honor && miniVirtues?.model !== "dual" && <div data-mini-virtues-actions={miniVirtues ? "true" : undefined} className={miniVirtues ? "flex flex-wrap gap-3" : resultStyles.runnerActions}><button className={button} onClick={copy}>{traditionalEntryShare || quiz.slug === "hsp-sensitivity-quiz" || adexi14 || ptq15 || miniFriction || interactionPairs || extraversionUnscored || affection || attachment || distributedWork || workRole || skillsEvidence || quiz.slug === "work-traits-reflection" || quiz.slug === "work-activity-interests" || quiz.slug === "interpersonal-preferences" || quiz.slug === "everyday-control-style" || loveType16 || mentalAge || quiz.kind === "fds32" || quiz.slug === "energy-flow" || quiz.slug === "cognitive-functions-test" || quiz.slug === "cultural-dimensions" || quiz.slug === "food-choice" || quiz.slug === "values-assessment" || quiz.slug === "eq-dashboard" || miniVirtues || quiz.slug === "euphoria-character-quiz" ? (zh ? displayText("复制公开入口") : "Copy public entry") : preparationActions20 ? (zh ? "复制五份公开指南链接" : "Copy five public guide links") : (zh ? displayText("复制结果与链接") : "Copy result and link")}</button><button className={button} onClick={() => start()}>{zh ? displayText("重新测试") : "Retake test"}</button></div>}
       {adultAgePreferences && <Link prefetch={false} className="mt-3 inline-flex min-h-11 items-center underline underline-offset-4" href={questionnairePath(displayLocale, quiz.slug)}>{zh ? displayText("返回测试介绍") : "Back to quiz introduction"}</Link>}
       {manualCopy && <textarea readOnly aria-label={zh ? displayText("手动复制结果") : "Result text for manual copying"} value={manualCopy} onFocus={e => e.target.select()} className="mt-4 min-h-40 w-full rounded border p-3" />}
     </>}

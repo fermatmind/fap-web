@@ -59,7 +59,8 @@ describe("moon phase visual result boundary", () => {
       }
       const noAnswers = renderToStaticMarkup(<MoonPhaseReveal quiz={quiz} result={result} locale={locale} />);
       expect(noAnswers).not.toContain("data-moon-phase-choice-reasons");
-      expect(root.querySelector("[data-moon-phase-sharing]")?.textContent).toContain(locale === "zh" ? "不含答案或次数" : "without answers or counts");
+      expect(root.querySelector("[data-moon-phase-sharing]")).toBeNull();
+      expect(root.querySelectorAll("[data-archetype-honor-actions]")).toHaveLength(0);
       if (locale === "en") expect(root.textContent).not.toMatch(/\p{Script=Han}/u);
     }
   });

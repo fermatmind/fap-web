@@ -1,3 +1,6 @@
+import { archetypeCardVariant } from "@/lib/questionnaires/archetypeResultCard";
+import { archetypeResultCopy } from "@/lib/questionnaires/archetypeResultShare";
+import { ArchetypeHonorCard } from "./ArchetypeHonorCard";
 import { getArchiveExperience } from "@/lib/entertainment/archiveExperience";
 import { ArchiveQuestionnaireNextStep, ArchiveReadingSnapshot } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import { traditionalPortraitCopy } from "@/lib/questionnaires/traditionalPortraitCopy";
@@ -38,7 +41,7 @@ function previewSections(profile: QuestionnaireProfile) {
   ].filter((id): id is string => Boolean(id));
 }
 
-export function QuestionnaireArchetypeReport({ quiz, result, locale, answers }: { quiz: Questionnaire; result: Extract<ArchetypeResult, { status: "complete" }>; locale: Locale; answers?: QuestionnaireAnswers }) {
+export function QuestionnaireArchetypeReport({ quiz, result, locale, answers, onRetake }: { quiz: Questionnaire; result: Extract<ArchetypeResult, { status: "complete" }>; locale: Locale; answers?: QuestionnaireAnswers; onRetake?: () => void }) {
   const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const localized = traditional && hasTraditionalArchetype(quiz.slug);
   const displayLocale = localized ? "zh-TW" : locale;
@@ -55,6 +58,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, answers }: 
   const placement = (edgerunners || chiikawa) && result.profileIds.length === 1 ? "between" :
     comparisonFirst.has(quiz.slug) ? "before" : chartAfterLead.has(quiz.slug) ? "between" : chartAfterReading.has(quiz.slug) ? "after" : undefined;
   const matched = result.profileIds.map(id => quiz.profiles.find(p => p.id === id)!);
+  const honor = archetypeCardVariant(quiz.slug, displayLocale);
   const showRadar = edgerunners || chiikawa || placement === "before" || quiz.slug === "anime-character-archetype-test";
   const chart = <QuestionnaireArchetypeChoiceChart quiz={quiz} result={result} locale={locale} copy={copy} showRadar={showRadar} placement={placement} />;
   const counts = placement === "before" || placement === "between" ? chart :
@@ -71,6 +75,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, answers }: 
       </section>}
     </details>;
   return <div className={styles.profileReadings} data-profile-category={quiz.category} data-choice-chart-placement={placement}>
+    {honor && <ArchetypeHonorCard quiz={quiz} result={result} profiles={matched} locale={displayLocale} copy={portraitCopy} onRetake={onRetake} />}
     {quiz.slug === "moon-phase" && <MoonPhaseReveal quiz={quiz} result={result} locale={locale} answers={answers} traditionalCopy={localized ? displayText : undefined} />}
     {quiz.slug === "bleach" && <BleachReveal quiz={quiz} result={result} locale={locale} displayLocale={displayLocale} copy={portraitCopy} answers={answers} />}
     {quiz.slug === "space-marine-chapter" && <SpaceMarineChapterReveal quiz={quiz} result={result} locale={locale} answers={answers} />}
@@ -90,7 +95,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, answers }: 
       const body = (
         <div className={styles.profileBody}>
           <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} traditional={localized} headingLevel={4} idPrefix={`report-${id}`} mode="result" showHeadline={false} showSummary={false} previewSectionIds={previewSections(profile)} />
-          <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(displayLocale, quiz.slug, id)} target={guideInNewTab ? "_blank" : undefined} rel={guideInNewTab ? "noopener" : undefined}>{zh ? copy("单独阅读这项结果的完整指南") : "Read this result’s full guide separately"}{guideInNewTab && (zh ? copy("（新标签页）") : " (new tab)")}</Link>
+          <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(displayLocale, quiz.slug, id)} target={guideInNewTab ? "_blank" : undefined} rel={guideInNewTab ? "noopener" : undefined}>{honor ? `${archetypeResultCopy[displayLocale].guide} →` : zh ? copy("单独阅读这项结果的完整指南") : "Read this result’s full guide separately"}{guideInNewTab && (zh ? copy("（新标签页）") : " (new tab)")}</Link>
           {quiz.slug === "philosopher-personality-test" && <a className="ml-5 inline-block min-h-11 py-2 underline" href={`/og/fun/${quiz.slug}?locale=${locale}&portrait=${id}&v=${quiz.version}-reading`} target="_blank" rel="noopener">
             {zh ? copy("预览这份公开阅读指南的分享图（新标签页）") : "Preview this public reading guide’s share card (new tab)"}
           </a>}
