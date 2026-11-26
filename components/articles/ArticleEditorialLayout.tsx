@@ -1,9 +1,8 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import type { CmsArticle } from "@/lib/cms/articles";
-import { articleCategoryLabel } from "@/lib/content/articleCategoryLabel";
 import { editorialDeck, editorialReadingMinutes, editorialRelated, editorialScope } from "@/lib/content/articleEditorial";
-import { blogArchivePath, type BlogArchiveState } from "@/lib/content/blogArchive";
+import type { BlogArchiveState } from "@/lib/content/blogArchive";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
@@ -12,15 +11,15 @@ import { ArticleReadingNavigation, type ArticleHeading } from "./ArticleReadingN
 import "@/app/article-editorial.css";
 
 const copy = {
-  zh: { home: "首页", blog: "费马博客", all: "全部", career: "职业发展", personality: "人格测评", growth: "自我探索", tests: "免费测评", metadata: "文章信息", update: "更新", read: "阅读", author: "作者", check: "核对", checked: "依据一手来源核对", scope: "适用", tags: "标签", related: "相关文章", minutes: (n: number) => `约 ${n} 分钟` },
-  en: { home: "Home", blog: "FermatMind Blog", all: "All", career: "Careers", personality: "Personality", growth: "Self-exploration", tests: "Free tests", metadata: "Article details", update: "Updated", read: "Reading time", author: "Author", check: "Review", checked: "Checked against primary sources", scope: "Scope", tags: "Tags", related: "Related articles", minutes: (n: number) => `${n} min read` },
-  "zh-TW": { home: "首頁", blog: "費馬部落格", all: "全部", career: "職涯發展", personality: "人格測驗", growth: "自我探索", tests: "免費測驗", metadata: "文章資訊", update: "更新", read: "閱讀", author: "作者", check: "核對", checked: "依一手來源核對", scope: "適用", tags: "標籤", related: "相關文章", minutes: (n: number) => `約 ${n} 分鐘` },
+  zh: { metadata: "文章信息", update: "更新", read: "阅读", author: "作者", check: "核对", checked: "依据一手来源核对", scope: "适用", tags: "标签", related: "相关文章", minutes: (n: number) => `约 ${n} 分钟` },
+  en: { metadata: "Article details", update: "Updated", read: "Reading time", author: "Author", check: "Review", checked: "Checked against primary sources", scope: "Scope", tags: "Tags", related: "Related articles", minutes: (n: number) => `${n} min read` },
+  "zh-TW": { metadata: "文章資訊", update: "更新", read: "閱讀", author: "作者", check: "核對", checked: "依一手來源核對", scope: "適用", tags: "標籤", related: "相關文章", minutes: (n: number) => `約 ${n} 分鐘` },
 };
 
 type Props = {
   locale: DisplayLocale;
   article: CmsArticle;
-  archive?: BlogArchiveState | null;
+  categoryLabel?: string | null;
   relatedState?: BlogArchiveState;
   headings: ArticleHeading[];
   sourceChecked: boolean;
@@ -38,19 +37,8 @@ function ArticleImage({ article, mode }: { article: CmsArticle; mode: "card" | "
     className={mode === "hero" ? "fm-article-hero" : "fm-article-related-image"} />;
 }
 
-export function ArticleEditorialLayout({ locale, article, archive, relatedState, headings, sourceChecked, editorial, schema, navigation, children }: Props) {
+export function ArticleEditorialLayout({ locale, article, categoryLabel = article.category?.name, relatedState, headings, sourceChecked, editorial, schema, navigation, children }: Props) {
   const t = copy[locale];
-  const archiveState = archive;
-  const blog = archiveState?.data?.blog;
-  const categories = blog?.configurationState === "published" && !archiveState?.stale && !archiveState?.failed ? blog.categories : [];
-  const category = categories.find((entry) => entry.slug === article.category?.slug);
-  const categoryLabel = locale === "zh-TW" ? category?.name || article.category?.name : articleCategoryLabel(article.category, blog, locale);
-  const categoryLinks = [
-    ["career-and-learning", t.career], ["personality-and-self-understanding", t.personality], ["communication-and-personal-growth", t.growth],
-  ].flatMap(([key, label]) => {
-    const entry = categories.find(({ lineKey }) => lineKey === key);
-    return entry ? [{ label, href: blogArchivePath(locale, entry.slug) }] : [];
-  });
   const related = relatedState && !relatedState.stale && !relatedState.failed
     ? editorialRelated(article, relatedState.data?.items ?? [], locale) : [];
   const date = article.updatedAt ?? article.publishedAt;
@@ -64,24 +52,7 @@ export function ArticleEditorialLayout({ locale, article, archive, relatedState,
   return (
     <main className="fm-article-page" data-language={locale} data-editorial-blocks={editorial || undefined}>
       {schema}
-      <nav className="fm-blog-channel" aria-label={t.blog}>
-        <div>
-          <Link className="fm-blog-channel-name" href={blogArchivePath(locale)}>{t.blog}</Link>
-          <div className="fm-blog-channel-categories">
-            <Link href={blogArchivePath(locale)}>{t.all}</Link>
-            {categoryLinks.map(({ label, href }) => <Link key={href} href={href}>{label}</Link>)}
-          </div>
-          <Link className="fm-blog-channel-tests" href={`/${locale}/tests`}>{t.tests} <span aria-hidden="true">→</span></Link>
-        </div>
-      </nav>
       <header id="what-it-is" className="fm-article-page-header">
-        <nav className="fm-article-crumbs" aria-label={locale === "en" ? "Breadcrumb" : locale === "zh" ? "面包屑" : "麵包屑"}>
-          <Link href={`/${locale}`}>{t.home}</Link><span aria-hidden="true">/</span>
-          <Link href={blogArchivePath(locale)}>{t.blog}</Link>
-          {categoryLabel && <><span aria-hidden="true">/</span>{category
-            ? <Link href={blogArchivePath(locale, category.slug)}>{categoryLabel}</Link> : <span>{categoryLabel}</span>}</>}
-        </nav>
-        {categoryLabel && <p className="fm-article-eyebrow">{categoryLabel}</p>}
         <h1>{renderCjkPunctuationText(article.title, "article-title")}</h1>
         {deck && <p className="fm-article-deck">{deck}</p>}
         <div className="fm-article-inline-meta">{author}{updated && <time dateTime={updated}>{updated}</time>}<span>{minutes}</span></div>
@@ -105,7 +76,7 @@ export function ArticleEditorialLayout({ locale, article, archive, relatedState,
           {related.length > 0 && <section className="fm-article-related" aria-label={t.related}>
             <h2>{t.related}</h2>
             {related.map((item) => <Link key={item.slug} href={`/${locale}/articles/${item.slug}`}>
-              <ArticleImage article={item} mode="card" /><span>{item.title}</span>
+              <ArticleImage article={item} mode="card" /><span className="fm-article-related-title">{item.title}</span>
             </Link>)}
           </section>}
         </aside>

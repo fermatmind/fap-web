@@ -132,7 +132,7 @@ describe("article badges use published CMS category labels", () => {
     expect(articleCategoryCompareBlocks(compareBlocks, null, "zh")).toEqual(compareBlocks);
     expect(articleCategoryCompareBlocks([{ ...compareBlocks[0], body: "Valid English" }], null, "en")[0].body).toBe("Valid English");
   });
-  it.each([["en", "Career and learning choices"], ["zh", "职业与学习选择"]] as const)("renders the %s label in detail and archive without altering taxonomy", async (locale, name) => {
+  it.each([["en", "Career and learning choices"], ["zh", "职业与学习选择"]] as const)("renders the %s label in the archive without repeating it in the detail header", async (locale, name) => {
     vi.resetModules();
     const getBlog = vi.fn(async () => ({ value: data(name), source: "fresh", stale: false }));
     vi.doMock("@/lib/cms/articles", async (original) => ({ ...await original<typeof import("@/lib/cms/articles")>(),
@@ -143,7 +143,7 @@ describe("article badges use published CMS category labels", () => {
     const { default: Page } = await import("@/app/(localized)/[locale]/articles/[slug]/page");
     const { BlogArchiveView } = await import("@/components/articles/BlogArchiveView");
     const html = renderToStaticMarkup(await Page({ params: Promise.resolve({ locale, slug: article.slug }) }));
-    expect(html).toContain(name);
+    expect(html).not.toContain(name);
     expect(html).not.toContain("职业探索");
     expect(getBlog).toHaveBeenCalledWith(expect.objectContaining({ locale, includeBlog: true }));
     const archive = renderToStaticMarkup(<BlogArchiveView locale={locale} state={{ data: data(name), stale: false, failed: false }} />);

@@ -26,6 +26,7 @@ import {
 } from "@/lib/cms/articles";
 import { prepareArticleHtml } from "@/lib/cms/sanitizeCmsRichText";
 import { RIC_INTEREST_ARTICLE, RIC_INTEREST_PATH } from "@/lib/career/interestDirectoryRoutes";
+import { withoutEditorialBoilerplate } from "@/lib/content/articleEditorial";
 import { articleCategoryCompareBlocks, articleCategoryLabel } from "@/lib/content/articleCategoryLabel";
 import { loadBlogArchive } from "@/lib/content/blogArchive";
 import { excludeFaqCopiesInMarkdown, getArticleEditorialFeatures, getSimpleMarkdownHeadings, getSimpleMarkdownIntroJumps, renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
@@ -369,6 +370,7 @@ export default async function ArticleDetailPage({
     faqItems.length > 0 &&
     !jsonLdContainsType(articleJsonLd, "FAQPage");
 
+  const editorial = !article.contentHtml.trim() ? getArticleEditorialFeatures(article.contentMd) : { enabled: false, sources: false };
   const answerSurfaceWithVisibleFaq = article.answerSurface && !article.contentHtml.trim()
     ? {
         ...article.answerSurface,
@@ -376,17 +378,19 @@ export default async function ArticleDetailPage({
       }
     : article.answerSurface;
   const categoryLabel = articleCategoryLabel(article.category, blogState?.data?.blog, locale);
-  const visibleAnswerSurface = answerSurfaceWithVisibleFaq
+  const localizedAnswerSurface = answerSurfaceWithVisibleFaq
     ? {
         ...answerSurfaceWithVisibleFaq,
         compareBlocks: articleCategoryCompareBlocks(answerSurfaceWithVisibleFaq.compareBlocks, categoryLabel, locale),
       }
     : answerSurfaceWithVisibleFaq;
+  const visibleAnswerSurface = editorial.enabled && localizedAnswerSurface
+    ? withoutEditorialBoilerplate(localizedAnswerSurface, article.contentMd, locale)
+    : localizedAnswerSurface;
   const articleRuntimeContract = resolveArticleRuntimeContract(article);
   const isRiasecOverview = article.slug === (locale === "zh"
     ? "riasec-holland-career-interest-test-explained"
     : "what-is-riasec-holland-code-career-interest-test");
-  const editorial = !article.contentHtml.trim() ? getArticleEditorialFeatures(article.contentMd) : { enabled: false, sources: false };
   const headings = !article.contentHtml.trim()
     ? getSimpleMarkdownHeadings(article.contentMd, { locale, minimumHeadingLevel: 2, headingIdPrefix: "article-body", editorial: editorial.enabled ? { locale } : undefined })
     : prepareArticleHtml(article.contentHtml, locale).headings;
@@ -396,7 +400,7 @@ export default async function ArticleDetailPage({
     : [];
 
   return (
-    <ArticleEditorialLayout locale={locale} article={article} archive={blogState} relatedState={relatedState} headings={headings}
+    <ArticleEditorialLayout locale={locale} article={article} categoryLabel={categoryLabel} relatedState={relatedState} headings={headings}
       editorial={editorial.enabled} sourceChecked={editorial.sources && article.publicReview?.reviewState === "approved"}
       schema={<>
       {articleJsonLd ? <JsonLd id={`article-jsonld-${slug}`} data={articleJsonLd} /> : null}

@@ -81,7 +81,7 @@ const markdownOptions = {
 
 export default async function TraditionalArticlePage({ params }: RouteProps) {
   const { slug } = await params;
-  const [{ article, seo, canonical, index, languages }, archive] = await Promise.all([loadSeo(slug), loadBlogArchive(locale, 1)]);
+  const { article, seo, canonical, index, languages } = await loadSeo(slug);
   const relatedState = article.category?.slug ? await loadBlogArchive(locale, 1, article.category.slug) : undefined;
   const authority = seo?.authority ?? null;
   const schemaGate = resolveArticleSchemaGate({
@@ -102,7 +102,7 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
   );
 
   return (
-    <ArticleEditorialLayout locale={locale} article={article} archive={archive} relatedState={relatedState} headings={headings}
+    <ArticleEditorialLayout locale={locale} article={article} relatedState={relatedState} headings={headings}
       editorial={editorial.enabled} sourceChecked={editorial.sources && article.publicReview?.reviewState === "approved"}
       schema={<>
       {schemaGate.canRenderArticleJsonLd && fragments?.article

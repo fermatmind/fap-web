@@ -34,6 +34,12 @@ describe("article editorial blocks", () => {
     expect(html).toContain('href="/en/tests"');
     expect(html).toContain('href="https://example.com/source" target="_blank" rel="noopener noreferrer"');
     expect(html).toContain("A worked example");
+    for (const name of ["references", "methodology"]) {
+      const section = dom.querySelector(`section[data-article-block="${name}"]`);
+      expect(section?.querySelector("h2")).toBeTruthy();
+      expect(section?.textContent?.trim()).toBeTruthy();
+      expect(dom.querySelector(`details[data-article-block="${name}"]`)).toBeNull();
+    }
     expect(html).not.toContain('href="javascript:');
     expect(html).not.toContain(":::");
 

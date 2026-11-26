@@ -47,15 +47,15 @@ export function ArticleReadingBlock({ block, inline, text, locale, slug, index }
         if (block.name === "references" && label) groups.push({ heading: label[1], entries: [] });
         else groups[groups.length - 1].entries.push(line);
       }
-      return <details className="fm-article-box fm-article-academic" data-article-block={block.name}>
-        <summary>{block.title ?? copy[block.name]}</summary>
+      return <section className="fm-article-box fm-article-academic" data-article-block={block.name}>
+        <h2 className="fm-article-academic-heading">{block.title ?? copy[block.name]}</h2>
         {groups.filter(({ entries, heading }) => entries.length || heading).map(({ entries, heading }, i) => (
           <div key={i}>
             {heading ? <h3>{inline(heading, `group-${i}`)}</h3> : null}
             {entries.length ? <ul>{entries.map((line, j) => <li key={j}>{inline(line, `entry-${i}-${j}`)}</li>)}</ul> : null}
           </div>
         ))}
-      </details>;
+      </section>;
     }
   }
 }

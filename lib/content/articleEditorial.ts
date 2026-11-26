@@ -1,3 +1,4 @@
+import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { CmsArticle } from "@/lib/cms/articles";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 
@@ -55,4 +56,19 @@ export function editorialRelated(
     if (result.length === 5) break;
   }
   return result;
+}
+
+
+export function withoutEditorialBoilerplate(surface: AnswerSurfaceViewModel, markdown: string, locale: DisplayLocale) {
+  // Generated metadata is already represented in the article layout and taxonomy.
+  const compareBlocks = surface.compareBlocks.filter(({ key, href }) => href || (key !== "article_category" && key !== "article_tags"));
+  const prose = markdown.replace(/^```[^\n]*\n[\s\S]*?^```\s*$/gm, "");
+  const nextStepBlocks = surface.nextStepBlocks.filter(({ key, href }) => {
+    if (key === "articles_index" && href === `/${locale}/articles`) return false;
+    if (key === "topic_hub" && href === `/${locale}/topics`) return false;
+    // A tailored action stays visible when the editorial body doesn't offer the same destination.
+    if (key === "start_test" && href && (prose.includes(`](${href})`) || prose.includes(`](https://fermatmind.com${href})`))) return false;
+    return true;
+  });
+  return { ...surface, compareBlocks, nextStepBlocks };
 }

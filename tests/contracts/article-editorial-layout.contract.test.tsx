@@ -46,7 +46,7 @@ describe("shared article editorial layout", () => {
       <ArticleEditorialLayout locale="zh-TW" article={fixture} headings={[]} sourceChecked={false}
         editorial={false} schema={null} navigation={null}>短篇文章</ArticleEditorialLayout>,
     );
-    expect(html).toContain("/zh-TW/tests");
+    expect(html).not.toMatch(/fm-blog-channel|fm-article-crumbs|fm-article-eyebrow/);
     expect(html).toContain("短篇文章");
     expect(html).not.toMatch(/article-toc|fm-article-hero|<dt>適用|fm-article-related/);
   });

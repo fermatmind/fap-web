@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { resolveArticleRuntimeContract, type CmsArticle } from "@/lib/cms/articles";
+import { withoutEditorialBoilerplate } from "@/lib/content/articleEditorial";
 import { excludeFaqCopiesInMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import type { LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 
@@ -484,6 +485,29 @@ describe("article answer surface rendering", () => {
     expect(html).toContain('data-testid="article-detail-answer-surface"');
     expect(html).not.toContain('"@type":"FAQPage"');
     expect(html).not.toContain('id="article-faq-answer-surface-article"');
+  });
+
+  it("omits generic editorial answer-surface cards while retaining unique FAQs and actions", async () => {
+    const testHref = "/en/tests/holland-career-interest-test-riasec";
+    const card = { title: "Generic card", body: "", kind: null };
+    const surface = {
+      ...answerSurfaceFixture,
+      compareBlocks: [{ ...card, key: "article_tags", href: null }],
+      nextStepBlocks: [
+        { ...card, key: "articles_index", href: "/en/articles" },
+        { ...card, key: "topic_hub", href: "/en/topics" },
+        { ...card, key: "start_test", href: testHref },
+        ...answerSurfaceFixture.nextStepBlocks,
+      ],
+    };
+    const draft = { ...makeArticle(surface), contentMd: ":::takeaways\n- Example\n:::\n\n[Explore interests](https://fermatmind.com" + testHref + ")" };
+    const html = await renderArticleDetail(draft);
+    expect(html).not.toContain("Generic card");
+    expect(html).toContain("Explore interests");
+    expect(html).toContain(answerSurfaceFixture.faqBlocks[0].question);
+    expect(html).toContain(answerSurfaceFixture.nextStepBlocks[0].title);
+    const withoutBodyCta = withoutEditorialBoilerplate(surface, ":::takeaways\n- Example\n:::", "en");
+    expect(withoutBodyCta.nextStepBlocks.map((step) => step.href)).toContain(testHref);
   });
 
   it("does not render an answer-surface section when article answer_surface_v1 is absent", async () => {
