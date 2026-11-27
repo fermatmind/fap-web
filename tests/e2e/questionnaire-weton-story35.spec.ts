@@ -1,4 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
+import { isArchivedEntertainmentPath } from "../../lib/seo/discoverabilityExposurePolicy";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/weton-story-preferences.json", "utf8")) as Questionnaire;
@@ -17,15 +18,18 @@ function privateRequests(page: Page) {
 async function finish(page: Page, zh: boolean, mode: "scored" | "na" | "one-na") {
   for (const [i, q] of quiz.questions.entries()) {
     const value = mode === "na" || (mode === "one-na" && i === 34) ? "na" : values[i], radio = page.locator(`input[name="${q.id}"][value="${value}"]`);
-    if (i === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); } else await radio.check();
     await expect(page.locator("[data-weton-count]")).toHaveCount(0);
-    await page.getByRole("button", { name: i === 34 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next"), exact: true }).click();
+    if (i === 0 && !(await radio.isChecked())) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![zh ? "zh" : "en"], exact: true })).toBeFocused();
   if (mode === "scored") {
-    await expect(page.locator("[data-weton-profile]")).toHaveCount(28); await expect(page.locator("[data-weton-profile] h4")).toHaveCount(224);
-    const body = await page.locator("[data-weton-story-flow]").textContent();
-    for (const p of quiz.profiles.filter(p => matches.includes(p.id))) for (const s of p.sections) for (const x of s.paragraphs) expect(body).toContain(x[zh ? "zh" : "en"]);
+    await expect(page.locator("[data-weton-profile]")).toHaveCount(28);
+    for (const id of matches) {
+      const guide = page.locator(`[data-weton-profile="${id}"] a[href="/${zh ? "zh" : "en"}/tests/explore/${quiz.slug}/results/${id}"]`);
+      await expect(guide).toBeVisible();
+    }
     for (const d of quiz.directions) await expect(page.locator(`[data-weton-record="${d.id}"] [data-weton-count]`)).toHaveText(`${values.filter(k => k === d.id).length} / ${d.itemCount}`);
   } else { await expect(page.locator("[data-weton-insufficient]")).toBeVisible(); await expect(page.locator("[data-weton-profile], [data-weton-count]")).toHaveCount(0); }
   await expect(page.locator("#weton-all-guides + ul a")).toHaveCount(35);
@@ -35,25 +39,37 @@ async function finish(page: Page, zh: boolean, mode: "scored" | "na" | "one-na")
 
 for (const locale of ["en", "zh"] as const) {
   const zh = locale === "zh", path = `/${locale}/tests/explore/weton-story-preferences`;
-  test(`@release Weton stories ${locale}: hub,35real choices, stable back edit,28ties224full sections, independent calendar and full clear`, async ({ page }) => {
+  test(`@release Weton stories ${locale}: hub,35real choices, stable back edit,28 tied guides, independent calendar and full clear`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); const seen = privateRequests(page);
     await page.goto(`/${locale}/tests`); await acceptCookies(page, zh); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]); await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`);
-    await page.locator('[data-explore-start]').click();
+    await page.locator('input[type="date"]').fill("1945-08-17");
+    await page.locator("select").selectOption("before");
+    await page.getByRole("button", { name: zh ? "查看历法参考" : "Show calendar reference", exact: true }).click();
+    await expect(page.locator("[data-weton-calendar-result]")).toContainText("Jumat Legi");
+    await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     const order = await page.getByRole("radio").evaluateAll(nodes => nodes.map(n => (n as HTMLInputElement).value)); expect(order.at(-1)).toBe("na");
-    await page.locator(`input[value="${values[0]}"]`).check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
+    await page.locator(`input[value="${values[0]}"]`).click();
+    await expect(page.locator(`#take-test input[name="${quiz.questions[1].id}"]`).first()).toBeVisible(); await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
     await expect(page.locator(`input[value="${values[0]}"]`)).toBeChecked(); expect(await page.getByRole("radio").evaluateAll(nodes => nodes.map(n => (n as HTMLInputElement).value))).toEqual(order);
-    await page.locator('input[type="date"]').fill("1945-08-17"); await page.locator("select").selectOption("before"); await page.getByRole("button", { name: zh ? "查看历法参考" : "Show calendar reference", exact: true }).click();
-    await expect(page.locator("[data-weton-calendar-result]")).toContainText("Jumat Legi");
-    await finish(page, zh, "scored"); await expect(page.locator("[data-weton-calendar-result]")).toContainText("Jumat Legi");
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await expect(page.locator('input[type="date"]')).toHaveValue(""); await expect(page.locator("select")).toHaveValue("unknown"); await expect(page.locator("[data-weton-count], [data-weton-calendar-result]")).toHaveCount(0);
-    await page.locator('input[type="date"]').fill("2026-05-01"); await page.getByRole("button", { name: zh ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click(); await expect(page.locator('input[type="date"]')).toHaveValue("");
-    await page.locator('[data-explore-start]').click(); await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(seen).toEqual([]);
+    await expect(page.locator('input[type="date"], [data-weton-calendar-result]')).toHaveCount(0);
+    await finish(page, zh, "scored");
+    await expect(page.locator('input[type="date"], [data-weton-calendar-result]')).toHaveCount(0);
+    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await expect(page.locator("[data-weton-count]")).toHaveCount(0);
+    await expect(page.getByRole("radio", { checked: true })).toHaveCount(0);
+    await page.getByRole("link", { name: /^(Back to assessment|返回测评介绍)$/u }).first().click();
+    await page.waitForURL(url => url.pathname === path);
+    await expect(page.locator('input[type="date"]')).toHaveValue("");
+    await expect(page.locator("select")).toHaveValue("unknown");
+    expect(seen).toEqual([]);
   });
 
   test(`@release Weton stories ${locale}: allNA and singleNA finish without any personal ranks or matches`, async ({ page }) => {
-    const seen = privateRequests(page); await page.goto(path); await acceptCookies(page, zh); await page.locator('[data-explore-start]').click(); await finish(page, zh, "na");
+    const seen = privateRequests(page); await page.goto(path); await acceptCookies(page, zh); await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 }); await finish(page, zh, "na");
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await finish(page, zh, "one-na");
     await expect(page.getByRole("button", { name: /Copy result|复制结果/ })).toHaveCount(0); expect(seen).toEqual([]);
   });
@@ -68,11 +84,26 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(k, v) { if (k === key) { touches.push("set"); throw new Error("synthetic storage denial"); } return set.call(this, k, v); };
       Storage.prototype.removeItem = function(k) { if (k === key) { touches.push("remove"); throw new Error("synthetic storage denial"); } return remove.call(this, k); };
     });
-    await page.goto(path); await expect(page.getByRole("button", { name: /Resume this tab|恢复本标签页/ })).toHaveCount(0); await expect(page.locator('input[type="date"]')).toHaveValue("");
-    await page.locator('[data-explore-start]').click(); await expect(page.locator('input[value="senin"]')).not.toBeChecked(); await page.locator('input[value="senin"]').check(); await page.locator('input[type="date"]').fill("1945-08-17");
+    await page.goto(path);
+    await expect(page.getByRole("button", { name: /Resume this tab|恢复本标签页/ })).toHaveCount(0);
+    await expect(page.locator('input[type="date"]')).toHaveValue("");
+    await page.locator('input[type="date"]').fill("1945-08-17");
+    await page.locator("[data-explore-start]:visible").first().click();
+    const first = page.locator(`#take-test input[name="${quiz.questions[0].id}"]`);
+    await expect(first.first()).toBeVisible({ timeout: 30000 });
+    await expect(first.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    await first.and(page.locator('[value="senin"]')).click();
+    await expect(page.locator(`#take-test input[name="${quiz.questions[1].id}"]`).first()).toBeVisible();
     expect(await page.evaluate(() => (window as Window & { wetonStorageTouches?: string[] }).wetonStorageTouches)).toEqual([]);
-    await page.reload(); await expect(page.locator('input[type="date"]')).toHaveValue(""); await page.locator('[data-explore-start]').click(); await expect(page.locator('input[value="senin"]')).not.toBeChecked();
-    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/weton-story-preferences`); await expect(page.locator('input[type="date"]')).toHaveValue(""); await page.locator('[data-explore-start]').click(); await expect(page.locator('input[value="senin"]')).not.toBeChecked();
+    await page.reload();
+    await expect(first.first()).toBeVisible({ timeout: 30000 });
+    await expect(first.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    const other = zh ? "en" : "zh";
+    await page.goto(`/${other}/tests/explore/${quiz.slug}`);
+    await expect(page.locator('input[type="date"]')).toHaveValue("");
+    await page.locator("[data-explore-start]:visible").first().click();
+    await expect(first.first()).toBeVisible({ timeout: 30000 });
+    await expect(first.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
     expect(await page.evaluate(() => (window as Window & { wetonStorageTouches?: string[] }).wetonStorageTouches)).toEqual([]);
   });
 }
@@ -100,7 +131,12 @@ test("@release Weton stories: all70full public guide bodies, sampled hydrated gu
     const profile = quiz.profiles[locale === "en" ? 34 : 14], path = `/${locale}/tests/explore/${quiz.slug}/results/${profile.id}`;
     expect((await page.goto(path))?.status()).toBe(200); await acceptCookies(page, locale === "zh"); await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
     for (const section of profile.sections) await expect(page.locator(`#report-${section.id} h2`)).toHaveText(section.title[locale]);
-    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${profile.id}`);
+    if (isArchivedEntertainmentPath(path)) {
+      await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /^noindex, follow(?:,|$)/u);
+      await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
+    } else {
+      await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${profile.id}`);
+    }
     await expect(page.locator("[data-weton-count], input[type=date]")).toHaveCount(0);
   }
   for (const path of ["/en/tests/explore/weton-story-preferences/results/official-temperament", "/zh/tests/explore/weton-story-preferences/results/WETON35_001", "/en/tests/play/weton-story-preferences", "/og/fun/weton-story-preferences?locale=xx", "/og/fun/weton-story-preferences?locale=en&portrait=official-temperament"]) expect((await request.get(path)).status()).toBe(404);

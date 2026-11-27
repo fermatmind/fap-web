@@ -1,4 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
+import { archetypeCorePath, archetypeResultName } from "../../lib/questionnaires/archetypeResultCard";
+import { expectArchetypeGuideAlternates } from "./helpers/archetype-standalone-cases";
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
 
@@ -7,10 +10,10 @@ async function finish(page: Page, locale: "en" | "zh", mode: "golden-retriever" 
   for (const [index, question] of quiz.questions.entries()) {
     const option = mode === "tie" ? question.options[0] : question.options.find(o => o.directionId === "golden-retriever") ?? question.options[0];
     const radio = page.locator(`input[name="${question.id}"][value="${option.id}"]`);
-    if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
-    else await radio.check();
     if (index < 11) await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
-    await page.getByRole("button", { name: index === 11 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    if (index === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   await expect(page.locator("[data-archetype-count]")).toHaveCount(6);
@@ -47,38 +50,34 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "golden-retriever");
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
+    await expect(page.locator('[data-archetype-core-assessment="MBTI"] a')).toHaveAttribute("href", archetypeCorePath(locale, "MBTI"));
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(posts).toEqual([]);
   });
-  test(`@release Dog breed ${locale}: standalone reload and language change start with blank answers`, async ({ page }) => {
-    await page.goto(entry); await page.locator("[data-ent-start] button").click();
-    const firstOption = page.locator('input[name="DOG_01"][value="B"]');
-    await firstOption.check();
-    await expect(page.getByRole("checkbox")).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await page.reload();
-    await expect(firstOption).not.toBeChecked();
-    const other = zh ? "en" : "zh";
-    await page.goto(`/${other}/tests/explore/what-dog-breed-am-i/take?start=1`);
-    await expect(firstOption).not.toBeChecked();
-    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:what-dog-breed-am-i"))).toBeNull();
+  test(`@release Dog breed ${locale}: answers clear on reload and language change`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, entry, quiz);
+    const other = locale === "en" ? "zh" : "en";
+    await page.goto(`/${other}/tests/explore/${quiz.slug}/take`);
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
+    await expect(page.locator('#take-test input[type="radio"]:checked')).toHaveCount(0);
+    expect(await page.evaluate(slug => sessionStorage.getItem(`fm_questionnaire_draft:${slug}`), quiz.slug)).toBeNull();
   });
   test(`@release Dog breed ${locale}: denied storage, six-way tie shows54sections and private-safe clipboard fallback`, async ({ page }) => {
     await page.addInitScript(() => {
       const get = Storage.prototype.getItem, set = Storage.prototype.setItem;
       Storage.prototype.getItem = function(key) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return get.call(this, key); };
       Storage.prototype.setItem = function(key, value) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, key, value); };
+      Object.defineProperty(navigator, "share", { configurable: true, value: undefined });
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
     await page.goto(entry); await page.locator("[data-ent-start] button").click();
     await expect(page.getByRole("checkbox")).toHaveCount(0);
     await finish(page, locale, "tie");
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
-    for (const profile of quiz.profiles) expect(text).toContain(profile.title[locale]);
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.locator("[data-archetype-honor-group] textarea").inputValue();
+    for (const profile of quiz.profiles) expect(text).toContain(archetypeResultName(profile, locale, value => value));
     expect(text).not.toMatch(/DOG_[0-9]{2}|answers|form_code|submission|2\s*\/\s*8|[?&]score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
   });
@@ -90,7 +89,7 @@ test("@release Dog breed all12public full guides, bilingual images and closed id
     expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
     for (const section of profile.sections) await expect(page.locator(`#report-${section.id} h2`)).toHaveText(section.title[locale]);
-    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/what-dog-breed-am-i/results/${profile.id}`);
+    await expectArchetypeGuideAlternates(page, quiz.slug, profile.id);
     await expect(page.getByRole("link", { name: locale === "zh" ? "免费开始完整测试" : "Start the full test for free", exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/what-dog-breed-am-i#take-test`);
     const image = await request.get(`/og/fun/what-dog-breed-am-i?locale=${locale}&portrait=${profile.id}&v=1.0.0`); expect(image.status()).toBe(200);
     const bytes = await image.body(); expect(bytes.readUInt32BE(16)).toBe(1200); expect(bytes.readUInt32BE(20)).toBe(630);

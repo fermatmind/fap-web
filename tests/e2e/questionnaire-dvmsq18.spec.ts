@@ -3,14 +3,26 @@ import quiz from "../../lib/questionnaires/data/misophonia-screener.json";
 type Locale = "en" | "zh";
 const path = (l: Locale) => `/${l}/tests/explore/${quiz.slug}`;
 const label = (l: Locale, en: string, zh: string) => l === "zh" ? zh : en;
-async function click(page: Page, l: Locale, en: string, zh: string) { await page.getByRole("button", { name: label(l, en, zh), exact: true }).click(); }
-async function consent(page: Page, l: Locale) { const b = page.getByRole("button", { name: label(l, "Decline", "拒绝"), exact: true }); if (await b.isVisible()) await b.click(); }
-async function choose(page: Page, id: string, value: string) { await page.locator(`input[name="${id}"][value="${value}"]`).check(); }
-async function finish(page: Page, l: Locale, value: (n: number) => string) {
-  await choose(page, "DV_S1", "yes"); await click(page, l, "Next", "下一题");
+async function click(page: Page, l: Locale, en: string, zh: string) {
+  if (en === "Start test") {
+    await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator('#take-test input[name="DV_S1"]').first()).toBeVisible({ timeout: 30000 });
+    return;
+  }
+  await page.getByRole("button", { name: label(l, en, zh), exact: true }).click();
+}
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() })));
+});
+async function choose(page: Page, id: string, value: string) {
+  const radio = page.locator(`#take-test input[name="${id}"][value="${value}"]`);
+  await radio.click();
+  await expect(radio).toHaveCount(0);
+}
+async function finish(page: Page, value: (n: number) => string) {
+  await choose(page, "DV_S1", "yes");
   for (let n = 1; n <= 18; n++) {
     await choose(page, `DV_${String(n).padStart(2, "0")}`, value(n));
-    await click(page, l, n === 18 ? "See record and full guides" : "Next", n === 18 ? "查看记录与完整读法" : "下一题");
   }
 }
 async function retake(page: Page, l: Locale) { await click(page, l, "Clear and retake", "清空并重新测试"); await click(page, l, "Start test", "开始测试"); }
@@ -22,25 +34,26 @@ for (const l of ["en", "zh"] as const) {
     const leaks: string[] = [], errors: string[] = [];
     page.on("pageerror", e => errors.push(e.message));
     page.on("request", r => { if (r.method() === "POST" && /DV_\d\d|DV_S1|"answers"|"total"|"responses"/.test(r.postData() ?? "")) leaks.push(r.url()); });
-    await page.goto(`/${l}/tests`); await consent(page, l);
+    await page.goto(`/${l}/tests`);
     await page.locator("#more-tests").getByRole("link", { name: quiz.title[l], exact: true }).click();
     await expect(page.locator("h1")).toHaveText(quiz.title[l]); await expect(page).toHaveTitle(`${quiz.seoTitle[l]} | FermatMind`);
     await click(page, l, "Start test", "开始测试"); await expect(page.locator("#dvmsq18-question")).toBeFocused();
     await click(page, l, "Next", "下一题"); await expect(page.getByRole("status")).toContainText(label(l, "Choose an available response", "请选择一种可用回答"));
     await expect(page.locator("#take-test")).toContainText(quiz.dvmsq18.gateClarification[l]);
-    await choose(page, "DV_S1", "yes"); await click(page, l, "Next", "下一题");
+    await choose(page, "DV_S1", "yes");
     for (let n = 1; n <= 18; n++) {
       const id = `DV_${String(n).padStart(2, "0")}`, input = page.locator(`input[name="${id}"][value="${n === 3 ? "4" : "2"}"]`);
-      if (n === 1) { await input.focus(); await input.press("Space"); } else await input.check();
       if (n <= 10) await expect(page.locator("#take-test")).toContainText(quiz.dvmsq18.frequencyContext[l]);
       if (n >= 12 && n <= 15) await expect(page.locator("#take-test")).toContainText(quiz.dvmsq18.interferenceContext[l]);
       if (n >= 16) await expect(page.locator("#take-test")).toContainText(quiz.dvmsq18.globalContext[l]);
       if (n === 2) {
         await click(page, l, "Back", "上一题"); await expect(page.locator('input[name="DV_01"][value="2"]')).toBeChecked();
-        await choose(page, "DV_01", "3"); await choose(page, "DV_01", "2"); await click(page, l, "Next", "下一题"); await expect(input).toBeChecked();
+        await choose(page, "DV_01", "3"); await click(page, l, "Back", "上一题"); await expect(page.locator('input[name="DV_01"][value="3"]')).toBeChecked(); await choose(page, "DV_01", "2"); await expect(input).toBeVisible();
       }
       await expect(page.locator("[data-dvmsq18-result]")).toHaveCount(0);
-      await click(page, l, n === 18 ? "See record and full guides" : "Next", n === 18 ? "查看记录与完整读法" : "下一题");
+      if (n === 1) await input.press("Space");
+      else await input.click();
+      await expect(input).toHaveCount(0);
     }
     await expect(page.locator("#take-test h2")).toHaveText(quiz.resultHeading[l]); await expect(page.locator("#take-test h2")).toBeFocused();
     expect(await page.locator("#take-test h2").evaluate(el => el.getBoundingClientRect().top)).toBeGreaterThanOrEqual(64);
@@ -58,32 +71,46 @@ for (const l of ["en", "zh"] as const) {
     await click(page, l, "Copy public explanation links", "复制公开解释链接"); await expect(page.getByRole("status")).toHaveText(l === "zh" ? /无法自动复制/ : /Copied public explanation links/);
     const expected = quiz.profiles.map(p => `${p.title[l]}\nhttps://fermatmind.com${path(l)}/results/${p.id}`).join("\n\n");
     if (l === "en") expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(expected); else await expect(page.locator("#take-test textarea")).toHaveValue(expected);
-    expect(await page.getByRole("link", { name: label(l, "View the 92-item SPQ entry", "查看92项SPQ入口"), exact: true }).getAttribute("href")).toBe(`/${l}/tests/explore/sensory-processing-test`);
+    for (const profile of quiz.profiles) {
+      await expect(page.locator(`#take-test a[href="${path(l)}/results/${profile.id}"]`)).toBeVisible();
+    }
     expect(new URL(page.url()).search).toBe(""); expect(leaks).toEqual([]); expect(errors).toEqual([]);
     await retake(page, l); await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0);
-    await click(page, l, "Exit and clear these responses", "退出并清除本次回答"); await expect(page.getByRole("button", { name: label(l, "Start test", "开始测试"), exact: true })).toBeVisible();
+    await page.getByRole("link", { name: /^(Back to assessment|返回测评介绍)$/u }).first().click();
+    await page.waitForURL(url => url.pathname === path(l));
+    await expect(page.locator("[data-explore-start]:visible").first()).toBeVisible();
   });
   test(`@release Dvmsq18 ${l}: early gate branches, changed gate clears answers, all-skip and excluded fear`, async ({ page }) => {
-    await page.goto(path(l)); await consent(page, l); await click(page, l, "Start test", "开始测试");
-    await choose(page, "DV_S1", "yes"); await click(page, l, "Next", "下一题"); await choose(page, "DV_01", "4"); await click(page, l, "Back", "上一题");
-    await choose(page, "DV_S1", "no"); await click(page, l, "See record and full guides", "查看记录与完整读法");
+    await page.goto(path(l)); await click(page, l, "Start test", "开始测试");
+    await choose(page, "DV_S1", "yes"); await choose(page, "DV_01", "4"); await click(page, l, "Back", "上一题"); await click(page, l, "Back", "上一题");
+    await choose(page, "DV_S1", "no");
     await expect(page.locator("[data-dvmsq18-total]")).toContainText("0"); await expect(page.locator("[data-dvmsq18-part]")).toHaveCount(0); await expect(page.locator("[data-dvmsq18-response-record] li")).toHaveCount(1);
-    for (const gate of ["unsure", "na"]) { await retake(page, l); await choose(page, "DV_S1", gate); await click(page, l, "See record and full guides", "查看记录与完整读法"); await expect(page.locator("[data-dvmsq18-total]")).toHaveCount(0); await expect(page.locator("[data-dvmsq18-unscored]")).toHaveCount(1); }
-    await retake(page, l); await finish(page, l, () => "na"); await expect(page.locator("[data-dvmsq18-total-withheld]")).toBeVisible(); await expect(page.locator("[data-dvmsq18-part] [data-dvmsq18-unscored]")).toHaveCount(2);
-    await retake(page, l); await finish(page, l, n => n === 3 ? "na" : "4"); await expect(page.locator("[data-dvmsq18-total]")).toContainText("68"); await expect(page.locator("[data-dvmsq18-fear]")).toContainText(quiz.questions[3].options[5].label[l]);
-    await retake(page, l); await finish(page, l, n => n === 1 ? "na" : "2"); await expect(page.locator("[data-dvmsq18-total-withheld]")).toBeVisible(); await expect(page.locator('[data-dvmsq18-part="symptom"] [data-dvmsq18-unscored]')).toBeVisible(); await expect(page.locator('[data-dvmsq18-part="impairment"] [data-dvmsq18-sum]')).toContainText("14");
+    for (const gate of ["unsure", "na"]) { await retake(page, l); await choose(page, "DV_S1", gate); await expect(page.locator("[data-dvmsq18-total]")).toHaveCount(0); await expect(page.locator("[data-dvmsq18-unscored]")).toHaveCount(1); }
+    await retake(page, l); await finish(page, () => "na"); await expect(page.locator("[data-dvmsq18-total-withheld]")).toBeVisible(); await expect(page.locator("[data-dvmsq18-part] [data-dvmsq18-unscored]")).toHaveCount(2);
+    await retake(page, l); await finish(page, n => n === 3 ? "na" : "4"); await expect(page.locator("[data-dvmsq18-total]")).toContainText("68"); await expect(page.locator("[data-dvmsq18-fear]")).toContainText(quiz.questions[3].options[5].label[l]);
+    await retake(page, l); await finish(page, n => n === 1 ? "na" : "2"); await expect(page.locator("[data-dvmsq18-total-withheld]")).toBeVisible(); await expect(page.locator('[data-dvmsq18-part="symptom"] [data-dvmsq18-unscored]')).toBeVisible(); await expect(page.locator('[data-dvmsq18-part="impairment"] [data-dvmsq18-sum]')).toContainText("14");
   });
   test(`@release Dvmsq18 ${l}: refresh, language, return and queried public guide never restore private answers`, async ({ page }) => {
-    await page.goto(path(l)); await consent(page, l); await click(page, l, "Start test", "开始测试"); await choose(page, "DV_S1", "yes"); await click(page, l, "Next", "下一题"); await choose(page, "DV_01", "4"); await page.reload();
-    await expect(page.getByRole("button", { name: label(l, "Start test", "开始测试"), exact: true })).toBeVisible(); expect(await page.evaluate(slug => sessionStorage.getItem(`fm_questionnaire_draft:${slug}`), quiz.slug)).toBeNull();
-    await click(page, l, "Start test", "开始测试"); await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0); await choose(page, "DV_S1", "yes");
-    const other = l === "en" ? "zh" : "en"; await page.goto(path(other)); await consent(page, other); await expect(page.getByRole("button", { name: label(other, "Start test", "开始测试"), exact: true })).toBeVisible();
-    await page.goBack(); await expect(page.getByRole("button", { name: label(l, "Start test", "开始测试"), exact: true })).toBeVisible();
+    await page.goto(`${path(l)}/take`);
+    await choose(page, "DV_S1", "yes");
+    await choose(page, "DV_01", "4");
+    await page.reload();
+    const gate = page.locator('#take-test input[name="DV_S1"]');
+    await expect(gate.first()).toBeVisible({ timeout: 30000 });
+    await expect(gate.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    expect(await page.evaluate(slug => sessionStorage.getItem(`fm_questionnaire_draft:${slug}`), quiz.slug)).toBeNull();
+    const other = l === "en" ? "zh" : "en";
+    await page.goto(`${path(other)}/take`);
+    await expect(gate.first()).toBeVisible({ timeout: 30000 });
+    await expect(gate.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    await page.goBack();
+    await expect(gate.first()).toBeVisible({ timeout: 30000 });
+    await expect(gate.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
     await page.goto(`${path(l)}/results/overall?score=68&answers=private`); await expect(page.locator("h1")).toHaveText(quiz.profiles[0].title[l]); await expect(page.locator("[data-dvmsq18-result]")).toHaveCount(0);
     await expect(page.locator("[data-public-content-loading]")).toHaveCount(0); const guide = page.getByRole("main"); await expect(guide).toHaveCount(1);
     for (const s of quiz.profiles[0].sections) for (const p of s.paragraphs) await expect(guide).toContainText(p[l]);
     await expect(guide).toContainText(quiz.dvmsq18.attribution[l]); await expect(guide.locator('a[href="https://creativecommons.org/licenses/by-sa/4.0/"]')).toBeVisible();
     await page.getByRole("link", { name: label(l, "Start the free DVMSQ source-form check-in", "免费开始DVMSQ源表自评"), exact: true }).click();
-    await expect(page.getByRole("button", { name: label(l, "Start test", "开始测试"), exact: true })).toBeVisible(); expect(new URL(page.url()).search).toBe("");
+    await expect(page.locator("[data-explore-start]:visible").first()).toBeVisible(); expect(new URL(page.url()).search).toBe("");
   });
 }
