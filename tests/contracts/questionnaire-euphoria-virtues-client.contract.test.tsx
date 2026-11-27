@@ -40,7 +40,7 @@ for(const locale of ["en","zh"] as const)for(const quiz of [virtues,euphoria]){
   }else expect(document.querySelectorAll("#take-test h4")).toHaveLength(36);
   expect(screen.getByRole("heading",{level:2,name:quiz===virtues?(locale==="zh"?"费马测试 · 光暗双轨档案":"FermatMind · Light & Shadow"):undefined})).toHaveFocus();
   const share = quiz === virtues;
-  await act(async()=>{fireEvent.click(screen.getByRole("button",{name:share?(locale==="zh"?"一键分享给朋友":"Share with friends"):(locale==="zh"?"复制公开入口":"Copy public entry")}));});
+  await act(async()=>{fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"一键分享给朋友":share?"Share with friends":"Share Result"}));});
   const publicUrl = `https://fermatmind.com/${locale}/tests/explore/${quiz.slug}`;
   if (share) {
    expect(clipboard).toHaveBeenCalledWith(expect.stringMatching(new RegExp(publicUrl+"$")));
@@ -48,7 +48,7 @@ for(const locale of ["en","zh"] as const)for(const quiz of [virtues,euphoria]){
    expect(screen.getByRole("status").textContent).toContain(locale==="zh"?"分享文案已复制":"Share caption copied");
   } else {
    expect(clipboard).toHaveBeenCalledWith(`${quiz.title[locale]}\n${publicUrl}`);
-   expect(screen.getByRole("status").textContent).toContain(locale==="zh"?"不含个人答案或次数":"without personal answers or counts");
+   expect(screen.getByRole("status").textContent).toContain(locale==="zh"?"分享文案已复制":"Caption copied");
   }
   expect(JSON.stringify(events.mock.calls)).not.toMatch(/VIRTUES_(?:LK|DUAL)_|EUPHORIA_ORIGINAL_|rawSum|winnerIds|answers|miniVirtues|counts/);
   const lifecycle = events.mock.calls.filter(([event]) => ["start_test", "complete_test", "view_result"].includes(event));
@@ -59,11 +59,11 @@ for(const locale of ["en","zh"] as const)for(const quiz of [virtues,euphoria]){
   const mbti=screen.queryByRole("link",{name:locale==="zh"?"可选：另做MBTI偏好探索":"Optional: explore MBTI preferences separately"});
   expect(mbti).toBeNull();
   if(quiz===euphoria){
-   const next=screen.getByRole("link",{name:locale==="zh"?"了解大五人格测评":"Explore the Big Five personality assessment"});
-   expect(next).toHaveAttribute("href",`/${locale}/tests/big-five-personality-test-ocean-model`);
+   const next=document.querySelector("[data-archetype-core-assessment=MBTI] a");
+   expect(next).toHaveAttribute("href",`/${locale}/tests/mbti-personality-test-16-personality-types`);
    expect(next).toHaveAttribute("referrerPolicy","no-referrer");
   }
-  fireEvent.click(screen.getByRole("button",{name:locale==="zh"?(share?"再测一次":"重新测试"):"Retake test"}));
+  fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"再测一次":share?"Retake test":"Retake"}));
   expect(screen.getAllByRole("radio").some(r=>(r as HTMLInputElement).checked)).toBe(false);expect(sessionStorage.getItem(key)).toBeNull();
   expect(document.querySelectorAll("[data-mini-virtues-result],[data-archetype-match]")).toHaveLength(0);stored.mockRestore();
  });
@@ -81,8 +81,9 @@ it("restores only a saved compatible draft, supports Back and deletes it on expl
 it("provides a public-only manual copy fallback when clipboard access fails",async()=>{
  Object.defineProperty(navigator,"clipboard",{configurable:true,value:{writeText:vi.fn(async()=>{throw Error("synthetic clipboard denial");})}});
  render(<QuestionnaireClient quiz={euphoria} locale="en"/>);await waitFor(()=>expect(screen.getByRole("button",{name:"Start test"})).toBeEnabled());fireEvent.click(screen.getByRole("button",{name:"Start test"}));finish(euphoria,outcomes.witnesses[0].answers,"en");
- await act(async()=>{fireEvent.click(screen.getByRole("button",{name:"Copy public entry"}));});
- expect(screen.getByRole("textbox",{name:"Result text for manual copying"})).toHaveValue(`${euphoria.title.en}\nhttps://fermatmind.com/en/tests/explore/euphoria-character-quiz`);
+ const share=await screen.findByRole("button",{name:"Share Result"});
+ await act(async()=>{fireEvent.click(share);});
+ expect(screen.getByRole("textbox",{name:"Copy the caption manually"})).toHaveValue(`${euphoria.title.en}\nhttps://fermatmind.com/en/tests/explore/euphoria-character-quiz`);
 });
 it("disables entry controls in the server HTML until hydration",()=>{
  for(const quiz of [virtues,euphoria]){

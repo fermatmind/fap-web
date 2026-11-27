@@ -2,6 +2,7 @@ import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { CANONICAL_SITE_URL } from "@/lib/site";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import type { ArchetypeResult } from "./basicScoring";
+import type { PatronusResult } from "./patronus";
 import { questionnairePath } from "./paths";
 import type { Questionnaire, QuestionnaireProfile } from "./types";
 
@@ -28,6 +29,34 @@ for (const theme of Object.keys(groups) as Theme[]) {
   }
 }
 
+const wave3bVariants: Readonly<Record<string, { theme: Theme; target: Target }>> = {
+  "apocalypse-survival-type-test": { theme: "neon", target: "MBTI" },
+  "euphoria-character-quiz": { theme: "neon", target: "MBTI" },
+  "star-wars-character": { theme: "neon", target: "MBTI" },
+  "villain-era-archetype-test": { theme: "neon", target: "MBTI" },
+  "wednesday-addams-character": { theme: "neon", target: "MBTI" },
+  "avatar-bender-quiz": { theme: "gold", target: "MBTI" },
+  "next-life": { theme: "gold", target: "BIG5_OCEAN" },
+  "patronus-quiz": { theme: "gold", target: "MBTI" },
+  "soldier-poet-king-quiz": { theme: "gold", target: "MBTI" },
+  "sake-type": { theme: "gold", target: "BIG5_OCEAN" },
+  "big-fish-energy-test": { theme: "dusk", target: "MBTI" },
+  "decade-aesthetic-test": { theme: "dusk", target: "BIG5_OCEAN" },
+  "delulu-test": { theme: "dusk", target: "MBTI" },
+  "found-family-role-test": { theme: "dusk", target: "MBTI" },
+  "ginny-and-georgia-character-quiz": { theme: "dusk", target: "MBTI" },
+  "hundred-acre-wood-friend-quiz": { theme: "dusk", target: "MBTI" },
+  "style-impression-preferences": { theme: "dusk", target: "BIG5_OCEAN" },
+  "travel-personality-test": { theme: "dusk", target: "BIG5_OCEAN" },
+  "intelligence-type-test": { theme: "slate", target: "RIASEC" },
+  "leadership-style": { theme: "slate", target: "RIASEC" },
+  "values-assessment": { theme: "slate", target: "RIASEC" },
+};
+
+export function wave3bArchetypeVariant(slug: string) {
+  return Object.hasOwn(wave3bVariants, slug) ? wave3bVariants[slug] : undefined;
+}
+
 export const archetypePosterSize = { width: 1080, height: 1440 } as const;
 
 export const archetypeCardThemes = {
@@ -38,7 +67,7 @@ export const archetypeCardThemes = {
 } as const;
 
 export function archetypeCardVariant(slug: string, locale: DisplayLocale) {
-  return locale === "zh-TW" && slug === "chiikawa" ? undefined : variants.get(slug as ArchetypeCardSlug);
+  return locale === "zh-TW" && slug === "chiikawa" ? undefined : wave3bArchetypeVariant(slug) ?? variants.get(slug as ArchetypeCardSlug);
 }
 
 const shortEnglish: Partial<Record<ArchetypeCardSlug, string>> = {
@@ -59,15 +88,20 @@ export function archetypeCardShortTitle(quiz: Questionnaire, locale: DisplayLoca
 
 export type CompleteArchetype = Extract<ArchetypeResult, { status: "complete" }>;
 
-export function archetypeRunnerUp(quiz: Questionnaire, result: CompleteArchetype) {
+export type CompletePatronus = Extract<PatronusResult, { status: "complete" }>;
+
+export function archetypeRunnerUp(quiz: Questionnaire, result: CompleteArchetype | CompletePatronus) {
   if (result.profileIds.length !== 1) return undefined;
   const winner = quiz.profiles.find(profile => profile.id === result.profileIds[0]);
   if (!winner) return undefined;
-  const max = result.counts[winner.directionIds[0]];
+  // Rank exact integer distances before formatting. Ordinary archetypes rank counts descending.
+  const patronus = "distanceUnits" in result;
+  const strength = (profile: QuestionnaireProfile) => patronus ? -result.distanceUnits[profile.id] : result.counts[profile.directionIds[0]];
+  const max = strength(winner);
   const lower = quiz.profiles.filter(profile => profile.id !== winner.id);
-  const next = Math.max(...lower.map(profile => result.counts[profile.directionIds[0]]));
-  if (!Number.isFinite(max) || next <= 0 || next >= max) return undefined;
-  const matches = lower.filter(profile => result.counts[profile.directionIds[0]] === next);
+  const next = Math.max(...lower.map(strength));
+  if (!Number.isFinite(max) || !Number.isFinite(next) || (!patronus && next <= 0) || next >= max) return undefined;
+  const matches = lower.filter(profile => strength(profile) === next);
   return matches.length === 1 ? matches[0] : undefined;
 }
 

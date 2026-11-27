@@ -1,6 +1,7 @@
-import { archetypeCardVariant } from "@/lib/questionnaires/archetypeResultCard";
+import { archetypeCardVariant, wave3bArchetypeVariant } from "@/lib/questionnaires/archetypeResultCard";
 import { archetypeResultCopy } from "@/lib/questionnaires/archetypeResultShare";
 import { ArchetypeHonorCard } from "./ArchetypeHonorCard";
+import { Wave3bArchetypeHonorCard } from "./Wave3bArchetypeHonorCard";
 import { getArchiveExperience } from "@/lib/entertainment/archiveExperience";
 import { ArchiveQuestionnaireNextStep, ArchiveReadingSnapshot } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import { traditionalPortraitCopy } from "@/lib/questionnaires/traditionalPortraitCopy";
@@ -47,7 +48,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, answers, on
   const displayLocale = localized ? "zh-TW" : locale;
   const copy = localized ? displayText : (value: string) => value;
   const portraitCopy = traditionalPortraitCopy(localized ? displayText : undefined);
-  if (hasFantasyArtwork(quiz.slug)) return <FantasyArchetypeReport quiz={quiz} result={result} locale={locale} answers={answers} />;
+  if (hasFantasyArtwork(quiz.slug)) return <FantasyArchetypeReport quiz={quiz} result={result} locale={locale} answers={answers} onRetake={onRetake} />;
   if (quiz.slug === "philosopher-personality-test") return <PhilosopherReport quiz={quiz} result={result} locale={locale} displayLocale={displayLocale} copy={portraitCopy} onRetake={onRetake} />;
   const zh = locale === "zh";
   const lead = portraitResultLeadKind(quiz.slug);
@@ -58,7 +59,9 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, answers, on
   const placement = (edgerunners || chiikawa) && result.profileIds.length === 1 ? "between" :
     comparisonFirst.has(quiz.slug) ? "before" : chartAfterLead.has(quiz.slug) ? "between" : chartAfterReading.has(quiz.slug) ? "after" : undefined;
   const matched = result.profileIds.map(id => quiz.profiles.find(p => p.id === id)!);
+  const archiveHonor = wave3bArchetypeVariant(quiz.slug);
   const honor = archetypeCardVariant(quiz.slug, displayLocale);
+  const HonorCard = archiveHonor ? Wave3bArchetypeHonorCard : ArchetypeHonorCard;
   const showRadar = edgerunners || chiikawa || placement === "before" || quiz.slug === "anime-character-archetype-test";
   const chart = <QuestionnaireArchetypeChoiceChart quiz={quiz} result={result} locale={locale} copy={copy} showRadar={showRadar} placement={placement} />;
   const counts = placement === "before" || placement === "between" ? chart :
@@ -75,7 +78,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, answers, on
       </section>}
     </details>;
   return <div className={styles.profileReadings} data-profile-category={quiz.category} data-choice-chart-placement={placement}>
-    {honor && <ArchetypeHonorCard quiz={quiz} result={result} profiles={matched} locale={displayLocale} copy={portraitCopy} onRetake={onRetake} />}
+    {honor && <HonorCard quiz={quiz} result={result} profiles={matched} locale={displayLocale} copy={portraitCopy} onRetake={onRetake} />}
     {quiz.slug === "moon-phase" && <MoonPhaseReveal quiz={quiz} result={result} locale={locale} answers={answers} traditionalCopy={localized ? displayText : undefined} />}
     {quiz.slug === "bleach" && <BleachReveal quiz={quiz} result={result} locale={locale} displayLocale={displayLocale} copy={portraitCopy} answers={answers} />}
     {quiz.slug === "space-marine-chapter" && <SpaceMarineChapterReveal quiz={quiz} result={result} locale={locale} answers={answers} />}
@@ -123,6 +126,6 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, answers, on
       </section>;
     })}
     {(!placement || placement === "after") && quiz.slug !== "aura-color" && counts}
-    {getArchiveExperience(quiz.slug) && <ArchiveQuestionnaireNextStep slug={quiz.slug} locale={displayLocale} />}
+    {!archiveHonor && getArchiveExperience(quiz.slug) && <ArchiveQuestionnaireNextStep slug={quiz.slug} locale={displayLocale} />}
   </div>;
 }

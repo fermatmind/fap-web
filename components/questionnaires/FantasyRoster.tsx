@@ -7,8 +7,10 @@ import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 
 export const hasFantasyArtwork = (slug: string) => ["soldier-poet-king-quiz", "avatar-bender-quiz", "patronus-quiz"].includes(slug);
 
+export const fantasyPortraitPath = (slug: string, id: string) => `/images/quiz-portraits/${slug}/${id}.svg`;
+
 export function FantasyPortrait({ slug, id, name, large = false }: { slug: string; id: string; name: string; large?: boolean }) {
-  return <Image unoptimized src={`/images/quiz-portraits/${slug}/${id}.svg`} width={480} height={480} alt={name} className={large ? "my-4 size-56 max-w-full rounded-2xl" : "size-24 shrink-0 rounded-xl"} />;
+  return <Image unoptimized src={fantasyPortraitPath(slug, id)} width={480} height={480} alt={name} className={large ? "my-4 size-56 max-w-full rounded-2xl" : "size-24 shrink-0 rounded-xl"} />;
 }
 
 export function FantasyRoster({ quiz, locale, preserveResult = false, displayLocale = locale }: { quiz: Questionnaire; locale: Locale; preserveResult?: boolean; displayLocale?: DisplayLocale }) {

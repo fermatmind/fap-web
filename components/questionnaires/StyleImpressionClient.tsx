@@ -7,6 +7,8 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { scoreArchetypeQuestionnaire, isArchetypeConfigurationValid } from "@/lib/questionnaires/basicScoring";
 import type { Locale } from "@/lib/i18n/locales";
+import { Wave3bArchetypeHonorCard } from "./Wave3bArchetypeHonorCard";
+import { ResultCoreBridge } from "./ResultCoreBridge";
 import { StyleImpressionReport } from "./StyleImpressionReport";
 
 const subscribeReady = () => () => {};
@@ -49,15 +51,17 @@ export function StyleImpressionClient({ quiz, locale }: { quiz: Questionnaire; l
       <QuestionnaireLegacyControl><button className="mt-4 min-h-11 text-sm underline" onClick={() => reset("welcome")}>{zh ? copy("退出并清除本次进度") : "Exit and clear this attempt"}</button></QuestionnaireLegacyControl>
     </>}
     {stage === "result" && result.status === "complete" && <>
-      <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere]">{quiz.resultHeading![locale]}</h2>
+      <h2 ref={heading} tabIndex={-1} className="sr-only">{quiz.resultHeading![locale]}</h2>
+      <Wave3bArchetypeHonorCard quiz={quiz} result={result} profiles={quiz.profiles.filter(profile => result.profileIds.includes(profile.id))}
+        locale={displayLocale} copy={copy} onRetake={() => reset("answer")} />
       <StyleImpressionReport quiz={quiz} result={result} locale={locale} displayLocale={displayLocale} copy={copy} />
-      <button className={button} onClick={() => reset("answer")}>{zh ? copy("重新测试") : "Retake test"}</button>
       <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{zh ? copy("完整指南已开放，可以在这里结束") : "Your complete guides are open. You may finish here."}</h3>
         <p className="my-4 leading-8">{zh ? copy("也可以比较其他公开主题。若想单独观察衣服线条，可另做服装线条偏好题本；它记录五项认同均值，本次次数不换算。") : "Compare another public theme if you wish. The separate Outfit Line Preferences form explores five agreement means about garment lines. These counts do not convert into its results."}</p>
         <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests/explore/${quiz.slug}#questionnaire-results`}>{zh ? copy("比较八篇公开完整指南") : "Compare all eight public full guides"}</Link><br />
         <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests/explore/outfit-line-preferences`}>{zh ? copy("了解独立的服装线条偏好") : "Read about the separate Outfit Line Preferences form"}</Link><br />
         <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests#more-tests`}>{zh ? copy("返回全部测试") : "Back to all tests"}</Link>
       </section>
+      <ResultCoreBridge locale={displayLocale} target="BIG5_OCEAN" />
     </>}
     <p data-sip-privacy className="mb-5 rounded-lg bg-slate-50 p-4 text-sm leading-7">{zh ? copy("仅本人作答。答案只留当前页面内存，不保存进度、不发送测试流程统计、不分享个人结果；刷新、换语言或离开后不能恢复。") : "Answer only for yourself. Answers remain in this page’s memory without saved drafts or personal-result sharing; no quiz-flow statistics are sent. Refreshing, changing language or leaving loses the attempt."}</p>
     {message && <p role="status" className="mt-5 rounded-lg bg-amber-50 p-3 text-sm leading-7">{message}</p>}

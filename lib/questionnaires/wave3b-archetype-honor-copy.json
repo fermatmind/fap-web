@@ -1,0 +1,839 @@
+{
+  "apocalypse-survival-type-test": {
+    "camp-planner": {
+      "zh": ["稳场派","有章法","留余地","你在混乱里更想先搭好营地，让下一步有地方落脚。"],
+      "zh-TW": ["穩場派","有章法","留餘地","你在混亂裡更想先搭好營地，讓下一步有地方落腳。"],
+      "en": ["Steady Organizer","Calm Anchor","Room for Change","You like a plan that gives everyone a foothold and leaves room to adapt."]
+    },
+    "care-companion": {
+      "zh": ["温和派","细致心","有耐性","你更愿意把时间留给还没说完的人，让营地多一点温度。"],
+      "zh-TW": ["溫和派","細緻心","有耐性","你這次比較願意把時間留給還沒說完的人，讓營地多一點溫度。"],
+      "en": ["Gentle Ally","Patient Ear","Warm Presence","You'd make room by the fire for someone who hasn't finished speaking."]
+    },
+    "map-scout": {
+      "zh": ["眼尖派","好奇心","有远见","你更容易被地图上一笔小线索吸引，想看看它通向哪里。"],
+      "zh-TW": ["眼尖派","好奇心","有遠見","你比較容易被地圖上一筆小線索吸引，想看看它通向哪裡。"],
+      "en": ["Sharp-Eyed","Daring Curiosity","Pathfinder","You notice the little mark on the map that might lead somewhere new."]
+    },
+    "model-builder": {
+      "zh": ["手作派","善变通","有巧思","你更喜欢把手边的碎片拼起来，让故事长出另一幅模样。"],
+      "zh-TW": ["手作派","善變通","有巧思","你這次比較喜歡把手邊的碎片拼起來，讓故事長出另一幅模樣。"],
+      "en": ["Hands-On","Resourceful","Inventive","You enjoy piecing scraps together until the scene takes another shape."]
+    },
+    "message-diplomat": {
+      "zh": ["讲理派","善沟通","有分寸","你更在意一条消息从哪来，也想给听到的人留个回应的机会。"],
+      "zh-TW": ["講理派","善溝通","有分寸","你更在意一條訊息從哪來，也想給聽到的人留個回應的機會。"],
+      "en": ["Clear Voice","Fair-Minded","Considerate","You care where a message came from and who gets a chance to answer."]
+    },
+    "solo-chronicler": {
+      "zh": ["安静派","自得感","爱记录","你更愿意先写下一页属于自己的故事，再决定要给谁看。"],
+      "zh-TW": ["安靜派","自得感","愛記錄","你這次比較願意先寫下一頁屬於自己的故事，再決定要給誰看。"],
+      "en": ["Quiet Witness","Private by Choice","Reflective","You'd write the page for yourself first and choose later who can read it."]
+    }
+  },
+  "avatar-bender-quiz": {
+    "water": {
+      "zh": ["柔中有力","善应变","温和派","你更喜欢顺着局势找转机，像水绕过石头也能继续向前。"],
+      "zh-TW": ["柔中有力","善應變","溫和派","你這次比較喜歡順著局勢找轉機，像水繞過石頭也能繼續向前。"],
+      "en": ["Adaptable","Quiet Force","Receptive","You'd flow around the obstacle first and see what the bend makes possible."]
+    },
+    "earth": {
+      "zh": ["沉稳派","有底气","重根基","你更喜欢脚下先站稳，等找到支点再迎着变化往前。"],
+      "zh-TW": ["沉穩派","有底氣","重根基","你這次比較喜歡腳下先站穩，等找到支點再迎著變化往前。"],
+      "en": ["Grounded","Steady","Quiet Resolve","You like to find solid ground before putting your weight behind a move."]
+    },
+    "fire": {
+      "zh": ["炽热派","有冲劲","方向感","你更容易被值得做的事点燃，也愿意把那股劲用在一个方向。"],
+      "zh-TW": ["熾熱派","有衝勁","方向感","你比較容易被值得做的事點燃，也願意把那股勁用在一個方向。"],
+      "en": ["Fiery Drive","Focused Spark","Bold Energy","You like a spark with somewhere to go and a reason to keep it burning."]
+    },
+    "air": {
+      "zh": ["轻盈派","爱自由","善换位","你更愿意往旁边让半步，用另一个角度看路还能怎么走。"],
+      "zh-TW": ["輕盈派","愛自由","善換位","你這次比較願意往旁邊退半步，用另一個角度看路還能怎麼走。"],
+      "en": ["Light on Foot","Free-Spirited","Open View","You like stepping sideways to see where a narrow path might open up."]
+    }
+  },
+  "big-fish-energy-test": {
+    "shark": {
+      "zh": ["利落派","专注感","干脆劲","你更喜欢给一件事画个清楚的句号，再痛快地游向下一处。"],
+      "zh-TW": ["利落派","專注感","乾脆勁","你這次比較喜歡給一件事畫個清楚的句號，再痛快地遊向下一處。"],
+      "en": ["Decisive","Clean Finish","Focused Drive","You like a clean finish to one thing before swimming toward the next."]
+    },
+    "dolphin": {
+      "zh": ["俏皮感","有来回","亲和力","你更喜欢轻轻抛出一句话，看看对方会不会笑着接住。"],
+      "zh-TW": ["俏皮感","有來回","親和力","你這次比較喜歡輕輕丟擲一句話，看看對方會不會笑著接住。"],
+      "en": ["Playful","Easy Company","Quick Rapport","You like a light remark that leaves space for someone to play it back."]
+    },
+    "whale": {
+      "zh": ["沉静派","慢节奏","深水感","你更喜欢在一段时间里自在停留，不急着把它过成下一项。"],
+      "zh-TW": ["沉靜派","慢節奏","深水感","你這次比較喜歡在一段時間裡自在停留，不急著把它過成下一項。"],
+      "en": ["Unhurried","Quiet Depth","Calm Presence","You'd let the moment stay a while before rushing it into the next thing."]
+    },
+    "octopus": {
+      "zh": ["有巧思","善联想","多面手","你更喜欢让两件熟悉的小东西碰个面，看看能不能变新鲜。"],
+      "zh-TW": ["有巧思","善聯想","多面手","你這次比較喜歡讓兩件熟悉的小東西碰個面，看看能不能變新鮮。"],
+      "en": ["Inventive","Associative","Many Angles","You like joining familiar things in a way that makes both feel new."]
+    },
+    "pufferfish": {
+      "zh": ["有边界","自在派","柔韧感","你更喜欢按舒服的分寸玩，兴致和界线都能好好保留。"],
+      "zh-TW": ["有邊界","自在派","柔韌感","你這次比較喜歡按舒服的分寸玩，興致和界線都能好好保留。"],
+      "en": ["Boundaried","Easygoing","Self-Paced","You enjoy the little things more when you get to set the edges."]
+    },
+    "anglerfish": {
+      "zh": ["私藏派","小火光","自得感","你更愿意把一点喜欢留给自己，亮不亮给别人看都可以。"],
+      "zh-TW": ["私藏派","小火光","自得感","你這次比較願意把一點喜歡留給自己，亮不亮給別人看都可以。"],
+      "en": ["Private Spark","Self-Contained","Subtle Charm","You can keep a little glow for yourself without putting it on display."]
+    }
+  },
+  "decade-aesthetic-test": {
+    "deco-1920s": {
+      "zh": ["有秩序","复古感","线条派","你更喜欢一眼看得见重心的画面，连细金线都待在合适的位置。"],
+      "zh-TW": ["有秩序","復古感","線條派","你這次比較喜歡一眼看得見重心的畫面，連細金線都待在合適的位置。"],
+      "en": ["Geometric","Art Deco","Orderly Eye","You like a clear center and a gold line with a reason to be there."]
+    },
+    "boho-1960s": {
+      "zh": ["自然派","花纹感","随性美","你更喜欢花纹有一点不整齐，仿佛还能顺着纸面继续长。"],
+      "zh-TW": ["自然派","花紋感","隨性美","你這次比較喜歡花紋有一點不整齊，彷彿還能順著紙面繼續長。"],
+      "en": ["Organic","Pattern-Loving","Freeform","You like patterns with enough variation to feel as if they're growing."]
+    },
+    "disco-1970s": {
+      "zh": ["亮片感","节奏派","有舞感","你更容易被游走的光点吸引，连静止的画面也想给它一点节奏。"],
+      "zh-TW": ["亮片感","節奏派","有舞感","你比較容易被遊走的光點吸引，連靜止的畫面也想給它一點節奏。"],
+      "en": ["Rhythmic","Shimmer-Loving","Playful","You like a glint that makes even a still page feel like it could dance."]
+    },
+    "graphic-1980s": {
+      "zh": ["图形派","对比感","大色块","你更喜欢用鲜明的大色块立住轮廓，让画面一眼就有表情。"],
+      "zh-TW": ["圖形派","對比感","大色塊","你這次比較喜歡用鮮明的大色塊立住輪廓，讓畫面一眼就有表情。"],
+      "en": ["Graphic","Bold Contrast","Crisp Type","You like bold blocks and sharp diagonals that make a page speak at once."]
+    },
+    "grunge-1990s": {
+      "zh": ["肌理派","随意感","有棱角","你更喜欢看得见叠痕和毛边的质地，像画面自己带着一段往事。"],
+      "zh-TW": ["肌理派","隨意感","有稜角","你這次比較喜歡看得見疊痕和毛邊的質地，像畫面自己帶著一段往事。"],
+      "en": ["Textured","Rough-Edged","Layered Eye","You like a rough edge or an old crease that gives a page some history."]
+    },
+    "digital-2000s": {
+      "zh": ["像素感","未来派","透明感","你更喜欢半透明的小窗口和漂浮像素，像刚打开一个新世界。"],
+      "zh-TW": ["畫素感","未來派","透明感","你這次比較喜歡半透明的小視窗和漂浮畫素，像剛開啟一個新世界。"],
+      "en": ["Pixel Play","Glossy Future","Airy Layers","You like translucent windows and pixels that feel ready to float away."]
+    }
+  },
+  "delulu-test": {
+    "wish-rehearsal": {
+      "zh": ["预演派","有想象","留余地","你更喜欢先在脑海里预演一个好场面，也肯给现实留着变数。"],
+      "zh-TW": ["預演派","有想像","留餘地","你這次比較喜歡先在腦海裡預演一個好場面，也肯給現實留著變數。"],
+      "en": ["Dreamy","Hopeful Preview","Open-Ended","You like a hopeful preview in your head while leaving the real scene open."]
+    },
+    "cinematic-moment": {
+      "zh": ["电影感","浪漫派","有画面","你更喜欢给普通的一刻配首歌，让它在回忆里多一点光。"],
+      "zh-TW": ["電影感","浪漫派","有畫面","你這次比較喜歡給普通的一刻配首歌，讓它在回憶裡多一點光。"],
+      "en": ["Cinematic","Romantic Eye","Mood Maker","You'd give an ordinary moment a soundtrack and let it glow a little longer."]
+    },
+    "signal-spark": {
+      "zh": ["细节派","好奇心","有灵光","你更容易被一个细节逗起好奇，愿意多想一下它还能怎么发展。"],
+      "zh-TW": ["細節派","好奇心","有靈光","你比較容易被一個細節逗起好奇，願意多想一下它還能怎麼發展。"],
+      "en": ["Detail Spark","Curious","Playful Guess","You let a tiny clue start an imagined scene and keep the ending open."]
+    },
+    "future-postcard": {
+      "zh": ["未来感","爱回想","有余地","你更喜欢想象多年后会怎样回看今天，也给此刻留一个空白。"],
+      "zh-TW": ["未來感","愛回想","有餘地","你這次比較喜歡想像多年後會怎樣回看今天，也給此刻留一個空白。"],
+      "en": ["Future-Gazing","Reflective","Unscripted","You like imagining how today might look on a postcard from the future."]
+    },
+    "second-chapter": {
+      "zh": ["续篇感","重回忆","有转念","你更愿意给搁下的片段多留一页，下一行写什么还由你选。"],
+      "zh-TW": ["續篇感","重回憶","有轉念","你這次比較願意給擱下的片段多留一頁，下一行寫什麼還由你選。"],
+      "en": ["Reflective","Sequel Mind","Open Choice","You'd leave a page for a paused story and decide later what belongs on it."]
+    },
+    "lucky-detour": {
+      "zh": ["爱新鲜","随性派","转弯感","你更愿意把偶然的绕路当成一小段趣事，想回来也随时可以。"],
+      "zh-TW": ["愛新鮮","隨性派","轉彎感","你這次比較願意把偶然的繞路當成一小段趣事，想回來也隨時可以。"],
+      "en": ["Spontaneous","Lighthearted","Detour Friendly","You can enjoy a small detour and still turn back when you've had enough."]
+    }
+  },
+  "euphoria-character-quiz": {
+    "rue-bennett": {
+      "zh": ["冷幽默","有转折","旁白感","你更喜欢绕个弯讲自己的故事，让一点冷幽默替直白的话探路。"],
+      "zh-TW": ["冷幽默","有轉折","旁白感","你這次比較喜歡繞個彎講自己的故事，讓一點冷幽默替直白的話探路。"],
+      "en": ["Dry Wit","Sideways Teller","Reflective","You'd tell the story sideways and let a little dry humor go first."]
+    },
+    "jules-vaughn": {
+      "zh": ["有探索感","好奇派","自由心","你更愿意试一试还没穿过的颜色，看看哪个版本说得出你。"],
+      "zh-TW": ["有探索感","好奇派","自由心","你這次比較願意試一試還沒穿過的顏色，看看哪個版本說得出你。"],
+      "en": ["Expressive","Curious","Free-Spirited","You like trying on a new color to see which version feels like yours."]
+    },
+    "cassie-howard": {
+      "zh": ["亲近感","重回应","真切心","你更在意靠近之后有没有回应，一句认真听见了就很珍贵。"],
+      "zh-TW": ["親近感","重回應","真切心","你更在意靠近之後有沒有回應，一句認真聽見了就很珍貴。"],
+      "en": ["Connection-Minded","Openhearted","Attuned","You care whether a small gesture of closeness is really heard."]
+    },
+    "maddy-perez": {
+      "zh": ["坦率派","有锋芒","界线清","你更喜欢把立场说清楚，让大家知道你愿意走到哪一步。"],
+      "zh-TW": ["坦率派","有鋒芒","界線清","你這次比較喜歡把立場說清楚，讓大家知道你願意走到哪一步。"],
+      "en": ["Direct","Self-Possessed","Clear Limits","You like to say where you stand and make your limits easy to read."]
+    },
+    "lexi-howard": {
+      "zh": ["观察派","有叙事感","细致心","你更喜欢先静静看一阵，再把没人留意的小细节写进故事。"],
+      "zh-TW": ["觀察派","有敘事感","細緻心","你這次比較喜歡先靜靜看一陣，再把沒人留意的小細節寫進故事。"],
+      "en": ["Observant","Story-Minded","Subtle Eye","You like noticing what others miss before giving it a place in the story."]
+    },
+    "fezco": {
+      "zh": ["沉稳派","务实心","可靠感","你更愿意给出切实的照顾，譬如留个位置或递一件用得上的东西。"],
+      "zh-TW": ["沉穩派","務實心","可靠感","你這次比較願意給出切實的照顧，譬如留個位置或遞一件用得上的東西。"],
+      "en": ["Practical Care","Steady","Low-Key Ally","You'd rather offer a useful bit of help than make a grand speech."]
+    },
+    "nate-jacobs": {
+      "zh": ["有框架","计划派","节奏感","你更喜欢先看清场面的结构，想好下一步怎样走才有把握。"],
+      "zh-TW": ["有框架","計畫派","節奏感","你這次比較喜歡先看清場面的結構，想好下一步怎樣走才有把握。"],
+      "en": ["Structured","Deliberate","Forward-Looking","You like seeing the shape of a situation before choosing your next move."]
+    },
+    "kat-hernandez": {
+      "zh": ["表达派","有主见","自我感","你更在意由自己选择怎样被看见，也愿意试一个新的说话方式。"],
+      "zh-TW": ["表達派","有主見","自我感","你更在意由自己選擇怎樣被看見，也願意試一個新的說話方式。"],
+      "en": ["Own Voice","Expressive","Self-Directed","You care about choosing how you're seen and enjoy trying a different voice."]
+    }
+  },
+  "found-family-role-test": {
+    "welcome-keeper": {
+      "zh": ["亲切感","随和派","有余地","你更喜欢让新来的人自己选个舒服的位置，安静坐一会儿也行。"],
+      "zh-TW": ["親切感","隨和派","有餘地","你這次比較喜歡讓新來的人自己選個舒服的位置，安靜坐一下也行。"],
+      "en": ["Welcoming","Easy Company","Open Door","You like making space for new people, even if they'd rather sit quietly."]
+    },
+    "practical-pal": {
+      "zh": ["可靠感","务实派","有始终","你更愿意把答应的小事做到有交代，让身边的人少惦记一点。"],
+      "zh-TW": ["可靠感","務實派","有始終","你這次比較願意把答應的小事做到有交代，讓身邊的人少惦記一點。"],
+      "en": ["Dependable","Practical Ally","Follow-Through","You're drawn to small promises that can be kept and handed back complete."]
+    },
+    "story-keeper": {
+      "zh": ["念旧感","有心人","重留念","你更愿意记住大家也想留住的一刻，让它往后还有人提起。"],
+      "zh-TW": ["念舊感","有心人","重留念","你這次比較願意記住大家也想留住的一刻，讓它往後還有人提起。"],
+      "en": ["Memory Keeper","Thoughtful","Warm Archive","You like keeping the little moments that others want to remember too."]
+    },
+    "spark-starter": {
+      "zh": ["有活力","开场派","善带动","你更喜欢抛个轻松的开头，让想加入的人随时都有机会。"],
+      "zh-TW": ["有活力","開場派","善帶動","你這次比較喜歡拋個輕鬆的開頭，讓想加入的人隨時都有機會。"],
+      "en": ["Bright Starter","Inviting","Playful","You enjoy offering a small beginning that people can join at their pace."]
+    },
+    "listening-companion": {
+      "zh": ["耐心派","有温度","安静感","你更愿意先听对方想从哪里说起，再跟着那句话慢慢走。"],
+      "zh-TW": ["耐心派","有溫度","安靜感","你這次比較願意先聽對方想從哪裡說起，再跟著那句話慢慢走。"],
+      "en": ["Patient Listener","Warm Presence","Attentive","You let someone choose where to start and listen for where they take it."]
+    },
+    "thread-weaver": {
+      "zh": ["联络派","有分寸","重情谊","你更喜欢让联系自然延续，隔一段时间也能轻松接上话。"],
+      "zh-TW": ["聯絡派","有分寸","重情誼","你這次比較喜歡讓聯絡自然延續，隔一段時間也能輕鬆接上話。"],
+      "en": ["Connector","Considerate","Easy Rapport","You like keeping a connection easy to pick up again after a little time."]
+    }
+  },
+  "ginny-and-georgia-character-quiz": {
+    "ginny": {
+      "zh": ["有主见","重表达","真切感","你更在意话从自己嘴里说出来时，还听得见自己的语气。"],
+      "zh-TW": ["有主見","重表達","真切感","你更在意開口的時候，還聽得見自己的語氣。"],
+      "en": ["Own Voice","Self-Aware","Thoughtful","You want to hear your own voice in the things you say to others."]
+    },
+    "georgia": {
+      "zh": ["现实感","善变通","有韧性","你更喜欢从手边就能走通的地方开始，再慢慢打开局面。"],
+      "zh-TW": ["現實感","善變通","有韌性","你這次比較喜歡從手邊就能走通的地方開始，再慢慢開啟局面。"],
+      "en": ["Resourceful","Pragmatic","Tough-Minded","You like starting with something that works and making room from there."]
+    },
+    "austin": {
+      "zh": ["想象派","心思细","同伴感","你更喜欢拉上一个伙伴，给平常的房间添一个想象世界。"],
+      "zh-TW": ["想像派","心思細","同伴感","你這次比較喜歡拉上一個夥伴，給平常的房間添一個想像世界。"],
+      "en": ["Imaginative","Gentle Bond","Playful","You enjoy giving an ordinary room a world you can share with someone."]
+    },
+    "marcus": {
+      "zh": ["安静感","有余地","内敛派","你更喜欢让一句简单的话慢慢落下，留一点不必说满的空间。"],
+      "zh-TW": ["安靜感","有餘地","內斂派","你這次比較喜歡讓一句簡單的話慢慢落下，留一點不必說滿的空間。"],
+      "en": ["Quiet Presence","Understated","Receptive","You like a small exchange with enough empty space for it to settle."]
+    },
+    "max": {
+      "zh": ["有感染力","表达派","亮眼感","你更喜欢把想表达的东西带到现场，让大家也能接着发挥。"],
+      "zh-TW": ["有感染力","表達派","亮眼感","你這次比較喜歡把想表達的東西帶到現場，讓大家也能接著發揮。"],
+      "en": ["Expressive","Scene Spark","Open Energy","You like putting an idea out in the room so others can play with it too."]
+    }
+  },
+  "hundred-acre-wood-friend-quiz": {
+    "pooh": {
+      "zh": ["随和派","好相处","知足感","你更喜欢有人一起把很普通的一刻过得开心，事情简单一点也好。"],
+      "zh-TW": ["隨和派","好相處","知足感","你這次比較喜歡有人一起把很普通的一刻過得開心，事情簡單一點也好。"],
+      "en": ["Easy Company","Contented","Softhearted","You'd happily share a simple moment without trying to make it grand."]
+    },
+    "piglet": {
+      "zh": ["温柔感","小勇气","有心人","你更愿意从一个力所能及的小动作开始，悄悄给伙伴一点支持。"],
+      "zh-TW": ["溫柔感","小勇氣","有心人","你這次比較願意從一個力所能及的小動作開始，悄悄給夥伴一點支援。"],
+      "en": ["Gentle Courage","Thoughtful","Quiet Ally","You like choosing a small kindness you can actually offer a friend."]
+    },
+    "owl": {
+      "zh": ["讲理派","有条理","有根据","你更喜欢把已经弄明白的事情讲清楚，未知的部分就先留着。"],
+      "zh-TW": ["講理派","有條理","有根據","你這次比較喜歡把已經弄明白的事情講清楚，未知的部分就先留著。"],
+      "en": ["Measured","Clear Thinker","Evidence-Minded","You like telling people what you've checked and leaving the rest open."]
+    },
+    "tigger": {
+      "zh": ["有朝气","爱热闹","邀请感","你更喜欢热热闹闹地发出邀请，也让想安静的人自在旁观。"],
+      "zh-TW": ["有朝氣","愛熱鬧","邀請感","你這次比較喜歡熱熱鬧鬧地發出邀請，也讓想安靜的人自在旁觀。"],
+      "en": ["Bouncy","Playful","Open Invite","You enjoy bringing the bounce while leaving room for someone to sit out."]
+    },
+    "eeyore": {
+      "zh": ["坦率派","冷幽默","不勉强","你更愿意直说今天想要什么，有人静静陪一会儿就很好。"],
+      "zh-TW": ["坦率派","冷幽默","不勉強","你這次比較願意直說今天想要什麼，有人安靜陪一下就很好。"],
+      "en": ["Dry Wit","Honest","Low-Key","You'd say what you'd actually like, even if it's just quiet company."]
+    },
+    "kanga": {
+      "zh": ["体贴派","有边界","务实心","你更喜欢先问一句需要什么，再把照顾落在合适的地方。"],
+      "zh-TW": ["體貼派","有邊界","務實心","你這次比較喜歡先問一句需要什麼，再把照顧落在合適的地方。"],
+      "en": ["Practical Care","Gentle Limits","Attuned","You like asking what help would suit someone before stepping in."]
+    }
+  },
+  "intelligence-type-test": {
+    "verbal-framing": {
+      "zh": ["文字派","爱推敲","条理感","你更喜欢先把问题说成一句明白的话，再看哪些词需要斟酌。"],
+      "zh-TW": ["文字派","愛推敲","條理感","你這次比較喜歡先把問題說成一句明白的話，再看哪些詞需要斟酌。"],
+      "en": ["Word-Minded","Clear Framer","Precise","You like putting the problem into one clear sentence you can check."]
+    },
+    "rule-mapping": {
+      "zh": ["框架感","讲逻辑","有结构","你更喜欢把条件摊开来看，先弄清楚哪一条牵着哪一条。"],
+      "zh-TW": ["框架感","講邏輯","有結構","你這次比較喜歡把條件攤開來看，先弄清楚哪一條牽著哪一條。"],
+      "en": ["Pattern-Minded","Analytical","Structured","You like laying the conditions out where you can see how they connect."]
+    },
+    "sound-sequencing": {
+      "zh": ["节奏派","听觉感","有顺序","你更容易从声音和停顿找到入口，想换一个顺序再听一遍。"],
+      "zh-TW": ["節奏派","聽覺感","有順序","你比較容易從聲音和停頓找到入口，想換一個順序再聽一遍。"],
+      "en": ["Sound-Minded","Rhythmic","Sequence Eye","You like using sound and pauses to find a way into a new problem."]
+    },
+    "hands-on-trial": {
+      "zh": ["动手派","务实感","有试劲","你更喜欢把疑问变成碰得到的小样，有了东西才好接着想。"],
+      "zh-TW": ["動手派","務實感","有試勁","你這次比較喜歡把疑問變成碰得到的小樣，有了東西才好接著想。"],
+      "en": ["Hands-On","Practical","Experimental","You like having something you can touch and tweak while you think."]
+    },
+    "dialogue-testing": {
+      "zh": ["对话派","有来回","会追问","你更喜欢和人对一对思路，看看哪句话还有不同的理解。"],
+      "zh-TW": ["對話派","有來回","會追問","你這次比較喜歡和人對一對思路，看看哪句話還有不同的理解。"],
+      "en": ["Dialogic","Inquisitive","Open-Minded","You like comparing two readings and asking where they begin to differ."]
+    },
+    "environmental-noticing": {
+      "zh": ["留心派","重情境","有现场感","你更喜欢先看看人和材料身处哪里，再想条件变了会怎样。"],
+      "zh-TW": ["留心派","重情境","有現場感","你這次比較喜歡先看看人和材料身處哪裡，再想條件變了會怎樣。"],
+      "en": ["Context-Aware","Observant","Situational","You like looking at the setting and materials before settling on an answer."]
+    }
+  },
+  "leadership-style": {
+    "autocratic": {
+      "zh": ["决断感","清晰派","有主线","你更倾向先讲明决定和方向，让大家知道接下来朝哪走。"],
+      "zh-TW": ["決斷感","清晰派","有主線","你更傾向先講明決定和方向，讓大家知道接下來朝哪走。"],
+      "en": ["Decisive","Clear Direction","Direct","You lean toward naming the direction early so the team knows what's next."]
+    },
+    "democratic": {
+      "zh": ["倾听派","重共识","有商量","你更倾向把不同意见摆在桌面上，再和大家一起定方向。"],
+      "zh-TW": ["傾聽派","重共識","有商量","你更傾向把不同意見擺在桌面上，再和大家一起定方向。"],
+      "en": ["Consultative","Open-Eared","Consensus-Minded","You lean toward hearing the room before asking it to move together."]
+    },
+    "laissez-faire": {
+      "zh": ["信任感","留空间","自主派","你更倾向说清楚目标，给熟悉任务的人留些自己决定的地方。"],
+      "zh-TW": ["信任感","留空間","自主派","你更傾向說清楚目標，給熟悉任務的人留些自己決定的地方。"],
+      "en": ["Trust First","Room to Own","Hands-Off","You lean toward a clear goal with room for others to choose the route."]
+    },
+    "transformational": {
+      "zh": ["愿景感","善启发","好奇心","你更倾向先问这次为何值得做，再和大家找个新角度。"],
+      "zh-TW": ["願景感","善啟發","好奇心","你更傾向先問這次為何值得做，再和大家找個新角度。"],
+      "en": ["Vision-Minded","Inspiring","Exploratory","You lean toward sharing why the work matters and inviting a fresh view."]
+    }
+  },
+  "next-life": {
+    "traveller": {
+      "zh": ["探路派","有好奇","爱远方","你在这段新生活里更想出门转一圈，把没见过的地方写进日常。"],
+      "zh-TW": ["探路派","有好奇","愛遠方","你在這段新生活裡更想出門轉一圈，把沒見過的地方寫進日常。"],
+      "en": ["Curious Rover","Open Horizon","Restless Eye","You pictured a beginning with room to meet the unfamiliar along the way."]
+    },
+    "gardener": {
+      "zh": ["有耐心","重四季","慢节奏","你在这段新生活里更愿意多住一季，亲眼看见种下的东西长大。"],
+      "zh-TW": ["有耐心","重四季","慢節奏","你在這段新生活裡更願意多住一季，親眼看見種下的東西長大。"],
+      "en": ["Seasonal","Patient","Sustained Care","You pictured staying long enough to see a small thing grow through a season."]
+    },
+    "host": {
+      "zh": ["重情谊","亲切感","有归属","你在这段新生活里更喜欢一张长桌，桌边总有个位置能让人加入。"],
+      "zh-TW": ["重情誼","親切感","有歸屬","你在這段新生活裡更喜歡一張長桌，桌邊總有個位置能讓人加入。"],
+      "en": ["Long-Table Host","Welcoming","Warm Company","You pictured a long table with room for one more person to belong."]
+    },
+    "maker": {
+      "zh": ["手作派","有巧思","重耐用","你在这段新生活里更愿意留间修造小屋，让旧东西再用久一点。"],
+      "zh-TW": ["手作派","有巧思","重耐用","你在這段新生活裡更願意留間修造小屋，讓舊東西再用久一點。"],
+      "en": ["Maker Spirit","Practical","Resourceful","You pictured a workshop where worn things come back into use."]
+    },
+    "chronicler": {
+      "zh": ["会留意","叙事感","念旧派","你在这段新生活里更想记下街角的细节，给平常的一天留下形状。"],
+      "zh-TW": ["會留意","敘事感","念舊派","你在這段新生活裡更想記下街角的細節，給平常的一天留下形狀。"],
+      "en": ["Street Observer","Story-Minded","Reflective","You pictured giving the ordinary details of a street corner a place to stay."]
+    },
+    "investigator": {
+      "zh": ["求证派","有耐性","好追问","你在这段新生活里更愿意守着一个好问题，等它慢慢露出线索。"],
+      "zh-TW": ["求證派","有耐性","好追問","你在這段新生活裡更願意守著一個好問題，等它慢慢露出線索。"],
+      "en": ["Quiet Inquiry","Patient","Curious","You pictured a life with enough time to stay with a real question."]
+    }
+  },
+  "patronus-quiz": {
+    "stag": {
+      "zh": ["护航感","方向感","沉稳派","你更想先看清开阔地上的路，再带着同行的人稳稳通过。"],
+      "zh-TW": ["護航感","方向感","沉穩派","你更想先看清開闊地上的路，再帶著同行的人穩當地走過去。"],
+      "en": ["Steady Guide","Watchful","Protective","You like finding a clear way across and making sure others can follow."]
+    },
+    "doe": {
+      "zh": ["细腻心","温柔派","有分寸","你更容易留意没说出口的需要，也愿意轻轻靠近一点。"],
+      "zh-TW": ["細膩心","溫柔派","有分寸","你比較容易留意沒說出口的需要，也願意輕輕靠近一點。"],
+      "en": ["Gentle","Attentive","Quiet Care","You notice when help might be welcome and approach without making a fuss."]
+    },
+    "fox": {
+      "zh": ["机灵派","眼尖感","善变通","你更喜欢留心一道不起眼的缝，绕过大家都盯着的难关。"],
+      "zh-TW": ["機靈派","眼尖感","善變通","你這次比較喜歡留心一道不起眼的縫，繞過大家都盯著的難關。"],
+      "en": ["Resourceful","Sharp-Eyed","Quick Wit","You look for the overlooked gap when everyone else is staring at the wall."]
+    },
+    "wolf": {
+      "zh": ["重情谊","有边界","重承诺","你更喜欢和信得过的人同行，也愿意给彼此留一点自由。"],
+      "zh-TW": ["重情誼","有邊界","重承諾","你這次比較喜歡和信任的人同行，也願意給彼此留一點自由。"],
+      "en": ["Loyal","Independent","Steady Bond","You value company you can count on and room for each person to roam."]
+    },
+    "otter": {
+      "zh": ["俏皮感","会变通","爱玩心","你更愿意让试错也带点好玩，碰壁了还能换个姿势再来。"],
+      "zh-TW": ["俏皮感","會變通","愛玩心","你這次比較願意讓試錯也帶點好玩，碰壁了還能換個姿勢再來。"],
+      "en": ["Playful","Flexible","Lighthearted","You like keeping a sense of play so another try still feels inviting."]
+    },
+    "cat": {
+      "zh": ["自主派","有观察力","慢热感","你更愿意自己挑个舒服的距离，静静看清再决定要不要靠近。"],
+      "zh-TW": ["自主派","有觀察力","慢熱感","你這次比較願意自己挑個舒服的距離，靜靜看清再決定要不要靠近。"],
+      "en": ["Self-Paced","Observant","Independent","You prefer to find your own distance and decide when to come closer."]
+    },
+    "dog": {
+      "zh": ["亲和派","热心肠","靠得住","你更喜欢把陪伴变成当下就用得上的一件事。"],
+      "zh-TW": ["親和派","熱心腸","靠得住","你這次比較喜歡把陪伴變成當下就用得上的一件事。"],
+      "en": ["Warmhearted","Responsive","Dependable","You like turning companionship into something useful right when it matters."]
+    },
+    "hare": {
+      "zh": ["反应快","灵巧感","警觉心","你更容易察觉风向刚变的那一刻，愿意先给自己留条路。"],
+      "zh-TW": ["反應快","靈巧感","警覺心","你比較容易察覺風向剛變的那一刻，願意先給自己留條路。"],
+      "en": ["Quick to Notice","Agile","Alert","You notice a shift early and like having a little room to change course."]
+    },
+    "badger": {
+      "zh": ["踏实派","耐心劲","不张扬","你更愿意一遍遍做好不显眼的小事，让重要的东西不被忽略。"],
+      "zh-TW": ["踏實派","耐心勁","不張揚","你這次比較願意一遍遍做好不顯眼的小事，讓重要的東西不被忽略。"],
+      "en": ["Steady Care","Unassuming","Persistent","You like tending small things that matter even when no one is watching."]
+    },
+    "hedgehog": {
+      "zh": ["外冷内暖","有边界","慢热派","你更愿意先守住舒服的距离，把亲近留给信任慢慢长出来。"],
+      "zh-TW": ["外冷內暖","有邊界","慢熱派","你這次比較願意先守住舒服的距離，把親近留給信任慢慢長出來。"],
+      "en": ["Soft Center","Boundaried","Slow to Warm","You like a clear boundary while trust grows close enough to soften it."]
+    },
+    "squirrel": {
+      "zh": ["灵活派","有准备","好奇心","你更喜欢提前收好几样小东西，遇到变化就能腾出手来。"],
+      "zh-TW": ["靈活派","有準備","好奇心","你這次比較喜歡提前收好幾樣小東西，遇到變化就能騰出手來。"],
+      "en": ["Nimble","Prepared","Curious","You like a few small preparations that leave you nimble when plans shift."]
+    },
+    "mouse": {
+      "zh": ["细节派","小勇气","有耐心","你更容易从不起眼的小线索看到一点往前走的机会。"],
+      "zh-TW": ["細節派","小勇氣","有耐心","你比較容易從不起眼的小線索看到一點往前走的機會。"],
+      "en": ["Detail Hunter","Quietly Brave","Patient","You look for the tiny clue that makes the next step feel possible."]
+    },
+    "horse": {
+      "zh": ["步子稳","可靠感","有耐力","你更喜欢把步子走稳，身边的人也能跟上而不用赶。"],
+      "zh-TW": ["步子穩","可靠感","有耐力","你這次比較喜歡把步子走穩，身邊的人也能跟上而不用趕。"],
+      "en": ["Steady Pace","Reliable","Enduring","You like moving at a steady pace that leaves others room to keep up."]
+    },
+    "mountain-goat": {
+      "zh": ["耐力派","重根基","慎重感","你更愿意在陡路上先踩实一小步，再把重心慢慢交过去。"],
+      "zh-TW": ["耐力派","重根基","慎重感","你這次比較願意在陡路上先踩實一小步，再把重心慢慢交過去。"],
+      "en": ["Surefooted","Patient","Grounded","You prefer one sure foothold before shifting your weight on a steep path."]
+    },
+    "red-panda": {
+      "zh": ["静中好奇","自在感","有界线","你更喜欢在安静和好奇之间留出一点只属于自己的地方。"],
+      "zh-TW": ["靜中好奇","自在感","有界線","你這次比較喜歡在安靜和好奇之間留出一點只屬於自己的地方。"],
+      "en": ["Quietly Curious","Easygoing","Private Space","You like a quiet corner that still leaves room for your curiosity."]
+    },
+    "bear": {
+      "zh": ["可靠感","守护心","沉稳劲","你更愿意把力量用在挡风的地方，让身边的人安心一点。"],
+      "zh-TW": ["可靠感","守護心","沉穩勁","你這次比較願意把力量用在擋風的地方，讓身邊的人安心一點。"],
+      "en": ["Protective","Quiet Strength","Steady","You like using your strength to shelter something that matters to you."]
+    },
+    "lynx": {
+      "zh": ["静观派","敏锐感","耐得住","你更愿意先等细微的变化多露一点，再选一个合适的时机。"],
+      "zh-TW": ["靜觀派","敏銳感","耐得住","你這次比較願意先等細微的變化多露一點，再選一個合適的時機。"],
+      "en": ["Subtle Eye","Silent Watch","Patient","You like watching for a small shift before choosing your moment."]
+    },
+    "tiger": {
+      "zh": ["聚焦感","有决心","利落派","你更喜欢把杂音放到一旁，把注意力留给眼前关键的一步。"],
+      "zh-TW": ["聚焦感","有決心","利落派","你這次比較喜歡把雜音放到一旁，把注意力留給眼前關鍵的一步。"],
+      "en": ["Focused","Decisive","Intense","You like quieting distractions so your attention can settle on one move."]
+    },
+    "lion": {
+      "zh": ["担当感","方向派","有号召力","你更愿意先走到能被看见的位置，让同行的人知道往哪去。"],
+      "zh-TW": ["擔當感","方向派","有號召力","你這次比較願意先走到能被看見的位置，讓同行的人知道往哪去。"],
+      "en": ["Visible Guide","Bold Presence","Steady Lead","You like stepping where others can see you and making the way clear."]
+    },
+    "cheetah": {
+      "zh": ["果断派","有爆发","聚焦感","你更喜欢等方向一明朗，就把攒着的劲用在那一个出口。"],
+      "zh-TW": ["果斷派","有爆發","聚焦感","你這次比較喜歡等方向一明朗，就把攢著的勁用在趁勢往前的那一刻。"],
+      "en": ["Quick to Commit","Focused","Burst of Energy","You like saving your burst of energy for the moment the route is clear."]
+    },
+    "elephant": {
+      "zh": ["重回忆","有耐心","温厚感","你更愿意记住一段同行的经验，在有人需要时慢一点陪着。"],
+      "zh-TW": ["重回憶","有耐心","溫厚感","你這次比較願意記住一段同行的經驗，在有人需要時慢一點陪著。"],
+      "en": ["Patient Support","Deep Memory","Steady Care","You value a shared memory and the patience to stay beside someone."]
+    },
+    "robin": {
+      "zh": ["明亮感","乐观派","有起色","你更喜欢用一点轻快的回应，把尚未起步的一天带起来。"],
+      "zh-TW": ["明亮感","樂觀派","有起色","你這次比較喜歡用一點輕快的回應，把尚未起步的一天帶起來。"],
+      "en": ["Bright Note","Hopeful","Light Touch","You like a small, bright response that gives a new day somewhere to begin."]
+    },
+    "owl": {
+      "zh": ["静观派","善权衡","有见地","你更愿意等场面安静下来，再说出一个你想清楚的判断。"],
+      "zh-TW": ["靜觀派","善權衡","有見地","你這次比較願意等場面安靜下來，再說出一個你想清楚的判斷。"],
+      "en": ["Quiet Observer","Measured","Perceptive","You prefer to watch quietly before offering a judgment you can stand by."]
+    },
+    "raven": {
+      "zh": ["善联想","好奇心","有转念","你更容易把零散的线索连起来，想出另一种讲得通的解释。"],
+      "zh-TW": ["善聯想","好奇心","有轉念","你比較容易把零散的線索連起來，想出另一種講得通的解釋。"],
+      "en": ["Associative","Inventive","Curious","You like threading scattered clues into a different way to read the scene."]
+    },
+    "eagle": {
+      "zh": ["大局感","方向感","有眼光","你更喜欢先把视线放远，再带着看见的大局回到眼前的路。"],
+      "zh-TW": ["大局感","方向感","有眼光","你這次比較喜歡先把視線放遠，再帶著看見的大局回到眼前的路。"],
+      "en": ["Wide View","Clear Focus","Far-Sighted","You like looking far enough to bring a wider view back to today's choice."]
+    },
+    "heron": {
+      "zh": ["沉静派","有耐性","稳得住","你更愿意在变化里安静站一会儿，等水面自己露出方向。"],
+      "zh-TW": ["沉靜派","有耐性","穩得住","你這次比較願意在變化裡安靜站一下，等水面自己露出方向。"],
+      "en": ["Composed","Patient Watch","Still Presence","You can let the water shift and wait for a direction to show itself."]
+    },
+    "swan": {
+      "zh": ["从容感","有韧劲","爱整洁","你更喜欢让表面保持从容，也愿意把背后的力气用得长久。"],
+      "zh-TW": ["從容感","有韌勁","愛整潔","你這次比較喜歡讓表面保持從容，也願意把背後的力氣用得長久。"],
+      "en": ["Poised","Consistent","Quiet Effort","You like a composed surface with room for the effort that sustains it."]
+    },
+    "kingfisher": {
+      "zh": ["静候派","利落感","善观察","你更愿意多看几眼才出手，时机一到就做得干净利落。"],
+      "zh-TW": ["靜候派","利落感","善觀察","你這次比較願意多看幾眼才出手，時機一到就做得乾淨利落。"],
+      "en": ["Patient Aim","Swift Precision","Sharp-Eyed","You like watching long enough to make a clean move when the moment comes."]
+    },
+    "hummingbird": {
+      "zh": ["轻快感","好奇心","灵活派","你更愿意轻巧地换个角度，看看变化中还有什么新鲜事。"],
+      "zh-TW": ["輕快感","好奇心","靈活派","你這次比較願意輕巧地換個角度，看看變化中還有什麼新鮮事。"],
+      "en": ["Lively Curiosity","Light on Foot","Adaptable","You like moving lightly between changes to see what else is there."]
+    },
+    "albatross": {
+      "zh": ["耐久力","远行感","有远见","你更喜欢给长路留些余力，也愿意一边走一边把视线放远。"],
+      "zh-TW": ["耐久力","遠行感","有遠見","你這次比較喜歡給長路留些餘力，也願意一邊走一邊把視線放遠。"],
+      "en": ["Enduring","Long View","Open Horizon","You like keeping some energy in reserve and a wide view for the long way."]
+    },
+    "dolphin": {
+      "zh": ["善交流","合作感","亲和力","你更喜欢让想法来回传一传，看看伙伴会不会接出新路线。"],
+      "zh-TW": ["善交流","合作感","親和力","你這次比較喜歡讓想法來回傳一傳，看看夥伴會不會接出新路線。"],
+      "en": ["Collaborative","Quick Rapport","Playful","You like passing an idea back and forth until a different route opens up."]
+    },
+    "seal": {
+      "zh": ["自在派","收放感","慢节奏","你更愿意按自己的劲头进退，热闹一阵也能安心歇下来。"],
+      "zh-TW": ["自在派","收放感","慢節奏","你這次比較願意按自己的勁頭進退，熱鬧一陣也能安心歇下來。"],
+      "en": ["Flexible Pace","Easygoing","Rest-Aware","You like joining in when you have energy and resting when you need it."]
+    },
+    "whale": {
+      "zh": ["深水感","重情谊","有定向","你更喜欢沉住气慢慢向前，也愿意隔着距离把联系维持住。"],
+      "zh-TW": ["深水感","重情誼","有定向","你這次比較喜歡沉住氣慢慢向前，也願意隔著距離把聯絡維持住。"],
+      "en": ["Quiet Depth","Long Bond","Steady Direction","You like holding a course in deeper water and keeping touch across distance."]
+    },
+    "sea-turtle": {
+      "zh": ["耐心派","有韧性","自有节奏","你更愿意照自己的速度穿过变化，把一小步走得再扎实些。"],
+      "zh-TW": ["耐心派","有韌性","自有節奏","你這次比較願意照自己的速度穿過變化，把一小步走得再紮實些。"],
+      "en": ["Self-Paced","Patient","Resilient","You like keeping your own pace through change and letting each step count."]
+    },
+    "seahorse": {
+      "zh": ["细致心","稳定感","重牵挂","你更愿意在变化里多留意身边的人，让联系还有个着落。"],
+      "zh-TW": ["細緻心","穩定感","重牽掛","你這次比較願意在變化裡多留意身邊的人，讓聯絡還有個依靠。"],
+      "en": ["Attentive Care","Steady Bond","Considerate","You like keeping a connection steady through little acts of attention."]
+    },
+    "manta-ray": {
+      "zh": ["舒展感","从容派","有余量","你更喜欢顺势展开一点空间，用平稳的劲穿过迎面的阻力。"],
+      "zh-TW": ["舒展感","從容派","有餘量","你這次比較喜歡順勢展開一點空間，用平穩的勁穿過迎面的阻力。"],
+      "en": ["Expansive","Composed","Easy Strength","You like making room to move instead of meeting resistance head-on."]
+    },
+    "phoenix": {
+      "zh": ["重启感","有韧性","小勇气","你更愿意在一场散去之后留点勇气，重新看看下一步能怎么走。"],
+      "zh-TW": ["重啟感","有韌性","小勇氣","你這次比較願意在一場散去之後留點勇氣，重新看看下一步能怎麼走。"],
+      "en": ["Renewing","Resilient","Quiet Courage","You like saving a little courage for the beginning that follows an ending."]
+    },
+    "unicorn": {
+      "zh": ["重信任","温和心","有主见","你更愿意相信一点善意，也会把要不要靠近留给自己决定。"],
+      "zh-TW": ["重信任","溫和心","有主見","你這次比較願意相信一點善意，也會把要不要靠近留給自己決定。"],
+      "en": ["Trust-Minded","Kind","Self-Directed","You can value kindness and still decide for yourself when to come closer."]
+    },
+    "dragon": {
+      "zh": ["守护心","有力量","有节制","你更愿意把力量留给值得守的事，也知道什么时候该收住。"],
+      "zh-TW": ["守護心","有力量","有節制","你這次比較願意把力量留給值得守的事，也知道什麼時候該收住。"],
+      "en": ["Guarded Strength","Measured","Protective","You like keeping your strength for what matters and knowing when to hold it."]
+    },
+    "hippogriff": {
+      "zh": ["重礼数","有勇气","有界线","你更愿意先把尊重放在前面，再鼓起勇气和对方走近一点。"],
+      "zh-TW": ["重禮數","有勇氣","有界線","你這次比較願意先把尊重放在前面，再鼓起勇氣和對方走近一點。"],
+      "en": ["Respectful","Quiet Courage","Boundaried","You like letting respect go first when it takes some courage to approach."]
+    }
+  },
+  "sake-type": {
+    "sparkling-wine": {
+      "zh": ["明亮感","有惊喜","开场派","你更喜欢给开场一点小意外，好像气泡先替大家打个招呼。"],
+      "zh-TW": ["明亮感","有驚喜","開場派","你這次比較喜歡給開場一點小意外，好像氣泡先替大家打個招呼。"],
+      "en": ["Bright Spark","Playful","Celebratory","You like a small surprise that starts the evening like the first bubble."]
+    },
+    "beer": {
+      "zh": ["亲切派","好相处","重熟悉","你更喜欢一个不必准备太多的邀约，来了就能坐下来聊。"],
+      "zh-TW": ["親切派","好相處","重熟悉","你這次比較喜歡一個不必準備太多的邀約，來了就能坐下來聊。"],
+      "en": ["Familiar Ease","Welcoming","Casual","You like an easy invitation that doesn't ask anyone to arrive with a script."]
+    },
+    "whisky": {
+      "zh": ["慢热感","有层次","爱回味","你更喜欢一个话题慢慢多出一层，聊过之后还想再回味。"],
+      "zh-TW": ["慢熱感","有層次","愛回味","你這次比較喜歡一個話題慢慢多出一層，聊過之後還想再回味。"],
+      "en": ["Layered","Reflective","Slow Burner","You like a conversation that develops another layer the longer you stay."]
+    },
+    "sake": {
+      "zh": ["细节派","安静感","留白感","你更容易被一个细小的讲究吸引，想让它在安静里多留一会儿。"],
+      "zh-TW": ["細節派","安靜感","留白感","你比較容易被一個細小的講究吸引，想讓它在安靜裡多留一下。"],
+      "en": ["Quiet Detail","Subtle","Unhurried","You like giving one quiet detail enough time to make itself known."]
+    }
+  },
+  "soldier-poet-king-quiz": {
+    "soldier": {
+      "zh": ["务实派","重承诺","有担当","你更愿意把在乎化成够得着的行动，让身边的人少担心一点。"],
+      "zh-TW": ["務實派","重承諾","有擔當","你這次比較願意把在乎化成夠得著的行動，讓身邊的人少擔心一點。"],
+      "en": ["Practical Care","Dependable","Protective","You like turning care into something concrete the people around you can use."]
+    },
+    "poet": {
+      "zh": ["叙事感","心思细","重表达","你更愿意给一段不好开口的感受找个词，让别人也听得懂。"],
+      "zh-TW": ["敘事感","心思細","重表達","你這次比較願意給一段不好開口的感受找個詞，讓別人也聽得懂。"],
+      "en": ["Meaning Maker","Expressive","Perceptive","You like finding words for a feeling that has been hard to share."]
+    },
+    "king": {
+      "zh": ["顾全局","有担当","方向感","你更愿意先弄清大家想去哪里，再为共同的方向留些支撑。"],
+      "zh-TW": ["顧全局","有擔當","方向感","你這次比較願意先弄清大家想去哪裡，再為共同的方向留些支撐。"],
+      "en": ["Steady Steward","Big-Picture","Responsible","You like finding a direction people can share and helping it hold together."]
+    }
+  },
+  "star-wars-character": {
+    "han-solo": {
+      "zh": ["善变通","有胆识","务实派","你更喜欢用手头的东西先试一回，遇到变化再另找路线。"],
+      "zh-TW": ["善變通","有膽識","務實派","你這次比較喜歡用手頭的東西先試一回，遇到變化再另找路線。"],
+      "en": ["Resourceful","Quick Wit","Pragmatic","You like starting with what's at hand and changing course as needed."]
+    },
+    "palpatine": {
+      "zh": ["结构感","善观察","有全局","你更喜欢先看清谁在安排、规则怎么定，再猜下一步会怎样。"],
+      "zh-TW": ["結構感","善觀察","有全局","你這次比較喜歡先看清誰在安排、規則怎麼定，再猜下一步會怎樣。"],
+      "en": ["Structure-Minded","Observant","Strategic","You like seeing who sets the rules and how a plan holds together."]
+    },
+    "darth-vader": {
+      "zh": ["聚焦感","有决断","有主线","你更愿意把杂乱的方向收成能选的一步，看清之后就专心做。"],
+      "zh-TW": ["聚焦感","有決斷","有主線","你這次比較願意把雜亂的方向收成能選的一步，看清之後就專心做。"],
+      "en": ["Single Focus","Decisive","Deliberate","You prefer narrowing the noise to one move you can choose for yourself."]
+    },
+    "leia-organa": {
+      "zh": ["清楚派","有主见","重协作","你更愿意在集体计划里直说自己的看法，也给别人发言的机会。"],
+      "zh-TW": ["清楚派","有主見","重協作","你這次比較願意在集體計畫裡直說自己的看法，也給別人發言的機會。"],
+      "en": ["Clear Voice","Collaborative","Forthright","You like speaking clearly in a shared plan and letting others be heard too."]
+    },
+    "obi-wan-kenobi": {
+      "zh": ["温和派","有分寸","有耐心","你更愿意在别人想听的时候才分享经验，把试不试留给对方。"],
+      "zh-TW": ["溫和派","有分寸","有耐心","你這次比較願意在別人想聽的時候才分享經驗，把試不試留給對方。"],
+      "en": ["Gentle Mentor","Measured","Considerate","You like offering experience when it's wanted and leaving the choice open."]
+    },
+    "luke-skywalker": {
+      "zh": ["爱学习","有好奇","小勇气","你更愿意从自己选的一步学起，让接下来的方向慢慢成形。"],
+      "zh-TW": ["愛學習","有好奇","小勇氣","你這次比較願意從自己選的一步學起，讓接下來的方向慢慢成形。"],
+      "en": ["Curious Learner","Hopeful","Open to Change","You like starting with one step you chose and seeing what it can teach you."]
+    },
+    "yoda": {
+      "zh": ["会反思","沉着感","好追问","你更愿意在众人点头之前停一下，问刚才那个前提从哪来。"],
+      "zh-TW": ["會反思","沉著感","好追問","你這次比較願意在眾人點頭之前停一下，問剛才那個前提從哪來。"],
+      "en": ["Reflective","Measured","Assumption Tester","You like pausing to ask what a conclusion assumes before everyone agrees."]
+    }
+  },
+  "style-impression-preferences": {
+    "soft-play": {
+      "zh": ["圆润感","俏皮派","柔和感","你更喜欢圆圆的小细节，让温柔的画面多一点俏皮劲。"],
+      "zh-TW": ["圓潤感","俏皮派","柔和感","你這次比較喜歡圓圓的小細節，讓溫柔的畫面多一點俏皮勁。"],
+      "en": ["Soft Curves","Playful Detail","Gentle","You like a rounded detail that gives a gentle look a bit of play."]
+    },
+    "light-ease": {
+      "zh": ["轻盈感","爱留白","清爽派","你更喜欢让颜色和轮廓有呼吸的地方，简单也能耐看。"],
+      "zh-TW": ["輕盈感","愛留白","清爽派","你這次比較喜歡讓顏色和輪廓有呼吸的地方，簡單也能耐看。"],
+      "en": ["Airy","Understated","Clean Ease","You like shapes with enough breathing room for the details to stand out."]
+    },
+    "clean-edge": {
+      "zh": ["线条派","有对比","利落感","你更喜欢清楚的边线和恰好的反差，一眼就能看懂重点。"],
+      "zh-TW": ["線條派","有對比","利落感","你這次比較喜歡清楚的邊線和恰好的反差，一眼就能看懂重點。"],
+      "en": ["Clean Lines","Graphic","Crisp Contrast","You like a sharp line and a clear contrast that draw the eye at once."]
+    },
+    "flowing-detail": {
+      "zh": ["曲线感","细致派","柔韧感","你更喜欢细节顺着曲线流动，让颜色看起来像是慢慢晕开的。"],
+      "zh-TW": ["曲線感","細緻派","柔韌感","你這次比較喜歡細節順著曲線流動，讓顏色看起來像是慢慢暈開的。"],
+      "en": ["Flowing","Detail-Minded","Soft Layers","You like details that follow a curve and colors that blend as they go."]
+    },
+    "quiet-polish": {
+      "zh": ["沉静感","有质感","讲协调","你更喜欢调子相近却有细微区别的东西，看久了更觉讲究。"],
+      "zh-TW": ["沉靜感","有質感","講協調","你這次比較喜歡調子相近卻有細微區別的東西，看久了更有味道。"],
+      "en": ["Quiet Polish","Subtle Tones","Composed","You like close tones with quiet differences that reward a second look."]
+    },
+    "formal-poise": {
+      "zh": ["端正感","有秩序","重整体","你更喜欢先把整体拢到一起，再留一个足够鲜明的重点。"],
+      "zh-TW": ["端正感","有秩序","重整體","你這次比較喜歡先把整體攏到一起，再留一個足夠鮮明的重點。"],
+      "en": ["Poised","Coordinated","Clear Focal Point","You like a coordinated look with one deliberately chosen focal point."]
+    },
+    "colour-play": {
+      "zh": ["爱撞色","明快感","俏皮派","你更喜欢让两种鲜明的颜色碰一碰，看看能不能亮出一点趣味。"],
+      "zh-TW": ["愛撞色","明快感","俏皮派","你這次比較喜歡讓兩種鮮明的顏色碰一碰，看看能不能亮出一點趣味。"],
+      "en": ["Color Play","Bold Contrast","Lively","You like setting bright colors next to each other and seeing what sparks."]
+    },
+    "relaxed-edge": {
+      "zh": ["自在感","爱哑光","有棱角","你更喜欢舒展的形状加一点哑光质地，让随性也有自己的轮廓。"],
+      "zh-TW": ["自在感","愛啞光","有稜角","你這次比較喜歡舒展的形狀加一點啞光質地，讓隨性也有自己的輪廓。"],
+      "en": ["Relaxed Edge","Grounded","Matte Texture","You like an easy silhouette and a textured detail that keeps it grounded."]
+    }
+  },
+  "travel-personality-test": {
+    "wanderer": {
+      "zh": ["漫游派","爱随性","好奇心","你更喜欢给行程留点空白，好遇见计划外的风景。"],
+      "zh-TW": ["漫遊派","愛隨性","好奇心","你想讓行程留些空白，好遇見沒有安排的風景。"],
+      "en": ["Open Itinerary","Curious Rover","Spontaneous","You like an open space in the itinerary where an unplanned find can fit."]
+    },
+    "planner": {
+      "zh": ["有条理","重节奏","心里稳","你更喜欢先排好重要的去处和时间，到了路上才能从容玩。"],
+      "zh-TW": ["有條理","重節奏","心裡有底","你這次比較喜歡先排好想去的地方和時間，到了當地才玩得自在。"],
+      "en": ["Prepared","Orderly","Time-Minded","You like knowing what matters most and how the timing fits together."]
+    },
+    "culture": {
+      "zh": ["好奇派","重来历","有问题","你更喜欢多问一点一座城的来历，让走过的街道变得具体。"],
+      "zh-TW": ["好奇派","重來歷","有問題","你這次比較喜歡多問一點一座城的來歷，讓走過的街道變得具體。"],
+      "en": ["Culture Curious","Context-Seeking","Observant","You like getting to know what gives a place its own particular shape."]
+    },
+    "outdoors": {
+      "zh": ["爱开阔","好动派","有现场感","你更喜欢把脚步带到户外，亲身感受风、地面和远近的变化。"],
+      "zh-TW": ["愛開闊","好動派","有現場感","你這次比較喜歡走到戶外，親自感受風、腳下的路和遠近的景色。"],
+      "en": ["Outdoorsy","Active","Hands-On","You like getting outside and letting the landscape become part of the day."]
+    },
+    "rest": {
+      "zh": ["慢节奏","爱留白","自在派","你更喜欢让旅程有一段怎么用都行的时间，睡个懒觉也算玩。"],
+      "zh-TW": ["慢節奏","愛留白","自在派","你這次比較喜歡讓旅程有一段怎麼用都行的時間，睡個懶覺也算玩。"],
+      "en": ["Unhurried","Rest First","Easy Pace","You like leaving time on a trip for sleeping in or doing very little."]
+    },
+    "food": {
+      "zh": ["味觉派","爱地方味","好奇心","你更愿意为一顿有地方风味的饭留足时间，多尝两口再走。"],
+      "zh-TW": ["味覺派","愛地方味","好奇心","你這次比較願意為一頓有地方風味的飯多留一點時間，多嘗兩口再走。"],
+      "en": ["Food Curious","Unhurried","Local Flavors","You like giving a local meal as much time as any stop on the trip."]
+    }
+  },
+  "values-assessment": {
+    "achievement": {
+      "zh": ["重标准","成就感","有目标","你更看重手上的工作能做到一个自己愿意认真达到的标准。"],
+      "zh-TW": ["重標準","成就感","有目標","你更看重手上的工作能做到一個自己願意認真達到的標準。"],
+      "en": ["Standards-Minded","Goal-Oriented","Milestone Focus","You value work with a standard you can take seriously and aim to meet."]
+    },
+    "autonomy": {
+      "zh": ["自主派","重空间","有主见","你更在意目标清楚以后，能留一点空间由你决定怎样完成。"],
+      "zh-TW": ["自主派","重空間","有主見","你更在意目標清楚以後，能留一點空間由你決定怎樣完成。"],
+      "en": ["Autonomy-Minded","Self-Directed","Own Approach","You value knowing the goal and having room to choose your own method."]
+    },
+    "creativity": {
+      "zh": ["有巧思","爱新意","探索派","你更在意工作有没有余地长出新点子，能试一种不同做法。"],
+      "zh-TW": ["有巧思","愛新意","探索派","你更在意工作有沒有餘地長出新點子，能試一種不同做法。"],
+      "en": ["Inventive","Idea-Friendly","Exploratory","You value work that leaves room for a fresh idea and a different approach."]
+    },
+    "security": {
+      "zh": ["重稳定","求踏实","有预期","你更看重一份工作的基底是否可预期，遇到变化也有着落。"],
+      "zh-TW": ["重穩定","求踏實","有預期","你更看重一份工作的基底是否可預期，遇到變化也有著落。"],
+      "en": ["Stability-Minded","Practical","Grounded","You value a dependable work base even when circumstances around it change."]
+    },
+    "altruism": {
+      "zh": ["务实心","重互助","有温度","你更看重手上的工作能帮到具体的人，看得见一点实际好处。"],
+      "zh-TW": ["務實心","重互助","有溫度","你更看重手上的工作能幫到具體的人，看得見一點實際好處。"],
+      "en": ["Helpful","Practical Care","People-Minded","You value work that offers someone practical help they can actually use."]
+    },
+    "recognition": {
+      "zh": ["重肯定","有公平感","爱清楚","你更在意谁付出了什么能说清楚，让真正做事的人得到认可。"],
+      "zh-TW": ["重肯定","有公平感","愛清楚","你更在意誰付出了什麼能說清楚，讓真正做事的人得到認可。"],
+      "en": ["Credit Conscious","Fair-Minded","Appreciative","You value knowing whose contribution made a difference and seeing it named."]
+    },
+    "relationships": {
+      "zh": ["重信任","有来往","合作感","你更看重一起做事时能信得过彼此，有问题也能开口商量。"],
+      "zh-TW": ["重信任","有來往","合作感","你更看重一起做事時能信得過彼此，有問題也能開口商量。"],
+      "en": ["Trust-Minded","Collaborative","Open Rapport","You value working with people you can rely on and speak with openly."]
+    },
+    "learning": {
+      "zh": ["爱弄懂","好奇派","有探索感","你更看重做完一件事还能比之前多懂一点，下一次有新角度。"],
+      "zh-TW": ["愛弄懂","好奇派","有探索感","你更看重做完一件事還能比之前多懂一點，下一次有新角度。"],
+      "en": ["Learning-Minded","Curious","Reflective","You value work that leaves you understanding something you didn't before."]
+    },
+    "balance": {
+      "zh": ["重界线","自在感","生活感","你更在意工作能和生活各留一块地方，不必总有一边退让。"],
+      "zh-TW": ["重界線","自在感","生活感","你更在意工作能和生活各留一塊地方，不必總有一邊退讓。"],
+      "en": ["Balance-Minded","Boundaried","Life-First","You value boundaries that give both work and the rest of life room."]
+    },
+    "impact": {
+      "zh": ["重意义","看得见","有方向","你更想弄清楚手上的工作真的带来了什么，做完能有个方向。"],
+      "zh-TW": ["重意義","看得見","有方向","你更想弄清楚手上的工作真的帶來了什麼，做完能有個方向。"],
+      "en": ["Outcome-Minded","Purposeful","Impact Focus","You value being able to see what your work made possible for someone."]
+    }
+  },
+  "villain-era-archetype-test": {
+    "scene-planner": {
+      "zh": ["有边界","重节奏","有主线","你更愿意把参与的时间和离开的时机先想清楚，免得任由场面推着走。"],
+      "zh-TW": ["有邊界","重節奏","有主線","你這次比較願意把參與的時間和離開的時機先想清楚，免得任由場面推著走。"],
+      "en": ["Deliberate","Time-Bound","Self-Directed","You like knowing where your part begins and when you can walk away."]
+    },
+    "honest-antihero": {
+      "zh": ["坦率派","有主见","有余地","你更愿意承认自己还不确定，也能清楚说出愿意走到哪里。"],
+      "zh-TW": ["坦率派","有主見","有餘地","你這次比較願意承認自己還不確定，也能清楚說出願意走到哪裡。"],
+      "en": ["Candid","Self-Aware","Clear Limits","You can be honest about uncertainty and still say how far you will go."]
+    },
+    "warm-decliner": {
+      "zh": ["温和派","有底气","讲分寸","你更喜欢把谢谢和拒绝都说清楚，留住善意也留住自己的决定。"],
+      "zh-TW": ["溫和派","有底氣","講分寸","你這次比較喜歡把謝謝和拒絕都說清楚，留住善意也留住自己的決定。"],
+      "en": ["Warm but Firm","Considerate","Clear No","You like keeping the thanks warm and the refusal clear in the same breath."]
+    },
+    "rule-questioner": {
+      "zh": ["质疑派","有好奇","讲来由","你更愿意先问一句规则是怎么定的，再看看惯例有没有余地。"],
+      "zh-TW": ["質疑派","有好奇","講來由","你這次比較願意先問一句規則是怎麼定的，再看看慣例有沒有餘地。"],
+      "en": ["Inquisitive","Independent","Rule-Aware","You like asking how a rule came to be before treating it as settled."]
+    },
+    "offstage-keeper": {
+      "zh": ["爱留白","有界线","自在感","你更愿意留一小段不用回应任何人的时间，安静地退到台后。"],
+      "zh-TW": ["愛留白","有界線","自在感","你這次比較願意留一小段不用回應任何人的時間，安靜地退到臺後。"],
+      "en": ["Private Space","Low-Key","Boundaried","You like leaving yourself a little time offstage without having to reply."]
+    },
+    "line-rewriter": {
+      "zh": ["重表达","有主见","有转念","你更愿意换成自己的说法，让别人听清真正出自你的选择。"],
+      "zh-TW": ["重表達","有主見","有轉念","你這次比較願意換成自己的說法，讓別人聽清真正出自你的選擇。"],
+      "en": ["Own Voice","Inventive","Self-Directed","You like rewriting the line in a voice that sounds like your own choice."]
+    }
+  },
+  "wednesday-addams-character": {
+    "wednesday-addams": {
+      "zh": ["冷静派","求证心","有锋芒","你更愿意从细节找证据，让推理经得起追问。"],
+      "zh-TW": ["冷靜派","求證心","有鋒芒","你想從細節找線索，讓推理經得起追問。"],
+      "en": ["Skeptical","Sharp-Eyed","Coolheaded","You like finding out what a detail supports before drawing a sharp conclusion."]
+    },
+    "enid-sinclair": {
+      "zh": ["明亮感","热情派","有亲和力","你更喜欢邀请里多加一点颜色，让第一次来的人也能自在加入。"],
+      "zh-TW": ["明亮感","熱情派","有親和力","你這次比較喜歡邀請裡多加一點顏色，讓第一次來的人也能自在加入。"],
+      "en": ["Bright Welcome","Colorful","Warm-Hearted","You like a colorful welcome that makes it easy for someone new to join."]
+    },
+    "bianca-barclay": {
+      "zh": ["讲公平","有底气","重规则","你更喜欢事先把挑战的条款摆明白，较量也能让人心服。"],
+      "zh-TW": ["講公平","有底氣","重規則","你這次比較喜歡事先把挑戰的條款擺明白，較量也能讓人心服。"],
+      "en": ["Fair Play","Self-Possessed","Direct","You like a challenge with rules everyone can see and choose to accept."]
+    },
+    "eugene-ottinger": {
+      "zh": ["细节派","好奇心","有耐心","你更容易在大家走过的地方停一停，看见一点平常的自然趣事。"],
+      "zh-TW": ["細節派","好奇心","有耐心","你比較容易在大家走過的地方停一停，看見一點平常的自然趣事。"],
+      "en": ["Nature-Minded","Curious","Quiet Eye","You like stopping for a small bit of nature most people would pass by."]
+    },
+    "morticia-addams": {
+      "zh": ["有风格","沉着感","审美派","你更愿意给收藏留一种清楚的风格，细处也能看出自己的选择。"],
+      "zh-TW": ["有風格","沉著感","審美派","你這次比較願意給收藏留一種清楚的風格，細處也能看出自己的選擇。"],
+      "en": ["Composed","Intentional","Curated Eye","You like a collection that shows your taste even in the smallest details."]
+    },
+    "thing": {
+      "zh": ["务实派","眼里有活","可靠感","你更愿意递出一个小而有用的动作，让人马上知道你在帮忙。"],
+      "zh-TW": ["務實派","眼裡有活","可靠感","你這次比較願意遞出一個小而有用的動作，讓人馬上知道你在幫忙。"],
+      "en": ["Quiet Helper","Practical","Dependable","You prefer one small, useful gesture that makes your help clear right away."]
+    }
+  }
+}

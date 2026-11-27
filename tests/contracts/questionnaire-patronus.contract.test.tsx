@@ -53,6 +53,22 @@ describe('original Patronus 20 mixed screens and 40 reachable portraits',()=>{
   const {container}=render(<PatronusClient quiz={quiz} locale={locale}/>);fireEvent.click(container.querySelector('button[data-explore-start]')!);const witness=fixedAnswers(original.profiles[0]);
   for(const q of quiz.questions){expect(container.querySelector('[data-patronus-screen]')?.getAttribute('data-patronus-screen')).toBe(q.id);if(q.interaction){const selected=JSON.parse(witness[q.id])as string[];for(const id of selected)fireEvent.click(container.querySelectorAll('input[type=checkbox]')[q.options.findIndex(o=>o.id===id)]);}else fireEvent.click(container.querySelector(`input[value="${witness[q.id]}"]`)!);fireEvent.click(container.querySelector('button[data-questionnaire-next]')!);}
   expect(container.querySelector('[data-original-patronus-ids]')?.getAttribute('data-original-patronus-ids')).toBe('stag');expect(container.querySelectorAll('#take-test h2')).toHaveLength(1);fireEvent.click(container.querySelector('[data-patronus-compare="badger"]')!);expect(container.querySelector('[data-patronus-comparison]')?.getAttribute('data-patronus-comparison')).toBe('badger');expect(container.querySelector('[data-original-patronus-ids]')?.getAttribute('data-original-patronus-ids')).toBe('stag');
-  Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:vi.fn().mockRejectedValue(new Error('denied'))}});await act(async()=>{fireEvent.click([...container.querySelectorAll('button')].find(b=>b.textContent===(locale==='zh'?'复制我的原始结果':'Copy my original result'))!);});await waitFor(()=>expect(container.querySelector('textarea')?.value).toContain(original.profiles[0].name[locale]));expect(container.querySelector('textarea')?.value).not.toContain(original.profiles.find(p=>p.id==='badger')!.name[locale]);fireEvent.click([...container.querySelectorAll('button')].find(b=>b.textContent===(locale==='zh'?'清空并重新测试':'Clear and retake'))!);expect(container.querySelector('[data-patronus-screen]')?.getAttribute('data-patronus-screen')).toBe(quiz.questions[0].id);expect(container.querySelectorAll('input:checked')).toHaveLength(0);
+  const actions=container.querySelector("[data-archetype-honor-actions]")!;
+  expect(container.querySelectorAll("[data-archetype-honor-card]")).toHaveLength(1);
+  expect(container.querySelectorAll("[data-archetype-core-assessment=MBTI] a")).toHaveLength(1);
+  const clipboard=Object.getOwnPropertyDescriptor(navigator,"clipboard");
+  Object.defineProperty(navigator,"clipboard",{configurable:true,value:{writeText:vi.fn().mockRejectedValue(new Error("denied"))}});
+  try {
+    await act(async()=>{fireEvent.click(actions.querySelectorAll("button")[2]);});
+    await waitFor(()=>expect(container.querySelector("textarea")?.value).toContain(original.profiles[0].name[locale]));
+    expect(container.querySelector("textarea")?.value).toContain(`https://fermatmind.com/${locale}/tests/explore/patronus-quiz`);
+    expect(container.querySelector("textarea")?.value).not.toContain(original.profiles.find(p=>p.id==="badger")!.name[locale]);
+  } finally {
+    if(clipboard)Object.defineProperty(navigator,"clipboard",clipboard);
+    else Reflect.deleteProperty(navigator,"clipboard");
+  }
+  fireEvent.click(actions.querySelectorAll("button")[3]);
+  expect(container.querySelector("[data-patronus-screen]")?.getAttribute("data-patronus-screen")).toBe(quiz.questions[0].id);
+  expect(container.querySelectorAll("input:checked")).toHaveLength(0);
  },30000);
 });

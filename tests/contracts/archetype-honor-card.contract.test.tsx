@@ -6,7 +6,7 @@ import { ArchetypeHonorCard } from "@/components/questionnaires/ArchetypeHonorCa
 import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
 import { QuestionnaireArchetypeReport } from "@/components/questionnaires/QuestionnaireArchetypeReport";
 import { QuestionnaireNextSteps } from "@/components/questionnaires/QuestionnaireReports";
-import { archetypeCardUrl, archetypeCardVariant, archetypeRunnerUp, type CompleteArchetype } from "@/lib/questionnaires/archetypeResultCard";
+import { archetypeCardUrl, archetypeCardVariant, archetypeRunnerUp, wave3bArchetypeVariant, type CompleteArchetype } from "@/lib/questionnaires/archetypeResultCard";
 import { archetypeHonorCardCopy, getArchetypeHonorCopy } from "@/lib/questionnaires/archetypeHonorCardCopy";
 import { archetypeResultCopy, archetypeSharePayload } from "@/lib/questionnaires/archetypeResultShare";
 import { scoreQuestionnaire } from "@/lib/questionnaires/scoring";
@@ -34,7 +34,7 @@ const dom = (markup: string) => {
 describe("shared archetype result card", () => {
   it("covers precisely the 41 registered titles and 122 locale paths, with the distinct Chiikawa take excluded", () => {
     const catalog = JSON.parse(readFileSync("lib/questionnaires/catalog.json", "utf8")) as { slug: string }[];
-    const slugs = catalog.map(c => c.slug).filter(slug => archetypeCardVariant(slug, "en"));
+    const slugs = catalog.map(c => c.slug).filter(slug => archetypeCardVariant(slug, "en") && !wave3bArchetypeVariant(slug));
     expect(slugs).toHaveLength(41);
     expect(slugs.flatMap(slug => locales.filter(locale => archetypeCardVariant(slug, locale)))).toHaveLength(122);
     expect(archetypeCardVariant("chiikawa", "zh-TW")).toBeUndefined();
@@ -49,7 +49,7 @@ describe("shared archetype result card", () => {
 
   it("covers every registered result with three localized tags and an original bounded second-person verdict", () => {
     const catalog = JSON.parse(readFileSync("lib/questionnaires/catalog.json", "utf8")) as { slug: string }[];
-    const slugs = catalog.map(c => c.slug).filter(slug => archetypeCardVariant(slug, "en"));
+    const slugs = catalog.map(c => c.slug).filter(slug => archetypeCardVariant(slug, "en") && !wave3bArchetypeVariant(slug));
     expect(Object.keys(archetypeHonorCardCopy).sort()).toEqual([...slugs].sort());
     const actionCopy = /确认约定|確認約定|维持合作|維持合作|共同承担|共同承擔|first real step|small first attempt|small possibility|grand promise|a small experiment/i;
     const overclaim = /1080\s*[×x*]\s*1440|临床诊断|臨床診斷|科学人格|科學人格|职业胜任|職業勝任|真實人格|真实人格|人格定型|注定|天生就是|\b(?:clinically|diagnos(?:is|ed|tic)|scientifically proven|career fit|born to be|destined to|you always|you never)\b/i;

@@ -1,4 +1,5 @@
 "use client";
+import { wave3bArchetypeVariant } from "@/lib/questionnaires/archetypeResultCard";
 import { archiveTopic } from "@/lib/entertainment/archive90";
 import { ArchiveQuestionnaireNextStep } from "./ArchiveQuestionnaireExperience";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
@@ -78,7 +79,7 @@ export function QuestionnaireTakeSession({ children, title, minutes, locale, lan
         </div>}
         {archiveStage === "answer" && archive && <p className="mb-4 leading-7" data-archive-90-hint>{archive.hint[archiveLocale]}</p>}
         <div ref={region} className={styles.engine} data-preparing={preparing ? "true" : undefined}>{children}</div>
-        {archiveStage === "result" && archive && <ArchiveQuestionnaireNextStep slug={slug} locale={archiveLocale} />}
+        {archiveStage === "result" && archive && !wave3bArchetypeVariant(slug) && <ArchiveQuestionnaireNextStep slug={slug} locale={archiveLocale} />}
         <noscript><p>{zh ? shellText("答题需要JavaScript，请启用后刷新。", "答題需要 JavaScript，請啟用後重新整理。") : "Enable JavaScript and reload to answer."} <Link href={landing}>{zh ? shellText("返回测评介绍", "返回測驗介紹") : "Back to introduction"}</Link></p></noscript>
       </div>
     </main>

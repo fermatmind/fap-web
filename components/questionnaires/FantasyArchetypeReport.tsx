@@ -3,11 +3,11 @@ import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import type { ArchetypeResult } from "@/lib/questionnaires/basicScoring";
-import { FantasyPersonalCard } from "./FantasyPersonalCard";
+import { Wave3bArchetypeHonorCard } from "./Wave3bArchetypeHonorCard";
 import { FantasyPortrait, FantasyRoster } from "./FantasyRoster";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
-export function FantasyArchetypeReport({ quiz, result, locale, answers }: { quiz: Questionnaire; result: Extract<ArchetypeResult, { status: "complete" }>; locale: Locale; answers?: QuestionnaireAnswers }) {
+export function FantasyArchetypeReport({ quiz, result, locale, answers, onRetake }: { quiz: Questionnaire; result: Extract<ArchetypeResult, { status: "complete" }>; locale: Locale; answers?: QuestionnaireAnswers; onRetake?: () => void }) {
   const display = useQuestionnaireDisplayCopy();
   const traditional = display.traditional && hasTraditionalArchetype(quiz.slug);
   const copy = traditional ? display.displayText : (value: string) => value;
@@ -16,6 +16,7 @@ export function FantasyArchetypeReport({ quiz, result, locale, answers }: { quiz
   const total = Object.values(result.counts).reduce((sum, n) => sum + n, 0);
   const ranked = quiz.questions.some(q => q.interaction === "rank");
   return <div className="space-y-8" data-fantasy-result={quiz.slug}>
+    <Wave3bArchetypeHonorCard quiz={quiz} result={result} profiles={matched} locale={displayLocale} copy={copy} onRetake={onRetake} />
     <p className="mt-4 text-lg leading-8">{matched.length === 1 ? (zh ? copy("本轮得分最高的原型") : "Your highest-scoring archetype this round") : (zh ? copy(`保留全部${matched.length}项最高并列，顺序不分主次。`) : `All ${matched.length} highest ties are kept, without a primary or secondary order.`)}</p>
     {quiz.slug === "avatar-bender-quiz" && <p data-bending-boundary className="rounded-lg bg-sky-50 p-4 leading-8">{quiz.instructions?.[locale]}</p>}
     <nav className="flex flex-wrap gap-3" aria-label={zh ? copy("本次匹配结果") : "Your matches"}>{matched.map(p => <a key={p.id} href={`#fantasy-${p.id}`} className="inline-flex min-h-11 items-center rounded-lg border px-4 underline">{p.title[locale]}</a>)}</nav>
@@ -33,7 +34,6 @@ export function FantasyArchetypeReport({ quiz, result, locale, answers }: { quiz
       <p className="text-sm leading-7">{ranked ? quiz.guide.find(s => s.id === "archetype-counts")?.paragraphs[0][locale] : (zh ? copy(`每个选择加1点，共${total}点。`) : `Each choice adds one point, totaling ${total}.`)}</p>
       <p className="mt-3 text-sm leading-7">{zh ? copy("百分比是本轮计分点数的份额，四舍五入可能造成合计误差；不是相似度、人口百分位或心理测量分数。最高分相同就全部保留，没有隐藏决胜规则。") : "Percentages are shares of this round’s points; rounding may affect their sum. They are not resemblance, population percentiles or psychometric scores. Every highest tie remains, with no hidden tiebreak."}</p>
     </section>
-    <FantasyPersonalCard quiz={quiz} ids={result.profileIds} locale={locale} />
     <FantasyRoster quiz={quiz} locale={locale} displayLocale={displayLocale} preserveResult />
   </div>;
 }

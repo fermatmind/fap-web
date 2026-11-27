@@ -3,20 +3,23 @@ import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import type { ArchetypeResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
+import { Wave3bArchetypeHonorCard } from "./Wave3bArchetypeHonorCard";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
-export function QuestionnaireWorkValuesReport({ quiz, result, answers, locale, displayLocale = locale, copy = value => value }: {
+export function QuestionnaireWorkValuesReport({ quiz, result, answers, locale, displayLocale = locale, copy = value => value, onRetake }: {
   quiz: Questionnaire;
   result: Extract<ArchetypeResult, { status: "complete" }>;
   answers: QuestionnaireAnswers;
   locale: Locale;
   displayLocale?: DisplayLocale;
   copy?: (text: string) => string;
+  onRetake?: () => void;
 }) {
   const zh = locale === "zh";
   const ordered = [...quiz.directions].sort((a, b) => result.counts[b.id] - result.counts[a.id]);
   const matched = result.profileIds.map(id => quiz.profiles.find(profile => profile.id === id)!);
   return <div className="my-6 space-y-8">
+    <Wave3bArchetypeHonorCard quiz={quiz} result={result} profiles={matched} locale={displayLocale} copy={copy} onRetake={onRetake} />
     <section className="space-y-3 rounded-xl border border-teal-200 bg-teal-50 p-4 sm:p-6" aria-labelledby="work-value-lead-title">
       <h3 id="work-value-lead-title" className="text-xl font-semibold">{zh ? copy("这次更常保留的工作价值") : "Work values you protected more often"}</h3>
       <p className="text-sm leading-7">{zh ? copy("所有最高次数都保留。选一项，看看真实任务中可能怎样取舍。") : "Every highest count remains. Open a value to see how its trade-offs may look in a work situation."}</p>

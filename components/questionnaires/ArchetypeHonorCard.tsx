@@ -8,7 +8,7 @@ import type { ShareMethod } from "@/lib/entertainment/activity";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import {
   archetypeCardShortTitle, archetypeCardThemes, archetypeCardUrl, archetypeCardVariant,
-  archetypePosterSize, archetypeResultName, archetypeRunnerUp, type CompleteArchetype,
+  archetypePosterSize, archetypeResultName, archetypeRunnerUp, type CompleteArchetype, type CompletePatronus,
 } from "@/lib/questionnaires/archetypeResultCard";
 import { getArchetypeHonorCopy, type ArchetypeHonorCopy } from "@/lib/questionnaires/archetypeHonorCardCopy";
 import { archetypeResultCopy, archetypeSharePayload } from "@/lib/questionnaires/archetypeResultShare";
@@ -30,30 +30,48 @@ function existingGraphic(element: HTMLElement | null, color: string) {
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(new XMLSerializer().serializeToString(svg))}`;
 }
 
-export function ArchetypeHonorCard({ quiz, result, profiles, locale, copy: translate, onRetake }: {
+
+export type ArchetypeHonorCardProps = {
   quiz: Questionnaire;
-  result: CompleteArchetype;
+  result: CompleteArchetype | CompletePatronus;
   profiles: QuestionnaireProfile[];
   locale: DisplayLocale;
   copy: (value: string) => string;
   onRetake?: () => void;
+};
+
+export function ArchetypeHonorCard({ quiz, result, profiles, locale, copy: translate, onRetake, archive }: ArchetypeHonorCardProps & {
+  archive?: {
+    shortTitle: string;
+    reading?: ArchetypeHonorCopy;
+    portraitPath?: string;
+    artworkMark?: ReactNode;
+    publicEntryOnly: boolean;
+    suppressRunner?: boolean;
+    onShare?: (method: ShareMethod) => void;
+  };
 }) {
   const config = archetypeCardVariant(quiz.slug, locale);
   const first = profiles[0];
   if (!config || !first) return null;
   const single = profiles.length === 1;
-  const runner = archetypeRunnerUp(quiz, result);
+  const runner = archive?.suppressRunner ? undefined : archetypeRunnerUp(quiz, result);
+  const portrait = single ? archive?.portraitPath ?? existingResultPortrait(quiz.slug, first.id) : undefined;
   return <ResultHonorCard slug={quiz.slug} locale={locale} theme={config.theme}
-    shortTitle={archetypeCardShortTitle(quiz, locale, translate)}
+    shortTitle={archive?.shortTitle ?? archetypeCardShortTitle(quiz, locale, translate)}
     matches={profiles.map(profile => ({ id: profile.id, name: archetypeResultName(profile, locale, translate) }))}
     runnerUp={runner ? archetypeResultName(runner, locale, translate) : undefined}
-    reading={single ? getArchetypeHonorCopy(quiz.slug, first.id, locale) : undefined}
-    portraitPath={single ? existingResultPortrait(quiz.slug, first.id) : undefined}
+    reading={single ? (archive ? archive.reading : getArchetypeHonorCopy(quiz.slug, first.id, locale)) : undefined}
+    portraitPath={portrait}
     emblem={single && quiz.slug !== "aura-color" && hasQuizResultArtwork(quiz.slug) ? first.id : undefined}
-    onRetake={onRetake} />;
+    artworkMark={single && !portrait ? archive?.artworkMark : undefined}
+    spaceAfterActions={Boolean(archive)} tieMark={archive ? "||" : undefined}
+    shareEntryOnly={archive?.publicEntryOnly} entryOnlyPoster={archive?.publicEntryOnly}
+    shareTitle={archive?.publicEntryOnly ? (locale === "en" ? quiz.title.en : translate(quiz.title.zh)) : undefined}
+    onRetake={onRetake} onShare={archive?.onShare} />;
 }
 
-export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runnerUp, reading, portraitPath, emblem, artworkMark, age, credit, onRetake, onShare, spaceAfterActions, metrics, shareEntryOnly, entryOnlyPoster, shareTitle, storyMode }: {
+export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runnerUp, reading, portraitPath, emblem, artworkMark, age, credit, onRetake, onShare, spaceAfterActions, metrics, shareEntryOnly, entryOnlyPoster, shareTitle, storyMode, tieMark }: {
   slug: string;
   locale: DisplayLocale;
   theme: keyof typeof archetypeCardThemes;
@@ -72,6 +90,7 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
   shareEntryOnly?: boolean;
   shareTitle?: string;
   storyMode?: StoryHonorMode;
+  tieMark?: string;
   entryOnlyPoster?: boolean;
   onRetake?: () => void;
 }) {
@@ -105,12 +124,13 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
   const tieLabel = metrics?.kind === "dimensions" ? metrics.tieLabel : undefined;
   const scale = metrics && metrics.kind !== "dimensions" ? metrics.scale : undefined;
   const portrait = !tied && !unavailableArtwork ? portraitPath : undefined;
-  const tieMonogram = storyMode ? "||" : (locale === "en" ? "∥" : copy.tied.slice(-1));
+  const tieMonogram = tieMark ?? (storyMode ? "||" : locale === "en" ? "∥" : copy.tied.slice(-1));
   const monogram = tied ? tieMonogram : (names[0].match(/[\p{L}\p{N}]/u)?.[0] ?? "◇").toUpperCase();
   const url = archetypeCardUrl(locale, slug);
   const metricResult = scale && metrics?.kind === "scalar" ? [scale.display, ...names].join(" · ") : names.join(" · ");
   const payload = storyMode ? storySharePayload(locale, shortTitle, names, storyMode, url) : metrics ? metricSharePayload(locale, shareTitle ?? shortTitle, url, shareEntryOnly ? undefined : metricResult,
-    metrics.kind === "practice" ? names[0] : undefined, reading?.soulVerdict) : archetypeSharePayload(locale, shortTitle, names, runnerUp, reading?.soulVerdict, url, age?.share);
+    metrics.kind === "practice" ? names[0] : undefined, reading?.soulVerdict) : shareEntryOnly ? { title: shareTitle ?? shortTitle, text: shareTitle ?? shortTitle, url }
+      : archetypeSharePayload(locale, shortTitle, names, runnerUp, reading?.soulVerdict, url, age?.share);
   const caption = `${payload.text}\n${url}`;
   const filename = `fermatmind-${slug}-${locale}.png`;
 
@@ -122,11 +142,11 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
       if (!blob.current) {
         const { renderArchetypePoster } = await import("@/lib/questionnaires/archetypePoster");
         const image = await renderArchetypePoster({
-          locale, theme, shortTitle, storyMode, names: entryOnlyPoster ? [shortTitle] : names, runnerUp,
+          locale, theme, shortTitle, storyMode, names: entryOnlyPoster ? [shortTitle] : names, runnerUp: entryOnlyPoster ? undefined : runnerUp,
           reading: entryOnlyPoster ? undefined : reading, credit,
           metrics: entryOnlyPoster ? { kind: "dimensions", label: metricCopy.invite, rows: [], tied: false } : metrics,
           age: age && { value: age.value, unit: age.unit, label: age.label },
-          artwork: portrait ?? existingGraphic(art.current, color.light), monogram: entryOnlyPoster ? "◇" : monogram, url,
+          artwork: entryOnlyPoster ? undefined : portrait ?? existingGraphic(art.current, color.light), monogram: entryOnlyPoster ? "◇" : monogram, url,
         });
         if (!active.current) return;
         blob.current = URL.createObjectURL(image);
