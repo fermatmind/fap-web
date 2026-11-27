@@ -19,9 +19,12 @@ for(const locale of ["en","zh"]as const)for(const width of [390,1280])test(`@rel
  await page.getByRole('button',{name:w('Change actual age','修改实际年龄'),exact:true}).click();await page.getByLabel(w('New actual age (empty means private)','新的实际年龄（留空即保密）'),{exact:true}).fill('');await page.getByRole('button',{name:w('Update comparison','更新对照'),exact:true}).click();await expect(page.locator('[data-mental-age-comparison]')).toContainText(w('private','保密'));
  await page.getByRole('button',{name:w('用中文阅读结果','Read result in English'),exact:true}).click();
  await expect(page.locator('[data-mental-age-value]')).toHaveText(`40${other==='zh'?'岁':' years'}`);
- await page.getByRole('button',{name:words(other,'Copy public entry','复制公开入口'),exact:true}).click();
- expect(await page.evaluate(()=>navigator.clipboard.readText())).toBe(`${other==='zh'?'心理年龄测试':'Mental Age Test'}\nhttps://fermatmind.com/${other}/tests/explore/mental-age`);
+ await page.getByRole('button',{name:words(other,'Share Result','一键分享给朋友'),exact:true}).click();
+ const shared = await page.evaluate(() => navigator.clipboard.readText());
+ expect(shared).toMatch(/40 (?:years|岁)/u);
+ expect(shared).not.toMatch(/\b35\b|\b125\b|actualAge|MAC_\d|[?&](?:score|answers)/u);
+ expect(shared.split("\n").at(-1)).toBe(`https://fermatmind.com/${other}/tests/explore/mental-age`);
  expect(new URL(page.url()).search).toBe('');expect(leak).toEqual([]);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await page.screenshot({path:test.info().outputPath(`${locale}-${width}-classic.png`),fullPage:true});
- await page.getByRole('button',{name:words(other,'Retake test','重新测试'),exact:true}).click();await expect(age).toHaveValue('');await expect(page.locator('[data-mental-age-report]')).toHaveCount(0);
+ await page.getByRole('button',{name:words(other,'Retake','再测一次'),exact:true}).click();await expect(age).toHaveValue('');await expect(page.locator('[data-mental-age-report]')).toHaveCount(0);
 });
