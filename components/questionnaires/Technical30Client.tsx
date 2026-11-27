@@ -1,4 +1,6 @@
 "use client";
+import { Wave3cResultCard } from "./Wave3cResultCard";
+import { ResultCoreBridge } from "./ResultCoreBridge";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
@@ -29,13 +31,13 @@ function ValidTechnical30Client({ quiz, locale, readingProfiles, explanationCopy
   const [stage, setStage] = useState<"welcome" | "ready" | "answer" | "result">("welcome");
   const [mode, setMode] = useState<Technical30Mode>("timed"), [section, setSection] = useState(0), [position, setPosition] = useState(0);
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [result, setResult] = useState<Technical30Result | null>(null);
-  const [remaining, setRemaining] = useState<number>(TECHNICAL30_LIMITS[0]), [message, setMessage] = useState(""), [manual, setManual] = useState("");
+  const [remaining, setRemaining] = useState<number>(TECHNICAL30_LIMITS[0]), [message, setMessage] = useState("");
   const answerRef = useRef<QuestionnaireAnswers>({}), closures = useRef<Technical30Closure[]>([]);
   const active = useRef<{ section: number; mode: Technical30Mode; started: ReturnType<typeof now> } | null>(null);
   const heading = useRef<HTMLHeadingElement>(null), revision = useRef(0), submitted = useRef(false), started = useRef(false);
   const clear = useCallback((notice = "") => {
     revision.current++; active.current = null; closures.current = []; answerRef.current = {}; submitted.current = false; started.current = false;
-    setAnswers({}); setStage("welcome"); setSection(0); setPosition(0); setResult(null); setMessage(notice); setManual(""); setRemaining(TECHNICAL30_LIMITS[0]);
+    setAnswers({}); setStage("welcome"); setSection(0); setPosition(0); setResult(null); setMessage(notice); setRemaining(TECHNICAL30_LIMITS[0]);
   }, []);
   useEffect(() => {
     const revisionClock = revision;
@@ -50,7 +52,7 @@ function ValidTechnical30Client({ quiz, locale, readingProfiles, explanationCopy
     if (!current || submitted.current) return;
     active.current = null; revision.current++;
     const next = [...closures.current, { id: quiz.technical30.sections[current.section].id, reason, elapsedMs }];
-    closures.current = next; setManual("");
+    closures.current = next;
     setMessage(reason === "expired" ? (zh ? "时间已到，本部分锁定；未做题保留为未答。" : "Time expired. This part is locked; untouched items remain unanswered.") : "");
     if (next.length < 5) { setSection(next.length); setPosition(0); setStage("ready"); return; }
     const checked = scoreTechnical30(quiz, { mode: current.mode, answers: answerRef.current, sections: next });
@@ -84,17 +86,12 @@ function ValidTechnical30Client({ quiz, locale, readingProfiles, explanationCopy
     if (checkClock() === null) return;
     revision.current++;
     answerRef.current = { ...answerRef.current, [quiz.questions[section * 6 + position].id]: value };
-    setAnswers(answerRef.current); setMessage(""); setManual("");
+    setAnswers(answerRef.current); setMessage("");
   }
   function next() {
     const elapsed = checkClock(); if (elapsed === null) return;
     if (!Object.hasOwn(answerRef.current, quiz.questions[section * 6 + position].id)) { setMessage(zh ? "请选择A—D，或明确选择留空。" : "Choose A–D, or explicitly leave this question unanswered."); return; }
     setMessage(""); if (position < 5) setPosition(position + 1); else closeSection("finished", elapsed);
-  }
-  async function copyPublicLinks() {
-    const text = quiz.profiles.map(p => `${p.title[locale]}\nhttps://fermatmind.com${questionnaireGuidePath(traditional ? "zh-TW" : locale, quiz.slug, p.id)}`).join("\n\n"), copiedRevision = revision.current;
-    try { await navigator.clipboard.writeText(text); if (revision.current !== copiedRevision) return; recordShare(); setManual(""); setMessage(zh ? "已复制五篇公开指南，不含本次答卷或数量。" : "Copied five public guides, without your responses or counts."); }
-    catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制公开链接。" : "Automatic copying is unavailable. Copy the public links below manually."); }
   }
   const current = quiz.technical30.sections[section], question = quiz.questions[section * 6 + position];
   const counts = (x: { correct: number; wrong: number; unanswered: number; total: number }) => zh ? displayText(`正确 ${x.correct}；错误 ${x.wrong}；未答 ${x.unanswered}；共 ${x.total} 题。`) : `Correct ${x.correct}; wrong ${x.wrong}; unanswered ${x.unanswered}; total ${x.total}.`;
@@ -124,7 +121,8 @@ function ValidTechnical30Client({ quiz, locale, readingProfiles, explanationCopy
         <button type="button" className={button} onClick={() => { const elapsed = checkClock(); if (elapsed !== null) closeSection("finished", elapsed); }}>{zh ? displayText("提前结束本部分，保留未答") : "Finish part early; keep blanks unanswered"}</button>
       </>}
       {stage === "result" && result && <>
-        <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
+        <h2 ref={heading} tabIndex={-1} className="sr-only scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
+        <Wave3cResultCard quiz={quiz} result={{ practice: result.overall }} locale={locale} onRetake={() => clear()} onShare={recordShare} />
         <div className={resultStyles.sectionPracticeLead} data-section-practice="technical30">
           <div className={resultStyles.sectionPracticeScore}>
             <p data-technical30-result-mode className="leading-8">{result.mode === "timed" ? (zh ? displayText("分段计时练习 · 本站选定上限") : "Timed section practice · Site-selected caps") : (zh ? displayText("不计时学习") : "Untimed study")}</p>
@@ -164,9 +162,8 @@ function ValidTechnical30Client({ quiz, locale, readingProfiles, explanationCopy
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(traditional ? "zh-TW" : locale, quiz.slug, part.id)}>{zh ? displayText("阅读完整公开指南") : "Read the complete public guide"}</Link>
           </section>;
         })}</ResultPage>
-        <button type="button" className={button} onClick={copyPublicLinks}>{zh ? displayText("复制公开指南链接") : "Copy public guide links"}</button>
-        {manual && <label className="block leading-7">{zh ? displayText("手动复制公开链接") : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border p-3" /></label>}
-        <button type="button" className={button} onClick={() => clear()}>{zh ? displayText("清空并重新练习") : "Clear and practise again"}</button>
+
+        <ResultCoreBridge locale={traditional ? "zh-TW" : locale} target="RIASEC" archiveExercise />
       </>}
       {stage !== "welcome" && <QuestionnaireLegacyControl><button type="button" className={button} onClick={() => clear()}>{zh ? displayText("退出并清除本次回答") : "Exit and clear these responses"}</button></QuestionnaireLegacyControl>}
     </fieldset>

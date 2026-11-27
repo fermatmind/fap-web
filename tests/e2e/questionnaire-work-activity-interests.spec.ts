@@ -40,12 +40,12 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, zh, false);
-    await expect(page.locator("[data-work-activity-report] [data-work-activity-context] a")).toHaveAttribute("href", `/${locale}/tests/holland-career-interest-test-riasec`);
-    await page.getByRole("button", { name: zh ? "复制公开入口" : "Copy public entry", exact: true }).click();
-    const share = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
+    await expect(page.locator("[data-archetype-core-assessment] a")).toHaveAttribute("href", `/${locale}/tests/holland-career-interest-test-riasec`);
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const share = await page.getByRole("textbox", { name: zh ? "手动复制分享文案" : "Copy the caption manually" }).inputValue();
     expect(share).toContain(`https://fermatmind.com${entry}`);
     expect(share).not.toMatch(/WAI_|3\.4|answers|[?&]score|facets/);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await finish(page, zh, true);
     expect(leaks).toEqual([]);
   });

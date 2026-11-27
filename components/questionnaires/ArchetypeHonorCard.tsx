@@ -129,8 +129,9 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
   const url = archetypeCardUrl(locale, slug);
   const metricResult = scale && metrics?.kind === "scalar" ? [scale.display, ...names].join(" · ") : names.join(" · ");
   const payload = storyMode ? storySharePayload(locale, shortTitle, names, storyMode, url) : metrics ? metricSharePayload(locale, shareTitle ?? shortTitle, url, shareEntryOnly ? undefined : metricResult,
-    metrics.kind === "practice" ? names[0] : undefined, reading?.soulVerdict) : shareEntryOnly ? { title: shareTitle ?? shortTitle, text: shareTitle ?? shortTitle, url }
+    !shareEntryOnly && metrics.kind === "practice" ? names[0] : undefined, reading?.soulVerdict) : shareEntryOnly ? { title: shareTitle ?? shortTitle, text: shareTitle ?? shortTitle, url }
       : archetypeSharePayload(locale, shortTitle, names, runnerUp, reading?.soulVerdict, url, age?.share);
+  const publicTitle = shareTitle ?? shortTitle;
   const caption = `${payload.text}\n${url}`;
   const filename = `fermatmind-${slug}-${locale}.png`;
 
@@ -142,7 +143,7 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
       if (!blob.current) {
         const { renderArchetypePoster } = await import("@/lib/questionnaires/archetypePoster");
         const image = await renderArchetypePoster({
-          locale, theme, shortTitle, storyMode, names: entryOnlyPoster ? [shortTitle] : names, runnerUp: entryOnlyPoster ? undefined : runnerUp,
+          locale, theme, shortTitle: entryOnlyPoster ? publicTitle : shortTitle, storyMode, names: entryOnlyPoster ? [publicTitle] : names, runnerUp: entryOnlyPoster ? undefined : runnerUp,
           reading: entryOnlyPoster ? undefined : reading, credit,
           metrics: entryOnlyPoster ? { kind: "dimensions", label: metricCopy.invite, rows: [], tied: false } : metrics,
           age: age && { value: age.value, unit: age.unit, label: age.label },
@@ -171,6 +172,7 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
     if (typeof navigator.share === "function" && window.matchMedia?.("(pointer: coarse)").matches) {
       try {
         await navigator.share(payload);
+        if (!active.current) return;
         onShare?.("system");
         setStatus(copy.sent);
         return;
@@ -180,10 +182,11 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
     }
     try {
       await navigator.clipboard.writeText(caption);
+      if (!active.current) return;
       onShare?.("copy");
       setStatus(copy.copied);
     } catch {
-      setManual(caption);
+      if (active.current) setManual(caption);
     }
   }
 
@@ -196,6 +199,7 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
       </header>
       {metrics ? <>
       <div className={`${styles.age} ${styles.metricPanel}`} data-honor-metric-panel>
+        {tied && tieMark && <span className={styles.metricTieMark} data-honor-tie-mark aria-hidden="true"><span>{tieMark}</span></span>}
         {scale && <>
           <p className={styles.metricReading} data-honor-reading>{scale.display}</p>
           <div className={styles.ruler} aria-hidden="true" style={{ "--age-marker": `${scalePosition(scale.value, scale.min, scale.max)}%` } as CSSProperties}><i /></div>
@@ -257,7 +261,7 @@ export function ResultHonorCard({ slug, locale, theme, shortTitle, matches, runn
       onClick={event => { if (event.target === event.currentTarget) dialog.current?.close(); }}>
       {preview && <div className={dialogStyles.cardLightboxBody}>
         <button type="button" aria-label={copy.close} onClick={() => dialog.current?.close()}>×</button>
-        <Image unoptimized src={preview} width={archetypePosterSize.width} height={archetypePosterSize.height} alt={names.join(" · ")} />
+        <Image unoptimized src={preview} width={archetypePosterSize.width} height={archetypePosterSize.height} alt={entryOnlyPoster ? publicTitle : names.join(" · ")} />
         <p>{copy.hold}</p>
         <a href={preview} download={filename}>{copy.download}</a>
       </div>}

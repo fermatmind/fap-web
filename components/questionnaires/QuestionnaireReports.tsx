@@ -1,4 +1,5 @@
 "use client";
+import { wave3cVariant } from "@/lib/questionnaires/wave3cScope";
 import { archetypeCardVariant } from "@/lib/questionnaires/archetypeResultCard";
 import { wave2bVariant } from "@/lib/questionnaires/wave2bScope";
 import { wave2aVariant } from "@/lib/questionnaires/wave2aResult";
@@ -244,6 +245,10 @@ export function QuestionnaireReports({ quiz, result, answers, locale, onRetake, 
 export function QuestionnaireNextSteps({ quiz, result, answers, locale }: QuestionnaireReportProps) {
   const standalone = useQuestionnaireTake();
   const { displayText, traditional } = useQuestionnaireDisplayCopy();
+  const wave3c = wave3cVariant(quiz.slug);
+  if (wave3c && result.status === "complete") {
+    return <ResultCoreBridge locale={traditional ? "zh-TW" : locale} target={wave3c.target} archiveExercise />;
+  }
   const zh = locale === "zh";
   const tipi10 = result.status === "complete" && "tipi10" in result ? result : undefined;
   const facets = result.status === "complete" && "facets" in result ? result : undefined;

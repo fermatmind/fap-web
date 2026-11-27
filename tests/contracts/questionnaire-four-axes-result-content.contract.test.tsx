@@ -58,9 +58,9 @@ describe("four original axis guides without inferred identities, clinical labels
   fireEvent.click(screen.getByRole("button",{name:"Start test"}));
   for(let i=0;i<60;i++){fireEvent.click(container.querySelector(`input[value="2"]`)!);fireEvent.click(screen.getByRole("button",{name:i===59?"See four positions":"Next"}));}
   expect(container.querySelectorAll("[data-four-axes-result-reading]")).toHaveLength(4);expect(container.querySelectorAll('[data-four-axes-sum]')).toHaveLength(4);
-  await act(async()=>fireEvent.click(screen.getByRole("button",{name:"Copy public explanation links"})));
-  const payload=quiz.profiles.map(p=>`${p.title.en}\nhttps://fermatmind.com/en/tests/explore/${quiz.slug}/results/${p.id}`).join("\n\n");expect(writeText).toHaveBeenCalledWith(payload);expect(screen.getByLabelText("Public links for manual copying")).toHaveValue(payload);
-  fireEvent.click(screen.getByRole("button",{name:"Retake with empty answers"}));expect(container.querySelector("[data-four-axes-result]")).toBeNull();expect(container.querySelector("input:checked")).toBeNull();
+  await act(async()=>fireEvent.click(screen.getByRole("button",{name:"Share Result"})));
+  const payload=`${quiz.title.en}\nhttps://fermatmind.com/en/tests/explore/${quiz.slug}`;expect(writeText).toHaveBeenCalledWith(payload);expect(screen.getByLabelText("Copy the caption manually")).toHaveValue(payload);
+  fireEvent.click(screen.getByRole("button",{name:"Retake"}));expect(container.querySelector("[data-four-axes-result]")).toBeNull();expect(container.querySelector("input:checked")).toBeNull();
   fireEvent.click(screen.getByRole("button",{name:"Exit and clear these responses"}));expect(screen.getByRole("button",{name:"Start test"})).toBeVisible();expect(storage).not.toHaveBeenCalled();expect(network).not.toHaveBeenCalled();
  });
 });

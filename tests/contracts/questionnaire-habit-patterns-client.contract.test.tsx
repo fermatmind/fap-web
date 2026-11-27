@@ -1,6 +1,6 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import "@testing-library/jest-dom/vitest";
-import { fireEvent, render, screen, act } from "@testing-library/react";
+import { fireEvent, render, screen, act, waitFor } from "@testing-library/react";
 import { beforeEach, expect, it, vi } from "vitest";
 import data from "@/lib/questionnaires/data/habit-patterns-test.json";
 import { QuestionnaireHabitClient } from "@/components/questionnaires/QuestionnaireHabitClient";
@@ -26,17 +26,27 @@ it("keeps private controls disabled before hydration and rejects an incomplete f
   const damaged = structuredClone(data); damaged.instructions.en = "";
   expect(renderToStaticMarkup(<QuestionnaireHabitClient quiz={damaged} locale="en" />)).toContain("unavailable");
 });
-it("finishes20skips without personal factors, storage or result sharing", () => {
+it("finishes twenty skips without private factors or storage and shares only the public entry", async () => {
   const get = vi.spyOn(Storage.prototype, "getItem"), set = vi.spyOn(Storage.prototype, "setItem");
-  render(<QuestionnaireHabitClient quiz={data} locale="en" />); finishSkipped();
-  expect(document.querySelector("[data-habit-all-insufficient]")).not.toBeNull();
-  expect(document.querySelectorAll("[data-habit-part], [data-habit-mean], [data-habit-sum]")).toHaveLength(0);
-  expect(screen.queryByRole("button", { name: /copy|share/i })).toBeNull();
-  expect(screen.queryByRole("textbox")).toBeNull(); expect(get).not.toHaveBeenCalled(); expect(set).not.toHaveBeenCalled();
-  fireEvent.click(screen.getByRole("button", { name: "Answer again if you want (empty answers)" }));
-  expect(screen.getByRole("radio", { name: "1 — Does not fit at all" })).not.toBeChecked();
-  expect(document.querySelector("[data-habit-result]")).toBeNull();
-  get.mockRestore(); set.mockRestore();
+  const original = Object.getOwnPropertyDescriptor(navigator, "clipboard");
+  const writeText = vi.fn().mockResolvedValue(undefined);
+  Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText } });
+  try {
+    render(<QuestionnaireHabitClient quiz={data} locale="en" />); finishSkipped();
+    expect(document.querySelector("[data-habit-all-insufficient]")).not.toBeNull();
+    expect(document.querySelectorAll("[data-habit-part], [data-habit-mean], [data-habit-sum], [data-honor-reading]")).toHaveLength(0);
+    fireEvent.click(screen.getByRole("button", { name: "Share Result" }));
+    await waitFor(() => expect(writeText).toHaveBeenCalledWith(`${data.title.en}\nhttps://fermatmind.com/en/tests/explore/${data.slug}`));
+    expect(screen.queryByRole("textbox")).toBeNull();
+    expect(get).not.toHaveBeenCalled();
+    expect(set).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole("button", { name: "Retake" }));
+    expect(screen.getByRole("radio", { name: "1 — Does not fit at all" })).not.toBeChecked();
+    expect(document.querySelector("[data-habit-result]")).toBeNull();
+  } finally {
+    if (original) Object.defineProperty(navigator, "clipboard", original);
+    else Reflect.deleteProperty(navigator, "clipboard");
+  }
 });
 it("clears edited responses on locale, pagehide and persisted pageshow", () => {
   const view = render(<QuestionnaireHabitClient quiz={data} locale="en" />);

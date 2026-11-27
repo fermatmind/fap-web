@@ -6,7 +6,7 @@ import { honorMetricCopy, scalePosition, type HonorMetric, type HonorResultMetri
 
 type Complete = Extract<ReturnType<typeof scoreQuestionnaire>, { status: "complete" }>;
 export type HonorMatch = { id: string; name: string };
-type MetricCard = { matches: HonorMatch[]; readingId: string; metrics: HonorResultMetrics };
+export type MetricCard = { matches: HonorMatch[]; readingId: string; metrics: HonorResultMetrics };
 type RatedMetric = HonorMetric & { score: number };
 
 export const wave2bPracticeBands = ["review", "building", "strong", "perfect"] as const;

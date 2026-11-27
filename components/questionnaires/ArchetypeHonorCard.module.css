@@ -76,3 +76,8 @@
 .metricTrack i { display: block; height: 100%; border-radius: inherit; background: var(--card-light); }
 .metricMissing { color: var(--card-light); font-size: 2.1rem; line-height: 1; margin: .65rem 0; }
 .card[data-honor-metrics] .title { font-size: clamp(1.3rem, 6.4vw, 2rem); }
+
+.metricTieMark { display: grid; position: relative; place-items: center; width: 1.85rem; height: 1.85rem; margin: 0 auto .35rem; font: 700 .8rem/1 Georgia, serif; color: var(--card-light); }
+.metricTieMark::before, .metricTieMark::after { content: ""; position: absolute; inline-size: 66%; aspect-ratio: 1; transform: rotate(45deg); border: 1px solid var(--card-line); }
+.metricTieMark::after { inline-size: 50%; opacity: .55; }
+.metricTieMark > span { z-index: 1; background: var(--card-bg); padding: 0 .17rem; }

@@ -41,7 +41,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await visibleQuestion(page);
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     const patterns = [Array(6).fill("1"), Array(6).fill("3"), Array(6).fill("5"), ["2", "3", "4", "4", "5", "na"], ["4", "4", "4", "4", "na", "na"], ["4", "4", "4", "na", "na", "na"], Array(6).fill("na")];
-    for (const [i, values] of patterns.entries()) { if (i) { await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await expect(page.locator("[data-tech-confidence-report]")).toHaveCount(0); } await finish(page, locale, values); }
+    for (const [i, values] of patterns.entries()) { if (i) { await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click(); await expect(page.locator("[data-tech-confidence-report]")).toHaveCount(0); } await finish(page, locale, values); }
     expect(leaked).toEqual([]); expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:tech-savvy"))).toBeNull();
   });
   test(`@release tech-savvy ${locale}: optional draft reload/language/edit/clear and public guide`, async ({ page }) => {
@@ -60,7 +60,7 @@ for (const locale of ["en", "zh"] as const) {
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw Error("synthetic clipboard denial"); } } });
     });
     await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await page.getByRole("checkbox").check(); await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save"); await finish(page, locale, ["2", "3", "4", "4", "5", "na"]);
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click(); const copy = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click(); const copy = await page.getByRole("textbox", { name: zh ? "手动复制分享文案" : "Copy the caption manually" }).inputValue();
     expect(copy.split("\n")).toEqual([quiz.title[locale], zh ? "完整自我观察" : "Complete self-reflection", `https://fermatmind.com${entry}`]); expect(copy).not.toMatch(/TSC_|answers|3\.6|18|[?&]score|mean|percentile/);
   });
 }

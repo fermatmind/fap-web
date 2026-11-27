@@ -1,4 +1,6 @@
 "use client";
+import { Wave3cResultCard } from "./Wave3cResultCard";
+import { ResultCoreBridge } from "./ResultCoreBridge";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
@@ -48,9 +50,10 @@ export function ActivityEngagementClient({ quiz, locale }: { quiz: Questionnaire
       <QuestionnaireLegacyControl><button className="mt-4 min-h-11 text-sm underline" onClick={() => reset("welcome")}>{zh ? displayText("退出并清除本次进度") : "Exit and clear this attempt"}</button></QuestionnaireLegacyControl>
     </>}
     {stage === "result" && result.status === "complete" && <>
-      <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere]">{quiz.resultHeading![locale]}</h2>
+      <h2 ref={heading} tabIndex={-1} className="sr-only text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere]">{quiz.resultHeading![locale]}</h2>
+      <Wave3cResultCard quiz={quiz} result={result} locale={locale} onRetake={() => reset("answer")} />
       <ActivityEngagementReport quiz={quiz} result={result} locale={locale} displayLocale={displayLocale} copy={displayText} />
-      <button className={button} onClick={() => reset("answer")}>{zh ? displayText("重新测试") : "Retake test"}</button>
+      <ResultCoreBridge locale={displayLocale} target="BIG5_OCEAN" />
       <QuestionnaireLegacyControl>
         <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{zh ? displayText("五份说明已完整开放，可以在这里结束") : "All five guides are open. You may finish here."}</h3>
           <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests#more-tests`}>{zh ? displayText("返回全部测试") : "Back to all tests"}</Link>

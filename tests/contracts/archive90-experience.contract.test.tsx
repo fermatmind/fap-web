@@ -11,11 +11,11 @@ import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/
 import { isArchivedEntertainmentPath } from "@/lib/seo/discoverabilityExposurePolicy";
 
 const locales = ["en", "zh", "zh-TW"] as const;
-function Example({ generic }: { generic: boolean }) {
+function Example({ generic, slug }: { generic: boolean; slug: string }) {
   const [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
   const [readable, setReadable] = useState(!generic);
   const [nestedReady, setNestedReady] = useState(!generic);
-  return <section id="take-test" data-stage={stage} data-questionnaire-slug={generic ? "type-ab" : undefined}>
+  return <section id="take-test" data-stage={stage} data-questionnaire-slug={generic ? slug : undefined}>
     <button data-explore-start onClick={() => setStage("answer")}>Start example</button>
     <button onClick={() => setStage("result")}>Show result</button>
     <button onClick={() => setReadable(true)}>Finish loading report</button>
@@ -51,15 +51,20 @@ describe("90-title archive experience", () => {
     expect(renderToStaticMarkup(<ArchiveGuideShare slug="temperament" id="sanguine" locale="en" />)).toBe("");
   });
 
-  it.each([true, false])("waits for a completed free report, including a manually started session (generic=%s)", async generic => {
-    const landing = questionnairePath("zh-TW", "type-ab");
+  it.each([
+    { slug: "energy-flow", generic: true, legacyBridge: true },
+    { slug: "energy-flow", generic: false, legacyBridge: true },
+    { slug: "type-ab", generic: true, legacyBridge: false },
+    { slug: "type-ab", generic: false, legacyBridge: false },
+  ])("keeps one bridge for $slug after the complete report (generic=$generic)", async ({ slug, generic, legacyBridge }) => {
+    const landing = questionnairePath("zh-TW", slug);
     const { container, getByRole } = render(<QuestionnaireTakeSession title="測驗" minutes={0}
-      locale="zh" landing={landing} autoStart={false}><Example generic={generic} /></QuestionnaireTakeSession>);
+      locale="zh" landing={landing} autoStart={false}><Example generic={generic} slug={slug} /></QuestionnaireTakeSession>);
     const hint = () => container.querySelector("[data-archive-90-hint]");
     const CTA = () => container.querySelector("[data-archive-next-step]");
     expect(CTA()).toBeNull();
     fireEvent.click(getByRole("button", { name: "Start example" }));
-    await waitFor(() => expect(hint()?.textContent).toBe(archive90Topic("type-ab")?.hint["zh-TW"]));
+    await waitFor(() => expect(hint()?.textContent).toBe(archive90Topic(slug)?.hint["zh-TW"]));
     fireEvent.click(getByRole("button", { name: "Show result" }));
     if (generic) {
       await waitFor(() => expect(hint()).toBeNull());
@@ -69,9 +74,12 @@ describe("90-title archive experience", () => {
       expect(CTA()).toBeNull();
       fireEvent.click(getByRole("button", { name: "Finish loading score sections" }));
     }
-    await waitFor(() => expect(CTA()?.querySelector("a")?.getAttribute("href"))
-      .toBe("/zh-TW/tests/big-five-personality-test-ocean-model"));
-    expect(CTA()?.querySelectorAll("a")).toHaveLength(1);
+    await waitFor(() => expect(getByRole("button", { name: "Show result" }).closest("[data-stage]")).toHaveAttribute("data-stage", "result"));
+    if (legacyBridge) {
+      await waitFor(() => expect(CTA()?.querySelector("a")?.getAttribute("href"))
+        .toBe("/zh-TW/tests/big-five-personality-test-ocean-model"));
+      expect(CTA()?.querySelectorAll("a")).toHaveLength(1);
+    } else expect(CTA()).toBeNull();
     fireEvent.click(getByRole("button", { name: "Retake example" }));
     await waitFor(() => expect(CTA()).toBeNull());
   });

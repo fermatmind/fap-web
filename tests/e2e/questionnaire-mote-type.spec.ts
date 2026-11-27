@@ -41,7 +41,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await headingBelowHeader(page);
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     for (const [index, counts] of [[6, 6, 6, 6], [0, 0, 0, 0], [1, 3, 4, 6]].entries()) {
-      if (index !== 0) { await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await expect(page.locator("[data-interaction-pairs-result]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked(); }
+      if (index !== 0) { await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click(); await expect(page.locator("[data-interaction-pairs-result]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked(); }
       await finish(page, locale, counts);
     }
     expect(sensitivePosts).toEqual([]); expect(new URL(page.url()).search).toBe("");
@@ -56,7 +56,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.setViewportSize({ width: 390, height: 844 }); await page.addInitScript(() => { Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } }); });
     await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await finish(page, locale, [3, 3, 3, 3]);
     await expect(page.locator('[data-interaction-tie="true"]')).toHaveCount(4);
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click(); const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue(); expect(text).toContain(quiz.title[locale]); expect(text).not.toMatch(/ATTRACTION_PC_[0-9]{3}|answers|form_code|submission|3\s*\/\s*6|[?&]score/); const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click(); const text = await page.getByRole("textbox", { name: zh ? "手动复制分享文案" : "Copy the caption manually" }).inputValue(); expect(text).toContain(quiz.title[locale]); expect(text).not.toMatch(/ATTRACTION_PC_[0-9]{3}|answers|form_code|submission|3\s*\/\s*6|[?&]score/); const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   });
 }

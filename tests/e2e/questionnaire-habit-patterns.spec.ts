@@ -66,7 +66,7 @@ async function answer(page: Page, locale: "en" | "zh", mode: "worked" | "partial
     expect(paragraphs).toBe(mode === "partial" ? 48 : 60);
   }
   await expect(page.locator("#take-test").getByRole("textbox")).toHaveCount(0);
-  await expect(page.locator("#take-test").getByRole("button", { name: /copy|share|复制|分享/i })).toHaveCount(0);
+  await expect(page.locator("#take-test").getByRole("button", { name: /Share Result|一键分享给朋友/ })).toHaveCount(1);
   const ids = await page.locator("#take-test [id]").evaluateAll(nodes => nodes.map(n => n.id)); expect(new Set(ids).size).toBe(ids.length);
 }
 for (const locale of ["en", "zh"] as const) {
@@ -92,7 +92,7 @@ for (const locale of ["en", "zh"] as const) {
     await answer(page, locale, "worked");
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:habit-patterns-test"))).toBeNull();
-    await page.getByRole("button", { name: zh ? "愿意时重新作答（清除本次回答）" : "Answer again if you want (empty answers)", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-habit-result]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(attempts).toEqual([]);
   });
   test(`@release habit ${locale}: edit, reload, language, leave and exit clear memory`, async ({ page }) => {
@@ -116,7 +116,7 @@ for (const locale of ["en", "zh"] as const) {
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
     const attempts = observeAnalytics(page); await page.goto(entry); await start(page); await answer(page, locale, "all-na");
-    await page.getByRole("button", { name: zh ? "愿意时重新作答（清除本次回答）" : "Answer again if you want (empty answers)", exact: true }).click(); await answer(page, locale, "partial");
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click(); await answer(page, locale, "partial");
     await page.waitForTimeout(250); expect(attempts).toEqual([]);
   });
 }

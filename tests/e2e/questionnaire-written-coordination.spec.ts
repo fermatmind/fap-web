@@ -70,8 +70,8 @@ for (const locale of ["en", "zh"] as const) {
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     }
     await page.setViewportSize({ width: 390, height: 844 });
-    await page.getByRole("button", { name: label(locale, "Copy public entry", "复制公开入口"), exact: true }).click();
-    await expect(page.getByRole("textbox", { name: label(locale, "Public entry for manual copying", "手动复制公开入口"), exact: true })).toHaveValue(`${quiz.title[locale]}\nhttps://fermatmind.com${path(locale)}`);
+    await page.getByRole("button", { name: label(locale, "Share Result", "一键分享给朋友"), exact: true }).click();
+    await expect(page.getByRole("textbox", { name: label(locale, "Copy the caption manually", "手动复制分享文案"), exact: true })).toHaveValue(`${quiz.title[locale]}\nhttps://fermatmind.com${path(locale)}`);
     await clear(page, locale); await expect(page.locator("[data-written-item-feedback]")).toHaveCount(0);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true); expect(leaks).toEqual([]); expect(errors).toEqual([]);
   });

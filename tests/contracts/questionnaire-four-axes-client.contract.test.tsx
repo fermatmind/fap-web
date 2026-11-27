@@ -30,9 +30,9 @@ it("uses no browser persistence, keeps all four full guides, and clears on langu
   const view = render(<QuestionnaireFourAxesClient quiz={data} locale="en" />); finishComplete();
   expect(view.container.querySelectorAll("[data-four-axes-part]")).toHaveLength(4);
   expect(view.container.querySelectorAll("[data-four-axes-sum]")).toHaveLength(4);
-  fireEvent.click(screen.getByRole("button", { name: "Copy public explanation links" }));
-  const copied = await screen.findByRole("textbox", { name: "Public links for manual copying" });
-  expect((copied as HTMLTextAreaElement).value).toBe(data.profiles.map(p => `${p.title.en}\nhttps://fermatmind.com/en/tests/explore/four-axes-test/results/${p.id}`).join("\n\n"));
+  fireEvent.click(screen.getByRole("button", { name: "Share Result" }));
+  const copied = await screen.findByRole("textbox", { name: "Copy the caption manually" });
+  expect((copied as HTMLTextAreaElement).value).toBe(`${data.title.en}\nhttps://fermatmind.com/en/tests/explore/four-axes-test`);
   expect(get).not.toHaveBeenCalled(); expect(set).not.toHaveBeenCalled();
   view.rerender(<QuestionnaireFourAxesClient quiz={data} locale="zh" />);
   expect(view.container.querySelector("[data-four-axes-result]")).toBeNull();
@@ -47,7 +47,7 @@ it("does not restore a late clipboard success message after explicit exit", asyn
   let resolve!: () => void;
   Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: () => new Promise<void>(r => { resolve = r; }) } });
   const view = render(<QuestionnaireFourAxesClient quiz={data} locale="en" />); finishComplete();
-  fireEvent.click(screen.getByRole("button", { name: "Copy public explanation links" }));
+  fireEvent.click(screen.getByRole("button", { name: "Share Result" }));
   fireEvent.click(screen.getByRole("button", { name: "Exit and clear these responses" }));
   await act(async () => resolve());
   expect(view.container.querySelector("[data-four-axes-result]")).toBeNull();

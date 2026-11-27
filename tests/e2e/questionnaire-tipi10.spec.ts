@@ -39,10 +39,10 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, zh, 7);
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const share = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const share = await page.getByRole("textbox", { name: zh ? "手动复制分享文案" : "Copy the caption manually" }).inputValue();
     expect(share).toBe(`${quiz.title[locale]}\nhttps://fermatmind.com${entry}`);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await finish(page, zh, 4);
     await expect(page.locator("[data-tipi10-next-steps] a").first()).toHaveAttribute("href", `/${locale}/tests/big-five-personality-test-ocean-model`);
     expect(leaks).toEqual([]);

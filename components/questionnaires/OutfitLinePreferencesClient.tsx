@@ -1,4 +1,6 @@
 "use client";
+import { Wave3cResultCard } from "./Wave3cResultCard";
+import { ResultCoreBridge } from "./ResultCoreBridge";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
@@ -48,9 +50,10 @@ export function OutfitLinePreferencesClient({ quiz, locale }: { quiz: Questionna
       <QuestionnaireLegacyControl><button className="mt-4 min-h-11 text-sm underline" onClick={() => reset("welcome")}>{zh ? displayText("退出并清除本次进度") : "Exit and clear this attempt"}</button></QuestionnaireLegacyControl>
     </>}
     {stage === "result" && result.status === "complete" && <>
-      <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere]">{quiz.resultHeading![locale]}</h2>
+      <h2 ref={heading} tabIndex={-1} className="sr-only text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere]">{quiz.resultHeading![locale]}</h2>
+      <Wave3cResultCard quiz={quiz} result={result} locale={locale} onRetake={() => reset("answer")} />
       <OutfitLinePreferencesReport quiz={quiz} result={result} locale={locale} displayLocale={displayLocale} copy={displayText} />
-      <button className={button} onClick={() => reset("answer")}>{zh ? displayText("重新测试") : "Retake test"}</button>
+      <ResultCoreBridge locale={displayLocale} target="BIG5_OCEAN" />
       <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{zh ? displayText("五份说明已完整开放，可以在这里结束") : "All five guides are open. You may finish here."}</h3>
         <p className="my-4 leading-8">{zh ? displayText("已有审美观察的是文字描述的图形氛围、色彩和纹理，是不同任务，分数不换算。是否另作答由你决定。") : "The existing Aesthetic reflection concerns word-described graphic moods, colours and textures. It is a different task, without score conversion. Another attempt is optional."}</p>
         <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests/explore/aesthetic-core-test`}>{zh ? displayText("了解独立图形审美观察") : "Read about the separate graphic Aesthetic reflection"}</Link><br />

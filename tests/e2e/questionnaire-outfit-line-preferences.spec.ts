@@ -68,7 +68,7 @@ for (const locale of ["en", "zh"] as const) {
     await finish(page, locale, "mixed");
     await expect(page.getByRole("link", { name: zh ? "了解独立图形审美观察" : "Read about the separate graphic Aesthetic reflection" })).toHaveAttribute("href", `/${locale}/tests/explore/aesthetic-core-test`);
     expect(new URL(page.url()).search).toBe(""); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-olp-mean]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
     await page.getByRole("button", { name: zh ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
     await page.locator("[data-explore-start]").click(); await expect(page.getByRole("radio").first()).not.toBeChecked();

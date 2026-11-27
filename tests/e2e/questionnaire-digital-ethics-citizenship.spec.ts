@@ -49,7 +49,7 @@ for (const locale of ["en", "zh"] as const) {
     await finish(page, locale, true);
     await expect(page.locator("#take-test a[href*='mbti']")).toHaveCount(0); await expect(page.locator("#take-test a[href*='holland-career-interest-test-riasec']")).toHaveCount(1);
     expect(new URL(page.url()).search).toBe(""); expect(posts).toEqual([]);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await expect(page.locator("[data-practice-result]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click(); await expect(page.locator("[data-practice-result]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
   });
   test(`@release Digital citizenship practice ${locale}: opted-in draft,language switch,edit and clear`, async ({ page }) => {
     await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
@@ -66,8 +66,8 @@ for (const locale of ["en", "zh"] as const) {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.addInitScript(() => { Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } }); });
     await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await finish(page, locale, false);
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.getByRole("textbox", { name: zh ? "手动复制分享文案" : "Copy the caption manually" }).inputValue();
     expect(text).toContain(quiz.title[locale]); expect(text).not.toMatch(/DIG_[0-9]{2}|answers|form_code|submission|0\s*\/\s*30|[?&]score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
   });

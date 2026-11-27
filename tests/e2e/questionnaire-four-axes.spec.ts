@@ -54,7 +54,7 @@ for (const locale of ["en", "zh"] as const) {
     await finish(page, locale, "worked");
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:four-axes-test"))).toBeNull();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试（清除本次回答）" : "Retake with empty answers", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-four-axes-result]")).toHaveCount(0);
     await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(leaks).toEqual([]);
   });
@@ -85,11 +85,11 @@ for (const locale of ["en", "zh"] as const) {
     await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
     await finish(page, locale, "middle");
     await expect(page.locator("[data-four-axes-sum]")).toHaveCount(4);
-    await page.getByRole("button", { name: zh ? "重新测试（清除本次回答）" : "Retake with empty answers", exact: true }).click(); await finish(page, locale, "all-high");
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click(); await finish(page, locale, "all-high");
     await expect(page.locator("[data-four-axes-sum]")).toHaveCount(4);
-    await page.getByRole("button", { name: zh ? "复制公开解释链接" : "Copy public explanation links", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制公开链接" : "Public links for manual copying" }).inputValue();
-    expect(text).toBe(data.profiles.map(p => `${p.title[locale]}\nhttps://fermatmind.com${entry}/results/${p.id}`).join("\n\n"));
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.getByRole("textbox", { name: zh ? "手动复制分享文案" : "Copy the caption manually" }).inputValue();
+    expect(text).toBe(`${data.title[locale]}\nhttps://fermatmind.com${entry}`);
     expect(text).not.toMatch(/four-axes-\d\d|highPercent|lowPercent/);
   });
 }

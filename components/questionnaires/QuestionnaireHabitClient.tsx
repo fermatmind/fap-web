@@ -1,4 +1,6 @@
 "use client";
+import { Wave3cResultCard } from "./Wave3cResultCard";
+import { ResultCoreBridge } from "./ResultCoreBridge";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
@@ -69,9 +71,10 @@ function ValidHabitClient({ quiz, locale, readingProfiles }: { quiz: MiniHabitQu
         <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? (traditional ? "上一題" : "上一题") : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 19 ? (zh ? (traditional ? "檢視本次記錄" : "查看本次记录") : "See this record") : (zh ? (traditional ? "下一題" : "下一题") : "Next")}</button></div>
       </>}
       {stage === "result" && result && <>
-        <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading[locale]}</h2>
+        <h2 ref={heading} tabIndex={-1} className="sr-only scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading[locale]}</h2>
+        <Wave3cResultCard quiz={quiz} result={result} locale={locale} onRetake={() => { clear(); setStage("answer"); recordStart(); }} />
         <QuestionnaireHabitReport quiz={quiz} result={result} locale={locale} readingProfiles={readingProfiles} />
-        <button type="button" className={button} onClick={() => { clear(); setStage("answer"); recordStart(); }}>{zh ? (traditional ? "願意時重新作答（清除本次回答）" : "愿意时重新作答（清除本次回答）") : "Answer again if you want (empty answers)"}</button>
+        <ResultCoreBridge locale={traditional ? "zh-TW" : locale} target="BIG5_OCEAN" />
       </>}
       {stage !== "welcome" && <QuestionnaireLegacyControl><button type="button" className={button} onClick={clear}>{zh ? (traditional ? "退出並清除本次回答" : "退出并清除本次回答") : "Exit and clear these responses"}</button></QuestionnaireLegacyControl>}
     </fieldset>

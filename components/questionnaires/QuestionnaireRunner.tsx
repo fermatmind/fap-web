@@ -1,4 +1,5 @@
 "use client";
+import { wave3cVariant } from "@/lib/questionnaires/wave3cScope";
 import { wave2bVariant } from "@/lib/questionnaires/wave2bScope";
 import { wave2bCardData } from "@/lib/questionnaires/wave2bResult";
 import { Wave2aHonorCard } from "./Wave2aHonorCard";
@@ -56,6 +57,7 @@ const directionPresentation = {
   "adult-age-preferences": { eyebrow: { zh: "本次选择", en: "Your choices" }, previews: ["fictional-example", "optional-step"] },
 };
 
+const Wave3cResultCard = questionnaireModule<Parameters<typeof import("./Wave3cResultCard").Wave3cResultCard>[0]>(() => import("./Wave3cResultCard").then(module => ({ default: module.Wave3cResultCard })));
 const Wave2bHonorCard = questionnaireModule<Parameters<typeof import("./Wave2bHonorCard").Wave2bHonorCard>[0]>(() => import("./Wave2bHonorCard").then(module => ({ default: module.Wave2bHonorCard })));
 const EightQuizPersonalCard = questionnaireModule<Parameters<typeof import("./EightQuizPersonalCard").EightQuizPersonalCard>[0]>(() => import("./EightQuizPersonalCard").then(module => ({ default: module.EightQuizPersonalCard })));
 const SevenSinsPersonalCard = questionnaireModule<Omit<import("./SevenSinsPersonalCard").SevenSinsPersonalCardProps, "locale"> & { locale: Locale }>(() => import("./SevenSinsPersonalCard").then(module => ({ default: module.SevenSinsPersonalCard })));
@@ -128,7 +130,8 @@ export function QuestionnaireRunner({ onComplete, scoreQuestionnaire, quiz, loca
   const upgraded = wave2aVariant(quiz.slug, waveLocale) && (directional || archetypes || loveType16 || mentalAge);
   const wave2b = stage === "result" && result.status === "complete" && wave2bVariant(quiz.slug)
     ? wave2bCardData(quiz, result, waveLocale, text => displayText(text[locale])) : undefined;
-  const honor = Boolean(wave2b || upgraded || (archetypes && archetypeCardVariant(quiz.slug, displayLocale)));
+  const wave3c = wave3cVariant(quiz.slug);
+  const honor = Boolean(wave3c || wave2b || upgraded || (archetypes && archetypeCardVariant(quiz.slug, displayLocale)));
   const directionalHonor = directional && profile && upgraded ? directionalResultLabels(quiz, directional, waveLocale, displayText) : undefined;
   const reportProps = { quiz, result, answers, locale, onRetake: () => start(), workRoleReadingProfiles, loveTypeReadingProfiles, mentalAgeReadingProfile, fds32ReadingProfiles, breakupReadingProfiles, parentingReadingProfiles, workReasoningReadingProfiles };
   const question = quiz.questions[position];
@@ -283,6 +286,8 @@ export function QuestionnaireRunner({ onComplete, scoreQuestionnaire, quiz, loca
         <SevenSinsScoreDetails result={miniVirtues} locale={locale} />
       </> :
       <h2 ref={heading} tabIndex={-1} className={honor ? "sr-only" : "text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere] scroll-mt-24"}>{miniVirtues ? (zh ? "七宗罪与七美德测试结果" : "Seven Sins and Virtues: Your Results") : profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? displayText(`${quiz.title.zh}：完整结果`) : `${quiz.title.en}: your complete result`)}</h2>}
+      {wave3c && <Wave3cResultCard quiz={quiz} result={result} locale={locale} onRetake={() => start()}
+        onShare={method => recordEntertainmentActivity(quiz.slug, quiz.version, locale, "share", "single", method)} />}
       {wave2b && <Wave2bHonorCard quiz={quiz} data={wave2b} locale={waveLocale} textLocale={locale} translate={displayText}
         onRetake={() => start()} onShare={method => recordEntertainmentActivity(quiz.slug, quiz.version, locale, "share", "single", method)} />}
       {directional && directionalHonor && <Wave2aHonorCard slug={quiz.slug as Wave2aSlug} locale={waveLocale}

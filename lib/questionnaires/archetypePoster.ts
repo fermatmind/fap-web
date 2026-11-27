@@ -91,8 +91,9 @@ export async function renderArchetypePoster(data: Poster) {
   text(tied ? tieLabel ?? copy.tied : data.metrics?.label ?? data.age?.label ?? (data.storyMode === "branch" ? storyHonorLabels[data.locale].branch : copy.closest), 1012, 98, 27, { align: "right", color: color.light, max: 292 });
   rule(68, 132, 944, .65);
 
+  const invitation = data.metrics?.kind === "dimensions" && data.metrics.label === metricCopy.invite;
   const many = data.names.length > 6;
-  const panel = { width: many ? 572 : 672, y: 169, height: data.metrics ? (data.names.length > 12 ? 376 : data.names.length > 8 ? 445 : data.names.length > 5 ? 490 : 557) : many || (tied && data.reading) ? 355 : tied ? 515 : 585 };
+  const panel = { width: many ? 572 : 672, y: invitation ? 215 : 169, height: invitation ? 620 : data.metrics ? (data.names.length > 12 ? 376 : data.names.length > 8 ? 445 : data.names.length > 5 ? 490 : 557) : many || (tied && data.reading) ? 355 : tied ? 515 : 585 };
   const left = (width - panel.width) / 2;
   const middleY = panel.y + panel.height / 2;
   const arch = { x: panel.width * .48, y: panel.height * .25 };
@@ -107,8 +108,8 @@ export async function renderArchetypePoster(data: Poster) {
   ctx.fillRect(left, panel.y, panel.width, panel.height);
 
   const emblem = data.artwork?.startsWith("data:image/svg+xml");
-  if (!data.age && !data.metrics && (!image || emblem)) {
-    const radius = panel.height * .31;
+  if (invitation || (!data.age && !data.metrics && (!image || emblem))) {
+    const radius = panel.height * (invitation ? .27 : .31);
     ctx.save();
     ctx.translate(middle, middleY);
     ctx.rotate(Math.PI / 4);
@@ -121,7 +122,20 @@ export async function renderArchetypePoster(data: Poster) {
   if (data.metrics) {
     if (data.metrics.kind === "dimensions" && data.metrics.rows.length) {
       const step = 96;
-      const top = middleY - (data.metrics.rows.length - 1) * step / 2;
+      const geometricTie = tied && data.monogram === "||";
+      if (geometricTie) {
+        const y = panel.y + 100;
+        ctx.save();
+        ctx.translate(middle, y);
+        ctx.rotate(Math.PI / 4);
+        ctx.strokeStyle = color.line;
+        ctx.strokeRect(-28, -28, 56, 56);
+        ctx.globalAlpha = .58;
+        ctx.strokeRect(-21, -21, 42, 42);
+        ctx.restore();
+        center(data.monogram, y + 9, 27, color.light, true, 70);
+      }
+      const top = middleY - (data.metrics.rows.length - 1) * step / 2 + (geometricTie ? 35 : 0);
       data.metrics.rows.forEach((row, i) => {
         const y = top + i * step;
         text(row.label, left + 65, y, 30, { max: panel.width - 300 });
@@ -238,6 +252,13 @@ export async function renderArchetypePoster(data: Poster) {
       center(join(units.slice(0, split)), tagTop + 112, 36, color.ink, true, 890);
       center(join(units.slice(split)), tagTop + 160, 36, color.ink, true, 890);
     }
+  }
+
+  if (invitation) {
+    const y = artBottom + 197;
+    rule(351, y, 144, .52);
+    rule(585, y, 144, .52);
+    center("◇", y + 8, 22, color.light, true);
   }
 
   if (data.credit) center(data.credit, 1190, 25, color.light);

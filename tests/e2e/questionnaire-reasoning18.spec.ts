@@ -34,10 +34,10 @@ for(const l of ["en","zh"] as const){
       if(!i){await part.locator("h3").evaluate(el=>el.scrollIntoView({block:"start"}));await page.screenshot({path:test.info().outputPath(`${l}-solutions.png`)});}
     }
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.locator("#take-test h2").evaluate(el=>el.scrollIntoView({block:"start"}));await page.screenshot({path:test.info().outputPath(`${l}-practice-record.png`)});
-    await click(page,l,"Copy public guide links","复制公开指南链接");await expect(page.getByRole("status")).toContainText(label(l,"Copied three public guides","无法自动复制"));
-    const expected=quiz.profiles.map(p=>`${p.title[l]}\nhttps://fermatmind.com${path(l)}/results/${p.id}`).join("\n\n");if(l==="en")expect(await page.evaluate(()=>navigator.clipboard.readText())).toBe(expected);else await expect(page.locator("#take-test textarea")).toHaveValue(expected);
+    await click(page,l,"Share Result","一键分享给朋友");if(l==="en")await expect(page.getByRole("status")).toContainText("Caption copied");
+    const expected=`${quiz.title[l]}\nhttps://fermatmind.com${path(l)}`;if(l==="en")expect(await page.evaluate(()=>navigator.clipboard.readText())).toBe(expected);else await expect(page.locator("#take-test textarea")).toHaveValue(expected);
     expect(new URL(page.url()).search).toBe("");expect(leaks).toEqual([]);expect(errors).toEqual([]);
-    await click(page,l,"Clear and practise again","清空并重新练习");await prepare(page,l,true);await expect(page.locator('#take-test input[type="radio"]:checked')).toHaveCount(0);await expect(page.locator("[data-reasoning18-result]")).toHaveCount(0);await click(page,l,"Exit and clear these responses","退出并清除本次回答");
+    await click(page,l,"Retake","再测一次");await prepare(page,l,true);await expect(page.locator('#take-test input[type="radio"]:checked')).toHaveCount(0);await expect(page.locator("[data-reasoning18-result]")).toHaveCount(0);await click(page,l,"Exit and clear these responses","退出并清除本次回答");
   });
   test(`@release Reasoning18 ${l}: emulated deadlines keep blanks, lock parts and wait between sections`,async({page})=>{
     await page.goto(path(l));await consent(page,l);await page.clock.install();await prepare(page,l);

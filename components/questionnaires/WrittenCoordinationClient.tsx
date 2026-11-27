@@ -5,7 +5,8 @@ import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore
 import type { Locale } from "@/lib/i18n/locales";
 import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { isWrittenCoordinationConfigurationValid, readWrittenCoordinationClock, scoreWrittenCoordinationModule, type WrittenCoordinationMode, type WrittenCoordinationPart, type WrittenCoordinationQuiz, type WrittenCoordinationReadout } from "@/lib/questionnaires/writtenCoordination";
-import { questionnairePath } from "@/lib/questionnaires/paths";
+import { Wave3cResultCard } from "./Wave3cResultCard";
+import { ResultCoreBridge } from "./ResultCoreBridge";
 import { WrittenCoordinationEntry, type WrittenEntryRecord } from "./WrittenCoordinationEntry";
 import { WrittenCoordinationGrid } from "./WrittenCoordinationGrid";
 
@@ -119,32 +120,41 @@ function ValidWrittenCoordinationClient({ quiz, locale }: { quiz: WrittenCoordin
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const [selected, setSelected] = useState<WrittenCoordinationPart | null>(null), [mode, setMode] = useState<WrittenCoordinationMode>("timed");
   const [entryRecord, setEntryRecord] = useState<WrittenEntryRecord | null>(null), [records, setRecords] = useState<Partial<Record<QuestionPart, WrittenCoordinationReadout>>>({});
-  const [message, setMessage] = useState(""), [manual, setManual] = useState("");
-  const revision = useRef(0), recordsHeading = useRef<HTMLHeadingElement>(null);
-  const clearAll = useCallback(() => { revision.current++; setSelected(null); setMode("timed"); setEntryRecord(null); setRecords({}); setManual(""); setMessage(""); }, []);
+  const [lastModule, setLastModule] = useState<WrittenCoordinationPart | null>(null);
+  const [message, setMessage] = useState("");
+  const recordsHeading = useRef<HTMLHeadingElement>(null);
+  const resultHeading = useRef<HTMLHeadingElement>(null);
+  const clearAll = useCallback(() => { setLastModule(null); setSelected(null); setMode("timed"); setEntryRecord(null); setRecords({}); setMessage(""); }, []);
   const remove = useCallback((id: WrittenCoordinationPart) => {
-    revision.current++; setManual(""); setMessage("");
+    setMessage("");
     if (id === "entry") setEntryRecord(null);
     else setRecords(old => { const next = { ...old }; delete next[id]; return next; });
   }, []);
-  const cancel = useCallback((notice: string) => { revision.current++; setSelected(null); setManual(""); setMessage(notice); }, []);
-  const focusRecord = useCallback(() => window.requestAnimationFrame(() => { recordsHeading.current?.focus(); recordsHeading.current?.scrollIntoView({ block: "start" }); }), []);
-  const completeEntry = useCallback((record: WrittenEntryRecord) => { setEntryRecord(record); setSelected(null); setManual(""); setMessage(""); focusRecord(); }, [focusRecord]);
-  const completeQuestions = useCallback((record: WrittenCoordinationReadout) => { setRecords(old => ({ ...old, [record.id]: record })); setSelected(null); setManual(""); setMessage(""); focusRecord(); }, [focusRecord]);
+  const cancel = useCallback((notice: string) => { setSelected(null); setMessage(notice); }, []);
+  const focusRecord = useCallback(() => window.requestAnimationFrame(() => { resultHeading.current?.focus({ preventScroll: true }); resultHeading.current?.scrollIntoView({ block: "start" }); }), []);
+  const completeEntry = useCallback((record: WrittenEntryRecord) => { setEntryRecord(record); setLastModule("entry"); setSelected(null); setMessage(""); focusRecord(); }, [focusRecord]);
+  const completeQuestions = useCallback((record: WrittenCoordinationReadout) => { setRecords(old => ({ ...old, [record.id]: record })); setLastModule(record.id); setSelected(null); setMessage(""); focusRecord(); }, [focusRecord]);
   useEffect(() => {
-    const generation = revision;
     const leave = () => clearAll(), restore = (event: PageTransitionEvent) => { if (event.persisted) clearAll(); };
     window.addEventListener("pagehide", leave); window.addEventListener("pageshow", restore);
-    return () => { generation.current++; window.removeEventListener("pagehide", leave); window.removeEventListener("pageshow", restore); };
+    return () => { window.removeEventListener("pagehide", leave); window.removeEventListener("pageshow", restore); };
   }, [clearAll]);
-  async function share() {
-    const text = `${quiz.title[locale]}\nhttps://fermatmind.com${questionnairePath(traditional ? "zh-TW" : locale, quiz.slug)}`, snapshot = revision.current;
-    try { await navigator.clipboard.writeText(text); if (snapshot === revision.current) setMessage(zh ? "已复制公开标题与入口，不含练习输入或数量。" : "Copied the public title and entry, without exercise input or counts."); }
-    catch { if (snapshot === revision.current) { setManual(text); setMessage(zh ? "请从下方手动复制公开链接。" : "Copy the public link below manually."); } }
-  }
   const outcome = (value: string) => zh ? displayText({ correct: "正确", wrong: "错误", unanswered: "未答" }[value] ?? value) : value;
   const archiveStage = selected ? "answer" : entryRecord || Object.keys(records).length ? "result" : undefined;
+  const moduleIds = Object.keys(records) as QuestionPart[];
+  const visibleModule = lastModule && (lastModule === "entry" ? entryRecord : records[lastModule])
+    ? lastModule : moduleIds.at(-1) ?? (entryRecord ? "entry" : null);
+  const practice = visibleModule === "entry" && entryRecord
+    ? { correct: entryRecord.exactFields, total: entryRecord.consideredFields }
+    : visibleModule && visibleModule !== "entry" ? records[visibleModule] : undefined;
+  const section = quiz.directions.find(direction => direction.id === visibleModule)?.title;
   return <section id="take-test" data-written-client data-stage={archiveStage} aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
+    {archiveStage === "result" && practice && <>
+      <h2 ref={resultHeading} tabIndex={-1} className="sr-only">{quiz.resultHeading![locale]}</h2>
+      <Wave3cResultCard key={visibleModule} quiz={quiz}
+        result={{ practice, section, fields: visibleModule === "entry" }} locale={locale}
+        onRetake={() => { if (visibleModule) { remove(visibleModule); setSelected(visibleModule); } }} />
+    </>}
     <p className="mb-5 text-sm leading-7 text-slate-600">{zh ? displayText("只使用虚构材料。输入仅留页面内存，不存草稿、不发答案、不采流程统计；普通页面分析关闭。完成清除原始输入，退出并清除时删除本页全部练习记录。") : "Use fictional material only. Input stays in page memory: no drafts, answer submission or flow statistics. Ordinary page analytics are disabled. Completion clears raw input; exit-and-clear removes all exercise records on this page."}</p>
     <fieldset disabled={!ready} className="min-w-0 space-y-6"><legend className="sr-only">{quiz.title[locale]}</legend>
       {!selected && <>
@@ -159,11 +169,9 @@ function ValidWrittenCoordinationClient({ quiz, locale }: { quiz: WrittenCoordin
       {selected === "entry" && <WrittenCoordinationEntry round={quiz.coordination.entry} locale={locale} onComplete={completeEntry} onCancel={cancel} />}
       {selected && selected !== "entry" && <QuestionModule key={`${selected}:${mode}`} quiz={quiz} id={selected} mode={mode} locale={locale} onComplete={completeQuestions} onCancel={cancel} />}
       <div className="flex flex-wrap gap-3">
-        <button type="button" className={button} onClick={share}>{zh ? displayText("复制公开入口") : "Copy public entry"}</button>
         <button type="button" className={button} onClick={clearAll}>{zh ? displayText("清除全部练习记录") : "Clear all exercise records"}</button>
       </div>
     </fieldset>
-    {manual && <label className="my-4 block">{zh ? displayText("手动复制公开入口") : "Public entry for manual copying"}<textarea className="mt-2 min-h-28 w-full rounded border p-3" readOnly value={manual} /></label>}
     {message && <p role="status" className="my-4 leading-7">{displayText(message)}</p>}
     <section className="mt-8 space-y-6" aria-labelledby="written-records-heading"><h2 id="written-records-heading" ref={recordsHeading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
       <p className="leading-7">{zh ? displayText("单位不同，分别阅读，不产生总体平均、档位、排名或招聘结论。未尝试不等于零分，六篇全文始终开放。") : "Different units stay separate, without an overall average, band, ranking or hiring conclusion. Unattempted is not zero; all six full readings remain open."}</p>
@@ -211,5 +219,6 @@ function ValidWrittenCoordinationClient({ quiz, locale }: { quiz: WrittenCoordin
         </article>;
       })}
     </section>
+    {archiveStage === "result" && <ResultCoreBridge locale={traditional ? "zh-TW" : locale} target="RIASEC" archiveExercise />}
   </section>;
 }

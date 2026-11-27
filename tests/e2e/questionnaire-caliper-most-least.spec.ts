@@ -49,18 +49,17 @@ for (const l of ["en", "zh"] as const) {
     await expect(first.locator("h4")).toHaveCount(7);
     for (const s of quiz.profiles[0].sections) for (const p of s.paragraphs) await expect(first).toContainText(p[l]);
     await first.locator("h3").scrollIntoViewIfNeeded(); await page.screenshot({ path: test.info().outputPath(`${l}-full-reading.png`) });
-    await click(page, l, "Copy public practice link", "复制公开练习链接");
-    await expect(page.getByRole("status")).toHaveText(l === "zh" ? /已复制公开练习链接|复制不可用/ : /Public practice link copied|Copy is unavailable/);
+    await click(page, l, "Share Result", "一键分享给朋友");
     const manual = page.locator("#take-test textarea");
     if (await manual.isVisible()) await expect(manual).toHaveValue(`${quiz.title[l]}\nhttps://fermatmind.com${path(l)}`);
     else {
-      await expect(page.getByRole("status")).toContainText(label(l, "without answers or counts", "不含答案或次数"));
+      await expect(page.getByRole("status")).toContainText(label(l, "Caption copied", "分享文案已复制"));
       if (l === "en") expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`${quiz.title[l]}\nhttps://fermatmind.com${path(l)}`);
     }
-    const next = page.getByRole("link", { name: label(l, "Optional: explore Big Five and its versions", "可选：了解大五测试与题本"), exact: true });
-    expect(new URL((await next.getAttribute("href"))!, page.url()).pathname).toBe(`/${l}/tests/big-five-personality-test-ocean-model`);
+    const next = page.getByRole("link", { name: label(l, "Take the 60-item Holland interest assessment →", "做霍兰德职业兴趣测评 · 60 题 →"), exact: true });
+    expect(new URL((await next.getAttribute("href"))!, page.url()).pathname).toBe(`/${l}/tests/holland-career-interest-test-riasec`);
     expect(new URL(page.url()).search).toBe(""); expect(leaks).toEqual([]);
-    await click(page, l, "Retake practice", "重新练习");
+    await click(page, l, "Retake", "再测一次");
     await expect(page.locator("#take-test h2")).toHaveText(label(l, "Block 1 of 16", "第1组，共16组"));
     await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0);
     await click(page, l, "Clear and exit", "清空并退出"); await expect(page.getByRole("button", { name: label(l, "Start practice", "开始练习"), exact: true })).toBeVisible();
