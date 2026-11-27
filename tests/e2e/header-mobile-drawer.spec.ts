@@ -4,6 +4,30 @@ import { expect, test } from "@playwright/test";
 test.describe("mobile header drawer", () => {
   test.use({ viewport: { width: 390, height: 844 } });
 
+  test("keeps cookie consent in the first viewport and the mobile drawer above it", async ({ page }) => {
+    await page.goto("/en");
+
+    const banner = page.locator("[data-cookie-banner]");
+    const accept = page.getByTestId("cookie-banner-accept");
+    await expect(banner).toHaveCSS("position", "fixed");
+    await expect(accept).toBeInViewport({ ratio: 1 });
+    expect(await page.evaluate(() => window.scrollY)).toBe(0);
+
+    await page.getByRole("button", { name: "Menu" }).click();
+    const drawer = page.getByRole("dialog", { name: "Menu" });
+    await expect(drawer).toBeInViewport();
+    await drawer.getByRole("button", { name: "Close menu" }).click();
+    await expect(drawer).toHaveCount(0);
+
+    await expect(accept).toBeInViewport({ ratio: 1 });
+    await accept.click();
+    expect(await page.evaluate(() => JSON.parse(localStorage.getItem("fm_consent_v1") ?? "null"))).toMatchObject({
+      analytics: "granted",
+    });
+    await expect(banner).toHaveCount(0);
+    expect(await page.evaluate(() => window.scrollY)).toBe(0);
+  });
+
   test("opens as a narrow right drawer and supports close interactions", async ({ page }) => {
     await page.goto("/en");
 

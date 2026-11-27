@@ -64,7 +64,7 @@ export function CookieBanner({ traditional = false }: { traditional?: boolean } 
     <div
       data-visual-volatile="true"
       data-cookie-banner="true"
-      className="mx-auto mb-20 mt-4 w-[calc(100%-2rem)] max-w-[340px] rounded-xl border border-[var(--fm-border)] bg-white/95 p-4 shadow-md print:hidden min-[1280px]:fixed min-[1280px]:bottom-5 min-[1280px]:right-5 min-[1280px]:z-50 min-[1280px]:m-0 min-[1280px]:w-[min(340px,calc((100vw_-_680px)/2_-_20px))] min-[1280px]:backdrop-blur"
+      className="fixed inset-x-3 bottom-[calc(0.75rem+env(safe-area-inset-bottom,0px))] z-40 mx-auto max-w-[340px] rounded-xl border border-[var(--fm-border)] bg-white/95 p-3 shadow-md print:hidden min-[1280px]:right-5 min-[1280px]:bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] min-[1280px]:left-auto min-[1280px]:m-0 min-[1280px]:w-[min(340px,calc((100vw_-_680px)/2_-_20px))] min-[1280px]:p-4 min-[1280px]:backdrop-blur"
     >
       <p className="m-0 text-sm text-slate-700">{copy.message}</p>
       <div className="mt-3 flex flex-wrap gap-2">
