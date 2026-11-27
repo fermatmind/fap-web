@@ -7,10 +7,10 @@ async function finish(page: Page, locale: "en" | "zh", mode: "worked" | "all-na"
   for (const [i, q] of data.questions.entries()) {
     const value = mode === "all-na" || (mode === "one-na" && i === 0) ? "na" : String(values[i]);
     const radio = page.locator(`input[name="${q.id}"][value="${value}"]`);
-    if (i === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
-    else await radio.check();
     await expect(page.locator("[data-breakup-review-result]")).toHaveCount(0);
-    await page.getByRole("button", { name: locale === "zh" ? (i === 23 ? "查看完整结果" : "下一题") : (i === 23 ? "See full result" : "Next"), exact: true }).click();
+    if (i === 0) { await radio.focus(); await page.keyboard.press("Space"); }
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.locator("[data-breakup-review-part]")).toHaveCount(4);
   let paragraphs = 0;
@@ -19,6 +19,7 @@ async function finish(page: Page, locale: "en" | "zh", mode: "worked" | "all-na"
     await expect(part.locator("h3")).toHaveText(data.directions[i].title[locale]);
     await expect(part.locator("[data-breakup-review-mean]")).toContainText(mode === "all-na" || (mode === "one-na" && i === 0)
       ? (locale === "zh" ? "资料不足" : "Insufficient information") : means[i] + " / 5");
+    await part.getByText(locale === "zh" ? "查看完整解释、计分与依据" : "Read the full explanation, scoring and background", { exact: true }).click();
     for (const section of profile.sections) {
       const body = part.locator(`[id="breakup-review-report-${profile.id}-${section.id}"]`);
       await expect(body.locator("h4")).toHaveText(section.title[locale]);
@@ -44,7 +45,7 @@ for (const locale of ["en", "zh"] as const) {
     const method = page.locator('section[aria-labelledby="questionnaire-method"]');
     await expect(method.locator("p")).toHaveCount(23);
     for (const s of data.guide) for (const p of s.paragraphs) await expect(method.getByText(p[locale], { exact: true })).toBeVisible();
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("#take-test [data-explore-start]").click();
     const heading = await page.getByRole("heading", { level: 2, name: data.questions[0].prompt[locale], exact: true }).boundingBox();
     expect(heading).not.toBeNull(); expect(heading!.y).toBeGreaterThanOrEqual(0); expect(heading!.y).toBeLessThan(420);
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
@@ -57,19 +58,24 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator("[data-breakup-review-result]")).toHaveCount(0);
     await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(leaks).toEqual([]);
   });
-  test(`@release breakup ${locale}: optional tab draft, reload, edit, locale and explicit clear`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.locator('input[value="2"]').check(); await page.getByRole("checkbox").check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload();
-    await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
+  test(`@release breakup ${locale}: tab-local edits, reload and switching locale start fresh`, async ({ page }) => {
+    await page.goto(`${entry}/take`);
+    const first = page.locator(`#take-test input[name="${data.questions[0].id}"]`);
+    const second = page.locator(`#take-test input[name="${data.questions[1].id}"]`).first();
+    await expect(first.first()).toBeVisible();
+    await expect(page.locator("#take-test").getByRole("checkbox")).toHaveCount(0);
+    await first.and(page.locator('[value="2"]')).click();
+    await expect(second).toBeVisible();
     await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
-    await expect(page.locator('input[value="2"]')).toBeChecked(); await page.locator('input[value="4"]').check();
-    const other = zh ? "en" : "zh";
-    await page.goto(`/${other}/tests/explore/breakup-reflection-test`);
-    await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click();
-    await expect(page.locator('input[value="4"]')).toBeChecked();
-    await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
+    await expect(first.and(page.locator('[value="2"]'))).toBeChecked();
+    await first.and(page.locator('[value="4"]')).click();
+    await expect(second).toBeVisible();
+    await page.reload();
+    await expect(first.first()).toBeVisible();
+    await expect(page.locator("#take-test").getByRole("radio", { checked: true })).toHaveCount(0);
+    await page.goto(`/${zh ? "en" : "zh"}/tests/explore/breakup-reflection-test/take`);
+    await expect(first.first()).toBeVisible();
+    await expect(page.locator("#take-test").getByRole("radio", { checked: true })).toHaveCount(0);
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:breakup-reflection-test"))).toBeNull();
   });
   test(`@release breakup ${locale}: all NA and partial NA, denied persistence and private-safe copy`, async ({ page }) => {
@@ -79,8 +85,8 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(k, v) { if (k.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, k, v); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.getByRole("checkbox").check(); await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save");
+    await page.goto(`${entry}/take`);
+    await expect(page.locator("#take-test").getByRole("checkbox")).toHaveCount(0);
     await finish(page, locale, "all-na");
     await expect(page.locator("[data-breakup-review-next-steps] h2")).toContainText(zh ? "本次作答已结束" : "This attempt is finished");
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await finish(page, locale, "one-na");

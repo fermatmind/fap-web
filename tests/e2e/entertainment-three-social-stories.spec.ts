@@ -54,15 +54,19 @@ import weekendPace from "../../lib/entertainment/data/weekend-pace.json";
 import woodlandAnimal from "../../lib/entertainment/data/woodland-animal.json";
 const banks=[weatherBottle,weekendPace,woodlandAnimal,tinyKingdom,tinySuperpower,tinyTreat,tidePool,timeCapsule,storybookNarrator,teamNameMaker,thriftShopFind,spellSchool,stargazingRole,souvenirStory,smallApology,snowDay,sharedHobby,sharedRitual,sharedWorkspace,secretGardenGate,sayingGoodbye,seasonalTable,roomAtmosphere,reunionStyle,riverCrossing,roadTripDj,rainyWindow,readingRitual,questReward,potluck,quietCompany,pocketMap,playlist,arrival,museum,photo,creature,world,notes,garden,club,tomorrow,visitor,cabin,tone,magic,project,trip,guest,insideJoke,kitchen,postcard,search];
 for(const quiz of banks)for(const locale of ["en","zh"] as const)test(`@release ${quiz.slug} ${locale}: direct first scene, every highest set, complete portraits, public guides and responsive layout`,async({page,request})=>{
- test.setTimeout(120000);const zh=locale==="zh",path=`/${locale}/tests/play/${quiz.slug}`;
+ test.setTimeout(120000);const zh=locale==="zh",path=`/${locale}/tests/explore/${quiz.slug}`;
  await page.addInitScript(()=>localStorage.setItem("fm_consent_v1",JSON.stringify({analytics:"denied",updatedAt:new Date().toISOString()})));
+ await page.clock.install();
  await page.goto(path);await expect(page.locator("h1")).toHaveText(quiz.title[locale]);
  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href",`https://fermatmind.com${path}`);
  for(const width of [390,1440]){await page.setViewportSize({width,height:900});await expect(page.locator('[data-explore-start]')).toBeEnabled();await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(500);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:test.info().outputPath(`${quiz.slug}-${locale}-${width}.png`),fullPage:true});}
  const witnesses=new Map<string,number[]>();
  const optionCount=quiz.questions[0].options.length;for(let n=0;n<optionCount**6;n++){let v=n;const choices:number[]=[],counts:Record<string,number>=Object.fromEntries(quiz.tieOrder.map(id=>[id,0]));for(const q of quiz.questions){const i=v%optionCount;v=Math.floor(v/optionCount);choices.push(i);const option=q.options[i];counts[Object.keys(option.points)[0]]++;}const ids=quiz.tieOrder.filter(id=>counts[id]===Math.max(...Object.values(counts)));if(!witnesses.has(ids.join(",")))witnesses.set(ids.join(","),choices);}
  expect(witnesses.size).toBe(quiz.results.length===4?14:7);
- await page.locator('[data-explore-start]').click();await expect(page.locator('#play h2')).toHaveText(quiz.questions[0].prompt[locale]);await expect(page.locator('#play')).toHaveAttribute('data-stage','answer');
+ await page.locator('[data-explore-start]').click();
+ await page.waitForURL(url=>url.pathname===path+'/take');
+ await expect(page.locator('#play')).toHaveAttribute('data-stage','answer',{timeout:30000});
+ await expect(page.locator('#play h2')).toHaveText(quiz.questions[0].prompt[locale]);
  for(const [ids,choices] of witnesses){
   for(const [i,q] of quiz.questions.entries()){
    if(quiz.slug==="night-garden"){
@@ -77,16 +81,18 @@ for(const quiz of banks)for(const locale of ["en","zh"] as const)test(`@release 
     const panel=page.locator('[data-thrift-shelf-panel]');await expect(panel).toHaveCount(i===0?1:0);
     if(i===0){await expect(panel.locator('svg')).toHaveAttribute('role','img');await expect(panel.locator('figcaption')).toContainText(zh?'无需购买':'without buying');}
    }
-   await page.locator(`#play input[name="${q.id}"]`).nth(choices[i]).check();
-   await page.getByRole('button',{name:i===5?(zh?'查看完整结果':'See full result'):(zh?'下一题':'Next'),exact:true}).click();
+   await page.locator(`#play input[name="${q.id}"]`).nth(choices[i]).click();
+   // Run the feedback timer for every exhaustive result path.
+   await page.clock.fastForward(250);
   }
   await expect(page.locator('#play')).toHaveAttribute('data-stage','result');
   for(const id of ids.split(',')){const portrait=quiz.results.find(p=>p.id===id)!;for(const field of ['summary','example','strength','tradeoff','experiment'] as const)await expect(page.locator('#play')).toContainText(portrait[field][locale]);}
-  await expect(page.locator('#play > article')).toHaveCount(ids.split(',').length);
-  await page.getByRole('button',{name:zh?'重新测试':'Retake quiz',exact:true}).click();
+  await expect(page.locator('#play [data-story-result-readings] > article')).toHaveCount(ids.split(',').length);
+  const retake = quiz.slug === 'weekend-pace' ? (zh ? '重新测试' : 'Retake quiz') : (zh ? '再测一次' : 'Retake');
+  await page.getByRole('button',{name:retake,exact:true}).click();
   await expect(page.locator('#play h2')).toHaveText(quiz.questions[0].prompt[locale]);await expect(page.locator('#play input:checked')).toHaveCount(0);
  }
  // Back permits editing a choice without adding a confirmation gate.
- await page.locator('#play input[type="radio"]').first().check();await page.getByRole('button',{name:zh?'下一题':'Next',exact:true}).click();await page.getByRole('button',{name:zh?'上一题':'Back',exact:true}).click();await expect(page.locator('#play input[type="radio"]').first()).toBeChecked();
+ await page.locator('#play input[type="radio"]').first().click();await expect(page.locator('#play h2')).toHaveText(quiz.questions[1].prompt[locale]);await page.getByRole('button',{name:zh?'上一题':'Back',exact:true}).click();await expect(page.locator('#play input[type="radio"]').first()).toBeChecked();
  for(const portrait of quiz.results){const response=await request.get(`${path}/results/${portrait.id}`);expect(response.status()).toBe(200);const html=await response.text();const text=await page.evaluate(markup=>new DOMParser().parseFromString(markup,'text/html').body.textContent,html);for(const field of ['summary','example','strength','tradeoff','experiment'] as const)expect(text).toContain(portrait[field][locale]);}
 });
