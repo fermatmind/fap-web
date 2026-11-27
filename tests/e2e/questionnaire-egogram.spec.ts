@@ -1,3 +1,5 @@
+import { isArchivedEntertainmentPath } from "../../lib/seo/discoverabilityExposurePolicy";
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
@@ -8,13 +10,17 @@ async function finish(page: Page, locale: "en" | "zh", mode: "patterns" | "na" |
     const direction = question.options[0].directionId;
     const value = mode === "na" || (mode === "missing-part" && question.id === "EGO_CP_04") ? "na" : mode === "missing-part" ? "4" : question.id === "EGO_CP_01" ? "3" : values[direction];
     const radio = page.locator(`input[name="${question.id}"][value="${value}"]`);
-    if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); } else await radio.check();
-    if (index < 19) await expect(page.locator("[data-ego-facet]")).toHaveCount(0);
-    await page.getByRole("button", { name: index === 19 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    await expect(page.locator("[data-ego-facet]")).toHaveCount(0);
+    if (index === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   await expect(page.locator("[data-ego-legend]")).toBeVisible(); for (const option of quiz.questions[0].options.slice(0, 5)) await expect(page.locator("[data-ego-legend]")).toContainText(`${option.id}${locale === "zh" ? "" : " "}${option.label[locale]}`);
-  await expect(page.locator("[data-ego-facet]")).toHaveCount(5); await expect(page.locator("[data-ego-profile]")).toHaveCount(5); await expect(page.locator("#take-test h4")).toHaveCount(45);
+  await expect(page.locator("[data-ego-facet]")).toHaveCount(5); await expect(page.locator("[data-ego-profile]")).toHaveCount(5);
+  for (const profile of quiz.profiles) {
+    await expect(page.locator(`[data-ego-profile="${profile.id}"] a[href="/${locale}/tests/explore/${quiz.slug}/results/${profile.id}"]`)).toBeVisible();
+  }
   for (const direction of quiz.directions) {
     const section = page.locator(`[data-ego-facet="${direction.id}"]`), unscored = mode === "na" || (mode === "missing-part" && direction.id === "critical-parent");
     const mean = mode === "missing-part" ? 4 : direction.id === "critical-parent" ? 2.25 : Number(values[direction.id]);
@@ -36,24 +42,24 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByText(zh ? "原创五组互动观察 · 完整结果免费" : "Original reflection on five interaction stances · Full results free", { exact: true })).toBeVisible();
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "patterns");
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
+    for (const profile of quiz.profiles) {
+      await expect(page.locator(`#take-test a[href="${entry}/results/${profile.id}"]`)).toBeVisible();
+    }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
     await expect(page.locator("[data-ego-facet]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(leaks).toEqual([]);
   });
-  test(`@release Five Egogram frequency reflections ${locale}: opted-in draft survives reload, language, edit and clear`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.locator('input[value="2"]').check(); await page.getByRole("checkbox").check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload();
-    await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="2"]')).toBeChecked(); await page.locator('input[value="4"]').check();
-    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/egogram`);
-    await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="4"]')).toBeChecked();
-    await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
-    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:egogram"))).toBeNull();
+  test(`@release Five Egogram frequency reflections ${locale}: edit locally, then clear answers when refreshing, changing language or leaving`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, entry, quiz);
+    const other = zh ? "en" : "zh";
+    await page.goto(`/${other}/tests/explore/${quiz.slug}/take`);
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
+    await expect(page.locator("#take-test").getByRole("radio", { checked: true })).toHaveCount(0);
+    expect(await page.evaluate(slug => sessionStorage.getItem(`fm_questionnaire_draft:${slug}`), quiz.slug)).toBeNull();
   });
   test(`@release Five Egogram frequency reflections ${locale}: denied storage/clipboard, unscored and onegroupthreeof4rated retain the full continuum with safe share`, async ({ page }) => {
     await page.addInitScript(() => {
@@ -62,9 +68,10 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(k, v) { if (k.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, k, v); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.getByRole("checkbox").check(); await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save"); await finish(page, locale, "na");
-    await expect(page.getByRole("heading", { level: 3, name: zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.", exact: true })).toBeVisible();
+    await page.goto(entry); await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
+    await expect(page.locator("#take-test").getByRole("checkbox")).toHaveCount(0); await finish(page, locale, "na");
+    await expect(page.locator("[data-ego-insufficient]")).toHaveCount(quiz.directions.length);
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await finish(page, locale, "missing-part");
     await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
     const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue(); expect(text).toContain(quiz.title[locale]);
@@ -78,7 +85,12 @@ test("@release Five Egogram frequency reflections all10public full guides, bilin
     expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
     await expect(page.locator("[data-ego-facet]")).toHaveCount(0);
     for (const section of profile.sections) await expect(page.locator(`#report-${section.id} h2`)).toHaveText(section.title[locale]);
-    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/egogram/results/${profile.id}`);
+    if (isArchivedEntertainmentPath(path)) {
+      await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /^noindex, follow(?:,|$)/u);
+      await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
+    } else {
+      await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/egogram/results/${profile.id}`);
+    }
     await expect(page.getByRole("link", { name: locale === "zh" ? "免费开始完整测试" : "Start the full test for free", exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/egogram#take-test`);
     const image = await request.get(`/og/fun/egogram?locale=${locale}&portrait=${profile.id}&v=1.0.0`); expect(image.status()).toBe(200); const b = await image.body(); expect(b.readUInt32BE(16)).toBe(1200); expect(b.readUInt32BE(20)).toBe(630);
   }

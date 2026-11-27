@@ -21,6 +21,18 @@ test.beforeEach(async ({ page }) => {
 async function button(page: Page, l: Locale, en: string, zh: string) {
   await page.getByRole("button", { name: label(l, en, zh), exact: true }).click();
 }
+async function expectSharedMatches(page: Page, l: Locale, ids: string[]) {
+  await button(page, l, "Share Result", "一键分享给朋友");
+  const clipboard = () => page.evaluate(() => navigator.clipboard.readText());
+  const url = `https://fermatmind.com${path(l)}`;
+  const names = ids.map(id => quiz.profiles.find(profile => profile.id === id)!.title[l].split(/[：:]/u)[0]);
+  await expect.poll(clipboard).toContain(names.at(-1)!);
+  const caption = await clipboard();
+  for (const name of names) expect(caption).toContain(name);
+  expect(caption.split("\n").at(-1)).toBe(url);
+  expect(caption).not.toMatch(/EDGE_\d{2}|answers|[?&]score|\d+\s*\/\s*12/u);
+}
+
 async function finish(page: Page, l: Locale, kind: "david" | "all-seven") {
   const sample = witnesses[kind];
   for (const [i, q] of quiz.questions.entries()) {
@@ -35,8 +47,9 @@ async function finish(page: Page, l: Locale, kind: "david" | "all-seven") {
       await radio.focus();
       await radio.press("Space");
     } else {
-      await radio.check();
+      await radio.click();
     }
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.locator("#take-test h2")).toHaveText(quiz.resultHeading[l]);
   await expect(page.locator("#take-test h2")).toBeFocused();
@@ -77,9 +90,13 @@ for (const l of ["en", "zh"] as const) {
     await expect(page).toHaveTitle(`${quiz.seoTitle[l]} | FermatMind`);
     const exampleLink = page.getByRole("link", { name: label(l, "See sample results", "先看结果示例") });
     await expect(exampleLink).toBeInViewport();
-    await page.getByRole("link", { name: label(l, "See the seven possible character results", "先看七种角色结果") }).click();
+    const guidesLink = page.getByRole("link", { name: label(l, "See the seven possible character results", "先看七种角色结果") });
+    await expect(guidesLink).toHaveAttribute("href", "#questionnaire-results");
+    await expect(async () => {
+      await guidesLink.click();
+      await expect(page.locator("#questionnaire-results")).toBeInViewport({ timeout: 2_000 });
+    }).toPass({ timeout: 10_000 });
     await expect(page).toHaveURL(/#questionnaire-results$/);
-    await expect(page.locator("#questionnaire-results")).toBeInViewport();
     await exampleLink.click();
     const samples = page.locator("#edgerunners-examples");
     await expect(samples.getByRole("heading", { level: 3 })).toHaveText(l === "zh" ? ["单一匹配", "最高并列"] : ["One match", "Tie for first"]);
@@ -96,32 +113,26 @@ for (const l of ["en", "zh"] as const) {
     await button(page, l, "Next", "下一题");
     await expect(page.getByRole("status")).toContainText(label(l, "Choose an option", "请选择"));
     await finish(page, l, "david");
-    await button(page, l, "Copy result and link", "复制结果与链接");
-    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`${quiz.title[l]}
-${quiz.profiles[0].title[l]}
-https://fermatmind.com${path(l)}/results/david`);
+    await expectSharedMatches(page, l, ["david"]);
     await page.locator("#take-test h2").scrollIntoViewIfNeeded();
     await page.screenshot({ path: test.info().outputPath(`${l}-result.png`) });
     await page.locator('[data-archetype-match="david"]').scrollIntoViewIfNeeded();
     await page.screenshot({ path: test.info().outputPath(`${l}-full-guide.png`) });
-    await button(page, l, "Retake test", "重新测试");
+    await button(page, l, "Retake", "再测一次");
     await expect(page.locator("[data-archetype-match]")).toHaveCount(0);
     await finish(page, l, "all-seven");
-    await button(page, l, "Copy result and link", "复制结果与链接");
-    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`${quiz.title[l]}
-${quiz.profiles.map(p => p.title[l]).join(l === "zh" ? "、" : ", ")}
-https://fermatmind.com${path(l)}`);
+    await expectSharedMatches(page, l, quiz.profiles.map(profile => profile.id));
     expect(leaked).toEqual([]);
     expect(tracked).toEqual([]);
     expect(await page.evaluate(slug => sessionStorage.getItem(`fm_questionnaire_draft:${slug}`), quiz.slug)).toBeNull();
-    await button(page, l, "Retake test", "重新测试");
+    await button(page, l, "Retake", "再测一次");
     await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0);
   });
   }
 
   test(`@release edgerunners ${l}: reload and language change start a new private attempt`, async ({ page }) => {
     await page.goto(path(l)); await button(page, l, "Start test", "开始测试");
-    await page.locator('input[name="EDGE_01"][value="A"]').check();
+    await page.locator('input[name="EDGE_01"][value="A"]').click();
     await expect(page.locator('input[name="EDGE_02"]')).toHaveCount(4);
     await expect(page.getByRole("checkbox")).toHaveCount(0);
     expect(await page.evaluate(slug => sessionStorage.getItem(`fm_questionnaire_draft:${slug}`), quiz.slug)).toBeNull();
@@ -138,8 +149,7 @@ https://fermatmind.com${path(l)}`);
     await context.grantPermissions(["clipboard-read", "clipboard-write"]);
     await page.goto(path(l)); await button(page, l, "Start test", "开始测试");
     await finish(page, l, "david");
-    await button(page, l, "Copy result and link", "复制结果与链接");
-    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`${quiz.title[l]}\n${quiz.profiles[0].title[l]}\nhttps://fermatmind.com${path(l)}/results/david`);
+    await expectSharedMatches(page, l, ["david"]);
     for (const p of quiz.profiles) {
       await page.goto(`${path(l)}/results/${p.id}`);
       await expect(page.locator("h1")).toHaveText(entertainmentGuideProfile(quiz.slug, l, p).title[l]);
@@ -165,7 +175,7 @@ test("@release edgerunners all16publicpages, complete body, metadata,16fontOGs a
     const body = await page.locator("main").last().textContent();
     for (const s of p ? p.sections : quiz.guide) for (const t of s.paragraphs) expect(body).toContain(t[l]);
     if (!p) for (const f of quiz.faq) expect(body).toContain(f.answer[l]);
-    if (!p) for (const reference of quiz.references) await expect(page.getByRole("link", { name: reference.title[l], exact: true })).toHaveAttribute("href", reference.url);
+    if (!p) for (const reference of quiz.references) await expect(page.locator(`a[href="${reference.url}"]`).filter({ hasText: reference.title[l] })).toHaveCount(1);
     if (l === "en") expect(body).not.toMatch(/\p{Script=Han}/u);
     const schema = await page.locator('script[type="application/ld+json"]').allTextContents();
     expect(schema.length).toBeGreaterThan(0);

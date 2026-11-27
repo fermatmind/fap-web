@@ -1,3 +1,4 @@
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { test, expect, type Page } from "@playwright/test";
 import quiz from "../../lib/questionnaires/data/food-choice.json";
 type Locale = "en" | "zh";
@@ -11,22 +12,30 @@ for (let mask = 0; mask < 4096; mask++) {
   const profile = quiz.profiles.find(p => [...p.directionIds].sort().join("|") === leaders)!;
   if (!witnesses.has(profile.id)) witnesses.set(profile.id, { values, counts });
 }
-async function consent(page: Page, l: Locale) { const b = page.getByRole("button", { name: label(l, "Decline", "拒绝"), exact: true }); if (await b.isVisible()) await b.click(); }
-async function button(page: Page, l: Locale, en: string, zh: string) { await (en === "Start test" ? page.locator("[data-explore-start]") : page.getByRole("button", { name: label(l, en, zh), exact: true })).click(); }
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() })));
+});
+async function button(page: Page, l: Locale, en: string, zh: string) { await (en === "Start test" ? page.locator("[data-explore-start]:visible").first() : page.getByRole("button", { name: label(l, en, zh), exact: true })).click(); }
 async function finish(page: Page, l: Locale, profileId: string) {
   const sample = witnesses.get(profileId)!;
   for (let i = 0; i < 12; i++) {
     const radio = page.locator(`input[name="${quiz.questions[i].id}"][value="${sample.values[i]}"]`);
-    if (!i) { await radio.focus(); await radio.press("Space"); } else await radio.check(); await expect(radio).toBeChecked();
     await expect(page.locator("[data-food-choice-next-steps]")).toHaveCount(0);
-    if (i === 1) { await button(page, l, "Back", "上一题"); await expect(page.locator(`input[name="FC_01"][value="${sample.values[0]}"]`)).toBeChecked(); await button(page, l, "Next", "下一题"); }
-    await button(page, l, i === 11 ? "See full result" : "Next", i === 11 ? "查看完整结果" : "下一题");
+    if (i === 1) {
+      await expect(radio).toBeVisible();
+      await button(page, l, "Back", "上一题");
+      await expect(page.locator(`input[name="FC_01"][value="${sample.values[0]}"]`)).toBeChecked();
+      await button(page, l, "Next", "下一题");
+    }
+    if (i === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   const profile = quiz.profiles.find(p => p.id === profileId)!;
   await expect(page.locator("#take-test h2")).toHaveText(profile.title[l]); await expect(page.locator("#take-test h2")).toBeFocused();
   const counts = page.getByRole("region", { name: label(l, "Raw choice counts for this attempt", "本次原始选择次数"), exact: true });
-  for (const d of quiz.directions) await expect(counts.locator("dl > div").filter({ has: page.getByText(d.title[l], { exact: true }) }).locator("dd")).toHaveText(`${sample.counts[d.id]} / 8`);
-  const text = await page.locator("#take-test").innerText(); for (const s of profile.sections) for (const t of s.paragraphs) expect(text).toContain(t[l]);
+  await expect(counts.locator("dd")).toHaveText(quiz.directions.map(d => `${sample.counts[d.id]} / ${d.comparisons}`));
+  await expect(page.locator(`#take-test a[href="${path(l)}/results/${profile.id}"]`)).toBeVisible();
   await expect(page.getByRole("heading", { name: label(l, "Compare one presentation detail, or finish here", "比较一处呈现细节，或在这里结束"), exact: true })).toBeVisible();
   await page.locator("[data-food-choice-next-steps] summary").click();
   for (const [i, q] of quiz.questions.entries()) await expect(page.locator(`[data-food-choice-answer="${q.id}"]`)).toContainText(q.options.find(o => o.id === sample.values[i])!.label[l]);
@@ -38,7 +47,7 @@ for (const l of ["en", "zh"] as const) {
   test(`@release food-choice ${l}: native entry, keyboard, all7 complete outcomes, every tie and retake`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); const leaked: string[] = [];
     page.on("request", r => { if (r.method() === "POST" && /FC_\d\d|"answers"|"counts"/.test(r.postData() ?? "")) leaked.push(r.url()); });
-    await page.goto(`/${l}/tests`); await consent(page, l); await page.locator("#more-tests").getByRole("link", { name: quiz.title[l], exact: true }).click();
+    await page.goto(`/${l}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[l], exact: true }).click();
     await expect(page.locator("h1")).toHaveText(quiz.title[l]); await expect(page).toHaveTitle(`${quiz.seoTitle[l]} | FermatMind`);
     await button(page, l, "Start test", "开始测试"); await button(page, l, "Next", "下一题"); await expect(page.getByRole("status")).toContainText(label(l, "Choose an option", "请选择"));
     for (const [i, profile] of quiz.profiles.entries()) {
@@ -48,15 +57,16 @@ for (const l of ["en", "zh"] as const) {
     expect(leaked).toEqual([]); expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:food-choice"))).toBeNull();
     await button(page, l, "Retake test", "重新测试"); await expect(page.locator("[data-food-choice-next-steps]")).toHaveCount(0); await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0);
   });
-  test(`@release food-choice ${l}: opt-in draft reload, locale switch, changed answer and clear`, async ({ page }) => {
-    await page.goto(path(l)); await consent(page, l); await button(page, l, "Start test", "开始测试"); await page.locator('input[name="FC_01"][value="A"]').check();
-    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:food-choice"))).toBeNull(); await page.getByRole("checkbox").check(); await button(page, l, "Next", "下一题"); await page.reload(); await button(page, l, "Resume this tab's progress", "恢复本标签页进度");
-    await expect(page.locator('input[name="FC_02"]')).toHaveCount(2); await button(page, l, "Back", "上一题"); await expect(page.locator('input[name="FC_01"][value="A"]')).toBeChecked(); await page.locator('input[name="FC_01"][value="B"]').check();
-    const other = l === "en" ? "zh" : "en"; await page.goto(path(other)); await consent(page, other); await button(page, other, "Resume this tab's progress", "恢复本标签页进度"); await button(page, other, "Back", "上一题"); await expect(page.locator('input[name="FC_01"][value="B"]')).toBeChecked();
-    await button(page, other, "Exit and clear this attempt", "退出并清除本次进度"); expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:food-choice"))).toBeNull();
+  test(`@release food-choice ${l}: edit locally, then reset after refresh, language change or exit`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, path(l), quiz);
+    const other = l === "en" ? "zh" : "en";
+    await page.goto(`${path(other)}/take`);
+    await expect(page.locator('#take-test input[name="FC_01"]').first()).toBeVisible({ timeout: 30_000 });
+    await expect(page.locator("#take-test").getByRole("radio", { checked: true })).toHaveCount(0);
+    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:food-choice"))).toBeNull();
   });
   test(`@release food-choice ${l}: entry-only sharing and all7 public full guides without private answers`, async ({ page, context }) => {
-    await context.grantPermissions(["clipboard-read", "clipboard-write"]); await page.goto(path(l)); await consent(page, l); await button(page, l, "Start test", "开始测试"); await finish(page, l, "all-three");
+    await context.grantPermissions(["clipboard-read", "clipboard-write"]); await page.goto(path(l)); await button(page, l, "Start test", "开始测试"); await finish(page, l, "all-three");
     await button(page, l, "Copy public entry", "复制公开入口"); expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`${quiz.title[l]}\nhttps://fermatmind.com${path(l)}`);
     for (const p of quiz.profiles) {
       await page.goto(`${path(l)}/results/${p.id}`); await expect(page.locator("h1")).toHaveText(p.title[l]); await expect(page.locator("[data-food-choice-answer]")).toHaveCount(0);

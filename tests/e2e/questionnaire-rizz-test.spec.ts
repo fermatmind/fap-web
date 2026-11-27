@@ -1,3 +1,4 @@
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import path from "node:path";
@@ -11,36 +12,33 @@ test.beforeEach(async ({ page }) => {
   await cdp.send("Network.enable");
   await cdp.send("Network.setBlockedURLs", { urls: ["*/api/v0.5/seo/attribution/events*", "*/api/track*", "*googletagmanager.com/*", "*google-analytics.com/*", "*hm.baidu.com/*"] });
 });
-async function visibleHeading(page: Page) {
-  await expect.poll(async () => page.locator("#take-test h2").evaluate(el => {
-    const bottom = document.querySelector("header")?.getBoundingClientRect().bottom ?? 0;
-    const progress = el.previousElementSibling?.tagName === "PROGRESS" ? el.previousElementSibling : null;
-    const label = progress?.previousElementSibling;
-    return el.getBoundingClientRect().top >= bottom && (!progress || (progress.getBoundingClientRect().top >= bottom && !!label && label.getBoundingClientRect().top >= bottom));
-  })).toBe(true);
+async function expectQuestionFocus(page: Page) {
+  await expect(page.locator("#take-test h2")).toBeFocused();
+  const progress = page.locator("#take-test progress");
+  await progress.scrollIntoViewIfNeeded();
+  await expect(progress).toBeInViewport();
 }
 async function finish(page: Page, locale: "en" | "zh", mode: "mixed" | "na") {
   for (const [index, question] of quiz.questions.entries()) {
-    if (index > 0) await visibleHeading(page);
+    if (index > 0) await expectQuestionFocus(page);
     const facet = index % 4, position = facetItems[facet].indexOf(index);
     const na = mode === "na" || (facet === 2 && position >= 3) || (facet === 3 && position < 3);
     const target = [5, 4, 3, 2][facet];
     const value = na ? "na" : String(reversed.has(index) ? 6 - target : target);
     const radio = page.locator(`input[name="${question.id}"][value="${value}"]`);
-    if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
-    else await radio.check();
-    if (index < 19) await expect(page.locator("[data-facet-score]")).toHaveCount(0);
-    await page.getByRole("button", { name: index === 19 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    await expect(page.locator("[data-facet-score]")).toHaveCount(0);
+    if (index === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
-  await visibleHeading(page);
-  await expect(page.locator("#take-test h4")).toHaveCount(36);
+
   const expected = mode === "na" ? [null, null, null, null] : [5, 4, 3, null];
   for (const [index, direction] of quiz.directions.entries()) {
     const cell = page.locator(`[data-facet-score="${direction.id}"]`);
     if (expected[index] === null) await expect(cell).toContainText(locale === "zh" ? "资料不足" : "Insufficient information");
     else await expect(cell).toContainText(`${expected[index]!.toFixed(1)} / 5`);
-    for (const section of quiz.profiles[index].sections) await expect(page.locator(`#report-${quiz.profiles[index].id}-${section.id}`)).toBeAttached();
+    await expect(page.locator(`#take-test a[href="/${locale}/tests/explore/${quiz.slug}/results/${quiz.profiles[index].id}"]`)).toBeVisible();
   }
   const ids = await page.locator("#take-test [id]").evaluateAll(nodes => nodes.map(node => node.id));
   expect(new Set(ids).size).toBe(ids.length);
@@ -59,36 +57,28 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await visibleHeading(page);
+    await page.locator("[data-explore-start]:visible").first().click();
+    await expectQuestionFocus(page);
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "mixed");
     await expect(page.locator('[data-facet-score="offering-playfulness"]')).toContainText("3/5");
     await expect(page.locator('[data-facet-score="checking-the-invitation"]')).toContainText("2/5");
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
+    await expect(page.locator("#take-test a[href*='/results/']")).toHaveCount(quiz.profiles.length);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-facet-score]")).toHaveCount(0);
     await expect(page.getByRole("radio").first()).not.toBeChecked();
     await expect(page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true })).toBeDisabled();
     expect(answerPosts).toEqual([]);
   });
 
-  test(`@release Rizz practices ${locale}: opted-in NA draft survives reload, language change, back/edit and clear`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.locator('input[value="na"]').check(); await page.getByRole("checkbox").check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await page.reload(); await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
-    await expect(page.locator('input[value="na"]')).toBeChecked();
-    await page.locator('input[value="4"]').check();
+  test(`@release Rizz practices ${locale}: edit locally, then reset after refresh, language change or exit`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, entry, quiz);
     const other = zh ? "en" : "zh";
-    await page.goto(`/${other}/tests/explore/rizz-test`);
-    await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click();
-    await expect(page.locator('input[value="4"]')).toBeChecked();
-    await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
+    await page.goto(`/${other}/tests/explore/${quiz.slug}/take`);
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30_000 });
+    await expect(page.locator("#take-test").getByRole("radio", { checked: true })).toHaveCount(0);
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:rizz-test"))).toBeNull();
   });
 
@@ -99,13 +89,12 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(key, value) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, key, value); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.getByRole("checkbox").check();
-    await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save");
+    await page.goto(entry); await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("checkbox")).toHaveCount(0);
     await finish(page, locale, "na");
-    await expect(page.getByRole("heading", { name: zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.", exact: true })).toBeVisible();
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
+    await expect(page.locator("[data-facet-score]")).toHaveText(quiz.directions.map(() => /资料不足|Insufficient information/u));
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.locator("[data-archetype-honor-group] textarea").inputValue();
     expect(text).toContain(quiz.title[locale]); expect(text).not.toMatch(/RIZ_[0-9]{2}|submission|answers|form_code|mean|score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
   });

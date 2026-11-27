@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 });
 async function acceptCookies(page: Page, locale: "en" | "zh") {
   const consent = page.getByRole("button", { name: locale === "zh" ? "接受" : "Accept", exact: true });
-  if (await consent.count()) await consent.click();
+  if (await consent.isVisible()) await consent.click();
 }
 function observePrivateRequests(page: Page) {
   const requests: string[] = [];
@@ -24,16 +24,18 @@ function observePrivateRequests(page: Page) {
 async function finish(page: Page, locale: "en" | "zh", witness: Witness) {
   for (const [i, question] of quiz.questions.entries()) {
     const radio = page.locator(`input[name="${question.id}"][value="${witness.answers[i]}"]`);
-    if (i === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
-    else await radio.check();
     await expect(page.locator("[data-sip-count]")).toHaveCount(0);
-    await page.getByRole("button", { name: i === 15 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    if (i === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   await expect(page.locator("[data-sip-theme]")).toHaveCount(8); await expect(page.locator("[data-sip-profile]")).toHaveCount(witness.leaders.length);
-  await expect(page.locator("#take-test h4")).toHaveCount(witness.leaders.length * 8);
   for (const direction of quiz.directions) await expect(page.locator(`[data-sip-theme="${direction.id}"] [data-sip-count]`)).toHaveText(`${witness.counts[direction.id]} / 8`);
-  for (const leader of witness.leaders) await expect(page.locator(`[data-sip-profile="${leader}"]`)).toBeVisible();
+  for (const leader of witness.leaders) {
+    const profile = quiz.profiles.find(profile => profile.directionIds[0] === leader)!;
+    await expect(page.locator(`[data-sip-profile="${profile.id}"] a[href="/${locale}/tests/explore/${quiz.slug}/results/${profile.id}"]`)).toBeVisible();
+  }
   const ids = await page.locator("#take-test [id]").evaluateAll(nodes => nodes.map(n => n.id)); expect(new Set(ids).size).toBe(ids.length);
   await expect(page.locator("[data-sip-selection-total]")).toContainText("16");
   await expect(page.getByRole("button", { name: /Copy result|复制结果/ })).toHaveCount(0);
@@ -48,19 +50,21 @@ for (const locale of ["en", "zh"] as const) {
     await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
-    await page.locator("[data-explore-start]").click();
+    await page.locator("[data-explore-start]:visible").first().click();
     await expect(page.getByRole("checkbox")).toHaveCount(0);
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose a description");
-    await page.locator('input[value="B"]').check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
+    await page.locator('input[name="SIP_01"][value="B"]').click();
+    await expect(page.locator('input[name="SIP_02"]').first()).toBeVisible();
     await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="B"]')).toBeChecked();
     await finish(page, locale, single);
     await expect(page.getByRole("link", { name: zh ? "了解独立的服装线条偏好" : "Read about the separate Outfit Line Preferences form" })).toHaveAttribute("href", `/${locale}/tests/explore/outfit-line-preferences`);
     expect(new URL(page.url()).search).toBe(""); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-sip-count]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
-    await page.getByRole("button", { name: zh ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
-    await page.locator("[data-explore-start]").click(); await expect(page.getByRole("radio").first()).not.toBeChecked();
+    await page.getByRole("link", { name: /^(Back to assessment|返回测评介绍)$/u }).first().click();
+    await expect(page).toHaveURL(url => url.pathname === entry);
+    await page.locator("[data-explore-start]:visible").first().click(); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(requests).toEqual([]);
   });
 
@@ -78,24 +82,31 @@ for (const locale of ["en", "zh"] as const) {
     });
     await page.goto(entry, { waitUntil: "domcontentloaded" }); await acceptCookies(page, locale);
     await expect(page.getByRole("button", { name: /Resume this tab|恢复本标签页/ })).toHaveCount(0);
-    await page.locator("[data-explore-start]").click();
+    await page.locator("[data-explore-start]:visible").first().click();
     await expect(page.locator('input[value="A"]')).toBeVisible(); await expect(page.locator('input[value="A"]')).not.toBeChecked();
-    await page.locator('input[value="C"]').check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
+    await page.locator('input[name="SIP_01"][value="C"]').click();
+    await expect(page.locator('input[name="SIP_02"]').first()).toBeVisible();
     expect(await page.evaluate(() => (window as Window & { styleStorageTouches?: string[] }).styleStorageTouches)).toEqual([]);
-    await page.reload(); await page.locator("[data-explore-start]").click(); await expect(page.locator('input[value="C"]')).not.toBeChecked();
-    await page.locator('input[value="D"]').check();
+    await page.reload();
+    await expect(page.locator('input[name="SIP_01"][value="C"]')).toBeVisible();
+    await expect(page.locator('input[name="SIP_01"][value="C"]')).not.toBeChecked();
+    await page.locator('input[name="SIP_01"][value="D"]').click();
+    await expect(page.locator('input[name="SIP_02"]').first()).toBeVisible();
     const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/style-impression-preferences`); await acceptCookies(page, other);
-    await page.locator("[data-explore-start]").click(); await expect(page.locator('input[value="D"]')).not.toBeChecked();
+    await page.locator("[data-explore-start]:visible").first().click(); await expect(page.locator('input[value="D"]')).not.toBeChecked();
     expect(await page.evaluate(() => (window as Window & { styleStorageTouches?: string[] }).styleStorageTouches)).toEqual([]);
   });
 
-  test(`@release Whole-look style ${locale}: eight-way tie keeps all64full sections without a sole winner or personal sharing`, async ({ page }) => {
+  test(`@release Whole-look style ${locale}: eight-way tie retains every guide and shares only the public entry`, async ({ page, context }) => {
+    await context.grantPermissions(["clipboard-read", "clipboard-write"]);
     const requests = observePrivateRequests(page); await page.goto(entry); await acceptCookies(page, locale);
-    await page.locator("[data-explore-start]").click(); await finish(page, locale, allTied);
+    await page.locator("[data-explore-start]:visible").first().click(); await finish(page, locale, allTied);
     await expect(page.locator("[data-sip-tied]")).toContainText(zh ? "8个主题最高并列" : "8 themes share the highest count");
     await expect(page.getByRole("link", { name: zh ? "比较八篇公开完整指南" : "Compare all eight public full guides", exact: true })).toHaveAttribute("href", `${entry}#questionnaire-results`);
     await expect(page.getByRole("heading", { level: 3, name: zh ? "完整指南已开放，可以在这里结束" : "Your complete guides are open. You may finish here.", exact: true })).toBeVisible();
-    await page.waitForTimeout(250); expect(requests).toEqual([]);
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    await expect.poll(() => page.evaluate(() => navigator.clipboard.readText())).toBe(`${quiz.title[locale]}\nhttps://fermatmind.com${entry}`);
+    expect(requests).toEqual([]);
   });
 }
 
@@ -107,7 +118,8 @@ test("@release Whole-look style all16 public guides, bilingual images and closed
     expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
     await acceptCookies(page, locale); await expect(page.locator("[data-sip-count]")).toHaveCount(0);
     for (const section of profile.sections) await expect(page.locator(`#report-${section.id} h2`)).toHaveText(section.title[locale]);
-    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/style-impression-preferences/results/${profile.id}`);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
     await expect(page.getByRole("link", { name: locale === "zh" ? "免费开始完整测试" : "Start the full test for free", exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/style-impression-preferences#take-test`);
     const image = await request.get(`/og/fun/style-impression-preferences?locale=${locale}&portrait=${profile.id}&v=${quiz.version}`); expect(image.status()).toBe(200);
     const bytes = await image.body(); expect(bytes.readUInt32BE(16)).toBe(1200); expect(bytes.readUInt32BE(20)).toBe(630);
