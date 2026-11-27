@@ -23,15 +23,22 @@ async function inspectLayout(page: Page, result: Locator, name: string) {
     expect(crampedLabels, `${name}: long labels need room to read at ${width}px`).toEqual([]);
     const storyHeader = result.locator("[data-story-result-overview]");
     if (await storyHeader.count()) {
-      const head = (await storyHeader.boundingBox())!;
-      const readings = (await result.locator("[data-story-result-readings]").boundingBox())!;
-      expect(readings.x).toBe(head.x);
-      expect(readings.width).toBe(head.width);
-      expect(Math.abs(readings.y - head.y - head.height)).toBeLessThanOrEqual(1);
-      const portraits = result.locator("[data-story-result-readings] > article");
-      if (await portraits.count() > 1) {
-        const first = (await portraits.nth(0).boundingBox())!;
-        const second = (await portraits.nth(1).boundingBox())!;
+      const readings = result.locator("[data-story-result-readings]");
+      await expect(readings).toBeVisible();
+      // Measure the whole report together while viewport resizing may still adjust scroll.
+      const boxes = await storyHeader.evaluate(header => {
+        const content = header.parentElement!.querySelector("[data-story-result-readings]")!;
+        const portraits = Array.from(content.querySelectorAll(":scope > article"));
+        return [header, content, ...portraits].map(element => {
+          const { x, y, width, bottom } = element.getBoundingClientRect();
+          return { x, y, width, bottom };
+        });
+      });
+      const [headerBox, readingsBox, first, second] = boxes;
+      expect(readingsBox.x).toBe(headerBox.x);
+      expect(readingsBox.width).toBe(headerBox.width);
+      expect(Math.abs(readingsBox.y - headerBox.bottom)).toBeLessThanOrEqual(1);
+      if (first && second) {
         if (width === 1440) expect(second.x).toBeGreaterThan(first.x);
         else expect(second.y).toBeGreaterThan(first.y);
       }
