@@ -1,6 +1,9 @@
 import { expect, test, type Page } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 import { buildEqRendererContractFixture } from "../fixtures/eq/v5/eq60RendererContractFixture";
+import reportReadyMbtiProjectionFixture from "../fixtures/report_ready.mbti.projection.json";
+import { applyMbtiPhase2Fixture } from "../helpers/mbtiPhase2Fixture";
+import type { ReportResponse } from "../../lib/api/v0_3";
 import { startIqEqPublicApiFixture } from "./helpers/iq-eq-public-api-fixture";
 
 let stopPublicApiFixture: (() => Promise<void>) | undefined;
@@ -498,12 +501,14 @@ test("EQ Chinese result localizes technical labels on mobile and desktop viewpor
   await expect(result).toBeVisible();
   await expect(result.getByText("最小行动", { exact: true }).first()).toBeVisible();
   await expect(result.getByText("BACKEND_COPY[zh-CN:route.next_best_action]", { exact: true })).toBeVisible();
-  await expect(result.getByText("常模状态", { exact: true }).first()).toBeVisible();
+  const boundary = result.getByTestId("eq-scientific-boundary");
+  await expect(boundary.getByText("参照状态", { exact: true })).toBeVisible();
+  await expect(boundary).toContainText("阶段性参照");
   await expect(result.getByText("计分版本", { exact: true })).toBeVisible();
   await expect(result.getByText("内容版本", { exact: true })).toBeVisible();
   await expect(result.getByRole("heading", { name: "BACKEND_COPY[zh-CN:route.route_headline]", exact: true })).toBeVisible();
   await expect(result).not.toContainText(
-    /CORE INSIGHT HERO|EVIDENCE SNAPSHOT|REALITY TRANSLATION|Key Finding|Supporting Scores|Situation Review|Next Practice Focus|proficient|foundational|stable|integrated|provisional|preliminary|planned|SPEEDING|INCONSISTENT|LONGSTRING|EXTREME_RESPONSE_BIAS|NEUTRAL_RESPONSE_BIAS/
+    /CORE INSIGHT HERO|EVIDENCE SNAPSHOT|REALITY TRANSLATION|Key Finding|Supporting Scores|Situation Review|Next Practice Focus|proficient|foundational|stable|integrated|preliminary|planned|SPEEDING|INCONSISTENT|LONGSTRING|EXTREME_RESPONSE_BIAS|NEUTRAL_RESPONSE_BIAS/
   );
   await expect(page.getByTestId("eq-sjt-bridge")).toHaveCount(0);
   await expect(page.getByText(/未来情境判断模块|计划中，暂未开放/)).toHaveCount(0);
@@ -673,7 +678,9 @@ test(`IQ renders stem prompt/svg and submits with visual options (${graphicKind}
       }
       for (const option of await options.all()) {
         const buttonBounds = await option.boundingBox();
-        const graphicBounds = await option.getByRole("img").boundingBox();
+        const graphic = option.locator("..").locator("svg, img");
+        await expect(graphic).toHaveCount(1);
+        const graphicBounds = await graphic.boundingBox();
         expect(buttonBounds).not.toBeNull();
         expect(graphicBounds).not.toBeNull();
         expect(buttonBounds!.height).toBeGreaterThanOrEqual(128);
@@ -927,16 +934,7 @@ test("quiz submit retries once after 401 with bootstrap token precheck", async (
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        locked: false,
-        variant: "full",
-        summary: "Retry submit report ready.",
-        report: {
-          scale_code: "MBTI",
-          sections: [],
-        },
-      }),
+      body: JSON.stringify(applyMbtiPhase2Fixture(structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse)),
     });
   });
 
@@ -961,7 +959,7 @@ test("quiz submit retries once after 401 with bootstrap token precheck", async (
     timeoutMs: 30000,
   });
   await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}`), { timeout: 30000 });
-  await expect(page.getByRole("heading", { name: "Full report unlocked" })).toBeVisible();
+  await expect(page.getByTestId("mbti-result-shell")).toHaveAttribute("data-result-content-version", "editorial-v1", { timeout: 25000 });
   expect(submitCalls).toBe(2);
   expect(guestTokenCalls).toBeGreaterThanOrEqual(2);
 });
