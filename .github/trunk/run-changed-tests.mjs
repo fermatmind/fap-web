@@ -58,11 +58,10 @@ export function changedTestPlan(changes, {vitest=false,root=process.cwd()}={}) {
  if(plan.unsupported.length)throw new Error(`Unsupported changed tests: ${plan.unsupported.join(',')}`);
  return plan;
 }
-// Eight selected files can contain 95 media/guide scenarios and exceed one
-// 15-minute dev-server job. Bound each shard to four files, with the existing
-// cap of eight native Playwright shards in each server-mode matrix.
+// Keep roughly four selected files per shard. The production-baseline diff
+// can accumulate multiple test-only pushes, each with data-driven scenarios.
 export function browserShardNumbers(files) {
- return Array.from({length:Math.min(8,Math.max(1,Math.ceil(files.length/4)))},(_,i)=>i+1);
+ return Array.from({length:Math.min(24,Math.max(1,Math.ceil(files.length/4)))},(_,i)=>i+1);
 }
 export function runChangedTests(plan,{mode='legacy',root='.',browserShard=process.env.PLAYWRIGHT_SHARD,run=(cmd,args,options)=>spawnSync(cmd,args,options)}={}){
  const calls=[];const execute=(cmd,args,cwd)=>{
@@ -86,7 +85,7 @@ sys.exit(0 if unittest.TextTestRunner().run(suite).wasSuccessful() else 1)`,path
   // execute against production too, including files without an @release tag.
   const args=['exec','playwright','test',...plan.e2e];
   if(browserShard!==undefined){
-   const match=/^([1-8])\/([1-8])$/.exec(browserShard);
+   const match=/^([1-9]\d?)\/([1-9]\d?)$/.exec(browserShard);
    if(!match || +match[1]>+match[2] || +match[2]!==browserShardNumbers(plan.e2e).length)throw new Error('CHANGED_BROWSER_SHARD_BINDING_HOLD');
    args.push(`--shard=${browserShard}`);
    // Shard by scenario, but keep one worker per job because API fixtures share port 8000.
