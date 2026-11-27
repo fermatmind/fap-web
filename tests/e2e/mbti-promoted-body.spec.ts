@@ -33,17 +33,15 @@ async function openSyntheticReport(page: Page, locked = false) {
 }
 
 for (const width of [390, 1440]) {
-  test(`@release MBTI promoted full body and reflection remain readable at ${width}px`, async ({ page }) => {
+  test(`@release MBTI published report body and evidence remain readable at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 1000 });
     await openSyntheticReport(page);
-    const section = page.getByTestId("mbti-projection-section-traits-decision-style");
+    const shell = page.getByTestId("mbti-result-shell");
+    const section = shell.getByTestId("mbti-chapter-traits");
+    await expect(shell).toHaveAttribute("data-result-content-version", "editorial-v1");
     await expect(section).toBeVisible();
-    await expect(section).toHaveCount(1);
-    for (const paragraph of canonical.body_template) await expect(section).toContainText(paragraph);
-    const questions = section.getByRole("region", { name: "Reflection questions" });
-    await expect(questions).toBeVisible();
-    for (const prompt of canonical.reflection_prompts) await expect(questions.getByText(prompt, { exact: true })).toBeVisible();
-    await expect(section.getByText("Existing selected scenario remains available.", { exact: true })).toBeVisible();
+    await expect(shell.getByTestId("mbti-evidence-and-prompts")).toBeVisible();
+    await expect(section.getByText("Existing selected scenario remains available.", { exact: true })).toHaveCount(0);
     for (const size of ["100%", "200%"]) {
       await page.evaluate(value => { document.documentElement.style.fontSize = value; }, size);
       expect(await section.evaluate(element => element.scrollWidth <= element.clientWidth + 1)).toBe(true);
@@ -52,8 +50,12 @@ for (const width of [390, 1440]) {
   });
 }
 
-test("@release MBTI locked report keeps the same canonical body and questions private", async ({ page }) => {
+test("@release MBTI legacy locked projection cannot override the current editorial chapters", async ({ page }) => {
   await openSyntheticReport(page, true);
+  for (const chapter of ["traits", "career", "growth", "relationships"]) {
+    await expect(page.getByTestId(`mbti-chapter-${chapter}`)).toBeVisible();
+  }
+  await expect(page.getByTestId("mbti-offer-comparison")).toHaveCount(0);
   await expect(page.getByTestId("mbti-projection-section-traits-decision-style")).toHaveCount(0);
   for (const text of [...canonical.body_template, ...canonical.reflection_prompts]) await expect(page.getByText(text, { exact: false })).toHaveCount(0);
 });

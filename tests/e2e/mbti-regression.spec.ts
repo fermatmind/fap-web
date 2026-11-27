@@ -2,7 +2,6 @@ import { startIqEqPublicApiFixture } from "./helpers/iq-eq-public-api-fixture";
 import { expect, test, type Page } from "@playwright/test";
 import {
   getMbtiDesktopAnchorHash,
-  getMbtiDesktopAnchorId,
 } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 import type { ReportResponse } from "@/lib/api/v0_3";
@@ -285,24 +284,16 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   expect(submitResponse.status()).toBe(200);
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
   await expect(page.getByTestId("mbti-hero")).toContainText("ENFP-T");
-  await expect(page.getByTestId("mbti-hero")).toContainText("Projection Campaigner");
+  await expect(page.getByTestId("mbti-hero")).toContainText("Campaigner");
   await expect(page.getByTestId("mbti-hero")).not.toContainText("Legacy Hero Title Should Lose");
-  // April's unified shell deliberately excludes retired inline projection copy.
-  // Identity, scoring, access, navigation and carry-over remain active contracts.
   await expect(page.getByTestId("mbti-hero")).not.toContainText("Projection-first summary");
   for (const chapter of ["traits", "career", "growth", "relationships"]) {
     await expect(page.getByTestId(`mbti-chapter-${chapter}`)).toBeVisible();
   }
-  await expect(page.getByRole("button", { name: "67% Extraversion EI", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "67% Extraverted EI", exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "68% Turbulent AT", exact: true })).toBeVisible();
-  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("Unlock now ¥1.99");
-  await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
-  await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveCount(0);
-  await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
-  await expect(page.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute("data-recommendation-key", "read-action");
-  await expect(page.getByTestId("mbti-recommended-read-card-2")).toHaveAttribute("data-recommendation-key", "read-career");
-  await expect(page.getByRole("link", { name: "Read the action note" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Read the career note" })).toBeVisible();
+  await expect(page.getByTestId("mbti-offer-comparison")).toHaveCount(0);
+  await expect(page.getByTestId("mbti-evidence-and-prompts")).toBeVisible();
   const heroBounds = await page.getByTestId("mbti-hero").boundingBox();
   expect(heroBounds?.width ?? 0).toBeGreaterThan(700);
 
@@ -312,19 +303,6 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page).toHaveURL(new RegExp(`${getMbtiDesktopAnchorHash("career")}$`));
   await expect(page.getByTestId("mbti-chapter-career")).toBeVisible();
 
-  await page.getByTestId("mbti-career-traits-lock-panel").getByRole("link", { name: "Unlock now ¥1.99" }).click();
-  await expect(page).toHaveURL(new RegExp(`${getMbtiDesktopAnchorHash("offerFull")}$`));
-  await page.waitForFunction((offerId) => {
-    const offerSection = document.getElementById(offerId);
-    if (!(offerSection instanceof HTMLElement)) {
-      return false;
-    }
-
-    const rect = offerSection.getBoundingClientRect();
-    const viewportCenter = window.innerHeight / 2;
-    const sectionCenter = rect.top + rect.height / 2;
-    return Math.abs(sectionCenter - viewportCenter) < 160;
-  }, getMbtiDesktopAnchorId("offerFull"));
 
 });
 
@@ -625,117 +603,24 @@ test("MBTI controlled narrative metadata cannot replace current shell content", 
   );
 });
 
-test("MBTI primary CTA reuses the existing checkout and order wait flow", async ({ page }) => {
-  const attemptId = "mbti-checkout-wiring-0001";
+test("Legacy MBTI payment wait remains readable across reload", async ({ page }) => {
   const orderNo = "ord_mbti_wait_0001";
   const paymentRecoveryToken = "recovery_mbti_wait_0001";
-
-  await page.addInitScript(() => {
-    window.localStorage.setItem(
-      "fm_consent_v1",
-      JSON.stringify({
-        analytics: "granted",
-        updatedAt: "2026-03-11T00:00:00.000Z",
-      })
-    );
+  const query = new URLSearchParams({
+    order_no: orderNo, pay_type: "qr", pay_value: "weixin://wxpay/bizpayurl?pr=e2e_mbti_qr",
+    provider: "wechatpay", payment_recovery_token: paymentRecoveryToken,
   });
-
-  await page.route("**/api/track", async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({ ok: true }),
-    });
+  await page.route(`**/api/v0.3/orders/${orderNo}*`, route => {
+    expect(new URL(route.request().url()).searchParams.get("payment_recovery_token")).toBe(paymentRecoveryToken);
+    return route.fulfill({ json: { ok: true, order_no: orderNo, status: "pending", provider: "wechatpay", message: "Waiting for payment confirmation." } });
   });
-
-  await page.route("**/api/v0.3/auth/guest", async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        fm_token: "fm_e2e_mbti_guest_token_checkout_0001",
-      }),
-    });
-  });
-
-  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify(
-        createMbtiReportFixture((fixture) => {
-          const cta = fixture.cta as Record<string, unknown>;
-          cta.primary_label = "Unlock the authored MBTI report";
-        })
-      ),
-    });
-  });
-
-  await page.route("**/api/v0.3/orders/checkout", async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        order_no: orderNo,
-        attempt_id: attemptId,
-        provider: "wechatpay",
-        payment_recovery_token: paymentRecoveryToken,
-        wait_url: `/pay/wait?order_no=${orderNo}&pay_type=qr&pay_value=${encodeURIComponent("weixin://wxpay/bizpayurl?pr=e2e_mbti_qr")}&provider=wechatpay&payment_recovery_token=${paymentRecoveryToken}`,
-        pay: {
-          type: "qr",
-          value: "weixin://wxpay/bizpayurl?pr=e2e_mbti_qr",
-          provider: "wechatpay",
-        },
-      }),
-    });
-  });
-
-  await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
-    expect(route.request().url()).toContain(`payment_recovery_token=${paymentRecoveryToken}`);
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        order_no: orderNo,
-        attempt_id: attemptId,
-        status: "pending",
-        message: "Waiting for payment confirmation.",
-      }),
-    });
-  });
-
-  await mockMbtiReportAccess(page, attemptId, "en");
-
-  await page.goto(`/en/result/${attemptId}`);
-  // The result deliberately holds the ready view for ten seconds.
-  await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
-
-  await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
-  await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
-  await expect(page.getByTestId("mbti-traits-tools").getByRole("button", { name: "Share result" })).toBeVisible();
-  await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Retest" })).toHaveCount(0);
-  await expect(page.getByTestId("mbti-desktop-clone-shell").getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" })).toHaveCount(0);
-  await expect(page.getByTestId("mbti-footer-cta")).toHaveCount(0);
-
-  await page.getByTestId("mbti-offers-primary-cta").click();
-
-  await expect(page).toHaveURL(
-    new RegExp(`/en/pay/wait\\?order_no=${orderNo}&pay_type=qr&pay_value=.*provider=wechatpay&payment_recovery_token=${paymentRecoveryToken}`)
-  );
-  expect(page.url()).not.toContain(`/en/orders/${orderNo}`);
+  const path = `/en/pay/wait?${query}`;
+  await page.goto(path);
   await expect(page.getByText(orderNo)).toBeVisible();
-  await expect(page.getByText("Waiting for payment confirmation.")).toBeVisible();
-  await expect(page.getByText("Provider: wechatpay")).toBeVisible();
+  await expect(page.getByText("Complete your payment", { exact: true })).toBeVisible();
   await expect(page.getByRole("img", { name: "Scan this QR code in your payment app to complete checkout." })).toBeVisible();
-
   await page.reload();
-
-  await expect(page).toHaveURL(
-    new RegExp(`/en/pay/wait\\?order_no=${orderNo}&pay_type=qr&pay_value=.*provider=wechatpay&payment_recovery_token=${paymentRecoveryToken}`)
-  );
+  await expect(page).toHaveURL(path);
   await expect(page.getByText(orderNo)).toBeVisible();
 });
 
@@ -1037,7 +922,7 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
     expect(layout.logoLeft).toBeGreaterThanOrEqual(0);
     if (viewport.width > 860) expect(layout.accountRight).toBeLessThanOrEqual(viewport.width);
     for (const chapter of ["career", "growth", "relationships"]) {
-      await expect(page.getByTestId(`mbti-asset-slot-${chapter}`)).toBeHidden();
+      await expect(page.getByTestId(`mbti-asset-slot-${chapter}`)).toBeVisible();
     }
     await expect(page.getByTestId("mbti-hero-form-summary")).toHaveCount(0);
     for (const axis of ["EI", "SN", "TF", "JP", "AT"]) {
@@ -1071,21 +956,21 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
     await expect(page.getByTestId("mbti-chapter-career")).toBeVisible();
     await expect(page.getByTestId("mbti-chapter-growth")).toBeVisible();
     await expect(page.getByTestId("mbti-chapter-relationships")).toBeVisible();
-    await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("1.99元直接解锁");
-    await expect(page.getByTestId("mbti-recommended-reads")).toBeVisible();
+    await expect(page.getByTestId("mbti-offer-comparison")).toHaveCount(0);
+    await expect(page.getByTestId("mbti-evidence-and-prompts")).toBeVisible();
     await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
     await expect(page.getByTestId("mbti-traits-tools").getByRole("button", { name: "分享结果" })).toBeVisible();
     await expect(stickyRail.getByRole("link", { name: "重测" })).toHaveCount(0);
-    await expect(stickyRail.getByRole("link", { name: "4. 关系模式" })).toBeVisible();
+    await expect(stickyRail.getByRole("link", { name: "4. 你的人际关系" })).toBeVisible();
     await expect(stickyRail.getByRole("link", { name: "解锁完整报告" })).toHaveCount(0);
 
-    await stickyRail.getByRole("link", { name: "4. 关系模式" }).click();
+    await stickyRail.getByRole("link", { name: "4. 你的人际关系" }).click();
     await expect(page).toHaveURL(new RegExp(`#mbti-desktop-relationships$`));
     await expect(page.getByTestId("mbti-chapter-relationships")).toBeVisible();
   }
 });
 
-test("MBTI deepened user state can shift revisit focus and recommendation priority", async ({ page }) => {
+test("MBTI editorial report stays available with legacy revisit metadata", async ({ page }) => {
   const attemptId = "mbti-attempt-8c-0001";
 
   await page.addInitScript(() => {
@@ -1162,18 +1047,9 @@ test("MBTI deepened user state can shift revisit focus and recommendation priori
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
   await expect(page.getByTestId("mbti-hero")).toContainText("ENFP-T");
-  // Unlocked English reports include the API's explainability projection.
-  const closeCallAxes = page.getByTestId("mbti-projection-section-traits-close-call-axes");
-  await expect(closeCallAxes).toBeVisible();
-  await expect(closeCallAxes).toHaveAttribute("data-section-key", "traits.close_call_axes");
-  await expect(page.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
-    "data-recommendation-key",
-    "read-explain"
-  );
-  await expect(page.getByTestId("mbti-post-purchase-section")).toBeVisible();
-  await expect(page.getByTestId("mbti-post-purchase-history")).toHaveAttribute(
-    "href", /\/en\/history\/mbti\?.*journey_state=refine_after_feedback.*pulse_state=recalibrate/
-  );
+  await expect(page.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveCount(0);
+  await expect(page.getByTestId("mbti-chapter-traits")).toBeVisible();
+  await expect(page.getByTestId("mbti-evidence-and-prompts")).toBeVisible();
   await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveCount(0);
 
 });
