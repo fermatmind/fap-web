@@ -374,6 +374,14 @@ test("@release BIG5 submit 5xx keeps draft after refresh", async ({ page }) => {
     });
   });
 
+  await page.route(`**/api/v0.3/attempts/${attemptId}/submission*`, async (route) => {
+    expect(route.request().method()).toBe("GET");
+    await route.fulfill({
+      status: 404,
+      json: { ok: false, error_code: "NOT_FOUND" },
+    });
+  });
+
   await page.route("**/api/v0.3/attempts/submit*", async (route) => {
     const requestUrl = new URL(route.request().url());
     expect(requestUrl.pathname).toBe("/api/v0.3/attempts/submit");
@@ -397,14 +405,16 @@ test("@release BIG5 submit 5xx keeps draft after refresh", async ({ page }) => {
     await expect(page.getByRole("heading", { name: `Question ${i + 2}`, exact: true })).toBeVisible();
   }
 
+  const readback = page.waitForResponse(`**/api/v0.3/attempts/${attemptId}/submission*`);
   const submitResponse = await clickLastOptionAndWaitForSubmit({
     page,
     option: page.getByRole("radio").nth(1),
     timeoutMs: 30000,
   });
   expect(submitResponse.status()).toBe(500);
+  expect((await readback).status()).toBe(404);
 
-  await expect(page.getByText("Service is temporarily unavailable. Your draft is saved. Please retry later.")).toBeVisible();
+  await expect(page.getByText("Submission could not be confirmed. Your answers are still on this page. Retry submission.")).toBeVisible();
 
   await page.reload();
 
