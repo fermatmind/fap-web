@@ -1,3 +1,6 @@
+import { archetypeCorePath, archetypeResultName } from "../../lib/questionnaires/archetypeResultCard";
+import { expectArchetypeGuideAlternates } from "./helpers/archetype-standalone-cases";
+import { downloadResultPoster, expectResultPosterFailure } from "./helpers/result-poster";
 import { entertainmentGuideProfile, entertainmentGuideStartLabel } from "../../lib/questionnaires/entertainmentGuideSeo";
 import { test, expect, type Page } from "@playwright/test";
 import { mkdirSync } from "node:fs";
@@ -15,10 +18,10 @@ async function finish(page: Page, locale: "en" | "zh", mode: string) {
     const two = ["C","C","B","B","A","B","B","A","D","D","A","C","C","B","C","C","D","C","C","D","D"];
     const option = mode === "two" ? question.options.find(o => o.id === two[index])! : mode === "tie" ? question.options[0] : question.options.find(o => o.directionId === mode) ?? question.options[0];
     const radio = page.locator(`input[name="${question.id}"][value="${option.id}"]`);
-    if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
-    else await radio.check();
-    if (index < 20) await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
-    await page.getByRole("button", { name: index === 20 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
+    if (index === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   await expect(page.locator("[data-archetype-count]")).toHaveCount(7);
@@ -63,27 +66,15 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator("[data-bleach-choice-reasons] li")).toHaveCount(12);
     await expect(page.locator("[data-bleach-question-number=\"1\"]")).toContainText(quiz.questions[0].prompt[locale]);
     await expect(page.locator("[data-bleach-character-directory] li")).toHaveCount(7);
-    const sharing = page.locator("[data-bleach-sharing]");
-    const download = page.waitForEvent("download");
-    await sharing.getByRole("button", {name: zh ? "保存BLEACH角色卡片" : "Save BLEACH card", exact: true}).click();
-    const file = await download;
-    expect(file.suggestedFilename()).toBe(`fermatmind-bleach-${locale}-landscape.png`);
-    const image = sharing.locator("img"); await expect(image).toBeVisible();
-    await expect.poll(() => image.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(1200);
+    const file = await downloadResultPoster(page, locale, "bleach");
     if (process.env.BLEACH_QA_ARTIFACTS) {
-      mkdirSync(process.env.BLEACH_QA_ARTIFACTS, {recursive: true});
-      await file.saveAs(join(process.env.BLEACH_QA_ARTIFACTS, `single-${locale}-${width}.png`));
-      await page.locator("[data-bleach-reveal]").screenshot({path: join(process.env.BLEACH_QA_ARTIFACTS, `reveal-${locale}-${width}.png`)});
+      mkdirSync(process.env.BLEACH_QA_ARTIFACTS, { recursive: true });
+      await file.saveAs(join(process.env.BLEACH_QA_ARTIFACTS, `single-${locale}-${width}-personal.png`));
+      await page.locator("[data-bleach-reveal]").screenshot({ path: join(process.env.BLEACH_QA_ARTIFACTS, `reveal-${locale}-${width}.png`) });
     }
-    await sharing.getByRole("combobox").selectOption("portrait");
-    const tall = page.waitForEvent("download");
-    await sharing.getByRole("button", {name: zh ? "保存BLEACH角色卡片" : "Save BLEACH card", exact: true}).click();
-    await tall;
-    await expect.poll(() => sharing.locator("img").evaluate((img: HTMLImageElement) => [img.naturalWidth, img.naturalHeight])).toEqual([1080,1920]);
-
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
+    await expect(page.locator('[data-archetype-core-assessment="MBTI"] a')).toHaveAttribute("href", archetypeCorePath(locale, "MBTI"));
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(posts).toEqual([]);
   });
@@ -106,33 +97,20 @@ for (const locale of ["en", "zh"] as const) {
       const get = Storage.prototype.getItem, set = Storage.prototype.setItem;
       Storage.prototype.getItem = function(key) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return get.call(this, key); };
       Storage.prototype.setItem = function(key, value) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, key, value); };
+      Object.defineProperty(navigator, "share", { configurable: true, value: undefined });
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
     await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
     await expect(page.getByRole("checkbox")).toHaveCount(0);
     await finish(page, locale, "tie");
     await expect(page.locator("[data-bleach-reveal] > ul > li")).toHaveCount(7);
-    const sharing = page.locator("[data-bleach-sharing]");
-    const download = page.waitForEvent("download");
-    await sharing.getByRole("button", {name: zh ? "保存BLEACH角色卡片" : "Save BLEACH card", exact: true}).click();
-    const file = await download;
-    if (process.env.BLEACH_QA_ARTIFACTS) {
-      await file.saveAs(join(process.env.BLEACH_QA_ARTIFACTS, `tie-${locale}-${width}-landscape.png`));
-    }
-    for (const profile of quiz.profiles) await expect(sharing.locator("img")).toHaveAttribute("alt", new RegExp(profile.title[locale].split(/[:：]/)[0]));
-    await sharing.getByRole("combobox").selectOption("portrait");
-    const tall = page.waitForEvent("download");
-    await sharing.getByRole("button", {name: zh ? "保存BLEACH角色卡片" : "Save BLEACH card", exact: true}).click();
-    const tallFile = await tall;
-    if (process.env.BLEACH_QA_ARTIFACTS) await tallFile.saveAs(join(process.env.BLEACH_QA_ARTIFACTS, `tie-${locale}-${width}-portrait.png`));
-    await expect.poll(() => sharing.locator("img").evaluate((img: HTMLImageElement) => [img.naturalWidth,img.naturalHeight])).toEqual([1080,1920]);
-    await sharing.getByRole("button", {name: zh ? "分享BLEACH角色图片" : "Share BLEACH image", exact: true}).click();
-    await expect(sharing.getByRole("status")).toContainText(zh ? "不支持直接分享" : "cannot share images directly");
+    const file = await downloadResultPoster(page, locale, "bleach");
+    if (process.env.BLEACH_QA_ARTIFACTS) await file.saveAs(join(process.env.BLEACH_QA_ARTIFACTS, `tie-${locale}-${width}-personal.png`));
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
-    for (const profile of quiz.profiles) expect(text).toContain(profile.title[locale]);
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.locator("[data-archetype-honor-group] textarea").inputValue();
+    for (const profile of quiz.profiles) expect(text).toContain(archetypeResultName(profile, locale, value => value));
     expect(text).not.toMatch(/BLEACH_[0-9]{2}|answers|form_code|submission|3\s*\/\s*12|[?&]score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
   });
@@ -149,12 +127,9 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page).toHaveURL(new RegExp(`${entry}/take$`));
     await expect(reveal.locator(":scope > ul > li")).toHaveCount(2);
     await guidePage.close();
-    await page.route("**/images/quiz-portraits/bleach/*.svg", route => route.fulfill({status: 503, body: "synthetic failure"}));
-    const sharing = page.locator("[data-bleach-sharing]");
-    await sharing.getByRole("button", {name: zh ? "保存BLEACH角色卡片" : "Save BLEACH card", exact: true}).click();
-    await expect(sharing.getByRole("status")).toContainText(zh ? "暂时无法生成图片" : "Could not create the image");
-    await expect(page.getByRole("button", {name: zh ? "复制结果与链接" : "Copy result and link", exact: true})).toBeEnabled();
-    await page.getByRole("button", {name: zh ? "重新测试" : "Retake test", exact: true}).click();
+    await expectResultPosterFailure(page, locale);
+    await expect(page.getByRole("button", {name: zh ? "一键分享给朋友" : "Share Result", exact: true})).toBeEnabled();
+    await page.getByRole("button", {name: zh ? "再测一次" : "Retake", exact: true}).click();
     await expect(page.locator("[data-bleach-reveal]")).toHaveCount(0);
   });
 }
@@ -165,7 +140,7 @@ test("@release BLEACH ordinary fan choices all14public full guides, bilingual im
     expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(entertainmentGuideProfile(quiz.slug, locale, profile).title[locale]);
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
     for (const section of profile.sections) await expect(page.locator(`#report-${section.id} h2`)).toHaveText(section.title[locale]);
-    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/bleach/results/${profile.id}`);
+    await expectArchetypeGuideAlternates(page, quiz.slug, profile.id);
     await expect(page.getByRole("link", { name: entertainmentGuideStartLabel(quiz.slug, locale), exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/bleach#take-test`);
     if (profile.id === "ichigo-kurosaki") {
       const sharing = page.locator("[data-bleach-sharing]");
@@ -195,16 +170,8 @@ for (const locale of ["en", "zh"] as const) {
       await expect.poll(()=>portrait.evaluate((img:HTMLImageElement)=>[img.naturalWidth,img.naturalHeight])).toEqual([260,300]);
       await expect(portrait).toHaveAttribute("src",`/images/quiz-portraits/bleach/${profile.id}.svg`);
       await expect(reveal.locator("[data-bleach-choice-reasons] li:visible")).toHaveCount(2);
-      const sharing=page.locator("[data-bleach-sharing]");
-      for (const format of ["landscape","portrait"]) {
-        await sharing.getByRole("combobox").selectOption(format);
-        const download=page.waitForEvent("download");
-        await sharing.getByRole("button",{name:zh?"保存BLEACH角色卡片":"Save BLEACH card",exact:true}).click();
-        const file=await download;
-        await expect.poll(()=>sharing.locator("img").evaluate((img:HTMLImageElement)=>[img.naturalWidth,img.naturalHeight])).toEqual(format==="landscape"?[1200,630]:[1080,1920]);
-        await expect(sharing.locator("img")).toHaveAttribute("alt",new RegExp(profile.title[locale].split(/[:：]/)[0]));
-        if (process.env.BLEACH_QA_ARTIFACTS) await file.saveAs(join(process.env.BLEACH_QA_ARTIFACTS,`${locale}-${profile.id}-${format}-personal.png`));
-      }
+      const download = await downloadResultPoster(page, locale, "bleach");
+      if (process.env.BLEACH_QA_ARTIFACTS) await download.saveAs(join(process.env.BLEACH_QA_ARTIFACTS, `${locale}-${profile.id}-personal.png`));
       expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
       if (process.env.BLEACH_QA_ARTIFACTS) await reveal.locator(":scope > ul > li").screenshot({path:join(process.env.BLEACH_QA_ARTIFACTS,`${locale}-${profile.id}-mobile-result.png`)});
       const directory=page.locator("[data-bleach-character-directory]");
@@ -241,15 +208,27 @@ for (const locale of ["en", "zh"] as const) {
     // First displayed direction is Ichigo, so it must not invent evidence from the Aizen answer in question1.
     await expect(details.first().locator('[data-bleach-question-number="1"]')).toHaveCount(0);
     expect(chosen.directionId).toBe("sosuke-aizen");
-    const sharing=page.locator("[data-bleach-sharing]");
-    await sharing.getByRole("button",{name:zh?"分享BLEACH角色图片":"Share BLEACH image",exact:true}).click();
-    await expect(sharing.getByRole("status")).toContainText(zh?"已取消分享":"Sharing canceled");
-    await expect(sharing.locator("img")).toBeVisible();
-    await page.evaluate(()=>Object.defineProperty(navigator,"share",{configurable:true,value:async()=>{throw new Error("Synthetic native share failure");}}));
-    await sharing.getByRole("button",{name:zh?"分享BLEACH角色图片":"Share BLEACH image",exact:true}).click();
-    await expect(sharing.getByRole("status")).toContainText(zh?"未能打开系统分享":"Could not open system sharing");
-    const download=page.waitForEvent("download");
-    await sharing.getByRole("button",{name:zh?"保存BLEACH角色卡片":"Save BLEACH card",exact:true}).click();await download;
+    const sharing = page.locator("[data-archetype-honor-group]");
+    const action = sharing.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true });
+    await page.evaluate(() => {
+      Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("Synthetic clipboard denial"); } } });
+      const matchMedia = window.matchMedia.bind(window);
+      window.matchMedia = query => query === "(pointer: coarse)"
+        ? new Proxy(matchMedia(query), { get: (target, key) => key === "matches" ? true : Reflect.get(target, key, target) })
+        : matchMedia(query);
+      window.addEventListener("share-attempt", () => document.documentElement.dataset.resultShareAttempt = "1");
+      Object.defineProperty(navigator, "share", { configurable: true, value: async () => {
+        window.dispatchEvent(new Event("share-attempt"));
+        throw new DOMException("Synthetic cancellation", "AbortError");
+      } });
+    });
+    await action.click();
+    await expect(page.locator("html")).toHaveAttribute("data-result-share-attempt", "1");
+    await expect(sharing.locator("textarea")).toHaveCount(0);
+    await page.evaluate(() => Object.defineProperty(navigator, "share", { configurable: true, value: async () => { throw new Error("Synthetic native share failure"); } }));
+    await action.click();
+    await expect(sharing.locator("textarea")).toHaveValue(new RegExp(`https://fermatmind.com${entry}$`));
+    await downloadResultPoster(page, locale, "bleach");
     await expect(page.locator("[data-archetype-match]")).toHaveCount(2);
   });
 }
