@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import Link from "next/link";
 import { notFound, permanentRedirect, redirect } from "next/navigation";
-import { careerAssessmentEntry } from "@/lib/career/assessmentEntry";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { buildApiUrl } from "@/lib/api-base";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
@@ -158,7 +157,7 @@ export default async function TakePage({
   }
   if (isRiasecSlug(slug)
     && normalizeRiasecFormCode(firstNonEmptyQueryValue(query.form, query.form_code)) === "riasec_140") {
-    redirect(`${careerAssessmentEntry(locale).href}/take`);
+    redirect(`/${locale}/career/assessment/take`);
   }
   if (slug !== requestedSlug) {
     permanentRedirect(appendQuery(withLocale(`/tests/${slug}/take`), query));
