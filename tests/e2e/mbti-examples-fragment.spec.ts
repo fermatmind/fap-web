@@ -47,7 +47,7 @@ test.afterAll(async () => { await stopFixture?.(); });
 
 test("existing MBTI examples remain the fragment destination after direct load and refresh", async ({ page }) => {
   await page.goto("/en/tests/mbti-personality-test-16-personality-types#result-examples");
-  const examples = page.getByTestId("mbti-result-examples");
+  const examples = page.locator("#result-examples");
   const top = () => examples.evaluate((node) => node.getBoundingClientRect().top);
   const waitForExampleLayout = async () => {
     await expect(examples).toBeVisible();
@@ -57,15 +57,15 @@ test("existing MBTI examples remain the fragment destination after direct load a
     });
   };
   await waitForExampleLayout();
-  await expect(examples).toContainText("two synthetic examples");
+  await expect(examples.getByRole("group", { name: "Switch sample profile" }).getByRole("button")).toHaveCount(3);
   await expect.poll(top).toBeGreaterThanOrEqual(70);
   await expect.poll(top).toBeLessThan(120);
   await page.reload();
   await waitForExampleLayout();
   await expect.poll(top).toBeGreaterThanOrEqual(70);
   await expect.poll(top).toBeLessThan(120);
-  await expect(examples.getByRole("article")).toHaveCount(2);
-  await expect(examples).toContainText("not scored attempts, real user reports, or your result");
+  await expect(examples.getByRole("group", { name: "Switch sample profile" }).getByRole("button")).toHaveCount(3);
+  await expect(examples.getByRole("link", { name: "Read the complete four-chapter sample" })).toHaveAttribute("href", "/en/reports/samples/mbti");
 });
 
 test("article CMS example link preserves attribution and reaches the examples on click", async ({ page }) => {
@@ -73,30 +73,27 @@ test("article CMS example link preserves attribution and reaches the examples on
   const link = page.getByRole("link", { name: "Two synthetic preference examples", exact: true });
   await expect(link).toHaveAttribute("data-seo-cta-attributed", "true");
   await link.click();
-  await expect(page).toHaveURL(/\?[^#]+#result-examples$/);
+  await page.waitForURL(url => url.pathname === "/en/tests/mbti-personality-test-16-personality-types" && url.hash === "#result-examples");
   const url = new URL(page.url());
   expect(url.searchParams.get("utm_source")).toBe("example_navigation");
   expect(url.searchParams.get("content_id")).toBe("283");
-  const examples = page.getByTestId("mbti-result-examples");
+  const examples = page.locator("#result-examples");
   await expect(examples).toBeVisible();
   await page.evaluate(() => document.fonts.ready);
   const top = () => examples.evaluate((node) => node.getBoundingClientRect().top);
   await expect.poll(top).toBeGreaterThanOrEqual(70);
   await expect.poll(top).toBeLessThan(120);
-  await expect(examples.getByRole("article")).toHaveCount(2);
+  await expect(examples.getByRole("group", { name: "Switch sample profile" }).getByRole("button")).toHaveCount(3);
 });
 
 test("Chinese MBTI landing opens its localized preference examples on a narrow screen", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/zh/tests/mbti-personality-test-16-personality-types");
-  await page.getByRole("link", { name: "看两个偏好结果示例" }).click();
-  await expect(page).toHaveURL(/#result-examples$/);
-  const examples = page.getByRole("region", { name: "答题前，先看两个结果示例" });
-  await expect(examples.getByRole("article")).toHaveCount(2);
-  await expect(examples).toContainText("虚构教学示例");
-  await expect(examples).toContainText("I 51% / E 49%");
-  await expect(examples.getByRole("link", { name: "阅读结果解读指南" }))
-    .toHaveAttribute("href", "/zh/articles/mbti-full-report-career-relationship-communication");
-  await expect(examples.getByRole("link", { name: "选择 93 题或 144 题" })).toHaveAttribute("href", "#choose-version");
+  await page.goto("/zh/tests/mbti-personality-test-16-personality-types#result-examples");
+  const examples = page.getByRole("complementary", { name: "MBTI 报告样张" });
+  const samples = examples.getByRole("group", { name: "切换报告样张" });
+  await expect(samples.getByRole("button")).toHaveCount(3);
+  await samples.getByRole("button", { name: /INTP/u }).click();
+  await expect(samples.getByRole("button", { name: /INTP/u })).toHaveAttribute("aria-pressed", "true");
+  await expect(examples.getByRole("list", { name: "四组偏好分数" }).getByRole("listitem")).toHaveCount(4);
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
 });

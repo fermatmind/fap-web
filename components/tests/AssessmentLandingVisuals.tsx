@@ -42,7 +42,7 @@ export function MbtiLandingReportPreview({ sample, locale = "zh", labels, notes 
   const axisNames = locale === "en" ? ["Energy", "Information", "Decisions", "Structure"] : ["精力來源", "接收資訊", "決策偏好", "生活步調"];
   const localizedChapters = locale === "en" ? ["Personality", "Career", "Growth", "Relationships"]
     : locale === "zh-TW" ? ["人格特質", "職涯道路", "個人成長", "人際關係"] : mbtiLandingChapters;
-  return <aside className={styles.mbtiReport} aria-label={t("MBTI 报告样张", "Sample MBTI report", "MBTI 報告範例")}>
+  return <aside id="result-examples" className={`${styles.mbtiReport} scroll-mt-24`} aria-label={t("MBTI 报告样张", "Sample MBTI report", "MBTI 報告範例")}>
     <div className={styles.reportHeader}>
       <h2>{t("你的报告会是什么样？", "See what your report looks like", "看看你會收到怎樣的報告")}</h2>
       <span>{demo ? t("演示数据", "Illustrative data", "示意資料") : t("真实公开样张", "Fixed public sample", "公開固定範例")}</span>
