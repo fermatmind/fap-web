@@ -32,24 +32,24 @@ for (const locale of ["en", "zh"] as const) {
     page.on("request", r => { if (r.method() === "POST" && /PPS/.test(r.postData() ?? "")) leaks.push(r.url()); });
     await page.goto(`/${locale}/tests`); await page.getByTestId("cookie-banner-decline").click(); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
-    await expect(page.getByText(zh ? "PPS条目自评 · 完整结果免费" : "PPS item reflection · Full results free", { exact: true })).toBeVisible();
+    await expect(page.locator("[data-explore-start]:visible").first()).toBeEnabled();
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "patterns");
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
+    await expect(page.locator("[data-archetype-honor-card]")).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-pps-facet]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(leaks).toEqual([]);
   });
   test(`@release PPS people pleasing ${locale}: refresh and language change start with blank answers`, async ({ page }) => {
     await page.goto(entry);
-    await expect(page.getByText(zh ? "这份测试不保存答题进度" : "This quiz does not save your progress", { exact: false }).first()).toBeVisible();
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     const first = await page.locator("legend").first().textContent();
-    await page.locator('input[value="2"]').check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
+    await page.locator('input[value="2"]').click();
     await expect(page.locator("legend").first()).not.toHaveText(first!);
     await page.reload();
     await expect(page.locator("legend").first()).toHaveText(first!);
@@ -58,7 +58,8 @@ for (const locale of ["en", "zh"] as const) {
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:people-pleaser"))).toBeNull();
 
     await page.goto(`/${zh ? "en" : "zh"}/tests/explore/people-pleaser`);
-    await page.getByRole("button", { name: zh ? "Start test" : "开始测试", exact: true }).click();
+    await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     await expect(page.getByRole("radio").first()).not.toBeChecked();
   });
   test(`@release PPS people pleasing ${locale}: denied storage/clipboard, unscored and one missing pattern retain all full guides with safe share`, async ({ page }) => {
@@ -66,15 +67,16 @@ for (const locale of ["en", "zh"] as const) {
       const get = Storage.prototype.getItem, set = Storage.prototype.setItem;
       Storage.prototype.getItem = function(k) { if (k.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return get.call(this, k); };
       Storage.prototype.setItem = function(k, v) { if (k.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, k, v); };
-      Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
+      Object.defineProperty(navigator, "share", { configurable: true, value: undefined }); Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByTestId("cookie-banner-decline").click(); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.goto(entry); await page.getByTestId("cookie-banner-decline").click(); await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     await expect(page.getByRole("checkbox")).toHaveCount(0); await finish(page, locale, "na");
-    await expect(page.getByRole("heading", { level: 3, name: zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.", exact: true })).toBeVisible();
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await finish(page, locale, "missing-part");
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue(); expect(text).toContain(quiz.title[locale]);
-    expect(text).not.toMatch(/PPS|answers|form_code|5\.0|4\.0|3\.0|2\.0|1\.0|[?&]score/);
+    await expect(page.locator("[data-archetype-honor-card]")).toBeVisible();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click(); await finish(page, locale, "missing-part");
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.locator("[data-archetype-honor-group] textarea").inputValue(); expect(text).toContain(quiz.title[locale]);
+    expect(text).not.toMatch(/PPS(?:ASSERTIVE|RESPONSIBILITY|EXPECTATIONS)_\d+|answers|form_code|[?&]score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
   });
 }

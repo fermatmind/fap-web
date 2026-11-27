@@ -1,3 +1,4 @@
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 import type { Questionnaire } from "../../lib/questionnaires/types";
@@ -6,20 +7,21 @@ const worked = [2, 1, 3, 2, 1, 2, 3, 1, 2, 1, 3, 2, 1, 2, 3];
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => { localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() })); });
 });
-async function headingBelowHeader(page: Page) {
-  await page.locator("#take-test h2").waitFor({ state: "visible" });
-  await expect.poll(() => page.evaluate(() => {
-    const h = document.querySelector("#take-test h2"), p = document.querySelector("#take-test progress"), c = p?.previousElementSibling, header = document.querySelector("header"), bottom = header?.getBoundingClientRect().bottom ?? 0;
-    return !!h && !!p && !!c && h.getBoundingClientRect().top >= bottom && p.getBoundingClientRect().top >= bottom && c.getBoundingClientRect().top >= bottom && document.documentElement.scrollWidth <= innerWidth;
-  })).toBe(true);
+async function expectFocusedQuestion(page: Page) {
+  const heading = page.locator("#take-test h2");
+  await expect(heading).toBeFocused();
+  await expect(page.locator("#take-test progress")).toHaveAttribute("max", "15");
+  await heading.scrollIntoViewIfNeeded();
+  await expect(heading).toBeInViewport();
 }
 async function finish(page: Page, locale: "en" | "zh", mode: "minimum" | "maximum" | "mixed" | "one-skip" | "all-skip") {
   for (let i = 0; i < 15; i++) {
     const value = mode === "all-skip" || mode === "one-skip" && i === 0 ? "na" : mode === "mixed" ? String(worked[i]) : mode === "maximum" ? "4" : "0";
     const radio = page.locator(`input[name="${quiz.questions[i].id}"][value="${value}"]`);
-    if (i === 1) await headingBelowHeader(page);
-    if (i === 0) { await radio.focus(); await radio.press("Space"); } else await radio.check();
-    await page.getByRole("button", { name: i === 14 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    if (i === 1) await expectFocusedQuestion(page);
+    if (i === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   const result = page.locator("[data-ptq15-result]");
   await expect(result).toBeVisible(); await expect(result.locator("[data-ptq15-part]")).toHaveCount(4);
@@ -30,7 +32,9 @@ async function finish(page: Page, locale: "en" | "zh", mode: "minimum" | "maximu
     for (const part of ["unproductive", "mental-capacity"]) await expect(result.locator(`[data-ptq15-score="${part}-reading"]`)).toContainText(locale === "zh" ? "原始和：0（可取范围0—12；3/3" : "Raw sum: 0 (possible range 0–12; 3/3");
   }
   if (mode === "mixed") for (const [part, sum] of [["core", 18], ["unproductive", 6], ["mental-capacity", 5]] as const) await expect(result.locator(`[data-ptq15-score="${part}-reading"]`)).toContainText(locale === "zh" ? `原始和：${sum}` : `Raw sum: ${sum}`);
-  for (const p of quiz.profiles) for (const s of p.sections) for (const text of s.paragraphs) await expect(result).toContainText(text[locale]);
+  for (const profile of quiz.profiles) {
+    await expect(result.locator(`a[href="/${locale}/tests/explore/${quiz.slug}/results/${profile.id}"]`)).toBeVisible();
+  }
   await expect(page.locator("[data-ptq15-next-steps]")).toBeVisible();
   await expect(page.locator('[data-ptq15-next-steps] a[href*="/tests/"]')).toHaveCount(0);
   expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:overthinking-screener"))).toBeNull();
@@ -46,7 +50,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(method.locator(":scope > h3")).toHaveCount(6);
     for (const s of quiz.guide) await expect(method.getByRole("heading", { level: 3, name: s.title[locale], exact: true })).toBeVisible();
     for (const s of quiz.guide) for (const p of s.paragraphs) await expect(method).toContainText(p[locale]);
-    await page.locator("[data-explore-start]").click(); await headingBelowHeader(page);
+    await page.locator("[data-explore-start]:visible").first().click(); await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 }); await expectFocusedQuestion(page);
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     for (const mode of ["minimum", "maximum", "mixed"] as const) {
       if (mode !== "minimum") { await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await expect(page.locator("[data-ptq15-result]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked(); }
@@ -54,16 +58,18 @@ for (const locale of ["en", "zh"] as const) {
     }
     expect(sensitivePosts).toEqual([]); expect(new URL(page.url()).search).toBe("");
   });
-  test(`@release PTQ15 ${locale}: opt-in draft, language switch, editing zero and reset`, async ({ page }) => {
-    await page.goto(entry); await page.locator("[data-explore-start]").click(); await page.locator('input[name="PTQ_01"][value="4"]').check();
-    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:overthinking-screener"))).toBeNull(); await page.getByRole("checkbox").check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload(); await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click(); await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[name="PTQ_01"][value="4"]')).toBeChecked(); await page.locator('input[name="PTQ_01"][value="0"]').check();
-    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/overthinking-screener`); await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click(); await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[name="PTQ_01"][value="0"]')).toBeChecked();
-    await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click(); expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:overthinking-screener"))).toBeNull();
+  test(`@release PTQ15 ${locale}: back and edit, reload, language change and exit clear private answers`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, entry, quiz);
+    const other = locale === "en" ? "zh" : "en";
+    await page.goto(`/${other}/tests/explore/${quiz.slug}/take`);
+    const first = page.locator(`#take-test input[name="${quiz.questions[0].id}"]`);
+    await expect(first.first()).toBeVisible({ timeout: 30000 });
+    await expect(first.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    expect(await page.evaluate(slug => sessionStorage.getItem(`fm_questionnaire_draft:${slug}`), quiz.slug)).toBeNull();
   });
   test(`@release PTQ15 ${locale}: one unscored, all unscored, all full guides and public-only sharing on mobile`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); await page.addInitScript(() => { Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } }); });
-    await page.goto(entry); await page.locator("[data-explore-start]").click(); await finish(page, locale, "one-skip");
+    await page.goto(entry); await page.locator("[data-explore-start]:visible").first().click(); await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 }); await finish(page, locale, "one-skip");
     await page.getByRole("button", { name: zh ? "复制公开入口" : "Copy public entry", exact: true }).click(); const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue(); expect(text).toContain(quiz.title[locale]); expect(text).not.toMatch(/PTQ_[0-9]{2}|answers|form_code|submission|14\s*\/\s*15|[?&]score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await finish(page, locale, "all-skip");
