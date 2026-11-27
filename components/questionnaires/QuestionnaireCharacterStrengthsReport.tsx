@@ -5,9 +5,9 @@ import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { QuestionnaireCharacterSource } from "./QuestionnaireCharacterSource";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
-import { trackEvent } from "@/lib/analytics";
+import { trackPublicResultCta } from "@/lib/tracking/publicResultCta";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
-import { appendSeoCtaContextParamsToHref, buildSeoCtaContextParams, buildSeoCtaTrackingPayload } from "@/lib/tracking/seoCtaAttribution";
+import { appendSeoCtaContextParamsToHref, buildSeoCtaContextParams } from "@/lib/tracking/seoCtaAttribution";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { Locale } from "@/lib/i18n/locales";
@@ -70,7 +70,7 @@ export function QuestionnaireCharacterStrengthsReport({ quiz, result, locale }: 
     <section className="space-y-3 leading-8" data-character-career-next>
       <h3 className="text-xl font-semibold">{zh ? displayText("如果还想探索职业兴趣") : "If you also want to explore career interests"}</h3>
       <p>{zh ? displayText("RIASEC另外询问职业活动兴趣，需要独立完整作答。先查看实际可用题本和负担，再决定是否继续；兴趣不同于能力、资格或工作机会，本次性格优势分数不换算为职业匹配。也可以在这里结束。") : "RIASEC separately asks about interests in work activities and needs its own full attempt. Check the available forms and effort before choosing to continue. Interest differs from ability, qualifications and job opportunities; these character-strength scores do not convert to career matches. You can also stop here."}</p>
-      <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={riasecHref} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? displayText("查看RIASEC职业兴趣与题本") : "Explore RIASEC interests and forms"}</Link>
+      <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={riasecHref} onClick={() => trackPublicResultCta(displayLocale, riasecBase, recommendation.targetAction, recommendation.scaleCode)}>{zh ? displayText("查看RIASEC职业兴趣与题本") : "Explore RIASEC interests and forms"}</Link>
     </section>
   </div>;
 }

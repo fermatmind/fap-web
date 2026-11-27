@@ -22,7 +22,8 @@ import { readFunDraft, resolveFunQuiz } from "@/lib/entertainment/scoring";
 import type { Locale } from "@/lib/i18n/locales";
 import { listMbtiFormMetas } from "@/lib/mbti/forms";
 import { trackEvent } from "@/lib/analytics";
-import { appendSeoCtaContextParamsToHref, buildSeoCtaContextParams, buildSeoCtaTrackingPayload } from "@/lib/tracking/seoCtaAttribution";
+import { trackPublicResultCta } from "@/lib/tracking/publicResultCta";
+import { appendSeoCtaContextParamsToHref, buildSeoCtaContextParams } from "@/lib/tracking/seoCtaAttribution";
 import catalog from "@/lib/entertainment/catalog.json";
 import { relatedFunQuizzes, resultPath } from "@/lib/entertainment/guides";
 import { hasTraditionalLegacyStory } from "@/lib/i18n/traditionalLegacyStoryPaths";
@@ -277,7 +278,7 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
         {!(archive || honor) && <>
           <h3 className="text-xl font-semibold">{zh ? displayText("完整结果已呈现，下一步由你选择") : "That is your complete result. What next?"}</h3>
           <p className="my-3 leading-7 text-slate-600">{zh ? displayText(`想用另一套框架继续认识自己？MBTI 探索偏好，与你刚才的故事独立计分。可选题本为 ${mbtiVersions}，需另行完整作答；也可以直接继续玩或离开。`) : `If you want a different framework, MBTI explores preferences through its own questionnaire. The versions are ${mbtiVersions}; each needs a separate full attempt. You can also keep playing or stop here.`}</p>
-          <Link prefetch={false} className="inline-block min-h-11 py-2 font-medium underline" onClick={() => trackEvent("article_to_test_click", buildSeoCtaTrackingPayload(recommendation))} href={mbtiHref}>{zh ? displayText("了解 MBTI 与题本选择") : "Explore MBTI and its versions"}</Link>
+          <Link prefetch={false} className="inline-block min-h-11 py-2 font-medium underline" onClick={() => trackPublicResultCta(displayLocale, mbtiBaseHref, recommendation.targetAction, recommendation.scaleCode)} href={mbtiHref}>{zh ? displayText("了解 MBTI 与题本选择") : "Explore MBTI and its versions"}</Link>
         </>}
         <ul className="mt-4 space-y-3">{relatedFunQuizzes(catalog, quiz).map(q => <li key={q.slug}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${traditional && hasTraditionalLegacyStory(q.slug) ? displayLocale : locale}/tests/explore/${q.slug}`}>{displayText(q.title[locale])}{traditional && !hasTraditionalLegacyStory(q.slug) ? "（簡體中文）" : null}</Link></li>)}</ul>
         <Link className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests#more-tests`}>{zh ? displayText("浏览所有更多测试") : "Browse all More Tests"}</Link>

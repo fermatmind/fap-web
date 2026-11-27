@@ -1,10 +1,15 @@
+"use client";
+
 import Link from "next/link";
+import { trackPublicResultCta } from "@/lib/tracking/publicResultCta";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import { archetypeCorePath } from "@/lib/questionnaires/archetypeResultCard";
 import { archetypeResultCopy } from "@/lib/questionnaires/archetypeResultShare";
 import styles from "./ArchetypeHonorCard.module.css";
 
 export function ResultCoreBridge({ locale, target, archiveExercise }: { locale: DisplayLocale; target: Parameters<typeof archetypeCorePath>[1]; archiveExercise?: boolean }) {
+  const href = archetypeCorePath(locale, target);
+  const action = `questionnaire_result_${{ MBTI: "mbti", BIG5_OCEAN: "bigfive", EQ_60: "eq", RIASEC: "riasec" }[target]}`;
   const copy = archetypeResultCopy[locale];
   const [label, context] = copy.targets[target];
   const exerciseContext = {
@@ -14,6 +19,6 @@ export function ResultCoreBridge({ locale, target, archiveExercise }: { locale: 
   };
   return <section className={styles.bridge} data-archetype-core-assessment={target}>
     <h3>{copy.next}</h3><p>{archiveExercise && target === "RIASEC" ? exerciseContext[locale] : context}</p>
-    <Link prefetch={false} referrerPolicy="no-referrer" href={archetypeCorePath(locale, target)}>{label} →</Link>
+    <Link prefetch={false} referrerPolicy="no-referrer" href={href} onClick={() => trackPublicResultCta(locale, href, action, target)}>{label} →</Link>
   </section>;
 }

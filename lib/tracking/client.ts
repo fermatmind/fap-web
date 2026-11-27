@@ -373,11 +373,13 @@ export async function trackClientEvent({
   payload,
   anonymousId,
   path,
+  referrerPolicy,
 }: {
   eventName: string;
   payload?: Record<string, unknown>;
   anonymousId: string;
   path: string;
+  referrerPolicy?: ReferrerPolicy;
 }): Promise<void> {
   if (!hasAnalyticsConsent()) return;
   if (!isTrackingEvent(eventName)) return;
@@ -427,6 +429,7 @@ export async function trackClientEvent({
       },
       body: JSON.stringify(envelope),
       keepalive: true,
+      referrerPolicy,
     });
   } catch {
     // Never block user flow on tracking transport errors.

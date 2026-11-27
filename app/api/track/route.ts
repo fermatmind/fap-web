@@ -5,6 +5,7 @@ import { isIP } from "node:net";
 import {
   filterTrackingPayload,
   isCareerAttributionEvent,
+  isPublicResultCtaAction,
   isSeoConversionFunnelEvent,
   isTrackingEvent,
   normalizeTrackingEventName,
@@ -330,16 +331,20 @@ export async function POST(request: NextRequest) {
   if (token && !nativeOrigin) {
     return NextResponse.json({ ok: false, requestId, error: "invalid_ingest_target" }, { status: 502 });
   }
-  const identityHeaders = isFunActivity ? {} : buildAccessStatsIdentityHeaders(request, timestamp, token);
+  const isPublicResultCta = normalizedEventName === "article_to_test_click" && isPublicResultCtaAction(payload.target_action);
+  const identityHeaders = isFunActivity || isPublicResultCta ? {} : buildAccessStatsIdentityHeaders(request, timestamp, token);
   const seoAttributionTarget = (isSeoConversionFunnelEvent(normalizedEventName) || isFunActivity || isMbtiLandingClick)
     ? (nativeOrigin ? `${nativeOrigin}/api/v0.5/seo/attribution/events` : undefined)
     : undefined;
+  if (isPublicResultCta && !seoAttributionTarget) {
+    return NextResponse.json({ ok: false, requestId, error: "invalid_ingest_target" }, { status: 502 });
+  }
   const nativeCareerAttributionTarget = nativeOrigin ? `${nativeOrigin}/api/v0.5/career/attribution/events` : undefined;
   const careerAttributionTarget = process.env.CAREER_ATTRIBUTION_INGEST_ENDPOINT?.trim()
     || process.env.ANALYTICS_ENDPOINT?.trim()
     || nativeCareerAttributionTarget;
   const targets = uniqueTargets(
-    (isFunActivity || isMbtiLandingClick) ? [seoAttributionTarget] : isCareerAttributionEvent(normalizedEventName)
+    (isFunActivity || isMbtiLandingClick || isPublicResultCta) ? [seoAttributionTarget] : isCareerAttributionEvent(normalizedEventName)
       ? [seoAttributionTarget, careerAttributionTarget]
       : [
           seoAttributionTarget,

@@ -1,9 +1,13 @@
+"use client";
+
 import { archiveTopic } from "@/lib/entertainment/archive90";
 import { resultPath } from "@/lib/entertainment/guides";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { canonicalUrl as publicGuideUrl } from "@/lib/site";
 import { PublicGuideShare } from "./PublicGuideShare";
 import Link from "next/link";
+import { trackPublicResultCta } from "@/lib/tracking/publicResultCta";
+import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { getArchiveExperience, getArchiveSnapshot } from "@/lib/entertainment/archiveExperience";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 
@@ -31,12 +35,20 @@ export function ArchiveQuestionnaireNextStep({ slug, locale }: { slug: string; l
   const next = getArchiveExperience(slug)?.next ?? archiveTopic(slug);
   if (!next) return null;
   const text = nextCopy[locale];
+  const href = `/${locale}/tests/${next.slug}`;
+  const targets = {
+    [SCALE_CANONICAL_SLUG_MAP.EQ_60]: ["eq", "EQ_60"],
+    [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: ["bigfive", "BIG5_OCEAN"],
+    [SCALE_CANONICAL_SLUG_MAP.RIASEC]: ["riasec", "RIASEC"],
+    [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: ["iq", "IQ_RAVEN"],
+  } as const;
+  const target = targets[next.slug as keyof typeof targets];
   return (
     <section className="mt-8 space-y-3 border-t border-slate-200 pt-6" data-archive-next-step>
       <h3 className="text-xl font-semibold">{text.heading}</h3>
       <p className="leading-7">{next.detail[locale]}</p>
       <p className="leading-7">{text.boundary}</p>
-      <Link href={`/${locale}/tests/${next.slug}`} prefetch={false} referrerPolicy="no-referrer" className="inline-block min-h-11 py-2 font-semibold underline">
+      <Link href={href} onClick={() => { if (target) trackPublicResultCta(locale, href, `questionnaire_result_${target[0]}`, target[1]); }} prefetch={false} referrerPolicy="no-referrer" className="inline-block min-h-11 py-2 font-semibold underline">
         {next.label[locale]}
       </Link>
     </section>

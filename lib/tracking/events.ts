@@ -248,6 +248,10 @@ export function isCanonicalSeoFunnelEvent(eventName: string): eventName is Canon
   return CANONICAL_SEO_FUNNEL_EVENTS.includes(eventName as CanonicalSeoFunnelEventName);
 }
 
+export function isPublicResultCtaAction(value: unknown): value is string {
+  return typeof value === "string" && /^(?:entertainment|questionnaire)_result_[a-z0-9_]+$/.test(value);
+}
+
 export function isSeoConversionFunnelEvent(eventName: string): eventName is SeoConversionFunnelEventName {
   return SEO_CONVERSION_FUNNEL_EVENTS.includes(eventName as SeoConversionFunnelEventName);
 }

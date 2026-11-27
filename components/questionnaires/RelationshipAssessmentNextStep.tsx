@@ -7,8 +7,8 @@ import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import { questionnairePath } from "@/lib/questionnaires/paths";
 import { getBrowserAnalyticsSuppressionDecision } from "@/lib/tracking/browserAnalyticsSuppression";
 import { isAnalyticsDisabledQuestionnaireUrl } from "@/lib/tracking/privacy";
-import { buildSeoCtaNavigationHref, buildSeoCtaTrackingPayload } from "@/lib/tracking/seoCtaAttribution";
-import { trackEvent } from "@/lib/analytics";
+import { buildSeoCtaNavigationHref } from "@/lib/tracking/seoCtaAttribution";
+import { trackPublicResultCta } from "@/lib/tracking/publicResultCta";
 
 const copy = {
   en: {
@@ -66,10 +66,7 @@ export function RelationshipAssessmentNextStep({ slug, locale, displayLocale }: 
         if (privateSource || !hasAnalyticsConsent() || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         if (getBrowserAnalyticsSuppressionDecision({ pathname: window.location.pathname, search: window.location.search }).suppressed) return;
         event.preventDefault();
-        trackEvent(slug === "relationship-values" ? "article_to_test_click" : "start_click", {
-          ...buildSeoCtaTrackingPayload(attribution),
-          locale: displayLocale,
-        });
+        trackPublicResultCta(displayLocale, href, action, target.scale);
         window.location.assign(buildSeoCtaNavigationHref(attribution));
       }}>
       {text[topic][0]}

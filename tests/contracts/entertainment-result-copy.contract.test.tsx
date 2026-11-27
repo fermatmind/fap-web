@@ -7,8 +7,10 @@ import { listMbtiFormMetas } from "@/lib/mbti/forms";
 import { toSeoAttributionIngestEnvelope } from "@/app/api/track/route";
 import { filterTrackingPayload } from "@/lib/tracking/events";
 import { trackEvent } from "@/lib/analytics";
+import { trackPublicResultCta } from "@/lib/tracking/publicResultCta";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
+vi.mock("@/lib/tracking/publicResultCta", () => ({ trackPublicResultCta: vi.fn() }));
 afterEach(() => { cleanup(); sessionStorage.clear(); vi.useRealTimers(); vi.clearAllMocks(); });
 
 describe("entertainment result onward burden and real completion", () => {
@@ -41,9 +43,12 @@ describe("entertainment result onward burden and real completion", () => {
     const onward = screen.getByRole("link", { name: linkName });
     onward.addEventListener("click", event => event.preventDefault());
     fireEvent.click(onward);
-    const onwardCalls = vi.mocked(trackEvent).mock.calls.filter(([event]) => event === "article_to_test_click");
-    expect(onwardCalls).toHaveLength(1);
-    expect(onwardCalls[0][1]).toMatchObject({ scale_code: "MBTI", test_slug: "mbti-personality-test-16-personality-types", source_path: `/${locale}/tests/explore/${quiz.slug}` });
+    expect(trackPublicResultCta).toHaveBeenCalledExactlyOnceWith(
+      locale,
+      `/${locale}/tests/mbti-personality-test-16-personality-types`,
+      "entertainment_result_mbti",
+      "MBTI",
+    );
     expect(vi.mocked(trackEvent).mock.calls.filter(([event]) => event === "start_test")).toHaveLength(1);
     expect(vi.mocked(trackEvent).mock.calls.filter(([event]) => event === "complete_test")).toHaveLength(1);
   });
