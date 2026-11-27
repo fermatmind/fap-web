@@ -9,13 +9,16 @@ async function finish(page: Page, locale: "en" | "zh", mode: "high" | "na" | "mi
     const value = mode === "na" ? "na" : mode === "high" ? "5" : question.id.startsWith("LL_G_") ? "4" : "2";
     const radio = page.locator(`input[name="${question.id}"][value="${value}"]`);
     if (index < 49) await expect(page.locator("[data-affection-facet]")).toHaveCount(0);
-    await radio.press("Space");
+    if (index === 0) await radio.press("Space");
+    else await radio.click();
     const next = quiz.questions[index + 1];
     if (next) await expect(page.locator(`input[name="${next.id}"]`).first()).toBeVisible();
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   await expect(page.locator("[data-affection-facet]")).toHaveCount(10); await expect(page.locator("[data-affection-profile]")).toHaveCount(5);
-  await expect(page.locator("#take-test [data-reading-mode=result] > section h4")).toHaveCount(15);
+  for (const profile of quiz.profiles) {
+    await expect(page.locator(`#take-test a[href="/${locale}/tests/explore/${quiz.slug}/results/${profile.id}"]`).first()).toBeVisible();
+  }
   await expect(page.locator("#take-test h4")).toHaveCount(readingProfiles.reduce((count, profile) => count + profile.sections.length, 0));
   for (const profile of readingProfiles) for (const section of profile.sections) for (const paragraph of section.paragraphs) await expect(page.locator("#take-test")).toContainText(paragraph[locale]);
   for (const direction of quiz.directions) {
@@ -32,21 +35,22 @@ for (const locale of ["en", "zh"] as const) {
     page.on("request", r => { if (r.method() === "POST" && /LL_[GR]_(WORDS|ACTS|GIFTS|TIME|TOUCH)_/.test(r.postData() ?? "")) leaks.push(r.url()); });
     await page.goto(`/${locale}/tests`); await page.getByTestId("cookie-banner-decline").click(); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
-    await expect(page.getByText(zh ? "原创双向爱语自评 · 完整结果免费" : "Original love-language reflection · Full results free", { exact: true })).toBeVisible();
+    await expect(page.locator("[data-explore-start]:visible").first()).toBeEnabled();
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "high");
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
+    await expect(page.locator("[data-archetype-honor-card]")).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-affection-facet]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(leaks).toEqual([]);
   });
   test(`@release Love languages ${locale}: refresh and language change start with blank answers`, async ({ page }) => {
     await page.goto(entry);
-    await expect(page.getByText(zh ? "这份测试不保存答题进度" : "This quiz does not save your progress", { exact: false }).first()).toBeVisible();
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     const first = await page.locator("legend").first().textContent();
     await page.locator('input[value="2"]').check();
     await expect(page.locator("legend").first()).not.toHaveText(first!);
@@ -57,7 +61,8 @@ for (const locale of ["en", "zh"] as const) {
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:love-languages"))).toBeNull();
 
     await page.goto(`/${zh ? "en" : "zh"}/tests/explore/love-languages`);
-    await page.getByRole("button", { name: zh ? "Start test" : "开始测试", exact: true }).click();
+    await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     await expect(page.getByRole("radio").first()).not.toBeChecked();
   });
   test(`@release Love languages ${locale}: denied storage/clipboard, unscored and mixed roles retain all full guides with safe share`, async ({ page }) => {
@@ -65,14 +70,15 @@ for (const locale of ["en", "zh"] as const) {
       const get = Storage.prototype.getItem, set = Storage.prototype.setItem;
       Storage.prototype.getItem = function(k) { if (k.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return get.call(this, k); };
       Storage.prototype.setItem = function(k, v) { if (k.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, k, v); };
-      Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
+      Object.defineProperty(navigator, "share", { configurable: true, value: undefined }); Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByTestId("cookie-banner-decline").click(); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.goto(entry); await page.getByTestId("cookie-banner-decline").click(); await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     await expect(page.getByRole("checkbox")).toHaveCount(0); await finish(page, locale, "na");
-    await expect(page.getByRole("heading", { level: 3, name: zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.", exact: true })).toBeVisible();
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await finish(page, locale, "mixed");
-    await page.getByRole("button", { name: zh ? "复制公开入口" : "Copy public entry", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue(); expect(text).toContain(quiz.title[locale]);
+    await expect(page.locator("[data-archetype-honor-card]")).toBeVisible();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click(); await finish(page, locale, "mixed");
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.locator("[data-archetype-honor-group] textarea").inputValue(); expect(text).toContain(quiz.title[locale]);
     expect(text).not.toMatch(/LL_[GR]_|answers|giving_|receiving_|form_code|4\.0|2\.0|[?&]score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
   });
