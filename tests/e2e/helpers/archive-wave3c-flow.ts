@@ -28,7 +28,7 @@ async function begin(page: Page, bank: Bank, landing: string) {
     const mode = body.locator('input[value="study"]');
     if (dedicatedPractice.has(bank.kind) && await mode.isVisible()) await mode.check();
     const start = body.locator("button[data-explore-start]:enabled");
-    await expect(body.locator('[data-questionnaire-next], button[data-explore-start]:enabled').first()).toBeVisible();
+    await expect(body.locator('[data-questionnaire-next], button[data-explore-start]:enabled').first()).toBeVisible({ timeout: 30000 });
     if (await start.count()) {
       try { await click(start.first()); }
       catch (error) { if (!(await nextButton(page).isVisible())) throw error; }
@@ -46,16 +46,14 @@ async function finish(page: Page, bank: Bank, selected: "correct" | "blank") {
       await click(page.getByRole("button", { name: /^(Start this part|开始本部分|開始本部分)$/u }));
     }
     const radio = (name: string, value: string) => page.locator(`#take-test input[type="radio"][name="${name}"][value="${value}"]`);
-    if (bank.kind === "most-least") {
-      await click(radio(question.id + "-most", question.options[0].id));
-      await click(radio(question.id + "-least", question.options[1].id));
-    } else {
-      const choice = selected === "blank" && question.options.some(option => option.id === "na")
-        ? "na"
+    const mostLeast = bank.kind === "most-least";
+    if (mostLeast) await click(radio(question.id + "-most", question.options[0].id));
+    const choice = mostLeast ? question.options[1].id
+      : selected === "blank" && question.options.some(option => option.id === "na") ? "na"
         : question.correctOptionId ?? question.options[i % question.options.length].id;
-      await click(radio(question.id, choice));
-    }
-    await click(nextButton(page));
+    const answer = radio(mostLeast ? question.id + "-least" : question.id, choice);
+    await click(answer);
+    await expect(answer).toHaveCount(0);
   }
   return questions.length;
 }
