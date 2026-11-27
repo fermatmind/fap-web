@@ -6,7 +6,7 @@ for (const locale of ["en", "zh", "zh-TW"] as const) {
     const traditional = locale === "zh-TW";
     const zh = locale !== "en";
     if (zh) await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto(`/${locale}/tests/play/changan-history-quiz`);
+    await page.goto(`/${locale}/tests/explore/changan-history-quiz`);
     if (traditional) await page.getByRole("link", { name: "開始長安卷" }).click();
     else await page.getByRole("button", { name: zh ? /开始测试/ : /Start quiz/ }).click();
     const gate = traditional ? /推開長安城門/ : zh ? /推开长安城门/ : /Enter Chang’an/;
@@ -27,21 +27,28 @@ for (const locale of ["en", "zh", "zh-TW"] as const) {
     await expect(result).toHaveAttribute("data-changan-result", "wu-zetian");
     await expect(result.getByRole("heading", { level: 2 })).toHaveText(traditional ? "武則天" : zh ? "武则天" : "Wu Zetian");
     if (traditional) {
-      await expect(result.getByRole("link", { name: "閱讀完整人物指南" })).toHaveAttribute("href", "/zh-TW/tests/play/changan-history-quiz/results/wu-zetian");
+      await expect(result.getByRole("link", { name: "閱讀完整人物指南" })).toHaveAttribute("href", "/zh-TW/tests/explore/changan-history-quiz/results/wu-zetian");
     }
-    await expect.poll(() => result.getByRole("img").evaluate(image => (image as HTMLImageElement).naturalWidth), { timeout: 15000 }).toBe(720);
+    const card = page.locator('[data-archetype-honor-group="changan-history-quiz"]');
+    const portrait = card.locator('[data-archetype-art="portrait"] img');
+    await expect(portrait).toBeVisible();
+    await expect.poll(() => portrait.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBe(720);
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(zh ? 390 : 1280);
 
-    const downloadLink = result.getByRole("link", { name: traditional ? "下載人物卡 PNG" : zh ? "下载人物卡 PNG" : "Download portrait PNG" });
-    const [download] = await Promise.all([page.waitForEvent("download"), downloadLink.click()]);
-    expect(download.suggestedFilename()).toBe(`fermatmind-changan-wu-zetian-${locale}.png`);
+    const save = card.getByRole("button", { name: traditional ? "儲存高畫質圖卡" : zh ? "保存高清图卡" : "Save PNG Card", exact: true });
+    const [download] = await Promise.all([page.waitForEvent("download"), save.click()]);
+    expect(download.suggestedFilename()).toBe(`fermatmind-changan-history-quiz-${locale}.png`);
     const image = await readFile(await download.path());
     expect(image.subarray(0, 8).toString("hex")).toBe("89504e470d0a1a0a");
-    expect([image.readUInt32BE(16), image.readUInt32BE(20)]).toEqual([840, 1200]);
-    const preview = await page.request.get((await result.getByRole("link", { name: traditional ? "開啟圖片" : zh ? "打开图片" : "Open image" }).getAttribute("href"))!);
-    expect(preview.headers()["content-type"]).toContain("image/png");
-    expect(preview.headers()["content-disposition"]).toBeUndefined();
-    await result.getByRole("button", { name: zh ? "再玩一次" : "Play again" }).click();
+    expect([image.readUInt32BE(16), image.readUInt32BE(20)]).toEqual([1080, 1440]);
+    await card.getByRole("button", { name: traditional ? "打開圖片 / 長按儲存" : zh ? "打开图片 / 长按保存" : "Open image to save", exact: true }).click();
+    const preview = card.getByRole("dialog");
+    await expect(preview.getByRole("img")).toBeVisible();
+    const previewUrl = await preview.getByRole("img").getAttribute("src");
+    expect(previewUrl).toMatch(/^blob:/);
+    await page.keyboard.press("Escape");
+    await expect(preview).toBeHidden();
+    await card.getByRole("button", { name: traditional ? "再測一次" : zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-changan-result]")).toHaveCount(0);
     await expect(page.getByRole("button", { name: gate })).toBeVisible();
   });

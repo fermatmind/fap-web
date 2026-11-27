@@ -8,30 +8,34 @@ const routes = [
  ["q1:2,q3:2,q6:2,q7:1","harbor"], ["q1:2,q3:2,q6:2,q7:2","gallery"], ["q1:2,q3:2,q6:2,q7:3","postcard"],
 ];
 for(const locale of ["en","zh"] as const)test(`@release portal-choice ${locale}: sixteen real branches, complete endings, back-edit pruning and responsive entry`,async({page,request})=>{
- test.setTimeout(120000);const zh=locale==="zh",path=`/${locale}/tests/play/portal-choice`;
+ test.setTimeout(120000);const zh=locale==="zh",path=`/${locale}/tests/explore/portal-choice`;
  await page.addInitScript(()=>localStorage.setItem("fm_consent_v1",JSON.stringify({analytics:"denied",updatedAt:new Date().toISOString()})));
  await page.goto(path);await expect(page.locator('h1')).toHaveText(quiz.title[locale]);await expect(page.locator('.explore-intro-meta')).toContainText(zh?'3–4次选择':'3–4 choices');
  for(const width of [390,1440]){await page.setViewportSize({width,height:900});await expect(page.locator('[data-explore-start]')).toBeEnabled();await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(500);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:test.info().outputPath(`portal-${locale}-${width}.png`),fullPage:true});}
- await page.locator('[data-explore-start]').click();await expect(page.locator('#play')).toHaveAttribute('data-stage','answer');
+ await page.locator('[data-explore-start]').click();
+ await expect(page).toHaveURL(new RegExp(`${path}/take(?:[?]start=1)?$`));
+ await expect(page.locator('#play')).toHaveAttribute('data-stage','answer',{timeout:30000});
  for(const [encoded,ending] of routes){
   const steps=encoded.split(',').map(s=>s.split(':'));
-  for(const [i,[qid,option]] of steps.entries()){
+  for(const [qid,option] of steps){
    await expect(page.locator('#play h2')).toHaveText(quiz.questions.find(q=>q.id===qid)!.prompt[locale]);
-   await page.locator(`#play input[name="${qid}"][value="o${option}"]`).check();
-   await page.getByRole('button',{name:i===steps.length-1?(zh?'查看完整结果':'See full result'):(zh?'下一题':'Next'),exact:true}).click();
+   await page.locator(`#play input[name="${qid}"][value="o${option}"]`).click();
   }
-  await expect(page.locator('#play')).toHaveAttribute('data-stage','result');await expect(page.locator('#play > article')).toHaveCount(1);
-  const result=quiz.results.find(r=>r.id===ending)!;await expect(page.locator('#play h2')).toHaveText(result.title[locale]);for(const field of ['summary','example','strength','tradeoff','experiment'] as const)await expect(page.locator('#play > article')).toContainText(result[field][locale]);
-  await page.getByRole('button',{name:zh?'重新测试':'Retake quiz',exact:true}).click();await expect(page.locator('#play input:checked')).toHaveCount(0);await expect(page.locator('#play h2')).toHaveText(quiz.questions[0].prompt[locale]);
+  await expect(page.locator('#play')).toHaveAttribute('data-stage','result');await expect(page.locator('#play [data-story-result-readings] > article')).toHaveCount(1);
+  const result=quiz.results.find(r=>r.id===ending)!;await expect(page.locator('#play h2')).toHaveText(result.title[locale]);for(const field of ['summary','example','strength','tradeoff','experiment'] as const)await expect(page.locator('#play')).toContainText(result[field][locale]);
+  await page.getByRole('button',{name:zh?'再测一次':'Retake',exact:true}).click();await expect(page.locator('#play input:checked')).toHaveCount(0);await expect(page.locator('#play h2')).toHaveText(quiz.questions[0].prompt[locale]);
  }
  // Abandon the steam/q4 route and choose the paper/q6 ending; no old branch answer survives.
- for(const [qid,option] of [['q1','o1'],['q2','o1']]){await page.locator(`#play input[name="${qid}"][value="${option}"]`).check();await page.getByRole('button',{name:zh?'下一题':'Next',exact:true}).click();}
- await page.locator('#play input[name="q4"][value="o2"]').check();
- for(let i=0;i<2;i++)await page.getByRole('button',{name:zh?'上一题':'Back',exact:true}).click();
- await page.locator('#play input[name="q1"][value="o2"]').check();await page.getByRole('button',{name:zh?'下一题':'Next',exact:true}).click();
- await page.locator('#play input[name="q3"][value="o2"]').check();await page.getByRole('button',{name:zh?'下一题':'Next',exact:true}).click();
+ for(const [qid,option] of [['q1','o1'],['q2','o1']]){await page.locator(`#play input[name="${qid}"][value="${option}"]`).click();}
+ // Leave the edited scene before the standalone auto-advance runs.
+ const previous = page.getByRole('button', { name: zh ? '上一题' : 'Back', exact: true });
+ const back = await previous.elementHandle();
+ await page.locator('#play input[name="q4"][value="o2"]').evaluate((choice: HTMLInputElement, button) => { choice.click(); (button as HTMLButtonElement).click(); }, back);
+ await previous.click();
+ await page.locator('#play input[name="q1"][value="o2"]').click();
+ await page.locator('#play input[name="q3"][value="o2"]').click();
  await expect(page.locator('#play h2')).toHaveText(quiz.questions[5].prompt[locale]);await expect(page.locator('#play input:checked')).toHaveCount(0);
- await page.locator('#play input[name="q6"][value="o1"]').check();await page.getByRole('button',{name:zh?'查看完整结果':'See full result',exact:true}).click();
+ await page.locator('#play input[name="q6"][value="o1"]').click();
  await expect(page.locator('#play h2')).toHaveText(quiz.results[2].title[locale]);
  for(const result of quiz.results){const response=await request.get(`${path}/results/${result.id}`);expect(response.status()).toBe(200);const text=await page.evaluate(s=>new DOMParser().parseFromString(s,'text/html').body.textContent,await response.text());for(const field of ['summary','example','strength','tradeoff','experiment'] as const)expect(text).toContain(result[field][locale]);}
 });
