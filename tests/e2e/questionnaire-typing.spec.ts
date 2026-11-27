@@ -1,3 +1,4 @@
+import { isArchivedEntertainmentPath } from "../../lib/seo/discoverabilityExposurePolicy";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { prepareResultProfile } from "../../lib/questionnaires/result-content/readings";
@@ -5,8 +6,8 @@ import type { Questionnaire } from "../../lib/questionnaires/types";
 const quiz=JSON.parse(readFileSync("lib/questionnaires/data/typing-speed.json","utf8")) as Questionnaire;
 const startName=(locale:"en"|"zh")=>locale==="zh"?"开始60秒练习":"Start 60-second round";
 async function open(page:Page,locale:"en"|"zh",mode="english",fromHub=false){
+  await page.addInitScript(() => localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() })));
   if(fromHub){await page.goto(`/${locale}/tests`);await page.locator("#more-tests").getByRole("link",{name:quiz.title[locale],exact:true}).click();}else await page.goto(`/${locale}/tests/explore/typing-speed`);await expect(page.getByRole("heading",{level:1})).toHaveText(quiz.title[locale]);await page.locator("[data-explore-start]").click();await expect(page.getByRole("button",{name:startName(locale),exact:true})).toBeEnabled();
-  const decline=page.getByRole("button",{name:locale==="zh"?"拒绝":"Decline",exact:true});if(await decline.isVisible())await decline.click();
   await page.locator("#typing-mode").selectOption(String(quiz.typing!.rounds.findIndex(r=>r.id===mode)));
 }
 async function checkGuides(page:Page,locale:"en"|"zh"){
@@ -51,6 +52,12 @@ test("@release typing: clock divergence clears,zero attempt preserves allguides 
   await page.getByRole("button",{name:startName("en"),exact:true}).click();await page.clock.fastForward(60000);await expect(page.locator("[data-typing-cpm]")).toHaveText("0.0");await expect(page.locator("[data-typing-accuracy]")).toHaveText("No input; accuracy not applicable");await checkGuides(page,"en");await page.getByRole("button",{name:"Copy public practice link",exact:true}).click();const shared=await page.getByRole("textbox",{name:"Public link for manual copying",exact:true}).inputValue();expect(shared).toBe("Typing Speed Test\nhttps://fermatmind.com/en/tests/explore/typing-speed");expect(shared).not.toMatch(/answers|elapsed|accuracy|[?&]score/);
 });
 test("@release typing:6native full pages,6bilingual PNGs,stable alternates and closed result identifiers",async({page,request})=>{
-  for(const locale of ["en","zh"] as const){const entry=await request.get(`/og/fun/typing-speed?locale=${locale}`);expect(entry.status()).toBe(200);expect(entry.headers()["content-type"]).toContain("image/png");for(const p of quiz.profiles){const route=`/${locale}/tests/explore/typing-speed/results/${p.id}`;expect((await page.goto(route))?.status()).toBe(200);await expect(page.getByRole("heading",{level:1})).toHaveText(p.title[locale]);for(const s of p.sections)for(const t of s.paragraphs)await expect(page.locator(`#report-${s.id}`)).toContainText(t[locale]);await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href",`https://fermatmind.com${route}`);await expect(page.locator('link[rel="alternate"][hreflang="zh-CN"]')).toHaveAttribute("href",`https://fermatmind.com/zh/tests/explore/typing-speed/results/${p.id}`);await page.locator('a[href$="#take-test"]').first().click();await expect(page.locator("#take-test")).toBeVisible();const image=await request.get(`/og/fun/typing-speed?locale=${locale}&portrait=${p.id}`);expect(image.status()).toBe(200);expect(image.headers()["content-type"]).toContain("image/png");}}
+  for(const locale of ["en","zh"] as const){const entry=await request.get(`/og/fun/typing-speed?locale=${locale}`);expect(entry.status()).toBe(200);expect(entry.headers()["content-type"]).toContain("image/png");for(const p of quiz.profiles){const route=`/${locale}/tests/explore/typing-speed/results/${p.id}`;expect((await page.goto(route))?.status()).toBe(200);await expect(page.getByRole("heading",{level:1})).toHaveText(p.title[locale]);for(const s of p.sections)for(const t of s.paragraphs)await expect(page.locator(`#report-${s.id}`)).toContainText(t[locale]);await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href",`https://fermatmind.com${route}`);if (isArchivedEntertainmentPath(route)) {
+      await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+      await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
+    } else {
+      await expect(page.locator('link[rel="alternate"][hreflang="zh-CN"]')).toHaveAttribute("href",`https://fermatmind.com/zh/tests/explore/typing-speed/results/${p.id}`);
+    }
+    await page.locator('a[href$="#take-test"]').first().click();await expect(page.locator("#take-test")).toBeVisible();const image=await request.get(`/og/fun/typing-speed?locale=${locale}&portrait=${p.id}`);expect(image.status()).toBe(200);expect(image.headers()["content-type"]).toContain("image/png");}}
   expect((await request.get("/en/tests/explore/typing-speed/results/fast")).status()).toBe(404);expect((await request.get("/og/fun/typing-speed?portrait=private-typing" )).status()).toBe(404);
 });

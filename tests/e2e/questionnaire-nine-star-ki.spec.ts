@@ -1,3 +1,4 @@
+import { isArchivedEntertainmentPath } from "../../lib/seo/discoverabilityExposurePolicy";
 import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { NineStarYearQuestionnaire } from "../../lib/questionnaires/nineStarYear";
@@ -77,7 +78,12 @@ test("@release nine-star-year all20 native pages/images, complete culture/source
       expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(p.title[locale]); await expect(page).toHaveTitle(`${p.seo.title[locale]} | FermatMind`); await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", p.seo.description[locale]);
       for (const s of p.sections) { const section = page.locator(`#nine-star-public-${p.id}-${s.id}`); await expect(section.getByRole("heading", { level: 2 })).toHaveText(s.title[locale]); for (const text of s.paragraphs) await expect(section).toContainText(text[locale]); }
       await expect(page.locator("input, [data-nine-star-result]")).toHaveCount(0); await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`);
-      for (const [lang, l] of [["en", "en"], ["zh-CN", "zh"], ["x-default", "en"]]) await expect(page.locator(`link[rel="alternate"][hreflang="${lang}"]`)).toHaveAttribute("href", `https://fermatmind.com/${l}/tests/explore/nine-star-ki/results/${p.id}`);
+      if (isArchivedEntertainmentPath(new URL(page.url()).pathname)) {
+        await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+        await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
+      } else {
+        for (const [lang, l] of [["en", "en"], ["zh-CN", "zh"], ["x-default", "en"]]) await expect(page.locator(`link[rel="alternate"][hreflang="${lang}"]`)).toHaveAttribute("href", `https://fermatmind.com/${l}/tests/explore/nine-star-ki/results/${p.id}`);
+      }
       await expect(page.getByRole("link", { name: locale === "zh" ? "查看节年规则与条件计算" : "See the year rule and conditional calculation", exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/nine-star-ki`);
       await expect(page.getByRole("navigation", { name: locale === "zh" ? "其他九星文化指南" : "Other Nine Star cultural guides", exact: true }).getByRole("link")).toHaveCount(8);
     }

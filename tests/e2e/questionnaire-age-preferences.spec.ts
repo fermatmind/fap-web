@@ -25,6 +25,7 @@ async function answer(page: Page, locale: "en" | "zh", profileIndex: number, che
   const option = (index: number) => page.locator(`input[name="${quiz.questions[index].id}"][value="${witness.option_codes[index]}"]`);
   const counts = page.getByRole("region", { name: zh ? "本次原始选择次数" : "Raw choice counts for this attempt", exact: true });
   await expect(counts).toHaveCount(0);
+  await expect(option(0)).toBeVisible({ timeout: 30_000 });
   await expect(option(0)).not.toBeChecked();
   if (checkBack) {
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
@@ -37,7 +38,8 @@ async function answer(page: Page, locale: "en" | "zh", profileIndex: number, che
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
   }
   for (let i = checkBack ? 1 : 0; i < quiz.questions.length; i++) {
-    await option(i).check();
+    await option(i).click();
+    await expect(option(i)).toHaveCount(0);
   }
   await expect(page.getByRole("heading", { level: 2, name: profile.title[locale], exact: true })).toBeFocused();
   await expect(counts).toBeVisible();
@@ -45,10 +47,8 @@ async function answer(page: Page, locale: "en" | "zh", profileIndex: number, che
   await expect(counts).toContainText(profileIndex === 6 ? (zh ? "三项各选 6 次" : "All three were chosen 6 times") :
     profile.directionIds.length === 2 ? (zh ? "两项同为最高" : "Two contexts share the highest count") :
       (zh ? "最高项是你" : "The highest count"));
-  const card = page.getByRole("link", { name: zh ? "打开结果分享图" : "Open result share card", exact: true });
-  const image = new URL((await card.getAttribute("href"))!, root);
-  expect(image.pathname).toBe(`/og/fun/${quiz.slug}`);
-  expect(Object.fromEntries(image.searchParams)).toEqual({ locale, portrait: profile.id, v: quiz.version + "-art" });
+  await expect(page.locator("[data-archetype-honor-card]")).toBeVisible();
+  await expect(page.locator(`#take-test a[href="${path(locale)}/results/${profile.id}"]`)).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   return profile;
 }
@@ -59,7 +59,13 @@ for (const locale of ["en", "zh"] as const) {
   for (const viewport of ["mobile", "desktop"] as const) {
     test(`@release ${locale} ${viewport}: entry, sample counts, private result, share and retake`, async ({ page }) => {
       await page.setViewportSize(viewport === "mobile" ? { width: 390, height: 844 } : { width: 1440, height: 900 });
-      await page.addInitScript(() => Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw Error("synthetic clipboard denial"); } } }));
+      await page.addInitScript(() => {
+        Object.defineProperty(navigator, "share", { configurable: true, value: undefined });
+        Object.defineProperty(navigator, "clipboard", {
+          configurable: true,
+          value: { writeText: async () => { throw Error("synthetic clipboard denial"); } },
+        });
+      });
       const posts: string[] = [];
       page.on("request", request => {
         if (request.method() === "POST" && /AGE_FC_/.test(request.postData() ?? "")) posts.push(request.url());
@@ -76,13 +82,25 @@ for (const locale of ["en", "zh"] as const) {
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", root + entry);
       const indices = viewport === "mobile" ? [0, 3, 6] : [1, 2, 4, 5];
       for (const [i, index] of indices.entries()) {
-        if (i) await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+        if (i) await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
         await answer(page, locale, index, i === 0);
       }
       const profile = quiz.profiles[indices.at(-1)!];
-      await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link" }).click();
-      const copied = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
-      expect(copied).toBe(`${quiz.title[locale]}\n${profile.title[locale]}\n${root}${entry}/results/${profile.id}`);
+      await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result" }).click();
+      const copied = await page.locator("[data-archetype-honor-group] textarea").inputValue();
+      const names = {
+        OLDER_PARTNER_CONTEXT: zh ? "年上情境" : "Older partner",
+        SIMILAR_AGE_CONTEXT: zh ? "同龄情境" : "Similar life stage",
+        YOUNGER_PARTNER_CONTEXT: zh ? "年下情境" : "Younger partner",
+      } as const;
+      for (const id of profile.directionIds) expect(copied).toContain(names[id as keyof typeof names]);
+      expect(copied).not.toMatch(/AGE_FC_|\d+\s*\/\s*12|[?&](?:score|answers)/u);
+      expect(copied.split("\n").at(-1)).toBe(root + entry);
+      await page.getByRole("button", { name: zh ? "打开图片 / 长按保存" : "Open image to save", exact: true }).click();
+      const poster = page.locator("dialog[open][data-archetype-lightbox] img");
+      await expect(poster).toBeVisible();
+      await expect(poster).toHaveAttribute("src", /^blob:/u);
+      await page.keyboard.press("Escape");
       expect([...new URL(page.url()).searchParams]).toEqual(new URL(page.url()).search ? [["start", "1"]] : []);
       expect(posts).toEqual([]);
       await page.getByRole("link", { name: zh ? "返回测试介绍" : "Back to quiz introduction" }).click();
