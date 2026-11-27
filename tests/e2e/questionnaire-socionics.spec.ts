@@ -63,8 +63,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByText(zh ? "这份测试不保存答题进度" : "This quiz does not save your progress", { exact: false }).first()).toBeVisible();
     await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
     const first = await page.locator("legend").first().textContent();
-    await page.locator('input[value="b"]').check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
+    await page.locator('input[value="b"]').click();
     await expect(page.locator("legend").first()).not.toHaveText(first!);
     await page.reload();
     await expect(page.locator("legend").first()).toHaveText(first!);

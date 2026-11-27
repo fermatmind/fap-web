@@ -1,9 +1,11 @@
+import { archetypeCorePath, archetypeResultName } from "../../lib/questionnaires/archetypeResultCard";
+import { expectArchetypeGuideAlternates } from "./helpers/archetype-standalone-cases";
+import { downloadResultPoster, expectResultPosterFailure } from "./helpers/result-poster";
 import { entertainmentGuideProfile, entertainmentGuideStartLabel } from "../../lib/questionnaires/entertainmentGuideSeo";
 import { test, expect, type Page } from "@playwright/test";
 import { mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { readFileSync } from "node:fs";
-import { moonPhasePresentations } from "../../lib/questionnaires/moonPhasePresentation";
 import type { Questionnaire } from "../../lib/questionnaires/types";
 
 test.beforeEach(async ({page}) => {
@@ -22,10 +24,10 @@ async function finish(page: Page, locale: "en" | "zh", mode: "new-moon" | "waxin
     const two = ["D","A","C","B","B","B","B","C","C","C","D","D","A","B","A","A","A","C","A","B","D","B","B","A"];
     const option = mode === "two" ? question.options.find(o => o.id === two[index])! : mode === "tie" ? question.options[0] : question.options.find(o => o.directionId === mode) ?? question.options[0];
     const radio = page.locator(`input[name="${question.id}"][value="${option.id}"]`);
-    if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
-    else await radio.check();
-    if (index < 23) await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
-    await page.getByRole("button", { name: index === 23 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
+    if (index === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   await expect(page.locator("[data-archetype-count]")).toHaveCount(8);
@@ -73,44 +75,31 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, width === 1440 ? "waxing-crescent" : "new-moon");
     await expect(page.locator("[data-moon-phase-reveal]")).toBeVisible();
     await expect(page.locator("[data-moon-phase-choice-reasons] li")).toHaveCount(2);
-    const sharing = page.locator("[data-moon-phase-sharing]");
-    const download = page.waitForEvent("download");
-    await sharing.getByRole("button", {name: zh ? "保存月相卡片" : "Save Moon Phase card", exact: true}).click();
-    const file = await download;
-    const drawn = await page.evaluate(() => (window as unknown as {__moonCardText: string[]}).__moonCardText.join(" "));
-    expect(drawn).toContain(zh ? "费马测试 · 月相测试" : "FermatMind · Moon Phase Personality Test");
-    expect(drawn).toContain(zh ? "我的结果 · 娱乐问卷" : "My result · Entertainment quiz");
-    expect(drawn).toContain(moonPhasePresentations[width === 1440 ? "waxing-crescent" : "new-moon"].name[locale]);
-    expect(drawn).toContain(zh ? "不是出生月相计算" : "Not a birth moon calculation");
-    expect(file.suggestedFilename()).toBe(`fermatmind-moon-phase-${locale}-landscape.png`);
-    const image = sharing.locator("img"); await expect(image).toBeVisible();
-    await expect.poll(() => image.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(1200);
+    const file = await downloadResultPoster(page, locale, "moon-phase");
+    const drawn = await page.evaluate(() => (window as Window & { __moonCardText?: string[] }).__moonCardText?.join(" ") ?? "");
+    expect(drawn).toMatch(/fermatmind\.com/iu);
+    expect(drawn).not.toMatch(/MOON_PHASE_[0-9]{2}|answers|form_code|[?&]score/u);
     if (process.env.MOON_QA_ARTIFACTS) {
-      mkdirSync(process.env.MOON_QA_ARTIFACTS, {recursive: true});
-      await file.saveAs(join(process.env.MOON_QA_ARTIFACTS, `single-${locale}-${width}.png`));
-      await page.locator("[data-moon-phase-reveal]").screenshot({path: join(process.env.MOON_QA_ARTIFACTS, `reveal-${locale}-${width}.png`)});
+      mkdirSync(process.env.MOON_QA_ARTIFACTS, { recursive: true });
+      await file.saveAs(join(process.env.MOON_QA_ARTIFACTS, `single-${locale}-${width}-personal.png`));
+      await page.locator("[data-moon-phase-reveal]").screenshot({ path: join(process.env.MOON_QA_ARTIFACTS, `reveal-${locale}-${width}.png`) });
     }
-    await sharing.getByRole("combobox").selectOption("portrait");
-    const tall = page.waitForEvent("download");
-    await sharing.getByRole("button", {name: zh ? "保存月相卡片" : "Save Moon Phase card", exact: true}).click();
-    await tall;
-    await expect.poll(() => sharing.locator("img").evaluate((img: HTMLImageElement) => [img.naturalWidth, img.naturalHeight])).toEqual([1080,1920]);
-
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
+    await expect(page.locator('[data-archetype-core-assessment="BIG5_OCEAN"] a')).toHaveAttribute("href", archetypeCorePath(locale, "BIG5_OCEAN"));
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(posts).toEqual([]);
   });
   test(`@release MOON_PHASE ${locale}: standalone reload and language change keep answers private`, async ({ page }) => {
     await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.locator('input[value="B"]').check();
+    await page.locator('input[value="B"]').click();
     await expect(page.getByRole("checkbox")).toHaveCount(0);
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload();
     await expect(page.locator(`input[name="${quiz.questions[0].id}"]`).first()).toBeVisible();
@@ -127,39 +116,23 @@ for (const locale of ["en", "zh"] as const) {
       const get = Storage.prototype.getItem, set = Storage.prototype.setItem;
       Storage.prototype.getItem = function(key) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return get.call(this, key); };
       Storage.prototype.setItem = function(key, value) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, key, value); };
+      Object.defineProperty(navigator, "share", { configurable: true, value: undefined });
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
     await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
     await expect(page.getByRole("checkbox")).toHaveCount(0);
     await finish(page, locale, "tie");
     await expect(page.locator("[data-moon-phase-reveal] > ul > li")).toHaveCount(8);
-    const sharing = page.locator("[data-moon-phase-sharing]");
-    const download = page.waitForEvent("download");
-    await sharing.getByRole("button", {name: zh ? "保存月相卡片" : "Save Moon Phase card", exact: true}).click();
-    const file = await download;
-    const drawn = await page.evaluate(() => (window as unknown as {__moonCardText: string[]}).__moonCardText.join(" "));
-    expect(drawn).toContain(zh ? "费马测试 · 月相测试" : "FermatMind · Moon Phase Personality Test");
-    expect(drawn).toContain(zh ? "我的结果 · 娱乐问卷" : "My result · Entertainment quiz");
-    expect(drawn).toContain(moonPhasePresentations[width === 1440 ? "waxing-crescent" : "new-moon"].name[locale]);
-    expect(drawn).toContain(zh ? "不是出生月相计算" : "Not a birth moon calculation");
-    if (process.env.MOON_QA_ARTIFACTS) {
-      await file.saveAs(join(process.env.MOON_QA_ARTIFACTS, `tie-${locale}-${width}-landscape.png`));
-    }
-    for (const phase of Object.values(moonPhasePresentations)) expect(drawn).toContain(phase.name[locale]);
-    for (const profile of quiz.profiles) await expect(sharing.locator("img")).toHaveAttribute("alt", new RegExp(profile.title[locale].split(/[:：]/)[0].replace(/ Image$/, "").replace(/意象$/, "")));
-    await sharing.getByRole("combobox").selectOption("portrait");
-    const tall = page.waitForEvent("download");
-    await sharing.getByRole("button", {name: zh ? "保存月相卡片" : "Save Moon Phase card", exact: true}).click();
-    const tallFile = await tall;
-    if (process.env.MOON_QA_ARTIFACTS) await tallFile.saveAs(join(process.env.MOON_QA_ARTIFACTS, `tie-${locale}-${width}-portrait.png`));
-    await expect.poll(() => sharing.locator("img").evaluate((img: HTMLImageElement) => [img.naturalWidth,img.naturalHeight])).toEqual([1080,1920]);
-    await sharing.getByRole("button", {name: zh ? "分享月相图片" : "Share Moon Phase image", exact: true}).click();
-    await expect(sharing.getByRole("status")).toContainText(zh ? "不支持直接分享" : "cannot share images directly");
+    const file = await downloadResultPoster(page, locale, "moon-phase");
+    const drawn = await page.evaluate(() => (window as Window & { __moonCardText?: string[] }).__moonCardText?.join(" ") ?? "");
+    expect(drawn).toMatch(/fermatmind\.com/iu);
+    expect(drawn).not.toMatch(/MOON_PHASE_[0-9]{2}|answers|form_code|[?&]score/u);
+    if (process.env.MOON_QA_ARTIFACTS) await file.saveAs(join(process.env.MOON_QA_ARTIFACTS, `tie-${locale}-${width}-personal.png`));
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
-    for (const profile of quiz.profiles) expect(text).toContain(profile.title[locale]);
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.locator("[data-archetype-honor-group] textarea").inputValue();
+    for (const profile of quiz.profiles) expect(text).toContain(archetypeResultName(profile, locale, value => value));
     expect(text).not.toMatch(/MOON_PHASE_[0-9]{2}|answers|form_code|submission|3\s*\/\s*12|[?&]score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
   });
@@ -177,29 +150,9 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page).toHaveURL(new RegExp(`${entry}/take$`));
     await expect(reveal.locator(":scope > ul > li")).toHaveCount(2);
     await guidePage.close();
-    const twoSharing = page.locator("[data-moon-phase-sharing]");
-    for (const format of ["landscape", "portrait"]) {
-      await twoSharing.getByRole("combobox").selectOption(format);
-      const pending = page.waitForEvent("download");
-      await twoSharing.getByRole("button", {name: zh ? "保存月相卡片" : "Save Moon Phase card", exact:true}).click();
-      const imageFile = await pending;
-      if (process.env.MOON_QA_ARTIFACTS) await imageFile.saveAs(join(process.env.MOON_QA_ARTIFACTS, `two-${locale}-${width}-${format}.png`));
-      await expect.poll(() => twoSharing.locator("img").evaluate((img:HTMLImageElement)=>[img.naturalWidth,img.naturalHeight])).toEqual(format === "portrait" ? [1080,1920] : [1200,630]);
-    }
-    await page.evaluate(() => {
-      Object.defineProperty(navigator, "canShare", { configurable: true, value: () => true });
-      Object.defineProperty(navigator, "share", { configurable: true, value: async () => { throw new DOMException("Synthetic user cancellation", "AbortError"); } });
-    });
-    const cancelSharing = page.locator("[data-moon-phase-sharing]");
-    await cancelSharing.getByRole("button", {name: zh ? "分享月相图片" : "Share Moon Phase image", exact: true}).click();
-    await expect(cancelSharing.getByRole("status")).toContainText(zh ? "已取消分享" : "Sharing canceled");
-    await expect(cancelSharing.locator("img")).toBeVisible();
-    await page.route("**/images/moon-phases/*.svg", route => route.fulfill({status: 503, body: "synthetic failure"}));
-    const sharing = page.locator("[data-moon-phase-sharing]");
-    await sharing.getByRole("button", {name: zh ? "保存月相卡片" : "Save Moon Phase card", exact: true}).click();
-    await expect(sharing.getByRole("status")).toContainText(zh ? "暂时无法生成图片" : "Could not create the image");
-    await expect(page.getByRole("button", {name: zh ? "复制结果与链接" : "Copy result and link", exact: true})).toBeEnabled();
-    await page.getByRole("button", {name: zh ? "重新测试" : "Retake test", exact: true}).click();
+    await expectResultPosterFailure(page, locale);
+    await expect(page.getByRole("button", {name: zh ? "一键分享给朋友" : "Share Result", exact: true})).toBeEnabled();
+    await page.getByRole("button", {name: zh ? "再测一次" : "Retake", exact: true}).click();
     await expect(page.locator("[data-moon-phase-reveal]")).toHaveCount(0);
   });
 }
@@ -210,7 +163,7 @@ test("@release MOON_PHASE activity-pace images all16public full guides, bilingua
     expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(entertainmentGuideProfile(quiz.slug, locale, profile).title[locale]);
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
     for (const section of profile.sections) await expect(page.locator(`#report-${section.id} h2`)).toHaveText(section.title[locale]);
-    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/moon-phase/results/${profile.id}`);
+    await expectArchetypeGuideAlternates(page, quiz.slug, profile.id);
     await expect(page.getByRole("link", { name: entertainmentGuideStartLabel(quiz.slug, locale), exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/moon-phase#take-test`);
     if (profile.id === "new-moon") {
       const sharing = page.locator("[data-moon-phase-sharing]");

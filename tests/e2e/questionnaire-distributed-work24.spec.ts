@@ -1,3 +1,5 @@
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
+import { isArchivedEntertainmentPath } from "../../lib/seo/discoverabilityExposurePolicy";
 import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
@@ -12,13 +14,12 @@ test.beforeEach(async ({ page }) => {
 async function finish(page: Page, locale: "en" | "zh", allUnscored = false) {
   for (const [i, q] of quiz.questions.entries()) {
     const heading = page.locator("#take-test h2"); await expect(heading).toHaveText(q.prompt[locale]);
-    if (i > 0) {
-      const box = await heading.boundingBox(), header = await page.locator("header").first().boundingBox();
-      expect(box).not.toBeNull(); expect(box!.y).toBeGreaterThanOrEqual(header ? header.y + header.height : 0);
-    }
-    await page.locator(`input[name="${q.id}"][value="${allUnscored || i < 6 ? "skip" : "A"}"]`).check();
-    if (i < 23) await expect(page.locator("[data-distributed-work-result]")).toHaveCount(0);
-    await page.getByRole("button", { name: label(locale, i === 23 ? "See full result" : "Next", i === 23 ? "查看完整结果" : "下一题"), exact: true }).click();
+    if (i > 0) await expect(heading).toBeFocused();
+    const radio = page.locator(`input[name="${q.id}"][value="${allUnscored || i < 6 ? "skip" : "A"}"]`);
+    await expect(page.locator("[data-distributed-work-result]")).toHaveCount(0);
+    if (i === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.locator("[data-distributed-work-part]")).toHaveCount(4);
   await expect(page.locator("[data-distributed-entirely-unscored]")).toHaveCount(allUnscored ? 4 : 0);
@@ -27,7 +28,9 @@ async function finish(page: Page, locale: "en" | "zh", allUnscored = false) {
     await expect(page.locator(`[data-distributed-count="${d.id}-other"]`)).toHaveText(`${allUnscored ? 0 : 6 - i} / 12`);
     await expect(page.locator(`[data-distributed-count="${d.id}-unscored"]`)).toHaveText(`${allUnscored ? 12 : 3} / 12`);
   }
-  for (const p of quiz.profiles) for (const s of p.sections) for (const t of s.paragraphs) await expect(page.locator(`[data-distributed-full-guide="${p.id}"]`)).toContainText(t[locale]);
+  for (const profile of quiz.profiles) {
+    await expect(page.locator(`[data-distributed-work-result] #distributed-public-${profile.directionIds[0]}`)).toBeVisible();
+  }
   expect(await page.evaluate(key => sessionStorage.getItem(key), draftKey)).toBeNull();
   expect(new URL(page.url()).search).toBe(""); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 }
@@ -42,7 +45,8 @@ for (const locale of ["en", "zh"] as const) {
     await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.locator("[data-distributed-full-guide]")).toHaveCount(4); await expect(page.locator("[data-distributed-full-guide] h3")).toHaveCount(28);
-    await page.locator("[data-explore-start]").click();
+    await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     const firstHeading = await page.locator("#take-test h2").boundingBox(), fixedHeader = await page.locator("header").first().boundingBox();
     expect(firstHeading!.y).toBeGreaterThanOrEqual(fixedHeader ? fixedHeader.y + fixedHeader.height : 0);
     await page.getByRole("button", { name: label(locale, "Next", "下一题"), exact: true }).click();
@@ -55,18 +59,14 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator('#take-test a[href*="mbti"]')).toHaveCount(0); expect(leaks).toEqual([]); expect(errors).toEqual([]);
   });
 
-  test(`@release distributed work ${locale}: explicit tab saving, resume, back edit, expiry and exit clearing`, async ({ page }) => {
-    await page.goto(path(locale)); await page.locator("[data-explore-start]").click();
-    await page.locator('input[name="DWC_01"][value="A"]').check(); expect(await page.evaluate(key => sessionStorage.getItem(key), draftKey)).toBeNull();
-    await page.getByRole("checkbox").check(); await page.getByRole("button", { name: label(locale, "Next", "下一题"), exact: true }).click();
-    await page.reload(); await page.getByRole("button", { name: label(locale, "Resume this tab's progress", "恢复本标签页进度"), exact: true }).click();
-    await page.getByRole("button", { name: label(locale, "Back", "上一题"), exact: true }).click(); await expect(page.locator('input[value="A"]')).toBeChecked();
-    await page.locator('input[value="B"]').check(); await page.getByRole("button", { name: label(locale, "Next", "下一题"), exact: true }).click();
-    await page.getByRole("button", { name: label(locale, "Back", "上一题"), exact: true }).click(); await expect(page.locator('input[value="B"]')).toBeChecked();
-    await page.getByRole("button", { name: label(locale, "Exit and clear this attempt", "退出并清除本次进度"), exact: true }).click(); expect(await page.evaluate(key => sessionStorage.getItem(key), draftKey)).toBeNull();
-    await page.evaluate(({ key, version }) => sessionStorage.setItem(key, JSON.stringify({ version, savedAt: Date.now() - 86400001, answers: { DWC_01: "A" } })), { key: draftKey, version: quiz.version });
-    await page.reload(); await expect(page.getByRole("button", { name: label(locale, "Resume this tab's progress", "恢复本标签页进度"), exact: true })).toHaveCount(0);
-    await expect(page.locator("[data-distributed-work-result]")).toHaveCount(0); await expect(page.locator("[data-distributed-full-guide]")).toHaveCount(4);
+  test(`@release distributed work ${locale}: back edit, refresh and exit clear answers without restoring an expired draft`, async ({ page }) => {
+    await page.addInitScript(({ key, version }) => sessionStorage.setItem(key, JSON.stringify({
+      version, savedAt: Date.now() - 86400001, answers: { DWC_01: "A" },
+    })), { key: draftKey, version: quiz.version });
+    await expectStandaloneObservationPrivacy(page, path(locale), quiz);
+    await expect(page.getByRole("button", { name: /Resume this tab|恢复本标签页/ })).toHaveCount(0);
+    await expect(page.locator("[data-distributed-work-result]")).toHaveCount(0);
+    expect(await page.evaluate(key => sessionStorage.getItem(key), draftKey)).toBeNull();
   });
 }
 
@@ -74,7 +74,12 @@ test("@release distributed work: all ten public pages, full bodies, locale pairs
   for (const locale of ["en", "zh"] as const) for (const profile of [null, ...quiz.profiles]) {
     const url = `${path(locale)}${profile ? `/results/${profile.id}` : ""}`; expect((await page.goto(url))?.status()).toBe(200);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText((profile?.title ?? quiz.title)[locale]); await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${url}`);
-    for (const [lang, target] of [["en", "en"], ["zh-CN", "zh"], ["x-default", "en"]]) await expect(page.locator(`link[rel="alternate"][hreflang="${lang}"]`)).toHaveAttribute("href", `https://fermatmind.com${path(target)}${profile ? `/results/${profile.id}` : ""}`);
+    if (isArchivedEntertainmentPath(url)) {
+      await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /^noindex, follow(?:,|$)/u);
+      await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
+    } else {
+      for (const [lang, target] of [["en", "en"], ["zh-CN", "zh"], ["x-default", "en"]]) await expect(page.locator(`link[rel="alternate"][hreflang="${lang}"]`)).toHaveAttribute("href", `https://fermatmind.com${path(target)}${profile ? `/results/${profile.id}` : ""}`);
+    }
     if (profile) for (const s of profile.sections) for (const t of s.paragraphs) await expect(page.locator(`[data-distributed-full-guide="${profile.id}"]`)).toContainText(t[locale]);
     await expect(page.locator("[data-distributed-work-result]")).toHaveCount(0);
     const og = `/og/fun/${quiz.slug}?locale=${locale}${profile ? `&portrait=${profile.id}` : ""}`, response = await request.get(og); expect(response.status()).toBe(200);
