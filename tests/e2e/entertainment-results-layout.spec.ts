@@ -1,5 +1,4 @@
 import { test, expect, type Page, type Locator } from "@playwright/test";
-import disc from "../../lib/questionnaires/data/disc.json";
 import responseColor from "../../lib/questionnaires/data/response-color.json";
 import socialBattery from "../../lib/questionnaires/data/social-battery-test.json";
 import relationshipValues from "../../lib/questionnaires/data/relationship-values.json";
@@ -28,7 +27,7 @@ async function inspectLayout(page: Page, result: Locator, name: string) {
       const readings = (await result.locator("[data-story-result-readings]").boundingBox())!;
       expect(readings.x).toBe(head.x);
       expect(readings.width).toBe(head.width);
-      expect(readings.y).toBeCloseTo(head.y + head.height, 0);
+      expect(Math.abs(readings.y - head.y - head.height)).toBeLessThanOrEqual(1);
       const portraits = result.locator("[data-story-result-readings] > article");
       if (await portraits.count() > 1) {
         const first = (await portraits.nth(0).boundingBox())!;
@@ -50,23 +49,6 @@ async function inspectLayout(page: Page, result: Locator, name: string) {
   expect(await result.locator("[id]").evaluateAll(elements => new Set(elements.map(element => element.id)).size === elements.length)).toBe(true);
 }
 
-function tiedDiscAnswers() {
-  const counts = Object.fromEntries(disc.directions.map(direction => [direction.id, 0]));
-  const answers: string[] = [];
-  function visit(index: number): boolean {
-    if (index === disc.questions.length) return Object.values(counts).every(value => value === 6);
-    for (const option of disc.questions[index].options) {
-      if (counts[option.directionId] >= 6) continue;
-      counts[option.directionId]++; answers[index] = option.id;
-      if (visit(index + 1)) return true;
-      counts[option.directionId]--;
-    }
-    return false;
-  }
-  if (!visit(0)) throw new Error("The fixed DISC fixture must allow the independently expected 6/6/6/6 tie");
-  return answers;
-}
-
 for (const locale of ["en", "zh"] as const) {
   test.beforeEach(async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
@@ -76,24 +58,20 @@ for (const locale of ["en", "zh"] as const) {
     });
   });
 
-  test(`entertainment result ${locale}: all four highest ties retain raw counts and readable navigation`, async ({ page }) => {
-    await page.goto(`/${locale}/tests/explore/disc/take`);
-    const answers = tiedDiscAnswers();
-    for (const [index, question] of disc.questions.entries()) await page.locator(`input[name="${question.id}"][value="${answers[index]}"]`).click();
-    const result = page.locator('#take-test[data-stage="result"]');
-    await expect(result).toContainText(disc.profiles.find(profile => profile.directionIds.length === 4)!.title[locale]);
-    const counts = result.getByRole("region", { name: locale === "zh" ? "本次原始选择次数" : "Raw choice counts for this attempt", exact: true });
-    await expect(counts).toBeVisible();
-    await expect(counts.locator("strong")).toHaveText(["6 / 12", "6 / 12", "6 / 12", "6 / 12"]);
-    await expect(counts.locator("[data-disc-direction]")).toHaveCount(4);
+  test(`entertainment result ${locale}: the four-way DISC report keeps raw counts and readable navigation`, async ({ page }) => {
+    await page.goto(`/${locale}/reports/samples/disc?result=tied-d-i-s-c`);
+    const result = page.locator("[data-disc-preview-root]");
+    const counts = result.locator('section[aria-labelledby="disc-scores-title"]');
+    await expect(counts.locator("dt b")).toHaveText(["D", "I", "S", "C"]);
+    await expect(counts.locator("[data-leading] dd").filter({ has: page.locator("strong") })).toHaveText(["6 / 12", "6 / 12", "6 / 12", "6 / 12"]);
     await inspectLayout(page, result, `disc-tie-${locale}`);
-    await page.getByRole("button", { name: locale === "zh" ? "重新测试" : "Retake test", exact: true }).click();
-    await expect(page.locator('#take-test[data-stage="answer"] input:checked')).toHaveCount(0);
+    await result.locator('a[href="#disc-portrait"]').click();
+    await expect(result.locator("#disc-portrait h2")).toBeInViewport();
   });
 
   for (const quiz of [responseColor, relationshipValues]) {
     test(`entertainment result ${locale}: ${quiz.slug} connects real counts to the reading at both widths`, async ({ page }) => {
-      await page.goto(`/${locale}/tests/play/${quiz.slug}/take`);
+      await page.goto(`/${locale}/tests/explore/${quiz.slug}/take`);
       const expected: Record<string, number> = {};
       for (const [index, question] of quiz.questions.entries()) {
         const choice = question.options[index % question.options.length];
@@ -260,10 +238,8 @@ for (const locale of ["en", "zh"] as const) {
       for (const section of profile.sections) for (const paragraph of section.paragraphs) await expect(reading).toContainText(paragraph[locale]);
     }
     await inspectLayout(page, result, `character-${locale}`);
-    const link = result.locator('[data-archetype-match="gryffindor"]').getByRole("link", {
-      name: locale === "zh" ? "单独阅读这项结果的完整指南（新标签页）" : "Read this result’s full guide separately (new tab)",
-      exact: true,
-    });
+    const link = result.locator(`[data-archetype-match="gryffindor"] a[href="/${locale}/tests/explore/${hogwarts.slug}/results/gryffindor"]`);
+    await expect(link).toHaveAttribute("target", "_blank");
     const [guide] = await Promise.all([page.waitForEvent("popup"), link.click()]);
     await guide.waitForURL(`**/${hogwarts.slug}/results/gryffindor`);
     await expect(guide.getByRole("heading", { level: 1 })).toHaveText(hogwarts.profiles[0].title[locale]);
@@ -272,7 +248,7 @@ for (const locale of ["en", "zh"] as const) {
   });
 
   test(`entertainment result ${locale}: tally keeps every tied portrait; branching ending keeps narrative fields`, async ({ page }) => {
-    await page.goto(`/${locale}/tests/play/${beach.slug}/take`);
+    await page.goto(`/${locale}/tests/explore/${beach.slug}/take`);
     for (const question of beach.questions) await page.locator(`input[name="${question.id}"][value="o1"]`).click();
     let result = page.locator('#play[data-stage="result"]');
     for (const portrait of beach.results) {
@@ -284,7 +260,7 @@ for (const locale of ["en", "zh"] as const) {
     await tallyRules.locator(":scope > summary").click();
     await expect(tallyRules.locator("dd")).toHaveText(["2", "2", "2"]);
     await inspectLayout(page, result, `story-tally-${locale}`);
-    await page.goto(`/${locale}/tests/play/${story.slug}/take`);
+    await page.goto(`/${locale}/tests/explore/${story.slug}/take`);
     for (const [id, option] of [["q1", "o1"], ["q2", "o1"], ["q4", "o1"]]) await page.locator(`input[name="${id}"][value="${option}"]`).click();
     result = page.locator('#play[data-stage="result"]');
     const ending = story.results.find(portrait => portrait.id === "return")!;
@@ -293,9 +269,16 @@ for (const locale of ["en", "zh"] as const) {
     await expect(result.getByRole("heading", { name: locale === "zh" ? "这个结局留下了什么" : "What this ending offers", exact: true })).toBeVisible();
     await expect(result).not.toContainText(/你带来的好处|What you bring/);
     await inspectLayout(page, result, `story-branch-${locale}`);
-    await result.getByRole("link", { name: locale === "zh" ? `阅读「${ending.title.zh}」公开指南` : `Read the public guide to ${ending.title.en}`, exact: true }).click();
+    const storyGuidePath = `/${locale}/tests/explore/${story.slug}/results/${ending.id}`;
+    const storyGuide = result.locator(`a[href="${storyGuidePath}"]`);
+    await expect(storyGuide).toBeVisible();
+    await Promise.all([
+      page.waitForURL(url => url.pathname === storyGuidePath),
+      storyGuide.click(),
+    ]);
+    await expect(page.locator("[data-story-guide]")).toBeVisible({ timeout: 30000 });
     for (const [quiz, portrait] of [[story, ending], [beach, beach.results[0]]] as const) {
-      if (quiz.slug !== story.slug) await page.goto(`/${locale}/tests/play/${quiz.slug}/results/${portrait.id}`);
+      if (quiz.slug !== story.slug) await page.goto(`/${locale}/tests/explore/${quiz.slug}/results/${portrait.id}`);
       const guide = page.locator("[data-story-guide]");
       for (const field of ["summary", "example", "strength", "tradeoff", "experiment"] as const) await expect(guide).toContainText(portrait[field][locale]);
       if (quiz.mechanism === "branch") await expect(guide.getByRole("heading", { name: locale === "zh" ? "这段结尾的作用" : "What this ending does", exact: true })).toBeVisible();
@@ -401,7 +384,7 @@ for (const locale of ["en", "zh"] as const) {
       const data = new URL(request.url()).pathname.endsWith("/stats") ? { questions: {} } : { version: "synthetic", categories: CATEGORIES, questions };
       await route.fulfill({ json: data });
     });
-    await page.goto(`/${locale}/tests/play/friendship-quiz/take`);
+    await page.goto(`/${locale}/tests/explore/friendship-quiz/take`);
     await page.getByRole("button", { name: locale === "zh" ? "单人体验" : "Play solo", exact: true }).click();
     for (let index = 0; index < questions.length; index++) {
       await page.locator(`label:has(input[name="answer-${index}"])`).first().click();

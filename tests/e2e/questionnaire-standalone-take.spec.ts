@@ -8,25 +8,24 @@ for (const locale of ["en", "zh"] as const) for (const viewport of [{name: "desk
     await page.addInitScript(() => localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() })));
     await page.goto(landing);
     await expect(page.locator("h1")).toHaveText(dog.title[locale]);
-    await expect(page.locator("#dog-breed-library")).toBeAttached();
+    await expect(page.locator("#questionnaire-results")).toBeAttached();
     await expect(page.locator("[data-stage]")).toHaveCount(0);
     await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`${landing}/take(?:\\?|$)`));
     await expect(page.locator("[data-questionnaire-take]")).toBeVisible();
-    await expect(page.locator("#dog-breed-library")).toHaveCount(0);
+    await expect(page.locator("#questionnaire-results")).toHaveCount(0);
     await expect(page.locator(".explore-intro")).toHaveCount(0);
     await expect(page.getByRole("link", { name: zh ? "返回测评介绍" : "Back to assessment" })).toHaveAttribute("href", landing);
     for (let i = 0; i < dog.questions.length; i++) {
       const question = dog.questions[i];
       await expect(page.locator("#take-test h2")).toHaveText(question.prompt[locale]);
-      await page.locator(`input[name="${question.id}"]`).first().check();
-
+      await page.locator(`input[name="${question.id}"]`).first().click();
     }
     await expect(page.locator('#take-test[data-stage="result"]')).toBeVisible();
     await expect(page.locator("#take-test")).toContainText(dog.profiles[0].title[locale]);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.screenshot({ path: test.info().outputPath(`dog-result-${locale}-${viewport.name}.png`), fullPage: true });
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("#take-test input:checked")).toHaveCount(0);
     await expect(page.locator("#take-test h2")).toHaveText(dog.questions[0].prompt[locale]);
     await page.screenshot({ path: test.info().outputPath(`dog-answer-${locale}-${viewport.name}.png`), fullPage: true });
@@ -93,7 +92,7 @@ for (const locale of ["en", "zh"] as const) {
       await page.getByRole("radio").last().check();
     }
     await expect(page.locator('#take-test[data-stage="result"]')).toBeVisible();
-    await expect(page.getByRole("button", { name: locale === "zh" ? "重新测试" : "Retake test", exact: true })).toBeVisible();
+    await expect(page.getByRole("button", { name: locale === "zh" ? "再测一次" : "Retake test", exact: true })).toBeVisible();
     expect(await page.evaluate(() => Object.keys(sessionStorage).filter(key => key.startsWith("fm_questionnaire_draft:")))).toEqual([]);
   });
 }
@@ -118,11 +117,11 @@ for (const locale of ["en", "zh"] as const) {
 
 for (const locale of ["en", "zh"] as const) {
   test(`@release automatic branching story ${locale}: complete ending and restart`, async ({ page }) => {
-    await page.goto(`/${locale}/tests/play/story-ending/take`);
+    await page.goto(`/${locale}/tests/explore/story-ending/take`);
     for (const question of ["q1", "q2", "q4"]) await page.locator(`input[name="${question}"]`).first().check();
     await expect(page.locator('#play[data-stage="result"]')).toBeVisible();
     await expect(page.getByRole("button", { name: /Exit and clear|退出并清除/ })).toHaveCount(0);
-    await page.getByRole("button", { name: locale === "zh" ? "重新测试" : "Retake quiz", exact: true }).click();
+    await page.getByRole("button", { name: locale === "zh" ? "再测一次" : "Retake", exact: true }).click();
     await page.locator('input[name="q1"]').last().check();
     await page.locator('input[name="q3"]').last().check();
     await page.locator('input[name="q6"]').last().check();

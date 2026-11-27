@@ -35,7 +35,7 @@ for(const locale of ['en','zh'] as const){
   await Promise.all([bridge(c),bridge(f)]);
   const owner=await c.newPage(),friend=await f.newPage();let id:string|undefined;
   try{
-   await owner.goto(`${baseURL}/${locale}/tests/play/friendship-quiz`);
+   await owner.goto(`${baseURL}/${locale}/tests/explore/friendship-quiz`);
    await owner.locator("[data-explore-start]").click();
    await owner.locator('#fq-name').fill('Local creator');await owner.locator('input[name="length"][value="30"]').check();
    await owner.getByRole('button',{name:zh?'开始出题 →':'Start my quiz →',exact:true}).click();
@@ -112,9 +112,13 @@ for(const locale of ['en','zh'] as const)test(`@release closeout editorial layou
  await page.addInitScript(v=>localStorage.setItem('fm_consent_v1',JSON.stringify(v)),deny);
  for(const slug of ['flower','chakra','multiple-intelligences','empathy'])for(const width of [390,1440]){
   await page.setViewportSize({width,height:1000});await page.goto(`/${locale}/tests/explore/${slug}`);
-  await expect(page.locator('.explore-reading-library')).toBeVisible();
+  const guideLibrary = page.locator('#questionnaire-results');
+  await expect(guideLibrary).toBeVisible();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  await expect(page.locator('[data-explore-start]')).toHaveCount(1);await expect(page.locator('[data-explore-start]')).toHaveAccessibleName(locale==='zh'?'开始测试':'Start test');
+  const startButtons = page.locator('[data-explore-start]');
+  await expect(startButtons).toHaveCount(slug === 'flower' ? 2 : 1);
+  await expect(startButtons.first()).toHaveAccessibleName(locale === 'zh' ? '开始测试' : 'Start test');
+  if (slug === 'flower') await expect(startButtons.nth(1)).toHaveAccessibleName(locale === 'zh' ? '找找你的象征花' : 'Find your symbolic flower');
   await page.screenshot({path:test.info().outputPath(`${slug}-${locale}-${width}.png`),fullPage:true});
  }
 });
