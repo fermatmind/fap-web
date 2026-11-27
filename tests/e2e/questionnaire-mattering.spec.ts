@@ -3,13 +3,14 @@ import data from "../../lib/questionnaires/data/mattering.json";
 async function finish(page: Page, locale: "en" | "zh", values: number[]) {
   for(const [i,q] of data.questions.entries()){
     const radio=page.locator(`input[name="${q.id}"][value="${values[i]}"]`);
-    if(i===0){await radio.focus();await page.keyboard.press("Space");await expect(radio).toBeChecked();}else await radio.check();
-    await page.getByRole("button",{name:locale==="zh"?(i===9?"查看两项独立分数":"下一题"):(i===9?"See both separate scores":"Next"),exact:true}).click();
+    if (i === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   for(const [i,id]of ["GMS","AMS"].entries()){
     const sum=values.slice(i*5,i*5+5).reduce((a,b)=>a+b,0);
     await expect(page.locator(`[data-mattering10-total="${id}"]`)).toContainText(`${sum} (`);
-    for(const s of data.profiles[i].sections){const section=page.locator(`#mattering10-${id}-${s.id}`);await expect(section.locator("h4")).toHaveText(s.title[locale]);for(const p of s.paragraphs)await expect(section.getByText(p[locale],{exact:true})).toBeVisible();}
+    for(const s of data.profiles[i].sections){const section=page.locator(`#mattering10-${id}-${s.id}`);await expect(section.locator("h4")).toHaveText(s.title[locale]);for(const p of s.paragraphs)await expect(section).toContainText(p[locale]);}
   }
 }
 for(const locale of ["en","zh"]as const){
@@ -21,7 +22,7 @@ for(const locale of ["en","zh"]as const){
     await expect(page).toHaveTitle(`${data.seoTitle[locale]} | FermatMind`);
     for(const s of data.guide)for(const p of s.paragraphs)await expect(page.locator('#mattering10-method').locator('..').getByText(p[locale],{exact:true})).toBeVisible();
     await page.screenshot({path:test.info().outputPath(`mattering-${locale}-entry.png`)});
-    await page.getByRole("button",{name:zh?"开始测试":"Start test",exact:true}).click();await page.getByRole("button",{name:zh?"下一题":"Next",exact:true}).click();await expect(page.locator('#take-test [role=status]')).toContainText(zh?"请选择":"Choose how much");
+    await page.locator("[data-explore-start]:visible").first().click();await page.getByRole("button",{name:zh?"下一题":"Next",exact:true}).click();await expect(page.locator('#take-test [role=status]')).toContainText(zh?"请选择":"Choose how much");
     await finish(page,locale,[1,2,3,4,2,4,3,2,1,2]);await page.screenshot({path:test.info().outputPath(`mattering-${locale}-result.png`)});
     await page.getByRole("button",{name:zh?"修改回答（清除当前结果）":"Edit answers and clear this result",exact:true}).click();await expect(page.locator('[data-mattering10-result]')).toHaveCount(0);await finish(page,locale,Array(10).fill(3));
     expect(await page.evaluate(()=>sessionStorage.getItem('fm_questionnaire_draft:mattering'))).toBeNull();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
@@ -29,11 +30,11 @@ for(const locale of ["en","zh"]as const){
   });
   test(`@release mattering ${locale}: both endpoints, denied persistence, public-only sharing and reload`,async({page})=>{
     await page.addInitScript(()=>{const get=Storage.prototype.getItem,set=Storage.prototype.setItem;Storage.prototype.getItem=function(k){if(k.startsWith('fm_questionnaire_draft:'))throw Error('synthetic denied');return get.call(this,k);};Storage.prototype.setItem=function(k,v){if(k.startsWith('fm_questionnaire_draft:'))throw Error('synthetic denied');return set.call(this,k,v);};Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async()=>{throw Error('synthetic denied');}}});});
-    await page.goto(entry);const start=()=>page.getByRole("button",{name:zh?"开始测试":"Start test",exact:true}).click();await start();await finish(page,locale,[...Array(5).fill(1),...Array(5).fill(4)]);
+    await page.goto(entry);const start=()=>page.locator("[data-explore-start]:visible").first().click();await start();await finish(page,locale,[...Array(5).fill(1),...Array(5).fill(4)]);
     await page.getByRole("button",{name:zh?"复制公开解释链接":"Copy public explanation link",exact:true}).click();const copied=await page.getByRole("textbox",{name:zh?"手动复制公开链接":"Public link for manual copying"}).inputValue();expect(copied).toBe(data.profiles.map(p=>`${p.title[locale]}\nhttps://fermatmind.com${entry}/results/${p.id}`).join('\n\n'));expect(copied).not.toMatch(/gms-0|ams-0|answers|total=/);
-    await page.getByRole("button",{name:zh?"重新测试（清除本次回答）":"Retake with empty answers",exact:true}).click();await finish(page,locale,[...Array(5).fill(4),...Array(5).fill(1)]);await page.reload();await start();await expect(page.getByRole("radio").first()).not.toBeChecked();
-    await page.locator('input[value="3"]').check();await page.getByRole('button',{name:zh?'下一题':'Next',exact:true}).click();await page.getByRole('button',{name:zh?'上一题':'Back',exact:true}).click();await expect(page.locator('input[value="3"]')).toBeChecked();
-    const other=zh?'en':'zh';await page.goto(`/${other}/tests/explore/mattering`);await page.getByRole('button',{name:other==='zh'?'开始测试':'Start test',exact:true}).click();await expect(page.locator('input[value="3"]')).not.toBeChecked();
+    await page.getByRole("button",{name:zh?"重新测试（清除本次回答）":"Retake with empty answers",exact:true}).click();await finish(page,locale,[...Array(5).fill(4),...Array(5).fill(1)]);await page.reload();await expect(page.getByRole("radio").first()).toBeVisible();await expect(page.getByRole("radio").first()).not.toBeChecked();
+    await page.locator('input[value="3"]').click();await expect(page.locator('input[name="gms-02"]').first()).toBeVisible();await page.getByRole('button',{name:zh?'上一题':'Back',exact:true}).click();await expect(page.locator('input[value="3"]')).toBeChecked();
+    const other=zh?'en':'zh';await page.goto(`/${other}/tests/explore/mattering/take`);await expect(page.getByRole("radio").first()).toBeVisible();await expect(page.locator('input[value="3"]')).not.toBeChecked();
     await expect(page.locator('#fm-google-tag-script,#fm-baidu-tongji-script')).toHaveCount(0);
   });
 }

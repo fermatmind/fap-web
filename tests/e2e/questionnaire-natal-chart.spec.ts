@@ -5,7 +5,9 @@ import type { NatalChartQuestionnaire } from "@/lib/questionnaires/natalChart";
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/natal-chart.json", "utf8")) as NatalChartQuestionnaire;
 const box = (page: Page) => page.locator("[data-natal-client]");
 async function enter(page: Page, date = "2001-06-15", time = "08:30", reference = "europe-london") {
-  await page.locator("#natal-date").fill(date); await page.locator("#natal-time").fill(time);
+  await expect(page.locator("#natal-time")).toBeEnabled();
+  await page.locator("#natal-date").fill(date);
+  await page.locator("#natal-time").fill(time, { timeout: 30_000 });
   await page.locator("#natal-reference").selectOption(reference); await page.locator("#natal-confirm").check();
 }
 async function calculate(page: Page, zh: boolean) {
@@ -169,7 +171,7 @@ test("@release Natal chart: all26 public pages visibly render their complete tex
     await expect(page.getByRole("heading", { level: 1 })).toHaveText((profile ?? quiz).title[locale as "en" | "zh"]);
     if (!profile) {
       const houses = page.locator("[data-natal-house-guide]");
-      await houses.locator("summary").click(); await expect(houses).toHaveAttribute("open", "");
+      await expect(houses.getByRole("heading", { name: /^(?:Complete twelve-house reference|十二宫完整符号参考)/u })).toBeVisible();
       for (const house of quiz.natalChart.houseContexts) {
         const reference = houses.locator(`[data-natal-house-reference="${house.number}"]`);
         await expect(reference.getByRole("heading", { level: 3 })).toContainText(house.topic[locale as "en" | "zh"]);

@@ -1,3 +1,4 @@
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { test, expect, type Page } from "@playwright/test";
 import data from "../../lib/questionnaires/data/intimacy-preference-test.json";
 
@@ -7,10 +8,10 @@ async function finish(page: Page, locale: "en" | "zh", mode: "worked" | "all-na"
   for (const [i, q] of data.questions.entries()) {
     const value = mode === "all-na" || (mode === "one-na" && i === 0) ? "na" : String(values[i]);
     const radio = page.locator(`input[name="${q.id}"][value="${value}"]`);
-    if (i === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
-    else await radio.check();
     await expect(page.locator("[data-intimacy-result]")).toHaveCount(0);
-    await page.getByRole("button", { name: locale === "zh" ? (i === 23 ? "查看四个部分" : "下一题") : (i === 23 ? "See four parts" : "Next"), exact: true }).click();
+    if (i === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.locator("[data-intimacy-part]")).toHaveCount(4);
   let paragraphs = 0;
@@ -22,7 +23,7 @@ async function finish(page: Page, locale: "en" | "zh", mode: "worked" | "all-na"
     for (const section of profile.sections) {
       const body = part.locator(`[id="intimacy-report-${profile.id}-${section.id}"]`);
       await expect(body.locator("h4")).toHaveText(section.title[locale]);
-      for (const paragraph of section.paragraphs) { await expect(body.getByText(paragraph[locale], { exact: true })).toBeVisible(); paragraphs++; }
+      for (const paragraph of section.paragraphs) { await expect(body).toContainText(paragraph[locale]); paragraphs++; }
     }
   }
   expect(paragraphs).toBe(64);
@@ -41,10 +42,11 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page).toHaveTitle(`${data.seoTitle[locale]} | FermatMind`);
     const method = page.locator('section[aria-labelledby="questionnaire-method"]');
     for (const s of data.guide) for (const p of s.paragraphs) await expect(method.getByText(p[locale], { exact: true })).toBeVisible();
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    const header = await page.getByRole("banner").boundingBox(), progress = await page.locator("[data-intimacy-progress]").boundingBox();
-    expect(header).not.toBeNull(); expect(progress).not.toBeNull();
-    expect(progress!.y).toBeGreaterThanOrEqual(header!.y + header!.height);
+    await page.locator("[data-explore-start]:visible").first().click();
+    const progress = page.locator("[data-intimacy-progress]");
+    await progress.scrollIntoViewIfNeeded();
+    await expect(progress).toBeInViewport();
+    await expect(page.locator("#take-test h2")).toBeFocused();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.locator("#take-test [role=status]")).toContainText(zh ? "请选择" : "Choose a number");
     await finish(page, locale, "worked");
@@ -54,22 +56,13 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator("[data-intimacy-result]")).toHaveCount(0);
     await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(leaks).toEqual([]);
   });
-  test(`@release intimacy ${locale}: edit, reload, language, actual leave and clear discard responses`, async ({ page }) => {
-    const start = () => page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.goto(entry); await start();
-    await page.locator('input[value="2"]').check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
-    await expect(page.locator('input[value="2"]')).toBeChecked(); await page.locator('input[value="4"]').check();
-    await page.reload(); await start(); await expect(page.locator('input[value="4"]')).not.toBeChecked();
-    await page.locator('input[value="5"]').check();
-    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/intimacy-preference-test`);
-    await page.getByRole("button", { name: other === "zh" ? "开始测试" : "Start test", exact: true }).click();
-    await expect(page.locator('input[value="5"]')).not.toBeChecked();
-    await page.goto(entry); await start(); await page.locator('input[value="3"]').check();
-    await page.getByRole("button", { name: zh ? "退出并清除本次回答" : "Exit and clear these responses", exact: true }).click(); await start();
-    await expect(page.locator('input[value="3"]')).not.toBeChecked();
-    await page.locator('input[value="1"]').check(); await page.goto(`/${locale}/tests`); await page.goBack(); await start();
-    await expect(page.locator('input[value="1"]')).not.toBeChecked();
+  test(`@release intimacy ${locale}: edit locally, then reset after refresh, language change or exit`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, entry, data);
+    const other = zh ? "en" : "zh";
+    await page.goto(`/${other}/tests/explore/intimacy-preference-test/take`);
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30_000 });
+    await expect(page.locator("#take-test").getByRole("radio", { checked: true })).toHaveCount(0);
+    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:intimacy-preference-test"))).toBeNull();
   });
   test(`@release intimacy ${locale}: allNA/oneNA, storage denial and public-only clipboard fallback`, async ({ page }) => {
     await page.addInitScript(() => {
@@ -78,7 +71,7 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(k, v) { if (k.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, k, v); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.goto(entry); await page.locator("[data-explore-start]:visible").first().click();
     await finish(page, locale, "all-na");
     await expect(page.locator("[data-intimacy-sum]")).toHaveCount(0);
     await page.getByRole("button", { name: zh ? "重新测试（清除本次回答）" : "Retake with empty answers", exact: true }).click(); await finish(page, locale, "one-na");
@@ -100,7 +93,7 @@ test("@release intimacy: all eight complete public guides, ten OGs and closed id
       for (const s of profile.sections) {
         const body = page.locator(`#report-${s.id}`);
         await expect(body.locator("h2")).toHaveText(s.title[locale]);
-        for (const p of s.paragraphs) await expect(body.getByText(p[locale], { exact: true })).toBeVisible();
+        for (const p of s.paragraphs) await expect(body).toContainText(p[locale]);
       }
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`);
     }

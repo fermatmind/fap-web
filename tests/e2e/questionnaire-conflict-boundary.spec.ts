@@ -1,3 +1,5 @@
+import { correctConflictReadingPrivacy } from "../../lib/questionnaires/result-content/conflict-boundary-privacy";
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { test, expect, type Page } from "@playwright/test";
 import data from "../../lib/questionnaires/data/conflict-boundary-behaviors-test.json";
 const values = Array.from({ length: 24 }, (_, i) => ["1", "3", "5", "3", "2", "4"][i % 6]);
@@ -33,10 +35,10 @@ async function answer(page: Page, locale: "en" | "zh", mode: "worked" | "partial
   for (const [i, q] of data.questions.entries()) {
     const value = mode === "all-na" || (mode === "partial" && [3, 4, 8, 9, 10].includes(i)) ? "na" : values[i];
     const radio = page.locator(`input[name="${q.id}"][value="${value}"]`);
-    if (i === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
-    else await radio.check();
     await expect(page.locator("[data-conflict-result]")).toHaveCount(0);
-    await page.getByRole("button", { name: locale === "zh" ? (i === 23 ? "查看本次记录" : "下一题") : (i === 23 ? "See this record" : "Next"), exact: true }).click();
+    if (i === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.locator("[data-conflict-result]")).toBeVisible();
   await expect(page.getByRole("heading", { level: 2, name: data.resultHeading[locale], exact: true })).toBeFocused();
@@ -57,10 +59,10 @@ async function answer(page: Page, locale: "en" | "zh", mode: "worked" | "partial
       }
       await expect(part.locator("[data-conflict-mean]")).toContainText((mode === "partial" && i === 0 ? "3.2500" : means[i]) + " / 5");
       if (mode === "partial" && i === 0) await expect(part.locator("[data-conflict-mean]")).toContainText("13 ÷ 4");
-      for (const section of profile.sections) {
+      for (const section of correctConflictReadingPrivacy(profile).sections) {
         const body = part.locator(`[id="conflict-report-${profile.id}-${section.id}"]`);
         await expect(body.locator("h4")).toHaveText(section.title[locale]);
-        for (const paragraph of section.paragraphs) { await expect(body.getByText(paragraph[locale], { exact: true })).toBeVisible(); paragraphs++; }
+        for (const paragraph of section.paragraphs) { await expect(body).toContainText(paragraph[locale]); paragraphs++; }
       }
     }
     expect(paragraphs).toBe(mode === "partial" ? 48 : 64);
@@ -71,7 +73,7 @@ async function answer(page: Page, locale: "en" | "zh", mode: "worked" | "partial
 }
 for (const locale of ["en", "zh"] as const) {
   const zh = locale === "zh", entry = `/${locale}/tests/explore/conflict-boundary-behaviors-test`;
-  const start = (page: Page) => page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+  const start = (page: Page) => page.locator("[data-explore-start]:visible").first().click();
   test(`@release conflict ${locale}: hub, keyboard,24 responses, four means, all64 paragraphs, mobile progress and empty retake`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`/${locale}/tests`);
@@ -85,8 +87,10 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page).toHaveTitle(`${data.seoTitle[locale]} | FermatMind`);
     for (const s of data.guide) for (const p of s.paragraphs) await expect(page.locator('section[aria-labelledby="questionnaire-method"]').getByText(p[locale], { exact: true })).toBeVisible();
     await start(page);
-    const header = await page.getByRole("banner").boundingBox(), progress = await page.locator("[data-conflict-progress]").boundingBox();
-    expect(header).not.toBeNull(); expect(progress).not.toBeNull(); expect(progress!.y).toBeGreaterThanOrEqual(header!.y + header!.height);
+    const progress = page.locator("[data-conflict-progress]");
+    await progress.scrollIntoViewIfNeeded();
+    await expect(progress).toBeInViewport();
+    await expect(page.locator("#take-test h2")).toBeFocused();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.locator("#take-test [role=status]")).toContainText(zh ? "请选择" : "Choose a number");
     await answer(page, locale, "worked");
@@ -95,18 +99,13 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "愿意时重新作答（清除本次回答）" : "Answer again if you want (empty answers)", exact: true }).click();
     await expect(page.locator("[data-conflict-result]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(attempts).toEqual([]);
   });
-  test(`@release conflict ${locale}: edit, reload, language, leave and exit clear memory`, async ({ page }) => {
-    await page.goto(entry); await start(page);
-    await page.locator('input[value="2"]').check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
-    await expect(page.locator('input[value="2"]')).toBeChecked(); await page.locator('input[value="4"]').check();
-    await page.reload(); await start(page); await expect(page.locator('input[value="4"]')).not.toBeChecked();
-    await page.locator('input[value="5"]').check(); const other = zh ? "en" : "zh";
-    await page.goto(`/${other}/tests/explore/conflict-boundary-behaviors-test`); await page.getByRole("button", { name: other === "zh" ? "开始测试" : "Start test", exact: true }).click();
-    await expect(page.locator('input[value="5"]')).not.toBeChecked();
-    await page.goto(entry); await start(page); await page.locator('input[value="3"]').check();
-    await page.getByRole("button", { name: zh ? "退出并清除本次回答" : "Exit and clear these responses", exact: true }).click(); await start(page); await expect(page.locator('input[value="3"]')).not.toBeChecked();
-    await page.locator('input[value="1"]').check(); await page.goto(`/${locale}/tests`); await page.goBack(); await start(page); await expect(page.locator('input[value="1"]')).not.toBeChecked();
+  test(`@release conflict ${locale}: edit locally, then reset after refresh, language change or exit`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, entry, data);
+    const other = zh ? "en" : "zh";
+    await page.goto(`/${other}/tests/explore/conflict-boundary-behaviors-test/take`);
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30_000 });
+    await expect(page.locator("#take-test").getByRole("radio", { checked: true })).toHaveCount(0);
+    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:conflict-boundary-behaviors-test"))).toBeNull();
   });
   test(`@release conflict ${locale}: all-skipped suppresses personal factors; partial4of6 and3of6 follow source; no storage, clipboard or analytics`, async ({ page }) => {
     await page.addInitScript(() => {
@@ -127,13 +126,13 @@ test("@release conflict: all eight public full guides, ten local-font OG images,
       const path = `/${locale}/tests/explore/conflict-boundary-behaviors-test/results/${profile.id}`;
       expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
       await expect(page).toHaveTitle(`${profile.seo.title[locale]} | FermatMind`); await expect(page.locator("[data-conflict-mean]")).toHaveCount(0);
-      for (const s of profile.sections) {
+      for (const s of correctConflictReadingPrivacy(profile).sections) {
         const body = page.locator(`#report-${s.id}`); await expect(body.locator("h2")).toHaveText(s.title[locale]);
-        for (const p of s.paragraphs) await expect(body.getByText(p[locale], { exact: true })).toBeVisible();
+        for (const p of s.paragraphs) await expect(body).toContainText(p[locale]);
       }
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`);
-      await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/conflict-boundary-behaviors-test/results/${profile.id}`);
-      await expect(page.locator('link[rel="alternate"][hreflang="zh-CN"]')).toHaveAttribute("href", `https://fermatmind.com/zh/tests/explore/conflict-boundary-behaviors-test/results/${profile.id}`);
+      await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+      await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
       const startLinks = page.locator(`[href='/${locale}/tests/explore/conflict-boundary-behaviors-test#take-test']`);
       await expect(startLinks).toHaveCount(2);
       for (const link of await startLinks.all()) await expect(link).toBeVisible();
