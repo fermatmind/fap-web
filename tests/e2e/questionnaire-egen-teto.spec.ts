@@ -16,9 +16,10 @@ async function finish(page: Page, locale: "en" | "zh", mode: "egen" | "teto" | "
   for (const [i, question] of quiz.questions.entries()) {
     const option = mode === "tie" ? question.options[0] : question.options.find(o => o.directionId === mode)!;
     const radio = page.locator(`input[name="${question.id}"][value="${option.id}"]`);
-    if (i === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); } else await radio.check();
     await expect(page.locator("#take-test dl")).toHaveCount(0);
-    await page.getByRole("button", { name: i === 17 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    if (i === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   const profile = quiz.profiles.find(p => p.id === mode)!;
   await expect(page.getByRole("heading", { level: 2, name: profile.title[locale], exact: true })).toBeFocused();
@@ -52,11 +53,21 @@ for (const locale of ["en", "zh"] as const) {
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:egen-teto"))).toBeNull();
     await expect(page.getByRole("button", { name: /Resume this tab|恢复本标签页/ })).toHaveCount(0);
   });
-  test(`@release Egen-Teto ${locale}: denied storage, equal9counts,9fulltiesections and private-safe copy fallback`, async ({ page }) => {
+  test(`@release Egen-Teto ${locale}: denied tab storage, equal9counts,9fulltiesections and private-safe copy fallback`, async ({ page }) => {
     await page.addInitScript(() => {
-      Storage.prototype.getItem = () => { throw new Error("synthetic denial"); };
-      Storage.prototype.setItem = () => { throw new Error("synthetic denial"); };
-      Storage.prototype.removeItem = () => { throw new Error("synthetic denial"); };
+      const { getItem, setItem, removeItem } = Storage.prototype;
+      Storage.prototype.getItem = function(key) {
+        if (this === sessionStorage) throw new Error("synthetic tab-storage denial");
+        return getItem.call(this, key);
+      };
+      Storage.prototype.setItem = function(key, value) {
+        if (this === sessionStorage) throw new Error("synthetic tab-storage denial");
+        return setItem.call(this, key, value);
+      };
+      Storage.prototype.removeItem = function(key) {
+        if (this === sessionStorage) throw new Error("synthetic tab-storage denial");
+        return removeItem.call(this, key);
+      };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: () => Promise.reject(new Error("synthetic clipboard denial")) } });
     });
     await page.setViewportSize({ width: 390, height: 844 }); await page.goto(entry);

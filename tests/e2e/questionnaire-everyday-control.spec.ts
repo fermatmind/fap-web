@@ -1,3 +1,4 @@
+import { expectQuestionnaireSessionPrivacy } from "./helpers/questionnaire-session-privacy";
 import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
@@ -9,9 +10,11 @@ test.beforeEach(async ({ page }) => {
 async function finish(page: Page, zh: boolean, missing: boolean) {
   for (const [i, q] of quiz.questions.entries()) {
     const round = Math.floor(i / 6), value = missing || round === 3 ? "na" : String(round + 2);
-    await page.locator(`input[name="${q.id}"][value="${value}"]`).check();
+    const radio = page.locator(`input[name="${q.id}"][value="${value}"]`);
     if (i < 23) await expect(page.locator("[data-control-part]")).toHaveCount(0);
-    await page.getByRole("button", { name: i === 23 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next"), exact: true }).click();
+    if (i === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.locator("[data-control-part]")).toHaveCount(6);
   await expect(page.locator("[data-everyday-control-report] h4")).toHaveCount(36);
@@ -35,7 +38,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.goto(`/${locale}/tests`);
     await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
-    await page.locator("[data-explore-start]").click();
+    await page.locator("[data-explore-start]:visible").first().click();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, zh, false);
@@ -47,20 +50,8 @@ for (const locale of ["en", "zh"] as const) {
     await finish(page, zh, true);
     expect(leaks).toEqual([]);
   });
-  test(`@release everyday-control ${locale}: opt-in draft reload, back edit and exit clearing`, async ({ page }) => {
-    await page.goto(entry);
-    await page.locator("[data-explore-start]").click();
-    await page.locator('input[name="ECS_01"][value="2"]').check();
-    await page.getByRole("checkbox").check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await page.reload();
-    await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
-    await expect(page.locator('input[value="2"]')).toBeChecked();
-    await page.locator('input[value="na"]').check();
-    await page.getByRole("button", { name: zh ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
-    await expect(page.locator("[data-control-part]")).toHaveCount(0);
-    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:everyday-control-style"))).toBeNull();
+  test(`@release everyday-control ${locale}: edit in memory, then clear answers on reload, language change or exit`, async ({ page }) => {
+    await expectQuestionnaireSessionPrivacy(page, locale, quiz);
   });
 }
 
@@ -70,7 +61,8 @@ test("@release everyday-control: all14 native pages, full bodies, canonical pair
     expect((await page.goto(path))?.status()).toBe(200);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText((profile?.title ?? quiz.title)[locale]);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`);
-    for (const [lang, l] of [["en", "en"], ["zh-CN", "zh"], ["x-default", "en"]]) await expect(page.locator(`link[rel="alternate"][hreflang="${lang}"]`)).toHaveAttribute("href", `https://fermatmind.com/${l}/tests/explore/${quiz.slug}${profile ? `/results/${profile.id}` : ""}`);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
     if (profile) for (const s of profile.sections) for (const paragraph of s.paragraphs) await expect(page.locator(`#report-${s.id}`)).toContainText(paragraph[locale]);
     await expect(page.locator("[data-control-mean]")).toHaveCount(0);
     const og = `/og/fun/${quiz.slug}?locale=${locale}${profile ? `&portrait=${profile.id}` : ""}`;

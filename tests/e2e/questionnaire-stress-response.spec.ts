@@ -1,3 +1,4 @@
+import { expectQuestionnaireSessionPrivacy } from "./helpers/questionnaire-session-privacy";
 import { seedAnalyticsConsent } from "./helpers/consent";
 import { test, expect, type Page } from "@playwright/test";
 import data from "../../lib/questionnaires/data/stress-response-patterns-test.json";
@@ -11,9 +12,10 @@ async function finish(page: Page, locale: "en" | "zh", mode: "worked" | "middle"
   for (const [i, q] of data.questions.entries()) {
     const value = mode === "middle" ? "3" : mode === "all-high" ? "5" : String(values[i]);
     const radio = page.locator(`input[name="${q.id}"][value="${value}"]`);
-    if (i === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); } else await radio.check();
     await expect(page.locator("[data-shadow-result]")).toHaveCount(0);
-    await page.getByRole("button", { name: locale === "zh" ? (i === 19 ? "查看五组记录" : "下一题") : (i === 19 ? "See five records" : "Next"), exact: true }).click();
+    if (i === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.locator("[data-shadow-part]")).toHaveCount(5);
   let paragraphs = 0;
@@ -23,6 +25,7 @@ async function finish(page: Page, locale: "en" | "zh", mode: "worked" | "middle"
     const mean = mode === "middle" ? "3.0000" : mode === "all-high" ? "5.0000" : means[i], sum = mode === "middle" ? 12 : mode === "all-high" ? 20 : sums[i];
     await expect(part.locator("[data-shadow-mean]")).toContainText(mean + " / 5");
     await expect(part.locator("[data-shadow-sum]")).toContainText((locale === "zh" ? "原始和：" : "Raw sum: ") + sum);
+    await part.locator("article[data-reading-mode=result] > details > summary").click();
     for (const section of profile.sections) {
       const body = part.locator(`[id="shadow-report-${profile.id}-${section.id}"]`);
       await expect(body.locator("h4")).toHaveText(section.title[locale]);
@@ -44,7 +47,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page).toHaveTitle(`${data.seoTitle[locale]} | FermatMind`);
     const method = page.locator('section[aria-labelledby="questionnaire-method"]');
     for (const s of data.guide) for (const p of s.paragraphs) await expect(method.getByText(p[locale], { exact: true })).toBeVisible();
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]:visible").first().click();
     const header = await page.getByRole("banner").boundingBox(), progress = await page.locator("[data-shadow-progress]").boundingBox();
     expect(header).not.toBeNull(); expect(progress).not.toBeNull();
     expect(progress!.y).toBeGreaterThanOrEqual(header!.y + header!.height);
@@ -57,22 +60,8 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator("[data-shadow-result]")).toHaveCount(0);
     await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(leaks).toEqual([]);
   });
-  test(`@release shadow ${locale}: edit, reload, language, actual leave and clear discard responses`, async ({ page }) => {
-    const start = () => page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.goto(entry); await start();
-    await page.locator('input[value="2"]').check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
-    await expect(page.locator('input[value="2"]')).toBeChecked(); await page.locator('input[value="4"]').check();
-    await page.reload(); await start(); await expect(page.locator('input[value="4"]')).not.toBeChecked();
-    await page.locator('input[value="5"]').check();
-    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/stress-response-patterns-test`);
-    await page.getByRole("button", { name: other === "zh" ? "开始测试" : "Start test", exact: true }).click();
-    await expect(page.locator('input[value="5"]')).not.toBeChecked();
-    await page.goto(entry); await start(); await page.locator('input[value="3"]').check();
-    await page.getByRole("button", { name: zh ? "退出并清除本次回答" : "Exit and clear these responses", exact: true }).click(); await start();
-    await expect(page.locator('input[value="3"]')).not.toBeChecked();
-    await page.locator('input[value="1"]').check(); await page.goto(`/${locale}/tests`); await page.goBack(); await start();
-    await expect(page.locator('input[value="1"]')).not.toBeChecked();
+  test(`@release shadow ${locale}: edit in memory and clear responses on reload, language change and leaving`, async ({ page }) => {
+    await expectQuestionnaireSessionPrivacy(page, locale, data);
   });
   test(`@release shadow ${locale}: middle and all-high valid responses, storage denial and public-only clipboard fallback`, async ({ page }) => {
     await page.addInitScript(() => {
@@ -81,7 +70,7 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(k, v) { if (k.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, k, v); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.goto(entry); await page.locator("[data-explore-start]:visible").first().click();
     await finish(page, locale, "middle");
     await expect(page.locator("[data-shadow-sum]")).toHaveCount(5);
     await page.getByRole("button", { name: zh ? "重新测试（清除本次回答）" : "Retake with empty answers", exact: true }).click(); await finish(page, locale, "all-high");

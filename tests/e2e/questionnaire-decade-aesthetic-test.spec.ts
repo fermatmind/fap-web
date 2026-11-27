@@ -60,11 +60,21 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator("#take-test").getByRole("radio", { checked: true })).toHaveCount(0);
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:decade-aesthetic-test"))).toBeNull();
   });
-  test(`@release Decade aesthetic ${locale}: denied storage, all six highest ties and public guides and private-safe copy fallback`, async ({ page }) => {
+  test(`@release Decade aesthetic ${locale}: denied tab storage, all six highest ties and public guides and private-safe copy fallback`, async ({ page }) => {
     await page.addInitScript(() => {
-      Storage.prototype.getItem = () => { throw new Error("synthetic denial"); };
-      Storage.prototype.setItem = () => { throw new Error("synthetic denial"); };
-      Storage.prototype.removeItem = () => { throw new Error("synthetic denial"); };
+      const { getItem, setItem, removeItem } = Storage.prototype;
+      Storage.prototype.getItem = function(key) {
+        if (this === sessionStorage) throw new Error("synthetic tab-storage denial");
+        return getItem.call(this, key);
+      };
+      Storage.prototype.setItem = function(key, value) {
+        if (this === sessionStorage) throw new Error("synthetic tab-storage denial");
+        return setItem.call(this, key, value);
+      };
+      Storage.prototype.removeItem = function(key) {
+        if (this === sessionStorage) throw new Error("synthetic tab-storage denial");
+        return removeItem.call(this, key);
+      };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: () => Promise.reject(new Error("synthetic clipboard denial")) } });
     });
     await page.setViewportSize({ width: 390, height: 844 }); await page.goto(entry);

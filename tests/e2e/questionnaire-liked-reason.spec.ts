@@ -1,9 +1,12 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
+import { expectQuestionnaireSessionPrivacy } from "./helpers/questionnaire-session-privacy";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import path from "node:path";
 import type { Questionnaire, QuestionnaireAnswers } from "../../lib/questionnaires/types";
 
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 const quiz = JSON.parse(readFileSync(path.join(process.cwd(), "lib/questionnaires/data/likable-person-test.json"), "utf8")) as Questionnaire;
 const reference = JSON.parse(readFileSync(path.join(process.cwd(), "tests/fixtures/questionnaires/liked-reason-reference.json"), "utf8"));
 const oracleModule = createRequire(path.join(process.cwd(), "package.json"))("./tests/fixtures/questionnaires/multidirection-scorer.cjs") as { create: (configuration: object) => { scoreSubmission: (submission: object, bank: object, spec: object) => { ranking: { top_direction_codes: string[] }; directions: Record<string, { wins: number }> } } };
@@ -15,17 +18,16 @@ async function complete(page: Page, locale: "en" | "zh", mode: "WARMTH_ATTUNEMEN
     const choice = mode === "WARMTH_ATTUNEMENT" ? question.options.find(o => o.directionId === "WARMTH_ATTUNEMENT") ?? question.options[0] : question.options[0];
     const radio = page.locator(`input[name="${question.id}"][value="${choice.id}"]`);
     await expect(radio).toBeAttached();
-    if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
-    else await radio.check();
+    if (index === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
     answers[question.id] = choice.id;
-    const label = index === quiz.questions.length - 1 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next");
-    await page.getByRole("button", { name: label, exact: true }).click();
   }
   const expected = oracle.scoreSubmission({ submission_id: "browser-reference", test_id: "LIKED_REASON", form_code: quiz.source.formCode, item_bank_version: quiz.source.itemBankVersion, scoring_version: quiz.source.scoringVersion, answers }, reference.itemBank, reference.scoringSpec);
   const profile = quiz.profiles.find(p => [...p.directionIds].sort().join("|") === [...expected.ranking.top_direction_codes].sort().join("|"))!;
   await expect(page.getByRole("heading", { level: 2, name: profile.title[locale], exact: true })).toBeFocused();
   const counts = page.getByRole("region", { name: locale === "zh" ? "本次原始选择次数" : "Raw choice counts for this attempt", exact: true });
-  for (const direction of quiz.directions) await expect(counts.locator("dl > div").filter({ hasText: direction.title[locale] }).locator("dd")).toHaveText(`${expected.directions[direction.id].wins} / ${direction.comparisons}`);
+  for (const direction of quiz.directions) await expect(counts.locator("dl").filter({ hasText: direction.title[locale] }).locator("dd")).toHaveText(`${expected.directions[direction.id].wins} / ${direction.comparisons}`);
   for (const section of profile.sections) await expect(page.locator(`#report-${section.id}`)).toBeAttached();
   return profile;
 }
@@ -41,44 +43,32 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]:visible").first().click();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     const profile = await complete(page, locale, "WARMTH_ATTUNEMENT");
     expect(profile.directionIds).toEqual(["WARMTH_ATTUNEMENT"]);
-    const nextStep = page.getByRole("heading", { name: zh ? "完整结果已呈现，下一步由你选择" : "Your full result is ready. Choose what comes next.", exact: true }).locator("..");
-    await expect(nextStep).toContainText(zh ? "这项结果不会换算成MBTI类型" : "this result is never converted into an MBTI type");
-    await expect(nextStep).not.toContainText(zh ? "DISC结果" : "your DISC result");
+    const nextStep = page.locator('[data-archetype-core-assessment="BIG5_OCEAN"]');
+    await expect(nextStep.locator(`a[href="/${locale}/tests/big-five-personality-test-ocean-model"]`)).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
-    await page.getByRole("link", { name: zh ? "阅读这项结果的公开说明" : "Read the public explanation of this result", exact: true }).click();
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
-    await expect(page.locator('link[rel="alternate"][hreflang="zh-CN"]')).toHaveAttribute("href", `https://fermatmind.com/zh/tests/explore/likable-person-test/results/${profile.id}`);
-    await page.getByRole("link", { name: zh ? "免费开始完整测试" : "Start the full test for free", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    const [guide] = await Promise.all([
+      page.waitForEvent("popup"),
+      page.locator(`#take-test a[href="${entry}/results/${profile.id}"]`).click(),
+    ]);
+    await expect(guide.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
+    await expect(guide.locator('link[rel="alternate"][hreflang="zh-CN"]')).toHaveAttribute("href", `https://fermatmind.com/zh/tests/explore/likable-person-test/results/${profile.id}`);
+    await guide.getByRole("link", { name: zh ? "免费开始完整测试" : "Start the full test for free", exact: true }).click();
+    await expect(guide).toHaveURL(url => url.pathname === entry);
+    await guide.close();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     const tied = await complete(page, locale, "all-A"); expect(tied.directionIds).toHaveLength(5);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator(`input[name="${quiz.questions[0].id}"]`).first()).not.toBeChecked();
     expect(answerRequests).toEqual([]);
   });
 
-  test(`@release Interaction choices ${locale}: opt-in draft survives refresh and language change, back/edit and clear`, async ({ page }) => {
-    await page.setViewportSize({ width: 390, height: 844 }); await page.goto(entry);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.getByRole("radio").nth(1).check(); await page.getByRole("checkbox").check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await page.reload(); await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await expect(page.locator(`input[name="${quiz.questions[1].id}"]`).first()).toBeAttached();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
-    await expect(page.getByRole("radio").nth(1)).toBeChecked();
-    await page.getByRole("radio").first().check();
-    const other = zh ? "en" : "zh";
-    await page.goto(`/${other}/tests/explore/likable-person-test`);
-    await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click();
-    await expect(page.getByRole("radio").first()).toBeChecked();
-    await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
-    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:likable-person-test"))).toBeNull();
+  test(`@release Interaction choices ${locale}: edit in memory, then clear answers on reload, language change or exit`, async ({ page }) => {
+    await expectQuestionnaireSessionPrivacy(page, locale, quiz);
   });
 
   test(`@release Interaction choices ${locale}: denied draft storage and clipboard retain complete result and safe manual sharing`, async ({ page }) => {
@@ -88,14 +78,15 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(key, value) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, key, value); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.getByRole("checkbox").check();
-    await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save");
+    await page.goto(entry); await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("checkbox")).toHaveCount(0);
     const profile = await complete(page, locale, "all-A");
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
-    expect(text).toContain(profile.title[locale]); expect(text).not.toMatch(/LIKED_FC_|submission|answers|form_code|[?&]score/);
-    const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(`${entry}/results/${profile.id}`); expect(url.search).toBe(""); expect(url.hash).toBe("");
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.locator("[data-archetype-honor-group] textarea").inputValue();
+    for (const direction of quiz.directions.filter(d => profile.directionIds.includes(d.id))) {
+      expect(text).toContain(direction.title[locale]);
+    } expect(text).not.toMatch(/LIKED_FC_|submission|answers|form_code|[?&]score/);
+    const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
   });
 }
 

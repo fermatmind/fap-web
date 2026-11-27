@@ -1,7 +1,10 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
+import { expectQuestionnaireSessionPrivacy } from "./helpers/questionnaire-session-privacy";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
 
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/moral-alignment.json", "utf8")) as Questionnaire;
 async function finish(page: Page, locale: "en" | "zh", mode: "lawful-good" | "neutral" | "boundary") {
   const used: Record<string, number> = { lawful: 0, good: 0 };
@@ -11,10 +14,10 @@ async function finish(page: Page, locale: "en" | "zh", mode: "lawful-good" | "ne
     const endpoint = mode === "boundary" && used[high]++ >= 4 ? low : high;
     const option = mode === "neutral" ? question.options[0] : question.options.find(o => o.directionId === endpoint)!;
     const radio = page.locator(`input[name="${question.id}"][value="${option.id}"]`);
-    if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
-    else await radio.check();
     await expect(page.locator("[data-alignment-count]")).toHaveCount(0);
-    await page.getByRole("button", { name: index === 23 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    if (index === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   await expect(page.locator("[data-alignment-count]")).toHaveCount(4);
@@ -23,7 +26,9 @@ async function finish(page: Page, locale: "en" | "zh", mode: "lawful-good" | "ne
   expect(new Set(ids).size).toBe(ids.length);
   const expected = mode === "lawful-good" ? ["lawful-good"] : mode === "neutral" ? ["true-neutral"] : ["chaotic-evil", "chaotic-neutral", "neutral-evil", "true-neutral"];
   await expect(page.locator("[data-alignment-match]")).toHaveCount(expected.length);
-  for (const id of expected) await expect(page.locator(`[data-alignment-match="${id}"] h4`)).toHaveCount(9);
+  for (const id of expected) {
+    await expect(page.locator(`[data-alignment-match="${id}"] a[href="/${locale}/tests/explore/${quiz.slug}/results/${id}"]`)).toBeVisible();
+  }
   for (const high of ["lawful", "good"]) await expect(page.locator(`[data-alignment-count="${high}"]`)).toContainText(`${mode === "lawful-good" ? 12 : mode === "neutral" ? 6 : 4} / 12`);
 }
 for (const locale of ["en", "zh"] as const) {
@@ -38,49 +43,38 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]:visible").first().click();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "lawful-good");
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const shared = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
-    expect(shared.split("\n").at(-1)).toBe(`https://fermatmind.com${entry}/results/lawful-good`);
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const shared = await page.locator("[data-archetype-honor-group] textarea").inputValue();
+    expect(shared.split("\n").at(-1)).toBe(`https://fermatmind.com${entry}`);
     expect(shared).not.toMatch(/ALIGN_|12\s*\/\s*12|answers|[?&]score/);
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
+    await expect(page.locator(`[data-archetype-core-assessment="BIG5_OCEAN"] a[href="/${locale}/tests/big-five-personality-test-ocean-model"]`)).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await finish(page, locale, "neutral");
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-alignment-count]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(posts).toEqual([]);
   });
-  test(`@release Moral Alignment ${locale}: opt-in draft survives reload, language change, edit and clear`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.locator('input[value="B"]').check(); await page.getByRole("checkbox").check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload();
-    await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="B"]')).toBeChecked();
-    await page.locator('input[value="A"]').check();
-    const other = zh ? "en" : "zh";
-    await page.goto(`/${other}/tests/explore/moral-alignment`);
-    await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="A"]')).toBeChecked();
-    await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
-    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:moral-alignment"))).toBeNull();
+  test(`@release Moral Alignment ${locale}: edit in memory, then clear answers on reload, language change or exit`, async ({ page }) => {
+    await expectQuestionnaireSessionPrivacy(page, locale, quiz);
   });
-  test(`@release Moral Alignment ${locale}: denied storage, four boundary matches show36sections and private-safe sharing`, async ({ page }) => {
+  test(`@release Moral Alignment ${locale}: denied storage, all four boundary matches include public guides and private-safe sharing`, async ({ page }) => {
     await page.addInitScript(() => {
       const get = Storage.prototype.getItem, set = Storage.prototype.setItem;
       Storage.prototype.getItem = function(key) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return get.call(this, key); };
       Storage.prototype.setItem = function(key, value) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, key, value); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.getByRole("checkbox").check(); await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save");
+    await page.goto(entry); await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("checkbox")).toHaveCount(0);
     await finish(page, locale, "boundary");
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.locator("[data-archetype-honor-group] textarea").inputValue();
     for (const id of ["chaotic-evil", "chaotic-neutral", "neutral-evil", "true-neutral"]) expect(text).toContain(quiz.profiles.find(p => p.id === id)!.title[locale]);
     expect(text).not.toMatch(/ALIGN_[0-9]{2}|answers|form_code|submission|4\s*\/\s*12|[?&]score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");

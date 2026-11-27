@@ -1,14 +1,18 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
+import { expectQuestionnaireSessionPrivacy } from "./helpers/questionnaire-session-privacy";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/deep-desire.json", "utf8")) as Questionnaire;
 async function finish(page: Page, locale: "en" | "zh", mode: "worked" | "na" | "one-na") {
   for (const [i, question] of quiz.questions.entries()) {
     const value = mode === "na" || (mode === "one-na" && i === 3) ? "na" : String([2, 4, 3, 4][i % 4]);
     const radio = page.locator(`input[name="${question.id}"][value="${value}"]`);
-    if (i === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); } else await radio.check();
     if (i < 23) await expect(page.locator("[data-deep-desire-result]")).toHaveCount(0);
-    await page.getByRole("button", { name: locale === "zh" ? (i === 23 ? "查看完整结果" : "下一题") : (i === 23 ? "See full result" : "Next"), exact: true }).click();
+    if (i === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.locator("[data-deep-desire-part]")).toHaveCount(6);
   for (const direction of quiz.directions) {
@@ -16,6 +20,7 @@ async function finish(page: Page, locale: "en" | "zh", mode: "worked" | "na" | "
     await expect(part.locator("[data-deep-desire-mean]")).toContainText(missing ? (locale === "zh" ? "资料不足" : "Insufficient information") : "3.25 / 5");
     await expect(part.locator("[data-deep-desire-sum]")).toHaveCount(missing ? 0 : 1);
     const profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
+    await part.locator("article[data-reading-mode=result] > details > summary").click();
     for (const section of profile.sections) for (const paragraph of section.paragraphs) await expect(part.getByText(paragraph[locale], { exact: true })).toBeVisible();
   }
   await expect(page.locator("[data-facet-score], [data-pps-facet], [data-compassion-overview]")).toHaveCount(0);
@@ -30,18 +35,15 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]); await expect(page).toHaveTitle(`${quiz.seoTitle[locale]} | FermatMind`);
     const method = page.locator('section[aria-labelledby="questionnaire-method"]'); await expect(method.locator("p")).toHaveCount(3);
     for (const section of quiz.guide.slice(0, 3)) for (const paragraph of section.paragraphs) await expect(method.getByText(paragraph[locale], { exact: true })).toBeVisible();
-    await page.locator("[data-explore-start]").click();
+    await page.locator("[data-explore-start]:visible").first().click();
     const first = await page.getByRole("heading", { level: 2, name: quiz.questions[0].prompt[locale], exact: true }).boundingBox(); expect(first).not.toBeNull(); expect(first!.y).toBeGreaterThanOrEqual(0); expect(first!.y).toBeLessThan(420);
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "worked"); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await expect(page.locator("[data-deep-desire-result]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(leaks).toEqual([]);
   });
-  test(`@release mini DEEP_DESIRE ${locale}: opt-in24h tabdraft survives reload and language; edit and explicitclear`, async ({ page }) => {
-    await page.goto(entry); await page.locator("[data-explore-start]").click(); await page.locator('input[value="2"]').check(); await page.getByRole("checkbox").check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload();
-    await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click(); await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="2"]')).toBeChecked(); await page.locator('input[value="4"]').check();
-    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/deep-desire`); await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click(); await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="4"]')).toBeChecked();
-    await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click(); expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:deep-desire"))).toBeNull();
+  test(`@release mini DEEP_DESIRE ${locale}: edit in memory, then clear answers on reload, language change or exit`, async ({ page }) => {
+    await expectQuestionnaireSessionPrivacy(page, locale, quiz);
   });
   test(`@release mini DEEP_DESIRE ${locale}: storage andclipboard denied; allNA/oneNA stillcompletewithpubliconlycopy`, async ({ page }) => {
     await page.addInitScript(() => {
@@ -50,7 +52,7 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(k, v) { if (k.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, k, v); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.locator("[data-explore-start]").click(); await page.getByRole("checkbox").check(); await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save"); await finish(page, locale, "na");
+    await page.goto(entry); await page.locator("[data-explore-start]:visible").first().click(); await expect(page.locator("#take-test").getByRole("checkbox")).toHaveCount(0); await finish(page, locale, "na");
     await expect(page.locator("[data-deep-desire-next-steps] h2")).toHaveText(zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.");
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await finish(page, locale, "one-na");
     await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click(); const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue(); expect(text).toContain(quiz.title[locale]); expect(text).not.toMatch(/DESIRE_LK_|answers|3\.25|form_code|[?&]score/);

@@ -1,24 +1,17 @@
+import { expectQuestionContext } from "./helpers/question-context";
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { isArchivedEntertainmentPath } from "../../lib/seo/discoverabilityExposurePolicy";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
-const quiz = JSON.parse(readFileSync("lib/questionnaires/data/numerical-reasoning.json", "utf8")) as Questionnaire;
-async function headingBelowHeader(page: Page) {
-  await expect.poll(async () => page.locator("#take-test h2").evaluate(heading => {
-    const header = document.querySelector("header");
-    const bottom = header?.getBoundingClientRect().bottom ?? 0;
-    const progress = document.querySelector("#take-test progress");
-    const counter = progress?.previousElementSibling;
-    return heading.getBoundingClientRect().top >= bottom && (!progress || progress.getBoundingClientRect().top >= bottom)
-      && (!counter || counter.getBoundingClientRect().top >= bottom);
-  })).toBe(true);
-}
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 
+const quiz = JSON.parse(readFileSync("lib/questionnaires/data/numerical-reasoning.json", "utf8")) as Questionnaire;
 async function finish(page: Page, locale: "en" | "zh", correct: boolean) {
   for (const [index, question] of quiz.questions.entries()) {
     const id = correct ? question.correctOptionId! : question.options.find(o => o.id !== question.correctOptionId)!.id;
-    if (index > 0) await headingBelowHeader(page);
+    if (index > 0) await expectQuestionContext(page);
     const radio = page.locator(`input[name="${question.id}"][value="${id}"]`);
     await expect(page.locator("[data-practice-correct]")).toHaveCount(0);
     if (index === 0) await radio.press("Space");
@@ -26,7 +19,6 @@ async function finish(page: Page, locale: "en" | "zh", correct: boolean) {
     await expect(radio).toHaveCount(0);
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
-  await headingBelowHeader(page);
   await expect(page.locator("[data-practice-correct]")).toContainText(correct ? "30 / 30" : "0 / 30");
   await expect(page.locator("[data-practice-question]")).toHaveCount(30); await expect(page.locator("[data-practice-explanation]")).toHaveCount(30); await expect(page.locator("[data-practice-guide]")).toHaveCount(5);
   for (const question of quiz.questions) await expect(page.locator(`[data-practice-question="${question.id}"] [data-practice-explanation]`)).toHaveText(question.explanation![locale]);
@@ -49,7 +41,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator("#take-test a[href*='mbti']")).toHaveCount(0);
     await page.locator("[data-explore-start]:visible").first().click();
     await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
-    await headingBelowHeader(page);
+    await expectQuestionContext(page);
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, true);
     await expect(page.locator("#take-test a[href*='mbti']")).toHaveCount(0); await expect(page.locator("#take-test a[href*='holland-career-interest-test-riasec']")).toHaveCount(1);

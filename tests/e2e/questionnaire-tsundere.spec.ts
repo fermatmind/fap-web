@@ -45,9 +45,9 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "tsundere");
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
+    await expect(page.locator(`[data-archetype-core-assessment="MBTI"] a[href="/${locale}/tests/mbti-personality-test-16-personality-types"]`)).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(posts).toEqual([]);
   });
@@ -79,9 +79,9 @@ for (const locale of ["en", "zh"] as const) {
     await page.goto(entry); await page.getByTestId("cookie-banner-decline").click(); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
     await expect(page.getByRole("checkbox")).toHaveCount(0);
     await finish(page, locale, "tie");
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
-    for (const profile of quiz.profiles) expect(text).toContain(profile.title[locale]);
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.locator("[data-archetype-honor-group] textarea").inputValue();
+    for (const profile of quiz.profiles) expect(text).toContain(profile.title[locale].split(/[：:]/u)[0]);
     expect(text).not.toMatch(/DERE_[0-9]{2}|answers|form_code|submission|4\s*\/\s*16|[?&]score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
   });

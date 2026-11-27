@@ -1,3 +1,4 @@
+import { expectQuestionnaireSessionPrivacy } from "./helpers/questionnaire-session-privacy";
 import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
@@ -9,9 +10,11 @@ test.beforeEach(async ({ page }) => {
 });
 async function finish(page: Page, locale: "en" | "zh", unassessed = false) {
   for (const [index, question] of quiz.questions.entries()) {
-    await page.locator(`input[name="${question.id}"][value="${unassessed ? "na" : states[index % 4]}"]`).check();
+    const radio = page.locator(`input[name="${question.id}"][value="${unassessed ? "na" : states[index % 4]}"]`);
     if (index < 11) await expect(page.locator("[data-work-role-result]")).toHaveCount(0);
-    await page.getByRole("button", { name: index === 11 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    if (index === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.locator("[data-work-role-part]")).toHaveCount(3);
   await expect(page.locator("[data-work-role-row]")).toHaveCount(12);
@@ -36,7 +39,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.locator('[aria-labelledby="questionnaire-method"]')).toContainText(quiz.instructions![locale]);
     for (const profile of quiz.profiles) await expect(page.locator('[aria-labelledby="questionnaire-results"]').getByRole("link", { name: profile.title[locale], exact: true })).toHaveAttribute("href", `${entry}/results/${profile.id}`);
-    await page.locator("[data-explore-start]").click();
+    await page.locator("[data-explore-start]:visible").first().click();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale);
@@ -49,24 +52,8 @@ for (const locale of ["en", "zh"] as const) {
     expect(leaks).toEqual([]); expect(errors).toEqual([]);
   });
 
-  test(`@release work-role-reflection ${locale}: opt-in tab draft, reload, back edit and explicit clearing`, async ({ page }) => {
-    await page.goto(entry);
-    await page.locator("[data-explore-start]").click();
-    await page.locator('input[name="WRC_01"][value="guided"]').check();
-    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:work-role-reflection"))).toBeNull();
-    await page.getByRole("checkbox").check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await page.reload();
-    await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
-    await expect(page.locator('input[value="guided"]')).toBeChecked();
-    await page.locator('input[value="supported"]').check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
-    await expect(page.locator('input[value="supported"]')).toBeChecked();
-    await page.getByRole("button", { name: zh ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
-    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:work-role-reflection"))).toBeNull();
-    await expect(page.locator("[data-work-role-result]")).toHaveCount(0);
+  test(`@release work-role-reflection ${locale}: edit in memory, then clear answers on reload, language change or exit`, async ({ page }) => {
+    await expectQuestionnaireSessionPrivacy(page, locale, quiz);
   });
 }
 
@@ -76,7 +63,8 @@ test("@release work-role-reflection: eight public pages, full text, canonical pa
     expect((await page.goto(path))?.status()).toBe(200);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText((profile?.title ?? quiz.title)[locale]);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`);
-    for (const [language, target] of [["en", "en"], ["zh-CN", "zh"], ["x-default", "en"]]) await expect(page.locator(`link[rel="alternate"][hreflang="${language}"]`)).toHaveAttribute("href", `https://fermatmind.com/${target}/tests/explore/${quiz.slug}${profile ? `/results/${profile.id}` : ""}`);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
     if (profile) for (const section of profile.sections) for (const paragraph of section.paragraphs) await expect(page.locator(`#report-${section.id}`)).toContainText(paragraph[locale]);
     await expect(page.locator("[data-work-role-row]")).toHaveCount(0);
     const og = `/og/fun/${quiz.slug}?locale=${locale}${profile ? `&portrait=${profile.id}` : ""}`;

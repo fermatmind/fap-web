@@ -1,23 +1,20 @@
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
+import { expectQuestionContext } from "./helpers/question-context";
 import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 import type { Questionnaire } from "../../lib/questionnaires/types";
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/capacity-to-love-test.json", "utf8")) as Questionnaire;
 const reverse = new Set<number>([7, 13, 15, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41]), methodIds = ["ctl-scoring", "ctl-complete", "ctl-edition"];
 test.beforeEach(async ({ page }) => { await page.addInitScript(() => { localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() })); }); });
-async function headingBelowHeader(page: Page) {
-  await page.locator("#take-test h2").waitFor({ state: "visible" });
-  await expect.poll(() => page.evaluate(() => {
-    const h = document.querySelector("#take-test h2"), p = document.querySelector("#take-test progress"), c = p?.previousElementSibling, header = document.querySelector("header"), bottom = header?.getBoundingClientRect().bottom ?? 0;
-    return !!h && !!p && !!c && h.getBoundingClientRect().top >= bottom && p.getBoundingClientRect().top >= bottom && c.getBoundingClientRect().top >= bottom && document.documentElement.scrollWidth <= innerWidth;
-  })).toBe(true);
-}
 async function finish(page: Page, locale: "en" | "zh", keyed: number) {
   for (let i = 0; i < quiz.questions.length; i++) {
     const value = String(reverse.has(i + 1) ? 4 + 1 - keyed : keyed), radio = page.locator(`input[name="${quiz.questions[i].id}"][value="${value}"]`);
     await expect(page.locator("[data-ctl41-result]")).toHaveCount(0);
-    if (i === 0) { await radio.focus(); await radio.press("Space"); } else await radio.check(); if (i === 1) await headingBelowHeader(page);
+    if (i > 0) await expectQuestionContext(page);
     await expect(page.getByRole("radio")).toHaveCount(4);
-    await page.getByRole("button", { name: i === quiz.questions.length - 1 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    if (i === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.locator("[data-ctl41-result]")).toBeVisible(); await expect(page.locator("[data-ctl41-part]")).toHaveCount(6);
   for (const direction of quiz.directions) await expect(page.locator(`[data-ctl41-score="${direction.id}"]`)).toContainText(keyed.toFixed(2));
@@ -31,17 +28,20 @@ for (const locale of ["en", "zh"] as const) {
   test(`@release T096 ${locale}: hub, keyboard, missing answer, keyed extremes and all full readings`, async ({ page }) => {
     const posts: string[] = []; page.on("request", r => { if (r.method() === "POST" && /CTL2018_[0-9]+|answers|ctl41/.test(r.postData() ?? "")) posts.push(r.url()); });
     await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click(); await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
-    await expect(page.locator('[aria-labelledby="questionnaire-method"] p')).toHaveCount(3); await expect(page.locator('[aria-labelledby="questionnaire-method"] h3')).toHaveCount(0); for (const s of quiz.guide.filter(s => methodIds.includes(s.id))) for (const t of s.paragraphs) await expect(page.locator('[aria-labelledby="questionnaire-method"]').getByText(t[locale], { exact: true })).toBeVisible(); await expect(page.locator("[data-ctl41-attribution]")).toBeVisible(); await expect(page.locator("[data-ctl41-attribution]")).toContainText("CC BY 4.0");
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await headingBelowHeader(page); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option"); await expect(page.locator("[data-ctl41-result]")).toHaveCount(0);
+    await expect(page.locator('[aria-labelledby="questionnaire-method"] p')).toHaveCount(3); await expect(page.locator('[aria-labelledby="questionnaire-method"] h3')).toHaveCount(methodIds.length); for (const s of quiz.guide.filter(s => methodIds.includes(s.id))) for (const t of s.paragraphs) await expect(page.locator('[aria-labelledby="questionnaire-method"]').getByText(t[locale], { exact: true })).toBeVisible(); await expect(page.locator("[data-ctl41-attribution]")).toBeVisible(); await expect(page.locator("[data-ctl41-attribution]")).toContainText("CC BY 4.0");
+    await page.locator("[data-explore-start]:visible").first().click(); await expectQuestionContext(page); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option"); await expect(page.locator("[data-ctl41-result]")).toHaveCount(0);
     await finish(page, locale, 4); await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await expect(page.getByRole("radio").first()).not.toBeChecked(); await finish(page, locale, 1); expect(posts).toEqual([]); expect(new URL(page.url()).search).toBe("");
   });
-  test(`@release T096 ${locale}: opt-in draft, refresh, language, edit and exit clear`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await page.locator('input[name="CTL2018_01"][value="4"]').check(); expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:capacity-to-love-test"))).toBeNull(); await page.getByRole("checkbox").check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload(); await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click(); await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[name="CTL2018_01"][value="4"]')).toBeChecked(); await page.locator('input[name="CTL2018_01"][value="2"]').check();
-    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/capacity-to-love-test`); await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click(); await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[name="CTL2018_01"][value="2"]')).toBeChecked(); await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click(); expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:capacity-to-love-test"))).toBeNull();
+  test(`@release T096 ${locale}: edit locally, then clear answers on reload, language change or exit`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, entry, quiz);
+    const other = zh ? "en" : "zh";
+    await page.goto(`/${other}/tests/explore/${quiz.slug}/take`);
+    await expect(page.locator("#take-test input[name=CTL2018_01]").first()).toBeVisible({ timeout: 30_000 });
+    await expect(page.locator("#take-test").getByRole("radio", { checked: true })).toHaveCount(0);
+    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:capacity-to-love-test"))).toBeNull();
   });
   test(`@release T096 ${locale}: mobile midpoint, separate full readings and public-only copy`, async ({ page }) => {
-    await page.setViewportSize({ width: 390, height: 844 }); await page.addInitScript(() => { Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } }); }); await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await finish(page, locale, 2);
+    await page.setViewportSize({ width: 390, height: 844 }); await page.addInitScript(() => { Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } }); }); await page.goto(entry); await page.locator("[data-explore-start]:visible").first().click(); await finish(page, locale, 2);
     await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click(); const value = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue(); expect(value.split("\n").slice(0, -1).join("\n")).toBe(quiz.title[locale]); expect(value).not.toMatch(/CTL2018_[0-9]+|answers|rawSum|form_code|submission|[?&]score/); const url = new URL(value.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe(""); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   });
 }
@@ -51,7 +51,7 @@ test("@release T096: all native bilingual guides, images, canonical pairs, close
     for (const p of quiz.profiles) {
       const path = `/${locale}/tests/explore/capacity-to-love-test/results/${p.id}`; expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(p.title[locale]); await expect(page).toHaveTitle(`${p.seo!.title[locale]} | FermatMind`); await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", p.seo!.description[locale]); await expect(page.locator("[data-ctl41-score]")).toHaveCount(0);
       for (const s of p.sections) { const own = page.locator(`#report-${s.id}`); await expect(own.getByRole("heading", { level: 2 })).toHaveText(s.title[locale]); for (const t of s.paragraphs) await expect(own).toContainText(t[locale]); } await expect(page.locator("[data-ctl41-attribution]")).toBeVisible(); await expect(page.locator("[data-ctl41-attribution]")).toContainText("Kapusta"); await expect(page.locator("[data-ctl41-attribution]")).toContainText("CC BY 4.0");
-      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`); await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/capacity-to-love-test/results/${p.id}`); const image = await request.get(`/og/fun/capacity-to-love-test?locale=${locale}&portrait=${p.id}`); expect(image.status()).toBe(200); expect(image.headers()["content-type"]).toContain("image/png"); const withPrivate = await request.get(`/og/fun/capacity-to-love-test?locale=${locale}&portrait=${p.id}&score=5&answers=SYNTHETIC_PRIVATE_ONLY`); expect(withPrivate.status()).toBe(200); expect(await withPrivate.body()).toEqual(await image.body());
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`); await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/); await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0); const image = await request.get(`/og/fun/capacity-to-love-test?locale=${locale}&portrait=${p.id}`); expect(image.status()).toBe(200); expect(image.headers()["content-type"]).toContain("image/png"); const withPrivate = await request.get(`/og/fun/capacity-to-love-test?locale=${locale}&portrait=${p.id}&score=5&answers=SYNTHETIC_PRIVATE_ONLY`); expect(withPrivate.status()).toBe(200); expect(await withPrivate.body()).toEqual(await image.body());
     }
   }
   expect((await request.get("/en/tests/explore/capacity-to-love-test/results/master")).status()).toBe(404); expect((await request.get("/og/fun/capacity-to-love-test?portrait=master")).status()).toBe(404);

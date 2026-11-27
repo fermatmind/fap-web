@@ -1,3 +1,4 @@
+import { expectQuestionContext } from "./helpers/question-context";
 import { seedAnalyticsConsent } from "./helpers/consent";
 import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { test, expect, type Page } from "@playwright/test";
@@ -11,21 +12,18 @@ const reverseIds = new Set<string>(["WHOLESOME_03", "WHOLESOME_04", "WHOLESOME_0
 const groups: Record<string, string[]> = {"realistic-follow-through": ["WHOLESOME_01", "WHOLESOME_02", "WHOLESOME_03", "WHOLESOME_04"], "respecting-autonomy": ["WHOLESOME_05", "WHOLESOME_06", "WHOLESOME_07", "WHOLESOME_08"], "responsive-checking-in": ["WHOLESOME_09", "WHOLESOME_10", "WHOLESOME_11", "WHOLESOME_12"], "requesting-support": ["WHOLESOME_13", "WHOLESOME_14", "WHOLESOME_15", "WHOLESOME_16"], "honest-preferences": ["WHOLESOME_17", "WHOLESOME_18", "WHOLESOME_19", "WHOLESOME_20"], "understanding-perspectives": ["WHOLESOME_21", "WHOLESOME_22", "WHOLESOME_23", "WHOLESOME_24"], "negotiating-expectations": ["WHOLESOME_25", "WHOLESOME_26", "WHOLESOME_27", "WHOLESOME_28"], "clear-repair-talk": ["WHOLESOME_29", "WHOLESOME_30", "WHOLESOME_31", "WHOLESOME_32"]};
 const answersFor = (value: "neutral" | "minimum" | "maximum" | "na"): QuestionnaireAnswers => Object.fromEntries(Object.values(groups).flat().map(id => [id, value === "na" ? "na" : value === "neutral" ? "3" : String(value === "minimum" ? (reverseIds.has(id) ? 5 : 1) : (reverseIds.has(id) ? 1 : 5))]));
 test.beforeEach(async ({ page }) => { const cdp = await page.context().newCDPSession(page); await cdp.send("Network.enable"); await cdp.send("Network.setBlockedURLs", { urls: ["*/api/v0.5/seo/attribution/events*", "*/api/track*", "*googletagmanager.com/*", "*google-analytics.com/*", "*hm.baidu.com/*"] }); });
-async function contextVisible(page: Page) {
-  await expect.poll(() => page.locator("#take-test h2").evaluate(el => { const header = document.querySelector("header")?.getBoundingClientRect().bottom ?? 0, progress = el.previousElementSibling?.tagName === "PROGRESS" ? el.previousElementSibling : null, label = progress?.previousElementSibling; return el.getBoundingClientRect().top >= header && (!progress || (progress.getBoundingClientRect().top >= header && !!label && label.getBoundingClientRect().top >= header)); })).toBe(true);
-}
-async function start(page: Page) { await page.locator("[data-explore-start]:visible").first().click(); await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 }); await contextVisible(page); }
+async function start(page: Page) { await page.locator("[data-explore-start]:visible").first().click(); await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 }); await expectQuestionContext(page); }
 async function full(page: Page, locale: "en" | "zh", answers: QuestionnaireAnswers) {
   const zh = locale === "zh";
   for (const [i, q] of quiz.questions.entries()) {
-    if (i > 0) await contextVisible(page);
+    if (i > 0) await expectQuestionContext(page);
     const option = page.locator(`input[name="${q.id}"][value="${answers[q.id]}"]`);
     await expect(page.locator("[data-wholesome-overview]")).toHaveCount(0);
     if (i === 0) await option.press("Space");
     else await option.click();
     await expect(option).toHaveCount(0);
   }
-  await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused(); await contextVisible(page);
+  await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   await expect(page.getByRole("region", { name: zh ? "八组分别读数" : "Eight separate partner-behavior readings", exact: true })).toBeVisible();
   for (const [direction, ids] of Object.entries(groups)) {
     const values = ids.filter(id => answers[id] !== "na").map(id => reverseIds.has(id) ? 6 - Number(answers[id]) : Number(answers[id])); const sum = values.reduce((a, b) => a + b, 0), complete = values.length === 4;
