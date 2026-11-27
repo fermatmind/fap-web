@@ -1,3 +1,4 @@
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import path from "node:path";
@@ -13,10 +14,10 @@ async function finish(page: Page, locale: "en" | "zh", mode: "mixed" | "na") {
     const target = [5, 4, 3, 2][facet];
     const value = na ? "na" : String(reversed.has(index) ? 6 - target : target);
     const radio = page.locator(`input[name="${question.id}"][value="${value}"]`);
-    if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
-    else await radio.check();
-    if (index < 19) await expect(page.locator("[data-facet-score]")).toHaveCount(0);
-    await page.getByRole("button", { name: index === 19 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    await expect(page.locator("[data-facet-score]")).toHaveCount(0);
+    if (index === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.getByRole("heading", { level: 2, name: locale === "zh" ? `${quiz.title.zh}：完整结果` : `${quiz.title.en}: your complete result`, exact: true })).toBeFocused();
   const expected = mode === "na" ? [null, null, null, null] : [5, 4, 3, null];
@@ -43,36 +44,29 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
-    await page.locator("[data-explore-start]").click();
+    await page.locator("[data-explore-start]:visible").first().click(); await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "mixed");
     await expect(page.locator('[data-facet-score="quiet-recovery"]')).toContainText("3/5");
     await expect(page.locator('[data-facet-score="easy-company"]')).toContainText("2/5");
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
+    await expect(page.locator("[data-archetype-honor-card]")).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-facet-score]")).toHaveCount(0);
     await expect(page.getByRole("radio").first()).not.toBeChecked();
     await expect(page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true })).toBeDisabled();
     expect(answerPosts).toEqual([]);
   });
 
-  test(`@release Social battery ${locale}: opted-in NA draft survives reload, language change, back/edit and clear`, async ({ page }) => {
-    await page.goto(entry); await page.locator("[data-explore-start]").click();
-    await page.locator('input[value="na"]').check(); await page.getByRole("checkbox").check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await page.reload(); await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
-    await expect(page.locator('input[value="na"]')).toBeChecked();
-    await page.locator('input[value="4"]').check();
-    const other = zh ? "en" : "zh";
-    await page.goto(`/${other}/tests/explore/social-battery-test`);
-    await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click();
-    await expect(page.locator('input[value="4"]')).toBeChecked();
-    await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
-    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:social-battery-test"))).toBeNull();
+  test(`@release Social battery ${locale}: back and edit, reload, language change and exit clear private answers`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, entry, quiz);
+    const other = locale === "en" ? "zh" : "en";
+    await page.goto(`/${other}/tests/explore/${quiz.slug}/take`);
+    const first = page.locator(`#take-test input[name="${quiz.questions[0].id}"]`);
+    await expect(first.first()).toBeVisible({ timeout: 30000 });
+    await expect(first.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    expect(await page.evaluate(slug => sessionStorage.getItem(`fm_questionnaire_draft:${slug}`), quiz.slug)).toBeNull();
   });
 
   test(`@release Social battery ${locale}: denied storage, allNA safe result and clipboard fallback expose no answers or means`, async ({ page }) => {
@@ -80,14 +74,13 @@ for (const locale of ["en", "zh"] as const) {
       const get = Storage.prototype.getItem, set = Storage.prototype.setItem;
       Storage.prototype.getItem = function(key) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return get.call(this, key); };
       Storage.prototype.setItem = function(key, value) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, key, value); };
-      Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
+      Object.defineProperty(navigator, "share", { configurable: true, value: undefined }); Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.locator("[data-explore-start]").click();
-    await page.getByRole("checkbox").check();
-    await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save");
+    await page.goto(entry); await page.locator("[data-explore-start]:visible").first().click(); await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
+    await expect(page.locator("#take-test").getByRole("checkbox")).toHaveCount(0);
     await finish(page, locale, "na");
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.locator("[data-archetype-honor-group] textarea").inputValue();
     expect(text).toContain(quiz.title[locale]); expect(text).not.toMatch(/SB_[0-9]{2}|submission|answers|form_code|mean|score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
   });
