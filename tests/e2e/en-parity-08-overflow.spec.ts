@@ -65,7 +65,7 @@ test.describe("EN-PARITY-08 H1 overflow guard", () => {
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
       await page.goto("/zh/tests/mbti-personality-test-16-personality-types");
 
-      const heading = page.getByRole("heading", { level: 1, name: "MBTI 16 型人格免费测试", exact: true });
+      const heading = page.getByRole("main").getByRole("heading", { level: 1 });
       await expect(heading).toBeVisible();
       await expectNoTextOverflow(heading);
       await expectLocatorInsideViewport(heading);
@@ -76,7 +76,7 @@ test.describe("EN-PARITY-08 H1 overflow guard", () => {
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
       await page.goto("/en/tests/mbti-personality-test-16-personality-types");
 
-      const heading = page.getByRole("heading", { level: 1, name: "Free 16-Type MBTI-Style Personality Test", exact: true });
+      const heading = page.getByRole("main").getByRole("heading", { level: 1 });
       await expect(heading).toBeVisible();
       await expectNoTextOverflow(heading);
       await expectLocatorInsideViewport(heading);

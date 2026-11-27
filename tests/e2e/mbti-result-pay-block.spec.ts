@@ -1,5 +1,4 @@
 import { expect, test, type Page } from "@playwright/test";
-import { getMbtiDesktopAnchorId } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import reportReadyMbtiFreeFixture from "../fixtures/report_ready.mbti.free.json";
 import reportReadyMbtiProjectionFixture from "../fixtures/report_ready.mbti.projection.json";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
@@ -55,14 +54,6 @@ function createMbtiLockedPreviewReportFixture() {
   return reportData as Record<string, unknown>;
 }
 
-function getDesktopOfferComparison(page: Page) {
-  return page.getByTestId("mbti-desktop-clone-shell").getByTestId("mbti-offer-comparison");
-}
-
-function getDesktopOfferPrimaryCta(page: Page) {
-  return getDesktopOfferComparison(page).getByTestId("mbti-offers-primary-cta");
-}
-
 async function mockInviteUnlockProgress(page: Page, attemptId: string) {
   await page.route(`**/api/v0.3/attempts/${attemptId}/invite-unlocks*`, async (route) => {
     await route.fulfill({
@@ -78,10 +69,9 @@ async function mockInviteUnlockProgress(page: Page, attemptId: string) {
   });
 }
 
-test("MBTI locked access report still shows unlock offer block on /zh/result/<attemptId>#offer-full", async ({ page }) => {
+test("MBTI legacy offer link opens the full editorial result without checkout", async ({ page }) => {
   const attemptId = "827adbb2-f7d1-40de-9190-578ca788c348";
   const orderNo = "ord_mbti_lock_offer_199";
-  const paymentRecoveryToken = "token_mbti_lock_offer";
 
   await page.addInitScript(() => {
     window.localStorage.setItem(
@@ -178,48 +168,25 @@ test("MBTI locked access report still shows unlock offer block on /zh/result/<at
     });
   });
 
-  await page.route("**/api/v0.3/orders/checkout", async (route) => {
-    const requestBody = route.request().postDataJSON() as { attempt_id?: string; sku?: string };
-    expect(requestBody.attempt_id).toBe(attemptId);
-    expect(typeof requestBody.sku).toBe("string");
-
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        order_no: orderNo,
-        attempt_id: attemptId,
-        provider: "wechatpay",
-        payment_recovery_token: paymentRecoveryToken,
-        wait_url: `/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`,
-        pay: {
-          type: "qr",
-          value: "weixin://wxpay/bizpayurl?pr=mbti-lock-offer",
-          provider: "wechatpay",
-        },
-      }),
-    });
+  let orderRequests = 0;
+  await page.route("**/api/v0.3/orders/checkout", async route => {
+    orderRequests++;
+    await route.abort();
   });
 
   await page.goto(pagePath);
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
-  await expect(getDesktopOfferComparison(page)).toBeVisible();
+  await expect(page.getByTestId("mbti-offer-comparison")).toHaveCount(0);
+  await expect(page.getByTestId("mbti-result-shell")).toHaveAttribute("data-result-content-version", "editorial-v1");
   await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
-  await expect(page.locator(`#${getMbtiDesktopAnchorId("offerFull")}`)).toBeVisible();
-  await expect(getDesktopOfferPrimaryCta(page)).toBeVisible();
-  await expect(getDesktopOfferPrimaryCta(page)).toHaveText("1.99元直接解锁");
 
-  await getDesktopOfferPrimaryCta(page).click();
-
-  await expect(page).toHaveURL(new RegExp(`/zh/pay/wait\\?order_no=${orderNo}.*`));
+  expect(orderRequests).toBe(0);
 });
 
-test("MBTI result page keeps the unlock offer block on the current access-first report path", async ({ page }) => {
+test("MBTI access-first result ignores legacy paid offers", async ({ page }) => {
   const attemptId = "827adbb2-f7d1-40de-9190-578ca788c348";
   const orderNo = "ord_mbti_access_payload_199";
-  const paymentRecoveryToken = "token_mbti_access_payload";
 
   await page.addInitScript(() => {
     window.localStorage.setItem(
@@ -297,28 +264,10 @@ test("MBTI result page keeps the unlock offer block on the current access-first 
     });
   });
 
-  await page.route(`**/api/v0.3/orders/checkout`, async (route) => {
-    const requestBody = route.request().postDataJSON() as { attempt_id?: string; sku?: string };
-    expect(requestBody.attempt_id).toBe(attemptId);
-    expect(typeof requestBody.sku).toBe("string");
-
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        order_no: orderNo,
-        attempt_id: attemptId,
-        provider: "wechatpay",
-        payment_recovery_token: paymentRecoveryToken,
-        wait_url: `/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`,
-        pay: {
-          type: "qr",
-          value: "weixin://wxpay/bizpayurl?pr=mbti-access-payload-offer",
-          provider: "wechatpay",
-        },
-      }),
-    });
+  let orderRequests = 0;
+  await page.route("**/api/v0.3/orders/checkout", async route => {
+    orderRequests++;
+    await route.abort();
   });
 
   await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
@@ -332,18 +281,14 @@ test("MBTI result page keeps the unlock offer block on the current access-first 
   await page.goto(pagePath);
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
-  await expect(getDesktopOfferComparison(page)).toBeVisible();
+  await expect(page.getByTestId("mbti-offer-comparison")).toHaveCount(0);
+  await expect(page.getByTestId("mbti-result-shell")).toHaveAttribute("data-result-content-version", "editorial-v1");
   await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
-  await expect(page.locator(`#${getMbtiDesktopAnchorId("offerFull")}`)).toBeVisible();
-  await expect(getDesktopOfferPrimaryCta(page)).toBeVisible();
-  await expect(getDesktopOfferPrimaryCta(page)).toHaveText("1.99元直接解锁");
 
-  await getDesktopOfferPrimaryCta(page).click();
-
-  await expect(page).toHaveURL(new RegExp(`/zh/pay/wait\\?order_no=${orderNo}.*`));
+  expect(orderRequests).toBe(0);
 });
 
-test("MBTI desktop clone hides chapter preview cards while the page remains on the locked offer path", async ({ page }) => {
+test("MBTI legacy preview DTO opens the current full report without gated chapters", async ({ page }) => {
   const attemptId = "mbti-preview-pay-block-0001";
 
   await page.addInitScript(() => {
@@ -425,6 +370,7 @@ test("MBTI desktop clone hides chapter preview cards while the page remains on t
   await page.goto(`/zh/result/${attemptId}`);
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
-  await expect(getDesktopOfferComparison(page)).toBeVisible();
+  await expect(page.getByTestId("mbti-offer-comparison")).toHaveCount(0);
+  await expect(page.getByTestId("mbti-result-shell")).toHaveAttribute("data-result-content-version", "editorial-v1");
   await expect(page.getByTestId("mbti-desktop-preview-growth")).toHaveCount(0);
 });

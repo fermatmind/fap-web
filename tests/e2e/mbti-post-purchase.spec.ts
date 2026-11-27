@@ -180,7 +180,7 @@ async function installUnlockedResultMocks(
   };
 }
 
-test("MBTI paid orders auto-redirect to the unlocked result page", async ({ page }) => {
+test("MBTI historical paid orders still open the editorial result", async ({ page }) => {
   const attemptId = "mbti-post-purchase-0001";
   const orderNo = "ord_mbti_post_purchase_0001";
 
@@ -211,21 +211,19 @@ test("MBTI paid orders auto-redirect to the unlocked result page", async ({ page
 
   await page.goto(`/en/orders/${orderNo}`);
 
-  await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}(\\?.*)?$`));
-  const terminalSurface = page.getByTestId("mbti-post-purchase-section");
+  await page.waitForURL(url => url.pathname === `/en/result/${attemptId}`);
+  const terminalSurface = page.getByTestId("mbti-evidence-and-prompts");
   await expect(terminalSurface).toBeVisible({ timeout: 20000 });
-  await expect(page.getByTestId("mbti-hero")).toContainText("Projection Campaigner");
+  await expect(page.getByTestId("mbti-offer-comparison")).toHaveCount(0);
+  await expect(page.getByTestId("mbti-hero")).toContainText("ENFP");
   await expect(page.getByTestId("mbti-hero")).not.toContainText("Projection-first summary that should replace the legacy hero copy on result pages.");
   await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveCount(0);
   await expect(terminalSurface.getByRole("button", { name: "Download PDF" })).toBeVisible();
-  await expect(terminalSurface.getByRole("link", { name: "My MBTI reports" })).toHaveAttribute("href", "/en/history/mbti");
-  await expect(terminalSurface.getByRole("link", { name: "Order details" })).toHaveAttribute("href", `/en/orders/${orderNo}`);
-  await expect(terminalSurface.getByRole("link", { name: "Order lookup" })).toHaveAttribute("href", "/en/orders/lookup");
   expect(counters.getReportAccessRequestCount()).toBeGreaterThan(0);
   expect(counters.getReportRequestCount()).toBeGreaterThan(0);
 });
 
-test("MBTI result pages keep post-purchase retention and history re-entry", async ({ page }) => {
+test("MBTI report remains available through history after a legacy purchase", async ({ page }) => {
   const attemptId = "mbti-post-purchase-0001";
 
   await installCommonMocks(page);
@@ -233,18 +231,16 @@ test("MBTI result pages keep post-purchase retention and history re-entry", asyn
 
   await page.goto(`/en/result/${attemptId}`);
 
-  const terminalSurface = page.getByTestId("mbti-post-purchase-section");
-  await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}(\\?.*)?$`));
+  const terminalSurface = page.getByTestId("mbti-evidence-and-prompts");
+  await page.waitForURL(url => url.pathname === `/en/result/${attemptId}`);
   await expect(terminalSurface).toBeVisible({ timeout: 20000 });
+  await expect(page.getByTestId("mbti-offer-comparison")).toHaveCount(0);
   await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveCount(0);
   await expect(terminalSurface.getByRole("button", { name: "Download PDF" })).toBeVisible();
-  await expect(terminalSurface.getByRole("link", { name: "My MBTI reports" })).toHaveAttribute("href", "/en/history/mbti");
-  await expect(terminalSurface.getByRole("link", { name: "Order details" })).toHaveAttribute("href", "/en/orders/ord_mbti_post_purchase_0001");
-  await expect(terminalSurface.getByRole("link", { name: "Order lookup" })).toHaveAttribute("href", "/en/orders/lookup");
 
-  await page.getByTestId("mbti-post-purchase-history").click();
+  await page.getByTestId("mbti-result-shell").locator('a[href="/en/history/mbti"]:visible').first().click();
 
-  await expect(page).toHaveURL("/en/history/mbti");
+  await page.waitForURL(url => url.pathname === "/en/history/mbti");
   await expect(page.getByTestId("mbti-history-client")).toBeVisible();
   await expect(page.getByTestId("mbti-history-card")).toContainText("ENFP-T");
   await expect(page.getByTestId("mbti-history-continue-cta")).toHaveText("Continue latest full result");
@@ -252,8 +248,8 @@ test("MBTI result pages keep post-purchase retention and history re-entry", asyn
 
   await page.getByTestId(`mbti-history-open-${attemptId}`).click();
 
-  await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}(\\?.*)?$`));
-  await expect(page.getByTestId("mbti-post-purchase-section")).toBeVisible({ timeout: 20000 });
+  await page.waitForURL(url => url.pathname === `/en/result/${attemptId}`);
+  await expect(page.getByTestId("mbti-evidence-and-prompts")).toBeVisible({ timeout: 20000 });
   expect(counters.getReportAccessRequestCount()).toBeGreaterThan(0);
   expect(counters.getReportRequestCount()).toBeGreaterThan(0);
 });

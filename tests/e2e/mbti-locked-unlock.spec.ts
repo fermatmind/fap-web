@@ -1,5 +1,4 @@
 import { expect, test } from "@playwright/test";
-import { getMbtiDesktopAnchorId } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import reportReadyMbtiProjectionFixture from "../fixtures/report_ready.mbti.projection.json";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
 import type { ReportResponse } from "@/lib/api/v0_3";
@@ -8,18 +7,9 @@ function createMbtiLockedReportFixture() {
   return applyMbtiPhase2Fixture(structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse) as Record<string, unknown>;
 }
 
-function getDesktopOfferComparison(page: import("@playwright/test").Page) {
-  return page.getByTestId("mbti-desktop-clone-shell").getByTestId("mbti-offer-comparison");
-}
-
-function getDesktopOfferPrimaryCta(page: import("@playwright/test").Page) {
-  return getDesktopOfferComparison(page).getByTestId("mbti-offers-primary-cta");
-}
-
-test("MBTI locked result keeps the unlock offer on the current access-first path", async ({ page }) => {
+test("MBTI legacy locked access keeps the editorial result available", async ({ page }) => {
   const attemptId = "827adbb2-f7d1-40de-9190-578ca788c348";
   const orderNo = "ord_mbti_lock_offer_199";
-  const paymentRecoveryToken = "token_mbti_lock_offer";
   const reportPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`);
 
   await page.addInitScript(() => {
@@ -114,37 +104,17 @@ test("MBTI locked result keeps the unlock offer on the current access-first path
     });
   });
 
-  await page.route("**/api/v0.3/orders/checkout", async (route) => {
-    const requestBody = route.request().postDataJSON() as { attempt_id?: string; sku?: string };
-    expect(requestBody.attempt_id).toBe(attemptId);
-    expect(typeof requestBody.sku).toBe("string");
-
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        order_no: orderNo,
-        attempt_id: attemptId,
-        provider: "wechatpay",
-        payment_recovery_token: paymentRecoveryToken,
-        wait_url: `/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`,
-        pay: {
-          type: "qr",
-          value: "weixin://wxpay/bizpayurl?pr=mbti-lock-offer",
-          provider: "wechatpay",
-        },
-      }),
-    });
+  let orderRequests = 0;
+  await page.route("**/api/v0.3/orders/checkout", async route => {
+    orderRequests++;
+    await route.abort();
   });
 
   await page.goto(pagePath);
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
-  await expect(getDesktopOfferComparison(page)).toBeVisible();
-  await expect(page.locator(`#${getMbtiDesktopAnchorId("offerFull")}`)).toBeVisible();
-  await expect(getDesktopOfferPrimaryCta(page)).toHaveText("1.99元直接解锁");
+  await expect(page.getByTestId("mbti-offer-comparison")).toHaveCount(0);
+  await expect(page.getByTestId("mbti-result-shell")).toHaveAttribute("data-result-content-version", "editorial-v1");
 
-  await getDesktopOfferPrimaryCta(page).click();
-  await expect(page).toHaveURL(new RegExp(`/zh/pay/wait\\?order_no=${orderNo}.*`));
+  expect(orderRequests).toBe(0);
 });

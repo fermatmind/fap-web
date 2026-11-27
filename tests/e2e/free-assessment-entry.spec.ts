@@ -52,7 +52,10 @@ for (const locale of ["en", "zh"] as const) {
       await expect(page.locator("main").getByRole("status").filter({
         hasText: /temporarily unavailable|暂不可用|暂停开放/i,
       })).toHaveCount(0);
-      const entry = page.locator(`main a[href^="/${locale}/tests/${slug}/take"]`).first();
+      if (locale === "zh" && slug.startsWith("mbti")) {
+        await page.locator("main summary").filter({ hasText: "开始免费测试" }).first().click();
+      }
+      const entry = page.locator(`main a[href^="/${locale}/tests/${slug}/take"]:visible`).first();
       await expect(entry).toBeVisible();
       await expect(page.getByRole("button", { name: /unlock (?:full |the )?report|buy now|checkout|解锁报告|立即购买|支付解锁/i })).toHaveCount(0);
       await expect(page.locator('main a[href*="/checkout"], main a[href*="/orders/new"]')).toHaveCount(0);
@@ -69,17 +72,20 @@ for (const slug of slugs) {
     await expect(page.locator("[data-site-header-ready=true]")).toBeVisible();
     const language = page.locator('button[aria-controls="site-language-menu"]');
     await language.click();
-    await page.getByRole("menuitem", { name: "繁體中文" }).click();
-    await expect(page).toHaveURL(new RegExp(`/zh-TW${suffix}$`));
+    const target = `/zh-TW${suffix}`;
+    const traditional = page.getByRole("menuitem", { name: "繁體中文" });
+    await expect(traditional).toHaveAttribute("href", target);
+    await traditional.click();
+    await page.waitForURL(url => url.pathname === target);
     await expect(page.locator("html")).toHaveAttribute("lang", "zh-TW");
     const main = page.locator("main[data-test-landing-read-source]");
     await expect(main.locator("h1")).toBeVisible();
     await expect(main.locator("#faq h2")).toBeVisible();
-    const cta = main.locator(`a[href^="/zh-TW${suffix}/take"]`).first();
+    const cta = main.locator(`a[href^="/zh-TW${suffix}/take"]:visible`).first();
     await expect(cta).toBeVisible();
-    if (slug.startsWith("mbti")) await expect(main.locator("#result-examples article")).toHaveCount(2);
+    if (slug.startsWith("mbti")) await expect(main.getByRole("group", { name: "切換報告範例" }).getByRole("button")).toHaveCount(3);
     if (slug.startsWith("iq")) await expect(main.locator("#iq-sample-question")).toBeVisible();
-    if (slug.startsWith("holland")) await expect(main.getByTestId("riasec-result-example-entry")).toBeVisible();
+    if (slug.startsWith("holland")) await expect(main.getByRole("link", { name: "另看完整公開範例" })).toHaveAttribute("href", "/zh-TW/reports/samples/holland");
     for (const width of [1430, 390]) {
       await page.setViewportSize({ width, height: 940 });
       const faq = await main.locator("#faq h2").boundingBox();

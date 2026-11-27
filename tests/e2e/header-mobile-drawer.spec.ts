@@ -53,11 +53,11 @@ test.describe("mobile header drawer", () => {
     await drawer.getByRole("button", { name: "Tests menu", exact: true }).click();
     await expect(drawer.getByRole("menuitem", { name: "Tests hub", exact: true })).toBeVisible();
 
-    await expect(drawer.getByRole("button", { name: "Blog menu", exact: true })).toHaveCount(0);
+    await expect(drawer.getByRole("button", { name: "Blog menu", exact: true })).toBeVisible();
     const blog = drawer.getByTestId("mobile-primary-nav-link-articles");
     await expect(blog).toHaveAttribute("href", "/en/articles");
     await blog.click();
-    await expect(page).toHaveURL(/\/en\/articles/);
+    await page.waitForURL(url => url.pathname === "/en/articles");
     await expect(page.getByRole("dialog", { name: "Menu" })).toHaveCount(0);
   });
 });

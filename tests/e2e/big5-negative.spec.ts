@@ -197,7 +197,7 @@ async function mockBig5ReportAccess(
   });
 }
 
-test("BIG5 /take redirects to landing maintenance when rollout is off", async ({ page }) => {
+test("BIG5 /take returns to the public landing without starting a test when rollout is off", async ({ page }) => {
   await mockTrack(page);
   await mockLookup(page, { enabledInProd: false, paywallMode: "off" });
   await mockQuestions(page, 5);
@@ -205,7 +205,8 @@ test("BIG5 /take redirects to landing maintenance when rollout is off", async ({
   await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
 
   await page.waitForURL(/\/en\/tests\/big-five-personality-test-ocean-model\?maintenance=1/);
-  await expect(page.getByText("Maintenance mode")).toBeVisible();
+  await expect(page.getByRole("main").getByRole("heading", { level: 1 })).toBeVisible();
+  await expect(page.getByRole("main").getByRole("radio")).toHaveCount(0);
 });
 
 test("BIG5 free_only hides unlock CTA in locked result", async ({ page }) => {
@@ -463,7 +464,7 @@ test("BIG5 report handles norms missing and unknown block safely", async ({ page
   await expect(page.locator("text=NaN")).toHaveCount(0);
 });
 
-test("BIG5 compare shows N/A and not comparable when one side is missing", async ({ page }) => {
+test("BIG5 compare withholds percentile differences when records lack comparable evidence", async ({ page }) => {
   const currentAttemptId = "compare_current";
   const previousAttemptId = "compare_previous";
 
@@ -538,8 +539,9 @@ test("BIG5 compare shows N/A and not comparable when one side is missing", async
 
   await page.goto(`/en/history/big5/compare?current=${currentAttemptId}&previous=${previousAttemptId}`);
 
-  await expect(page.getByText("Not comparable").first()).toBeVisible();
-  await expect(page.getByText("Now N/A").first()).toBeVisible();
+  await expect(page.getByRole("main").getByRole("alert")).toContainText("These records do not provide comparable precise percentiles for the same form and reference.");
+  await expect(page.getByRole("link", { name: "Open formal result", exact: true })).toHaveAttribute("href", `/en/result/${currentAttemptId}`);
+  await expect(page.getByRole("heading", { name: "Domain percentile differences" })).toHaveCount(0);
   await expect(page.getByText("Prev 0")).toHaveCount(0);
 });
 

@@ -27,8 +27,8 @@ async function expectHomeSections(page: Page, locale: "en" | "zh") {
   expect(familiesBox).not.toBeNull();
   expect(coreBox!.y).toBeGreaterThanOrEqual(heroBox!.y + heroBox!.height - 1);
   expect(familiesBox!.y).toBeGreaterThanOrEqual(coreBox!.y + coreBox!.height - 1);
-  await expect(core.locator("article")).toHaveCount(6);
-  for (const slug of ["mbti-personality-test-16-personality-types", "big-five-personality-test-ocean-model", "iq-test-intelligence-quotient-assessment", "eq-test-emotional-intelligence-assessment", "enneagram-personality-test-nine-types", "holland-career-interest-test-riasec"]) {
+  await expect(core.locator("article")).toHaveCount(9);
+  for (const slug of ["mbti-personality-test-16-personality-types", "big-five-personality-test-ocean-model", "iq-test-intelligence-quotient-assessment", "eq-test-emotional-intelligence-assessment", "enneagram-personality-test-nine-types", "holland-career-interest-test-riasec", "career-planning-and-work-style-test", "jung-test", "disc-behavioral-style-test"]) {
     await expect(core.locator(`a[href="/${locale}/tests/${slug}"]`)).toBeVisible();
   }
   await expect(core.locator('a[href*="clinical-depression"], a[href*="depression-screening"]')).toHaveCount(0);
