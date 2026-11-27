@@ -1,30 +1,29 @@
 import { test, expect, type Page } from "@playwright/test";
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import data from "../../lib/questionnaires/data/coping-rhythm-test.json";
 
 async function finish(page: Page, locale: "en" | "zh", mode: "worked" | "tied" | "one-sided") {
   for (const [i, q] of data.questions.entries()) {
     const value = mode === "one-sided" ? q.options.find(o => o.directionId === data.profiles[Math.floor(i / 6)].directionIds[0])!.id : mode === "worked" && i === 0 ? "B" : "A";
     const radio = page.locator(`input[name="${q.id}"][value="${value}"]`);
-    if (i === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); } else await radio.check();
     await expect(page.locator("[data-coping-result]")).toHaveCount(0);
-    await page.getByRole("button", { name: locale === "zh" ? (i === 23 ? "查看四组记录" : "下一题") : (i === 23 ? "See four records" : "Next"), exact: true }).click();
+    if (i === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.locator("[data-coping-pair]")).toHaveCount(4);
   const counts = mode === "one-sided" ? [6, 0, 6, 0, 6, 0, 6, 0] : mode === "worked" ? [2, 4, 3, 3, 3, 3, 3, 3] : [3, 3, 3, 3, 3, 3, 3, 3];
   await expect(page.locator("[data-coping-count]")).toHaveText(counts.map(n => `${n} / 6`));
   await expect(page.locator('[data-coping-tie="true"]')).toHaveCount(mode === "one-sided" ? 0 : mode === "worked" ? 3 : 4);
-  let paragraphs = 0;
-  for (const profile of data.profiles) for (const section of profile.sections) {
-    const body = page.locator(`[id="coping-report-${profile.id}-${section.id}"]`);
-    await expect(body.locator("h4")).toHaveText(section.title[locale]);
-    for (const paragraph of section.paragraphs) { await expect(body.getByText(paragraph[locale], { exact: true })).toBeVisible(); paragraphs++; }
+  for (const profile of data.profiles) {
+    const guide = page.locator(`#take-test a[href="/${locale}/tests/explore/${data.slug}/results/${profile.id}"]`);
+    await expect(guide).toBeVisible();
   }
-  expect(paragraphs).toBe(64);
   const ids = await page.locator("#take-test [id]").evaluateAll(nodes => nodes.map(n => n.id)); expect(new Set(ids).size).toBe(ids.length);
 }
 for (const locale of ["en", "zh"] as const) {
   const zh = locale === "zh", entry = `/${locale}/tests/explore/coping-rhythm-test`;
-  test(`@release coping ${locale}: real24 answers, four paired counts, all64 paragraphs and empty retake`, async ({ page }) => {
+  test(`@release coping ${locale}: 24 answers, four paired counts, guide links and empty retake`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     const leaks: string[] = [];
     page.on("request", r => { if (r.method() === "POST" && /AGE_RHYTHM_PC_|trying-and-assessing|present-needs-and-future-plans/.test(r.postData() ?? "")) leaks.push(r.url()); });
@@ -34,7 +33,8 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page).toHaveTitle(`${data.seoTitle[locale]} | FermatMind`);
     const method = page.locator('section[aria-labelledby="questionnaire-method"]');
     for (const s of data.guide) for (const p of s.paragraphs) await expect(method.getByText(p[locale], { exact: true })).toBeVisible();
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     const header = await page.getByRole("banner").boundingBox(), progress = await page.locator("[data-coping-progress]").boundingBox();
     expect(header).not.toBeNull(); expect(progress).not.toBeNull();
     expect(progress!.y).toBeGreaterThanOrEqual(header!.y + header!.height);
@@ -48,21 +48,12 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(leaks).toEqual([]);
   });
   test(`@release coping ${locale}: edit, reload, language, actual leave and clear discard responses`, async ({ page }) => {
-    const start = () => page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.goto(entry); await start();
-    await page.locator('input[value="A"]').check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
-    await expect(page.locator('input[value="A"]')).toBeChecked(); await page.locator('input[value="B"]').check();
-    await page.reload(); await start(); await expect(page.locator('input[value="B"]')).not.toBeChecked();
-    await page.locator('input[value="A"]').check();
-    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/coping-rhythm-test`);
-    await page.getByRole("button", { name: other === "zh" ? "开始测试" : "Start test", exact: true }).click();
-    await expect(page.locator('input[value="A"]')).not.toBeChecked();
-    await page.goto(entry); await start(); await page.locator('input[value="B"]').check();
-    await page.getByRole("button", { name: zh ? "退出并清除本次回答" : "Exit and clear these responses", exact: true }).click(); await start();
-    await expect(page.locator('input[value="B"]')).not.toBeChecked();
-    await page.locator('input[value="A"]').check(); await page.goto(`/${locale}/tests`); await page.goBack(); await start();
-    await expect(page.locator('input[value="A"]')).not.toBeChecked();
+    await expectStandaloneObservationPrivacy(page, entry, data);
+    const other = zh ? "en" : "zh";
+    await page.goto(`/${other}/tests/explore/${data.slug}/take`);
+    const first = page.locator(`#take-test input[name="${data.questions[0].id}"]`);
+    await expect(first.first()).toBeVisible();
+    await expect(first.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
   });
   test(`@release coping ${locale}: ties and one-sided counts, storage denial and public-only clipboard fallback`, async ({ page }) => {
     await page.addInitScript(() => {
@@ -71,7 +62,8 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(k, v) { if (k.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, k, v); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.goto(entry); await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     await finish(page, locale, "tied");
     await expect(page.locator('[data-coping-tie="true"]')).toHaveCount(4);
     await page.getByRole("button", { name: zh ? "重新测试（清除本次回答）" : "Retake with empty answers", exact: true }).click(); await finish(page, locale, "one-sided");

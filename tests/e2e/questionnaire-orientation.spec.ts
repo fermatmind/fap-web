@@ -1,4 +1,6 @@
 import { test, expect, type Page } from "@playwright/test";
+import { isArchivedEntertainmentPath } from "../../lib/seo/discoverabilityExposurePolicy";
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import data from "../../lib/questionnaires/data/orientation-exploration-test.json";
 const values = ["1", "3", "5", "na"];
 test.beforeEach(async ({ page }) => {
@@ -32,9 +34,9 @@ async function answer(page: Page, locale: "en" | "zh", mode: "worked" | "partial
   for (const [i, q] of data.questions.entries()) {
     const value = mode === "all-na" || (mode === "partial" && i < 4) ? "na" : values[i % 4];
     const radio = page.locator(`input[name="${q.id}"][value="${value}"]`);
-    if (i === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); } else await radio.check();
     await expect(page.locator("[data-orientation-result]")).toHaveCount(0);
-    await page.getByRole("button", { name: locale === "zh" ? (i === 19 ? "查看本次记录" : "下一题") : (i === 19 ? "See this record" : "Next"), exact: true }).click();
+    if (i === 0) { await radio.focus(); await page.keyboard.press("Space"); } else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.locator("[data-orientation-result]")).toBeVisible();
   await expect(page.getByRole("heading", { level: 2, name: data.resultHeading[locale], exact: true })).toBeFocused();
@@ -50,6 +52,7 @@ async function answer(page: Page, locale: "en" | "zh", mode: "worked" | "partial
         : `4 statements: ${skipped ? 0 : 3} numeric responses (including ${skipped ? 0 : 1} uncertain); ${skipped ? 4 : 1} explicitly skipped.`);
       await expect(part.locator("[data-orientation-distribution] dd")).toHaveText(skipped ? (locale === "zh" ? ["0次", "0次", "0次", "0次", "0次", "4次"] : ["0", "0", "0", "0", "0", "4"]) : (locale === "zh" ? ["1次", "0次", "1次", "0次", "1次", "1次"] : ["1", "0", "1", "0", "1", "1"]));
       if (skipped) await expect(part.locator("[data-orientation-domain-skipped]")).toBeVisible();
+      await part.getByText(locale === "zh" ? "查看完整解释、计分与依据" : "Read the full explanation, scoring and background", { exact: true }).click();
       for (const section of profile.sections) {
         const body = part.locator(`[id="orientation-report-${profile.id}-${section.id}"]`);
         await expect(body.locator("h4")).toHaveText(section.title[locale]);
@@ -64,7 +67,7 @@ async function answer(page: Page, locale: "en" | "zh", mode: "worked" | "partial
 }
 for (const locale of ["en", "zh"] as const) {
   const zh = locale === "zh", entry = `/${locale}/tests/explore/orientation-exploration-test`;
-  const start = (page: Page) => page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+  const start = (page: Page) => page.locator("#take-test [data-explore-start]").click();
   test(`@release orientation ${locale}: hub, keyboard,20 responses, five response distributions, all60 paragraphs, mobile progress and empty retake`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`/${locale}/tests`);
@@ -78,6 +81,8 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page).toHaveTitle(`${data.seoTitle[locale]} | FermatMind`);
     for (const s of data.guide) for (const p of s.paragraphs) await expect(page.locator('section[aria-labelledby="questionnaire-method"]').getByText(p[locale], { exact: true })).toBeVisible();
     await start(page);
+    await page.waitForURL(url => url.pathname === `${entry}/take`);
+    await expect(page.locator("[data-orientation-progress]")).toBeVisible({ timeout: 30000 });
     const header = await page.getByRole("banner").boundingBox(), progress = await page.locator("[data-orientation-progress]").boundingBox();
     expect(header).not.toBeNull(); expect(progress).not.toBeNull(); expect(progress!.y).toBeGreaterThanOrEqual(header!.y + header!.height);
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
@@ -88,18 +93,13 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "愿意时重新作答（清除本次回答）" : "Answer again if you want (empty answers)", exact: true }).click();
     await expect(page.locator("[data-orientation-result]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(attempts).toEqual([]);
   });
-  test(`@release orientation ${locale}: edit, reload, language, leave and exit clear memory`, async ({ page }) => {
-    await page.goto(entry); await start(page);
-    await page.locator('input[value="2"]').check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
-    await expect(page.locator('input[value="2"]')).toBeChecked(); await page.locator('input[value="4"]').check();
-    await page.reload(); await start(page); await expect(page.locator('input[value="4"]')).not.toBeChecked();
-    await page.locator('input[value="5"]').check(); const other = zh ? "en" : "zh";
-    await page.goto(`/${other}/tests/explore/orientation-exploration-test`); await page.getByRole("button", { name: other === "zh" ? "开始测试" : "Start test", exact: true }).click();
-    await expect(page.locator('input[value="5"]')).not.toBeChecked();
-    await page.goto(entry); await start(page); await page.locator('input[value="3"]').check();
-    await page.getByRole("button", { name: zh ? "退出并清除本次回答" : "Exit and clear these responses", exact: true }).click(); await start(page); await expect(page.locator('input[value="3"]')).not.toBeChecked();
-    await page.locator('input[value="1"]').check(); await page.goto(`/${locale}/tests`); await page.goBack(); await start(page); await expect(page.locator('input[value="1"]')).not.toBeChecked();
+  test(`@release orientation ${locale}: edit, reload, language and leave clear memory`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, entry, data);
+    await page.locator("#take-test").getByRole("radio").nth(1).click();
+    await expect(page.locator(`input[name="${data.questions[1].id}"]`).first()).toBeVisible();
+    await page.goto(`/${zh ? "en" : "zh"}/tests/explore/orientation-exploration-test/take`);
+    await expect(page.locator(`input[name="${data.questions[0].id}"]`).first()).toBeVisible();
+    await expect(page.getByRole("radio", { checked: true })).toHaveCount(0);
   });
   test(`@release orientation ${locale}: all-skipped suppresses personal cards; a wholly skipped topic remains explicit; no storage, clipboard or analytics`, async ({ page }) => {
     await page.addInitScript(() => {
@@ -108,7 +108,7 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(k, v) { if (k.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, k, v); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    const attempts = observeAnalytics(page); await page.goto(entry); await start(page); await answer(page, locale, "all-na");
+    const attempts = observeAnalytics(page); await page.goto(`${entry}/take`); await answer(page, locale, "all-na");
     await page.getByRole("button", { name: zh ? "愿意时重新作答（清除本次回答）" : "Answer again if you want (empty answers)", exact: true }).click(); await answer(page, locale, "partial");
     await page.waitForTimeout(250); expect(attempts).toEqual([]);
   });
@@ -125,8 +125,13 @@ test("@release orientation: all ten public full guides, twelve local-font OG ima
         for (const p of s.paragraphs) await expect(body.getByText(p[locale], { exact: true })).toBeVisible();
       }
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`);
-      await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/orientation-exploration-test/results/${profile.id}`);
-      await expect(page.locator('link[rel="alternate"][hreflang="zh-CN"]')).toHaveAttribute("href", `https://fermatmind.com/zh/tests/explore/orientation-exploration-test/results/${profile.id}`);
+      if (isArchivedEntertainmentPath(path)) {
+        await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /^noindex, follow(?:,|$)/u);
+        await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
+      } else {
+        await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/orientation-exploration-test/results/${profile.id}`);
+        await expect(page.locator('link[rel="alternate"][hreflang="zh-CN"]')).toHaveAttribute("href", `https://fermatmind.com/zh/tests/explore/orientation-exploration-test/results/${profile.id}`);
+      }
       const startLinks = page.locator(`[href='/${locale}/tests/explore/orientation-exploration-test#take-test']`);
       await expect(startLinks).toHaveCount(2);
       for (const link of await startLinks.all()) await expect(link).toBeVisible();

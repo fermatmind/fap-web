@@ -1,5 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import type { Questionnaire } from "../../lib/questionnaires/types";
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/spatial-thinking-reflection.json", "utf8")) as Questionnaire;
 const label = (locale: string, en: string, zh: string) => locale === "zh" ? zh : en;
@@ -15,9 +16,10 @@ async function finish(page: Page, locale: "en" | "zh", allUnscored = false) {
       const box = await heading.boundingBox(), header = await page.locator("header").first().boundingBox();
       expect(box!.y).toBeGreaterThanOrEqual(header ? header.y + header.height : 0);
     }
-    await page.locator(`input[name="${q.id}"][value="${allUnscored ? "na" : ["0", "1", "2", "3", "4", "na"][i % 6]}"]`).check();
+    const option = page.locator(`input[name="${q.id}"][value="${allUnscored ? "na" : ["0", "1", "2", "3", "4", "na"][i % 6]}"]`);
     await expect(page.locator("[data-spatial-context-result]")).toHaveCount(0);
-    await page.getByRole("button", { name: label(locale, i === 3 ? "Organize observations" : "Next", i === 3 ? "整理观察记录" : "下一条"), exact: true }).click();
+    await option.click();
+    await expect(option).toHaveCount(0);
   }
   await expect(page.locator("[data-spatial-context-theme]")).toHaveCount(1);
   await expect(page.locator("[data-spatial-context-observation]")).toHaveCount(4);
@@ -48,6 +50,8 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator("[data-spatial-context-full-guide]")).toHaveCount(1); await expect(page.locator("[data-spatial-context-full-guide] h3")).toHaveCount(6);
     await expect(page.locator("[data-spatial-context-support]")).toHaveCount(1);
     await page.locator("[data-explore-start]").click();
+    await page.waitForURL(url => url.pathname === `${path(locale)}/take`);
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     const box = await page.locator("#spatial-context-active-question").boundingBox(), header = await page.locator("header").first().boundingBox();
     expect(box!.y).toBeGreaterThanOrEqual(header ? header.y + header.height : 0);
     await page.getByRole("button", { name: label(locale, "Next", "下一条"), exact: true }).click();
@@ -59,23 +63,8 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator('input[value="0"]')).not.toBeChecked(); await finish(page, locale, true);
     expect(leaks).toEqual([]); expect(errors).toEqual([]);
   });
-  test(`@release original observations ${locale}:backedit, exit, reloadandpageleaveclearprivateanswers`, async ({ page }) => {
-    await page.goto(path(locale)); const start = () => page.locator("[data-explore-start]").click();
-    await start(); await page.locator('input[value="4"]').check();
-    await page.getByRole("button", { name: label(locale, "Next", "下一条"), exact: true }).click();
-    await page.getByRole("button", { name: label(locale, "Back", "上一条"), exact: true }).click(); await expect(page.locator('input[value="4"]')).toBeChecked();
-    await page.locator('input[value="0"]').check();
-    await page.locator(`a[href="${path(locale)}"]`).filter({ hasText: /Back to assessment|返回测评/ }).click();
-    await start(); await expect(page.locator('input[value="0"]')).not.toBeChecked(); await expect(page.locator('input[value="4"]')).not.toBeChecked();
-    await page.locator('input[value="3"]').check(); await page.reload();
-    await expect(page.locator("#spatial-context-active-question")).toHaveText(quiz.questions[0].prompt[locale]);
-    await expect(page.locator('input[value="3"]')).not.toBeChecked();
-    await page.locator('input[value="1"]').check();
-    await page.goto(`/${locale}/tests#more-tests`);
-    await expect(page).toHaveURL(new RegExp(`/${locale}/tests#more-tests$`));
-    await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
-    await expect(page.locator("[data-explore-start]")).toBeVisible();
-    await start(); await expect(page.locator('input[value="1"]')).not.toBeChecked();
+  test(`@release original observations ${locale}: edit, reload and leave without retaining answers`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, path(locale), quiz);
     expect(await page.evaluate(() => Object.keys(sessionStorage).filter(k => /spatial-context|SPO_/.test(k)))).toEqual([]);
   });
 }

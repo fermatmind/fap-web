@@ -1,5 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
+import { isArchivedEntertainmentPath } from "../../lib/seo/discoverabilityExposurePolicy";
 import { readFileSync } from "node:fs";
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import type { Questionnaire } from "../../lib/questionnaires/types";
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/health-worries-reflection.json", "utf8")) as Questionnaire;
 const label = (locale: string, en: string, zh: string) => locale === "zh" ? zh : en;
@@ -14,9 +16,10 @@ async function finish(page: Page, locale: "en" | "zh", allUnscored = false) {
       const box = await heading.boundingBox(), header = await page.locator("header").first().boundingBox();
       expect(box!.y).toBeGreaterThanOrEqual(header ? header.y + header.height : 0);
     }
-    await page.locator(`input[name="${q.id}"][value="${allUnscored ? "na" : ["0", "1", "2", "3", "4", "na"][i % 6]}"]`).check();
+    const option = page.locator(`input[name="${q.id}"][value="${allUnscored ? "na" : ["0", "1", "2", "3", "4", "na"][i % 6]}"]`);
     await expect(page.locator("[data-health-worry-result]")).toHaveCount(0);
-    await page.getByRole("button", { name: label(locale, i === 20 ? "Organize observations" : "Next", i === 20 ? "整理观察记录" : "下一条"), exact: true }).click();
+    await option.click();
+    await expect(option).toHaveCount(0);
   }
   await expect(page.locator("[data-health-worry-theme]")).toHaveCount(3);
   await expect(page.locator("[data-health-worry-observation]")).toHaveCount(21);
@@ -25,8 +28,11 @@ async function finish(page: Page, locale: "en" | "zh", allUnscored = false) {
   for (const [i, d] of quiz.directions.entries()) for (const [j, c] of ["0", "1", "2", "3", "4", "na"].entries()) {
     await expect(page.locator(`[data-health-worry-count="${d.id}-${c}"]`)).toHaveText(`${allUnscored ? (c === "na" ? 7 : 0) : expected[i][j]} / 7`);
   }
-  await expect(page.locator("[data-health-worry-result] [data-health-worry-support]")).toHaveCount(1);
-  for (const p of quiz.profiles) for (const s of p.sections) for (const t of s.paragraphs) await expect(page.locator(`[data-health-worry-full-guide="${p.id}"]`)).toContainText(t[locale]);
+  await expect(page.locator("[data-health-worry-result] [data-health-worry-support]").first()).toBeVisible();
+  for (const profile of quiz.profiles) {
+    const guide = page.locator(`#take-test[data-stage="result"] a[href="${path(locale)}/results/${profile.id}"]`);
+    await expect(guide).toBeVisible();
+  }
   expect(new URL(page.url()).search).toBe(""); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   expect(await page.evaluate(() => Object.keys(sessionStorage).filter(k => /health|HLW_/.test(k)))).toEqual([]);
 }
@@ -41,7 +47,9 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.locator("[data-health-worry-full-guide]")).toHaveCount(3); await expect(page.locator("[data-health-worry-full-guide] h3")).toHaveCount(21);
     await expect(page.locator("[data-health-worry-support]")).toHaveCount(1);
-    await page.locator('[data-explore-start]').click();
+    await page.locator("[data-explore-start]").click();
+    await page.waitForURL(url => url.pathname === `${path(locale)}/take`);
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
     const box = await page.locator("#health-worry-active-question").boundingBox(), header = await page.locator("header").first().boundingBox();
     expect(box!.y).toBeGreaterThanOrEqual(header ? header.y + header.height : 0);
     await page.getByRole("button", { name: label(locale, "Next", "下一条"), exact: true }).click();
@@ -53,17 +61,8 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator('input[value="0"]')).not.toBeChecked(); await finish(page, locale, true);
     expect(leaks).toEqual([]); expect(errors).toEqual([]);
   });
-  test(`@release original observations ${locale}:backedit, exit, reloadandpageleaveclearprivateanswers`, async ({ page }) => {
-    await page.goto(path(locale)); const start = () => page.locator('[data-explore-start]').click();
-    await start(); await page.locator('input[value="4"]').check();
-    await page.getByRole("button", { name: label(locale, "Next", "下一条"), exact: true }).click();
-    await page.getByRole("button", { name: label(locale, "Back", "上一条"), exact: true }).click(); await expect(page.locator('input[value="4"]')).toBeChecked();
-    await page.locator('input[value="0"]').check(); await page.getByRole("button", { name: label(locale, "Exit and clear", "退出并清除"), exact: true }).click();
-    await start(); await expect(page.locator('input[value="0"]')).not.toBeChecked(); await expect(page.locator('input[value="4"]')).not.toBeChecked();
-    await page.locator('input[value="3"]').check(); await page.reload();
-    await expect(page.locator('[data-health-worry-stage="ready"]')).toHaveCount(1); await start(); await expect(page.locator('input[value="3"]')).not.toBeChecked();
-    await page.locator('input[value="2"]').check(); await page.evaluate(() => window.dispatchEvent(new PageTransitionEvent("pagehide")));
-    await expect(page.locator('[data-health-worry-stage="ready"]')).toHaveCount(1); await start(); await expect(page.locator('input[value="2"]')).not.toBeChecked();
+  test(`@release original observations ${locale}: edit, reload and leave without retaining answers`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, path(locale), quiz);
     expect(await page.evaluate(() => Object.keys(sessionStorage).filter(k => /health|HLW_/.test(k)))).toEqual([]);
   });
 }
@@ -72,7 +71,12 @@ test("@release original observations:8publicpages, completebodies, localepairs, 
     const url = `${path(locale)}${profile ? `/results/${profile.id}` : ""}`; expect((await page.goto(url))?.status()).toBe(200);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText((profile?.title ?? quiz.title)[locale]);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${url}`);
-    for (const [lang, target] of [["en", "en"], ["zh-CN", "zh"], ["x-default", "en"]]) await expect(page.locator(`link[rel="alternate"][hreflang="${lang}"]`)).toHaveAttribute("href", `https://fermatmind.com${path(target)}${profile ? `/results/${profile.id}` : ""}`);
+    if (isArchivedEntertainmentPath(url)) {
+      await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /^noindex, follow(?:,|$)/u);
+      await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
+    } else {
+      for (const [lang, target] of [["en", "en"], ["zh-CN", "zh"], ["x-default", "en"]]) await expect(page.locator(`link[rel="alternate"][hreflang="${lang}"]`)).toHaveAttribute("href", `https://fermatmind.com${path(target)}${profile ? `/results/${profile.id}` : ""}`);
+    }
     if (profile) for (const s of profile.sections) for (const t of s.paragraphs) await expect(page.locator(`[data-health-worry-full-guide="${profile.id}"]`)).toContainText(t[locale]);
     await expect(page.locator("[data-health-worry-support]")).toHaveCount(1); await expect(page.locator("[data-health-worry-result]")).toHaveCount(0);
     const og = `/og/fun/${quiz.slug}?locale=${locale}${profile ? `&portrait=${profile.id}` : ""}`, response = await request.get(og); expect(response.status()).toBe(200);
@@ -82,7 +86,7 @@ test("@release original observations:8publicpages, completebodies, localepairs, 
   for (const url of [`${path("en")}/results/high-risk`, `${path("zh")}/results/overall`, `/og/fun/${quiz.slug}?locale=fr`, `/og/fun/${quiz.slug}?portrait=diagnosis`]) expect((await request.get(url)).status()).toBe(404);
 });
 
-test("@release original observations: hydration gates the start button until delayed JavaScript is ready", async ({ page }) => {
+test("@release original observations: the server start form can open the take page before hydration", async ({ page }) => {
   let release!: () => void;
   const chunks = new Promise<void>(resolve => { release = resolve; });
   let delayed = 0;
@@ -91,10 +95,12 @@ test("@release original observations: hydration gates the start button until del
     await page.goto(path("en"), { waitUntil: "commit" });
     const start = page.locator('[data-explore-start]');
     await expect(start).toBeVisible(); await expect.poll(() => delayed).toBeGreaterThan(0);
-    await expect(start).toBeDisabled();
+    await expect(start).toBeEnabled();
+    await Promise.all([
+      page.waitForURL(url => url.pathname === `${path("en")}/take`, { waitUntil: "commit" }),
+      start.click(),
+    ]);
     release();
-    await page.waitForLoadState("load");
-    await expect(start).toBeEnabled(); await start.click();
-    await expect(page.locator("#health-worry-active-question")).toHaveText(quiz.questions[0].prompt.en);
+    await expect(page.locator("#health-worry-active-question")).toHaveText(quiz.questions[0].prompt.en, { timeout: 30000 });
   } finally { release(); }
 });
