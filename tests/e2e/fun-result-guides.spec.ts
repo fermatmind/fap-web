@@ -1,3 +1,4 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { archiveTopic } from "../../lib/entertainment/archive90";
 import { test, expect } from "@playwright/test";
 import { readFileSync } from "node:fs";
@@ -5,6 +6,8 @@ import path from "node:path";
 import type { Questionnaire } from "../../lib/questionnaires/types";
 import type { FunQuiz } from "../../lib/entertainment/types";
 import { resultSlug } from "../../lib/entertainment/guides";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 
 for (const locale of ["en", "zh"] as const) for (const slug of ["date-plan-detour", "desert-oasis", "desk-reset", "dinner-host", "dragon-housemate", "dream-train", "enchanted-library", "escape-room-role", "fantasy-party-role", "festival-companion", "fictional-cafe", "firefly-evening", "floating-house", "festival-mask", "forest-soundtrack", "friendship-invitation", "game-night-reset", "garden-season", "gift-note", "group-chat-role", "harbor-light", "creative-spark", "cozy-object", "compliment-style", "community-fair", "comfort-offer", "coffee-break", "cloud-drift", "city-wanderer", "choosing-together", "celebration-planner", "celebrating-a-friend", "campfire-storyteller", "camera-roll", "browser-tabs", "borrowed-book", "board-game-table", "birdwatching-companion", "beachcomber", "woodland-animal", "house-of-doors", "relationship-values"]) {
   test(`@release public guide ${locale}/${slug}: full asset, rules, peer, quiz and result return`, async ({ page }) => {

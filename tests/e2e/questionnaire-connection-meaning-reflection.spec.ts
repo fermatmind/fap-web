@@ -1,3 +1,4 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { test, expect, type Page } from "@playwright/test";
 import { isArchivedEntertainmentPath } from "../../lib/seo/discoverabilityExposurePolicy";
 import { readFileSync } from "node:fs";
@@ -5,13 +6,10 @@ import type { Questionnaire } from "../../lib/questionnaires/types";
 
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/connection-meaning-reflection.json", "utf8")) as Questionnaire;
 test.beforeEach(async ({ page }) => {
+  await seedAnalyticsConsent(page, "granted");
   // Observe attempted requests as usual, but never write synthetic traffic to aggregate sinks.
   await page.route(/\/api\/(?:v0\.5\/seo\/attribution\/events|track)(?:\?|$)|https:\/\/(?:www\.googletagmanager\.com|(?:www\.)?google-analytics\.com|hm\.baidu\.com)\//, route => route.fulfill({ status: 204 }));
 });
-async function acceptCookies(page: Page, locale: "en" | "zh") {
-  const consent = page.getByRole("button", { name: locale === "zh" ? "接受" : "Accept", exact: true });
-  if (await consent.count()) await consent.click();
-}
 function observePrivateRequests(page: Page) {
   const requests: string[] = [];
   page.on("request", request => {
@@ -57,8 +55,7 @@ for (const locale of ["en", "zh"] as const) {
   const zh = locale === "zh", entry = `/${locale}/tests/explore/connection-meaning-reflection`;
   test(`@release Connection-meaning reflection ${locale}: hub, keyboard, back edit,15 real responses, exact means, public guide links and retake`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); const requests = observePrivateRequests(page);
-    await page.goto(`/${locale}/tests`); await acceptCookies(page, locale);
-    await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
+    await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.getByText(zh ? "15条陈述 · 约4分钟 · 无需注册 · 完整指南免费" : "15 statements · about 4 minutes · no signup · full guides free", { exact: true })).toBeVisible();
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
@@ -113,8 +110,7 @@ for (const locale of ["en", "zh"] as const) {
   });
 
   test(`@release Connection-meaning reflection ${locale}: all-skipped is finished without means, with public guide links and no result sharing or flow analytics`, async ({ page }) => {
-    const requests = observePrivateRequests(page); await page.goto(entry); await acceptCookies(page, locale);
-    await page.locator("[data-explore-start]:visible").first().click();
+    const requests = observePrivateRequests(page); await page.goto(entry); await page.locator("[data-explore-start]:visible").first().click();
     await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 }); await finish(page, locale, "na");
     await expect(page.getByRole("heading", { level: 3, name: zh ? "五份说明已完整开放，可以在这里结束" : "All five guides are open. You may finish here.", exact: true })).toBeVisible();
     await page.waitForTimeout(250); expect(requests).toEqual([]);
@@ -126,7 +122,6 @@ test("@release Connection-meaning reflection all10 public full guides, bilingual
   for (const locale of ["en", "zh"] as const) for (const profile of quiz.profiles) {
     const path = `/${locale}/tests/explore/connection-meaning-reflection/results/${profile.id}`;
     expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
-    await acceptCookies(page, locale);
     await expect(page.locator("[data-cmr-mean]")).toHaveCount(0);
     for (const section of profile.sections) await expect(page.locator(`#report-${section.id} h2`)).toHaveText(section.title[locale]);
     if (isArchivedEntertainmentPath(path)) {

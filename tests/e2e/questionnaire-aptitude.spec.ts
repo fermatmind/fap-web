@@ -1,7 +1,10 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/aptitude-test.json", "utf8")) as Questionnaire;
 async function expectFocusedHeading(page: Page) {
   const heading = page.locator("#take-test h2");

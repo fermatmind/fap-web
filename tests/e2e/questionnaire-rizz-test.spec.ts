@@ -1,8 +1,11 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 
 const quiz = JSON.parse(readFileSync(path.join(process.cwd(), "lib/questionnaires/data/rizz-test.json"), "utf8")) as Questionnaire;
 const facetItems = [[0, 4, 8, 12, 16], [1, 5, 9, 13, 17], [2, 6, 10, 14, 18], [3, 7, 11, 15, 19]];

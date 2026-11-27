@@ -1,7 +1,10 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 const quiz=JSON.parse(readFileSync("lib/questionnaires/data/love-personality.json","utf8"))as Questionnaire;
 const source=JSON.parse(readFileSync("tests/fixtures/questionnaires/love-personality-reference.json","utf8"))as{source_count_vectors:{option_codes:string;counts:number[]}[]};
 const ids=quiz.directions.map(d=>d.id);

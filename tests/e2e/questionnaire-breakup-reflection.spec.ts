@@ -1,5 +1,8 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { test, expect, type Page } from "@playwright/test";
 import data from "../../lib/questionnaires/data/breakup-reflection-test.json";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 
 const values = [4, 2, 3, 5, 2, 4, 3, 4, 2, 3, 5, 1, 5, 4, 3, 2, 1, 2, 1, 2, 3, 4, 5, 1];
 const means = ["3.3333", "3.0000", "2.8333", "2.6667"];

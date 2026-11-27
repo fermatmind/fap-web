@@ -1,5 +1,8 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { test, expect, type Page } from "@playwright/test";
 import data from "../../lib/questionnaires/data/stress-check-in-test.json";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 async function finish(page: Page, locale: "en" | "zh", values: number[]) {
   for (const [i,q] of data.questions.entries()) {
     const radio = page.locator(`input[name="${q.id}"][value="${values[i]}"]`);

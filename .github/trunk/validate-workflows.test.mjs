@@ -63,6 +63,7 @@ test("browser modes retain selected scenarios in isolated jobs after fast failur
       assert.equal(selected({ ...needs, [job]: { ...needs[job], result } }), false);
     }
   }
+  assert.match(browser, /^      fail-fast: false$/m);
   assert.match(browser, /server_mode: \[default, production\]/);
   assert.match(browser, /PLAYWRIGHT_SERVER_MODE: \$\{\{ matrix\.server_mode \}\}/);
   assert.match(browser, /NEXT_PUBLIC_API_URL: http:\/\/127\.0\.0\.1:8000/);

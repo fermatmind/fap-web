@@ -1,7 +1,10 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { abstractReasoningResultProfile } from "../../lib/questionnaires/result-content/abstract-reasoning";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/abstract-reasoning.json", "utf8")) as Questionnaire;
 async function finish(page: Page, locale: "en" | "zh", correct: boolean) {
   for (const [index, question] of quiz.questions.entries()) {

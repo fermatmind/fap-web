@@ -1,6 +1,9 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { test, expect, type Page } from "@playwright/test";
 import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import data from "../../lib/questionnaires/data/coping-rhythm-test.json";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 
 async function finish(page: Page, locale: "en" | "zh", mode: "worked" | "tied" | "one-sided") {
   for (const [i, q] of data.questions.entries()) {

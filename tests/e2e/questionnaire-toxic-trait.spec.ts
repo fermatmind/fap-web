@@ -1,6 +1,10 @@
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/toxic-trait.json", "utf8")) as Questionnaire;
 async function finish(page: Page, locale: "en" | "zh", mode: "patterns" | "na" | "missing-part") {
   const scores: Record<string, string> = { "unchecked-retelling": "2.25", "comparison-turns": "4", "indirect-objections": "3", "explanation-first": "2", "past-dispute-carryover": "5" };
@@ -9,13 +13,16 @@ async function finish(page: Page, locale: "en" | "zh", mode: "patterns" | "na" |
     const selected = mode === "na" || (mode === "missing-part" && pattern === "past-dispute-carryover" && index === 19) ? "na" : mode === "missing-part" ? "4" : pattern === "unchecked-retelling" ? ["1", "2", "3", "3"][Math.floor(index / 5)] : scores[pattern];
     const value = selected === "na" ? selected : question.reverse ? String(6 - Number(selected)) : selected;
     const radio = page.locator(`input[name="${question.id}"][value="${value}"]`);
-    if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); } else await radio.check();
-    if (index < 19) await expect(page.locator("[data-habits-facet]")).toHaveCount(0);
-    await page.getByRole("button", { name: index === 19 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    await expect(page.locator("[data-habits-facet]")).toHaveCount(0);
+    if (index === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   await expect(page.locator("[data-habits-facet]")).toHaveCount(5); await expect(page.locator("[data-habits-profile]")).toHaveCount(5);
-  await expect(page.locator("#take-test h4")).toHaveCount(45);
+  for (const profile of quiz.profiles) {
+    await expect(page.locator(`[data-habits-profile="${profile.id}"] a[href="/${locale}/tests/explore/${quiz.slug}/results/${profile.id}"]`)).toBeVisible();
+  }
   for (const direction of quiz.directions) {
     const mean = page.locator(`[data-habits-facet="${direction.id}"] [data-habits-mean]`);
     const unscored = mode === "na" || (mode === "missing-part" && direction.id === "past-dispute-carryover");
@@ -28,7 +35,7 @@ async function finish(page: Page, locale: "en" | "zh", mode: "patterns" | "na" |
 }
 for (const locale of ["en", "zh"] as const) {
   const zh = locale === "zh", entry = `/${locale}/tests/explore/toxic-trait`;
-  test(`@release Interpersonal habits five-part reflection ${locale}: hub, keyboard,20actualaccuracyratings with0reverse, five exact means,45fullsections and retake`, async ({ page }) => {
+  test(`@release Interpersonal habits five-part reflection ${locale}: hub, keyboard,20actualaccuracyratings with0reverse, five exact means,five public guides and retake`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); const leaks: string[] = [];
     page.on("request", r => { if (r.method() === "POST" && /HABIT_/.test(r.postData() ?? "")) leaks.push(r.url()); });
     await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
@@ -36,23 +43,20 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByText(zh ? "原创互动习惯自我观察 · 完整结果免费" : "Original interaction-habits reflection · Full results free", { exact: true })).toBeVisible();
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]:visible").first().click();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "patterns");
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
+    await expect(page.locator(`[data-archive-next-step] a[href="/${locale}/tests/eq-test-emotional-intelligence-assessment"]`)).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
     await expect(page.locator("[data-habits-facet]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(leaks).toEqual([]);
   });
-  test(`@release Interpersonal habits five-part reflection ${locale}: opted-in draft survives reload, language, edit and clear`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.locator('input[value="2"]').check(); await page.getByRole("checkbox").check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload();
-    await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="2"]')).toBeChecked(); await page.locator('input[value="4"]').check();
-    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/toxic-trait`);
-    await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="4"]')).toBeChecked();
-    await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
+  test(`@release Interpersonal habits five-part reflection ${locale}: edit locally, then reset after refresh, language change or exit`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, entry, quiz);
+    const other = zh ? "en" : "zh";
+    await page.goto(`/${other}/tests/explore/${quiz.slug}/take`);
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30_000 });
+    await expect(page.locator("#take-test").getByRole("radio", { checked: true })).toHaveCount(0);
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:toxic-trait"))).toBeNull();
   });
   test(`@release Interpersonal habits five-part reflection ${locale}: denied storage/clipboard, unscored and one missing pattern retain all full guides with safe share`, async ({ page }) => {
@@ -62,9 +66,9 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(k, v) { if (k.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, k, v); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.getByRole("checkbox").check(); await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save"); await finish(page, locale, "na");
-    await expect(page.getByRole("heading", { level: 3, name: zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.", exact: true })).toBeVisible();
+    await page.goto(entry); await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("checkbox")).toHaveCount(0); await finish(page, locale, "na");
+    await expect(page.locator("[data-habits-insufficient]")).toContainText(zh ? "五部分均未生成个人均分" : "without personal means for any part");
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await finish(page, locale, "missing-part");
     await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
     const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue(); expect(text).toContain(quiz.title[locale]);
@@ -78,7 +82,8 @@ test("@release Interpersonal habits five-part reflection all10public full guides
     expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
     await expect(page.locator("[data-habits-facet]")).toHaveCount(0);
     for (const section of profile.sections) await expect(page.locator(`#report-${section.id} h2`)).toHaveText(section.title[locale]);
-    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/toxic-trait/results/${profile.id}`);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
     await expect(page.getByRole("link", { name: locale === "zh" ? "免费开始完整测试" : "Start the full test for free", exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/toxic-trait#take-test`);
     const image = await request.get(`/og/fun/toxic-trait?locale=${locale}&portrait=${profile.id}&v=1.0.0`); expect(image.status()).toBe(200); const b = await image.body(); expect(b.readUInt32BE(16)).toBe(1200); expect(b.readUInt32BE(20)).toBe(630);
   }

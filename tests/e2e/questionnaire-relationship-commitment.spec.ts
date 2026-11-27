@@ -1,6 +1,9 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire, QuestionnaireAnswers } from "../../lib/questionnaires/types";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/relationship-commitment.json", "utf8")) as Questionnaire;
 const reference = JSON.parse(readFileSync("tests/fixtures/questionnaires/relationship-commitment-reference.json", "utf8")) as { worked_examples: { id: string; responses: number[]; expected_sum: number; expected_mean_one_decimal: string }[] };
 const reverseIds = new Set(["RC_06", "RC_09", "RC_11", "RC_12", "RC_17", "RC_18", "RC_19", "RC_20"]);

@@ -1,8 +1,11 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { isArchivedEntertainmentPath } from "../../lib/seo/discoverabilityExposurePolicy";
 import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "@/lib/questionnaires/types";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/perfectionism.json", "utf8")) as Questionnaire;
 async function finish(page: Page, locale: "en" | "zh", value: "1" | "4" | "7") {

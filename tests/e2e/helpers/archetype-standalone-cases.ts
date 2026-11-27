@@ -1,3 +1,4 @@
+import { seedAnalyticsConsent } from "./consent";
 import { test, expect, type Page } from "@playwright/test";
 import { archetypeResultName } from "../../../lib/questionnaires/archetypeResultCard";
 import { isArchivedEntertainmentPath } from "../../../lib/seo/discoverabilityExposurePolicy";
@@ -43,6 +44,7 @@ export function archetypeStandaloneCases(quiz: Questionnaire, label: string, win
     const secondRadio = (page: Page) => page.locator(`#take-test input[name="${quiz.questions[1].id}"]`);
 
     test(`@release ${label} fan choices ${locale}: hub, keyboard, unique match and retake`, async ({ page }) => {
+      await seedAnalyticsConsent(page);
       await page.setViewportSize({ width: 390, height: 844 });
       const posts: string[] = [];
       page.on("request", request => {

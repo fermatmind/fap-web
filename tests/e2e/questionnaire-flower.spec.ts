@@ -1,7 +1,10 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/flower.json", "utf8")) as Questionnaire;
 async function finish(page: Page, locale: "en" | "zh", mode: "rose" | "tie") {

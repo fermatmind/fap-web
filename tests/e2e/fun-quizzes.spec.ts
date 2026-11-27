@@ -1,3 +1,4 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { archiveTopic } from "../../lib/entertainment/archive90";
 import { test, expect, type Page } from "@playwright/test";
 import nativeCatalog from "../../lib/questionnaires/catalog.json";
@@ -21,6 +22,7 @@ async function finish(page: Page) {
 
 for (const locale of ["en", "zh"] as const) for (const slug of samples) {
   test(`@release fun quiz ${locale}/${slug}: entry, all answers, complete result, retake`, async ({ page }) => {
+    await seedAnalyticsConsent(page);
     await page.setViewportSize({ width: 390, height: 844 });
     const card = catalog.find(item => item.slug === slug)!;
     const zh = locale === "zh";

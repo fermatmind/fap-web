@@ -1,6 +1,10 @@
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/color-season.json", "utf8")) as Questionnaire;
 test.beforeEach(async ({ page }) => {
@@ -8,14 +12,16 @@ test.beforeEach(async ({ page }) => {
   await session.send("Network.enable");
   await session.send("Network.setBlockedURLs", { urls: ["*/api/v0.5/seo/attribution/events*", "*/api/track*", "*googletagmanager.com/*", "*google-analytics.com/*", "*hm.baidu.com/*"] });
 });
-async function visibleHeading(page: Page) {
-  const heading = page.locator("#take-test h2");
-  await expect.poll(async () => heading.evaluate(el => el.getBoundingClientRect().top >= (document.querySelector("header")?.getBoundingClientRect().bottom ?? 0))).toBe(true);
+async function expectQuestionFocus(page: Page) {
+  await expect(page.locator("#take-test h2")).toBeFocused();
+  const progress = page.locator("#take-test progress");
+  await progress.scrollIntoViewIfNeeded();
+  await expect(progress).toBeInViewport();
 }
 async function finish(page: Page, locale: "en" | "zh", mode: "planner" | "tie") {
   for (const [i, question] of quiz.questions.entries()) {
     const option = mode === "tie" ? question.options[0] : question.options.find(o => o.directionId === "spring") ?? question.options[0];
-    if (i > 0) await visibleHeading(page);
+    if (i > 0) await expectQuestionFocus(page);
     await expect(page.locator("fieldset [data-palette-colour]")).toHaveCount(12);
     for (const option of question.options) {
       const blocks = page.locator(`label:has(input[value="${option.id}"]) [data-palette-colour]`);
@@ -29,33 +35,36 @@ async function finish(page: Page, locale: "en" | "zh", mode: "planner" | "tie") 
       }
     }
     const radio = page.locator(`input[name="${question.id}"][value="${option.id}"]`);
-    if (i === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); } else await radio.check();
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
-    await page.getByRole("button", { name: i === 15 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    if (i === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
-  await visibleHeading(page);
   await expect(page.locator("[data-archetype-count]")).toHaveCount(4);
   if (mode === "planner") {
     await expect(page.locator('[data-archetype-count="spring"]')).toContainText("16 / 16");
     await expect(page.locator("[data-archetype-match]")).toHaveCount(1);
-    await expect(page.locator('[data-archetype-match="spring"] h4')).toHaveCount(9);
   } else {
-    await expect(page.locator("[data-archetype-match]")).toHaveCount(4); await expect(page.locator("#take-test h4")).toHaveCount(36);
+    await expect(page.locator("[data-archetype-match]")).toHaveCount(4);
     for (const direction of quiz.directions) await expect(page.locator(`[data-archetype-count="${direction.id}"]`)).toContainText("4 / 16");
+  }
+  const matched = mode === "tie" ? quiz.profiles : quiz.profiles.filter(profile => profile.id === "spring");
+  for (const profile of matched) {
+    await expect(page.locator(`[data-archetype-match="${profile.id}"] a[href="/${locale}/tests/explore/${quiz.slug}/results/${profile.id}"]`)).toBeVisible();
   }
   const ids = await page.locator("#take-test [id]").evaluateAll(nodes => nodes.map(n => n.id)); expect(new Set(ids).size).toBe(ids.length);
 }
 for (const locale of ["en", "zh"] as const) {
   const zh = locale === "zh", entry = `/${locale}/tests/explore/color-season`;
-  test(`@release Color palette ${locale}: hub, keyboard,16visualchoices, full nine-section result and retake`, async ({ page }) => {
+  test(`@release Color palette ${locale}: hub, keyboard,16visualchoices, complete result and retake`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); await page.goto(`/${locale}/tests`);
     await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: /Explore MBTI|了解MBTI/ })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await visibleHeading(page);
+    await page.locator("[data-explore-start]:visible").first().click();
+    await expectQuestionFocus(page);
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "planner");
     await expect(page.getByRole("link", { name: zh ? "比较全部四份配色指南" : "Compare all four palette guides" })).toBeVisible();
@@ -64,31 +73,23 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
   });
-  test(`@release Color palette ${locale}: opted-in tab draft survives refresh, language change, back edit and clear`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.locator('input[value="B"]').check(); await page.getByRole("checkbox").check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await page.reload(); await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await expect(page.locator('input[name="CSP_02"]')).toHaveCount(4);
-    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/color-season`);
-    await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="B"]')).toBeChecked();
-    await page.locator('input[value="C"]').check(); await page.getByRole("button", { name: other === "zh" ? "下一题" : "Next", exact: true }).click();
-    await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="C"]')).toBeChecked();
-    await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
+  test(`@release Color palette ${locale}: edit locally, then reset after refresh, language change or exit`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, entry, quiz);
+    const other = zh ? "en" : "zh";
+    await page.goto(`/${other}/tests/explore/${quiz.slug}/take`);
+    await expect(page.locator('#take-test input[name="CSP_01"]').first()).toBeVisible({ timeout: 30_000 });
+    await expect(page.locator("#take-test").getByRole("radio", { checked: true })).toHaveCount(0);
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:color-season"))).toBeNull();
-    await expect(page.getByRole("button", { name: /Resume this tab|恢复本标签页/ })).toHaveCount(0);
   });
-  test(`@release Color palette ${locale}: denied storage, allfourhighestties36sections and private-safe copy fallback`, async ({ page }) => {
+  test(`@release Color palette ${locale}: denied storage, all four highest ties and private-safe copy fallback`, async ({ page }) => {
     await page.addInitScript(() => {
-      Storage.prototype.getItem = () => { throw new Error("synthetic denial"); };
-      Storage.prototype.setItem = () => { throw new Error("synthetic denial"); };
-      Storage.prototype.removeItem = () => { throw new Error("synthetic denial"); };
+      const get = Storage.prototype.getItem, set = Storage.prototype.setItem;
+      Storage.prototype.getItem = function(key) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic denial"); return get.call(this, key); };
+      Storage.prototype.setItem = function(key, value) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic denial"); return set.call(this, key, value); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: () => Promise.reject(new Error("synthetic clipboard denial")) } });
     });
     await page.setViewportSize({ width: 390, height: 844 }); await page.goto(entry);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await page.getByRole("checkbox").check();
-    await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save"); await finish(page, locale, "tie");
+    await page.locator("[data-explore-start]:visible").first().click(); await expect(page.locator("#take-test").getByRole("checkbox")).toHaveCount(0); await finish(page, locale, "tie");
     await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
     const copy = page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }); await expect(copy).toBeVisible(); const text = await copy.inputValue();
     for (const profile of quiz.profiles) expect(text).toContain(profile.title[locale]); expect(text).toContain(`https://fermatmind.com${entry}`);

@@ -1,5 +1,8 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { test, expect, type Page } from "@playwright/test";
 import data from "../../lib/questionnaires/data/stress-response-patterns-test.json";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 
 const values = [2, 3, 4, 3, 1, 2, 3, 4, 5, 4, 5, 4, 1, 1, 2, 1, 3, 3, 3, 3];
 const means = ["3.0000", "2.5000", "4.5000", "1.2500", "3.0000"];

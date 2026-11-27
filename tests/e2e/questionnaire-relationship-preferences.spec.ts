@@ -1,7 +1,10 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 const quiz=JSON.parse(readFileSync("lib/questionnaires/data/relationship-preferences.json","utf8"))as Questionnaire;
 type Witness={option_codes:string;axes:{dimension:string;counts:number[];leaders:string[];status:string}[]};
 const source=JSON.parse(readFileSync("tests/fixtures/questionnaires/relationship-preferences-reference.json","utf8"))as{source_count_vectors:Witness[]};

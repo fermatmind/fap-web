@@ -1,16 +1,20 @@
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/moral-dilemma-test.json", "utf8")) as Questionnaire;
 async function finish(page: Page, locale: "en" | "zh", mode: "consequences" | "tie") {
   for (const [index, question] of quiz.questions.entries()) {
     const option = mode === "tie" ? question.options[0] : question.options.find(o => o.directionId === "consequences") ?? question.options[0];
     const radio = page.locator(`input[name="${question.id}"][value="${option.id}"]`);
-    if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
-    else await radio.check();
-    if (index < 19) await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
-    await page.getByRole("button", { name: index === 19 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
+    if (index === 0) await radio.press("Space");
+    else await radio.click();
+    await expect(radio).toHaveCount(0);
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   await expect(page.locator("[data-archetype-count]")).toHaveCount(5);
@@ -19,14 +23,15 @@ async function finish(page: Page, locale: "en" | "zh", mode: "consequences" | "t
   if (mode === "consequences") {
     await expect(page.locator('[data-archetype-count="consequences"]')).toContainText("16 / 16");
     await expect(page.locator("[data-archetype-match]")).toHaveCount(1);
-    await expect(page.locator('[data-archetype-match="consequences"] h4')).toHaveCount(9);
   } else {
     for (const theme of quiz.directions) {
       await expect(page.locator(`[data-archetype-count="${theme.id}"]`)).toContainText("4 / 16");
-      await expect(page.locator(`[data-archetype-match="${theme.id}"] h4`)).toHaveCount(9);
     }
     await expect(page.locator("[data-archetype-match]")).toHaveCount(5);
-    await expect(page.locator("#take-test h4")).toHaveCount(45);
+  }
+  const matched = mode === "tie" ? quiz.profiles : quiz.profiles.filter(profile => profile.id === "consequences");
+  for (const profile of matched) {
+    await expect(page.locator(`[data-archetype-match="${profile.id}"] a[href="/${locale}/tests/explore/${quiz.slug}/results/${profile.id}"]`)).toBeVisible();
   }
 }
 for (const locale of ["en", "zh"] as const) {
@@ -37,47 +42,41 @@ for (const locale of ["en", "zh"] as const) {
     page.on("request", request => { if (request.method() === "POST" && /ETHICS_[0-9]{2}/.test(request.postData() ?? "")) posts.push(request.url()); });
     await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
-    await expect(page.getByText(zh ? "原创五组伦理提问 · 完整结果免费" : "Original reflection on five ethical questions · Full results free", { exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: zh ? "两难选择前，有五件事可以先问清楚" : "Five questions you can ask before making a tough choice", level: 2 })).toBeVisible();
     await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]:visible").first().click();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "consequences");
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
+    await expect(page.locator(`[data-archetype-core-assessment="BIG5_OCEAN"] a[href="/${locale}/tests/big-five-personality-test-ocean-model"]`)).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(posts).toEqual([]);
   });
-  test(`@release Five ethical questions ${locale}: opted-in tab draft survives reload, language change, edit and clear`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.locator('input[value="B"]').check(); await page.getByRole("checkbox").check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload();
-    await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="B"]')).toBeChecked();
-    await page.locator('input[value="C"]').check();
+  test(`@release Five ethical questions ${locale}: edit locally, then reset after refresh, language change or exit`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, entry, quiz);
     const other = zh ? "en" : "zh";
-    await page.goto(`/${other}/tests/explore/moral-dilemma-test`);
-    await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="C"]')).toBeChecked();
-    await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
+    await page.goto(`/${other}/tests/explore/${quiz.slug}/take`);
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30_000 });
+    await expect(page.locator("#take-test").getByRole("radio", { checked: true })).toHaveCount(0);
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:moral-dilemma-test"))).toBeNull();
   });
-  test(`@release Five ethical questions ${locale}: denied storage, five-way tie shows45sections and private-safe clipboard fallback`, async ({ page }) => {
+  test(`@release Five ethical questions ${locale}: denied storage, five-way tie retains every public guide and private-safe clipboard fallback`, async ({ page }) => {
     await page.addInitScript(() => {
       const get = Storage.prototype.getItem, set = Storage.prototype.setItem;
       Storage.prototype.getItem = function(key) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return get.call(this, key); };
       Storage.prototype.setItem = function(key, value) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, key, value); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.getByRole("checkbox").check(); await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save");
+    await page.goto(entry); await page.locator("[data-explore-start]:visible").first().click();
+    await expect(page.locator("#take-test").getByRole("checkbox")).toHaveCount(0);
     await finish(page, locale, "tie");
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
-    for (const profile of quiz.profiles) expect(text).toContain(profile.title[locale]);
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.locator("[data-archetype-honor-group] textarea").inputValue();
+    for (const profile of quiz.profiles) expect(text).toContain(profile.title[locale].split(/[：:]/u)[0]);
     expect(text).not.toMatch(/ETHICS_[0-9]{2}|answers|form_code|submission|\d+\s*\/\s*16|[?&]score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
   });

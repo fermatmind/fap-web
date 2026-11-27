@@ -1,7 +1,10 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire, QuestionnaireAnswers } from "../../lib/questionnaires/types";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/conflict-styles.json", "utf8")) as Questionnaire;
 const reference = JSON.parse(readFileSync("tests/fixtures/questionnaires/conflict-styles-reference.json", "utf8")) as { worked_examples: { id: string; responses: number[]; raw_sum: number; display_mean: string }[] };
 const reverseIds = new Set<string>();

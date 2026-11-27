@@ -1,8 +1,11 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import path from "node:path";
 import type { Questionnaire, QuestionnaireAnswers } from "../../lib/questionnaires/types";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 
 const quiz = JSON.parse(readFileSync(path.join(process.cwd(), "lib/questionnaires/data/response-color.json"), "utf8")) as Questionnaire;
 const reference = JSON.parse(readFileSync(path.join(process.cwd(), "tests/fixtures/questionnaires/color-reference.json"), "utf8"));

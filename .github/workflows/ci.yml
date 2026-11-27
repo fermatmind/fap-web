@@ -290,7 +290,7 @@ jobs:
     # A full browser shard can need over 15 minutes, including runner setup and cleanup.
     timeout-minutes: 25
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         server_mode: [default, production]
         shard: ${{ fromJSON(needs.classify.outputs.browser_shards) }}

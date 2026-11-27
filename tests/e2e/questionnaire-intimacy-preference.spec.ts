@@ -1,6 +1,9 @@
+import { seedAnalyticsConsent } from "./helpers/consent";
 import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { test, expect, type Page } from "@playwright/test";
 import data from "../../lib/questionnaires/data/intimacy-preference-test.json";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 
 const values = [4, 3, 5, 2, 4, 3, 5, 5, 5, 5, 5, 4, 3, 3, 3, 3, 3, 3, 1, 2, 3, 4, 5, 1];
 const means = ["3.5000", "4.8333", "3.0000", "2.6667"];
