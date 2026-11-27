@@ -6,6 +6,8 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, expect, it, vi } from "vitest";
 import { isPublicPageRequest, readSiteTraffic } from "@/lib/tracking/siteTrafficSnapshot";
+import * as trackingRuntime from "@/lib/tracking/serverRuntime";
+import * as siteTraffic from "@/lib/tracking/siteTrafficSnapshot";
 import { GET } from "@/app/api/internal/site-traffic/route";
 
 const agent = "Mozilla/5.0 Chrome/130.0";
@@ -15,7 +17,10 @@ function log(time: string, path: string, ip = "192.0.2.1", status = 200) {
   return `${ip} - - [26/Nov/2026:${time} +0000] "GET ${path} HTTP/2.0" ${status} 100 "-" "${agent}" "-"\n`;
 }
 
-afterEach(() => vi.unstubAllEnvs());
+afterEach(() => {
+  vi.restoreAllMocks();
+  vi.unstubAllEnvs();
+});
 
 it("counts real ingress requests and deduplicates the remote address across a Beijing-day rotation", async () => {
   const dir = await mkdtemp(join(tmpdir(), "site-traffic-test-"));
@@ -58,4 +63,21 @@ it("rejects unsigned, expired and unrelated signatures before touching logs", as
     expect(response.status).toBe(404);
     expect(response.headers.get("cache-control")).toBe("private, no-store");
   }
+});
+
+it("uses the release-bound tracking credential and returns only the day's aggregate", async () => {
+  const endpoint = "https://fermatmind.com/api/internal/site-traffic";
+  const token = "test-release-tracking-secret";
+  const timestamp = Math.floor(Date.now() / 1000);
+  const snapshot = { date: "2026-11-27", through: timestamp, pageRequests: 125, uniqueIps: 100 };
+  vi.stubEnv("TRACK_INGEST_TOKEN", "old-environment-only-secret");
+  vi.spyOn(trackingRuntime, "resolveTrackingRuntime").mockReturnValue({ token });
+  vi.spyOn(siteTraffic, "readTodaySiteTraffic").mockResolvedValue(snapshot);
+  const signed = createHmac("sha256", token).update(`fermatmind.site-traffic.v1:${timestamp}`).digest("hex");
+  const response = await GET(new Request(endpoint, { headers: {
+    "x-fm-site-traffic-time": String(timestamp),
+    "x-fm-site-traffic-signature": signed,
+  } }));
+  expect(response.status).toBe(200);
+  expect(await response.json()).toEqual(snapshot);
 });
