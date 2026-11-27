@@ -179,6 +179,8 @@ const nextConfig = {
     "/*": ["./node_modules/.pnpm/@swc+helpers@*/node_modules/@swc/helpers/**/*"],
   },
   outputFileTracingExcludes: {
+    // This route reads the host's access log at runtime, outside the release.
+    "/api/internal/site-traffic": ["./content/**/*", "./patches/**/*"],
     "/*": [
       "./content/career-comparisons/**/*.json",
       "./content/career-comparisons/README.md",
