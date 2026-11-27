@@ -310,9 +310,10 @@ function TypeGroupBrowse({
             <div className="flex flex-wrap gap-3">
               <Link
                 href={mbtiTestHref}
+                lang={locale === "zh-TW" ? "zh-TW" : undefined}
                 className="inline-flex items-center gap-2 rounded-full bg-[#5f447e] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#4f376d]"
               >
-                {locale === "zh-TW" ? "開始免費 MBTI 測驗（簡體中文）" : locale === "zh" ? "开始 MBTI 免费测试" : "Start the free MBTI test"}
+                {locale === "zh-TW" ? "開始免費 MBTI 測驗" : locale === "zh" ? "开始 MBTI 免费测试" : "Start the free MBTI test"}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               <Link
@@ -555,7 +556,7 @@ async function TraditionalPersonalityDirectory() {
         groups={groups}
         comparisonGroups={comparisons.groups}
         locale="zh-TW"
-        mbtiTestHref="/zh/tests/mbti-personality-test-16-personality-types"
+        mbtiTestHref="/zh-TW/tests/mbti-personality-test-16-personality-types"
         content={content}
       />
       <PersonalityFaq locale="zh-TW" items={faqPayload?.items ?? []} />

@@ -140,13 +140,13 @@ export function TraditionalMbtiCurrentReader({ reader }: {
   }));
   const testLink = (
     <Link
-      href={`/zh/tests/${MBTI_ENTRY_TEST_SLUG}`}
-      lang="zh-CN"
+      href={`/zh-TW/tests/${MBTI_ENTRY_TEST_SLUG}`}
+      lang="zh-TW"
       className={kind === "comparison"
         ? "inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#5f447e] shadow-sm transition hover:bg-white/90"
         : buttonVariants({ variant: "outline", size: "sm", className: "h-auto max-w-full whitespace-normal text-center" })}
     >
-      <span lang="zh-TW">開始免費 MBTI 測驗（簡體中文）</span>
+      <span lang="zh-TW">開始免費 MBTI 測驗</span>
     </Link>
   );
 
