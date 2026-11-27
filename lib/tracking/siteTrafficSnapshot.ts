@@ -4,9 +4,9 @@ import { createInterface } from "node:readline";
 
 const LOG_PATH = "/opt/fermatmind/openresty/logs/access.log";
 const MAX_BYTES = 256 * 1024 * 1024;
-const MAX_IPS = 250_000;
+const MAX_UNIQUE = 250_000;
 const SHANGHAI_OFFSET_MS = 8 * 60 * 60 * 1000;
-const LOG_LINE = /^(\S+) \S+ \S+ \[(\d{2})\/([A-Za-z]{3})\/(\d{4}):(\d{2}:\d{2}:\d{2}) ([+-]\d{4})\] "(\S+) ([^ "\s]+) [^"]+" (\d{3}) \d+ "[^"]*" "([^"]*)"/;
+const LOG_LINE = /^(\S+) \S+ \S+ \[(\d{2})\/([A-Za-z]{3})\/(\d{4}):(\d{2}:\d{2}:\d{2}) ([+-]\d{4})\] "(\S+) ([^ "\s]+) [^"]+" (\d{3}) \d+ "[^"]*" "([^"]*)"(?: "[^"]*" "(-|\d{4}-\d{2}-\d{2}_[A-Za-z0-9+/]{27})")?/;
 const PRIVATE_SEGMENT = /\/(?:api|account|admin|cms-preview|email|history|internal|ops|orders?|pay|payment|reports?|results?|share)(?:\/|$)/i;
 const AUTOMATED_AGENT = /bot\b|crawler|spider|headless|lighthouse|slurp|facebookexternalhit|preview|pingdom/i;
 
@@ -26,6 +26,8 @@ type SiteTraffic = {
   through: number;
   pageRequests: number;
   uniqueIps: number;
+  uniqueBrowsers: number | null;
+  identifiedPageRequests: number | null;
 };
 
 let pending: Promise<SiteTraffic> | undefined;
@@ -46,11 +48,14 @@ export async function readSiteTraffic(logPath: string, now: number): Promise<Sit
   const date = new Date(now + SHANGHAI_OFFSET_MS).toISOString().slice(0, 10);
   const start = Date.parse(`${date}T00:00:00+08:00`);
   const ips = new Set<string>();
+  const browsers = new Set<string>();
   const identity: Array<{ path: string; dev: number; ino: number }> = [];
   const signal = AbortSignal.timeout(10_000);
   let covered = false;
   let bytes = 0;
   let pageRequests = 0;
+  let identifiedPageRequests = 0;
+  let hasBrowserLog = false;
 
   for (const path of [logPath, `${logPath}.1`, `${logPath}.2`]) {
     const file = await open(path, "r");
@@ -66,15 +71,20 @@ export async function readSiteTraffic(logPath: string, now: number): Promise<Sit
         for await (const line of lines) {
           const match = LOG_LINE.exec(line);
           if (!match) continue;
-          const [, address, day, month, year, time, offset, method, target, status, agent] = match;
+          const [, address, day, month, year, time, offset, method, target, status, agent, browser] = match;
           const occurred = Date.parse(`${day} ${month} ${year} ${time} GMT${offset}`);
           if (occurred <= start) covered = true;
           if (!(occurred >= start && occurred <= through * 1000)) continue;
+          if (browser !== undefined) hasBrowserLog = true;
           if (method !== "GET" || (status !== "200" && status !== "304") || !isPublicPageRequest(target, agent)) continue;
           pageRequests++;
           const ip = address.toLowerCase().replace(/^::ffff:(?=\d+\.)/, "");
           if (isIP(ip)) ips.add(ip);
-          if (ips.size > MAX_IPS) throw new Error("Traffic IP count exceeded its budget");
+          if (browser?.startsWith(date + "_")) {
+            browsers.add(browser);
+            identifiedPageRequests++;
+          }
+          if (ips.size > MAX_UNIQUE || browsers.size > MAX_UNIQUE) throw new Error("Traffic unique count exceeded its budget");
         }
       } finally {
         input.destroy();
@@ -91,5 +101,9 @@ export async function readSiteTraffic(logPath: string, now: number): Promise<Sit
     if (current.dev !== observed.dev || current.ino !== observed.ino) throw new Error("Traffic log rotated during scan");
   }
 
-  return { date, through, pageRequests, uniqueIps: ips.size };
+  return {
+    date, through, pageRequests, uniqueIps: ips.size,
+    uniqueBrowsers: hasBrowserLog ? browsers.size : null,
+    identifiedPageRequests: hasBrowserLog ? identifiedPageRequests : null,
+  };
 }

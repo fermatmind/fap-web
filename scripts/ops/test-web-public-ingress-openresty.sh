@@ -28,6 +28,7 @@ container_id="$(docker run --rm -d -p 127.0.0.1::443 \
     sed \
       -e "s#/www/sites/fermatmind.com/ssl/fullchain.pem#/tmp/probe/test.crt#g" \
       -e "s#/www/sites/fermatmind.com/ssl/privkey.pem#/tmp/test.key#g" \
+      -e "s#/var/log/nginx/access.log#/tmp/probe/site-access.log#g" \
       /tmp/source.conf > /tmp/candidate.conf
     cat > /tmp/nginx.conf <<EOF
 events {}
@@ -36,6 +37,8 @@ http {
   include /tmp/candidate.conf;
   server {
     listen 3000;
+    location = /zh { default_type text/html; return 200 "<html>public</html>"; }
+    location = /zh/results/private { default_type text/html; return 200 "<html>private</html>"; }
     location = /_next/static/healthy.js { return 200 "/* healthy */"; }
     location = /_next/static/partial.js { return 206 "/* partial */"; }
     location = /_next/static/not-modified.js { return 304; }
@@ -53,10 +56,12 @@ EOF
 port="$(docker port "$container_id" 443/tcp)"
 port="${port##*:}"
 probe() {
+  local route="$1"
+  shift
   curl --silent --show-error --noproxy '*' --connect-timeout 2 --max-time 5 \
     --cacert "$probe_dir/test.crt" --resolve "fermatmind.com:${port}:127.0.0.1" \
     --dump-header "$probe_dir/headers" --output /dev/null --write-out '%{http_code}' \
-    "https://fermatmind.com:${port}$1"
+    "$@" "https://fermatmind.com:${port}$route"
 }
 ready=0
 for ((attempt = 0; attempt < 30; attempt++)); do
@@ -82,4 +87,27 @@ assert_response /_next/static/missing.js 404 no-store
 assert_response /_next/static/recovered.js 502 no-store
 docker exec "$container_id" touch /tmp/asset-recovered
 assert_response /_next/static/recovered.js 200 "$immutable"
-printf 'ingress syntax, verified TLS, static error cache and recovery passed\n'
+
+last_uv_digest() {
+  tail -n 1 "$probe_dir/site-access.log" | awk -F '"' '{print $(NF-1)}'
+}
+
+[[ "$(probe /zh)" == 200 && "$(last_uv_digest)" == "-" ]]
+! grep -qi '^Set-Cookie: fm_uv_daily=' "$probe_dir/headers" || exit 1
+[[ "$(probe /zh --cookie 'fm_uv_consent=1')" == 200 ]]
+cookie_header="$(tr -d '\r' < "$probe_dir/headers" | grep -i '^Set-Cookie: fm_uv_daily=')"
+cookie_pattern='fm_uv_daily=([0-9-]{10}_[a-f0-9]{32}); Path=/; Max-Age=[0-9]+; SameSite=Lax; Secure; HttpOnly$'
+[[ "$cookie_header" =~ $cookie_pattern ]]
+browser_id="${BASH_REMATCH[1]}"
+digest="$(last_uv_digest)"
+[[ "$digest" =~ ^[0-9-]{10}_[A-Za-z0-9+/]{27}$ ]]
+! grep -Fq "$browser_id" "$probe_dir/site-access.log" || exit 1
+
+[[ "$(probe /zh --cookie "fm_uv_consent=1; fm_uv_daily=$browser_id")" == 200 ]]
+[[ "$(last_uv_digest)" == "$digest" ]]
+! grep -qi '^Set-Cookie: fm_uv_daily=' "$probe_dir/headers" || exit 1
+[[ "$(probe /zh --cookie 'fm_uv_consent=1')" == 200 && "$(last_uv_digest)" != "$digest" ]]
+[[ "$(probe /zh --cookie "fm_uv_daily=$browser_id")" == 200 && "$(last_uv_digest)" == "-" ]]
+[[ "$(probe /zh/results/private --cookie "fm_uv_consent=1; fm_uv_daily=$browser_id")" == 200 && "$(last_uv_digest)" == "-" ]]
+! grep -qi '^Set-Cookie: fm_uv_daily=' "$probe_dir/headers" || exit 1
+printf 'ingress syntax, verified TLS, static cache recovery, and consented daily browser identity passed\n'

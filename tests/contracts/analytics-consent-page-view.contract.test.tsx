@@ -45,6 +45,7 @@ afterEach(() => {
 
 describe("analytics consent page view replay contract", () => {
   it("does not send page view before consent and replays once after accept", async () => {
+    const cookie = vi.spyOn(document, "cookie", "set");
     render(
       <Providers>
         <LocaleProvider locale="zh">
@@ -57,6 +58,7 @@ describe("analytics consent page view replay contract", () => {
     expect(hoisted.trackLandingPageView).not.toHaveBeenCalled();
     expect(hoisted.trackVibeCafePageView).not.toHaveBeenCalled();
     expect(hoisted.initAnalytics).toHaveBeenCalledTimes(1);
+    expect(cookie).not.toHaveBeenCalled();
 
     fireEvent.click(screen.getByTestId("cookie-banner-accept"));
 
@@ -67,6 +69,7 @@ describe("analytics consent page view replay contract", () => {
     });
     expect(hoisted.trackLandingPageView).toHaveBeenCalledWith({ locale: "zh" });
     expect(hoisted.trackEvent).not.toHaveBeenCalled();
+    expect(cookie).toHaveBeenCalledWith("fm_uv_consent=1; Path=/; Max-Age=31536000; SameSite=Lax; Secure");
 
     window.dispatchEvent(new CustomEvent("fm:analytics-consent-updated", { detail: { analytics: "granted" } }));
     expect(hoisted.trackLandingPageView).toHaveBeenCalledTimes(1);
@@ -74,6 +77,8 @@ describe("analytics consent page view replay contract", () => {
   });
 
   it("does not replay page view after denied consent", async () => {
+    const cookie = vi.spyOn(document, "cookie", "set");
+    vi.spyOn(document, "cookie", "get").mockReturnValue("fm_uv_consent=1");
     render(
       <Providers>
         <LocaleProvider locale="zh">
@@ -92,6 +97,7 @@ describe("analytics consent page view replay contract", () => {
     expect(hoisted.trackVibeCafePageView).not.toHaveBeenCalled();
     expect(hoisted.trackEvent).not.toHaveBeenCalled();
     expect(hoisted.initAnalytics).toHaveBeenCalledTimes(1);
+    expect(cookie).toHaveBeenCalledWith("fm_uv_consent=; Path=/; Max-Age=0; SameSite=Lax; Secure");
   });
 });
 

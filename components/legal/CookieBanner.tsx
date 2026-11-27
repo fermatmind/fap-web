@@ -1,6 +1,6 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { COOKIE_BANNER_ENABLED } from "@/components/layout/siteChromeRules";
 import { getConsent, setAnalyticsConsent, type AnalyticsConsent } from "@/lib/consent/store";
@@ -38,6 +38,16 @@ export function CookieBanner({ traditional = false }: { traditional?: boolean } 
     decline: "僅使用必要 Cookie",
   } : dict.cookie;
   const consent = useSyncExternalStore(subscribeConsentStore, getConsentSnapshot, getServerConsentSnapshot);
+
+  useEffect(() => {
+    if (!COOKIE_BANNER_ENABLED || consent === "pending") return;
+    const hasVisitConsent = document.cookie.split("; ").includes("fm_uv_consent=1");
+    if (consent === "granted" && !hasVisitConsent) {
+      document.cookie = "fm_uv_consent=1; Path=/; Max-Age=31536000; SameSite=Lax; Secure";
+    } else if (consent !== "granted" && hasVisitConsent) {
+      document.cookie = "fm_uv_consent=; Path=/; Max-Age=0; SameSite=Lax; Secure";
+    }
+  }, [consent]);
 
   const updateConsent = (next: Extract<BannerConsent, "granted" | "denied">) => {
     setAnalyticsConsent(next);

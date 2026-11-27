@@ -13,8 +13,9 @@ import { GET } from "@/app/api/internal/site-traffic/route";
 const agent = "Mozilla/5.0 Chrome/130.0";
 const now = Date.parse("2026-11-27T01:00:00+08:00");
 
-function log(time: string, path: string, ip = "192.0.2.1", status = 200) {
-  return `${ip} - - [26/Nov/2026:${time} +0000] "GET ${path} HTTP/2.0" ${status} 100 "-" "${agent}" "-"\n`;
+function log(time: string, path: string, ip = "192.0.2.1", status = 200, browser?: string) {
+  const browserField = browser === undefined ? "" : ` "${browser}"`;
+  return `${ip} - - [26/Nov/2026:${time} +0000] "GET ${path} HTTP/2.0" ${status} 100 "-" "${agent}" "-"${browserField}\n`;
 }
 
 afterEach(() => {
@@ -32,9 +33,31 @@ it("counts real ingress requests and deduplicates the remote address across a Be
     await writeFile(file + ".1", log("15:59:59", "/zh", "192.0.2.4") + log("16:10:00", "/zh"));
     await expect(readSiteTraffic(file, now)).resolves.toEqual({
       date: "2026-11-27", through: now / 1000, pageRequests: 4, uniqueIps: 2,
+      uniqueBrowsers: null, identifiedPageRequests: null,
     });
     await rm(file + ".1");
     await expect(readSiteTraffic(file, now)).rejects.toThrow();
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
+});
+
+it("deduplicates Beijing-day browser digests across logs and IP changes while keeping coverage separate", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "site-traffic-uv-test-"));
+  const file = join(dir, "access.log");
+  const first = "2026-11-27_" + "A".repeat(27);
+  const second = "2026-11-27_" + "B".repeat(27);
+  const previousDay = "2026-11-26_" + "C".repeat(27);
+  try {
+    await writeFile(file, log("16:20:00", "/zh", "192.0.2.2", 200, first)
+      + log("16:25:00", "/en", "192.0.2.2", 200, second)
+      + log("16:30:00", "/zh", "192.0.2.2", 200, "-")
+      + log("16:35:00", "/zh", "192.0.2.2", 200, previousDay)
+      + log("16:40:00", "/zh/results/private", "192.0.2.2", 200, second));
+    await writeFile(file + ".1", log("15:59:59", "/zh") + log("16:10:00", "/zh", "192.0.2.1", 200, first));
+    await expect(readSiteTraffic(file, now)).resolves.toMatchObject({
+      uniqueBrowsers: 2, identifiedPageRequests: 3, uniqueIps: 2, pageRequests: 5,
+    });
   } finally {
     await rm(dir, { recursive: true, force: true });
   }
@@ -69,7 +92,10 @@ it("uses the release-bound tracking credential and returns only the day's aggreg
   const endpoint = "https://fermatmind.com/api/internal/site-traffic";
   const token = "test-release-tracking-secret";
   const timestamp = Math.floor(Date.now() / 1000);
-  const snapshot = { date: "2026-11-27", through: timestamp, pageRequests: 125, uniqueIps: 100 };
+  const snapshot = {
+    date: "2026-11-27", through: timestamp, pageRequests: 125, uniqueIps: 100,
+    uniqueBrowsers: 20, identifiedPageRequests: 40,
+  };
   vi.stubEnv("TRACK_INGEST_TOKEN", "old-environment-only-secret");
   vi.spyOn(trackingRuntime, "resolveTrackingRuntime").mockReturnValue({ token });
   vi.spyOn(siteTraffic, "readTodaySiteTraffic").mockResolvedValue(snapshot);
