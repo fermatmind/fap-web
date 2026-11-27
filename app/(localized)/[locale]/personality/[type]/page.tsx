@@ -1495,7 +1495,7 @@ export async function generateMetadata({
       metadata.twitter?.images,
     );
 
-    return applyPersonalityMetadataTitleTemplateGuard(withTraditionalPersonalityLanguageAlternates({
+    const comparisonMetadata = applyPersonalityMetadataTitleTemplateGuard(withTraditionalPersonalityLanguageAlternates({
       ...metadata,
       alternates: {
         ...metadata.alternates,
@@ -1517,6 +1517,12 @@ export async function generateMetadata({
         images: twitterImages,
       },
     }, comparison.traditionalLanguageAlternates, { defaultToEnglish: true }), effectiveMetadataTitle);
+    if (localeParam !== "en" || canonicalPath !== "/en/personality/infp-a-vs-infp-t" || noindex) return comparisonMetadata;
+    return {
+      ...comparisonMetadata,
+      title: { absolute: "INFP-A vs INFP-T: How They Respond to Criticism and Stress" },
+      description: "After tough feedback, INFP-A may stay confident while INFP-T may second-guess. A/T is 16Personalities’ Identity dimension. Free test: four MBTI preferences.",
+    };
   }
 
   const { detail, seo } = await loadPersonalityPublicDetail(

@@ -700,6 +700,7 @@ export function PortfolioFlagshipLanding({ quiz, locale }: { quiz: Questionnaire
   const publicReference = (reference: NonNullable<Questionnaire["references"]>[number]) => !reference.hiddenOnLanding;
   const scopeOfFreeAccess = config.freeAccessDescription?.[locale];
   const entryUpdate = entryCopyUpdates[quiz.slug];
+  const englishDere = locale === "en" && quiz.slug === "tsundere-dere-type";
   const currentGuideCopy = (value: string) => entryUpdate && locale !== "zh-TW" ? entryUpdate.current(value, locale) : value;
   // The standalone routes have no restorable tab drafts. The authored FAQs cover their current privacy behavior.
   const guideSections = [...quiz.guide, ...(config.additionalGuide?.(locale) ?? [])].filter(section =>
@@ -718,20 +719,22 @@ export function PortfolioFlagshipLanding({ quiz, locale }: { quiz: Questionnaire
   return <>
     <ExploreLandingSchema id={`${quiz.slug}-landing-schema`} title={title} description={edit.facts} path={entry} locale={locale} faq={faq} freeAccessDescription={scopeOfFreeAccess} />
     <TestExploreTemplate slot={config.slot} rootAttributes={{ "data-flagship-entry": quiz.slug }}
-      copy={{ ...text, title, description: edit.intro, facts: edit.facts, formula: edit.formula, faq,
+      copy={{ ...text, title, description: englishDere
+          ? "A friend says they’re looking forward to seeing you. How would you show you feel the same?"
+          : edit.intro, facts: edit.facts, formula: edit.formula, faq,
         benefits: edit.deliverables.map(([heading, body]) => [heading, body]),
         explore: related.map(([heading, body, label]) => [heading, body, label]),
         compare: [[title, ...text.current], ...related.map(([heading, brief, , count, result]) => [heading, brief, count, result])],
       }}
       start={`${entry}/take${locale === "zh-TW" ? "" : "?start=1"}`}
       endStartLabel={text.endStart} guideHref={profiles[0].link.href} profilesId="questionnaire-results" profiles={profiles} exploreLinks={exploreLinks} compareLinks={[null, ...exploreLinks]}
-      sample={sample}
+      sample={englishDere ? <div id="dere-result-preview" className="min-w-0 scroll-mt-24">{sample}</div> : sample}
       insight={<><div><h2 id="questionnaire-insight-method">{text.method}</h2><p>{quiz.instructions?.[localeKey]}</p></div>
         {config.visibleGuideIds && <div className="mt-4 space-y-4" aria-labelledby="questionnaire-insight-method">
           {guideSections.filter(section => config.visibleGuideIds?.includes(section.id)).map(guideSection)}
         </div>}
         {config.methodContent?.(quiz, locale, localeKey)}
-        <div className="grid gap-4">{questions.map(question => {
+        <div id={englishDere ? "dere-scene-preview" : undefined} className={englishDere ? "grid gap-4 scroll-mt-24" : "grid gap-4"}>{questions.map(question => {
           const stimulus = config.questionStimulus?.(question.id, locale);
           const notes = question.options.map(option => {
             if (config.slot === "A" || (config.slot === "B" && "facets" in config)) {
@@ -763,7 +766,13 @@ export function PortfolioFlagshipLanding({ quiz, locale }: { quiz: Questionnaire
       </div>
         {WorkedExamples && <WorkedExamples quiz={quiz} locale={localeKey} displayLocale={locale} />}
       </section>}
-      heroLinks={<>{scopeOfFreeAccess && <p className="mt-3 text-sm">{scopeOfFreeAccess}</p>}
+      heroLinks={<>{englishDere && <>
+        <p className="mt-3 text-sm">Tsundere teases warmly, kuudere stays composed, dandere opens up in private, and deredere shows affection openly.</p>
+        <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+          <a className="underline underline-offset-4" href="#dere-scene-preview">Preview a question</a>
+          <a className="underline underline-offset-4" href="#dere-result-preview">Preview a result</a>
+        </div>
+      </>}{scopeOfFreeAccess && <p className="mt-3 text-sm">{scopeOfFreeAccess}</p>}
         {config.notice && <p className="mt-3 text-sm">{config.notice[locale]}</p>}<nav aria-label={locale === "en" ? "Quiz languages" : locale === "zh" ? "测评语言" : "測驗語言"} className="mt-3 flex flex-wrap gap-4 text-sm">
         {workedExampleId && <a href={`#${workedExampleId}`}>{text.sampleLink}</a>}
         {([["zh", "zh-CN", "简体中文"], ["zh-TW", "zh-TW", "繁體中文"], ["en", "en", "English"]] as const).map(([language, lang, label]) =>

@@ -123,7 +123,22 @@ describe("T031 original four-cultural-expression reflection", () => {
       for (const locale of ["en", "zh"] as const) {
         const props = { params: Promise.resolve({ locale, slug: quiz.slug }) }, path = `/${locale}/tests/explore/tsundere-dere-type`;
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
-        expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(quiz.seoTitle[locale]);
+        expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
+        if (locale === "en") {
+          expect(metadata.title).toEqual({ absolute: "Free Dere Type Test: Are You Tsundere? (16 Questions)" });
+          expect(metadata.description).toBe("See how you show you care in 16 everyday situations. Compare tsundere, kuudere, dandere and deredere. Free results, no sign-up.");
+          const dom = document.createElement("div");
+          dom.innerHTML = html;
+          for (const id of ["dere-scene-preview", "dere-result-preview"]) {
+            expect(dom.querySelector(`a[href="#${id}"]`)).not.toBeNull();
+            expect(dom.querySelectorAll(`#${id}`)).toHaveLength(1);
+          }
+        } else {
+          expect(metadata.title).toBe(quiz.seoTitle[locale]);
+          expect(metadata.description).toBe(quiz.description[locale]);
+          expect(html).not.toContain("dere-scene-preview");
+          expect(html).not.toContain("dere-result-preview");
+        }
         expect(html).toContain(quiz.instructions![locale]);
         expect(html).toContain(locale === "zh" ? "原创象征测验" : "Original symbolic quiz");
         expect(quiz.resultHeading?.[locale]).toBeTruthy();

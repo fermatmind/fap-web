@@ -14,9 +14,15 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 const isExplore = (slug: string) =>
   catalog.some((quiz) => quiz.slug === slug && quiz.collection === "explore");
 export async function generateMetadata(props: Props) {
-  if (!isExplore((await props.params).slug))
-    return { robots: { index: false, follow: false } };
-  return buildMetadata(props);
+  const { locale, slug } = await props.params;
+  if (!isExplore(slug)) return { robots: { index: false, follow: false } };
+  const metadata = await buildMetadata(props);
+  if (locale !== "en" || slug !== "tsundere-dere-type" || !metadata.alternates?.canonical) return metadata;
+  return {
+    ...metadata,
+    title: { absolute: "Free Dere Type Test: Are You Tsundere? (16 Questions)" },
+    description: "See how you show you care in 16 everyday situations. Compare tsundere, kuudere, dandere and deredere. Free results, no sign-up.",
+  };
 }
 export default async function ExplorePage(props: Props) {
   if (!isExplore((await props.params).slug)) notFound();

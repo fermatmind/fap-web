@@ -40,6 +40,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   if (content.kind === "mbti") {
     return withTraditionalPersonalityLanguageAlternates({
       ...content.reader.metadata,
+      ...(content.reader.canonical === "/zh-TW/personality/infj" && content.reader.indexEligible ? {
+        title: { absolute: "INFJ 人格（提倡者）｜工作與相處時的特質與例子" },
+        description: "從開會時如何整理想法，到收到回饋、和朋友意見不同時怎麼回應，用實例理解 INFJ（提倡者）的偏好。免費做 MBTI 測驗，看四組偏好。",
+      } : {}),
       alternates: { canonical: content.reader.canonical },
       robots: { index: !isConfiguredStagingSiteUrl() && content.reader.indexEligible, follow: !isConfiguredStagingSiteUrl() },
     }, content.reader.traditionalLanguageAlternates, { defaultToEnglish: true });
