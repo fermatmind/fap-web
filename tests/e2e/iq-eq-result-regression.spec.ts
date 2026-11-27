@@ -968,12 +968,18 @@ test("clinical questions request retries once after 401 with bootstrap token pre
   await mockTrack(page);
   await mockScaleLookup(page);
 
+  const initialToken = "fm_clinical_retry_test_initial";
+  const refreshedToken = "fm_clinical_retry_test_refreshed";
+  await page.addInitScript(token => localStorage.setItem("fm_auth_token", token), initialToken);
+
   let questionCalls = 0;
   const questionTokens: string[] = [];
+  let rejectedFirstRequest = false;
   await page.route("**/api/v0.3/scales/SDS_20/questions*", async (route) => {
-    questionCalls += 1;
-    questionTokens.push(route.request().headers().authorization ?? "");
-    if (questionCalls === 1) {
+    const requestNumber = ++questionCalls;
+    questionTokens[requestNumber - 1] = await route.request().headerValue("authorization") ?? "";
+    if (requestNumber === 1) {
+      rejectedFirstRequest = true;
       await route.fulfill({
         status: 401,
         contentType: "application/json",
@@ -1019,24 +1025,26 @@ test("clinical questions request retries once after 401 with bootstrap token pre
   let guestTokenCalls = 0;
   await page.route("**/api/v0.3/auth/guest", async (route) => {
     guestTokenCalls += 1;
+    const token = rejectedFirstRequest ? refreshedToken : initialToken;
     await route.fulfill({
       status: 200,
       contentType: "application/json",
       body: JSON.stringify({
         ok: true,
-        fm_token: `fm_clinical_retry_token_${guestTokenCalls}_123456`,
+        fm_token: token,
       }),
     });
   });
 
   await page.goto("/en/tests/depression-screening-test-standard-edition/take");
   await expect(page.getByText("Please review and accept informed consent.")).toBeVisible();
-  // Development StrictMode may replay the question effect once in addition to
-  // the single 401 retry. Prove the retry consumed a refreshed token and stayed
-  // bounded, rather than requiring one particular effect subscription count.
+  // A replayed development effect can show consent before the 401 retry completes.
+  expect(questionTokens[0] === `Bearer ${initialToken}`).toBe(true);
+  await expect.poll(() => questionTokens.slice(1).includes(`Bearer ${refreshedToken}`), {
+    message: "The questions retry uses a guest token issued after the 401",
+  }).toBe(true);
   expect(questionCalls).toBeGreaterThanOrEqual(2);
   expect(questionCalls).toBeLessThanOrEqual(3);
   expect(guestTokenCalls).toBeGreaterThanOrEqual(2);
   expect(guestTokenCalls).toBeLessThanOrEqual(3);
-  expect(questionTokens.slice(1)).toContain(`Bearer fm_clinical_retry_token_${guestTokenCalls}_123456`);
 });
