@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { adaptCareerTransitionPreview } from "@/lib/career/adapters/adaptCareerTransitionPreview";
 import type { CareerTransitionPreviewResponseRaw } from "@/lib/career/api/types";
 import { fetchCareerTransitionPreview } from "@/lib/career/api/fetchCareerTransitionPreview";
@@ -353,6 +353,18 @@ describe("career transition preview fetch and adapter contract", () => {
 });
 
 describe("career transition preview recommendation detail wiring", () => {
+  beforeEach(() => {
+    vi.doMock("@/lib/career/api/fetchCareerRecommendationExplainability", () => ({
+      fetchCareerRecommendationExplainability: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveRecommendationCompanionLinks", () => ({
+      fetchCareerFirstWaveRecommendationCompanionLinks: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerRuntimeConfig", () => ({
+      fetchCareerRuntimeConfig: vi.fn(async () => null),
+    }));
+  });
+
   it("renders a compact preview on recommendation detail without replacing matched jobs", async () => {
     const pageViewEvents: Array<{ eventName: string; properties?: Record<string, unknown> }> = [];
     const trackedLinks: Array<{ eventName: string; eventPayload: Record<string, unknown>; href: string }> = [];
@@ -793,9 +805,6 @@ describe("career transition preview recommendation detail wiring", () => {
         },
       })),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerRecommendationExplainability", () => ({
-      fetchCareerRecommendationExplainability: vi.fn(async () => null),
-    }));
     vi.doMock("@/lib/career/api/fetchCareerTransitionPreview", () => ({
       fetchCareerTransitionPreview: vi.fn(async () => ({
         path_type: "stable_upside",
@@ -821,10 +830,6 @@ describe("career transition preview recommendation detail wiring", () => {
         },
       })),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerFirstWaveRecommendationCompanionLinks", () => ({
-      fetchCareerFirstWaveRecommendationCompanionLinks: vi.fn(async () => null),
-    }));
-
     const { default: CareerRecommendationPage } = await import(
       "@/app/(localized)/[locale]/career/recommendations/mbti/[type]/page"
     );
