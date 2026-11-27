@@ -1,4 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
+import { archiveTopic } from "../../../lib/entertainment/archive90";
 import type { Questionnaire } from "../../../lib/questionnaires/types";
 
 export function archetypeStandaloneCases(quiz: Questionnaire, label: string, winner: string, questionIdPrefix: string) {
@@ -26,7 +27,9 @@ export function archetypeStandaloneCases(quiz: Questionnaire, label: string, win
     for (const id of expected) {
       const match = engine.locator(`[data-archetype-match="${id}"]`);
       await expect(match.locator(`a[href="/${locale}/tests/explore/${quiz.slug}/results/${id}"]`)).toBeVisible();
-      await expect(engine.locator(`[data-archetype-count="${id}"]`)).toContainText(mode === "tie" ? "3 / 12" : "12 / 12");
+      const opportunities = quiz.questions.filter(question => question.options.some(option => option.directionId === id)).length;
+      const selections = mode === "tie" ? quiz.questions.filter(question => question.options[0].directionId === id).length : opportunities;
+      await expect(engine.locator(`[data-archetype-count="${id}"]`)).toContainText(`${selections} / ${opportunities}`);
     }
     const ids = await engine.locator("[id]").evaluateAll(nodes => nodes.map(node => node.id));
     expect(new Set(ids).size).toBe(ids.length);
@@ -48,7 +51,7 @@ export function archetypeStandaloneCases(quiz: Questionnaire, label: string, win
       await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
       await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
-      await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+      await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).first().click();
       await expect(page).toHaveURL(new RegExp(`${entry}/take(?:[?]start=1)?$`));
       await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
       await page.locator("#take-test [data-questionnaire-next]").click();
@@ -107,11 +110,20 @@ export function archetypeStandaloneCases(quiz: Questionnaire, label: string, win
       const text = await page.locator("[data-archetype-honor-group] textarea").inputValue();
       for (const profile of quiz.profiles) expect(text).toContain(profile.title[locale]);
       expect(text).not.toMatch(questionId);
-      expect(text).not.toMatch(/answers|form_code|submission|3\s*\/\s*12|[?&]score/);
+      expect(text).not.toMatch(/answers|form_code|submission|\d+\s*\/\s*\d+|[?&]score/);
       const url = new URL(text.split("\n").at(-1)!);
       expect(url.pathname).toBe(entry);
       expect(url.search).toBe("");
       expect(url.hash).toBe("");
     });
+  }
+}
+
+export async function expectArchetypeGuideAlternates(page: Page, slug: string, profileId: string) {
+  if (archiveTopic(slug)) {
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /^noindex, follow(?:,|$)/);
+    await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
+  } else {
+    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/${slug}/results/${profileId}`);
   }
 }
