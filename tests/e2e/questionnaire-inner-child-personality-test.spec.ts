@@ -1,8 +1,12 @@
+import { expectStandaloneObservationPrivacy } from "./helpers/standalone-observation-flow";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
 
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/inner-child-personality-test.json", "utf8")) as Questionnaire;
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() })));
+});
 async function finish(page: Page, locale: "en" | "zh", mode: "wonder-explorer" | "tie") {
   for (const [index, question] of quiz.questions.entries()) {
     const option = mode === "tie" ? question.options[0] : question.options.find(o => o.directionId === "wonder-explorer") ?? question.options[0];
@@ -35,13 +39,12 @@ for (const locale of ["en", "zh"] as const) {
     await page.setViewportSize({ width: 390, height: 844 });
     const posts: string[] = [];
     page.on("request", request => { if (request.method() === "POST" && /ICC_[0-9]{2}/.test(request.postData() ?? "")) posts.push(request.url()); });
-    await page.goto(`/${locale}/tests`); await page.getByTestId("cookie-banner-decline").click(); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
+    await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
-    await expect(page.getByText(zh ? "原创象征测验 · 完整结果免费" : "Original symbolic quiz · Full results free", { exact: true })).toBeVisible();
     await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]:visible").first().click();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "wonder-explorer");
@@ -51,29 +54,19 @@ for (const locale of ["en", "zh"] as const) {
     await expect(tab).toHaveURL(new RegExp(`${entry}/results/wonder-explorer$`));
     await tab.close();
     await expect(page.locator('[data-archetype-match="wonder-explorer"]')).toBeVisible();
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
+    await expect(page.locator(`[data-archetype-core-assessment="EQ_60"] a[href="/${locale}/tests/eq-test-emotional-intelligence-assessment"]`)).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(posts).toEqual([]);
   });
-  test(`@release Childlike play preferences ${locale}: refresh and language change start with blank answers`, async ({ page }) => {
-    await page.goto(entry);
-    await expect(page.getByText(zh ? "这份测试不保存答题进度" : "This quiz does not save your progress", { exact: false }).first()).toBeVisible();
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    const first = await page.locator("legend").first().textContent();
-    await page.locator('input[value="B"]').check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await expect(page.locator("legend").first()).not.toHaveText(first!);
-    await page.reload();
-    await expect(page.locator("legend").first()).toHaveText(first!);
-    await expect(page.getByRole("radio").first()).not.toBeChecked();
-    await expect(page.getByRole("checkbox")).toHaveCount(0);
+  test(`@release Childlike play preferences ${locale}: edit locally, then reset after refresh, language change or exit`, async ({ page }) => {
+    await expectStandaloneObservationPrivacy(page, entry, quiz);
+    const other = zh ? "en" : "zh";
+    await page.goto(`/${other}/tests/explore/${quiz.slug}/take`);
+    await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30_000 });
+    await expect(page.locator("#take-test").getByRole("radio", { checked: true })).toHaveCount(0);
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:inner-child-personality-test"))).toBeNull();
-
-    await page.goto(`/${zh ? "en" : "zh"}/tests/explore/inner-child-personality-test`);
-    await page.getByRole("button", { name: zh ? "Start test" : "开始测试", exact: true }).click();
-    await expect(page.getByRole("radio").first()).not.toBeChecked();
   });
   test(`@release Childlike play preferences ${locale}: denied storage, six-way tie keeps all six matched previews and private-safe clipboard fallback`, async ({ page }) => {
     await page.addInitScript(() => {
@@ -82,12 +75,12 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(key, value) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, key, value); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByTestId("cookie-banner-decline").click(); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.goto(entry); await page.locator("[data-explore-start]:visible").first().click();
     await expect(page.getByRole("checkbox")).toHaveCount(0);
     await finish(page, locale, "tie");
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
-    for (const profile of quiz.profiles) expect(text).toContain(profile.title[locale]);
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.locator("[data-archetype-honor-group] textarea").inputValue();
+    for (const profile of quiz.profiles) expect(text).toContain(profile.title[locale].split(/[：:]/u)[0]);
     expect(text).not.toMatch(/ICC_[0-9]{2}|answers|form_code|submission|6\s*\/\s*24|[?&]score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
   });
