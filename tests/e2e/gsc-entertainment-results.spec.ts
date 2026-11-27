@@ -25,6 +25,7 @@ for (const locale of ["en", "zh"] as const) {
       await page.setViewportSize({ width: 390, height: 844 });
       await page.addInitScript(() => localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() })));
       if (pilot) await page.addInitScript(() => {
+        Object.defineProperty(navigator, "share", { configurable: true, value: undefined });
         Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("Synthetic clipboard denial"); } } });
       });
       await page.goto(`/${locale}/tests/explore/${slug}`);
@@ -38,7 +39,17 @@ for (const locale of ["en", "zh"] as const) {
 
       const result = page.locator('#take-test[data-stage="result"]');
       await expect(result).toBeVisible();
-      if (symbolTests.has(slug)) {
+      const portraitGrid = slug === "philosopher-personality-test" ? "[data-philosopher-reveal] img"
+        : slug === "space-marine-chapter" ? "[data-space-marine-reveal] > ul > li img" : undefined;
+      if (portraitGrid) {
+        await expect(result.locator(portraitGrid)).toHaveCount(quiz.profiles.length);
+        await expect(result.locator("[data-archetype-match]")).toHaveCount(quiz.profiles.length);
+        await expect(result.locator("[data-archetype-count]")).toHaveCount(quiz.profiles.length);
+        for (const profile of quiz.profiles) {
+          const filename = slug === "space-marine-chapter" ? `${profile.id}-studio.webp` : `${profile.id}.svg`;
+          await expect(result.locator(portraitGrid).and(page.locator(`img[src$="/${filename}"]`))).toBeVisible();
+        }
+      } else if (symbolTests.has(slug)) {
         await expect(result.locator("[data-quiz-artwork]")).toHaveCount(quiz.profiles.length, { timeout: 20000 });
         for (const profile of quiz.profiles) {
           await expect(result.locator(`[data-archetype-match="${profile.id}"] [data-quiz-artwork="${profile.id}"]`)).toBeVisible();
@@ -55,7 +66,7 @@ for (const locale of ["en", "zh"] as const) {
         await expect(result.locator('[data-ptq15-score="total-reading"]')).toContainText("30");
       }
 
-      if (symbolTests.has(slug) || characterTests.includes(slug)) {
+      if (!portraitGrid && (symbolTests.has(slug) || characterTests.includes(slug))) {
         const disclosure = result.locator("[data-archetype-counts-details]");
         const report = result.locator("[data-choice-chart-placement]");
         const placement = await report.getAttribute("data-choice-chart-placement");
@@ -68,7 +79,7 @@ for (const locale of ["en", "zh"] as const) {
         await expect(chart.first().locator("dd[aria-hidden] > div")).toHaveAttribute("style", /width: [\d.]+%/);
         const leadTop = (await lead.boundingBox())!.y;
         const comparisonTop = (await comparison.boundingBox())!.y;
-        if (placement === "before") expect(comparisonTop).toBeLessThan(leadTop);
+        if (placement === "before" || slug === "aura-color") expect(comparisonTop).toBeLessThan(leadTop);
         else expect(comparisonTop).toBeGreaterThan(leadTop);
         if (placement === "between") {
           const readingTop = (await firstMatch.getByRole("heading", { level: 4 }).first().boundingBox())!.y;
@@ -82,7 +93,7 @@ for (const locale of ["en", "zh"] as const) {
         await page.setViewportSize({ width, height: width === 1440 ? 960 : 844 });
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
         if (width === 320) continue;
-        if (width === 390 && symbolTests.has(slug)) {
+        if (width === 390 && !portraitGrid && symbolTests.has(slug)) {
           const lead = result.locator("[data-portrait-lead]").first();
           const art = await lead.locator("[data-quiz-artwork]").boundingBox();
           const title = await lead.getByRole("heading", { level: 3 }).boundingBox();
@@ -110,11 +121,11 @@ for (const locale of ["en", "zh"] as const) {
         await page.screenshot({ path: test.info().outputPath(`local-${locale}-${slug}-${width}.png`), animations: "disabled" });
       }
       if (pilot) {
-        await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-        const shared = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
+        await result.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+        const shared = await result.locator("[data-archetype-honor-group] textarea").inputValue();
         expect(shared.trim().split("\n").at(-1)).toBe(`https://fermatmind.com/${locale}/tests/explore/${slug}`);
         expect(shared).not.toMatch(/(?:ANI|EDGE)_\d{2}|[?&]score=|\d+\s*\/\s*12/);
-        await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+        await result.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
         const answer = page.locator('#take-test[data-stage="answer"]');
         await expect(answer.getByRole("radio").first()).toBeVisible();
         await expect(answer.locator("input:checked")).toHaveCount(0);
