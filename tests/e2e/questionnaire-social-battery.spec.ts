@@ -45,8 +45,11 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
     await page.locator("[data-explore-start]:visible").first().click(); await expect(page.locator("#take-test").getByRole("radio").first()).toBeVisible({ timeout: 30000 });
+    const cookieBanner = page.locator("[data-cookie-banner]");
+    await expect(cookieBanner).toHaveCSS("position", "fixed");
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
+    await expect(cookieBanner).toBeVisible();
     await finish(page, locale, "mixed");
     await expect(page.locator('[data-facet-score="quiet-recovery"]')).toContainText("3/5");
     await expect(page.locator('[data-facet-score="easy-company"]')).toContainText("2/5");

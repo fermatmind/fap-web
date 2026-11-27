@@ -117,3 +117,12 @@
   .main:has(:global([data-seven-sins-board])) { padding-block-start: 24px; }
   .engine :global(#take-test):has(> :global([data-seven-sins-board])) { width: 100%; }
 }
+
+/* Keep the last questionnaire control scrollable above the fixed consent card. */
+:global(html):has(:global([data-cookie-banner])):has(.main) {
+  --questionnaire-consent-clearance: calc(12rem + env(safe-area-inset-bottom, 0px));
+  scroll-padding-block-end: var(--questionnaire-consent-clearance);
+}
+:global(html):has(:global([data-cookie-banner])) .main {
+  padding-block-end: var(--questionnaire-consent-clearance);
+}
