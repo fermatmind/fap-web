@@ -1,5 +1,6 @@
 import { test, expect, type Page } from "@playwright/test";
-import { archiveTopic } from "../../../lib/entertainment/archive90";
+import { archetypeResultName } from "../../../lib/questionnaires/archetypeResultCard";
+import { isArchivedEntertainmentPath } from "../../../lib/seo/discoverabilityExposurePolicy";
 import type { Questionnaire } from "../../../lib/questionnaires/types";
 
 export function archetypeStandaloneCases(quiz: Questionnaire, label: string, winner: string, questionIdPrefix: string) {
@@ -108,7 +109,7 @@ export function archetypeStandaloneCases(quiz: Questionnaire, label: string, win
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
       const text = await page.locator("[data-archetype-honor-group] textarea").inputValue();
-      for (const profile of quiz.profiles) expect(text).toContain(profile.title[locale]);
+      for (const profile of quiz.profiles) expect(text).toContain(archetypeResultName(profile, locale, value => value));
       expect(text).not.toMatch(questionId);
       expect(text).not.toMatch(/answers|form_code|submission|\d+\s*\/\s*\d+|[?&]score/);
       const url = new URL(text.split("\n").at(-1)!);
@@ -120,7 +121,7 @@ export function archetypeStandaloneCases(quiz: Questionnaire, label: string, win
 }
 
 export async function expectArchetypeGuideAlternates(page: Page, slug: string, profileId: string) {
-  if (archiveTopic(slug)) {
+  if (isArchivedEntertainmentPath(`/en/tests/explore/${slug}/results/${profileId}`)) {
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /^noindex, follow(?:,|$)/);
     await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
   } else {
