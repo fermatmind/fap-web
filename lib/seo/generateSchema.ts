@@ -40,7 +40,7 @@ type ArticleSchemaInput = {
   path: string;
   title: string;
   description: string;
-  locale: LocaleCode;
+  locale: LocaleCode | "zh-TW";
   datePublished: string;
   dateModified: string;
   authorName: string;
@@ -170,11 +170,11 @@ export function buildArticleJsonLd(input: ArticleSchemaInput) {
     url,
     headline: input.title,
     description: input.description,
-    inLanguage: input.locale === "zh" ? "zh-CN" : "en",
-    ...(["FermatMind", "费马测试", "FermatMind Editorial", "费马测试编辑部"].includes(input.authorName) ? { author: {
+    inLanguage: input.locale === "zh" ? "zh-CN" : input.locale,
+    ...(["FermatMind", "费马测试", "費馬測試", "FermatMind Editorial", "费马测试编辑部", "費馬測試編輯部"].includes(input.authorName) ? { author: {
       "@type": "Organization",
       name: articleByline(input.authorName, input.locale).name,
-      url: canonicalUrl(input.locale === "zh" ? "/zh/brand" : "/en/brand"),
+      url: canonicalUrl(`/${input.locale}/brand`),
     } } : {}),
     publisher: {
       "@type": "Organization",

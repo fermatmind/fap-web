@@ -1,0 +1,255 @@
+import type { ModularComparisonSpec } from '../modularComparison';
+
+const compliance = 'Compliance manager';
+const regulatory = 'Regulatory affairs manager';
+
+const wage = {
+  period: 'May 2025',
+  soc: '11-9199',
+  annual: ['$74,300', '$102,880', '$141,900', '$186,300', '$238,270'],
+  industryMedian: {
+    drugs: '$171,170',
+    devices: '$171,160',
+    credit: '$166,810',
+    insurance: '$165,500',
+  },
+};
+
+const sources = {
+  compliance: { label: 'O*NET Compliance Managers', href: 'https://www.onetonline.org/link/details/11-9199.02', note: 'Tasks, titles and preparation for 11-9199.02.' },
+  regulatory: { label: 'O*NET Regulatory Affairs Managers', href: 'https://www.onetonline.org/link/details/11-9199.01', note: 'Tasks, titles and preparation for 11-9199.01.' },
+  crosswalk: { label: 'O*NET Managers, All Other crosswalk', href: 'https://www.onetonline.org/link/custom/11-9199.00', note: 'Both occupations are listed under this parent group.' },
+  pay: { label: 'BLS OEWS Managers, All Other', href: 'https://data.bls.gov/oesprofile/?areas=INDUSTRY,STATE,MSA&major_group=110000&measure=13&occupation=119199&year=2025', note: 'May 2025, SOC 11-9199. National and Industry tabs show the group distribution and industry medians.' },
+  eccp: { label: 'DOJ corporate compliance program evaluation guide', href: 'https://www.justice.gov/media/1160391/dl?inline=' },
+  fcpa: { label: 'DOJ and SEC FCPA Resource Guide', href: 'https://www.justice.gov/criminal-fraud/fcpa-resource-guide' },
+  sox: { label: 'Sarbanes–Oxley Act', href: 'https://www.govinfo.gov/content/pkg/PLAW-107publ204/pdf/PLAW-107publ204.pdf', note: 'Section 404 covers management assessment of internal control.' },
+  secControls: { label: 'SEC Item 308, internal control over financial reporting', href: 'https://www.govinfo.gov/content/pkg/CFR-2025-title17-vol3/pdf/CFR-2025-title17-vol3-part229-subpart229-300.pdf', note: '2025 CFR edition, Item 308 on the final page.' },
+  whistleblower: { label: 'SEC Rule 21F-17, whistleblower communications', href: 'https://www.govinfo.gov/content/pkg/CFR-2025-title17-vol4/pdf/CFR-2025-title17-vol4-sec240-21F-17.pdf', note: '2025 CFR edition, Rule 21F-17(a) starts on the first page.' },
+  fincen: { label: 'FinCEN customer due diligence and AML program FAQ', href: 'https://www.fincen.gov/resources/statutes-and-regulations/cdd-rule-faqs/' },
+  newYork: { label: 'New York OMIG compliance program guidance', href: 'https://omig.ny.gov/media/80796/download', note: 'Element 2 covers a required Medicaid provider’s designated officer and committee.' },
+  massachusetts: { label: 'Upstream Bio Manager, Regulatory Affairs job description', href: 'https://upstreambio.com/wp-content/uploads/2025/01/Manager-Regulatory-JD.pdf', note: 'Waltham, Massachusetts. Employer sample for dossier and briefing-material responsibilities.' },
+  clearance: { label: 'FDA 510(k) and substantial equivalence', href: 'https://www.fda.gov/medical-devices/premarket-submissions-selecting-and-preparing-correct-submission/premarket-notification-510k' },
+  pma: { label: 'FDA Premarket Approval', href: 'https://www.fda.gov/medical-devices/premarket-submissions-selecting-and-preparing-correct-submission/premarket-approval-pma' },
+  ind: { label: 'FDA Investigational New Drug Application overview', href: 'https://www.fda.gov/drugs/types-applications/investigational-new-drug-application-ind', note: 'Study protocols, manufacturing information and prior evidence.' },
+  nda: { label: 'FDA New Drug Application overview', href: 'https://www.fda.gov/drugs/types-applications/new-drug-application-nda', note: 'Marketing application evidence and proposed labeling.' },
+  qmsr: { label: 'FDA Quality Management System Regulation', href: 'https://www.fda.gov/medical-devices/postmarket-requirements-devices/quality-management-system-regulation-qmsr', note: 'February 2, 2026 update, scope and incorporation of ISO 13485:2016.' },
+  labeling: { label: 'FDA general device labeling requirements', href: 'https://www.fda.gov/medical-devices/device-labeling/general-device-labeling-requirements', note: 'Introduction to U.S. device labeling under 21 CFR Part 801.' },
+  eu: { label: 'EU Medical Device Regulation, official text', href: 'https://publications.europa.eu/resource/uriserv/OJ.L_.2017.117.01.0001.01.ENG.pdfa1a.l_11720170505en00010175.pdf', note: 'Technical documentation in Annex II and information supplied by the manufacturer in Annex I.' },
+  ectd: { label: 'FDA electronic Common Technical Document', href: 'https://www.fda.gov/drugs/electronic-regulatory-submission-and-review/electronic-common-technical-document-ectd' },
+  validation: { label: 'FDA Study Data Technical Conformance Guide', href: 'https://www.fda.gov/media/153632/download', note: 'October 2026, eCTD technical rejection criteria and automated validation.' },
+  estar: { label: 'FDA eSTAR program', href: 'https://www.fda.gov/medical-devices/how-study-and-market-your-device/estar-program', note: 'Interactive submission template and technical screening.' },
+  device: { label: 'FDA decision and public 510(k) summary', href: 'https://www.accessdata.fda.gov/cdrh_docs/pdf22/K223616.pdf', note: 'See the predicate, intended use, design difference and performance evidence.' },
+  ccep: { label: 'SCCE and HCCA certification eligibility', href: 'https://help.corporatecompliance.org/support/solutions/articles/47001285068-work-experience-and-ceu-requirements-for-eligibility-exam-requirements-' },
+  rac: { label: 'RAPS Regulatory Affairs Certification', href: 'https://www.raps.org/certify-advance/credentials/rac.html' },
+  raps: { label: 'RAPS regulatory affairs career guide', href: 'https://www.raps.org/career-and-resources/regulatory-affairs-career-guide.html' },
+  navex: { label: 'EthicsPoint case assignment documentation', href: 'https://help.navexglobal.eu/epim/content/cases/reference%20topic/case%20sections%20overview.htm', note: 'Automatic assignments and case access restrictions.' },
+  unm: { label: 'University of New Mexico EthicsPoint protocol', href: 'https://ceeo.unm.edu/assets/docs/ceeo-programs/ethics-and-compliance/ep-internal-protocol.pdf', note: 'Public portfolio input. Use the automatic assignment and immediate review sections.' },
+};
+
+const exercise = {
+  file: 'M-17',
+  invoice: 'launch support',
+  vendorGap: 'itemized service record',
+  deviceGap: 'linked bench report',
+  predicate: 'Acquire (K160845)',
+  priorUse: 'sampling gastrointestinal lesions',
+  designChange: 'a change in stylet tip geometry',
+};
+
+export const complianceRegulatoryComparisonEnSpec: ModularComparisonSpec = {
+  pairId: 'compliance-managers-vs-regulatory-affairs-managers',
+  locale: 'en',
+  title: 'Compliance Manager vs. Regulatory Affairs Manager: Work, Pay and Entry',
+  shortTitle: 'Compliance Manager vs. Regulatory Affairs Manager',
+  description: 'Compare U.S. compliance and regulatory affairs managers by daily work, BLS wages, credentials, and who owns investigations or FDA submissions. Try both on paper.',
+  regionLabel: 'United States',
+  authorName: 'FermatMind Editorial',
+  datePublished: '2026-11-27',
+  dateModified: '2026-11-27',
+  defaultPlugins: { ai: false, thirtyDay: true },
+  hero: {
+    directAnswer: 'A medical device company is about to launch a product. One manager has to find out what a vague distributor invoice paid for. The other has to check whether the evidence supports what the new label says. A compliance manager runs the systems that prevent, detect and respond to misconduct. A regulatory affairs manager develops a product’s path through health authority review and assembles the evidence for it. Choose the first if you want to investigate how a business behaves, or the second if you want to explain what a product can do and support that claim with evidence.',
+    roleA: { badgeTitle: compliance, riasecLabel: 'Holland CES', aliases: 'Compliance operations manager, compliance director', keywords: 'Corporate compliance and ethics, risk assessments, whistleblower investigations, controls testing' },
+    roleB: { badgeTitle: regulatory, riasecLabel: 'Holland ECI', aliases: 'RA manager, global regulatory affairs manager', keywords: 'Pharma and MedTech regulatory strategy, clinical evidence, submissions, labeling compliance' },
+    interviewBoundaryTitle: 'Which decision would you own?',
+    interviewBoundaryQuestions: [
+      'For a distributor complaint, would I lead the investigation, track remediation, or test the control independently?',
+      'For a product change, would I recommend a filing path, review evidence, or manage the submission calendar?',
+    ],
+    riasecBoundaryNote: 'The badges show the three highest FermatMind Holland interest dimensions for each role. O*NET’s interest tables also rank CES for compliance managers and ECI for regulatory affairs managers. Use the badges to choose activities to try and assess credentials, skills and authority separately.',
+  },
+  topology: {
+    title: 'How the two teams handle a product launch concern',
+    summary: 'A concern about the distributor goes through the company’s compliance process. A concern about the label goes through product review. The teams exchange verified facts about what was promised and what the record supports.',
+    ariaLabel: 'Conduct review and product evidence review exchange records and close their own decisions.',
+    leftZoneTitle: 'Conduct review',
+    leftSteps: [
+      { title: 'Log concern', detail: 'Preserve records' },
+      { title: 'Check controls', detail: 'Trace the invoice' },
+      { title: 'Track the fix', detail: 'Retest the control' },
+    ],
+    centerZoneTitle: 'Product launch',
+    upperBridge: { title: 'Conduct to RA', line1: 'Claim wording', line2: 'Sales record' },
+    lowerBridge: { title: 'RA to conduct', line1: 'Label baseline', line2: 'Evidence status' },
+    rightZoneTitle: 'Product review',
+    rightSteps: [
+      { title: 'Identify route', detail: 'Compare intended use' },
+      { title: 'Match evidence', detail: 'Check test links' },
+      { title: 'Record decision', detail: 'Route for approval' },
+    ],
+  },
+  matrix: {
+    title: 'How the job changes across industries',
+    summary: 'Compare what each manager delivers across business ethics, financial services and life sciences. The accounting, clinical and quality teams each bring evidence the manager needs.',
+    roleAColumn: compliance,
+    roleBColumn: regulatory,
+    expandButtonLabel: 'Show systems, entry routes and sign-off',
+    collapseButtonLabel: 'Hide systems, entry routes and sign-off',
+    rows: [
+      { id: 'core-deliverable', dimension: 'Core work product', roleA: 'Build a compliance risk assessment and policy handbook. Turn a hotline report into a scoped investigation record, a finding where supported and a tracked corrective action.', roleB: 'Build a regulatory strategy for a product and market. Prepare a 510(k) summary or coordinate an eCTD dossier, then document label decisions and responses to the reviewing authority.', defaultVisible: true },
+      { id: 'public-issuer', dimension: 'Corporate ethics and internal audit', roleA: 'Use DOJ’s Evaluation of Corporate Compliance Programs (ECCP) to think through reporting, investigations and how controls work in practice. For Foreign Corrupt Practices Act (FCPA) risk, trace why a distributor is needed and what supports the payment. For Sarbanes–Oxley (SOX) work, separate management’s financial-control assessment from independent audit or attestation.', roleB: 'At a device maker, review what engineering changed, what the tests support and what the draft label says. U.S. device labeling and EU MDR technical documentation are separate market checks.', defaultVisible: true },
+      { id: 'financial-services', dimension: 'Banks and financial services', roleA: 'At a financial institution covered by the Bank Secrecy Act (BSA), work may include anti-money laundering (AML) program oversight, customer due diligence, monitoring, training or remediation after independent testing. FinCEN’s framework distinguishes program responsibility from independent testing.', roleB: 'A drug or device RA portfolio follows the product and its regulator. A bank opening with “regulatory” in the title might mean consumer banking or examination work. Read the deliverables before treating the opening as life-sciences RA.', defaultVisible: true },
+      { id: 'life-sciences', dimension: 'Pharma, MedTech and quality', roleA: 'At a life-sciences company, the conduct program can cover distributor due diligence, reporting and policy training. New York’s required Medicaid providers are a separate example of entity-specific compliance officer and committee designation.', roleB: 'An IND supports a covered drug investigation. An NDA seeks marketing approval. In MedTech, device strategy can involve 510(k) clearance or Premarket Approval (PMA). FDA’s 21 CFR Part 820 Quality Management System Regulation (QMSR), effective February 2, 2026, shapes manufacturer quality work.', defaultVisible: true },
+      { id: 'conditions', dimension: 'What can wear you down', roleA: 'Sensitive allegations can interrupt planned work. You may need to interview people with conflicting accounts and follow up with a business lead who disagrees with a finding. Compare case load, access to records and coverage during investigations.', roleB: 'A filing deadline can compress multiple review rounds into the same week. You may spend hours reconciling a label sentence with an evidence table and a changing design. Compare simultaneous dossiers and who covers health authority questions.', defaultVisible: true },
+      { id: 'systems', dimension: 'Work systems', roleA: 'Use a hotline case system, a risk register and a remediation log. Preserve the original report, record who can access it, and distinguish evidence from an investigator’s interpretation.', roleB: 'Use document control, a labeling review table, the FDA eSTAR template for covered device submissions, and electronic Common Technical Document (eCTD) publishing for drug submissions. Keep claims and source records traceable across versions.', defaultVisible: false },
+      { id: 'entry', dimension: 'Entry routes', roleA: 'An analyst role in audit, ethics operations, risk or banking compliance can build control testing and investigation experience. Choose an opening that lets you write a finding and see what happened after remediation.', roleB: 'Quality, clinical operations and regulatory specialist work can build product and dossier experience. Upstream Bio’s Waltham, Massachusetts example includes health authority briefing materials, drug development and a science degree or equivalent experience.', defaultVisible: false },
+      { id: 'sign-off', dimension: 'Decision and sign-off', roleA: 'A manager can coordinate a case or recommend changes. The employer’s mandate identifies who directs a sensitive investigation, approves remediation or signs an external report. SEC whistleblower rules protect direct communication with SEC staff about possible securities law violations.', roleB: 'RA can recommend the pathway, coordinate review and help prepare a filing. The applicant controls its internal submission authorization. FDA makes the clearance or approval decision; internal quality release follows the organization’s separate authority.', defaultVisible: false },
+    ],
+  },
+  incident: {
+    title: 'A distributor invoice and a product label raise different questions',
+    summary: 'In this fictional device launch, the distributor requests payment for launch support. Its sales deck also makes a claim that goes beyond the wording in the sponsor’s current label draft.',
+    triggerLabel: 'What arrives: ',
+    triggerBody: 'An invoice with no itemized services and a sales deck with no source for its broader claim. The company opens two work records and shares the exact wording and document versions between them.',
+    triggerCaveat: 'These records establish a documentation gap. Whether the vendor performed the work and whether evidence supports the broader claim are open questions.',
+    rows: [
+      { stage: 'Vendor review', roleLabel: compliance, tone: 'roleA', verifiedFacts: 'The invoice cites launch support. The sales deck version and sender are known.', openGaps: 'What work was delivered, who accepted it, and which contract terms cover it?', actionAndApproval: 'The compliance lead assigns the review and logs findings. The designated payment owner controls the invoice disposition, with legal review routed under company policy.' },
+      { stage: 'Claim review', roleLabel: regulatory, tone: 'roleB', verifiedFacts: 'The sales wording differs from the current label draft. The file identifies the product configuration.', openGaps: 'Which evidence supports the claim, and does the change affect the filing pathway?', actionAndApproval: 'RA assembles the comparison and asks the device and quality teams to confirm the source records. The sponsor’s designated reviewer approves the filing package. FDA decides on any required clearance or approval.' },
+    ],
+    recoveryAcceptanceTitle: 'What closes each work record?',
+    recoveryAcceptanceCriteria: 'Close the payment item when the designated payment owner records the disposition and supporting evidence. Record the internal product review separately when the sponsor’s reviewer logs the decision, evidence and label version. Close the sales correction when the sales lead documents that the unsupported claim was withdrawn or corrected and the affected deck was replaced. Update the product’s market status only after FDA issues any clearance or approval required for that pathway.',
+    defenseLayerNote: 'The conduct investigation documents what happened and tests a business control. The regulatory review ties a product claim to evidence and the relevant authorization. Each can proceed with its own records and assigned reviewer.',
+  },
+  payAndCerts: {
+    title: 'How U.S. pay and credentials work',
+    summary: 'Use the national distribution as a broad benchmark. Then compare industry, decision ownership and written compensation terms.',
+    salaryHeading: 'One BLS wage group, different job offers',
+    salaryBody: `The upper threshold is more than triple the lower threshold in one wage distribution. There is no separate BLS series in this release for either exact title. Both O*NET titles map to the same BLS group, so these figures cannot rank the two jobs. In BLS Occupational Employment and Wage Statistics (OEWS) for ${wage.period}, the national 10th, 25th, 50th, 75th and 90th annual wage percentiles for the shared BLS group (SOC ${wage.soc}) were ${wage.annual.join(' / ')} in USD. These are gross straight-time wages for covered employees. They exclude self-employment, overtime premiums, nonproduction bonuses, stock bonuses and employer-paid benefits.
+
+For that same broad group, industry medians were ${wage.industryMedian.drugs} in pharmaceutical manufacturing, ${wage.industryMedian.devices} in medical equipment and supplies manufacturing, ${wage.industryMedian.credit} in the reported credit intermediation slice, and ${wage.industryMedian.insurance} at insurance carriers. Each industry contains a mix of management jobs, so those medians describe industry context. A compliance offer can include a base and an annual performance bonus. A life-sciences RA offer can also include a cash bonus or equity with vesting conditions. Separate discretionary targets and vesting from guaranteed pay.
+
+Match offers by metro and responsibility level, then compare first-year guaranteed salary and fixed cash. List target bonus, equity vesting, retirement contributions and unreimbursed travel separately. For compliance, examine whether the level includes finding approval or control remediation. For RA, examine whether it includes pathway recommendations and responses to FDA questions. Check which decisions count toward the next level and when you move beyond forwarding cases or tracking submission dates.`,
+    certs: [
+      { name: 'CCEP for corporate compliance and ethics', officialScope: 'The Compliance Certification Board offers the U.S.-focused Certified Compliance & Ethics Professional credential through SCCE. Eligibility can come from qualifying experience and continuing education or an accredited university route.', workplaceBoundary: 'The credential signals program knowledge. Sector rules and the employer determine any formal appointment and investigation authority.', verificationTips: 'Match your investigation, training and controls duties to the certifier’s eligibility outline before applying.', officialLinks: [sources.ccep, sources.eccp, sources.newYork] },
+      { name: 'CRCM for consumer banking and CAMS for financial crime', officialScope: 'The American Bankers Association’s CRCM looks for qualifying U.S. consumer banking compliance experience. ACAMS offers CAMS for anti-money laundering and financial crime, with membership and an eligibility credit requirement.', workplaceBoundary: 'These credentials cover different tasks. A covered financial institution appoints its BSA/AML program lead under its regulatory framework.', verificationTips: 'Choose CRCM if your work concerns consumer rules and controls. Consider CAMS if the opening centers on AML monitoring, investigation or program oversight.', officialLinks: [sources.fincen] },
+      { name: 'RAPS RAC-Drugs or RAC-Devices', officialScope: 'RAPS offers separate Regulatory Affairs Certification exams for drugs and devices. Eligibility includes degree-plus-experience routes and a ten-year regulatory-related experience route.', workplaceBoundary: 'RAC can signal relevant experience. The sponsor delegates submission responsibilities, and FDA decides whether to clear or approve a product.', verificationTips: 'Choose the exam that fits the dossiers you work on. Confirm whether adjacent quality or clinical work meets the certifier’s rules.', officialLinks: [sources.rac, sources.clearance, sources.pma] },
+    ],
+    interviewChecklistTitle: 'Four ways to compare manager offers',
+    interviewChecklistQuestions: [
+      { label: 'Pay components', question: 'What is fixed cash, what depends on bonus criteria, and when does any equity vest?' },
+      { label: 'Level and promotion', question: 'Which finding, control decision or pathway recommendation changes the job grade?' },
+      { label: 'Substantive work', question: 'Which first assignment takes me from logging to a reviewed investigation memo or evidence assessment?' },
+      { label: 'Comparable year', question: 'Across the same metro and scope, what is the first-year floor after travel, credential and benefit costs?' },
+    ],
+  },
+  thirtyDayPlugin: {
+    badge: 'Two paper portfolios',
+    title: 'Build a 30-day work sample',
+    summary: 'Use the public materials in the sources below and choose one track. Create one artifact a week using only public references and fictional records.',
+    tracks: [
+      { id: 'conduct-program', title: 'Corporate ethics and controls portfolio', badge: 'Compliance', tone: 'roleA', weeks: [
+        { weekLabel: 'Week 1', deliverable: 'Use the DOJ ECCP to make a risk and controls register for a fictional distributor program. Include three risks and give each a control, an owner and a record that could show whether the control worked.' },
+        { weekLabel: 'Week 2', deliverable: 'Read the University of New Mexico’s public EthicsPoint protocol. Create an intake decision tree for a fictional employer. Run one conflict-of-interest report and one misrouted report through it, with an access decision and owner for each.' },
+        { weekLabel: 'Week 3', deliverable: 'Use the ECCP review questions on training and reporting to write a one-page control test. Define a fictional population, two evidence fields and one failure condition. Add a blank line for an independent reviewer.' },
+        { weekLabel: 'Week 4', deliverable: 'Make a one-page update for a fictional compliance committee. Show the distinction among allegation, test finding and corrective action. Link each action to an owner, a due date and a piece of closure evidence.' },
+      ] },
+      { id: 'product-dossier', title: 'Product evidence and submissions portfolio', badge: 'Regulatory affairs', tone: 'roleB', weeks: [
+        { weekLabel: 'Week 1', deliverable: 'Use the FDA public device file and Part 801 to build a labeling review sheet. Map three entries to the public record, label one simulated proposed edit and keep any unsupported claim open.' },
+        { weekLabel: 'Week 2', deliverable: 'Read FDA’s 510(k), PMA and eSTAR pages. Make a one-page device route map with one decision question for each pathway and a separate box for technical completeness. Cite one FDA source per box.' },
+        { weekLabel: 'Week 3', deliverable: 'Use the FDA eCTD standards to make a fictional drug dossier index. Include separate entries for quality information and clinical evidence, with a module, owner and review status for each. Use placeholders throughout.' },
+        { weekLabel: 'Week 4', deliverable: 'Make an internal review cover sheet that cites the label review, route map and dossier index. Assign one reviewer per open issue and verify a second reader can locate the exact supporting artifact without asking you.' },
+      ] },
+    ],
+  },
+  checklist: {
+    title: 'Check skills and working conditions separately',
+    summary: 'Choose a skill to practice and a condition to verify with an employer.',
+    skillsHeading: 'Skills I want to build',
+    skillsOptions: [
+      { id: 'triage', track: 'roleA', label: 'Scope a whistleblower investigation', summary: 'Separate an allegation, a verified invoice entry and a fact that still needs to be established.', interviewQuestions: ['Who checks the scope and access restrictions before an investigator reviews a case?'] },
+      { id: 'control-test', track: 'roleA', label: 'Test a business control', summary: 'Define the evidence that shows vendor due diligence or remediation happened.', interviewQuestions: ['What makes a remediation record ready for an independent retest?'] },
+      { id: 'evidence-review', track: 'roleB', label: 'Trace a label claim to evidence', summary: 'Follow label wording to the product configuration and the supporting report.', interviewQuestions: ['Who reviews the evidence when a claim changes late in a submission?'] },
+      { id: 'route-memo', track: 'roleB', label: 'Write a pathway decision memo', summary: 'State what supports a route choice and which product questions remain open.', interviewQuestions: ['What is the first pathway memo a new team member would prepare, and who reviews it?'] },
+    ],
+    conditionsHeading: 'Conditions I can work with',
+    conditionsOptions: [
+      { id: 'case-pressure', track: 'roleA', label: 'Confidential and disputed cases', summary: 'Decide how you would handle sensitive interviews and challenges to a finding.', interviewQuestions: ['How does the team handle cases involving its own business leaders?'] },
+      { id: 'exam-cycle', track: 'roleA', label: 'Exams and unplanned escalations', summary: 'Check how staffing covers urgent cases during audits or banking examinations.', interviewQuestions: ['How did the team split open cases and examination work last time?'] },
+      { id: 'review-deadline', track: 'roleB', label: 'Parallel filing deadlines', summary: 'Compare the number of projects with late evidence and label changes at the same time.', interviewQuestions: ['How did the team reorganize reviews when a test result missed the last filing cutoff?'] },
+      { id: 'agency-questions', track: 'roleB', label: 'Health authority response windows', summary: 'Check who owns the evidence and who covers an urgent authority question across teams or time zones.', interviewQuestions: ['Who brought engineering, clinical or quality into the last authority response?'] },
+    ],
+    defaultInterviewQuestions: ['Bring a posting and pick one work product, one delegated decision and one schedule condition to verify.'],
+    crossTrackNote: 'You can prefer investigation work and accept a filing-driven schedule, or prefer scientific writing and want steadier hours. Compare the actual assignment and the work conditions independently.',
+    offlinePrintHint: 'Save or print your questions and take them to one informational interview.',
+  },
+  desktopExercise: {
+    sectionTitle: 'Try a vendor memo or a 510(k) comparison in five minutes',
+    summary: 'Pick one track. Spend one minute reading, three writing and one checking. Use paper or a text note. In either track, name the file and both gaps, and keep FDA’s historical decision with the public example.',
+    publicLinksHeading: 'Public documents: ',
+    publicLinks: [
+      { ...sources.eccp, label: 'DOJ guide to third-party risk', note: 'Check the section on third-party management.' },
+      sources.device,
+    ],
+    factSummaryHeading: 'Offline facts and practice packet: ',
+    factSummary: `The DOJ guide treats third-party due diligence as a risk-based review of why a vendor is needed, what it does and what supports its compensation. In FDA’s public Acquire S record, Boston Scientific cited ${exercise.predicate} as the predicate. The stated use stayed the same in the comparison. The stylet tip changed from ball point to taper point. The summary reports bench tests and simulated use. FDA issued the substantial equivalence determination in that historical case.
+
+Fictional device file ${exercise.file}. The draft label repeats the prior M-17 label’s stated use, ${exercise.priorUse}. The design sheet records ${exercise.designChange}. The file has no confirmed predicate. The vendor invoice says ${exercise.invoice}. The ${exercise.vendorGap} and ${exercise.deviceGap} are missing. The compliance lead assigns the vendor review. The regulatory lead assigns the evidence review to the device team.`,
+    taskA: { title: 'Compliance track: write a vendor investigation memo', instruction: 'Record what the invoice shows, which supporting record to request, and who owns the next review. Use a neutral status for the allegation.' },
+    taskB: { title: 'Regulatory track: sketch a comparison table', instruction: 'Make four rows for predicate, stated use, design difference and evidence. Distinguish the public reference from the simulated predicate. Mark the report gap and name the reviewer.' },
+    rubricTitle: 'Check your work',
+    rubricHeading: 'Four checks per track',
+    rubricPassRule: 'Pass when your note meets both shared checks and both checks for your track.',
+    rubricItems: [
+      `Shared: Identify ${exercise.file} and name both missing records.`,
+      `Shared: Keep FDA’s historical decision separate from any decision on ${exercise.file}.`,
+      `Compliance: Record ${exercise.invoice} as invoice wording and request itemized evidence of the services.`,
+      'Compliance: Send the open, unverified issue to the compliance lead.',
+      `Regulatory: Name ${exercise.predicate} as the public reference, flag M-17’s unconfirmed predicate and separate its stated use from the design change.`,
+      `Regulatory: Ask the regulatory lead to have the device team verify the bench report linkage.`,
+    ],
+    sampleAnswerALabel: 'Sample vendor memo: ',
+    sampleAnswerA: `${exercise.file} is missing the ${exercise.vendorGap} and the ${exercise.deviceGap}. The invoice says ${exercise.invoice}. Request the itemized record and send the open, unverified issue to the compliance lead. FDA’s historical decision belongs to the public example only.`,
+    sampleAnswerBLabel: 'Sample 510(k) comparison: ',
+    sampleAnswerB: `For ${exercise.file}, the ${exercise.vendorGap} is missing. FDA’s historical decision belongs only to the public example. 1. Predicate: ${exercise.predicate} is the public reference. M-17’s predicate is unconfirmed. 2. Stated use: The draft repeats the prior M-17 label’s use, ${exercise.priorUse}. 3. Design: The M-17 sheet records ${exercise.designChange}. 4. Evidence: The ${exercise.deviceGap} is missing. The regulatory lead asks the device team to verify the link.`,
+  },
+  tools: {
+    title: 'Choose your next step',
+    summary: 'Use the tool that fits the decision you have now.',
+    cards: [
+      { id: 'compare', badge: 'Compare another pair', meta: 'Career comparison', tone: 'neutral', title: 'Compare another role', description: 'Put two job profiles side by side by duties, conditions and interests.', purposeHint: 'Use this if quality assurance, internal audit or another adjacent role is on your list.', ctaLabel: 'Open career comparison', href: '/en/career/compare' },
+      { id: 'worksheet', badge: 'Keep your questions', meta: 'Career worksheet', tone: 'roleA', title: 'Prepare for a career conversation', description: 'Record one sample deliverable, one decision owner and one offer term to check.', purposeHint: 'Use this when you have a real opening or informational interview.', ctaLabel: 'Open the interest worksheet', href: '/en/career/interest-worksheet#my-worksheet' },
+      { id: 'holland-interest', badge: 'Explore interests', meta: '60 questions', tone: 'roleB', title: 'Holland Career Interest Test', description: 'Explore six RIASEC dimensions and your three-letter interest code.', purposeHint: 'Use this to choose the next work activity you want to try.', ctaLabel: 'Explore your career interests', href: '/en/tests/holland-career-interest-test-riasec' },
+      { id: 'career', badge: 'Compare work conditions', meta: '94 questions', tone: 'accent', title: 'Career Planning and Work Style Test', description: 'Reflect on work style, activities and conditions.', purposeHint: 'Use this when interruptions, deadlines or how you collaborate will shape the decision.', ctaLabel: 'Explore your work style', href: '/en/tests/career-planning-and-work-style-test' },
+    ],
+    profileLinksLabel: 'Read the individual career profiles',
+    profileLinks: [
+      { label: 'Compliance Managers', href: '/en/career/jobs/compliance-managers' },
+      { label: 'Regulatory Affairs Managers', href: '/en/career/jobs/regulatory-affairs-managers' },
+    ],
+  },
+  faqs: [
+    { id: 'pay-structure', question: 'Which manager earns more in a comparable offer?', answer: 'The two exact titles share one national BLS wage group, so a comparable offer has to be priced using its own level and terms. Make a guaranteed-cash column and a second column for variable terms. For example, treat an unsigned equity promise as zero in the first column and write down the actual forfeiture or vesting date in the second once you have the grant terms. Compare a compliance role responsible for case findings with a regulatory role that owns agency responses at a similar level. For either track, a manager title paired only with inbox routing or deadline reminders may offer little experience for the next promotion.' },
+    { id: 'entry', question: 'Do I need a law or science degree to get started?', answer: 'The starting requirements depend on the sector and the work. On the compliance side, supervised work on an audit finding, risk assessment or investigation can build evidence for your next move. On the RA side, look for a way to review a label or submission section under experienced staff. A science degree can match the product evidence demands of a pharma role. Compare training cost and employer support before paying for a degree or exam, and record whether the target employer accepts equivalent experience.' },
+    { id: 'corporate-vs-fda', question: 'Who handles a whistleblower report at a device company?', answer: 'Route the conduct allegation through the employer’s authorized reporting and investigation process. If the record also identifies a product claim or safety issue, send the relevant product facts to the assigned quality and regulatory teams under the organization’s procedures. They assess the product evidence and reporting duties separately. An internal process cannot impede direct communications with SEC staff about possible securities law violations.' },
+    { id: 'routes', question: 'How do 510(k), PMA, IND and NDA differ?', answer: 'Start with the product and what the sponsor seeks to do. A 510(k) compares a device with a legally marketed predicate; FDA decides whether the device is substantially equivalent. PMA involves scientific review of safety and effectiveness for devices that require that pathway. For drugs, an IND addresses a covered clinical investigation, while an NDA is an application to market a new drug. Compare each route by its evidence package and the decision it asks FDA to make.' },
+    { id: 'credentials', question: 'Which credential should I work toward first?', answer: 'Match the credential to the work you already do or are actively seeking. CCEP fits corporate ethics and compliance. CRCM applies to U.S. consumer banking compliance, and CAMS aligns with AML and financial-crime work. For life sciences, pick RAC-Drugs or RAC-Devices by the dossiers you expect to work on. A designation as compliance officer or delegated responsibility for a sponsor’s submission comes through the employer and the relevant rules.' },
+    { id: 'switch', question: 'Can a compliance manager move into pharma or device regulatory affairs?', answer: 'Yes, and a bridge role can show what transfers. Audit and investigation work can demonstrate traceable evidence and disciplined escalation. A regulatory specialist, quality or clinical operations assignment can add exposure to intended use, product changes and health-authority questions. Ask for one supervised filing or label review that you can describe without sharing employer or patient material.' },
+    { id: 'automation-2026', question: 'What can software automate in compliance and regulatory affairs in 2026?', answer: 'A configured EthicsPoint workflow can assign incoming cases by category. An investigator still checks conflicts, reviews source records and substantiates any finding. FDA’s October 2026 study-data guide describes automated eCTD technical checks, and eSTAR shows whether required portions of the template have been completed. The sponsor’s reviewers still decide whether the evidence supports a claim and resolve inconsistencies. FDA makes the regulatory decision. DOJ’s compliance evaluation guide also asks how companies govern AI use and verify its outputs.' },
+  ],
+  sourceGroups: [
+    { id: 'occupation-and-pay', title: 'U.S. roles, classification and pay', links: [sources.compliance, sources.regulatory, sources.crosswalk, sources.pay] },
+    { id: 'conduct-and-banking', title: 'U.S. corporate ethics, reporting and banking compliance', links: [sources.eccp, sources.fcpa, sources.sox, sources.secControls, sources.whistleblower, sources.fincen, sources.newYork, sources.ccep, sources.navex] },
+    { id: 'product-paths', title: 'Life sciences pathways, credentials and work examples', links: [sources.massachusetts, sources.clearance, sources.pma, sources.ind, sources.nda, sources.qmsr, sources.labeling, sources.eu, sources.ectd, sources.validation, sources.estar, sources.device, sources.rac, sources.raps] },
+    { id: 'portfolio-inputs', title: 'Additional public portfolio material', requiresPlugin: 'thirtyDay', links: [sources.unm] },
+  ],
+};

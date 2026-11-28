@@ -8,6 +8,8 @@ import { appendFriendshipSitemapEntries } from "@/lib/friendship/sitemap";
 import { appendFunSitemapEntries, appendTraditionalEntertainmentSitemapEntries } from "@/lib/entertainment/sitemap";
 import { buildApiUrl } from "@/lib/api-base";
 import { indexableCareerInterestPilots, isCareerPilotOnIndexHold } from "@/lib/career/explorationPilot";
+import { isFixedComparisonPreviewEnabled } from "@/lib/career/fixedComparisonPreview";
+import { listModularComparisonSpecs } from "@/lib/career/modularComparisons";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { CANONICAL_SITE_URL } from "@/lib/site";
 
@@ -66,6 +68,7 @@ const FAMILY_PATH_PATTERNS: ReadonlyArray<{
   { family: "tests", pattern: /^\/(?:en|zh|zh-TW)\/tests(?:\/|$)/i },
   { family: "articles", pattern: /^\/(?:en|zh|zh-TW)\/articles(?:\/|$)/i },
   { family: "career", pattern: /^\/(?:en|zh)\/career(?:\/|$)/i },
+  { family: "career", pattern: /^\/(?:en|zh|zh-TW)\/career-compare\//u },
   { family: "personality", pattern: /^\/(?:en|zh|zh-TW)\/personality(?:\/|$)/i },
 ];
 
@@ -146,6 +149,7 @@ export function buildPublicSitemapEntries(
     ).replace(/^\/(en|zh|zh-TW)\/tests\/explore\/disc$/u, `/$1${DISC_LANDING_PATH}`);
     if (
       !path ||
+      /^\/(?:[^/]+\/)?career-compare(?:\/|$)/i.test(path) ||
       isCareerPilotOnIndexHold(path) ||
       !shouldIncludeInSitemap(path, { indexEligible: true, indexState: "indexed" })
     ) {
@@ -301,11 +305,19 @@ export function appendTraditionalProductSitemapEntries(entries: PublicSitemapEnt
 }
 
 export function buildCompletePublicSitemapEntries(entries: PublicSitemapEntry[]): PublicSitemapEntry[] {
-  return appendCareerInterestPilotSitemapEntries(
+  const completed = appendCareerInterestPilotSitemapEntries(
     appendTraditionalEntertainmentSitemapEntries(
       appendFriendshipSitemapEntries(appendFunSitemapEntries(appendTraditionalProductSitemapEntries(entries))),
     ),
   );
+  if (!isFixedComparisonPreviewEnabled()) return completed;
+
+  // The modular registry owns comparison sitemap membership and lastmod.
+  const comparisons = listModularComparisonSpecs().map(({ locale, pairId, dateModified }) => ({
+    loc: buildCanonicalLoc(`/${locale}/career-compare/${pairId}`, CANONICAL_SITE_URL),
+    lastmod: normalizeLastmod(dateModified),
+  }));
+  return [...completed, ...comparisons].sort((left, right) => left.loc.localeCompare(right.loc));
 }
 
 export async function buildPublicSitemapResponse(family?: PublicSitemapFamily, request?: Request): Promise<Response> {

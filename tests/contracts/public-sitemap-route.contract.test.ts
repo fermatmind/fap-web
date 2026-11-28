@@ -1,3 +1,4 @@
+import { listModularComparisonSpecs } from "@/lib/career/modularComparisons";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExposurePolicy";
@@ -57,10 +58,46 @@ function backendSitemapPayload() {
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
   vi.restoreAllMocks();
 });
 
 describe("public sitemap route", () => {
+  it("lists exactly the released comparison cohort with source dates in root and career XML", async () => {
+    vi.stubEnv("FERMATMIND_FIXED_COMPARE_ENABLED", "1");
+    const specs = listModularComparisonSpecs();
+    expect(specs).toHaveLength(45);
+    const expected = specs.map(({ locale, pairId, dateModified }) => [
+      `${locale}/career-compare/${pairId}`,
+      new Date(dateModified).toISOString(),
+    ]).sort();
+    const payload = backendSitemapPayload();
+    for (const locale of ["en", "zh", "zh-TW"]) {
+      for (const suffix of ["", "/computer-systems-analysts-vs-database-architects",
+        "/electricians-vs-electrical-engineers", "/electrical-engineers-vs-electricians"]) {
+        payload.items.push({ loc: `https://fermatmind.com/${locale}/career-compare${suffix}`, lastmod: "2000-01-01" });
+      }
+    }
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify(payload))));
+    const family = (name: string) => getFamilySitemap(new Request(`https://fermatmind.com/sitemaps/${name}.xml`), {
+      params: Promise.resolve({ family: `${name}.xml` }),
+    });
+
+    for (const response of [await getRootSitemap(), await family("career")]) {
+      expect(response.status).toBe(200);
+      const xml = await response.text();
+      const comparisons = [...xml.matchAll(/<loc>https:\/\/fermatmind\.com\/([^<]*\/career-compare\/[^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g)];
+      expect(comparisons.map(([, path, lastmod]) => [path, lastmod]).sort()).toEqual(expected);
+      expect(xml.match(/\/career-compare(?:\/|<)/g)).toHaveLength(45);
+    }
+    for (const name of PUBLIC_SITEMAP_FAMILIES.filter((name) => name !== "career")) {
+      expect(await (await family(name)).text()).not.toContain("/career-compare");
+    }
+    vi.stubEnv("FERMATMIND_FIXED_COMPARE_ENABLED", "0");
+    expect(await (await getRootSitemap()).text()).not.toContain("/career-compare");
+    expect(await (await family("career")).text()).not.toContain("/career-compare");
+  });
+
   it("lists the Career94 landing in the tests sitemap and omits its legacy URL", async () => {
     const payload = {
       ok: true,

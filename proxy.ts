@@ -7,6 +7,7 @@ import {
   resolveFixedComparisonPair,
   resolveReversedFixedComparisonPair,
 } from "@/lib/career/fixedComparisonPreview";
+import { getModularComparisonSpec } from "@/lib/career/modularComparisons";
 import { CANONICAL_SITE_URL, isConfiguredStagingSiteUrl } from "@/lib/site";
 import { AD_PLACEMENT_HEADER, AD_PLACEMENT_SEGMENT, entertainmentAdPlacement } from "@/lib/entertainment/adPlacement";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
@@ -437,6 +438,7 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
   const previewComparison = isFixedComparisonPreviewEnabled() && (comparisonIndex || /^\/zh-TW\/career-compare\/[^/]+$/.test(pathname));
   if (comparisonIndex && !isFixedComparisonPreviewEnabled()) return createPublicAbsenceResponse(404);
   const comparison = pathname.match(/^\/([^/]+)\/career-compare\/([^/]+)$/);
+  let indexableComparison = false;
   if (comparison && isPublicReadMethod(request.method)) {
     const [, locale, pairSlug] = comparison;
     if (!isFixedComparisonPreviewEnabled() || !isFixedComparisonLocale(locale)) {
@@ -452,6 +454,7 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
       return response;
     }
     if (!resolveFixedComparisonPair(pairSlug)) return createPublicAbsenceResponse(404);
+    indexableComparison = Boolean(getModularComparisonSpec(locale, pairSlug));
   }
   // The two verified INTJ aliases are handled by Next redirects before Proxy.
   if (/^\/(?:(?:en|zh|zh-TW)\/)?career\/recommendations\/mbti\/[^/]+\/?$/i.test(pathname)) {
@@ -668,7 +671,7 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
     });
   }
 
-  if (comparisonIndex || comparison) {
+  if (comparisonIndex || (comparison && !indexableComparison)) {
     response.headers.set("X-Robots-Tag", "noindex, follow");
   }
 

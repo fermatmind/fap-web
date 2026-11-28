@@ -1,0 +1,232 @@
+.page {
+  --mc-role-a: var(--fm-trust-blue, #153f83);
+  --mc-role-b: var(--fm-hub-decision-green, #1c6b57);
+  --mc-bridge: var(--fm-hub-navy, #17324d);
+  --mc-warn: #b45309;
+  --mc-error: var(--fm-hub-friction-rose, #9e4b63);
+  --mc-surface: var(--fm-surface, #ffffff);
+  --mc-card: var(--fm-hub-panel-muted-bg, #f7fafc);
+  --mc-border: var(--fm-border, #e4e9e0);
+  --mc-text: var(--fm-text, #07111c);
+  --mc-muted: var(--fm-text-secondary, #4d5b55);
+  background: var(--mc-surface);
+  color: var(--mc-text);
+}
+
+.tocBar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--mc-border);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+}
+
+.tocScroll {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 0;
+}
+
+.tocLink {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  border-radius: 9999px;
+  border: 1px solid var(--mc-border);
+  background: var(--mc-surface);
+  padding: 0.25rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--mc-muted);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.tocLink:hover,
+.tocLink:focus-visible {
+  border-color: var(--mc-role-a);
+  color: var(--mc-role-a);
+  outline: none;
+}
+
+.tocLinkPlugin {
+  border-color: rgba(21, 63, 131, 0.35);
+  color: var(--mc-role-a);
+  font-weight: 600;
+}
+
+.heroCapsule {
+  background: linear-gradient(135deg, rgba(21, 63, 131, 0.06) 0%, rgba(28, 107, 87, 0.05) 100%);
+  border: 1px solid rgba(21, 63, 131, 0.22);
+}
+
+.tintRoleA {
+  background: rgba(21, 63, 131, 0.06);
+  border: 1px solid rgba(21, 63, 131, 0.24);
+}
+
+.tintRoleB {
+  background: rgba(28, 107, 87, 0.07);
+  border: 1px solid rgba(28, 107, 87, 0.26);
+}
+
+.tintBridge {
+  background: rgba(23, 50, 77, 0.05);
+  border: 1px solid rgba(23, 50, 77, 0.22);
+}
+
+.tintWarn {
+  background: rgba(180, 83, 9, 0.06);
+  border: 1px solid rgba(180, 83, 9, 0.28);
+}
+
+.tintOk {
+  background: var(--fm-hub-decision-green-soft, #e6f3ee);
+  border: 1px solid rgba(28, 107, 87, 0.3);
+}
+
+.tintError {
+  background: var(--fm-hub-friction-rose-soft, #f9edf1);
+  border: 1px solid rgba(158, 75, 99, 0.28);
+}
+
+.badgeRoleA {
+  background: rgba(21, 63, 131, 0.12);
+  color: var(--mc-role-a);
+}
+
+.badgeRoleB {
+  background: rgba(28, 107, 87, 0.13);
+  color: var(--mc-role-b);
+}
+
+.badgeBridge {
+  background: rgba(23, 50, 77, 0.11);
+  color: var(--mc-bridge);
+}
+
+.badgeWarn {
+  background: rgba(180, 83, 9, 0.14);
+  color: var(--mc-warn);
+}
+
+.tableWrap {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+
+.tableWrap:focus-visible {
+  outline: 2px solid var(--mc-role-a);
+  outline-offset: 2px;
+}
+
+.extraRowHidden {
+  display: none;
+}
+
+.sectionHead {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.detailsReset summary::-webkit-details-marker {
+  display: none;
+}
+
+.detailsReset[open] .chev {
+  transform: rotate(180deg);
+}
+
+.chev {
+  transition: transform 0.2s ease;
+}
+
+.svgWrap {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+
+@media print {
+  :global([data-site-header]),
+  :global([data-site-header-fallback]),
+  :global([data-site-footer]),
+  :global([data-cookie-banner]) {
+    display: none !important;
+  }
+
+  .noPrint,
+  .tocBar,
+  .chev {
+    display: none !important;
+  }
+
+  .page {
+    padding: 0 !important;
+    background: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .extraRowHidden {
+    display: table-row !important;
+  }
+
+  .articleStack > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1.35rem !important;
+  }
+
+  .sectionHead {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .page h2,
+  .page h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .printKeep,
+  .page tr,
+  .page details,
+  .page svg {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .printAllowBreak {
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+
+  .tableWrap,
+  .svgWrap {
+    overflow: visible !important;
+  }
+
+  .page table {
+    table-layout: fixed !important;
+    width: 100% !important;
+  }
+
+  .page th,
+  .page td {
+    min-width: 0 !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .page svg {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+}

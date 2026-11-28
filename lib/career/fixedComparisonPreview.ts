@@ -1,7 +1,14 @@
 import manifest from "@/content/career-comparisons/manifest.json";
 
 const originalPairs = [
-  { slugs: ["electrical-engineers", "electricians"], labels: { en: "Electrician vs. Electrical Engineer", zh: "电工 vs 电气工程师" } },
+  {
+    slugs: ["electrical-engineers", "electricians"],
+    labels: {
+      en: "Electrical Engineers vs. Electricians",
+      zh: "电工 vs 电气工程师",
+      "zh-TW": "電機工程師 vs 電工",
+    },
+  },
   { slugs: ["audiologists", "physical-therapists"], labels: { en: "Audiologist vs. Physical Therapist", zh: "听力学家 vs 物理治疗师" } },
   {
     slugs: ["carpet-installers", "floor-layers-except-carpet-wood-and-hard-tiles"],

@@ -1,3 +1,6 @@
+import { ModularCareerComparison } from "@/components/career/ModularCareerComparison";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/generateSchema";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -8,37 +11,100 @@ import {
   isFixedComparisonPreviewEnabled,
   resolveFixedComparisonPair,
 } from "@/lib/career/fixedComparisonPreview";
+import {
+  pruneModularComparisonSpec,
+  resolveEffectiveModularPluginFlags,
+  resolveModularPluginFlags,
+} from "@/lib/career/modularComparison";
+import { getModularComparisonSpec } from "@/lib/career/modularComparisons";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { CANONICAL_SITE_URL } from "@/lib/site";
 import { readFixedComparisonDraft, comparisonPreviewMarkdown } from "@/lib/career/fixedComparisonDraft";
 
 export const dynamic = "force-dynamic";
 
-type Props = { params: Promise<{ locale: string; pair: string }> };
+type Props = {
+  params: Promise<{ locale: string; pair: string }>;
+  searchParams?: Promise<{ plugins?: string | string[] }>;
+};
 
 function getPreview(locale: string, pairSlug: string) {
   if (!isFixedComparisonPreviewEnabled() || !isFixedComparisonLocale(locale)) notFound();
   const pair = resolveFixedComparisonPair(pairSlug);
   if (!pair) notFound();
+  const modularSpec = getModularComparisonSpec(locale, pairSlug);
+  if (modularSpec) return { modularSpec, draft: null, pair, locale };
   const draft = readFixedComparisonDraft(locale, pairSlug);
   if (!draft) notFound();
-  return { draft, pair, locale };
+  return { modularSpec: null, draft, pair, locale };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, pair: pairSlug } = await params;
-  const { locale, pair, draft } = getPreview(input, pairSlug);
+  const { locale, pair, draft, modularSpec } = getPreview(input, pairSlug);
+  const title = modularSpec ? modularSpec.title : draft.title;
+  const description = modularSpec ? modularSpec.description : draft.description;
   return {
-    title: draft.title,
-    description: draft.description,
-    alternates: { canonical: `${CANONICAL_SITE_URL}${fixedComparisonPath(locale, pair)}` },
-    robots: { index: false, follow: true },
+    title,
+    description,
+    alternates: {
+      canonical: `${CANONICAL_SITE_URL}${fixedComparisonPath(locale, pair)}`,
+      ...(modularSpec ? {
+        languages: {
+          "zh-CN": `${CANONICAL_SITE_URL}${fixedComparisonPath("zh", pair)}`,
+          en: `${CANONICAL_SITE_URL}${fixedComparisonPath("en", pair)}`,
+          "zh-TW": `${CANONICAL_SITE_URL}${fixedComparisonPath("zh-TW", pair)}`,
+          "x-default": `${CANONICAL_SITE_URL}${fixedComparisonPath("en", pair)}`,
+        },
+      } : {}),
+    },
+    robots: { index: Boolean(modularSpec), follow: true },
   };
 }
 
-export default async function FixedComparisonPreviewPage({ params }: Props) {
+export default async function FixedComparisonPreviewPage({ params, searchParams }: Props) {
   const { locale: input, pair: pairSlug } = await params;
-  const { draft, locale, pair } = getPreview(input, pairSlug);
+  const { draft, modularSpec, locale, pair } = getPreview(input, pairSlug);
+
+  if (modularSpec) {
+    const requestedFlags = resolveModularPluginFlags(modularSpec.defaultPlugins, (await searchParams)?.plugins);
+    const effectiveFlags = resolveEffectiveModularPluginFlags(modularSpec, requestedFlags);
+    const prunedSpec = pruneModularComparisonSpec(modularSpec, effectiveFlags);
+    const pagePath = fixedComparisonPath(locale, pair);
+    return (
+      <>
+        <JsonLd
+          id="career-comparison-breadcrumb"
+          data={buildBreadcrumbJsonLd([
+            {
+              name: locale === "en" ? "Career comparisons" : locale === "zh-TW" ? "職業對比" : "职业对比",
+              path: `/${locale}/career-compare`,
+            },
+            { name: prunedSpec.title, path: pagePath },
+          ])}
+        />
+        <JsonLd
+          id="career-comparison-article"
+          data={buildArticleJsonLd({
+            path: pagePath,
+            title: prunedSpec.title,
+            description: prunedSpec.description,
+            locale,
+            datePublished: prunedSpec.datePublished,
+            dateModified: prunedSpec.dateModified,
+            authorName: prunedSpec.authorName,
+          })}
+        />
+        <ModularCareerComparison
+          spec={prunedSpec}
+          locale={locale}
+          pair={pair}
+          pluginFlags={effectiveFlags}
+        />
+      </>
+    );
+  }
+
   const options = { allowImages: false, scrollableTables: true,
     scrollableTableLabel: locale === "en" ? "Horizontally scrollable table" : locale === "zh-TW" ? "可橫向捲動的表格" : "可横向滚动的表格" };
   const labels = { zh: "简体中文", en: "English", "zh-TW": "繁體中文" } as const;
