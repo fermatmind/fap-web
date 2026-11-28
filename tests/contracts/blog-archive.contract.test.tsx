@@ -12,7 +12,7 @@ const { get } = vi.hoisted(() => {
 vi.mock("@/lib/cms/articles", async (importOriginal) => ({ ...await importOriginal<typeof import("@/lib/cms/articles")>(), getCmsArticlesWithLastKnownGood: get }));
 vi.mock("next/navigation", () => ({ notFound: () => { throw new Error("not-found"); } }));
 vi.mock("@/components/marketing/HomePageExperience", () => ({ HomePageExperience: ({ archiveTitle }: { archiveTitle?: string }) => <div data-testid="traditional-home" data-archive-title={archiveTitle || undefined} /> }));
-vi.mock("@/lib/marketing/homepageContent", () => ({ getHomePageContent: async () => ({}) }));
+vi.mock("@/lib/marketing/homepageContent", () => ({ getHomePageContent: async () => ({ seo: { organizationDescription: "繁體首頁品牌說明" } }) }));
 vi.mock("@/lib/marketing/homepageRecommendedArticles", () => ({ getHomepageRecommendedArticles: async () => [] }));
 vi.mock("@/lib/marketing/testsHubContent", () => ({ listVisibleTestsHubCards: async () => [] }));
 
@@ -37,6 +37,11 @@ describe("Blog CMS archive and SEO boundaries", () => {
     });
     const html = renderToStaticMarkup(await TraditionalHome());
     expect(html).toContain('data-archive-title="費馬部落格"');
+    const organization = [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+      .map((match) => JSON.parse(match[1]))
+      .find((schema) => schema["@type"] === "Organization");
+    expect(organization).toMatchObject({ description: "繁體首頁品牌說明", inLanguage: "zh-TW" });
+    expect(organization.sameAs).toContain("https://doi.org/10.5281/zenodo.24574554");
     expect(get).toHaveBeenCalledWith(expect.objectContaining({ locale: "zh-TW", page: 1, includeBlog: true }));
   });
 
