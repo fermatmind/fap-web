@@ -88,6 +88,7 @@ export type CareerDossierRenderPlanBlock = {
   availability: CareerContentV3Block["availability"];
   items: CareerContentV3Item[];
   declaredComponentIds: CareerDisplayComponentId[];
+  directComponentIds?: CareerDisplayComponentId[];
   presentation: CareerDossierPresentationKind;
   mergeIntoPrevious: boolean;
   visibleInToc: boolean;

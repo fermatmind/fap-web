@@ -580,6 +580,11 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
     kind === "primary_document" ? (surface.locale === "zh" ? "原始资料" : "Primary document") : kind === "editorial_design" ? (surface.locale === "zh" ? "编辑设计" : "Editorial design") : kind;
   const rawSourceCard = surface.publishedComponents?.source_card;
   const sourceCard = rawSourceCard && typeof rawSourceCard === "object" && !Array.isArray(rawSourceCard) ? rawSourceCard : {};
+  const sourceNote = typeof sourceCard.note === "string" ? sourceCard.note : null;
+  const rawBoundaries = surface.componentOrder.includes("boundary_notice") ? surface.publishedComponents?.boundary_notice : null;
+  const boundaries = Array.isArray(rawBoundaries) ? rawBoundaries.filter((text): text is string =>
+    typeof text === "string" && Boolean(text.trim()) && !sourceNote?.includes(text.trim()),
+  ) : [];
   const rawSignals = sourceCard.eeat_signals;
   const signals = rawSignals && typeof rawSignals === "object" && !Array.isArray(rawSignals) ? rawSignals : {};
   const secondaryLinks = Array.isArray(sourceCard.secondary_links)
@@ -655,7 +660,12 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
           </li>
         ))}
       </ul>
-      {typeof sourceCard.note === "string" ? <p className="m-0 mt-4 text-sm leading-7 text-[#5B6678]" data-career-api-field="source_card.note">{sourceCard.note}</p> : null}
+      {sourceNote ? <p className="m-0 mt-4 text-sm leading-7 text-[#5B6678]" data-career-api-field="source_card.note">{sourceNote}</p> : null}
+      {boundaries.length > 0 ? (
+        <ul className="m-0 mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-[#5B6678]" data-career-api-component="boundary_notice">
+          {boundaries.map((text) => <li key={text}>{text}</li>)}
+        </ul>
+      ) : null}
       {secondaryLinks.length ? <p className={visual.salarySourceLinks}>
         {secondaryLinks.map((entry, index) => <span key={entry.href}>
           {index > 0 ? " · " : null}<Link href={entry.href}>{entry.label}{entry.href.startsWith(surface.locale === "zh" ? "/en/" : "/zh/") && !/英文|英语|中文|English|Chinese|\((?:EN|ZH)\)/iu.test(entry.label) ? (surface.locale === "zh" ? "（英文）" : " (Chinese)") : null}</Link>
@@ -906,7 +916,10 @@ export function CareerProductionDisplaySurface({
       availableComponents.add("riasec_fit_block");
       availableComponents.add("personality_fit_block");
     }
-    const declares = (...componentIds: CareerDisplayComponentId[]) => componentIds.every((componentId) => availableComponents.has(componentId) && surface.componentOrder.includes(componentId));
+    const declares = (...componentIds: CareerDisplayComponentId[]) => componentIds.every((componentId) =>
+      surface.componentOrder.includes(componentId) &&
+      (availableComponents.has(componentId) || block.directComponentIds?.includes(componentId)),
+    );
 
     if (block.copyKey === "career.block.quick-decision" && declares("fermat_decision_card", "fit_decision_checklist")) {
       const decision = publishedComponents.fermat_decision_card;

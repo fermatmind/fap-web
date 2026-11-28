@@ -78,7 +78,26 @@ export function buildCareerPageDisplaySurface(page: CareerPage, identity: { slug
   const dossierRenderPlan = buildCareerDossierRenderPlan(content, null)!;
   if (dossierRenderPlan.source === 'content_v3') {
     // Navigation is rendered by the original breadcrumb, CTA and source footer.
-    dossierRenderPlan.blocks = dossierRenderPlan.blocks.filter(block => !block.declaredComponentIds.length || block.declaredComponentIds.some(id => componentOrder.includes(id))).map(block => ({...block, title:sectionTitles[block.id], ...(block.id === 'navigation' ? {renderable:false, visibleInToc:false} : {})}));
+    const directBlocks: Partial<Record<string, CareerDisplayComponentId[]>> = {
+      'quick-decision': ['fermat_decision_card', 'fit_decision_checklist'],
+      profile: ['definition_block', 'responsibilities_block', 'work_context_block', 'career_quick_answers_block', 'onet_structured_fields_block'],
+      'china-salary': ['career_snapshot_primary_locale'],
+    };
+    dossierRenderPlan.blocks = dossierRenderPlan.blocks.flatMap(block => {
+      const next = {...block, title: sectionTitles[block.id]};
+      if (block.id === 'navigation') return [{...next, renderable: false, visibleInToc: false}];
+
+      const direct = block.copyKey === `career.block.${block.id}` ? directBlocks[block.id] : undefined;
+      if (direct?.every(id => {
+        const value = publishedComponents[id];
+        return componentOrder.includes(id) && value !== undefined &&
+          (!record(value) || value.availability !== 'unavailable');
+      })) {
+        return [{...next, directComponentIds: direct, renderable: true, visibleInToc: true}];
+      }
+
+      return !block.declaredComponentIds.length || block.declaredComponentIds.some(id => componentOrder.includes(id)) ? [next] : [];
+    });
   }
   return {
     surfaceVersion: 'display.surface.v1', assetType: 'career_job_public_display', assetRole: 'formal_pilot_master', status: 'ready_for_pilot', locale,

@@ -16,7 +16,10 @@ const components = () => structuredClone(original.display.components);
 it('preserves annual salary labels and a single distinct authority URL', () => {
   const c = components();
   const salary = c.career_snapshot_primary_locale.salary;
-  salary.china_salary_table = salary.china_salary_table.map((row: Record<string, string>) => ({ '城市/区间': row['城市/区间'], '年工资参照（行业/人员大类）': row['月薪参考'] }));
+  salary.china_salary_table = salary.china_salary_table.map((row: Record<string, string>) => ({
+    '城市/区间': row['城市/区间'],
+    '年工资参照（行业/人员大类）': row['年工资参照（行业/岗位大类）'] ?? row['年工资参照（行业/人员大类）'] ?? row['月薪参考'],
+  }));
   salary.china_intl = salary.china_ref;
   salary.sources_note = salary.china_ref;
   salary.edu = 'Qualification boundary';

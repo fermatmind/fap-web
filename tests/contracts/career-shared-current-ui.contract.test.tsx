@@ -111,24 +111,30 @@ describe('Current shared UI through the actual detail route', () => {
   it.each(samples)('renders $locale/$subject.canonical_slug with the existing rich UI and reader-visible content', async raw => {
     const root = readerRoot(await route(raw));
     expect(root.querySelector('[data-career-production-template="career-production-v1"]')).not.toBeNull();
-    for (const part of ['profile', 'direction-comparison', 'ai-impact', 'china-salary', 'us-salary', 'fit-center', 'work-risk', 'progression', 'outlook-transitions']) {
+    for (const part of ['profile', 'direction-comparison', 'ai-impact', 'us-salary', 'fit-center', 'work-risk', 'progression', 'outlook-transitions']) {
       expect(root.querySelector(`[data-testid="career-dossier-${part}"]`), part).not.toBeNull();
     }
     const c = raw.display.components;
     expectOptionalProfileCopy(root, raw);
-    expectIndustryNotes(root, c.career_snapshot_primary_locale);
+    const chinaSalary = root.querySelector('[data-testid="career-dossier-china-salary"]');
+    if (raw.display.component_order.includes('career_snapshot_primary_locale') && c.career_snapshot_primary_locale.availability !== 'unavailable') {
+      expect(chinaSalary).not.toBeNull();
+      expectIndustryNotes(root, c.career_snapshot_primary_locale);
+      c.career_snapshot_primary_locale.salary.bls_table.forEach((row: Record<string,string>, index: number) => {
+        const indicator = chinaSalary!.querySelector(`[data-career-api-field="career_snapshot_primary_locale.salary.bls_table[${index}].指标"]`);
+        expect(indicator?.textContent).toBe(row['指标']);
+        expect(indicator?.parentElement?.textContent).toContain(row['数值']);
+        expect(indicator?.parentElement?.textContent).toContain(row['说明']);
+      });
+    } else {
+      expect(chinaSalary).toBeNull();
+    }
+    expect(root.querySelector('[data-career-api-field="fermat_decision_card.summary"]')?.textContent).toBe(c.fermat_decision_card.summary);
     const profile = root.querySelector('[data-testid="career-dossier-profile"]')!;
     const system = c.career_quick_answers_block.items.find((item: {key:string}) => item.key === 'qa3');
     expect(profile.querySelector('h3')?.textContent).toBe(system.question);
     const foundation = system.table.rows[2];
     if (foundation.secondary_value) expect(profile.querySelector('[data-career-api-field$="rows[2].secondary_value"]')?.textContent).toBe(foundation.secondary_value);
-    const chinaSalary = root.querySelector('[data-testid="career-dossier-china-salary"]')!;
-    c.career_snapshot_primary_locale.salary.bls_table.forEach((row: Record<string,string>, index: number) => {
-      const indicator = chinaSalary.querySelector(`[data-career-api-field="career_snapshot_primary_locale.salary.bls_table[${index}].指标"]`);
-      expect(indicator?.textContent).toBe(row['指标']);
-      expect(indicator?.parentElement?.textContent).toContain(row['数值']);
-      expect(indicator?.parentElement?.textContent).toContain(row['说明']);
-    });
     const bodyCta = root.querySelector('[data-fit-assessment="riasec"] a')!;
     const bodyHref = new URL(bodyCta.getAttribute('href')!, 'https://fermatmind.com');
     expect(bodyHref.search).toBe('');
