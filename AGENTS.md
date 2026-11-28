@@ -66,6 +66,7 @@
 ### Verification and reporting
 
 - Run focused unit or contract tests for changed behavior, lint/typecheck for touched sources, a production build when application/UI or runtime configuration changes, classifier/workflow contract checks when delivery rules change, and `git diff --check`.
+- Before committing a change to the Career94 landing page, its contract, or the shared site URL and publisher JSON-LD it uses, run `env -u NEXT_PUBLIC_SITE_URL CI=true NODE_ENV=test pnpm exec vitest run tests/contracts/career94-landing.contract.test.tsx` with Node 24 and frozen-lockfile dependencies. Both domain cases must pass.
 - Validate API adapters and public contract fixtures when their boundary changes. Validate ingress configuration through the classifier-selected dry check and `deploy.yml` staging path, never through an ad-hoc command lane.
 - Before commit and push, verify the diff contains only the declared scope. After push, bind all status checks and receipts to the exact commit SHA.
 - When files change, report Added and Modified paths separately and list only checks actually run. State when runtime commands are not applicable.

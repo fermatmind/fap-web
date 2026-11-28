@@ -4,7 +4,6 @@ import { FreeAssessmentLanding, freeAssessmentMetadata } from "@/components/test
 import { isValidElement, type ReactElement } from "react";
 import type { Entry } from "@/components/tests/trio/TrioLandingInteractions";
 import { trackEvent } from "@/lib/analytics";
-import { canonicalUrl } from "@/lib/site";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 
@@ -113,19 +112,46 @@ describe("Career94 landing page", () => {
     expect(screen.getByRole("tab", { name: "研创分析向" })).toHaveAttribute("aria-selected", "true");
   });
 
-  it("publishes the Career94 editorial provenance and links it to the site publisher", () => {
+  it.each([
+    {
+      domain: "CI localhost fallback",
+      siteUrl: undefined,
+      homepage: "http://localhost:3000/",
+      publisherId: "http://localhost:3000/#organization",
+    },
+    {
+      domain: "production domain",
+      siteUrl: "https://fermatmind.com",
+      homepage: "https://fermatmind.com/",
+      publisherId: "https://fermatmind.com/#organization",
+    },
+  ])("publishes the Career94 publisher schema for the $domain", async ({ siteUrl, homepage, publisherId }) => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", siteUrl);
+    vi.resetModules();
+    try {
+      const { FreeAssessmentLanding: Landing } = await import("@/components/tests/FreeAssessmentLanding");
+      const { container } = render(<Landing assessment="career" locale="zh" />);
+      const readSchema = (id: string) => JSON.parse(container.querySelector<HTMLScriptElement>(`#${id}`)!.textContent!);
+      expect(readSchema("career94-organization")).toMatchObject({
+        url: homepage,
+        "@id": publisherId,
+      });
+      expect(readSchema("free-assessment-page").publisher).toEqual({ "@id": publisherId });
+    } finally {
+      vi.unstubAllEnvs();
+      vi.resetModules();
+    }
+  });
+
+  it("publishes the Career94 editorial provenance and publisher profile", () => {
     const { container } = render(<FreeAssessmentLanding assessment="career" locale="zh" />);
     const readSchema = (id: string) => JSON.parse(container.querySelector<HTMLScriptElement>(`#${id}`)!.textContent!);
     const organization = readSchema("career94-organization");
-    const siteHome = canonicalUrl("/");
     expect(organization).toMatchObject({
       "@type": "Organization",
-      "@id": `${siteHome}#organization`,
       name: "FermatMind / 费马测试",
-      url: siteHome,
       sameAs: ["https://x.com/fermatmind", "https://youtube.com/@fermatmind", "https://www.instagram.com/fermatmind"],
     });
-    expect(readSchema("free-assessment-page").publisher).toEqual({ "@id": organization["@id"] });
     expect(readSchema("free-assessment-breadcrumb")["@type"]).toBe("BreadcrumbList");
 
     const editorial = container.querySelector("[data-career94-editorial]");
