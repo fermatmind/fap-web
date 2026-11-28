@@ -1,4 +1,4 @@
-import { createElement, type ReactNode } from "react";
+import { Children, createElement, isValidElement, type ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
@@ -178,6 +178,16 @@ async function renderArticleDetail(article: CmsArticle, seo: unknown = null, loc
     params: Promise.resolve({ locale, slug: article.slug }),
   });
 
+  // The body navigation and closing controls share a parent. Their keys must
+  // remain unique while still changing with the article identity.
+  const siblingKeys: string[] = [];
+  if (isValidElement<{ children?: ReactNode }>(page)) {
+    Children.forEach(page.props.children, child => {
+      if (isValidElement(child) && child.key !== null) siblingKeys.push(String(child.key));
+    });
+  }
+  expect(siblingKeys.length).toBeGreaterThanOrEqual(2);
+  expect(new Set(siblingKeys).size).toBe(siblingKeys.length);
   return renderToStaticMarkup(page as ReactNode);
 }
 

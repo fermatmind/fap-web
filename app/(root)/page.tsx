@@ -1,3 +1,4 @@
+import { withOpenDatasetSameAs } from "@/lib/site/openDatasetArchives";
 import type { Metadata } from "next";
 import { HomePageExperience } from "@/components/marketing/HomePageExperience";
 import { HomeMinimalShell } from "@/components/marketing/HomeMinimalShell";
@@ -86,12 +87,12 @@ function buildRootHomeJsonLd(copy: Awaited<ReturnType<typeof getHomePageContent>
         description: item.description,
       })),
     }),
-    organization: buildOrganizationJsonLd({
+    organization: withOpenDatasetSameAs(buildOrganizationJsonLd({
       path: ROOT_PATH,
       locale: ROOT_LOCALE,
       name: "FermatMind / 费马测试",
       description: copy.seo.organizationDescription,
-    }),
+    })),
   };
 }
 

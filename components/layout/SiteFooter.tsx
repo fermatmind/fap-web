@@ -1,7 +1,7 @@
 import { CAREER_ASSESSMENT_LANDING_PATH } from "@/lib/career/assessmentEntry";
 import { Container } from "@/components/layout/Container";
 import { BrandLogo } from "@/components/layout/BrandLogo";
-import { DeferredSiteFooterSocialRail as SiteFooterSocialRail, DeferredSiteFooterPlatforms as SiteFooterPlatforms } from "@/components/layout/DeferredFooterFeatures";
+import { DeferredSiteFooterSocialRail as SiteFooterSocialRail } from "@/components/layout/DeferredFooterFeatures";
 import { PublicNavigationLink } from "@/components/navigation/PublicNavigationPendingIndicator";
 import { getDictSync } from "@/lib/i18n/getDict";
 import type { DisplayLocale } from "@/lib/i18n/locales";
@@ -174,8 +174,6 @@ export function SiteFooter({ locale = "en", allowWebViewImageStyles }: { locale?
             ))}
           </nav>
         </div>
-
-        <SiteFooterPlatforms locale={locale} allowWebViewImageStyles={allowWebViewImageStyles} />
 
         <div className="fm-footer-legal">
           <p data-visual-volatile="true" className="m-0">

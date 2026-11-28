@@ -418,7 +418,7 @@ export default async function ArticleDetailPage({
         ) : null}
 
       </>}>
-      <ArticleFragmentNavigation key={canonicalPath} className="w-full min-w-0 [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24 [&_h4]:scroll-mt-24">
+      <ArticleFragmentNavigation key={`article-body:${canonicalPath}`} className="w-full min-w-0 [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24 [&_h4]:scroll-mt-24">
         <article
           id="how-it-works"
           data-testid="article-detail-content"
@@ -475,7 +475,7 @@ export default async function ArticleDetailPage({
       <ArticleAcademicFooter title={article.title} authorName={article.authorName} publishedAt={article.publishedAt}
         canonicalUrl={canonicalUrl(canonicalPath)} locale={locale} slug={slug}
         sources={editorial.enabled ? renderSimpleMarkdown(article.contentMd, { locale, editorial: { locale, part: "academic" } }) : null} />
-      <ArticleClosing key={canonicalPath} locale={locale} url={canonicalUrl(canonicalPath)} />
+      <ArticleClosing key={`article-closing:${canonicalPath}`} locale={locale} url={canonicalUrl(canonicalPath)} />
 
       <Suspense fallback={null}>
         <AttributedCmsLinkHydrator locale={locale} sourceRouteFamily="article_detail"

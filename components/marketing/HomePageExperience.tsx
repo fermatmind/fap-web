@@ -8,6 +8,7 @@ import { ArticleByline } from "@/components/articles/ArticleByline";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { CmsMediaAuthorityShell } from "@/components/marketing/CmsMediaAuthorityShell";
 import { HomeHeroAnimation } from "@/components/marketing/home/HomeHeroAnimation";
+import { HomePublicLinks } from "@/components/marketing/HomePublicLinks";
 import { HomepageFunTests } from "@/components/marketing/HomepageFunTests";
 import { Container } from "@/components/layout/Container";
 import type { CmsArticle } from "@/lib/cms/articles";
@@ -975,7 +976,7 @@ function HomepageArticlesBanner({ locale, articles, archiveTitle }: { locale: Di
       : { title: "Recommended reading", all: "View all articles", author: "By " };
 
   return (
-    <section className="fm-section-clean py-20 md:py-24" aria-labelledby="homepage-articles-title">
+    <section className="fm-section-clean pt-20 pb-8 md:pt-24 md:pb-10" aria-labelledby="homepage-articles-title">
       <Container className="max-w-[82rem] px-6 md:px-8">
         <div className="text-center">
           <h2
@@ -1062,6 +1063,7 @@ export function HomePageExperience({
       <HomepageTrustStripV1 locale={locale} copy={copy} />
       <HomepageFamilyMatrix locale={locale} copy={copy} />
       <HomepageArticlesBanner locale={locale} articles={articles} archiveTitle={archiveTitle} />
+      <HomePublicLinks locale={locale} />
     </div>
   );
 }
