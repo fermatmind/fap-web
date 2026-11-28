@@ -4,6 +4,7 @@ import { FreeAssessmentLanding, freeAssessmentMetadata } from "@/components/test
 import { isValidElement, type ReactElement } from "react";
 import type { Entry } from "@/components/tests/trio/TrioLandingInteractions";
 import { trackEvent } from "@/lib/analytics";
+import { canonicalUrl } from "@/lib/site";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 
@@ -116,11 +117,12 @@ describe("Career94 landing page", () => {
     const { container } = render(<FreeAssessmentLanding assessment="career" locale="zh" />);
     const readSchema = (id: string) => JSON.parse(container.querySelector<HTMLScriptElement>(`#${id}`)!.textContent!);
     const organization = readSchema("career94-organization");
+    const siteHome = canonicalUrl("/");
     expect(organization).toMatchObject({
       "@type": "Organization",
-      "@id": "https://fermatmind.com/#organization",
+      "@id": `${siteHome}#organization`,
       name: "FermatMind / 费马测试",
-      url: "https://fermatmind.com/",
+      url: siteHome,
       sameAs: ["https://x.com/fermatmind", "https://youtube.com/@fermatmind", "https://www.instagram.com/fermatmind"],
     });
     expect(readSchema("free-assessment-page").publisher).toEqual({ "@id": organization["@id"] });
