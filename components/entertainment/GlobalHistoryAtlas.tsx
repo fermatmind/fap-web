@@ -12,6 +12,12 @@ import { GlobalHistoryCitation } from "./GlobalHistoryAtlasCitation";
 import { historyReferenceCitation } from "@/lib/entertainment/global-history/reference";
 import styles from "./GlobalHistoryAtlas.module.css";
 
+const coxDatasetDescriptions = {
+  zh: "费马整理的 Cox（1926）派生数据集收录原书表 12A 和 12B 中有估值的 301 位历史人物，提供童年和青年阶段的原估值、概然误差、史料等级、信度及修正估值。数据用于查阅历史研究，不能换算为现代智商测验分数或人口百分位。",
+  "zh-TW": "費馬整理的 Cox（1926）衍生資料集收錄原書表 12A 和 12B 中有估值的 301 位歷史人物，提供童年和青年階段的原估值、概然誤差、史料等級、信度及修正估值。資料供查閱歷史研究，無法換算為現代智商測驗分數或人口百分位。",
+  en: historyAtlasCopy["cox-1926"].description.en,
+} satisfies Record<DisplayLocale, string>;
+
 function value(query: AtlasQuery, key: string) {
   const entry = query[key];
   return typeof entry === "string" ? entry : "";
@@ -84,8 +90,10 @@ export function GlobalHistoryAtlas({ locale, atlas, query }: { locale: DisplayLo
     {!Object.values(query).some(Boolean) && <JsonLd id="history-atlas-data" data={{
       "@context": "https://schema.org",
       "@graph": showCox ? [itemList, {
-        "@type": "Dataset", "@id": canonical + "#dataset", name: copy.title[locale], description: copy.description[locale],
-        url: canonical, inLanguage: locale === "zh" ? "zh-CN" : locale, isBasedOn: coxStudy,
+        "@type": "Dataset", "@id": canonical + "#dataset", name: copy.title[locale], description: coxDatasetDescriptions[locale],
+        url: canonical, inLanguage: locale === "zh" ? "zh-CN" : locale,
+        creator: { "@type": "Organization", name: "FermatMind", url: SITE_URL },
+        isBasedOn: [coxStudy, coxTranscriptionCredit.url],
         distribution: downloads.map(item => ({ "@type": "DataDownload", contentUrl: SITE_URL + item.path, encodingFormat: item.encodingFormat })),
         license: coxTranscriptionCredit.license,
       }] : [itemList],
