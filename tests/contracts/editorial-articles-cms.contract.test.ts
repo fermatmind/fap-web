@@ -263,6 +263,11 @@ describe("editorial article CMS contract", () => {
   ])("renders only eligible Traditional structured data ($robots, approved $enabled)", async ({ robots, enabled, expected }) => {
     const slug = "traditional-structured-data";
     const canonical = `https://fermatmind.com/zh-TW/articles/${slug}`;
+    const faq = [
+      { key: "in-body", question: "怎麼開始？", answer: "先核對條件。" },
+      { key: "standalone", question: "還能做什麼？", answer: "把問題記下來。" },
+    ];
+    const content = "## 常見問題\n\n### 怎麼開始？\n\n先核對條件。\n\n[看下一步](/zh-TW/articles/next)\n\n:::references\n- [資料來源](https://example.com/source)\n:::";
     vi.stubGlobal("fetch", vi.fn(async (input: RequestInfo | URL) => {
       if (new URL(String(input)).pathname.endsWith("/seo")) {
         return jsonResponse({ meta: { canonical, robots, article_authority_v1: {
@@ -282,13 +287,27 @@ describe("editorial article CMS contract", () => {
         } }, jsonld: { "@type": "Article", headline: "Unapproved top-level schema" } });
       }
       return jsonResponse({ article: {
-        id: 1, org_id: 0, slug, locale: "zh-TW", title: "繁體文章", content_md: "繁體正文",
+        id: 1, org_id: 0, slug, locale: "zh-TW", title: "繁體文章", content_md: content,
         status: "published", is_public: true, is_indexable: true, published_revision_id: 27,
-      } });
+        seo_meta: { schema_gates_v1: { faq_schema_gate_v1: { enabled } } },
+      }, answer_surface_v1: { faq_blocks: faq } });
     }));
     const html = renderToStaticMarkup(await TraditionalArticlePage({ params: Promise.resolve({ slug }) }));
     expect(html.includes(`id="article-jsonld-${slug}"`)).toBe(expected);
     expect(html.includes(`id="article-breadcrumb-${slug}"`)).toBe(expected);
+    const faqJsonLd = html.match(new RegExp(`<script[^>]*id="article-faq-${slug}"[^>]*>([^<]+)</script>`))?.[1];
+    expect(Boolean(faqJsonLd)).toBe(expected);
+    if (faqJsonLd) {
+      expect(JSON.parse(faqJsonLd)).toMatchObject({
+        "@type": "FAQPage",
+        mainEntity: faq.map(({ question, answer }) => ({ name: question, acceptedAnswer: { text: answer } })),
+      });
+    }
+    const rendered = new DOMParser().parseFromString(html, "text/html");
+    expect(Array.from(rendered.querySelectorAll("h3"), (heading) => heading.textContent)).toContain("怎麼開始？");
+    const standaloneQuestions = Array.from(rendered.querySelectorAll("#article-faq ~ details summary"), (question) => question.textContent);
+    expect(standaloneQuestions).toEqual(["還能做什麼？"]);
+    expect(html).toContain('href="/zh-TW/articles/next"');
     expect(html).not.toContain("Unapproved top-level schema");
   });
 

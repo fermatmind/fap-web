@@ -686,7 +686,7 @@ function renderedText(node: ReactNode): string {
 export function excludeFaqCopiesInMarkdown<T extends { question: string; answer: string }>(
   faqItems: readonly T[],
   markdown: string,
-  options: MarkdownRenderOptions = {},
+  options: MarkdownRenderOptions & { matchLeadingAnswerParagraphs?: boolean } = {},
 ): T[] {
   const blocks = tokenizeMarkdown(normalizeLineBreaks(markdown).trim());
   const pairs = new Map<string, Set<string>>();
@@ -697,17 +697,24 @@ export function excludeFaqCopiesInMarkdown<T extends { question: string; answer:
     if (block.type !== "heading" && block.type !== "paragraph") return;
     if (!isQuestion(block)) return;
     const answers: string[] = [];
+    const leadingAnswers: string[] = [];
     for (let next = index + 1; next < blocks.length && !isQuestion(blocks[next]); next += 1) {
       const answer = blocks[next];
       if (answer.type === "hr") continue;
       // Unsupported blocks are preserved rather than approximated as a matching answer.
-      if (answer.type !== "paragraph") return;
+      if (answer.type !== "paragraph") {
+        if (options.matchLeadingAnswerParagraphs) break;
+        return;
+      }
       answers.push(text(answer.text));
+      if (options.matchLeadingAnswerParagraphs) leadingAnswers.push(normalizeText(answers.join(" ")));
     }
     if (!answers.length) return;
     const question = text(block.text).replace(/^Q\d+\s*[:：]\s*/i, "");
     const existing = pairs.get(question) ?? new Set<string>();
     existing.add(normalizeText(answers.join(" ")));
+    // An exact answer can end before a separate closing CTA or sources.
+    for (const answer of leadingAnswers) existing.add(answer);
     pairs.set(question, existing);
   });
   return faqItems.filter((item) => !pairs.get(text(item.question))?.has(text(item.answer)));

@@ -13,6 +13,7 @@ import { prepareArticleHtml } from "@/lib/cms/sanitizeCmsRichText";
 import { buildArticleFrontendUrl, getCmsArticle, getCmsArticleSeo, normalizeArticleSlug } from "@/lib/cms/articles";
 import { excludeFaqCopiesInMarkdown, getArticleEditorialFeatures, getSimpleMarkdownHeadings, renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { loadBlogArchive } from "@/lib/content/blogArchive";
+import { buildFAQPageJsonLd } from "@/lib/seo/generateSchema";
 import { canonicalUrl, isConfiguredStagingSiteUrl } from "@/lib/site";
 import { resolveArticleHreflangGate, resolveArticleSchemaGate } from "@/lib/seo/articlePersonalityAuthority";
 
@@ -95,7 +96,10 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
   const options = { ...markdownOptions, editorial: editorial.enabled ? { locale, slug, part: "body" } as const : undefined, highlightEditorialConclusions: true, articleTableLocale: locale } as const;
   const preparedHtml = article.contentHtml.trim() ? prepareArticleHtml(article.contentHtml) : null;
   const headings = preparedHtml?.headings ?? getSimpleMarkdownHeadings(article.contentMd, options);
-  const faq = excludeFaqCopiesInMarkdown(article.answerSurface?.faqBlocks ?? [], article.contentMd, { locale: "zh" });
+  const faqItems = article.answerSurface?.faqBlocks ?? [];
+  const standaloneFaq = preparedHtml ? faqItems : excludeFaqCopiesInMarkdown(faqItems, article.contentMd, {
+    locale: "zh", matchLeadingAnswerParagraphs: true,
+  });
   // Reviewed article links retain the public assessment's source-language route.
   const assessmentLinks = (article.landingSurface?.ctaBundle ?? []).filter(
     (item) => item.kind === "start_test" && /^\/(?:en|zh)\/tests\/[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(item.href),
@@ -109,6 +113,8 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
         ? <JsonLd id={`article-jsonld-${slug}`} data={fragments.article} /> : null}
       {schemaGate.canRenderBreadcrumbJsonLd && fragments?.breadcrumbList
         ? <JsonLd id={`article-breadcrumb-${slug}`} data={fragments.breadcrumbList} /> : null}
+      {schemaGate.canRenderFAQPageJsonLd && faqItems.length > 0
+        ? <JsonLd id={`article-faq-${slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}
       </>}
       navigation={<>
       {article.readerLanguageSlugs ? <ArticleLanguageNavigation article={article} /> : languages ? <nav aria-label="頁面語言" className="flex flex-wrap gap-5 text-sm">
@@ -140,10 +146,10 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
           ))}
         </nav>
       ) : null}
-      {faq.length > 0 ? (
+      {standaloneFaq.length > 0 ? (
         <section aria-labelledby="article-faq">
           <h2 id="article-faq" className="text-xl font-semibold">常見問題</h2>
-          {faq.map((item) => (
+          {standaloneFaq.map((item) => (
             <details key={item.key} className="border-b py-3">
               <summary className="font-medium">{item.question}</summary>
               <div className="fm-content-page-prose">{renderSimpleMarkdown(item.answer, markdownOptions)}</div>
