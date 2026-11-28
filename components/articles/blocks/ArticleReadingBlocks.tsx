@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { YEAR_END_BONUS_ARTICLE_SLUG } from "@/lib/content/articleEditorial";
+import { sanitizeCmsUrl } from "@/lib/cms/sanitizeCmsRichText";
+import { stripMarkdownEmphasisMarkers } from "@/lib/content/markdownInline";
 import type { ArticleDirective } from "@/lib/content/articleDirectives";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import { articleEditorialCopy } from "../articleEditorialCopy";
@@ -9,6 +10,30 @@ import { ArticleScriptCompare } from "./ArticleScriptCompare";
 import { ArticleTakeaways } from "./ArticleTakeaways";
 import { ArticleTimeline } from "./ArticleTimeline";
 import { ArticleVerdictGrid } from "./ArticleVerdictGrid";
+
+/** A callout action is a Markdown link that occupies a line by itself. */
+const STANDALONE_LINK_LINE = /^\[([^\]\n]+)\]\(([^)\s]+)\)$/u;
+const SITE_ABSOLUTE_LINK = /^https?:\/\/(?:www\.)?fermatmind\.com(?:[/?#]|$)/iu;
+
+/**
+ * Resolves the reusable first-screen callout action from a callout block.
+ * Only a sanitized, site-internal Markdown link that stands alone on its own
+ * line qualifies; inline links inside sentences stay in the prose.
+ */
+export function resolveCalloutAction(lines: string[]): { label: string; href: string; index: number } | null {
+  for (let index = 0; index < lines.length; index++) {
+    const match = STANDALONE_LINK_LINE.exec((lines[index] ?? "").trim());
+    if (!match) continue;
+    const label = stripMarkdownEmphasisMarkers(match[1] ?? "").replace(/\s*→\s*$/u, "").trim();
+    const href = sanitizeCmsUrl(match[2] ?? "");
+    if (!label || !href) continue;
+    const internal = href.startsWith("/") || SITE_ABSOLUTE_LINK.test(href);
+    if (!internal) continue;
+    return { label, href, index };
+  }
+  return null;
+}
+
 
 export function ArticleReadingBlock({ block, inline, text, locale, slug, index }: {
   block: ArticleDirective;
@@ -39,17 +64,14 @@ export function ArticleReadingBlock({ block, inline, text, locale, slug, index }
     case "takeaways":
       return <ArticleTakeaways title={block.title ?? copy.takeaways} items={block.lines.map((line, i) => inline(line, String(i)))} />;
     case "callout": {
-      const match = slug === YEAR_END_BONUS_ARTICLE_SLUG
-        ? block.lines[0]?.match(/\[[^\]]+\]\(((?:https:\/\/fermatmind\.com)?\/(?:zh|en|zh-TW)\/tests\/career-planning-and-work-style-test)\)/u)
-        : null;
-      if (!match) {
+      const action = resolveCalloutAction(block.lines);
+      if (!action) {
         return <ArticleCallout title={block.title ?? copy.callout} paragraphs={block.lines.map((line, i) => inline(line, String(i)))} />;
       }
-      const label = locale === "zh" ? "开始 94 题费马职业测试" : locale === "zh-TW" ? "開始費馬 94 題職涯測驗" : "Start the 94-question career test";
-      const firstLine = block.lines[0].replace(match[0], "").replace(/^[。.,，]$|([。.!?])\s*[。.,，]+$/u, "$1").replace(/。\s*，/gu, "。").trim();
+      const paragraphs = block.lines.filter((_, i) => i !== action.index);
       return <ArticleCallout title={block.title ?? copy.callout}
-        paragraphs={[firstLine, ...block.lines.slice(1)].filter(Boolean).map((line, i) => inline(line, String(i)))}
-        action={inline(`[${label} →](${match[1]})`, "action")} />;
+        paragraphs={paragraphs.map((line, i) => inline(line, String(i)))}
+        action={inline(`[${action.label} →](${action.href})`, "action")} />;
     }
     case "references":
     case "methodology": {
