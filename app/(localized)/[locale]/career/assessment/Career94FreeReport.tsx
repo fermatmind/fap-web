@@ -15,24 +15,24 @@ import { UnlockReportExperience } from "@/components/career/UnlockReportExperien
 import { careerAssessmentEndpoint, type Career94Offer } from "./career94-api";
 import styles from "./CareerAssessmentResult.module.css";
 
-export function Career94ReportView({ model, locale, sample = false, backHref }: {
-  model: RiasecResultViewModel; locale: "zh" | "en"; sample?: boolean; backHref: string;
+export function Career94ReportView({ model, locale, sample = false, framedSample = false, backHref }: {
+  model: RiasecResultViewModel; locale: "zh" | "en"; sample?: boolean; framedSample?: boolean; backHref: string;
 }) {
   const t = (zh: string, en: string) => locale === "zh" ? zh : en;
   return <div className={styles.readingPage}>
-    <header className={styles.readingHeader}>
+    {!framedSample && <header className={styles.readingHeader}>
       <Link href={backHref}>← {sample ? t("返回职业测试", "Back to the career test") : t("返回结果概览", "Back to your overview")}</Link>
       <p className={styles.readingEyebrow}>{sample ? t("虚构作答 · 报告格式预览", "FICTIONAL RESPONSES · REPORT PREVIEW") : t("你的免费报告", "YOUR FREE REPORT")}</p>
       <p>{sample ? t("以下使用虚构作答展示兴趣报告的结构。它不是你的测试结果，也不代表已购买报告。", "This fictional response profile demonstrates the interest report. It is not your assessment result or a purchased report.")
         : t("查看本次六维兴趣、职业候选与探索建议。", "Explore your six interest dimensions, career options and next steps.")}</p>
       {sample && <Link className={styles.readingCta} href={`/${locale}/career/assessment/take`}>{t("开始我的免费职业测试", "Take my free career test")} →</Link>}
-    </header>
+    </header>}
     <RiasecReadingReport viewModel={model} locale={locale} actions={null} reportTitle={sample ? t("职业兴趣报告示例", "Sample career interest report") : undefined} />
     {!sample && <ResultExportPanel projection={buildRiasecResultExportFromViewModel(model, locale)} locale={locale} />}
   </div>;
 }
 
-export function Career94FreeReport({ locale, sample = false, overview = false, designPreview = false }: { locale: "zh" | "en"; sample?: boolean; overview?: boolean; designPreview?: boolean }) {
+export function Career94FreeReport({ locale, sample = false, overview = false, designPreview = false, framedSample = false }: { locale: "zh" | "en"; sample?: boolean; overview?: boolean; designPreview?: boolean; framedSample?: boolean }) {
   const [sampleModel, setModel] = useState<RiasecResultViewModel>();
   const [offers, setOffers] = useState<Career94Offer[]>([]);
   const snapshot = useSyncExternalStore(subscribeCareer94Report, getCareer94ReportSnapshot, () => null);
@@ -80,13 +80,13 @@ export function Career94FreeReport({ locale, sample = false, overview = false, d
     </div>}
   </>;
   const backHref = `/${locale}${sample ? CAREER_ASSESSMENT_LANDING_PATH : "/career/assessment/take"}`;
-  if (model) return <Career94ReportView model={model} locale={locale} sample={sample} backHref={backHref} />;
+  if (model) return <Career94ReportView model={model} locale={locale} sample={sample} framedSample={framedSample} backHref={backHref} />;
   const unavailable = failed || !sample;
   return <div className={styles.readingEmpty}>
     <p role={unavailable ? "alert" : "status"}>{unavailable
       ? sample ? t("示例报告暂时无法加载。", "The sample report is temporarily unavailable.") : t("此浏览器标签页中没有可读取的结果，或保留时间已过。请返回测试结果概览重新打开。", "No result is available in this browser tab, or it has expired. Open this page again from your result overview.")
       : t("正在加载报告…", "Loading the report…")}</p>
     {failed && sample && <button type="button" onClick={() => { setFailed(false); setRetry(value => value + 1); }}>{t("重试", "Retry")}</button>}
-    <Link href={backHref}>{t("返回职业测试", "Back to the career test")}</Link>
+    {!framedSample && <Link href={backHref}>{t("返回职业测试", "Back to the career test")}</Link>}
   </div>;
 }

@@ -10,6 +10,7 @@ import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd } from "@/lib/seo/generateSchema";
 import { JUNG_FORMS, freeAssessmentCopy, jungLandingCopy } from "@/lib/tests/freeAssessmentLanding";
 import { canonicalUrl } from "@/lib/site";
+import { career94ZhDescription, career94ZhTitle } from "@/lib/tests/career94ZhLanding";
 
 type Landing = "career" | "jung";
 
@@ -18,17 +19,18 @@ export function freeAssessmentMetadata(assessment: Landing, locale: DisplayLocal
   const profile = locale === "zh" ? null : getLocalizedLanding(locale, assessment);
   const primary = locale === "zh-TW" ? "zh" : locale;
   const pathname = `/${locale}${copy.path}`;
+  const careerZh = assessment === "career" && locale === "zh";
   const metadata = buildPageMetadata({
     locale: primary,
     pathname,
     canonicalPathname: `/${primary}${copy.path}`,
-    title: profile?.seoTitle ?? copy.searchTitle,
-    description: profile?.seoDescription ?? copy.intro,
+    title: careerZh ? career94ZhTitle : profile?.seoTitle ?? copy.searchTitle,
+    description: careerZh ? career94ZhDescription : profile?.seoDescription ?? copy.intro,
     noindex: !indexable,
     alternatesByLocale: { en: `/en${copy.path}`, zh: `/zh${copy.path}`, xDefault: `/en${copy.path}` },
   });
-  if (assessment === "career" && locale === "zh") {
-    return { ...metadata, title: { absolute: `${copy.searchTitle}｜FermatMind` } };
+  if (careerZh) {
+    return { ...metadata, title: { absolute: career94ZhTitle } };
   }
   if (locale !== "zh-TW") return metadata;
   const localized = traditionalSearchMetadata(pathname, {
@@ -43,7 +45,7 @@ export function FreeAssessmentLanding({ assessment, locale }: {
   assessment: Landing;
   locale: DisplayLocale;
 }) {
-  if (assessment === "career" && locale === "zh") return <Career94Landing locale={locale} />;
+  if (assessment === "career" && locale === "zh") return <Career94Landing />;
   const takeLocale = locale === "zh-TW" ? "zh" : locale;
   if (locale !== "zh") {
     const english = locale === "en";

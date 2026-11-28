@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { Career94FreeReport } from "@/app/(localized)/[locale]/career/assessment/Career94FreeReport";
+import Career94SamplePage, { generateMetadata } from "@/app/(localized)/[locale]/career/assessment/sample/page";
 import projection from "./fixtures/riasec/deep-copy-v1.projection.json";
 
 vi.mock("@/components/result/riasec/RiasecReadingReport", () => ({ RiasecReadingReport: ({ reportTitle }: { reportTitle?: string }) => <h1>{reportTitle}</h1> }));
@@ -40,6 +41,26 @@ describe("Career94 separate sample reader", () => {
     fireEvent.click(screen.getByRole("button", { name: "重试" }));
     await waitFor(() => expect(fetcher).toHaveBeenCalledTimes(2));
     expect(fetcher.mock.calls.every(([url]) => url.endsWith("/questions"))).toBe(true);
+  });
+
+  it("localizes the public sample metadata and exposes two start links even if the report fails to load", async () => {
+    const params = Promise.resolve({ locale: "zh" });
+    const metadata = await generateMetadata({ params });
+    expect(metadata).toMatchObject({
+      title: { absolute: "免费职业测试（94题）公开报告样例｜费马测试" },
+      description: expect.stringContaining("公开合成报告样例"),
+      robots: { index: false, follow: true },
+    });
+    expect(await generateMetadata({ params: Promise.resolve({ locale: "en" }) })).toEqual({
+      title: "Career interest report sample | FermatMind", robots: { index: false, follow: true },
+    });
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+    const { container } = render(await Career94SamplePage({ params }));
+    expect(screen.getByText("费马职业兴趣与工作偏好测评（94题）")).toBeVisible();
+    expect(screen.getByRole("link", { name: /免费开始 94 题测试/ })).toHaveAttribute("href", "/zh/career/assessment/take");
+    expect(screen.getByRole("link", { name: /开始我的免费职业测试/ })).toHaveAttribute("href", "/zh/career/assessment/take");
+    expect(await screen.findByRole("alert")).toHaveTextContent("示例报告暂时无法加载");
+    expect(container.querySelectorAll("main a")).toHaveLength(2);
   });
 
   it("does not call the network or fabricate a result when a private browser report is absent", () => {
