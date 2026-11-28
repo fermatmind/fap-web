@@ -13,17 +13,17 @@ const sha = 'a'.repeat(40);
 const existingPage = JSON.parse(readFileSync('tests/fixtures/career-page/actors.zh-CN.json', 'utf8'));
 const page = {
   ...existingPage,
-  contract_version: 'career.detail.page.v1', locale: 'zh-CN', source_content_sha256: 'b'.repeat(64), subject: { canonical_slug: 'accountants-and-auditors', name: '职业示例' },
+  contract_version: 'career.detail.page.v1', locale: 'zh-CN', source_content_sha256: 'b'.repeat(64), subject: { canonical_slug: 'accountants-and-auditors', name: '职业示例', summary: '示例概述' },
   content: {...existingPage.content, contract_version: 'career.detail.content.v3', locale: 'zh-CN', subject: {canonical_slug: 'accountants-and-auditors', name: '职业示例'}, source_content_sha256: 'b'.repeat(64), content_state: 'enhanced', blocks: [{}]},
-  hero: { ai: { availability: 'available', fact: { display_value: '7/10' } }, badges: ['标签甲', '标签乙', '标签丙'], metrics: [{ fact: { display_value: '$123' } }] },
+  hero: { ai: { availability: 'available', fact: { display_value: '7/10' } }, badges: ['标签甲', '标签乙', '标签丙'], metrics: [{ availability: 'available', fact: { display_value: '$123' } }] },
   display: { contract_version: 'career.detail.display.v1', components: {
-    hero: { quick_answer: '示例概述' }, definition_block: '正文 & 说明', faq_block: { items: [{ question: '示例问题？' }] },
+    hero: { quick_answer: '旧版展示摘要' }, definition_block: '正文 & 说明', faq_block: { items: [{ question: '示例问题？' }] },
   } },
 };
 const body = {bundle_kind: 'career_job_detail', bundle_version: 'career.detail.page.v1', locale_policy: {requested_locale: 'zh-CN'}, identity: { canonical_slug: 'accountants-and-auditors' }, career_page: page, seo_contract: {canonical_path: '/zh/career/jobs/accountants-and-auditors', canonical_target: '/zh/career/jobs/accountants-and-auditors', metadata_fingerprint: 'b'.repeat(64), index_eligible: true, index_state: 'indexable', robots_policy: 'index,follow', reason_codes: ['runtime_publish_projection', 'release_gate_pass']} };
 const markers = ['career-production-ai-gauge', 'career-production-hero-badges', 'career-dossier-toc', 'career-display-faq'];
-const validHtml = `<link rel="canonical" href="https://fermatmind.com/zh/career/jobs/accountants-and-auditors"><meta name="robots" content="index, follow"><main data-career-production-template="career-production-v1" data-career-renderer-release="${sha}">${markers.map(marker => `<section data-testid="${marker}"></section>`).join('')}职业示例 7/10 标签甲 标签乙 标签丙 $123 示例概述 正文 &amp; 说明 示例问题？</main>`;
-for (const mode of ['success', 'download-failure', 'revision-mismatch', 'page-404', 'page-redirect', 'api-404', 'api-locale', 'missing-display', 'missing-score', 'wrong-template', 'props-only', 'production-success', 'stale-noindex', 'googlebot-noindex', 'duplicate-noindex', 'header-noindex', 'noindex-success', 'noindex-overridden', 'fingerprint-mismatch', 'wrong-canonical', 'staging-noindex-missing', 'stream-success', 'hidden-content', 'missing-stream-source', 'stream-noindex', 'missing-version', 'content-locale', 'content-subject', 'hidden-props-only', 'style-props-only', 'script-props-only', 'literal-angle-text', 'attribute-props-only', 'stream-segment-success', 'stream-boundary-missing']) {
+const validHtml = `<link rel="canonical" href="https://fermatmind.com/zh/career/jobs/accountants-and-auditors"><meta name="robots" content="index, follow"><main data-career-production-template="career-production-v1" data-career-renderer-release="${sha}">${markers.map(marker => `<section data-testid="${marker}"></section>`).join('')}职业示例 7/10 标签甲 标签乙 标签丙 <span data-career-api-field="presentation_v2.hero.stats[0].value">$123</span> <p data-career-api-field="presentation_v2.hero.lead">示例概述</p> 正文 &amp; 说明 示例问题？</main>`;
+for (const mode of ['success', 'download-failure', 'revision-mismatch', 'page-404', 'page-redirect', 'api-404', 'api-locale', 'missing-display', 'missing-score', 'missing-metric', 'missing-metric-value', 'wrong-metric-slot', 'metric-label-in-attribute', 'wrong-template', 'props-only', 'production-success', 'stale-noindex', 'googlebot-noindex', 'duplicate-noindex', 'header-noindex', 'noindex-success', 'noindex-overridden', 'fingerprint-mismatch', 'wrong-canonical', 'staging-noindex-missing', 'stream-success', 'hidden-content', 'missing-stream-source', 'stream-noindex', 'missing-version', 'content-locale', 'content-subject', 'hidden-props-only', 'style-props-only', 'script-props-only', 'literal-angle-text', 'attribute-props-only', 'stream-segment-success', 'stream-boundary-missing']) {
   test(`career renderer smoke distinguishes ${mode}`, () => {
     const root = mkdtempSync(path.join(tmpdir(), 'career-renderer-smoke-'));
     try {
@@ -64,6 +64,13 @@ for (const mode of ['success', 'download-failure', 'revision-mismatch', 'page-40
       if (mode === 'revision-mismatch') html = html.replace(sha, 'wrong');
       if (mode === 'wrong-template') html = html.replace('career-production-v1', 'generic');
       if (mode === 'missing-score') html = html.replace('7/10', '暂无数据');
+      if (mode === 'missing-metric' || mode === 'missing-metric-value') {
+        api.career_page.hero.metrics.push({ availability: 'missing', fact: null });
+        const value = mode === 'missing-metric' ? '暂无数据' : '';
+        html += `<span data-career-api-field="presentation_v2.hero.stats[1].value">${value}</span><span>暂无数据</span>`;
+      }
+      if (mode === 'wrong-metric-slot') html = html.replace('>$123</span>', '>N/A</span>') + '<span>$123</span>';
+      if (mode === 'metric-label-in-attribute') html = html.replace('data-career-api-field="presentation_v2.hero.stats[0].value"', `title='data-career-api-field="presentation_v2.hero.stats[0].value"'`);
       if (mode === 'props-only') html = `<main data-career-renderer-release="${sha}"></main><script>${JSON.stringify(validHtml)}</script>`;
       if (mode === 'api-locale') api.career_page.locale = 'en';
       if (mode === 'missing-display') delete api.career_page.display;
@@ -95,11 +102,11 @@ printf 200
         encoding: 'utf8', timeout: 5000,
       });
       assert.equal(result.error, undefined);
-      assert.equal(result.status, ['success', 'production-success', 'noindex-success', 'stream-success', 'literal-angle-text', 'stream-segment-success'].includes(mode) ? 0 : 1, `${result.stdout}\n${result.stderr}`);
+      assert.equal(result.status, ['success', 'production-success', 'noindex-success', 'stream-success', 'literal-angle-text', 'stream-segment-success', 'missing-metric'].includes(mode) ? 0 : 1, `${result.stdout}\n${result.stderr}`);
       const category = {'api-locale': 'api_contract', 'missing-display': 'api_contract', 'missing-version': 'api_contract',
         'fingerprint-mismatch': 'seo_authority', 'content-locale': 'seo_authority', 'content-subject': 'seo_authority',
         'stale-noindex': 'robots', 'stream-noindex': 'robots', 'googlebot-noindex': 'robots', 'duplicate-noindex': 'robots', 'header-noindex': 'robots', 'noindex-overridden': 'robots', 'staging-noindex-missing': 'robots',
-        'wrong-canonical': 'canonical', 'wrong-template': 'renderer', 'props-only': 'robots', 'hidden-content': 'robots', 'missing-stream-source': 'stream', 'attribute-props-only': 'visible_content', 'stream-boundary-missing': 'stream', 'hidden-props-only': 'visible_content', 'style-props-only': 'visible_content', 'script-props-only': 'visible_content', 'missing-score': 'visible_content'}[mode];
+        'wrong-canonical': 'canonical', 'wrong-template': 'renderer', 'props-only': 'robots', 'hidden-content': 'robots', 'missing-stream-source': 'stream', 'attribute-props-only': 'visible_content', 'stream-boundary-missing': 'stream', 'hidden-props-only': 'visible_content', 'style-props-only': 'visible_content', 'script-props-only': 'visible_content', 'missing-score': 'visible_content', 'missing-metric-value': 'visible_content', 'wrong-metric-slot': 'visible_content', 'metric-label-in-attribute': 'visible_content'}[mode];
       if (category) assert.match(result.stderr, new RegExp(`category=${category}(?:\\s|$)`));
       const args = readFileSync(trace, 'utf8').trim().split('\n');
       assert.ok(args.includes('--compressed'));

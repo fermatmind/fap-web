@@ -1,6 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 
+const attrs = tag => Object.fromEntries([...tag.matchAll(/([\w-]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/g)]
+  .map(match => [match[1].toLowerCase(), match[2] ?? match[3]]));
+
 function completeStream(html) {
   const root = {tag: 'root', children: []};
   const stack = [root], ids = new Map(), commands = [];
@@ -63,9 +66,16 @@ function completeStream(html) {
   };
   // Collect text nodes directly, without serializing and reparsing markup.
   // Transport scripts were excluded above; hidden/style descendants remain excluded.
-  const text = node => node.hidden || node.tag === 'style' || node.tag === 'comment' ? '' :
-    node.tag === 'text' ? node.text : node.children.map(text).join('');
-  return {html: render(root), text: text(root)};
+  const visibleFields = new Map();
+  const text = node => {
+    if (node.hidden || node.tag === 'style' || node.tag === 'comment') return '';
+    if (node.tag === 'text') return node.text;
+    const value = node.children.map(text).join('');
+    const field = node.token?.includes('data-career-api-field') ? attrs(node.token)['data-career-api-field'] : undefined;
+    if (field) visibleFields.set(field, value);
+    return value;
+  };
+  return {html: render(root), text: text(root), visibleFields};
 }
 
 let category = 'environment';
@@ -96,8 +106,6 @@ try {
       page.content?.source_content_sha256 !== page.source_content_sha256 ||
       seo?.metadata_fingerprint !== page.source_content_sha256 || seo.canonical_path !== canonical ||
       seo.canonical_target !== canonical || typeof seo.index_eligible !== 'boolean') throw new Error('SEO authority');
-  const attrs = tag => Object.fromEntries([...tag.matchAll(/([\w-]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/g)]
-    .map(match => [match[1].toLowerCase(), match[2] ?? match[3]]));
   category = 'robots';
   const policies = [...rendered.matchAll(/<meta\b[^>]*>/gi)].map(match => attrs(match[0]))
     .filter(meta => ['robots', 'googlebot'].includes((meta.name ?? '').toLowerCase())).map(meta => meta.content ?? '');
@@ -136,10 +144,21 @@ try {
   if (ai.availability === 'missing' && (!rendered.includes('data-career-ai-unavailable="true"') ||
       !visible.includes(normalize('暂无数据')))) throw new Error('AI missing state');
   const expected = [page.subject.name, ai.availability === 'available' ? ai.fact.display_value : ai.label, ...page.hero.badges,
-    ...page.hero.metrics.map(metric => metric.fact?.display_value), components.hero.quick_answer,
     components.definition_block, components.faq_block.items[0]?.question];
   for (const value of expected) {
     if (typeof value !== 'string' || !value.trim() || !visible.includes(normalize(value))) throw new Error('visible content');
+  }
+  const hasVisibleField = (field, value) => {
+    const text = completed.visibleFields.get(field);
+    return typeof value === 'string' && Boolean(value.trim()) && typeof text === 'string' && normalize(text) === normalize(value);
+  };
+  if (!hasVisibleField('presentation_v2.hero.lead', page.subject.summary)) throw new Error('visible subject summary');
+  if (!Array.isArray(page.hero.metrics) || !page.hero.metrics.length) throw new Error('hero metrics missing');
+  for (const [index, metric] of page.hero.metrics.entries()) {
+    let value;
+    if (metric.availability === 'available') value = metric.fact?.display_value;
+    else if (metric.availability === 'missing' && metric.fact === null) value = '暂无数据';
+    if (!hasVisibleField(`presentation_v2.hero.stats[${index}].value`, value)) throw new Error('visible hero metric');
   }
 } catch {
   console.error(`career smoke failed: category=${category}`);
