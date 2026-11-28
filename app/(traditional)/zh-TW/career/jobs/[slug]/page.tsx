@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import { CareerRiasecExploreLink } from "@/components/career/CareerRiasecExploreLink";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
@@ -14,6 +15,7 @@ import { buildCareerDisplayCtaHref } from "@/lib/career/displaySurface";
 import { buildCareerPageDisplaySurface, careerDisplayIdentity } from "@/lib/career/pageDisplay";
 import { isSafeCareerJobSlug } from "@/lib/career/slugSafety";
 import { PublicReadError } from "@/lib/public-content/readError";
+import { buildBreadcrumbJsonLd, buildFAQPageJsonLd } from "@/lib/seo/generateSchema";
 import { canonicalUrl, isConfiguredStagingSiteUrl } from "@/lib/site";
 import { extractAttributionParamsFromRecord } from "@/lib/tracking/attribution";
 
@@ -69,18 +71,31 @@ export default async function TraditionalCareerJobPage({ params, searchParams }:
   const { slug } = await params;
   const { page, identity } = await loadPage(slug);
   const path = `/career/jobs/${slug}`;
+  const landingPath = `/zh-TW${path}`;
+  const breadcrumbItems = [
+    { label: "首頁", href: "/zh-TW" },
+    { label: "職涯探索", href: "/zh-TW/career" },
+    { label: page.content.subject.name },
+  ];
   const ctaHref = buildCareerDisplayCtaHref({
     locale: "zh",
     subjectSlug: slug,
-    landingPath: `/zh-TW${path}`,
+    landingPath,
     attributionParams: extractAttributionParamsFromRecord(await searchParams ?? {}),
   });
   const surface = buildCareerPageDisplaySurface(page, identity, ctaHref);
   surface.cta.href = ctaHref.replace(/^\/zh\//u, "/zh-TW/");
   const [careerLinks, traditionalCopy] = await Promise.all([fetchCareerLinkTargets(), loadTraditionalAssessmentText()]);
   surface.careerLinkPaths = careerLinks;
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd(
+    breadcrumbItems.map(({ label, href }) => ({ name: label, path: href ?? landingPath })),
+  );
+  // The FAQ renderer uses this same projection. Entry decisions render separately.
+  const faq = surface.componentOrder.includes("faq_block") ? surface.faqItems : [];
   return (
     <div className="relative left-1/2 w-[calc(100vw-2rem)] max-w-[1440px] -translate-x-1/2" data-evidence-page-family="career_job_detail">
+      <JsonLd id={`career-job-breadcrumb-${slug}`} data={breadcrumbJsonLd} />
+      {faq.length ? <JsonLd id={`career-job-display-faq-${slug}`} data={buildFAQPageJsonLd(faq)} /> : null}
       <nav aria-label="頁面語言" className="flex flex-wrap gap-5 px-5 text-sm">
         <Link href={`/zh${path}`} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
         <Link href={`/en${path}`} lang="en" className="min-h-11 py-2 underline">English</Link>
@@ -89,11 +104,7 @@ export default async function TraditionalCareerJobPage({ params, searchParams }:
       <CareerDisplaySurface
         surface={surface}
         rendererRelease={CAREER_RENDERER_RELEASE}
-        breadcrumbItems={[
-          { label: "首頁", href: "/zh-TW" },
-          { label: "職涯探索", href: "/zh-TW/career" },
-          { label: page.content.subject.name },
-        ]}
+        breadcrumbItems={breadcrumbItems}
       />
       {careerPageHasPublicBody(page) ? <CareerRiasecExploreLink locale="zh" traditionalCopy={traditionalCopy} careerName={page.content.subject.name} href={surface.cta.href} subjectSlug={slug} /> : null}
     </div>
