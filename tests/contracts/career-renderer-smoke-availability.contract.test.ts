@@ -12,14 +12,14 @@ function smoke(availability: string, fact: unknown, factRef: unknown, missingMar
     bundle_version: 'career.detail.page.v1', locale_policy: { requested_locale: 'zh-CN' },
     identity: { canonical_slug: 'accountants-and-auditors' },
     career_page: {
-      locale: 'zh-CN', source_content_sha256: hash, subject: { canonical_slug: 'accountants-and-auditors', name: 'Accountants' },
-      hero: { ai: { availability, fact, fact_ref: factRef, label: 'AI label' }, badges: ['Badge A', 'Badge B', 'Badge C'], metrics: [{ fact: { display_value: 'Metric' } }] },
-      display: { contract_version: 'career.detail.display.v1', components: { hero: { quick_answer: 'Quick answer' }, definition_block: 'Definition', faq_block: { items: [{ question: 'Question' }] } } },
+      locale: 'zh-CN', source_content_sha256: hash, subject: { canonical_slug: 'accountants-and-auditors', name: 'Accountants', summary: 'Quick answer' },
+      hero: { ai: { availability, fact, fact_ref: factRef, label: 'AI label' }, badges: ['Badge A', 'Badge B', 'Badge C'], metrics: [{ availability: 'available', fact: { display_value: 'Metric' } }] },
+      display: { contract_version: 'career.detail.display.v1', components: { hero: { quick_answer: 'Legacy detail summary' }, definition_block: 'Definition', faq_block: { items: [{ question: 'Question' }] } } },
       content: { locale: 'zh-CN', subject: { canonical_slug: 'accountants-and-auditors' }, source_content_sha256: hash, content_state: 'enhanced', blocks: [{}] },
     },
     seo_contract: { metadata_fingerprint: hash, canonical_path: canonical, canonical_target: canonical, index_eligible: true, index_state: 'indexable', robots_policy: 'index,follow', reason_codes: ['runtime_publish_projection', 'release_gate_pass'] },
   };
-  const html = `<html><head><meta name="robots" content="index,follow"><link rel="canonical" href="https://fermatmind.com${canonical}"></head><body><article data-career-production-template="career-production-v1"><div data-testid="career-production-ai-gauge"><strong${missingMarker ? ' data-career-ai-unavailable="true"' : ''}>${missingMarker ? '暂无数据' : '4.2/10'}</strong>AI label</div><div data-testid="career-production-hero-badges">Badge A Badge B Badge C</div><nav data-testid="career-dossier-toc"></nav><div data-testid="career-display-faq">Question</div>Accountants Metric Quick answer Definition</article></body></html>`;
+  const html = `<html><head><meta name="robots" content="index,follow"><link rel="canonical" href="https://fermatmind.com${canonical}"></head><body><article data-career-production-template="career-production-v1"><div data-testid="career-production-ai-gauge"><strong${missingMarker ? ' data-career-ai-unavailable="true"' : ''}>${missingMarker ? '暂无数据' : '4.2/10'}</strong>AI label</div><div data-testid="career-production-hero-badges">Badge A Badge B Badge C</div><nav data-testid="career-dossier-toc"></nav><div data-testid="career-display-faq">Question</div>Accountants <span data-career-api-field="presentation_v2.hero.stats[0].value">Metric</span><p data-career-api-field="presentation_v2.hero.lead">Quick answer</p>Definition</article></body></html>`;
   try {
     writeFileSync(join(dir, 'body.html'), html);
     writeFileSync(join(dir, 'api.json'), JSON.stringify(response));
