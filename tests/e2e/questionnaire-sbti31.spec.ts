@@ -46,18 +46,30 @@ for (const locale of ["en", "zh"] as const) {
     for (const s of profile.sections) for (const p of s.paragraphs) expect(body?.includes(p[locale])).toBe(true);
     const hero = page.locator("[data-sbti31-hero]");
     const reading = page.locator("#sbti31-readings");
-    const portrait = hero.locator("[data-sbti31-portrait]");
     const title = hero.locator("[data-sbti31-result]");
     await expect(title).toBeFocused();
     await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
     for (const width of [320, 390, 1440]) {
       await page.setViewportSize({ width, height: width === 1440 ? 950 : 844 });
-      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-      const heroBox = (await hero.boundingBox())!;
-      const readingBox = (await reading.boundingBox())!;
-      expect(readingBox.width).toBe(heroBox.width);
-      expect(readingBox.y).toBeCloseTo(heroBox.y + heroBox.height, 0);
-      if (width === 1440) expect((await portrait.boundingBox())!.x).toBeGreaterThan((await title.boundingBox())!.x + (await title.boundingBox())!.width);
+      const layout = await page.evaluate(() => {
+        const box = (selector: string) => {
+          const { top, bottom, left, right, width } = document.querySelector(selector)!.getBoundingClientRect();
+          return { top, bottom, left, right, width };
+        };
+        return {
+          fits: document.documentElement.scrollWidth <= innerWidth,
+          hero: box("[data-sbti31-hero]"),
+          card: box("[data-sbti31-report] [data-eight-quiz-personal-card]"),
+          reading: box("#sbti31-readings"),
+          portrait: box("[data-sbti31-portrait]"),
+          title: box("[data-sbti31-result]"),
+        };
+      });
+      expect(layout.fits).toBe(true);
+      expect(layout.reading.width).toBeCloseTo(layout.hero.width, 0);
+      expect(layout.card.top).toBeGreaterThanOrEqual(layout.hero.bottom);
+      expect(layout.reading.top).toBeGreaterThanOrEqual(layout.card.bottom);
+      if (width === 1440) expect(layout.portrait.left).toBeGreaterThan(layout.title.right);
       if (width !== 320) await page.screenshot({ path: test.info().outputPath(`sbti31-${locale}-result-${width}.png`) });
     }
     await hero.getByRole("link", { name: zh ? "解读这幅画像" : "Read your portrait" }).click();

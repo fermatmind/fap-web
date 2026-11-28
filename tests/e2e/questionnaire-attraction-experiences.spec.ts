@@ -70,7 +70,8 @@ for (const locale of ["en", "zh"] as const) {
     expect(new URL(page.url()).search).toBe(""); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
     await expect(page.locator("[data-atr-mean]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
-    await page.getByRole("button", { name: zh ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
+    await page.getByRole("link", { name: zh ? "返回测评介绍" : "Back to assessment", exact: true }).first().click();
+    await expect(page).toHaveURL(url => url.pathname === entry);
     await page.locator("[data-explore-start]").click(); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(requests).toEqual([]);
   });
@@ -86,17 +87,26 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(k, v) { if (k === key) { touches.push("set"); throw new Error("synthetic storage denial"); } return originalSet.call(this, k, v); };
       Storage.prototype.removeItem = function(k) { if (k === key) { touches.push("remove"); throw new Error("synthetic storage denial"); } return remove.call(this, k); };
     });
-    await page.goto(entry); await expect(page.getByRole("button", { name: /Resume this tab|恢复本标签页/ })).toHaveCount(0);
-    await page.locator("[data-explore-start]").click(); await expect(page.locator('input[value="5"]')).not.toBeChecked();
-    await page.locator('input[value="4"]').check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    expect(await page.evaluate(() => (window as Window & { attractionStorageTouches?: string[] }).attractionStorageTouches)).toEqual([]);
-    await page.reload(); await expect(page.locator("[data-explore-start]")).toBeVisible();
-    await page.locator("[data-explore-start]").click(); await expect(page.locator('input[value="4"]')).not.toBeChecked();
-    await page.locator('input[value="5"]').check();
-    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/attraction-experiences`);
-    await expect(page.locator("[data-explore-start]")).toBeVisible();
-    await page.locator("[data-explore-start]").click(); await expect(page.locator('input[value="5"]')).not.toBeChecked();
-    expect(await page.evaluate(() => (window as Window & { attractionStorageTouches?: string[] }).attractionStorageTouches)).toEqual([]);
+    await page.goto(entry);
+    await expect(page.getByRole("button", { name: /Resume this tab|恢复本标签页/ })).toHaveCount(0);
+    await page.locator("[data-explore-start]").click();
+    const first = page.locator(`#take-test input[name="${quiz.questions[0].id}"]`);
+    await expect(first.first()).toBeVisible();
+    await expect(first.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    await first.and(page.locator('input[value="4"]')).check();
+    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
+    const storageTouches = () => page.evaluate(() => (window as Window & { attractionStorageTouches?: string[] }).attractionStorageTouches);
+    expect(await storageTouches()).not.toContain("get");
+    expect(await storageTouches()).not.toContain("set");
+    await page.reload();
+    await expect(first.first()).toBeVisible();
+    await expect(first.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    const other = zh ? "en" : "zh";
+    await page.goto(`/${other}/tests/explore/attraction-experiences/take`);
+    await expect(first.first()).toBeVisible();
+    await expect(first.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    expect(await storageTouches()).not.toContain("get");
+    expect(await storageTouches()).not.toContain("set");
   });
 
   test(`@release Attraction experiences ${locale}: all-skipped is finished without means, with all40sections and no result sharing or flow analytics`, async ({ page }) => {
@@ -115,7 +125,9 @@ test("@release Attraction experiences all10 public full guides, bilingual images
     await acceptCookies(page, locale);
     await expect(page.locator("[data-atr-mean]")).toHaveCount(0);
     for (const section of profile.sections) await expect(page.locator(`#report-${section.id} h2`)).toHaveText(section.title[locale]);
-    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/attraction-experiences/results/${profile.id}`);
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
     await expect(page.getByRole("link", { name: locale === "zh" ? "免费开始完整测试" : "Start the full test for free", exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/attraction-experiences#take-test`);
     const image = await request.get(`/og/fun/attraction-experiences?locale=${locale}&portrait=${profile.id}&v=${quiz.version}`); expect(image.status()).toBe(200);
     const bytes = await image.body(); expect(bytes.readUInt32BE(16)).toBe(1200); expect(bytes.readUInt32BE(20)).toBe(630);

@@ -74,13 +74,13 @@ for (const locale of ["en", "zh"] as const) {
     const preview = page.getByRole("link", { name: zh ? "预览该颜色的公开分享图（新标签页）" : "Preview this color’s public share card (new tab)" });
     await expect(preview).toHaveAttribute("href", `/og/fun/aura-color?locale=${locale}&portrait=red&v=1.0.0-art`);
     await expect(preview).toHaveAttribute("target", "_blank");
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(
-      `${quiz.title[locale]}\n${quiz.profiles[0].title[locale]}\nhttps://fermatmind.com${entry}/results/red`,
-    );
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const caption = await page.evaluate(() => navigator.clipboard.readText());
+    expect(caption).toContain(zh ? "【红】" : "Got Red");
+    expect(caption.split("\n").at(-1)).toBe(`https://fermatmind.com${entry}`);
+    expect(caption).not.toMatch(/AURA_[0-9]{2}|answers|form_code|submission|[?&]score/);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(posts).toEqual([]);
   });
@@ -102,12 +102,13 @@ for (const locale of ["en", "zh"] as const) {
     });
     await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
     await finish(page, locale, "tie");
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
-    for (const profile of quiz.profiles) expect(text).toContain(profile.title[locale]);
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.locator("[data-archetype-honor-group] textarea").inputValue();
+    const colors = zh ? ["红", "橙", "黄", "绿", "蓝", "靛", "紫"] : ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"];
+    for (const color of colors) expect(text).toContain(color);
     expect(text).not.toMatch(/AURA_[0-9]{2}|answers|form_code|submission|3\s*\/\s*12|[?&]score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0);
   });
 }

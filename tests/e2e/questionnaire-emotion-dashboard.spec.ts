@@ -1,5 +1,11 @@
 import { test, expect, type Page } from "@playwright/test";
 import quiz from "../../lib/questionnaires/data/eq-dashboard.json";
+import { prepareResultProfile } from "../../lib/questionnaires/result-content/readings";
+import { seedAnalyticsConsent } from "./helpers/consent";
+import { expectManualQuestionnaireSessionPrivacy } from "./helpers/questionnaire-session-privacy";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
+
 type Locale = "en" | "zh";
 type Mode = "mixed" | "unscored" | "high";
 const path = (l: Locale) => `/${l}/tests/explore/eq-dashboard`;
@@ -19,8 +25,7 @@ const samples = Object.fromEntries((["mixed", "unscored", "high"] as const).map(
   }));
   return [mode, { values, scores }];
 }));
-async function consent(page: Page, l: Locale) { const b = page.getByRole("button", { name: label(l, "Decline", "拒绝"), exact: true }); if (await b.isVisible()) await b.click(); }
-async function button(page: Page, l: Locale, en: string, zh: string) { if (en === "Start test") { await page.locator("[data-explore-start]").click(); return; } await page.getByRole("button", { name: label(l, en, zh), exact: true }).click(); }
+async function button(page: Page, l: Locale, en: string, zh: string) { if (en === "Start test") { await page.locator("#take-test [data-explore-start]").click(); return; } await page.getByRole("button", { name: label(l, en, zh), exact: true }).click(); }
 async function finish(page: Page, l: Locale, mode: Mode) {
   const sample = samples[mode];
   for (let i = 0; i < 40; i++) {
@@ -42,8 +47,16 @@ async function finish(page: Page, l: Locale, mode: Mode) {
     await expect(row).toContainText(score.mean === null ? label(l, "Insufficient", "观察不足") : `${score.mean.toFixed(1)} / 5`);
     await expect(row.getByRole("link")).toHaveAttribute("href", `#emotion-title-${d.id}`);
   }
-  const text = await page.locator("#take-test").innerText();
-  for (const p of quiz.profiles) for (const s of p.sections) for (const t of s.paragraphs) expect(text).toContain(t[l]);
+  for (const profile of quiz.profiles) {
+    const reading = page.locator(`[data-emotion-part="${profile.id}"]`);
+    const sections = prepareResultProfile("eq-dashboard", profile).sections;
+    await expect(reading.locator("h4")).toHaveCount(sections.length);
+    for (const section of sections) {
+      const body = reading.locator(`#emotion-${profile.id}-${section.id}`);
+      await expect(body.locator("h4")).toHaveText(section.title[l]);
+      await expect(body.locator("p").first()).not.toBeEmpty();
+    }
+  }
   await page.locator("[data-emotion-review] summary").click(); await expect(page.locator("[data-emotion-answer]")).toHaveCount(40);
   for (const [i, q] of quiz.questions.entries()) await expect(page.locator(`[data-emotion-answer="${q.id}"]`)).toContainText(q.options.find(o => o.id === sample.values[i])!.label[l]);
   await page.locator("[data-emotion-review] summary").click();
@@ -54,7 +67,7 @@ for (const l of ["en", "zh"] as const) {
   test(`@release emotion-dashboard ${l}: native entry, keyboard, all8 means/full readings, low/high/missing and retake`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); const leaked: string[] = [];
     page.on("request", r => { if (r.method() === "POST" && /ED_[A-Z]+_\d\d|"answers"|"facets"|"means"/.test(r.postData() ?? "")) leaked.push(r.url()); });
-    await page.goto(`/${l}/tests`); await consent(page, l); await page.locator("#more-tests").getByRole("link", { name: quiz.title[l], exact: true }).click();
+    await page.goto(`/${l}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[l], exact: true }).click();
     await expect(page.locator("h1")).toHaveText(quiz.title[l]); await expect(page).toHaveTitle(`${quiz.seoTitle[l]} | FermatMind`);
     await button(page, l, "Start test", "开始测试"); await button(page, l, "Next", "下一题"); await expect(page.getByRole("status")).toContainText(label(l, "Choose an option", "请选择"));
     await finish(page, l, "mixed"); await page.locator("[data-emotion-overview]").scrollIntoViewIfNeeded(); await page.screenshot({ path: test.info().outputPath(`${l}-result.png`) });
@@ -65,26 +78,27 @@ for (const l of ["en", "zh"] as const) {
     expect(leaked).toEqual([]); expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:eq-dashboard"))).toBeNull();
     await button(page, l, "Retake test", "重新测试"); await expect(page.locator("[data-emotion-mean]")).toHaveCount(0); await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0);
   });
-  test(`@release emotion-dashboard ${l}: opt-in draft, reload, locale switch, changed answer and clear`, async ({ page }) => {
-    await page.goto(path(l)); await consent(page, l); await button(page, l, "Start test", "开始测试"); await page.locator('input[name="ED_JOY_01"][value="na"]').check();
-    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:eq-dashboard"))).toBeNull(); await page.getByRole("checkbox").check(); await button(page, l, "Next", "下一题"); await page.reload(); await button(page, l, "Resume this tab's progress", "恢复本标签页进度");
-    await expect(page.locator('input[name="ED_TRUST_01"]')).toHaveCount(6); await button(page, l, "Back", "上一题"); await expect(page.locator('input[name="ED_JOY_01"][value="na"]')).toBeChecked(); await page.locator('input[name="ED_JOY_01"][value="4"]').check();
-    const other = l === "en" ? "zh" : "en"; await page.goto(path(other)); await consent(page, other); await button(page, other, "Resume this tab's progress", "恢复本标签页进度"); await button(page, other, "Back", "上一题"); await expect(page.locator('input[name="ED_JOY_01"][value="4"]')).toBeChecked();
-    await button(page, other, "Exit and clear this attempt", "退出并清除本次进度"); expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:eq-dashboard"))).toBeNull();
+  test(`@release emotion-dashboard ${l}: edits stay in memory and reset on reload or locale change`, async ({ page }) => {
+    await expectManualQuestionnaireSessionPrivacy(page, l, quiz);
   });
   test(`@release emotion-dashboard ${l}: entry-only sharing and all eight full public readings`, async ({ page, context }) => {
-    await context.grantPermissions(["clipboard-read", "clipboard-write"]); await page.goto(path(l)); await consent(page, l); await button(page, l, "Start test", "开始测试"); await finish(page, l, "mixed");
+    await context.grantPermissions(["clipboard-read", "clipboard-write"]); await page.goto(path(l)); await button(page, l, "Start test", "开始测试"); await finish(page, l, "mixed");
     await button(page, l, "Copy public entry", "复制公开入口"); expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`${quiz.title[l]}\nhttps://fermatmind.com${path(l)}`);
     for (const p of quiz.profiles) {
       await page.goto(`${path(l)}/results/${p.id}`); await expect(page.locator("h1")).toHaveText(p.title[l]); await expect(page.locator("[data-emotion-answer]")).toHaveCount(0);
-      const text = await page.locator("main").last().innerText(); for (const s of p.sections) for (const t of s.paragraphs) expect(text).toContain(t[l]);
+      for (const section of prepareResultProfile("eq-dashboard", p).sections) {
+        const body = page.locator(`#report-${section.id}`);
+        await expect(body.locator("h2")).toHaveText(section.title[l]);
+        await expect(body.locator("p").first()).not.toBeEmpty();
+      }
     }
   });
 }
 test("@release emotion-dashboard all18publicpages, schema, canonical,18fontOGs and unknown high-EQ identity", async ({ page, request }) => {
   for (const l of ["en", "zh"] as const) for (const p of [null, ...quiz.profiles]) {
     const url = p ? `${path(l)}/results/${p.id}` : path(l); await page.goto(url); await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${url}`);
-    for (const [lang, other] of [["en", "en"], ["zh-CN", "zh"], ["x-default", "en"]] as const) await expect(page.locator(`link[rel="alternate"][hreflang="${lang}"]`)).toHaveAttribute("href", `https://fermatmind.com${p ? `${path(other)}/results/${p.id}` : path(other)}`);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
     const schema = await page.locator('script[type="application/ld+json"]').allTextContents(); expect(schema.length).toBeGreaterThan(0); expect(schema.join(" ")).not.toMatch(/ED_JOY_01|"answers"|"facets"|AggregateRating/);
     const image = `/og/fun/eq-dashboard?locale=${l}${p ? `&portrait=${p.id}` : ""}`, r = await request.get(image); expect(r.status()).toBe(200); const bytes = await r.body(); expect(bytes.readUInt32BE(16)).toBe(1200); expect(bytes.readUInt32BE(20)).toBe(630);
     const sentinel = await request.get(image + "&mean=3.4&answers=SYNTHETIC_PRIVATE&emotion=PRIVATE_EMOTION"); expect(sentinel.status()).toBe(200); expect(await sentinel.body()).toEqual(bytes);

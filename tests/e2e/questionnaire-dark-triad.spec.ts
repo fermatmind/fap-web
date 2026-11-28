@@ -1,16 +1,15 @@
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+import { prepareResultProfile } from "../../lib/questionnaires/result-content/readings";
+import { seedAnalyticsConsent } from "./helpers/consent";
 
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/dark-triad.json", "utf8")) as Questionnaire;
 test.beforeEach(async ({ page }) => {
+  await seedAnalyticsConsent(page, "granted");
   // Observe attempted requests as usual, but never write synthetic traffic to aggregate sinks.
   await page.route(/\/api\/(?:v0\.5\/seo\/attribution\/events|track)(?:\?|$)|https:\/\/(?:www\.googletagmanager\.com|(?:www\.)?google-analytics\.com|hm\.baidu\.com)\//, route => route.fulfill({ status: 204 }));
 });
-async function acceptCookies(page: Page, locale: "en" | "zh") {
-  const consent = page.getByRole("button", { name: locale === "zh" ? "接受" : "Accept", exact: true });
-  if (await consent.count()) await consent.click();
-}
 function observePrivateRequests(page: Page) {
   const requests: string[] = [];
   page.on("request", request => {
@@ -31,7 +30,15 @@ async function finish(page: Page, locale: "en" | "zh", mode: "mixed" | "na") {
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   await expect(page.locator("[data-dtt-facet]")).toHaveCount(3); await expect(page.locator("[data-dtt-profile]")).toHaveCount(3);
-  await expect(page.locator("#take-test h4")).toHaveCount(27);
+  for (const profile of quiz.profiles) {
+    const reading = page.locator(`[data-dtt-profile="${profile.id}"]`);
+    const sections = prepareResultProfile(quiz.slug, profile).sections;
+    await expect(reading.locator("h4")).toHaveCount(sections.length);
+    for (const section of sections) {
+      await expect(reading.getByRole("heading", { level: 4, name: section.title[locale], exact: true, includeHidden: true })).toHaveCount(1);
+    }
+  }
+  await page.locator("#take-test [data-result-reading-method] summary").click();
   const ids = await page.locator("#take-test [id]").evaluateAll(nodes => nodes.map(n => n.id)); expect(new Set(ids).size).toBe(ids.length);
   if (mode === "mixed") {
     await expect(page.locator('[data-dtt-facet="status-recognition"] [data-dtt-mean]')).toHaveText("2.25 / 5");
@@ -49,9 +56,9 @@ async function finish(page: Page, locale: "en" | "zh", mode: "mixed" | "na") {
 
 for (const locale of ["en", "zh"] as const) {
   const zh = locale === "zh", entry = `/${locale}/tests/explore/dark-triad`;
-  test(`@release Dark Triad themes ${locale}: hub, keyboard, back edit,18realresponses, exact means, all27sections and retake`, async ({ page }) => {
+  test(`@release Dark Triad themes ${locale}: hub, keyboard, back edit,18realresponses, exact means, all three complete guides and retake`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); const requests = observePrivateRequests(page);
-    await page.goto(`/${locale}/tests`); await acceptCookies(page, locale);
+    await page.goto(`/${locale}/tests`);
     await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.getByText(zh ? "原创三组主题观察 · 公开预览 · 完整结果免费" : "Original three-theme reflection · Public preview · Full results free", { exact: true })).toBeVisible();
@@ -64,11 +71,12 @@ for (const locale of ["en", "zh"] as const) {
     await page.locator('input[value="2"]').check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="2"]')).toBeChecked();
     await finish(page, locale, "mixed");
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", `/${locale}/tests/mbti-personality-test-16-personality-types`);
+    await expect(page.getByRole("link", { name: zh ? "了解情商测评" : "Explore the emotional intelligence assessment" })).toHaveAttribute("href", `/${locale}/tests/eq-test-emotional-intelligence-assessment`);
     expect(new URL(page.url()).search).toBe(""); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
     await expect(page.locator("[data-dtt-mean]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
-    await page.getByRole("button", { name: zh ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
+    await page.getByRole("link", { name: zh ? "返回测评介绍" : "Back to assessment", exact: true }).first().click();
+    await expect(page).toHaveURL(url => url.pathname === entry);
     await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(requests).toEqual([]);
   });
@@ -84,23 +92,31 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(k, v) { if (k === key) { touches.push("set"); throw new Error("synthetic storage denial"); } return originalSet.call(this, k, v); };
       Storage.prototype.removeItem = function(k) { if (k === key) { touches.push("remove"); throw new Error("synthetic storage denial"); } return remove.call(this, k); };
     });
-    await page.goto(entry); await expect(page.getByRole("button", { name: /Resume this tab|恢复本标签页/ })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await expect(page.locator('input[value="5"]')).not.toBeChecked();
-    await page.locator('input[value="4"]').check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    expect(await page.evaluate(() => (window as Window & { darkStorageTouches?: string[] }).darkStorageTouches)).toEqual([]);
-    await page.reload(); await expect(page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true })).toBeVisible();
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await expect(page.locator('input[value="4"]')).not.toBeChecked();
-    await page.locator('input[value="5"]').check();
-    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/dark-triad`);
-    await expect(page.getByRole("button", { name: other === "zh" ? "开始测试" : "Start test", exact: true })).toBeVisible();
-    await page.getByRole("button", { name: other === "zh" ? "开始测试" : "Start test", exact: true }).click(); await expect(page.locator('input[value="5"]')).not.toBeChecked();
-    expect(await page.evaluate(() => (window as Window & { darkStorageTouches?: string[] }).darkStorageTouches)).toEqual([]);
+    await page.goto(entry);
+    await expect(page.getByRole("button", { name: /Resume this tab|恢复本标签页/ })).toHaveCount(0);
+    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    const first = page.locator(`#take-test input[name="${quiz.questions[0].id}"]`);
+    await expect(first.first()).toBeVisible();
+    await expect(first.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    await first.and(page.locator('input[value="4"]')).check();
+    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
+    const storageTouches = () => page.evaluate(() => (window as Window & { darkStorageTouches?: string[] }).darkStorageTouches);
+    expect(await storageTouches()).not.toContain("get");
+    expect(await storageTouches()).not.toContain("set");
+    await page.reload();
+    await expect(first.first()).toBeVisible();
+    await expect(first.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    const other = zh ? "en" : "zh";
+    await page.goto(`/${other}/tests/explore/dark-triad/take`);
+    await expect(first.first()).toBeVisible();
+    await expect(first.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    expect(await storageTouches()).not.toContain("get");
+    expect(await storageTouches()).not.toContain("set");
   });
 
-  test(`@release Dark Triad themes ${locale}: all-skipped is finished without means, with all27sections and no result sharing or flow analytics`, async ({ page }) => {
-    const requests = observePrivateRequests(page); await page.goto(entry); await acceptCookies(page, locale);
+  test(`@release Dark Triad themes ${locale}: all-skipped is finished without means, with all three complete guides and no result sharing or flow analytics`, async ({ page }) => {
+    const requests = observePrivateRequests(page); await page.goto(entry);
     await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await finish(page, locale, "na");
-    await expect(page.getByRole("heading", { level: 3, name: zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.", exact: true })).toBeVisible();
     await page.waitForTimeout(250); expect(requests).toEqual([]);
   });
 }
@@ -110,10 +126,12 @@ test("@release Dark Triad themes all6public full guides, bilingual images and cl
   for (const locale of ["en", "zh"] as const) for (const profile of quiz.profiles) {
     const path = `/${locale}/tests/explore/dark-triad/results/${profile.id}`;
     expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
-    await acceptCookies(page, locale);
+
     await expect(page.locator("[data-dtt-mean]")).toHaveCount(0);
     for (const section of profile.sections) await expect(page.locator(`#report-${section.id} h2`)).toHaveText(section.title[locale]);
-    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/dark-triad/results/${profile.id}`);
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
     await expect(page.getByRole("link", { name: locale === "zh" ? "免费开始完整测试" : "Start the full test for free", exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/dark-triad#take-test`);
     const image = await request.get(`/og/fun/dark-triad?locale=${locale}&portrait=${profile.id}&v=${quiz.version}`); expect(image.status()).toBe(200);
     const bytes = await image.body(); expect(bytes.readUInt32BE(16)).toBe(1200); expect(bytes.readUInt32BE(20)).toBe(630);

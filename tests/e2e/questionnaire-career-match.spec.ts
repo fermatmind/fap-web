@@ -2,7 +2,7 @@ import { test, expect, type Page } from "@playwright/test";
 import quiz from "../../lib/questionnaires/data/career-match.json";
 import { careerMatchDirectoryFixture, careerMatchRoleFixture } from "../fixtures/questionnaires/careerMatch";
 type Locale = "en" | "zh";
-const path = (l: Locale) => `/${l}/tests/explore/career-match`;
+const path = (l: Locale) => `/${l}/career/match`;
 const label = (l: Locale, en: string, zh: string) => l === "zh" ? zh : en;
 const directoryResponse = (url: string) => /\/api\/v0\.5\/career\/jobs\?/.test(url);
 const roleResponse = (url: string) => /\/api\/v0\.5\/career\/jobs\/[^/?]+\?/.test(url);
@@ -81,11 +81,14 @@ for (const l of ["en", "zh"] as const) {
     await button(page, l, "Clear and compare again", "清除并重新比较"); await expect(page.locator("[data-career-match-result]")).toHaveCount(0); await expect(page.locator("#career-match-filter")).toHaveCount(0);
   });
 }
-test("@release career-match two public entries, localized metadata, private-query-independent OGs and no invented result identity", async ({ page, request }) => {
+test("@release career-match legacy redirect and localized noindex metadata, private-query-independent OGs and no invented result identity", async ({ page, request }) => {
   for (const l of ["en", "zh"] as const) {
-    await page.goto(path(l)); await expect(page).toHaveTitle(`${quiz.seoTitle[l]} | FermatMind`);
+    await page.goto(`/${l}/tests/explore/career-match`);
+    await expect(page).toHaveURL(url => url.pathname === path(l));
+    await expect(page).toHaveTitle(`${quiz.seoTitle[l]} | FermatMind`);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path(l)}`);
-    for (const [lang, other] of [["en", "en"], ["zh-CN", "zh"], ["x-default", "en"]] as const) await expect(page.locator(`link[rel="alternate"][hreflang="${lang}"]`)).toHaveAttribute("href", `https://fermatmind.com${path(other)}`);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
     const text = await page.locator("main").last().innerText(); for (const g of quiz.guide) for (const p of g.paragraphs) expect(text).toContain(p[l]); for (const f of quiz.faq) expect(text).toContain(f.answer[l]);
     expect((await page.locator('script[type="application/ld+json"]').allTextContents()).join(" ")).not.toMatch(/AggregateRating|selectedThemes|selectedRoles/);
     const image = `/og/fun/career-match?locale=${l}`, r = await request.get(image); expect(r.status()).toBe(200); const bytes = await r.body(); expect(bytes.readUInt32BE(16)).toBe(1200); expect(bytes.readUInt32BE(20)).toBe(630);

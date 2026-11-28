@@ -56,7 +56,7 @@ for (const locale of ["en", "zh"] as const) {
       await expect(examples.locator("article").first().getByRole("link")).toHaveCount(1);
       await expect(examples.locator("article").last().getByRole("link")).toHaveCount(2);
       await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-      await expect(page).toHaveURL(/\/take\?start=1$/);
+      await expect(page).toHaveURL(url => url.pathname === `${entry}/take`);
       const runner = page.locator('#take-test[data-stage]');
       const first = runner.getByRole("radio").first();
       await expect(first).toBeVisible();
@@ -73,16 +73,20 @@ for (const locale of ["en", "zh"] as const) {
         await runner.getByRole("navigation", { name: zh ? "跳到匹配结果" : "Jump to a match" }).getByRole("link").last().click();
         await expect(page).toHaveURL(/#animal-title-rakko$/);
       }
-      await runner.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-      const shared = await runner.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
-      const sharePath = mode === "single" ? `${entry}/results/chiikawa` : entry;
-      expect(shared.split("\n").at(-1)).toBe(`https://fermatmind.com${sharePath}`);
-      for (const profile of mode === "tie" ? quiz.profiles : quiz.profiles.slice(0, 1)) expect(shared).toContain(profile.title[locale]);
+      await runner.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+      const shared = await runner.locator("[data-archetype-honor-group] textarea").inputValue();
+      expect(shared.split("\n").at(-1)).toBe(`https://fermatmind.com${entry}`);
+      const characterNames = zh
+        ? ["吉伊卡哇", "小八", "兔兔", "小桃", "栗子馒头", "海獭"]
+        : ["Chiikawa", "Hachiware", "Usagi", "Momonga", "Kurimanju", "Rakko"];
+      for (const name of mode === "tie" ? characterNames : characterNames.slice(0, 1)) {
+        expect(shared).toContain(name);
+      }
       expect(shared).not.toMatch(/CHIIKAWA_[0-9]{2}|answers|form_code|submission|\d+\s*\/\s*12|[?&]score/);
-      const guide = runner.locator(`a[href="${entry}/results/chiikawa"]`);
+      const guide = runner.locator(`[data-archetype-match="chiikawa"] a[href="${entry}/results/chiikawa"]`);
       await expect(guide).toBeVisible();
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-      await runner.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+      await runner.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
       await expect(runner.locator("[data-archetype-count]")).toHaveCount(0);
       await expect(first).not.toBeChecked();
       await page.getByRole("link", { name: zh ? "返回测评介绍" : "Back to assessment" }).click();

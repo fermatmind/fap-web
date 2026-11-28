@@ -6,20 +6,19 @@ test.beforeAll(async () => { stopPublicApiFixture = await startPublicContentApiF
 test.afterAll(async () => { await stopPublicApiFixture?.(); });
 
 for (const locale of ["en", "zh"] as const) {
-  test(`${locale} Big Five landing exposes both free versions and the illustrated OCEAN hero`, async ({ page }) => {
+  test(`${locale} Big Five landing exposes the free 90-item form and its OCEAN report preview`, async ({ page }) => {
     const slug = "big-five-personality-test-ocean-model";
     await page.goto(`/${locale}/tests/${slug}`);
-    const hero = page.locator("main section#what-it-is");
-    await expect(hero.getByRole("heading", { level: 1, name: locale === "en" ? "Free Big Five Personality Test" : "大五人格免费测试（Big Five）", exact: true })).toBeVisible();
-    for (const [count, form] of [[120, "big5_120"], [90, "big5_90"]] as const) {
-      const link = hero.getByRole("link", { name: new RegExp(`${count}.*${locale === "en" ? "question" : "题"}`) });
-      await expect(link).toBeVisible();
-      await expect(link).toHaveAttribute("href", `/${locale}/tests/${slug}/take?form=${form}`);
-    }
-    const artwork = hero.getByTestId("assessment-hero-artwork");
-    await expect(artwork).toBeVisible();
-    await expect(artwork).toHaveAttribute("data-theme", "big-five");
-    await expect(artwork).toHaveAttribute("aria-hidden", "true");
-    expect((await artwork.textContent())?.replace(/\s/g, "")).toContain("OCEAN");
+    const hero = page.locator("main #what-it-is");
+    const title = locale === "en" ? "Free Big Five Personality Test" : "大五人格免费测试（Big Five）";
+    await expect(hero.getByRole("heading", { level: 1 })).toContainText(title);
+    const start = hero.getByRole("link", { name: locale === "en" ? /90-question test/ : /开始 90 题/ });
+    await expect(start).toBeVisible();
+    await expect(start).toHaveAttribute("href", `/${locale}/tests/${slug}/take?form=big5_90`);
+    await expect(hero.locator('a[href*="form=big5_120"]')).toHaveCount(0);
+    const preview = hero.locator("#scored-report-example");
+    await expect(preview).toBeVisible();
+    await expect(preview.getByText("OCEAN", { exact: true })).toHaveAttribute("aria-hidden", "true");
+    await expect(preview.locator("#trio-report-view li")).toHaveCount(5);
   });
 }

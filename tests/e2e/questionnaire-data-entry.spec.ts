@@ -2,12 +2,16 @@ import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { prepareResultProfile } from "../../lib/questionnaires/result-content/readings";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+import { seedAnalyticsConsent } from "./helpers/consent";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
+
 const quiz=JSON.parse(readFileSync("lib/questionnaires/data/data-entry.json","utf8")) as Questionnaire;
 const startName=(l:"en"|"zh")=>l==="zh"?"开始60秒录入":"Start 60-second entry";
 async function open(page:Page,l:"en"|"zh",mode=0,hub=false){
   if(hub){await page.goto(`/${l}/tests`);await page.locator("#more-tests").getByRole("link",{name:quiz.title[l],exact:true}).click();}else await page.goto(`/${l}/tests/explore/data-entry`);
-  await expect(page.getByRole("heading",{level:1})).toHaveText(quiz.title[l]);await page.locator("[data-explore-start]").click();await expect(page.getByRole("button",{name:startName(l),exact:true})).toBeEnabled();
-  const decline=page.getByRole("button",{name:l==="zh"?"拒绝":"Decline",exact:true});if(await decline.isVisible())await decline.click();await page.locator("#data-entry-mode").selectOption(String(mode));
+  await expect(page.getByRole("heading",{level:1})).toHaveText(quiz.title[l]);await page.locator("#take-test [data-explore-start]").click();await expect(page.getByRole("button",{name:startName(l),exact:true})).toBeEnabled();
+  await page.locator("#data-entry-mode").selectOption(String(mode));
 }
 async function guides(page:Page,l:"en"|"zh"){
   await expect(page.locator("[data-data-entry-guide]")).toHaveCount(2);

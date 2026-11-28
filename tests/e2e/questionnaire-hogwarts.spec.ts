@@ -1,6 +1,11 @@
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+import { seedAnalyticsConsent } from "./helpers/consent";
+import { expectQuestionContext } from "./helpers/question-context";
+import { expectQuestionnaireSessionPrivacy } from "./helpers/questionnaire-session-privacy";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/hogwarts-house-quiz.json", "utf8")) as Questionnaire;
 async function finish(page: Page, locale: "en" | "zh", mode: "gryffindor" | "tie") {
@@ -35,39 +40,27 @@ for (const locale of ["en", "zh"] as const) {
     await page.setViewportSize({ width: 390, height: 844 });
     const posts: string[] = [];
     page.on("request", request => { if (request.method() === "POST" && /HOUSE_[0-9]{2}/.test(request.postData() ?? "")) posts.push(request.url()); });
-    await page.goto(`/${locale}/tests`); await page.getByTestId("cookie-banner-decline").click(); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
+    await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
-    await expect(page.getByText(zh ? "原创象征测验 · 完整结果免费" : "Original symbolic quiz · Full results free", { exact: true })).toBeVisible();
+    await expect(page.getByText(zh ? "原创象征测验 · 非官方同人版" : "Original symbolic quiz · Independent fan edition", { exact: true })).toBeVisible();
     await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
+    await page.locator("#take-test [data-explore-start]").click();
+    await expectQuestionContext(page);
     await finish(page, locale, "gryffindor");
-    await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
+    await expect(page.locator(`#take-test a[href="${entry}/results/gryffindor"]`).first()).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "再测一次" : "Retake", exact: true }).click();
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(posts).toEqual([]);
   });
   test(`@release Hogwarts fan house themes ${locale}: refresh and language change start with blank answers`, async ({ page }) => {
     await page.goto(entry);
-    await expect(page.getByText(zh ? "这份测试不保存答题进度" : "This quiz does not save your progress", { exact: false }).first()).toBeVisible();
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    const first = await page.locator("legend").first().textContent();
-    await page.locator('input[value="B"]').check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    await expect(page.locator("legend").first()).not.toHaveText(first!);
-    await page.reload();
-    await expect(page.locator("legend").first()).toHaveText(first!);
-    await expect(page.getByRole("radio").first()).not.toBeChecked();
-    await expect(page.getByRole("checkbox")).toHaveCount(0);
-    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:hogwarts-house-quiz"))).toBeNull();
-
-    await page.goto(`/${zh ? "en" : "zh"}/tests/explore/hogwarts-house-quiz`);
-    await page.getByRole("button", { name: zh ? "Start test" : "开始测试", exact: true }).click();
-    await expect(page.getByRole("radio").first()).not.toBeChecked();
+    const disclosure = page.locator("details[data-ent-boundary]");
+    await disclosure.locator("summary").click();
+    await expect(disclosure.getByText(zh ? "这份测试不保存答题进度" : "This quiz does not save your progress")).toBeVisible();
+    await expectQuestionnaireSessionPrivacy(page, locale, quiz);
   });
   test(`@release Hogwarts fan house themes ${locale}: denied storage, four-way tie shows48 sections and private-safe clipboard fallback`, async ({ page }) => {
     await page.addInitScript(() => {
@@ -76,14 +69,15 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(key, value) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, key, value); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByTestId("cookie-banner-decline").click(); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.goto(entry); await page.locator("#take-test [data-explore-start]").click();
     await expect(page.getByRole("checkbox")).toHaveCount(0);
     await finish(page, locale, "tie");
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
-    for (const profile of quiz.profiles) expect(text).toContain(profile.title[locale]);
+    await page.getByRole("button", { name: zh ? "一键分享给朋友" : "Share Result", exact: true }).click();
+    const text = await page.locator("[data-archetype-honor-group] textarea").inputValue();
+    const houseNames = zh ? ["格兰芬多", "赫奇帕奇", "拉文克劳", "斯莱特林"] : ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
+    for (const name of houseNames) expect(text).toContain(name);
     expect(text).not.toMatch(/HOUSE_[0-9]{2}|answers|form_code|submission|6\s*\/\s*24|[?&]score/);
-    const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
+    const url = new URL(text.match(/https:\/\/[^\s]+$/u)![0]); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
   });
 }
 

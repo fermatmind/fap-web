@@ -3,6 +3,10 @@ import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { philosopherPresentations } from "../../lib/questionnaires/philosopherPresentation";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+import { archetypeResultCopy } from "../../lib/questionnaires/archetypeResultShare";
+import { seedAnalyticsConsent } from "./helpers/consent";
+
+test.beforeEach(async ({ page }) => { await seedAnalyticsConsent(page); });
 
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/philosopher-personality-test.json", "utf8")) as Questionnaire;
 async function finish(page: Page, locale: "en" | "zh", mode: "single" | "two" | "tie") {
@@ -36,7 +40,6 @@ for (const locale of ["en", "zh"] as const) for (const device of ["mobile", "des
   test(`@release Philosopher ${locale} ${device} ${mode}: reveal, actual PNG, every tie, guide and retake`, async ({ page }, testInfo) => {
     await page.setViewportSize(device === "mobile" ? { width: 390, height: 844 } : { width: 1280, height: 900 });
     await page.addInitScript(() => {
-      localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied" }));
       Object.defineProperty(navigator, "canShare", { configurable: true, value: () => false });
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
@@ -59,28 +62,31 @@ for (const locale of ["en", "zh"] as const) for (const device of ["mobile", "des
     await expect(runner.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, mode);
     await page.screenshot({ path: testInfo.outputPath("philosopher-reveal.png") });
-    await runner.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
-    const shared = await runner.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
-    expect(shared.split("\n").at(-1)).toBe(`https://fermatmind.com${mode === "single" ? `${entry}/results/socrates` : entry}`);
-    for (const profile of mode === "single" ? quiz.profiles.slice(0, 1) : mode === "two" ? quiz.profiles.slice(0, 2) : quiz.profiles) expect(shared).toContain(profile.title[locale]);
+    const sharing = runner.locator("[data-archetype-honor-group]");
+    const copy = archetypeResultCopy[locale];
+    await sharing.getByRole("button", { name: copy.share, exact: true }).click();
+    const shared = await sharing.getByRole("textbox", { name: copy.manual }).inputValue();
+    expect(shared.split("\n").at(-1)).toBe(`https://fermatmind.com${entry}`);
+    const expectedProfiles = mode === "single" ? quiz.profiles.slice(0, 1) : mode === "two" ? quiz.profiles.slice(0, 2) : quiz.profiles;
+    for (const profile of expectedProfiles) expect(shared).toContain(philosopherPresentations[profile.id].name[locale]);
     expect(shared).not.toMatch(/PHIL_[0-9]{2}|answers|form_code|submission|[?&]score/);
-    const sharing = runner.locator("[data-philosopher-sharing]");
-    await sharing.getByRole("combobox").selectOption(device === "mobile" ? "portrait" : "landscape");
-    const [download] = await Promise.all([page.waitForEvent("download"), sharing.getByRole("button", { name: zh ? "保存哲学家卡片" : "Save philosopher card", exact: true }).click()]);
-    const file = testInfo.outputPath("philosopher-card.png"); await download.saveAs(file);
-    const png = readFileSync(file); expect(png.readUInt32BE(16)).toBe(device === "mobile" ? 1080 : 1200); expect(png.readUInt32BE(20)).toBe(device === "mobile" ? 1920 : 630);
-    await expect.poll(() => sharing.getByRole("img").evaluate(img => (img as HTMLImageElement).naturalWidth)).toBe(device === "mobile" ? 1080 : 1200);
+
+    const [download] = await Promise.all([
+      page.waitForEvent("download"),
+      sharing.getByRole("button", { name: copy.save, exact: true }).click(),
+    ]);
+    const file = testInfo.outputPath("philosopher-card.png");
+    await download.saveAs(file);
+    const png = readFileSync(file);
+    expect(png.readUInt32BE(16)).toBe(1080);
+    expect(png.readUInt32BE(20)).toBe(1440);
     expect(download.suggestedFilename()).not.toMatch(/answers|PHIL_|counts|score/);
     await testInfo.attach("philosopher-card", { path: file, contentType: "image/png" });
-    await sharing.getByRole("button", { name: zh ? "分享哲学家图片" : "Share philosopher image", exact: true }).click();
-    await expect(sharing.getByRole("status")).toContainText(zh ? "不支持直接分享" : "cannot share images directly");
-    await sharing.getByRole("button", { name: zh ? "复制公开指南链接" : "Copy public guide link", exact: true }).click();
-    await expect(sharing.getByRole("textbox")).toHaveValue(`https://fermatmind.com${mode === "single" ? `${entry}/results/socrates` : entry}`);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:philosopher-personality-test"))).toBeNull();
-    const publicGuide = runner.locator(`[data-archetype-match="socrates"]`).getByRole("link", { name: zh ? "单独阅读这项结果的完整指南" : "Read this result’s full guide separately" });
+    const publicGuide = runner.locator(`[data-archetype-match="socrates"] a[href="${entry}/results/socrates"]`);
     await expect(publicGuide).toHaveAttribute("href", `${entry}/results/socrates`);
-    await runner.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
+    await sharing.getByRole("button", { name: copy.retake, exact: true }).click();
     await expect(runner.locator("[data-archetype-count]")).toHaveCount(0);
     await expect(runner.getByRole("radio").first()).not.toBeChecked();
     await page.getByRole("link", { name: zh ? "返回测评介绍" : "Back to assessment" }).click();
@@ -109,35 +115,52 @@ test("@release Philosopher all18public guides, bilingual share images and closed
 });
 
 for (const locale of ["en", "zh"] as const) test(`@release Philosopher ${locale}: native share cancellation, denial, success and canvas fallback`, async ({ page }) => {
-  const zh = locale === "zh", entry = `/${locale}/tests/explore/${quiz.slug}`;
-  await page.addInitScript(() => { localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied" })); });
-  await page.goto(`${entry}/take?start=1`); await finish(page, locale, "two");
-  const sharing = page.locator("[data-philosopher-sharing]");
-  for (const name of ["AbortError", "NotAllowedError", "success"]) {
-    await page.evaluate(name => {
-      Object.defineProperty(navigator, "canShare", { configurable: true, value: () => true });
-      Object.defineProperty(navigator, "share", { configurable: true, value: async (data: ShareData) => {
-        if (name !== "success") throw new DOMException("Synthetic share outcome", name);
-        if (!data.files || data.files.length !== 1 || data.files[0].type !== "image/png" || !data.url?.endsWith("/tests/explore/philosopher-personality-test")) throw new Error("Unsafe share payload");
+  const entry = `/${locale}/tests/explore/${quiz.slug}`;
+  const copy = archetypeResultCopy[locale];
+  await page.goto(`${entry}/take`);
+  await finish(page, locale, "two");
+  const sharing = page.locator("[data-archetype-honor-group]");
+  const share = sharing.getByRole("button", { name: copy.share, exact: true });
+  for (const outcome of ["AbortError", "NotAllowedError", "success"]) {
+    await page.evaluate(({ outcome, entry }) => {
+      const state = window as Window & { shareAttempt?: boolean; copiedShare?: string };
+      const runMatch = window.matchMedia.bind(window);
+      state.shareAttempt = undefined;
+      state.copiedShare = undefined;
+      Object.defineProperty(window, "matchMedia", { configurable: true, value: (query: string) =>
+        query === "(pointer: coarse)" ? { matches: true } : runMatch(query) });
+      Object.defineProperty(navigator, "clipboard", { configurable: true, value: {
+        writeText: async (text: string) => { state.copiedShare = text; },
       } });
-    }, name);
-    await sharing.getByRole("button", { name: zh ? "分享哲学家图片" : "Share philosopher image", exact: true }).click();
-    await expect(sharing.getByRole("status")).toContainText(name === "AbortError" ? (zh ? "已取消" : "canceled") : name === "NotAllowedError" ? (zh ? "未能打开" : "Could not open") : (zh ? "已完成分享" : "Shared."));
-    await expect(sharing.getByRole("img")).toHaveAttribute("src", /^blob:/);
+      Object.defineProperty(navigator, "share", { configurable: true, value: async (data: ShareData) => {
+        state.shareAttempt = data.url === `https://fermatmind.com${entry}`
+          && !data.files && !/PHIL_[0-9]{2}|answers|form_code|submission|[?&]score/.test(data.text ?? "");
+        if (outcome !== "success") throw new DOMException("Synthetic share outcome", outcome);
+      } });
+    }, { outcome, entry });
+    await share.click();
+    await expect.poll(() => page.evaluate(() => (window as Window & { shareAttempt?: boolean }).shareAttempt)).toBe(true);
+    const status = sharing.getByRole("status");
+    if (outcome === "AbortError") {
+      await expect(status).toHaveCount(0);
+      expect(await page.evaluate(() => (window as Window & { copiedShare?: string }).copiedShare)).toBeUndefined();
+    } else if (outcome === "NotAllowedError") {
+      await expect(status).toHaveText(copy.copied);
+      const copied = await page.evaluate(() => (window as Window & { copiedShare?: string }).copiedShare);
+      expect(copied?.split("\n").at(-1)).toBe(`https://fermatmind.com${entry}`);
+    } else {
+      await expect(status).toHaveText(copy.sent);
+    }
   }
-  await page.evaluate(() => {
-    Object.defineProperty(window, "__philosopherCanvas", { configurable: true, value: HTMLCanvasElement.prototype.getContext });
-    Object.defineProperty(HTMLCanvasElement.prototype, "getContext", { configurable: true, value: () => null });
-  });
-  await sharing.getByRole("button", { name: zh ? "保存哲学家卡片" : "Save philosopher card", exact: true }).click();
-  await expect(sharing.getByRole("status")).toContainText(zh ? "暂时无法生成" : "Could not create");
-  await expect(sharing.getByRole("button", { name: zh ? "保存哲学家卡片" : "Save philosopher card", exact: true })).toBeEnabled();
-  await page.evaluate(() => { HTMLCanvasElement.prototype.getContext = Reflect.get(window, "__philosopherCanvas"); });
+  await page.evaluate(() => { HTMLCanvasElement.prototype.getContext = () => null; });
+  const save = sharing.getByRole("button", { name: copy.save, exact: true });
+  await save.click();
+  await expect(sharing.getByRole("status")).toHaveText(copy.error);
+  await expect(save).toBeEnabled();
 });
 
 for (const locale of ["en", "zh"] as const) test(`@release Philosopher ${locale}: result to public guide, guide PNG, and a fresh retake`, async ({ page }, testInfo) => {
   const zh = locale === "zh", entry = `/${locale}/tests/explore/${quiz.slug}`;
-  await page.addInitScript(() => { localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied" })); });
   await page.goto(`${entry}/take?start=1`); await finish(page, locale, "single");
   const [guidePage] = await Promise.all([
     page.waitForEvent("popup"),

@@ -1,17 +1,19 @@
 import { expect, test } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+import { archetypeResultCopy } from "../../lib/questionnaires/archetypeResultShare";
+import { seedAnalyticsConsent } from "./helpers/consent";
 
 const slugs = ["aura-color", "moon-phase", "chiikawa", "bleach", "philosopher-personality-test"];
 
 for (const slug of slugs) {
   const quiz = JSON.parse(readFileSync(`lib/questionnaires/data/${slug}.json`, "utf8")) as Questionnaire;
   for (const locale of ["en", "zh"] as const) for (const mode of slug === "aura-color" ? ["tie", "single"] : ["tie"]) {
-    test(`${slug} ${locale} ${mode}: copy confirmation identifies the destination`, async ({ page }) => {
-      const zh = locale === "zh";
+    test(`${slug} ${locale} ${mode}: share copies the public quiz URL and all matched names`, async ({ page }) => {
+      const copy = archetypeResultCopy[locale];
+      await seedAnalyticsConsent(page);
       const entry = `/${locale}/tests/explore/${slug}`;
       await page.addInitScript(() => {
-        localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied" }));
         let copied = "";
         Object.defineProperty(navigator, "clipboard", {
           configurable: true,
@@ -22,7 +24,7 @@ for (const slug of slugs) {
         });
       });
       await page.goto(entry);
-      await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+      await page.locator("#take-test [data-explore-start]").click();
       const runner = page.locator("#take-test[data-stage]");
       const winner = quiz.profiles[0];
       for (const question of quiz.questions) {
@@ -31,17 +33,16 @@ for (const slug of slugs) {
         await runner.locator("[data-questionnaire-next]").click();
       }
       await expect(runner).toHaveAttribute("data-stage", "result");
-      await runner.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
+      const card = runner.locator("[data-archetype-honor-group]");
+      const matches = ((await card.locator("[data-archetype-honor-card]").getAttribute("aria-label")) ?? "").split(" · ");
+      expect(matches).toHaveLength(mode === "single" ? 1 : quiz.profiles.length);
+      expect(matches.every(name => name.trim().length > 0)).toBe(true);
+      await card.getByRole("button", { name: copy.share, exact: true }).click();
+      await expect(card.getByRole("status")).toHaveText(copy.copied);
       const text = await page.evaluate(() => navigator.clipboard.readText());
-      expect(text.split("\n")).toEqual([
-        quiz.title[locale],
-        mode === "single" ? winner.title[locale] : quiz.profiles.map(profile => profile.title[locale]).join(zh ? "、" : ", "),
-        `https://fermatmind.com${entry}${mode === "single" ? `/results/${winner.id}` : ""}`,
-      ]);
-      const confirmation = mode === "single"
-        ? (zh ? "已复制结果名称与该结果的公开指南链接，不含答案或次数。" : "Copied the result name and its public guide link, without answers or counts.")
-        : (zh ? "已复制所有并列结果名称与测试入口链接，不含答案或次数。" : "Copied all tied result names and the quiz link, without answers or counts.");
-      await expect(runner.getByText(confirmation, { exact: true })).toHaveAttribute("role", "status");
+      for (const name of matches) expect(text).toContain(name);
+      expect(text.split("\n").at(-1)).toBe(`https://fermatmind.com${entry}`);
+      expect(text).not.toMatch(/AURA_\d|MOON_PHASE_|CHIIKAWA_\d|BLEACH_\d|PHIL_\d|answers|form_code|submission|[?&]score/);
     });
   }
 }

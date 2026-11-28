@@ -22,6 +22,8 @@ for (const l of ["en", "zh"] as const) {
     await page.goto(`/${l}/tests`); await consent(page, l);
     await page.locator("#more-tests").getByRole("link", { name: quiz.title[l], exact: true }).click();
     await expect(page.locator("h1")).toHaveText(quiz.title[l]); await expect(page).toHaveTitle(`${quiz.seoTitle[l]} | FermatMind`);
+    const related = page.getByRole("link", { name: label(l, "View the SPQ92 sensory-perception entry", "查看SPQ92感知自评入口"), exact: true });
+    await expect(related).toHaveAttribute("href", `/${l}/tests/explore/sensory-processing-test`);
     await click(page, l, "Start test", "开始测试"); await expect(page.locator("#sens16-question")).toBeFocused();
     await click(page, l, "Next", "下一题"); await expect(page.getByRole("status")).toContainText(label(l, "Choose a number", "请选择一个数字"));
     for (const [i, q] of quiz.questions.entries()) {
@@ -51,12 +53,12 @@ for (const l of ["en", "zh"] as const) {
     await expect(page.getByRole("status")).toHaveText(l === "zh" ? /无法自动复制/ : /Copied public explanation links/);
     const expected = quiz.profiles.map(p => `${p.title[l]}\nhttps://fermatmind.com${path(l)}/results/${p.id}`).join("\n\n");
     if (l === "en") expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(expected); else await expect(page.locator("#take-test textarea")).toHaveValue(expected);
-    const next = page.getByRole("link", { name: label(l, "View the SPQ92 sensory-perception entry", "查看SPQ92感知自评入口"), exact: true });
-    expect(await next.getAttribute("href")).toBe(`/${l}/tests/explore/sensory-processing-test`);
+    await expect(page.locator(`#take-test a[href="/${l}/tests/explore/sensory-processing-test"]`)).toHaveCount(0);
     expect(new URL(page.url()).search).toBe(""); expect(leaks).toEqual([]); expect(errors).toEqual([]);
     await click(page, l, "Clear and retake", "清空并重新测试"); await click(page, l, "Start test", "开始测试");
     await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0); await expect(page.locator("[data-sens16-result]")).toHaveCount(0);
-    await click(page, l, "Exit and clear these responses", "退出并清除本次回答"); await expect(page.getByRole("button", { name: label(l, "Start test", "开始测试"), exact: true })).toBeVisible();
+    await page.getByRole("link", { name: label(l, "Back to assessment", "返回测评介绍"), exact: true }).first().click();
+    await expect(page).toHaveURL(url => url.pathname === path(l));
   });
   test(`@release Sens16 ${l}: partial coverage, real zero, all-skip and no invented total`, async ({ page }) => {
     await page.goto(path(l)); await consent(page, l); await click(page, l, "Start test", "开始测试");
@@ -74,14 +76,21 @@ for (const l of ["en", "zh"] as const) {
   });
   test(`@release Sens16 ${l}: refresh, language, return and queried public guide never restore private answers`, async ({ page }) => {
     await page.goto(path(l)); await consent(page, l); await click(page, l, "Start test", "开始测试");
-    await page.locator('input[name="SEN_01"][value="4"]').check(); await page.reload();
-    await expect(page.getByRole("button", { name: label(l, "Start test", "开始测试"), exact: true })).toBeVisible();
+    const question = page.locator('#take-test input[name="SEN_01"]');
+    await question.and(page.locator('input[value="4"]')).check();
+    await page.reload();
+    await expect(question.first()).toBeVisible();
+    await expect(question.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
     expect(await page.evaluate(slug => sessionStorage.getItem(`fm_questionnaire_draft:${slug}`), quiz.slug)).toBeNull();
-    await click(page, l, "Start test", "开始测试"); await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0);
-    await page.locator('input[name="SEN_01"][value="4"]').check();
-    const other = l === "en" ? "zh" : "en"; await page.goto(path(other)); await consent(page, other);
-    await expect(page.getByRole("button", { name: label(other, "Start test", "开始测试"), exact: true })).toBeVisible();
-    await page.goBack(); await expect(page.getByRole("button", { name: label(l, "Start test", "开始测试"), exact: true })).toBeVisible();
+
+    await question.and(page.locator('input[value="4"]')).check();
+    const other = l === "en" ? "zh" : "en";
+    await page.goto(`${path(other)}/take`);
+    await expect(question.first()).toBeVisible();
+    await expect(question.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    await page.goBack();
+    await expect(question.first()).toBeVisible();
+    await expect(question.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
     await page.goto(`${path(l)}/results/input-reducing?score=12&answers=private`);
     await expect(page.locator("h1")).toHaveText(quiz.profiles[3].title[l]); await expect(page.locator("[data-sens16-result]")).toHaveCount(0);
     await expect(page.locator("[data-public-content-loading]")).toHaveCount(0); const guide = page.getByRole("main"); await expect(guide).toHaveCount(1);

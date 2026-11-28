@@ -18,15 +18,18 @@ for (const locale of ["en", "zh"] as const) {
     test(`${locale} ${slug} keeps editorial, references and FAQ in its illustrated landing`, async ({ page }) => {
       const response = await page.goto(`/${locale}/tests/${slug}`);
       expect(response?.status()).toBe(200);
-      await expect(page.locator("main #what-it-is h1")).toBeVisible();
-      await expect(page.locator("#why-choose")).toBeVisible();
-      await expect(page.locator("#why-choose article").first()).toBeVisible();
-      await expect(page.locator("#faq article").first()).toBeVisible();
-      await expect(page.locator("#faq article p").first()).not.toBeEmpty();
-      if (slug !== "iq-test-intelligence-quotient-assessment") {
-        await expect(page.locator("#faq a").first()).toBeVisible();
-      }
-      await expect(page.locator('#what-it-is a[href*="/take"]')).not.toHaveCount(0);
+      const chineseMbti = locale === "zh" && slug === illustratedSlugs[0];
+      await expect(page.getByRole("main").getByRole("heading", { level: 1 })).toBeVisible();
+      const editorial = page.locator(chineseMbti ? '[aria-labelledby="assessment-deliverables"]' : "#how-it-works");
+      await expect(editorial.locator("article").first()).toBeVisible();
+      const faq = page.locator(chineseMbti ? "#assessment-faq" : "#faq");
+      await expect(faq.locator("details summary").first()).toBeVisible();
+      await expect(faq.locator("details[open] p").first()).not.toBeEmpty();
+      const method = page.locator(chineseMbti ? "#method-and-evidence" : "#trio-method");
+      await expect(method.locator("article a").first()).toBeVisible();
+      if (chineseMbti) await page.locator("summary").getByText("开始免费测试", { exact: true }).click();
+      const start = page.locator(chineseMbti ? 'main details[open] a[href*="/take"]' : '#what-it-is a[href*="/take"]').first();
+      await expect(start).toBeVisible();
       await expect(page.getByTestId("tests-related-articles-section")).toHaveCount(0);
     });
   }
@@ -34,8 +37,8 @@ for (const locale of ["en", "zh"] as const) {
     test(`${locale} held ${slug} remains unavailable without fabricated related articles`, async ({ page }) => {
       const response = await page.goto(`/${locale}/tests/${slug}`);
       expect(response?.status()).toBe(200);
-      await expect(page.getByRole("status")).toContainText(locale === "en"
-        ? "Assessment temporarily unavailable" : "测评暂不可用");
+      const unavailable = locale === "en" ? "Assessment temporarily unavailable" : "测评暂不可用";
+      await expect(page.getByRole("status").filter({ hasText: unavailable })).toBeVisible();
       await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
       await expect(page.getByTestId("tests-related-articles-section")).toHaveCount(0);
       await expect(page.locator('main a[href*="/articles/"]')).toHaveCount(0);

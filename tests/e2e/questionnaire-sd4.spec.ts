@@ -1,16 +1,14 @@
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
+import { seedAnalyticsConsent } from "./helpers/consent";
 
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/dark-tetrad-sd4.json", "utf8")) as Questionnaire;
 test.beforeEach(async ({ page }) => {
+  await seedAnalyticsConsent(page, "granted");
   // Observe attempted requests as usual, but never write synthetic traffic to aggregate sinks.
   await page.route(/\/api\/(?:v0\.5\/seo\/attribution\/events|track)(?:\?|$)|https:\/\/(?:www\.googletagmanager\.com|(?:www\.)?google-analytics\.com|hm\.baidu\.com)\//, route => route.fulfill({ status: 204 }));
 });
-async function acceptCookies(page: Page, locale: "en" | "zh") {
-  const consent = page.getByRole("button", { name: locale === "zh" ? "接受" : "Accept", exact: true });
-  if (await consent.count()) await consent.click();
-}
 function observePrivateRequests(page: Page) {
   const requests: string[] = [];
   page.on("request", request => {
@@ -52,7 +50,7 @@ for (const locale of ["en", "zh"] as const) {
   const zh = locale === "zh", entry = `/${locale}/tests/explore/dark-tetrad-sd4`;
   test(`@release Published SD4 ${locale}: hub, keyboard, back edit,28 real responses, exact means, all32sections and retake`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); const requests = observePrivateRequests(page);
-    await page.goto(`/${locale}/tests`); await acceptCookies(page, locale);
+    await page.goto(`/${locale}/tests`);
     await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.getByText(zh ? "SD4发表版28题 · 四项独立均值" : "Published SD4 28 · Four separate means", { exact: true })).toBeVisible();
@@ -69,7 +67,8 @@ for (const locale of ["en", "zh"] as const) {
     expect(new URL(page.url()).search).toBe(""); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
     await expect(page.locator("[data-sd4-mean]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
-    await page.getByRole("button", { name: zh ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
+    await page.getByRole("link", { name: zh ? "返回测评介绍" : "Back to assessment", exact: true }).first().click();
+    await expect(page).toHaveURL(url => url.pathname === entry);
     await page.locator("[data-explore-start]").click(); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(requests).toEqual([]);
   });
@@ -85,21 +84,30 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(k, v) { if (k === key) { touches.push("set"); throw new Error("synthetic storage denial"); } return originalSet.call(this, k, v); };
       Storage.prototype.removeItem = function(k) { if (k === key) { touches.push("remove"); throw new Error("synthetic storage denial"); } return remove.call(this, k); };
     });
-    await page.goto(entry); await expect(page.getByRole("button", { name: /Resume this tab|恢复本标签页/ })).toHaveCount(0);
-    await page.locator("[data-explore-start]").click(); await expect(page.locator('input[value="5"]')).not.toBeChecked();
-    await page.locator('input[value="4"]').check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    expect(await page.evaluate(() => (window as Window & { darkStorageTouches?: string[] }).darkStorageTouches)).toEqual([]);
-    await page.reload(); await expect(page.locator("[data-explore-start]")).toBeVisible();
-    await page.locator("[data-explore-start]").click(); await expect(page.locator('input[value="4"]')).not.toBeChecked();
-    await page.locator('input[value="5"]').check();
-    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/dark-tetrad-sd4`);
-    await expect(page.locator("[data-explore-start]")).toBeVisible();
-    await page.locator("[data-explore-start]").click(); await expect(page.locator('input[value="5"]')).not.toBeChecked();
-    expect(await page.evaluate(() => (window as Window & { darkStorageTouches?: string[] }).darkStorageTouches)).toEqual([]);
+    await page.goto(entry);
+    await expect(page.getByRole("button", { name: /Resume this tab|恢复本标签页/ })).toHaveCount(0);
+    await page.locator("[data-explore-start]").click();
+    const first = page.locator(`#take-test input[name="${quiz.questions[0].id}"]`);
+    await expect(first.first()).toBeVisible({ timeout: 30_000 });
+    await expect(first.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    await first.and(page.locator('input[value="4"]')).check();
+    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
+    const storageTouches = () => page.evaluate(() => (window as Window & { darkStorageTouches?: string[] }).darkStorageTouches);
+    expect(await storageTouches()).not.toContain("get");
+    expect(await storageTouches()).not.toContain("set");
+    await page.reload();
+    await expect(first.first()).toBeVisible({ timeout: 30_000 });
+    await expect(first.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    const other = zh ? "en" : "zh";
+    await page.goto(`/${other}/tests/explore/dark-tetrad-sd4/take`);
+    await expect(first.first()).toBeVisible({ timeout: 30_000 });
+    await expect(first.and(page.getByRole("radio", { checked: true }))).toHaveCount(0);
+    expect(await storageTouches()).not.toContain("get");
+    expect(await storageTouches()).not.toContain("set");
   });
 
   test(`@release Published SD4 ${locale}: all-skipped is finished without means, with all32sections and no result sharing or flow analytics`, async ({ page }) => {
-    const requests = observePrivateRequests(page); await page.goto(entry); await acceptCookies(page, locale);
+    const requests = observePrivateRequests(page); await page.goto(entry);
     await page.locator("[data-explore-start]").click(); await finish(page, locale, "na");
     await expect(page.getByRole("heading", { level: 3, name: zh ? "四份说明已完整开放，可以在这里结束" : "All four guides are open. You may finish here.", exact: true })).toBeVisible();
     await page.waitForTimeout(250); expect(requests).toEqual([]);
@@ -111,10 +119,12 @@ test("@release Published SD4 all8 public full guides, bilingual images and close
   for (const locale of ["en", "zh"] as const) for (const profile of quiz.profiles) {
     const path = `/${locale}/tests/explore/dark-tetrad-sd4/results/${profile.id}`;
     expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
-    await acceptCookies(page, locale);
+
     await expect(page.locator("[data-sd4-mean]")).toHaveCount(0);
     for (const section of profile.sections) await expect(page.locator(`#report-${section.id} h2`)).toHaveText(section.title[locale]);
-    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/dark-tetrad-sd4/results/${profile.id}`);
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
     await expect(page.getByRole("link", { name: locale === "zh" ? "免费开始完整测试" : "Start the full test for free", exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/dark-tetrad-sd4#take-test`);
     const image = await request.get(`/og/fun/dark-tetrad-sd4?locale=${locale}&portrait=${profile.id}&v=${quiz.version}`); expect(image.status()).toBe(200);
     const bytes = await image.body(); expect(bytes.readUInt32BE(16)).toBe(1200); expect(bytes.readUInt32BE(20)).toBe(630);
