@@ -1,3 +1,5 @@
+import { JsonLd } from "@/components/seo/JsonLd";
+import { withOpenDatasetSameAs } from "@/lib/site/openDatasetArchives";
 import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { cache } from "react";
@@ -60,6 +62,12 @@ export default async function TraditionalHome() {
 
   return (
     <main className="fm-homepage">
+      <JsonLd id="home-organization-zh-TW" data={withOpenDatasetSameAs({
+        "@context": "https://schema.org", "@type": "Organization",
+        "@id": `${SITE_URL}/zh-TW#organization`, url: `${SITE_URL}/zh-TW`,
+        name: "FermatMind / 費馬測試", description: copy.seo.organizationDescription,
+        inLanguage: "zh-TW", logo: `${SITE_URL}/brand/mark-20261013.png`,
+      })} />
       <HomePageExperience locale="zh-TW" copy={copy} articles={articles}
         archiveTitle={archive?.title ?? null} supplementalTests={supplementalTests} />
     </main>

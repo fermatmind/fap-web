@@ -56,6 +56,7 @@ export function traditionalPath(pathname: string): string | null {
   if (path === "/orders/lookup") return "/zh-TW/orders/lookup";
   if (prefix === "zh-TW" && (path === "/pay/wait" || path === "/pay/return/alipay" || /^\/orders\/[A-Za-z0-9_-]{1,128}$/u.test(path))) return `/zh-TW${path}`;
   if (prefix === "zh-TW" && (["/personality", "/personality/big-five", "/personality/enneagram", "/tests/play"].includes(path))) return `/zh-TW${path}`;
+  if (path === "/datasets") return "/zh-TW/datasets";
   if (path === "/articles" || path === "/topics") return `/zh-TW${path}`;
   if (path === "/support" || path === "/business") return `/zh-TW${path}`;
   if (path === "/career/interest-worksheet") return "/zh-TW/career/interest-worksheet";
